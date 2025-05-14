@@ -13,67 +13,133 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo img {
-  height: 60px;
+  height: 50px;
 }
 
 .nav-menu {
   list-style: none;
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   padding-left: 0;
   margin: 0;
+  align-items: center;
 }
 
-.nav-menu li a {
+.nav-menu li {
+  position: relative;
+}
+
+.nav-menu a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.nav-menu li a:hover {
-  color: #29c853;
-}
-
-#hero {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 2rem;
-  text-align: center;
-  background: linear-gradient(160deg, #0A6B01 0%, #000000 100%);
-}
-
-.hero-content h1 {
-  font-size: 2.5rem;
-  line-height: 1.2;
-}
-
-.hero-content .highlight {
-  color: #29c853;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin: 1rem 0 2rem;
+.nav-menu a:hover {
+  color: #48cfff;
 }
 
 .cta-button {
   background-color: #29c853;
   color: #000;
-  padding: 0.75rem 1.5rem;
-  border: none;
+  padding: 0.6rem 1.2rem;
   border-radius: 8px;
-  font-weight: bold;
+  font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .cta-button:hover {
   background-color: #25b34a;
+  color: #fff;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1a1a1a;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  min-width: 180px;
+  z-index: 1001;
+  top: 100%;
+  left: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+  background-color: #48cfff;
+  color: #000;
+}
+
+.nav-menu li:hover .dropdown-content {
+  display: block;
+}
+
+#hero {
+  background: linear-gradient(160deg, #0A6B01 0%, #000000 100%);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-content .highlight {
+  color: #29c853;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.section-content {
+  max-width: 960px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.section-content h2 {
+  color: #48cfff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section-content ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.step h3 {
+  color: #29c853;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
 footer {
