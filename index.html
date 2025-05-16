@@ -10,7 +10,51 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
 
-  <link rel="stylesheet" href="css/style.css" />
+  
+  <style>
+    .why-grid.visual {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .glowing-card {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 0 20px rgba(84, 229, 74, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glowing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(84, 229, 74, 0.3);
+    }
+
+    .why-icon.neon {
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .why-icon.neon svg {
+      filter: drop-shadow(0 0 6px rgba(84, 229, 74, 0.5));
+    }
+
+    .why-card h3 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    .why-card p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
 
@@ -67,37 +111,11 @@
   <section id="why" class="section-content why-mite styled-block enhanced">
   <div class="section-header centered">
     <h2>Why MITE?</h2>
-    <p class="section-lead">The smarter way to run your industrial infrastructure – fast, flexible, data-driven.</p>
-  </div>
-  <div class="why-grid visual">
-    <div class="why-card glowing-card">
-      <div class="why-icon neon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" stroke="#54e54a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-      </div>
-      <h3>Infrastructure Orchestration</h3>
-      <p>Unify and control your sensors, logic and reporting under one digital roof.</p>
+    <p class="section-lead">Because it's built on <strong>lsFusion</strong>: a powerful low-code platform that lets you automate and scale faster than ever before.</p>
+    <div class="video-container">
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/3I3K_aEZx2A" title="Why lsFusion" frameborder="0" allowfullscreen></iframe>
     </div>
-    <div class="why-card glowing-card">
-      <div class="why-icon neon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" stroke="#48cfff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94"/></svg>
-      </div>
-      <h3>Unlimited Data Insights</h3>
-      <p>Stream, collect and visualize real-time data from any industrial process.</p>
-    </div>
-    <div class="why-card glowing-card">
-      <div class="why-icon neon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" stroke="#54e54a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
-      </div>
-      <h3>Agile Customization</h3>
-      <p>Build workflows visually and adapt on the go. No dev team required.</p>
-    </div>
-    <div class="why-card glowing-card">
-      <div class="why-icon neon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="none" stroke="#48cfff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2a10 10 0 0 1 7.07 17.07L13 22v-6l5-5-5-5V2z"/></svg>
-      </div>
-      <h3>Innovation Engine</h3>
-      <p>Harness AI-ready logic, alerts and intelligent decisions that scale with you.</p>
-    </div>
+    <p class="section-lead">lsFusion gives MITE its core superpower: extreme flexibility in logic building, user interaction, and integration — all with minimal code.</p>
   </div>
 </section>
 
