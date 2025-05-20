@@ -219,3 +219,76 @@ body {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* --- WHY MITE BLOCK --- */
+.spider-layout {
+  text-align: center;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.spider-cross-layout {
+  display: grid;
+  place-items: center;
+  grid-template-areas:
+    ".    top    ."
+    "left core right"
+    ".  bottom  .";
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.spider-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  width: 230px;
+  box-shadow: 0 0 20px rgba(84, 229, 74, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.spider-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(84, 229, 74, 0.3);
+}
+
+.spider-core {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: pulse 4s infinite ease-in-out;
+}
+
+.mite-spider-core {
+  width: 120px;
+  filter: drop-shadow(0 0 15px #54e54a);
+  z-index: 2;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.why-icon.neon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.why-icon.neon i {
+  color: #54e54a;
+  text-shadow: 0 0 10px #54e54a;
+}
+
+.spider-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #54e54a;
+}
+
+.spider-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
