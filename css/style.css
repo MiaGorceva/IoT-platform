@@ -70,6 +70,7 @@ body {
   font-weight: 500;
   padding: 0.5rem;
   display: block;
+  color: grey;
 }
 
 .nav-menu a:hover,
