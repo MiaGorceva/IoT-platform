@@ -24,10 +24,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.2 });
 
-  document.querySelectorAll('.section-content').forEach(section => {
-    section.classList.add('fade-in');
-    observer.observe(section);
-  });
+  document.querySelectorAll('.fade-in').forEach(el => {
+  observer.observe(el);
+});
 
   // Form field focus visual effect
   document.querySelectorAll('.mini-demo-form input').forEach(input => {
