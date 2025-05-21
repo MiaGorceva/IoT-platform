@@ -1,9 +1,9 @@
 /* Base Styles */
 body {
-  margin: 0;
   background-color: #0a0a0a;
-  color: grey;
+  color: #ffffff;
   font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
 }
 
 .site-header {
