@@ -208,6 +208,16 @@ input.focused {
   margin-top: 3rem;
 }
 
+.spider-core {
+  grid-area: core;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: pulse 4s infinite ease-in-out;
+  z-index: 2;
+}
+
 @keyframes pulseButton {
   0% { box-shadow: 0 0 8px rgba(84, 229, 74, 0.3); }
   50% { box-shadow: 0 0 14px rgba(84, 229, 74, 0.5); }
