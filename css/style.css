@@ -166,6 +166,7 @@ body {
   transform: translateY(0);
 }
 
+
 /* Focus effect on form inputs */
 input.focused {
   outline: 1px solid #48cfff;
@@ -178,6 +179,32 @@ input.focused {
 .mite-spider-core {
   animation: spiderGlow 6s ease-in-out infinite;
   filter: drop-shadow(0 0 12px #54e54a);
+}
+
+.spider-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  width: 230px;
+  box-shadow: 0 0 20px rgba(84, 229, 74, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.spider-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(84, 229, 74, 0.3);
+}
+
+.spider-cross-layout {
+  display: grid;
+  place-items: center;
+  grid-template-areas:
+    ".    top    ."
+    "left core right"
+    ".  bottom  .";
+  gap: 2rem;
+  margin-top: 3rem;
 }
 
 @keyframes pulseButton {
