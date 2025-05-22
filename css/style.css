@@ -85,7 +85,6 @@ body {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s ease;
-  /*box-shadow: 0 0 8px rgba(84, 229, 74, 0.3);*/
   animation: pulseButton 3s infinite;
 }
 
@@ -147,7 +146,6 @@ body {
 
 .section-lead {
   font-size: 1.2rem;
- /* color: #ccc;*/
 }
 
 .highlight {
@@ -167,7 +165,6 @@ body {
   transform: translateY(0);
 }
 
-
 /* Focus effect on form inputs */
 input.focused {
   outline: 1px solid #48cfff;
@@ -180,6 +177,8 @@ input.focused {
 .mite-spider-core {
   animation: spiderGlow 6s ease-in-out infinite;
   filter: drop-shadow(0 0 12px #54e54a);
+  width: 140px;
+  max-width: 100%;
 }
 
 .spider-card {
@@ -192,6 +191,7 @@ input.focused {
   box-shadow: 0 0 20px rgba(84, 229, 74, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .spider-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 0 25px rgba(84, 229, 74, 0.3);
@@ -218,6 +218,14 @@ input.focused {
   z-index: 2;
 }
 
+.why-icon.neon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #54e54a;
+  text-shadow: 0 0 10px #54e54a;
+}
+
+/* Keyframes */
 @keyframes pulseButton {
   0% { box-shadow: 0 0 8px rgba(84, 229, 74, 0.3); }
   50% { box-shadow: 0 0 14px rgba(84, 229, 74, 0.5); }
