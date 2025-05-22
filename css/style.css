@@ -177,7 +177,7 @@ input.focused {
 .mite-spider-core {
   animation: spiderGlow 6s ease-in-out infinite;
   filter: drop-shadow(0 0 12px #54e54a);
-  width: 540px;
+  width: 200px;
   max-width: 100%;
 }
 
