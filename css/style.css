@@ -219,10 +219,15 @@ input.focused {
 }
 
 .why-icon.neon {
-  font-size: 2rem;
+  font-size: 2.5rem; /* было 2rem */
   margin-bottom: 1rem;
   color: #54e54a;
   text-shadow: 0 0 10px #54e54a;
+}
+
+.why-icon.neon:hover {
+  transform: scale(1.2) rotate(5deg);
+  transition: all 0.3s ease;
 }
 
 /* Keyframes */
