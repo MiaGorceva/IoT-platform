@@ -116,15 +116,20 @@ body {
 
 /* Globe icon style */
 .globe-icon {
-  font-size: 1.4rem;
-  color: #ffffff;
-  background: linear-gradient(135deg, #48cfff, #00ffe5);
-  border-radius: 50%;
-  padding: 6px;
+  font-size: 1.3rem;
+  color: #48cfff;
   margin-left: 8px;
-  box-shadow: 0 0 12px rgba(72, 207, 255, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: globeSpin 10s linear infinite;
+  padding: 6px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, #0044ff 100%);
+  box-shadow: 0 0 10px rgba(72, 207, 255, 0.7);
+  transition: transform 0.6s ease, box-shadow 0.3s ease;
+  animation: rotateGlobe 4s linear infinite;
+}
+
+@keyframes rotateGlobe {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .globe-icon:hover {
@@ -266,25 +271,75 @@ input.focused {
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
-/* Footer */
+/* --- Footer --- */
 .site-footer {
-  background: #111;
+  background-color: #111;
   color: #ccc;
-  text-align: center;
-  padding: 2rem;
+  padding: 3rem 1.5rem;
   font-size: 0.9rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.site-footer a {
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+  gap: 2rem;
+}
+
+.footer-block {
+  flex: 1 1 250px;
+  min-width: 200px;
+}
+
+.footer-logo {
+  height: 60px;
+  margin-bottom: 0.8rem;
+}
+
+.footer-tagline {
+  font-size: 0.95rem;
   color: #48cfff;
+}
+
+.footer-block h4 {
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+  color: #54e54a;
+}
+
+.footer-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-block ul li {
+  margin-bottom: 0.4rem;
+}
+
+.footer-block a {
+  color: #ccc;
   text-decoration: none;
-  margin: 0 0.5rem;
   transition: color 0.3s;
 }
 
-.site-footer a:hover {
+.footer-block a:hover {
   color: #54e54a;
+}
+
+.social-icons a {
+  display: inline-block;
+  margin-right: 0.6rem;
+  font-size: 1.3rem;
+  color: #ccc;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: #48cfff;
+  transform: scale(1.2);
 }
 
 /* Demo Form */
