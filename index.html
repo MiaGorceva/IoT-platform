@@ -72,7 +72,7 @@
         <li><a href="#contact">Contact Us</a></li>
         <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank">Get Started</a></li>
         <li class="dropdown lang-switch en">
-          <a href="#"><i class="globe-icon lucide lucide-globe"></i></a>
+          <a href="#"><i class="globe-icon lucide lucide-globe" aria-label="Language Switcher"></i></a>
           <div class="dropdown-content">
             <a href="/uk" onclick="setLang('uk')">🇺🇦 Ukrainian</a>
             <a href="/ru" onclick="setLang('ru')">🇷🇺 Russian</a>
@@ -335,6 +335,10 @@
     </div>
   </div>
 </footer>
+
+  <audio id="hover-sound" preload="auto">
+    <source src="sounds/hover.mp3" type="audio/mpeg" />
+  </audio>
 
   <script src="https://unpkg.com/lucide@latest"></script>
   <script src="js/main.js"></script>

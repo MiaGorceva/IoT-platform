@@ -117,18 +117,18 @@ body {
 /* Globe icon style */
 .globe-icon {
   font-size: 1.3rem;
-  color: #48cfff;
+  color: white;
   margin-left: 8px;
   padding: 6px;
   border-radius: 50%;
-  background-color: rgba(72, 207, 255, 0.1);
-  box-shadow: 0 0 8px rgba(72, 207, 255, 0.4);
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  background: linear-gradient(to bottom, #00247d 33%, #fff 33% 66%, #cf142b 66%);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .globe-icon:hover {
-  background-color: rgba(72, 207, 255, 0.2);
-  box-shadow: 0 0 12px rgba(72, 207, 255, 0.7);
+  transform: scale(1.1);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.9);
 }
 
 .lang-switch.en .globe-icon {

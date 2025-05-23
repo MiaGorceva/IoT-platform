@@ -43,3 +43,16 @@ window.setLang = function(lang) {
   }
 };
 
+document.addEventListener('DOMContentLoaded', () => {
+  const sound = document.getElementById('hover-sound');
+  document.querySelectorAll('.why-icon').forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      if (sound) {
+        sound.currentTime = 0;
+        sound.play();
+      }
+    });
+  });
+});
+
+
