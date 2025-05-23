@@ -114,28 +114,22 @@ body {
   margin-right: 5px;
 }
 
-/* Globe icon style */
 .globe-icon {
-  font-size: 1.3rem;
-  color: #48cfff;
-  margin-left: 8px;
+  font-size: 1.5rem;
   padding: 6px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffffff 0%, #0044ff 100%);
-  box-shadow: 0 0 10px rgba(72, 207, 255, 0.7);
-  transition: transform 0.6s ease, box-shadow 0.3s ease;
-  animation: rotateGlobe 4s linear infinite;
-}
-
-@keyframes rotateGlobe {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #3c3b6e 40%, #b22234 100%);
+  box-shadow: 0 0 10px rgba(72, 207, 255, 0.6);
+  color: #fff;
+  animation: rotateGlobe 6s linear infinite;
+  transition: transform 0.3s ease;
 }
 
 .globe-icon:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 18px rgba(72, 207, 255, 0.9);
+  transform: scale(1.15);
+  box-shadow: 0 0 16px rgba(72, 207, 255, 0.9);
 }
+
 
 @keyframes globeSpin {
   0% { transform: rotate(0deg); }
@@ -269,6 +263,11 @@ input.focused {
   color: #54e54a;
   text-shadow: 0 0 10px #54e54a;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.why-icon.neon:hover {
+  transform: scale(1.2) rotate(-2deg);
+  text-shadow: 0 0 14px #54e54a;
 }
 
 /* --- Footer --- */
