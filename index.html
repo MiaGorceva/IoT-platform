@@ -121,26 +121,23 @@
 <section id="demo-form" class="section-content fade-in demo-form">
   <h2 class="section-title">Request a Demo</h2>
   <p class="section-lead">Leave your contacts to try MITE in action.</p>
-  <form>
-    <div class="form-group">
-      <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" placeholder="John Doe" required />
-    </div>
-    <div class="form-group">
-      <label for="email">Email *</label>
-      <input type="email" id="email" name="email" placeholder="john@example.com" required />
-    </div>
-    <div class="form-group">
-      <label for="company">Company / Organization</label>
-      <input type="text" id="company" name="company" placeholder="Optional" />
-    </div>
-    <div class="form-group">
-      <label for="phone">Phone Number *</label>
-      <input type="tel" id="phone" name="phone" placeholder="+123456789" required />
-    </div>
-    <button type="submit" class="cta-button">Request Access</button>
-    <p class="form-note">We'll get back to you within 1 business day.</p>
-  </form>
+  <form action="https://forms.un-static.com/forms/..." method="POST">
+  <div class="form-group">
+    <label for="name">Full Name *</label>
+    <input name="name" id="name" type="text" placeholder="Your name" required />
+    
+    <label for="email">Email *</label>
+    <input name="email" id="email" type="email" placeholder="you@email.com" required />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone *</label>
+    <input name="phone" id="phone" type="tel" placeholder="Phone number" required />
+  </div>
+
+  <button type="submit" class="cta-button">Get My Solution</button>
+  <p class="form-note">We’ll get back to you shortly.</p>
+</form>
 </section>
 
 
