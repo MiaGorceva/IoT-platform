@@ -114,6 +114,29 @@ body {
   margin-right: 5px;
 }
 
+.lang-switch .globe-icon {
+  font-size: 22px;
+  padding: 6px;
+  border-radius: 50%;
+  background-color: #444; /* fallback */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lang-switch.en .globe-icon {
+  background-color: #00247d; /* Синий флаг UK/US */
+  box-shadow: 0 0 8px #00247d;
+}
+
+.lang-switch.ru .globe-icon {
+  background-color: #d52b1e; /* Красный флаг РФ */
+  box-shadow: 0 0 8px #d52b1e;
+}
+
+.lang-switch.uk .globe-icon {
+  background-color: #0057b7; /* Синий верх украинского флага */
+  box-shadow: 0 0 8px #0057b7;
+}
+
 /* Hero */
 .hero-banner {
   text-align: center;

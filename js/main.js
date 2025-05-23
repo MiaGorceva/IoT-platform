@@ -34,3 +34,12 @@ window.addEventListener('DOMContentLoaded', () => {
     input.addEventListener('blur', () => input.classList.remove('focused'));
   });
 });
+
+window.setLang = function(lang) {
+  const el = document.querySelector('.lang-switch');
+  if (el) {
+    el.classList.remove('en', 'ru', 'uk');
+    el.classList.add(lang);
+  }
+};
+
