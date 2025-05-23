@@ -199,12 +199,14 @@ input.focused {
 
 .spider-cross-layout {
   display: grid;
-  place-items: center;
   grid-template-areas:
     ".    top    ."
     "left core right"
     ".  bottom  .";
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto auto;
   gap: 2rem;
+  place-items: center;
   margin-top: 3rem;
 }
 
