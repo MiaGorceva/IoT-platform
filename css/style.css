@@ -264,10 +264,9 @@ input.focused {
   text-shadow: 0 0 10px #54e54a;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
-
 .why-icon.neon:hover {
-  transform: scale(1.2) rotate(-2deg);
-  text-shadow: 0 0 14px #54e54a;
+  transform: translateY(-4px) scale(1.2);
+  text-shadow: 0 0 12px #54e54a, 0 0 20px #48cfff;
 }
 
 /* --- Footer --- */
