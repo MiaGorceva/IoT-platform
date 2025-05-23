@@ -114,12 +114,21 @@ body {
   margin-right: 5px;
 }
 
-.lang-switch .globe-icon {
-  font-size: 22px;
+/* Globe icon style */
+.globe-icon {
+  font-size: 1.3rem;
+  color: #48cfff;
+  margin-left: 8px;
   padding: 6px;
   border-radius: 50%;
-  background-color: #444; /* fallback */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(72, 207, 255, 0.1);
+  box-shadow: 0 0 8px rgba(72, 207, 255, 0.4);
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.globe-icon:hover {
+  background-color: rgba(72, 207, 255, 0.2);
+  box-shadow: 0 0 12px rgba(72, 207, 255, 0.7);
 }
 
 .lang-switch.en .globe-icon {
