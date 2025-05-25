@@ -148,9 +148,13 @@ body {
 }
 
 .lang-switch.en .globe-icon {
-  background-color: #00247d; /* Синий флаг UK/US */
-  box-shadow: 0 0 8px #00247d;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #3c3b6e 40%, #b22234 100%);
+  -webkit-mask-image: radial-gradient(circle, white 60%, transparent 61%);
+  mask-image: radial-gradient(circle, white 60%, transparent 61%);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
+
 
 .lang-switch.ru .globe-icon {
   background-color: #d52b1e; /* Красный флаг РФ */
