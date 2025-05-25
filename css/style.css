@@ -148,7 +148,7 @@ body {
 }
 
 .lang-switch.en .globe-icon {
-  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #3c3b6e 40%, #b22234 100%);
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #0601f6 40%, #f2112b 70%);
   -webkit-mask-image: radial-gradient(circle, white 60%, transparent 61%);
   mask-image: radial-gradient(circle, white 60%, transparent 61%);
   border-radius: 50%;
