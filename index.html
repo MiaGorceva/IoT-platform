@@ -32,10 +32,18 @@
     ],
     "description": "MITE is an Industrial IoT (IIoT) platform for real-time temperature and humidity monitoring, smart metering, and automation in manufacturing, logistics, pharma, agriculture, and warehousing. Offers a scalable, customisable hardware + software solution. Enables unique business processes to be deployed in hours. Fully compliant with industry regulations.",
     "foundingDate": "2019",
-        "address": {
-        "addressCountry": "PT"
+    "address": {
+      "addressCountry": "PT"
     }
   }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) lucide.createIcons();
+    });
   </script>
 </head>
 
@@ -72,8 +80,7 @@
         <li><a href="#contact">Contact Us</a></li>
         <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank">Get Started</a></li>
         <li class="dropdown lang-switch en">
-          <a href="#"><!--<i class="globe-icon lucide lucide-globe" aria-label="Language Switcher"></i>-->
-          <i class="globe-icon" data-lucide="globe"></i></a>
+          <a href="#"><i class="globe-icon" data-lucide="globe"></i></a>
           <div class="dropdown-content">
             <a href="/uk" onclick="setLang('uk')">🇺🇦 Ukrainian</a>
             <a href="/ru" onclick="setLang('ru')">🇷🇺 Russian</a>
@@ -89,35 +96,36 @@
   <img src="upload/mite-header.webp" alt="IIoT Platform Interface Overview – Smart Infrastructure" class="hero-image" />
 </section>
 
-<section id="why" class="section-content spider-layout fade-in">
-  <h2>Why MITE?</h2>
-  <p class="section-lead">MITE transforms infrastructure into a <span class="highlight">dynamic digital landscape</span> that evolves with your business.</p>
-  <div class="spider-cross-layout">
-    <div class="spider-card spider-top fade-in " style="grid-area: top;">
-      <div class="why-icon neon"><i data-lucide="network"></i></div>
-      <h3>Comprehensive Control</h3>
-      <p>Orchestrate infrastructure effortlessly in one place.</p>
+ <!-- WHY MITE Section -->
+  <section id="why" class="section-content fade-in">
+    <h2>Why MITE?</h2>
+    <p class="section-lead">MITE turns complex infrastructure into a <span class="highlight">dynamic digital landscape</span> that evolves with your business.</p>
+    <div class="spider-cross-layout">
+      <div class="spider-card" style="grid-area: top;">
+        <div class="why-icon neon"><i data-lucide="network"></i></div>
+        <h3>Comprehensive Control</h3>
+        <p>Orchestrate infrastructure effortlessly in one place.</p>
+      </div>
+      <div class="spider-card" style="grid-area: left;">
+        <div class="why-icon neon"><i data-lucide="sparkles"></i></div>
+        <h3>Agile Logic</h3>
+        <p>Reconfigure logic with zero-code workflows.</p>
+      </div>
+      <div class="spider-core" style="grid-area: core;">
+        <img src="upload/mite-spider-glow-final.webp" class="mite-spider-core" alt="MITE core spider glowing UI element" />
+      </div>
+      <div class="spider-card" style="grid-area: right;">
+        <div class="why-icon neon"><i data-lucide="bar-chart"></i></div>
+        <h3>Unlimited Data</h3>
+        <p>Collect & analyze any amount of real-time data.</p>
+      </div>
+      <div class="spider-card" style="grid-area: bottom;">
+        <div class="why-icon neon"><i data-lucide="shield-check"></i></div>
+        <h3>Future-Proof</h3>
+        <p>Built-in AI-readiness and automation from day one.</p>
+      </div>
     </div>
-    <div class="spider-card spider-left fade-in" style="grid-area: left;">
-      <div class="why-icon neon"><i data-lucide="sparkles"></i></div>
-      <h3>Agile Logic</h3>
-      <p>Reconfigure logic with zero-code workflows.</p>
-    </div>
-    <div class="spider-core fade-in" style="grid-area: core; display: flex; justify-content: center; align-items: center;">
-      <img src="upload/mite-spider-glow-final.webp" class="mite-spider-core" alt="Core orchestration module of MITE platform" />
-    </div>
-    <div class="spider-card spider-right fade-in" style="grid-area: right;">
-      <div class="why-icon neon"><i data-lucide="bar-chart"></i></div>
-      <h3>Unlimited Data</h3>
-      <p>Collect & analyze any amount of real-time data.</p>
-    </div>
-    <div class="spider-card spider-bottom fade-in" style="grid-area: bottom;">
-      <div class="why-icon neon"><i data-lucide="shield-check"></i></div>
-      <h3>Future-Proof</h3>
-      <p>Built-in automation and security from day one.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
 <section id="demo-form" class="section-content fade-in demo-form">
   <h2 class="section-title">Request a Demo</h2>
@@ -143,45 +151,34 @@
 </div>
    </section>
 
-   <section id="highlights" class="section-content fade-in highlights-section">
-  <h2 class="section-title">MITE Platform Highlights</h2>
-  <p class="section-lead">Designed for <span class="highlight">real-time industrial automation</span> and scalable integration — across Pharma, Logistics, Manufacturing, Agriculture and beyond.</p>
+  <!-- MITE Highlights Section -->
+<section id="highlights" class="section-content fade-in">
+  <h2>MITE Platform Highlights</h2>
+  <p class="section-lead">Designed for <span class="highlight">real-time automation, secure data orchestration</span> and seamless integration — across Pharma, Logistics, Manufacturing, and Agriculture.</p>
 
-  <div class="highlight-grid">
-    <div class="highlight-item">
-      <div class="highlight-icon neon"><i data-lucide="brain-circuit"></i></div>
+  <div class="spider-cross-layout">
+    <div class="spider-card" style="grid-area: top;">
+      <div class="why-icon neon"><i data-lucide="brain-circuit"></i></div>
       <h3>Logic Without Limits</h3>
-      <p>Define any business logic — no matter how complex. MITE adapts without code rewrites or vendor lock-in.</p>
+      <p>Define any business logic — MITE adapts with no code rewrites or vendor lock-in.</p>
     </div>
-
-    <div class="highlight-item">
-      <div class="highlight-icon neon"><i data-lucide="merge"></i></div>
-      <h3>Supports All Protocols</h3>
-      <p>From MQTT to Modbus, MITE speaks the language of your devices. Seamless integration — zero coding required.</p>
+    <div class="spider-card" style="grid-area: left;">
+      <div class="why-icon neon"><i data-lucide="merge"></i></div>
+      <h3>Protocol Flexibility</h3>
+      <p>Supports MQTT, Modbus, OPC UA, LoRaWAN — no middleware required.</p>
     </div>
-
-    <div class="highlight-item">
-      <div class="highlight-icon neon"><i data-lucide="database"></i></div>
-      <h3>Massive Data Capacity</h3>
-      <p>Process thousands of events per second. Secure, efficient, and ready for terabytes of sensor data.</p>
+    <div class="spider-core" style="grid-area: core;">
+      <img src="upload/mite-spider-glow-final.webp" class="mite-spider-core" alt="MITE Spider Hub – central logic control" />
     </div>
-
-    <div class="highlight-item">
-      <div class="highlight-icon neon"><i data-lucide="flask-conical"></i></div>
+    <div class="spider-card" style="grid-area: right;">
+      <div class="why-icon neon"><i data-lucide="database"></i></div>
+      <h3>Scalable Data Flow</h3>
+      <p>Stream, store & analyze thousands of events per second — securely and reliably.</p>
+    </div>
+    <div class="spider-card" style="grid-area: bottom;">
+      <div class="why-icon neon"><i data-lucide="flask-conical"></i></div>
       <h3>Rapid Prototyping</h3>
-      <p>Experiment with new ideas safely. Build, test, and iterate faster than ever — without deep tech skills.</p>
-    </div>
-
-    <div class="highlight-item">
-      <div class="highlight-icon neon"><i data-lucide="line-chart"></i></div>
-      <h3>Real-Time Insights</h3>
-      <p>Get customizable dashboards. Drag-and-drop widgets, live data streams, and instant alerts — all on one screen.</p>
-    </div>
-
-    <div class="highlight-item">
-      <div class="highlight-icon neon"><i data-lucide="wallet"></i></div>
-      <h3>Cost-Effective Growth</h3>
-      <p>Scale flexibly without unnecessary overhead. MITE offers long-term ROI through cloud efficiency & modular licensing.</p>
+      <p>Build and deploy unique processes in hours — not weeks.</p>
     </div>
   </div>
 </section>
@@ -263,7 +260,7 @@
     </form>
   </section>
 
-  <footer class="site-footer">
+ <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-block">
       <img src="upload/mite-logo-green-w_o-background.webp" alt="MITE logo" class="footer-logo" />
@@ -290,11 +287,10 @@
   <div class="footer-bottom">© 2019–2025 Internet of Things, LLC. All rights reserved.</div>
 </footer>
 
-  <audio id="hover-sound" preload="auto">
-    <source src="sounds/hover.mp3" type="audio/mpeg" />
-  </audio>
+<audio id="hover-sound" preload="auto">
+  <source src="sounds/hover.mp3" type="audio/mpeg" />
+</audio>
 
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>

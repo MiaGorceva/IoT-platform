@@ -94,41 +94,10 @@ body {
   box-shadow: 0 0 14px rgba(72, 207, 255, 0.4);
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  background-color: #111;
-  min-width: 180px;
-  flex-direction: column;
-  z-index: 10;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-}
-
-.dropdown:hover .dropdown-content {
-  display: flex;
-}
-
 .lang-switch .fi {
   font-size: 18px;
   margin-right: 5px;
 }
-
-/*.globe-icon {
-  font-size: 1.5rem;
-  padding: 6px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #3c3b6e 40%, #b22234 100%);
-  box-shadow: 0 0 10px rgba(72, 207, 255, 0.6);
-  color: #fff;
-  animation: rotateGlobe 6s linear infinite;
-  transition: transform 0.3s ease;
-}
-
-.globe-icon:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 16px rgba(72, 207, 255, 0.9);
-}*/
 
 .globe-icon {
   animation: rotateGlobe 6s linear infinite;
@@ -136,11 +105,10 @@ body {
   border-radius: 50%;
   transition: transform 0.4s ease;
 }
+
 .globe-icon:hover {
   transform: scale(1.2);
 }
-
-
 
 @keyframes globeSpin {
   0% { transform: rotate(0deg); }
@@ -155,14 +123,13 @@ body {
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
-
 .lang-switch.ru .globe-icon {
-  background-color: #d52b1e; /* Красный флаг РФ */
+  background-color: #d52b1e;
   box-shadow: 0 0 8px #d52b1e;
 }
 
 .lang-switch.uk .globe-icon {
-  background-color: #0057b7; /* Синий верх украинского флага */
+  background-color: #0057b7;
   box-shadow: 0 0 8px #0057b7;
 }
 
@@ -217,7 +184,6 @@ body {
   transform: translateY(0);
 }
 
-/* Focus effect on form inputs */
 input.focused {
   outline: 1px solid #48cfff;
   box-shadow: 0 0 12px rgba(72, 207, 255, 0.5);
@@ -225,12 +191,24 @@ input.focused {
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-/* Spider Layout Enhancements */
 .mite-spider-core {
   animation: spiderGlow 6s ease-in-out infinite;
   filter: drop-shadow(0 0 12px #54e54a);
   width: 280px;
   max-width: 100%;
+}
+
+.spider-grid {
+  display: grid;
+  grid-template-areas:
+    ".    top    ."
+    "left core right"
+    ".  bottom  .";
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 2rem;
+  place-items: center;
+  margin-top: 3rem;
 }
 
 .spider-card {
@@ -249,19 +227,6 @@ input.focused {
   box-shadow: 0 0 25px rgba(84, 229, 74, 0.3);
 }
 
-.spider-cross-layout {
-  display: grid;
-  grid-template-areas:
-    ".    top    ."
-    "left core right"
-    ".  bottom  .";
-  grid-template-columns: 1fr auto 1fr;
-  grid-template-rows: auto auto auto;
-  gap: 2rem;
-  place-items: center;
-  margin-top: 3rem;
-}
-
 .spider-core {
   grid-area: core;
   display: flex;
@@ -272,19 +237,19 @@ input.focused {
   z-index: 2;
 }
 
-.why-icon.neon {
+.spider-icon {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #54e54a;
   text-shadow: 0 0 10px #54e54a;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
-.why-icon.neon:hover {
+
+.spider-icon:hover {
   transform: translateY(-4px) scale(1.2);
   text-shadow: 0 0 12px #54e54a, 0 0 20px #48cfff;
 }
 
-/* --- Footer --- */
 .site-footer {
   background-color: #111;
   color: #ccc;
@@ -353,59 +318,6 @@ input.focused {
 .social-icons a:hover {
   color: #48cfff;
   transform: scale(1.2);
-}
-
-/* Demo Form */
-.demo-form {
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 2rem;
-  border-radius: 16px;
-  max-width: 600px;
-  margin: 3rem auto;
-  box-shadow: 0 0 20px rgba(84, 229, 74, 0.1);
-}
-
-.demo-form form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.demo-form label {
-  color: #54e54a;
-  font-size: 1rem;
-  margin-bottom: 0.3rem;
-  text-align: left;
-}
-
-.demo-form input,
-.demo-form textarea {
-  padding: 0.7rem 1rem;
-  border-radius: 8px;
-  border: none;
-  background-color: #111;
-  color: white;
-  font-size: 1rem;
-  width: 100%;
-}
-
-.demo-form button {
-  margin-top: 1rem;
-  padding: 0.8rem 1.2rem;
-  font-size: 1rem;
-  background-color: #54e54a;
-  color: #000;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s, box-shadow 0.3s;
-}
-
-.demo-form button:hover {
-  background-color: #48cfff;
-  box-shadow: 0 0 10px rgba(72, 207, 255, 0.5);
 }
 
 /* Keyframes */
