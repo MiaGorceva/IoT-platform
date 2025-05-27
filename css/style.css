@@ -123,12 +123,12 @@ body {
       -webkit-mask-image: radial-gradient(circle, white 60%, transparent 61%);
       mask-image: radial-gradient(circle, white 60%, transparent 61%);
       box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-      animation: rotateGlobe 6s linear infinite;
+      animation: rotateGlobe 15s linear infinite;
       transition: transform 0.4s ease;
     }
 
    .globe-icon:hover {
-      transform: scale(1.2);
+      transform: scale(1.5);
     }
 
     @keyframes rotateGlobe {
