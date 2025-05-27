@@ -271,6 +271,17 @@ input.focused {
   text-shadow: 0 0 12px #54e54a, 0 0 20px #48cfff;
 }
 
+.demo-form input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.demo-form label {
+  display: block;
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
+
 .site-footer {
   background-color: #111;
   color: #ccc;
