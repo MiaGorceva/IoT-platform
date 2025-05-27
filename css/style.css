@@ -104,20 +104,25 @@ body {
 }
 
 .globe-icon {
-  animation: rotateGlobe 6s linear infinite;
-  filter: drop-shadow(0 0 6px rgba(72, 207, 255, 0.6));
-  border-radius: 50%;
-  transition: transform 0.4s ease;
-}
+      border-radius: 50%;
+      padding: 6px;
+      width: 2rem;
+      height: 2rem;
+      background: radial-gradient(circle at 30% 30%, #ffffff 0%, #3c3b6e 40%, #b22234 100%);
+      box-shadow: 0 0 12px rgba(72, 207, 255, 0.6);
+      animation: rotateGlobe 6s linear infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
 
-.globe-icon:hover {
-  transform: scale(1.2);
-}
+    .globe-icon:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 16px rgba(72, 207, 255, 0.9);
+    }
 
-@keyframes globeSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
+    @keyframes rotateGlobe {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
 .lang-switch.en .globe-icon {
   background: radial-gradient(circle at 30% 30%, #ffffff 0%, #0601f6 40%, #f2112b 70%);
