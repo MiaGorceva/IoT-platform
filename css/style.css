@@ -271,16 +271,80 @@ input.focused {
   text-shadow: 0 0 12px #54e54a, 0 0 20px #48cfff;
 }
 
-.demo-form input {
-  display: block;
-  width: 100%;
-  margin-bottom: 1rem;
-}
-.demo-form label {
-  display: block;
-  margin-bottom: 0.3rem;
-  text-align: left;
-}
+.demo-form {
+      background: rgba(255,255,255,0.02);
+      border: 2px solid #54e54a;
+      padding: 2rem;
+      border-radius: 20px;
+      max-width: 520px;
+      margin: 3rem auto;
+      box-shadow: 0 0 24px rgba(84, 229, 74, 0.4);
+      position: relative;
+      animation: glowPulse 4s ease-in-out infinite;
+    }
+
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 24px rgba(84, 229, 74, 0.2); }
+      50% { box-shadow: 0 0 40px rgba(84, 229, 74, 0.5); }
+    }
+
+    .demo-form h2 {
+      color: #54e54a;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .demo-form .section-lead {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #bbb;
+    }
+
+    .demo-form label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+      color: #ccc;
+    }
+
+    .demo-form input {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background-color: #0a0a0a;
+      color: white;
+      font-size: 1rem;
+    }
+
+    .demo-form button {
+      display: block;
+      width: 100%;
+      padding: 0.8rem;
+      font-size: 1.1rem;
+      background-color: #54e54a;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #000;
+      box-shadow: 0 0 16px rgba(84,229,74,0.3);
+    }
+
+    .demo-form button:hover {
+      background-color: #48cfff;
+      box-shadow: 0 0 20px rgba(72, 207, 255, 0.5);
+      color: #000;
+    }
+
+    .form-note {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #aaa;
+    }
 
 .site-footer {
   background-color: #111;
