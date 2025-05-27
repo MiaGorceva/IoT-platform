@@ -212,15 +212,26 @@ input.focused {
   transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-.mite-spider-core {
+/*.mite-spider-core {
   animation: spiderGlow 6s ease-in-out infinite;
   filter: drop-shadow(0 0 12px #54e54a);
   width: 280px;
   max-width: 100%;
+}*/
+
+/* Center glowing spider */
+.spider-core {
+  grid-area: core;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: pulse 4s infinite ease-in-out;
+  z-index: 2;
 }
 
 .mite-grid {
-  display: grid;
+ /* display: grid;
   grid-template-areas:
     ".    top    ."
     "left core right"
@@ -229,7 +240,21 @@ input.focused {
   grid-template-rows: auto auto auto;
   gap: 2rem;
   place-items: center;
+  margin-top: 3rem;*/
+  display: grid;
+  grid-template-areas:
+    ".      top      ."
+    "left   core   right"
+    "extra  core    far"
+    ".     bottom    .";
+  grid-template-columns: 1fr auto 1fr;
+  grid-template-rows: auto auto auto auto;
+  gap: 2rem;
+  place-items: center;
   margin-top: 3rem;
+  position: relative;
+}
+
 }
 
 .spider-card {
@@ -248,15 +273,13 @@ input.focused {
   box-shadow: 0 0 25px rgba(84, 229, 74, 0.3);
 }
 
-.spider-core {
-  grid-area: core;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  animation: pulse 4s infinite ease-in-out;
-  z-index: 2;
-}
+/* Highlights grid areas */
+.mite-top    { grid-area: top; }
+.mite-left   { grid-area: left; }
+.mite-right  { grid-area: right; }
+.mite-bottom { grid-area: bottom; }
+.mite-extra  { grid-area: extra; }
+.mite-far    { grid-area: far; }
 
 .mite-icon {
   font-size: 2rem;
@@ -271,6 +294,7 @@ input.focused {
   text-shadow: 0 0 12px #54e54a, 0 0 20px #48cfff;
 }
 
+/* Updated glowing form block */
 .demo-form {
       background: rgba(255,255,255,0.02);
       border: 2px solid #54e54a;
@@ -283,9 +307,12 @@ input.focused {
       animation: glowPulse 4s ease-in-out infinite;
     }
 
+
+/* Soft glowing animation */
     @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 0 24px rgba(84, 229, 74, 0.2); }
-      50% { box-shadow: 0 0 40px rgba(84, 229, 74, 0.5); }
+     0%   { box-shadow: 0 0 16px rgba(84, 229, 74, 0.15); }
+     50%  { box-shadow: 0 0 22px rgba(84, 229, 74, 0.35); }
+     100% { box-shadow: 0 0 16px rgba(84, 229, 74, 0.15); }
     }
 
     .demo-form h2 {
