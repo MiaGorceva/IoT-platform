@@ -20,6 +20,10 @@ body {
   margin: 0 auto;
 }
 
+.highlight, .section-title, .section-lead, .mite-icon.neon, .cta-button {
+      text-shadow: 0 0 6px rgba(84, 229, 74, 0.4), 0 0 8px rgba(72, 207, 255, 0.2);
+}
+
 .nav-logo-block {
   display: flex;
   flex-direction: column;
@@ -295,22 +299,23 @@ input.focused {
 /* Updated glowing form block */
 .demo-form {
       background: rgba(255,255,255,0.02);
-      border: 2px solid #54e54a;
+      border: 2px solid rgba(84, 229, 74, 0.3);
       padding: 2rem;
       border-radius: 20px;
       max-width: 520px;
       margin: 3rem auto;
       box-shadow: 0 0 24px rgba(84, 229, 74, 0.4);
       position: relative;
-      animation: glowPulse 4s ease-in-out infinite;
+      animation: glowPulse 6s ease-in-out infinite;
+      animation: pulseForm 6s ease-in-out infinite;
     }
 
 
 /* Soft glowing animation */
     @keyframes glowPulse {
-     0%   { box-shadow: 0 0 16px rgba(84, 229, 74, 0.15); }
-     50%  { box-shadow: 0 0 22px rgba(84, 229, 74, 0.35); }
-     100% { box-shadow: 0 0 16px rgba(84, 229, 74, 0.15); }
+      0% { box-shadow: 0 0 20px rgba(72, 207, 255, 0.2); }
+      50% { box-shadow: 0 0 32px rgba(72, 207, 255, 0.5); }
+      100% { box-shadow: 0 0 20px rgba(72, 207, 255, 0.2); }
     }
 
     .demo-form h2 {
@@ -335,7 +340,7 @@ input.focused {
     }
 
     .demo-form input {
-      width: 100%;
+      width: 90%;
       padding: 0.7rem 1rem;
       margin-bottom: 1rem;
       border-radius: 8px;
