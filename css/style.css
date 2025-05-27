@@ -73,6 +73,10 @@ body {
   color: grey;
 }
 
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
 .nav-menu a:hover,
 .nav-menu .cta-button:hover {
   color: #54e54a;
