@@ -77,6 +77,18 @@ body {
   display: flex;
 }
 
+ .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #111;
+      min-width: 180px;
+      flex-direction: column;
+      z-index: 10;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
 .nav-menu a:hover,
 .nav-menu .cta-button:hover {
   color: #54e54a;
@@ -104,24 +116,24 @@ body {
 }
 
 .globe-icon {
+      width: 24px;
+      height: 24px;
       border-radius: 50%;
-      padding: 6px;
-      width: 2rem;
-      height: 2rem;
-      background: radial-gradient(circle at 30% 30%, #ffffff 0%, #3c3b6e 40%, #b22234 100%);
-      box-shadow: 0 0 12px rgba(72, 207, 255, 0.6);
+      background: radial-gradient(circle at 30% 30%, #ffffff 0%, #0601f6 40%, #f2112b 70%);
+      -webkit-mask-image: radial-gradient(circle, white 60%, transparent 61%);
+      mask-image: radial-gradient(circle, white 60%, transparent 61%);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
       animation: rotateGlobe 6s linear infinite;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.4s ease;
     }
 
-    .globe-icon:hover {
+   .globe-icon:hover {
       transform: scale(1.2);
-      box-shadow: 0 0 16px rgba(72, 207, 255, 0.9);
     }
 
     @keyframes rotateGlobe {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
 .lang-switch.en .globe-icon {
