@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (window.lucide) {
     lucide.createIcons();
   } 
-  
+
   // Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -45,7 +45,7 @@ window.setLang = function(lang) {
 
 document.addEventListener('DOMContentLoaded', () => {
   const sound = document.getElementById('hover-sound');
-  document.querySelectorAll('.why-icon').forEach(icon => {
+  document.querySelectorAll('.mite-icon').forEach(icon => {
     icon.addEventListener('mouseenter', () => {
       if (sound) {
         sound.currentTime = 0;
