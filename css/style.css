@@ -20,8 +20,7 @@ body {
   margin: 0 auto;
 }
 
-.highlight, .section-title, .section-lead, .mite-icon.neon, .cta-button .nav-logo-text .h2{
-      color: #48cfff;
+.highlight, .section-title, .mite-icon.neon, .cta-button .nav-logo-text .h2{
       font-weight: 600;
       text-shadow: 0 0 6px rgba(72, 207, 255, 0.5), 0 0 10px rgba(84, 229, 74, 0.2);
 }
@@ -306,10 +305,9 @@ input.focused {
       border-radius: 20px;
       max-width: 520px;
       margin: 3rem auto;
-      box-shadow: 0 0 24px rgba(84, 229, 74, 0.4);
+      box-shadow: 0 0 40px rgba(41, 200, 83, 0.5);
       position: relative;
       animation: glowPulse 6s ease-in-out infinite;
-      animation: pulseForm 6s ease-in-out infinite;
     }
 
 
