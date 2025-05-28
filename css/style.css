@@ -20,8 +20,10 @@ body {
   margin: 0 auto;
 }
 
-.highlight, .section-title, .section-lead, .mite-icon.neon, .cta-button {
-      text-shadow: 0 0 6px rgba(84, 229, 74, 0.4), 0 0 8px rgba(72, 207, 255, 0.2);
+.highlight, .section-title, .section-lead, .mite-icon.neon, .cta-button .nav-logo-text .h2{
+      color: #48cfff;
+      font-weight: 600;
+      text-shadow: 0 0 6px rgba(72, 207, 255, 0.5), 0 0 10px rgba(84, 229, 74, 0.2);
 }
 
 .nav-logo-block {
