@@ -267,7 +267,7 @@ input.focused {
     padding: 1.5rem;
     text-align: center;
     width: 230px;
-    box-shadow: 40px 40px 40px rgba(84, 229, 74, 0.08);
+    box-shadow:  rgba(41, 200, 83, 0.5) 0px 0px 40px;
     transition: transform 0.3s ease, box-shadow 0.9s ease;
 }
 
