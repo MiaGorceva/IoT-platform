@@ -251,7 +251,7 @@ input.focused {
     ".      top      ."
     "left   core   right"
     "extra  core    far"
-    ".     bottom    .";
+    "bottom-l   bottom    bottom-r";
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto auto auto auto;
   gap: 2rem;
@@ -273,7 +273,7 @@ input.focused {
 
 .spider-card:hover {
   transform: translateY(-6px);
-  box-shadow: 40px 40px 40px rgba(84, 229, 74, 0.3);
+  box-shadow: 20px 20px 40px rgba(84, 229, 74, 0.3);
 }
 
 /* Highlights grid areas */
@@ -290,6 +290,9 @@ input.focused {
   color: #54e54a;
   text-shadow: 0 0 10px #54e54a;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+.mite-icon.lsf {
+  color: #48cfff;
 }
 
 .mite-icon:hover {
@@ -313,9 +316,9 @@ input.focused {
 
 /* Soft glowing animation */
     @keyframes glowPulse {
-      0% { box-shadow: 0 0 20px rgba(72, 207, 255, 0.2); }
-      50% { box-shadow: 0 0 32px rgba(72, 207, 255, 0.5); }
-      100% { box-shadow: 0 0 20px rgba(72, 207, 255, 0.2); }
+      0% { box-shadow: 0 0 40px rgba(72, 207, 255, 0.2); }
+      50% { box-shadow: 0 0 52px rgba(72, 207, 255, 0.5); }
+      100% { box-shadow: 0 0 60px rgba(72, 207, 255, 0.2); }
     }
 
     .demo-form h2 {
