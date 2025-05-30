@@ -250,7 +250,7 @@ input.focused {
   grid-template-areas:
     ".      top      ."
     "left   core   right"
-    "extra  core    far"
+    "extra  middle    far"
     "bottom-l   bottom    bottom-r";
   grid-template-columns: 1fr auto 1fr;
   grid-template-rows: auto auto auto auto;
