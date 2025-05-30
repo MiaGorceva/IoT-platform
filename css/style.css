@@ -20,7 +20,7 @@ body {
   margin: 0 auto;
 }
 
-.highlight, .section-title, .mite-icon.neon, .cta-button .nav-logo-text .section-content h2{
+.highlight, .section-title, .mite-icon.neon, .cta-button .nav-logo-text{
       font-weight: 600;
       text-shadow: 0 8px 8px rgba(72, 207, 255, 0.5), 0 0 10px rgba(84, 229, 74, 0.2);
 }
@@ -273,7 +273,7 @@ input.focused {
 
 .spider-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 0 40px rgba(84, 229, 74, 0.3);
+  box-shadow: 40px 40px 40px rgba(84, 229, 74, 0.3);
 }
 
 /* Highlights grid areas */
