@@ -20,7 +20,7 @@ body {
   margin: 0 auto;
 }
 
-.highlight, .section-title, .mite-icon.neon, .cta-button .nav-logo-text .h2{
+.highlight, .section-title, .mite-icon.neon, .cta-button .nav-logo-text .section-content h2{
       font-weight: 600;
       text-shadow: 0 8px 8px rgba(72, 207, 255, 0.5), 0 0 10px rgba(84, 229, 74, 0.2);
 }
