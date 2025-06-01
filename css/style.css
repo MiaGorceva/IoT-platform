@@ -193,10 +193,10 @@ body {
   font-size: 1.2rem;
 }
 
-/*.highlight {
+.highlight {
   color: #48cfff;
   font-weight: 600;
-}*/
+}
 
 /* Fade-in animation */
 .fade-in {
@@ -225,7 +225,7 @@ input.focused {
 }
 
 .mite-spider-corex2 {
-  width: 440px!important;
+  width: 360px!important;
 }
 
 /* Center glowing spider */
