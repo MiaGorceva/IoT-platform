@@ -248,8 +248,8 @@ input.focused {
   margin-top: 3rem;*/
   display: grid;
   grid-template-areas:
-    ".      top      ."
-    "left   middle   right"
+    "top-l      top      top-r"
+    "left   core   right"
     "extra  core    far"
     "bottom-l   bottom    bottom-r";
   grid-template-columns: 1fr auto 1fr;
