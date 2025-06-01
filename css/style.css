@@ -224,6 +224,10 @@ input.focused {
   max-width: 100%;
 }
 
+.mite-spider-corex2 {
+  width: 440px!important;
+}
+
 /* Center glowing spider */
 .spider-core {
   grid-area: core;
