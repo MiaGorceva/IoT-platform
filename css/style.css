@@ -452,10 +452,47 @@ input.focused {
   color: #48cfff;
   transform: scale(1.2);
 }
+   .how-mite-works {
+      background: transparent;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+    }
+    .how-mite-works::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: url('/upload/mite-spider-glow-final.webp') no-repeat center center;
+      background-size: 400px;
+      opacity: 0.05;
+      width: 400px;
+      height: 400px;
+      z-index: 0;
+    }
+    .how-mite-works h2.section-title {
+      font-size: 2rem;
+      color: #54e54a;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 6px #54e54a, 0 0 12px #48cfff;
+      position: relative;
+      z-index: 2;
+    }
+    .how-mite-works .section-lead {
+      color: grey;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 2;
+    }
     .steps-container {
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      position: relative;
+      z-index: 2;
     }
     .step-card {
       display: flex;
@@ -467,7 +504,24 @@ input.focused {
       border-radius: 16px;
       padding: 1.5rem;
       gap: 2rem;
-      box-shadow: 0 0 30px rgba(72, 207, 255, 0.08);
+      box-shadow: 0 0 30px rgba(84, 229, 74, 0.15), 0 0 40px rgba(72, 207, 255, 0.08);
+      position: relative;
+    }
+    .step-card::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background: url('/upload/arrow-down-glow.svg') no-repeat center center;
+      background-size: contain;
+      opacity: 0.7;
+      animation: pulseArrow 2s infinite ease-in-out;
+    }
+    .step-card:last-child::after {
+      display: none;
     }
     .step-card img {
       width: 250px;
@@ -489,8 +543,14 @@ input.focused {
     .step-button {
       margin-top: 2rem;
       text-align: center;
+      position: relative;
+      z-index: 2;
     }
-
+    @keyframes pulseArrow {
+      0%, 100% { transform: translate(-50%, 0); opacity: 0.6; }
+      50% { transform: translate(-50%, 10px); opacity: 1; }
+    }
+  
 /* Keyframes */
 @keyframes pulseButton {
   0% { box-shadow: 0 0 8px rgba(84, 229, 74, 0.3); }
