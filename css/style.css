@@ -107,7 +107,6 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
   animation: pulseButton 3s infinite;
-  margin-top: 2rem;
 }
 
 .cta-button:hover {
@@ -358,7 +357,7 @@ input.focused {
       font-size: 1rem;
     }
 
-  /*  .demo-form button {
+    .demo-form button {
       display: block;
       width: 100%;
       padding: 0.8rem;
@@ -366,11 +365,12 @@ input.focused {
       background-color: #54e54a;
       border: none;
       border-radius: 8px;
-    /*  font-weight: bold;
+      font-weight: bold;
       cursor: pointer;
       color: #000;
+      margin-top: 2rem;
       box-shadow: 0 0 16px rgba(84,229,74,0.3);
-    }*/
+    }
 
     .demo-form button:hover {
       background-color: #48cfff;
