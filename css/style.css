@@ -107,6 +107,7 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
   animation: pulseButton 3s infinite;
+  margin-top: 2rem;
 }
 
 .cta-button:hover {
@@ -195,7 +196,7 @@ body {
 
 .highlight {
   color: #48cfff;
-  text-shadow: 0 8px 8px 0 0 10px rgba(84, 229, 74, 0.2), rgba(72, 207, 255, 0.5);
+  text-shadow: 0 0px 10px rgba(84, 229, 74, 0.2), 0 8px 8px rgba(72, 207, 255, 0.5);
 }
 
 /* Fade-in animation */
@@ -307,7 +308,7 @@ input.focused {
 /* Updated glowing form block */
 .demo-form {
       background: rgba(255,255,255,0.02);
-      border: 2px solid rgba(84, 229, 74, 0.3);
+     /* border: 2px solid rgba(84, 229, 74, 0.3);*/
       padding: 2rem;
       border-radius: 20px;
       max-width: 520px;
@@ -357,7 +358,7 @@ input.focused {
       font-size: 1rem;
     }
 
-    .demo-form button {
+  /*  .demo-form button {
       display: block;
       width: 100%;
       padding: 0.8rem;
@@ -365,11 +366,11 @@ input.focused {
       background-color: #54e54a;
       border: none;
       border-radius: 8px;
-      font-weight: bold;
+    /*  font-weight: bold;
       cursor: pointer;
       color: #000;
       box-shadow: 0 0 16px rgba(84,229,74,0.3);
-    }
+    }*/
 
     .demo-form button:hover {
       background-color: #48cfff;
@@ -536,12 +537,6 @@ input.focused {
     }
     .step-card ul li::marker {
       color: #48cfff;
-    }
-    .step-button {
-      margin-top: 2rem;
-      text-align: center;
-      position: relative;
-      z-index: 2;
     }
     @keyframes pulseArrow {
       0%, 100% { transform: translate(-50%, 0); opacity: 0.6; }
