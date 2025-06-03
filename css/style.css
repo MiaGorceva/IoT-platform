@@ -71,11 +71,17 @@ body {
 }
 
 .nav-menu a {
-  text-decoration: none;
   font-weight: 500;
   padding: 0.5rem;
   display: block;
+}
+
+a {
   color: grey;
+  text-decoration: none;
+}
+a:hover {
+  color: #54e54a;
 }
 
 .dropdown:hover .dropdown-content {
@@ -99,6 +105,20 @@ body {
   color: #54e54a;
 }
 
+.cta-button a {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+  background-color: #54e54a;
+  color: grey;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(84, 229, 74, 0.4);
+  transition: all 0.3s ease;
+  animation: pulseButton 3s infinite;
+  text-align: center;
+  text-decoration: none;
+}
+
 .cta-button {
   background-color: #54e54a;
   padding: 0.4rem 0.9rem;
@@ -107,6 +127,8 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
   animation: pulseButton 3s infinite;
+  display: flex;
+  justify-content: center;
 }
 
 .cta-button:hover {
@@ -432,20 +454,13 @@ input.focused {
 }
 
 .footer-block a {
-  color: #ccc;
-  text-decoration: none;
   transition: color 0.3s;
-}
-
-.footer-block a:hover {
-  color: #54e54a;
 }
 
 .social-icons a {
   display: inline-block;
   margin-right: 0.6rem;
   font-size: 1.3rem;
-  color: #ccc;
   transition: color 0.3s, transform 0.3s;
 }
 
