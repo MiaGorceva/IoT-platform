@@ -130,7 +130,7 @@ a:hover {
   animation: pulseButton 3s infinite;
   display: flex;
   justify-content: center;
-  margin: 3rem auto 2rem;
+ /* margin: 3rem auto 2rem;*/
 }
 
 .cta-button:hover {
