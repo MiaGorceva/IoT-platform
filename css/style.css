@@ -121,20 +121,22 @@ a:hover {
 }
 
 .cta-button {
-  background-color: #54e54a;
-  padding: 0.4rem 0.9rem;
-  border-radius: 5px;
-  color:grey;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  animation: pulseButton 3s infinite;
-  display: flex;
-  justify-content: center;
+    display: inline-block;
+    padding: 1rem 12rem;
+    border-radius: 10px;
+    background-color: #54e54a;
+    color: grey;
+    font-weight: 600;
+    box-shadow: 0 0 15px rgba(84, 229, 74, 0.4), 0 0 25px rgba(72, 207, 255, 0.3);
+    /* transition: all 0.3s ease; */
+    /* animation: pulseButton 3s infinite; */
+    text-align: center;
+    text-decoration: none;
  /* margin: 3rem auto 2rem;*/
 }
 
 .cta-button:hover {
-  background-color: #48cfff;
+ /* background-color: #48cfff;*/
   color: #000;
   box-shadow: 0 0 14px rgba(72, 207, 255, 0.4);
 }
