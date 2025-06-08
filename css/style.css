@@ -109,7 +109,7 @@ a:hover {
 .cta-button a {
   display: inline-block;
   padding: 0.9rem 2.2rem;
-  border-radius: 10px;
+  border-radius: 2px;
   background-color: #54e54a;
   color: grey;
   font-weight: 600;
@@ -145,6 +145,7 @@ a:hover {
 .cta-button a:hover {
   box-shadow: 0 0 25px rgba(84, 229, 74, 0.6), 0 0 30px rgba(72, 207, 255, 0.4);
   transform: scale(1.02);
+  min-width: none270px;
 }
 
 .lang-switch .fi {
@@ -340,7 +341,7 @@ input.focused {
 .demo-form {
       background: rgba(255,255,255,0.02);
      /* border: 2px solid rgba(84, 229, 74, 0.3);*/
-      padding: 2rem;
+      padding: 0.2rem;
       border-radius: 20px;
       max-width: 520px;
       margin: 3rem auto;
