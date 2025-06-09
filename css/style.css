@@ -109,7 +109,6 @@ a:hover {
 .cta-button a {
   display: inline-block;
   padding: 0.9rem 2.2rem;
-  border-radius: 2px;
   background-color: #54e54a;
   color: grey;
   font-weight: 600;
@@ -123,7 +122,7 @@ a:hover {
 .cta-button {
     display: inline-block;
     padding: 1rem 12rem;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: #54e54a;
     color: grey;
     font-weight: 600;
@@ -132,6 +131,7 @@ a:hover {
     /* animation: pulseButton 3s infinite; */
     text-align: center;
     text-decoration: none;
+    max-width: 300px;
  /* margin: 3rem auto 2rem;*/
 }
 
@@ -392,7 +392,7 @@ input.focused {
 
     .demo-form button {
       display: block;
-      width: 100%;
+      width: 95%;
       padding: 0.8rem;
       font-size: 1.1rem;
       background-color: #54e54a;
