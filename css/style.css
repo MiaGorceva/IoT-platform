@@ -74,6 +74,7 @@ body {
   font-weight: 500;
   padding: 0.5rem;
   display: block;
+  min-width: auto;
 }
 
 a {
@@ -104,10 +105,6 @@ a:hover {
 .nav-menu .cta-button:hover, 
 .cta-button a:hover {
   color: #54e54a;
-}
-
-.cta-button li {
-min-width: auto;
 }
 
 .cta-button {
