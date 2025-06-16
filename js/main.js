@@ -55,5 +55,24 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+const swiper = new Swiper('.swiper', {
+    loop: true,
+    spaceBetween: 24,
+    slidesPerView: 1.2,
+    centeredSlides: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      768: { slidesPerView: 2.5 },
+      1024: { slidesPerView: 3.2 },
+    }
+  });
+
 
 
