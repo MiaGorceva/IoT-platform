@@ -122,8 +122,6 @@ a:hover {
   text-decoration: none;
   min-width: 270px;
   margin-top: 2.2rem;
-  display: flex;
-  justify-content: center;
 }
 
 .cta-button:hover {
