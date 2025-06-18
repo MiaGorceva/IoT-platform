@@ -581,6 +581,8 @@ input.focused {
   box-shadow: 0 0 30px rgba(84, 229, 74, 0.12), 0 0 40px rgba(72, 207, 255, 0.08);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease;
+  max-width: 320px;
+  max-height: 436px;
 }
 .case-card:hover {
   transform: translateY(-5px);
