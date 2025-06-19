@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const swiper = new Swiper('.swiper', {
+  const swiper = new Swiper('.swiper', {
     loop: true,
     spaceBetween: 24,
     slidesPerView: 1.2,
@@ -73,6 +73,5 @@ const swiper = new Swiper('.swiper', {
       1024: { slidesPerView: 3.2 },
     }
   });
-
 
 
