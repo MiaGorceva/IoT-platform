@@ -407,12 +407,60 @@ input.focused {
       text-align: center;
       color: #aaa;
     }
-
-.site-footer {
-  background-color: #111;
+    .site-footer {
+  background: #0a0a0a;
   color: #ccc;
-  padding: 3rem 1.5rem;
-  font-size: 0.9rem;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+
+.footer-block {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-logo {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  color: #48cfff;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.footer-block ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-block li {
+  margin-bottom: 8px;
+}
+
+.footer-block a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-block a:hover {
+  color: #54e54a;
+}
+
+.social-icons a {
+  font-size: 20px;
+  margin-right: 12px;
+  color: #ccc;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 13px;
+  color: #666;
 }
 
 .footer-container {
@@ -424,20 +472,6 @@ input.focused {
   gap: 2rem;
 }
 
-.footer-block {
-  flex: 1 1 250px;
-  min-width: 200px;
-}
-
-.footer-logo {
-  height: 60px;
-  margin-bottom: 0.8rem;
-}
-
-.footer-tagline {
-  font-size: 0.95rem;
-  color: #48cfff;
-}
 
 .footer-block h4 {
   font-size: 1rem;
@@ -449,21 +483,6 @@ input.focused {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.footer-block ul li {
-  margin-bottom: 0.4rem;
-}
-
-.footer-block a {
-  transition: color 0.3s;
-}
-
-.social-icons a {
-  display: inline-block;
-  margin-right: 0.6rem;
-  font-size: 1.3rem;
-  transition: color 0.3s, transform 0.3s;
 }
 
 .social-icons a:hover {
