@@ -122,23 +122,31 @@
   </section>
 
 <section id="demo-form" class="section-content fade-in demo-form">
-  <h2 class="section-title">Request a Demo</h2>
-  <p class="section-lead">Leave your contacts to try MITE in action.</p>
-  <form action="https://forms.un-static.com/forms/626c6d4783e2ba0a08e8632748d3d2373c5344a4" method="POST">
-    <label for="name">Full Name *</label>
-    <input name="name" id="name" type="text" placeholder="Your name" required />
+  <form action="https://forms.un-static.com/forms/626c6d4783e2ba0a08e8632748d3d2373c5344a4" method="POST"
+        data-redirect-url="#contact_us_success" data-custom-popup-id="contact_us_success" onsubmit="return validateForm()">
+    
+    <div class="form-group">
+      <label for="name">Full Name *</label>
+      <input type="text" name="name" id="name" placeholder="Enter your full name" required />
+      
+      <label for="email">Email *</label>
+      <input type="email" name="email" id="email" placeholder="your@email.com" required />
+    </div>
 
-    <label for="email">Email *</label>
-    <input name="email" id="email" type="email" placeholder="you@email.com" required />
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
+    </div>
 
-    <label for="company">Company (optional)</label>
-    <input name="company" id="company" type="text" placeholder="Your company (optional)" />
+    <div class="form-group">
+      <label class="checkbox-label">
+        <input type="checkbox" name="privacy" id="privacy" required />
+        I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>
+      </label>
+    </div>
 
-    <label for="phone">Phone *</label>
-    <input name="phone" id="phone" type="tel" placeholder="Phone number" required />
-
-    <button type="submit" class="cta-button">Explore MITE Now</button>
-    <p class="form-note">We’ll get back to you shortly.</p>
+    <button type="submit" class="cta-button">Request your own solution</button>
+    <p class="form-note">Our experts will contact you within 1 business day.</p>
   </form>
 </section>
 
@@ -250,11 +258,8 @@
     </div>
   </section>
 
-<section class="case-studies section-content fade-in">
-  <h2 class="section-title">Explore Our Case Studies</h2>
-  <p class="section-lead">See how MITE empowers different industries to automate, monitor, and optimize — with speed and precision.</p>
 
-  <section class="case-studies section-content fade-in">
+<section class="case-studies section-content fade-in">
   <h2 class="section-title">Explore Our Case Studies</h2>
   <p class="section-lead">See how MITE empowers different industries to automate, monitor, and optimize with precision and sustainability.</p>
 
@@ -357,23 +362,35 @@
 </section>
 
   <!-- Request a Demo Form -->
-  <section id="demo-form" class="section-content fade-in demo-form">
-    <form action="https://forms.un-static.com/forms/626c6d4783e2ba0a08e8632748d3d2373c5344a4" method="POST"
-								data-redirect-url="#contact_us_success" data-custom-popup-id="contact_us_success">
-      <div class="form-group">
-        <label>Full Name *</label>
-        <input type="text" placeholder="Enter your full name" required />
-        <label>Email *</label>
-        <input type="email" placeholder="Enter your email" required />
-      </div>
-      <div class="form-group">
-        <label>Enter your phone number *</label>
-        <input type="tel" placeholder="+351 96" required />
-      </div>
-      <button type="submit" class="cta-button">Request your own solution</button>
-      <p class="form-note">Join us and stay at the forefront of innovation.</p>
-    </form>
-  </section>
+<section id="demo-form" class="section-content fade-in demo-form">
+  <form action="https://forms.un-static.com/forms/626c6d4783e2ba0a08e8632748d3d2373c5344a4" method="POST"
+        data-redirect-url="#contact_us_success" data-custom-popup-id="contact_us_success" onsubmit="return validateForm()">
+    
+    <div class="form-group">
+      <label for="name">Full Name *</label>
+      <input type="text" name="name" id="name" placeholder="Enter your full name" required />
+      
+      <label for="email">Email *</label>
+      <input type="email" name="email" id="email" placeholder="your@email.com" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
+    </div>
+
+    <div class="form-group">
+      <label class="checkbox-label">
+        <input type="checkbox" name="privacy" id="privacy" required />
+        I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a>
+      </label>
+    </div>
+
+    <button type="submit" class="cta-button">Request your own solution</button>
+    <p class="form-note">Our experts will contact you within 1 business day.</p>
+  </form>
+</section>
+
 
  <footer class="site-footer">
   <div class="footer-container">

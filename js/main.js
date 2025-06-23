@@ -74,4 +74,23 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // Маска телефона (упрощённая, адаптированная под +351 формат)
+  document.getElementById('phone').addEventListener('input', function (e) {
+    this.value = this.value
+      .replace(/[^\d+]/g, '')                // Удаляем лишние символы
+      .replace(/(\+\d{3})(\d{3})(\d{3})(\d{3})?/, '$1 $2 $3 $4') // Пример: +351 961 234 567
+      .substring(0, 17);
+  });
+
+  // Проверка чекбокса
+  function validateForm() {
+    const checkbox = document.getElementById('privacy');
+    if (!checkbox.checked) {
+      alert('Please agree to the Privacy Policy before submitting.');
+      return false;
+    }
+    return true;
+  }
+
+
 

@@ -220,6 +220,24 @@ a:hover {
   text-shadow: 0 0px 10px rgba(84, 229, 74, 0.2), 0 8px 8px rgba(72, 207, 255, 0.5);
 }
 
+.checkbox-label {
+  font-size: 14px;
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checkbox-label a {
+  color: #48cfff;
+  text-decoration: underline;
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: #54e54a;
+  transform: scale(1.1);
+}
+
 /* Fade-in animation */
 .fade-in {
   opacity: 0;
