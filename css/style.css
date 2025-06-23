@@ -124,8 +124,9 @@ a:hover {
   margin-top: 2.2rem;
 }
 
+
 .cta-button:hover {
- /* background-color: #48cfff;*/
+  background-color: #6eff5c;
   color: #000;
   box-shadow: 0 0 14px rgba(72, 207, 255, 0.4);
 }
@@ -220,12 +221,25 @@ a:hover {
   text-shadow: 0 0px 10px rgba(84, 229, 74, 0.2), 0 8px 8px rgba(72, 207, 255, 0.5);
 }
 
-.checkbox-label {
+.checkbox-group {
+  display: flex;
+  align-items: center;
   font-size: 14px;
   color: #ccc;
+}
+
+.checkbox-label {
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  accent-color: #54e54a;
+  width: 16px;
+  height: 16px;
+  margin: 0;
 }
 
 .checkbox-label a {
@@ -233,10 +247,6 @@ a:hover {
   text-decoration: underline;
 }
 
-.checkbox-label input[type="checkbox"] {
-  accent-color: #54e54a;
-  transform: scale(1.1);
-}
 
 /* Fade-in animation */
 .fade-in {
@@ -542,56 +552,34 @@ input.focused {
       position: relative;
       z-index: 2;
     }
-    .steps-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      position: relative;
-      z-index: 2;
-    }
-    .step-card {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 16px;
-      padding: 1.5rem;
-      gap: 2rem;
-      box-shadow: 0 0 30px rgba(84, 229, 74, 0.15), 0 0 40px rgba(72, 207, 255, 0.08);
-      position: relative;
-    }
-    .step-card::after {
-      content: "";
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 60px;
-      background: url('/upload/arrow-down-glow.svg') no-repeat center center;
-      background-size: contain;
-      opacity: 0.7;
-      animation: pulseArrow 2s infinite ease-in-out;
-    }
-    .step-card:last-child::after {
-      display: none;
-    }
-    .step-card img {
-      width: 250px;
-      border-radius: 12px;
-      box-shadow: 0 0 14px rgba(72, 207, 255, 0.3);
-    }
-    
-    .step-card ul {
-      text-align: left;
-      padding-left: 1.5rem;
-      color: #ccc;
-    }
-    .step-card ul li::marker {
-      color: #48cfff;
-    }
+   /* Сделать последнюю карточку немного выделенной */
+.final-step {
+  background: rgba(72, 207, 255, 0.06);
+  box-shadow: 0 0 40px rgba(84, 229, 74, 0.25), 0 0 50px rgba(72, 207, 255, 0.15);
+}
+
+/* CTA внутри текста карточки */
+.step-cta {
+  margin-top: 1.5rem;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .step-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-card img {
+    order: 2;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .step-text {
+    order: 1;
+  }
+}
 
 .case-studies {
   padding: 4rem 2rem;
