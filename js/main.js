@@ -92,5 +92,35 @@ document.addEventListener('DOMContentLoaded', () => {
     return true;
   }
 
+  document.getElementById('miteForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = {
+      name: form.name.value,
+      email: form.email.value,
+      phone: form.phone.value
+    };
+
+    fetch("https://formsubmit.co/ajax/info@mite.club", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (response.ok) {
+        form.reset();
+        document.getElementById('form-success').style.display = 'block';
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    })
+    .catch(error => {
+      console.error("Form submission error:", error);
+      alert("An error occurred. Please check your connection.");
+    });
+  });
+
+
 
 

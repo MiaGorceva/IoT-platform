@@ -226,20 +226,19 @@ a:hover {
   align-items: center;
   font-size: 14px;
   color: #ccc;
+  margin-top: 1rem;
 }
 
 .checkbox-label {
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
 }
 
 .checkbox-label input[type="checkbox"] {
   accent-color: #54e54a;
   width: 16px;
   height: 16px;
-  margin: 0;
 }
 
 .checkbox-label a {
