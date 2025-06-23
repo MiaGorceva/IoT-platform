@@ -551,34 +551,73 @@ input.focused {
       position: relative;
       z-index: 2;
     }
-   /* Сделать последнюю карточку немного выделенной */
-.final-step {
-  background: rgba(72, 207, 255, 0.06);
-  box-shadow: 0 0 40px rgba(84, 229, 74, 0.25), 0 0 50px rgba(72, 207, 255, 0.15);
+
+    .step-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
-/* CTA внутри текста карточки */
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 0 30px rgba(84, 229, 74, 0.15), 0 0 40px rgba(72, 207, 255, 0.08);
+}
+
+.step-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.step-image img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 12px;
+  box-shadow: 0 0 14px rgba(72, 207, 255, 0.3);
+}
+
+.step-content {
+  flex: 1;
+  color: #ccc;
+}
+
+.step-content h3 {
+  color: #54e54a;
+  margin-bottom: 1rem;
+}
+
+.step-content ul {
+  padding-left: 1.2rem;
+}
+
+.step-content li::marker {
+  color: #48cfff;
+}
+
 .step-cta {
   margin-top: 1.5rem;
 }
 
-/* Mobile optimization */
-@media (max-width: 768px) {
-  .step-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .step-card img {
-    order: 2;
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .step-text {
-    order: 1;
-  }
+.cta-button {
+  display: inline-block;
+  background-color: #54e54a;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.3s ease;
 }
+
+.cta-button:hover {
+  background-color: #6eff5c;
+}
+
 
 .case-studies {
   padding: 4rem 2rem;
