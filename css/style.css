@@ -618,6 +618,19 @@ input.focused {
   background-color: #6eff5c;
 }
 
+@media (max-width: 768px) {
+  .step-item,
+  .step-item.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .step-image img {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+}
+
 
 .case-studies {
   padding: 4rem 2rem;
