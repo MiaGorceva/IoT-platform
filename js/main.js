@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
       phone: form.phone.value
     };
 
-    fetch("https://formsubmit.co/ajax/info@mite.club", {
+    fetch("https://formsubmit.co/ajax/d156fdd8e48a38c564ead43ca8e0caf4b", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
