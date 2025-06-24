@@ -230,22 +230,36 @@ a:hover {
 }
 
 .checkbox-label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
+  position: relative;
+  cursor: pointer;
 }
 
 .checkbox-label input[type="checkbox"] {
-  accent-color: #54e54a;
-  width: 16px;
-  height: 16px;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #48cfff;
+  border-radius: 4px;
+  background: transparent;
+  transition: background 0.2s ease;
+  position: relative;
 }
 
-.checkbox-label a {
-  color: #48cfff;
-  text-decoration: underline;
+.checkbox-label input[type="checkbox"]:checked {
+  background-color: #48cfff;
 }
 
+.checkbox-label input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  font-size: 14px;
+  color: grey;
+  top: 0;
+  left: 4px;
+}
 
 /* Fade-in animation */
 .fade-in {
@@ -408,7 +422,7 @@ input.focused {
 
     .demo-form button {
       display: block;
-      width: 85%;
+      width: 100%;
       margin-left: auto;
       margin-right: auto;
       padding: 0.8rem;
@@ -680,6 +694,10 @@ input.focused {
 .case-card p {
   color: #ccc;
   font-size: 0.95rem;
+}
+
+.miteForm{
+  margin: 30px;
 }
 
     @keyframes pulseArrow {

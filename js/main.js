@@ -95,31 +95,39 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('miteForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const form = e.target;
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value
-    };
+     const name = this.name.value.trim();
+    const email = this.email.value.trim();
+    const phone = this.phone.value.trim();
+    const privacy = this.privacy.checked;
+    const honey = this._honey.value.trim();
 
+ if (honey !== "") return; // bot detected
+
+    if (!name || !email || !phone || !privacy) {
+      alert("Please fill in all required fields and agree to the Privacy Policy.");
+      return;
+    }
+
+    // Submit via AJAX
     fetch("https://formsubmit.co/ajax/d156fdd8e48a38c564ead43ca8e0caf4b", {
       method: "POST",
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     })
-    .then(response => {
-      if (response.ok) {
-        form.reset();
-        document.getElementById('form-success').style.display = 'block';
+    .then(res => {
+      if (res.ok) {
+        this.reset();
+        document.getElementById("form-success").style.display = "block";
       } else {
-        alert("Something went wrong. Please try again.");
+        alert("Something went wrong. Please try again later.");
       }
     })
-    .catch(error => {
-      console.error("Form submission error:", error);
-      alert("An error occurred. Please check your connection.");
+    .catch(() => {
+      alert("Connection error. Please try again.");
     });
   });
+    
+
 
 
 
