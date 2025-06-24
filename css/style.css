@@ -370,7 +370,7 @@ input.focused {
       padding: 0.2rem;
       border-radius: 20px;
       max-width: 520px;
-      margin: 3rem auto;
+      margin: 20px;
       box-shadow: 0 0 40px rgba(41, 200, 83, 0.5);
       position: relative;
       animation: glowPulse 6s ease-in-out infinite;
@@ -690,10 +690,6 @@ input.focused {
 .case-card p {
   color: #ccc;
   font-size: 0.95rem;
-}
-
-.miteForm{
-  margin: 30px;
 }
 
     @keyframes pulseArrow {
