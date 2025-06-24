@@ -79,23 +79,31 @@ document.getElementById('miteForm').addEventListener('submit', function(e) {
 
   error.style.display = "none";
 
- fetch("https://formspree.io/f/mjkranro", {
-  method: "POST",
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify(formData)
+  const formData = {
+    name,
+    email,
+    phone
+  };
+
+  fetch("https://formspree.io/f/mjkranro", {
+    method: "POST",
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
   })
   .then(res => {
-          if (res.ok) {
-            this.reset();
-            document.getElementById("form-success").style.display = "block";
-          } else {
-            errorBox.textContent("Something went wrong. Please try again later.");
-          }
-        })
-        .catch(() => {
-          errorBox.textContent("Connection error. Please try again.");
-        });
-      });
+    if (res.ok) {
+      form.reset();
+      success.style.display = "block";
+    } else {
+      error.textContent = "Something went wrong. Please try again later.";
+      error.style.display = "block";
+    }
+  })
+  .catch(() => {
+    error.textContent = "Connection error. Please try again.";
+    error.style.display = "block";
+  });
+});
 
     // 🔹 8. Swiper init
     if (typeof Swiper !== 'undefined') {
