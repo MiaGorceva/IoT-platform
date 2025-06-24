@@ -122,29 +122,40 @@
   </section>
 
 <section id="demo-form" class="section-content fade-in demo-form">
-  <form id="miteForm">
+  <form id="miteForm" novalidate>
+
+    <!-- Honeypot field (anti-bot) -->
+    <input type="text" name="_honey" style="display:none" autocomplete="off" />
+
+    <!-- Optional FormSubmit settings -->
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_subject" value="New Request from MITE Website" />
+
     <div class="form-group">
       <label for="name">Full Name *</label>
       <input type="text" name="name" id="name" placeholder="Enter your full name" required />
-      
-      <label for="email">Email *</label>
-      <input type="email" name="email" id="email" placeholder="your@email.com" required />
-      
-      <label for="phone">Phone Number *</label>
-      <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
-
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_subject" value="New Request from MITE Website">
-      <input type="text" name="_honey" style="display:none">
     </div>
 
-    <label class="checkbox-label">
-      <input type="checkbox" name="privacy" required />
-      <span>I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></span>
-    </label>
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input type="email" name="email" id="email" placeholder="your@email.com" required />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
+    </div>
+
+    <div class="form-group checkbox-group">
+      <label class="checkbox-label">
+        <input type="checkbox" name="privacy" id="privacy" />
+        <span>I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></span>
+      </label>
+    </div>
 
     <button type="submit" class="cta-button">Explore MITE</button>
-    <p class="form-note" id="form-success" style="display: none; margin-top: 1rem; color: #54e54a;">
+
+    <p id="form-success" style="display:none; margin-top: 1rem; color: #54e54a;">
       ✅ Our experts will contact you within 1 business day.
     </p>
   </form>

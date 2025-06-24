@@ -222,18 +222,15 @@ a:hover {
 }
 
 .checkbox-group {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #ccc;
   margin-top: 1rem;
 }
 
 .checkbox-label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 10px;
-  position: relative;
+  font-size: 14px;
+  color: #ccc;
   cursor: pointer;
 }
 
@@ -241,15 +238,14 @@ a:hover {
   appearance: none;
   width: 18px;
   height: 18px;
-  border: 2px solid #48cfff;
+  border: 2px solid #54e54a;
   border-radius: 4px;
   background: transparent;
-  transition: background 0.2s ease;
   position: relative;
 }
 
 .checkbox-label input[type="checkbox"]:checked {
-  background-color: #48cfff;
+  background-color: #54e54a;
 }
 
 .checkbox-label input[type="checkbox"]:checked::after {
@@ -257,7 +253,7 @@ a:hover {
   position: absolute;
   font-size: 14px;
   color: grey;
-  top: 0;
+  top: -2px;
   left: 4px;
 }
 
