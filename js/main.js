@@ -55,35 +55,36 @@
     }
 
     // 🔹 7. FormSubmit AJAX logic with honeypot
-    const form = document.getElementById('miteForm');
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
 
-        const name = this.name.value.trim();
-        const email = this.email.value.trim();
-        const phone = this.phone.value.trim();
-        const privacy = this.privacy.checked;
-        const honey = this._honey.value.trim();
+document.getElementById('miteForm').addEventListener('submit', function(e) {
+  e.preventDefault();
 
-        if (honey !== "") return; // bot detected
+  const form = this;
+  const error = document.getElementById('form-error');
+  const success = document.getElementById('form-success');
 
-        if (!name || !email || !phone || !privacy) {
-          const errorBox = document.getElementById('form-error');
-            errorBox.textContent = "Please fill in all required fields and agree to the Privacy Policy.";
-            errorBox.style.display = "block";
-          return;
-        }
+  const name = form.name.value.trim();
+  const email = form.email.value.trim();
+  const phone = form.phone.value.trim();
+  const privacy = form.privacy.checked;
+  const gotcha = form._gotcha.value.trim();
 
-        const formData = { name, email, phone };
-        errorBox.style.display = "none"; // Скрыть, если всё ок
+  if (gotcha !== "") return; // spam detected
+  if (!name || !email || !phone || !privacy) {
+    error.textContent = "Please fill in all fields and agree to the Privacy Policy.";
+    error.style.display = "block";
+    success.style.display = "none";
+    return;
+  }
 
-        fetch("https://formsubmit.co/ajax/d156fdd8e48a38c564ead43ca8e0caf4", {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        })
-        .then(res => {
+  error.style.display = "none";
+
+ fetch("https://formspree.io/f/mjkranro", {
+  method: "POST",
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(formData)
+  })
+  .then(res => {
           if (res.ok) {
             this.reset();
             document.getElementById("form-success").style.display = "block";
@@ -95,7 +96,6 @@
           errorBox.textContent("Connection error. Please try again.");
         });
       });
-    }
 
     // 🔹 8. Swiper init
     if (typeof Swiper !== 'undefined') {

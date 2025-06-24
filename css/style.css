@@ -409,7 +409,7 @@ input.focused {
     }
 
     .demo-form label {
-      display: block;
+      /*display: block;*/
       margin-bottom: 0.3rem;
       font-weight: 600;
       color: #ccc;
@@ -438,7 +438,7 @@ input.focused {
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
-      color: #000;
+      color: grey;
       margin-top: 2rem;
      /* box-shadow: 0 0 16px rgba(84,229,74,0.3);*/
     }
