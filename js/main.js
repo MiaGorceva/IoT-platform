@@ -69,11 +69,14 @@
         if (honey !== "") return; // bot detected
 
         if (!name || !email || !phone || !privacy) {
-          alert("Please fill in all required fields and agree to the Privacy Policy.");
+          const errorBox = document.getElementById('form-error');
+            errorBox.textContent = "Please fill in all required fields and agree to the Privacy Policy.";
+            errorBox.style.display = "block";
           return;
         }
 
         const formData = { name, email, phone };
+        errorBox.style.display = "none"; // Скрыть, если всё ок
 
         fetch("https://formsubmit.co/ajax/d156fdd8e48a38c564ead43ca8e0caf4", {
           method: "POST",
@@ -85,11 +88,11 @@
             this.reset();
             document.getElementById("form-success").style.display = "block";
           } else {
-            alert("Something went wrong. Please try again later.");
+            errorBox.textContent("Something went wrong. Please try again later.");
           }
         })
         .catch(() => {
-          alert("Connection error. Please try again.");
+          errorBox.textContent("Connection error. Please try again.");
         });
       });
     }
