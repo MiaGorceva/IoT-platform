@@ -306,6 +306,7 @@ input.focused {
   position: relative;
   animation: pulse 4s infinite ease-in-out;
   z-index: 2;
+  height: 220px;
 }
 
 .mite-grid {
@@ -349,17 +350,18 @@ input.focused {
   box-shadow: 20px 20px 40px rgba(84, 229, 74, 0.3);
 }
 
-.video-wrapper {
+/*.video-wrapper {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
+ /* height: 0;
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 0 20px rgba(72, 207, 255, 0.3);
   background: transparent;
 }
 
-.video-wrapper iframe {
+.video-wrapper */
+.iframe {
   position: absolute;
   top: 0;
   left: 0;
