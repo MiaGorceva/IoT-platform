@@ -372,7 +372,7 @@ input.focused {
 }
 
 .video-wrapper */
-.iframe {
+.spider-core iframe {
   position: absolute;
   top: 0;
   left: 0;
