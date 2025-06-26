@@ -131,7 +131,6 @@ a:hover {
   box-shadow: 0 0 14px rgba(72, 207, 255, 0.4);
 }
 
-
 .cta-button a:hover {
   box-shadow: 0 0 25px rgba(84, 229, 74, 0.6), 0 0 30px rgba(72, 207, 255, 0.4);
   transform: scale(1.02);
@@ -164,6 +163,18 @@ a:hover {
       100% { transform: rotate(360deg); }
     }
 
+    .swiper-button-next,
+.swiper-button-prev {
+  color: #48cfff;
+  text-shadow: 0 0 8px #48cfff;
+  transition: all 0.3s ease;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #48cfff;
+  text-shadow: 0 0 12px #48cfff;
+  transform: scale(1.1);
+}
 .lang-switch.en .globe-icon {
   background: radial-gradient(circle at 30% 30%, #ffffff 0%, #0601f6 40%, #f2112b 70%);
   -webkit-mask-image: radial-gradient(circle, white 60%, transparent 61%);
