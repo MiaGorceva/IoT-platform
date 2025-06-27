@@ -2,42 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pharma: Cold Chain Monitoring | MITE</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .case-hero {
+      position: relative;
+      text-align: center;
+      padding: 60px 20px;
+      background-color: #000;
+    }
+    .case-hero img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 0 32px rgba(72, 207, 255, 0.3);
+    }
+    .case-hero-text {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      text-shadow: 0 0 6px #000;
+    }
+    .case-hero h1 {
+      font-size: 2.4rem;
+      color: #48cfff;
+      margin: 0;
+    }
+    .case-subtitle {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+    .case-body {
+      padding: 40px 20px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: #54e54a;
+    }
+    .section-lead {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+    .cta-button {
+      text-align: center;
+      margin: 40px 0;
+    }
+    .cta-button a {
+      padding: 12px 28px;
+      background: #48cfff;
+      color: #000;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .cta-button a:hover {
+      background: #54e54a;
+    }
+  </style>
 </head>
-<body class="dark">
+<body>
 
-  <section class="section-content fade-in">
-    <div class="container">
-      <h1 class="section-title neon-green">Pharma: Cold Chain Monitoring</h1>
-      <p class="section-lead">Ensure GMP-compliant pharmaceutical logistics with real-time monitoring and IoT control.</p>
-
-      <div class="case-hero">
-        <img src="uploads/case-pharma.webp" alt="Cold chain monitoring in pharmaceutical lab" class="case-image"/>
-      </div>
-
-      <div class="case-content">
-        <h2 class="highlight">The Challenge</h2>
-        <p>Pharmaceutical logistics requires strict compliance with temperature and storage conditions. Manual checks are error-prone and audit trails can be incomplete.</p>
-
-        <h2 class="highlight">How MITE Helps</h2>
-        <ul class="case-benefits">
-          <li>💡 Real-time temperature & humidity monitoring</li>
-          <li>📡 Integration with IoT sensors and cloud dashboard</li>
-          <li>⚠️ Instant alerts on condition breach</li>
-          <li>🧾 Audit-ready digital records for GMP compliance</li>
-        </ul>
-
-        <h2 class="highlight">Business Impact</h2>
-        <p>Improved product safety, minimized losses due to spoilage, and full regulatory traceability — all powered by the MITE platform.</p>
-
-         <div class="step-cta">
-          <a href="https://booking.appointy.com/mite" target="_blank" class="cta-button">Request a Demo</a>
-        </div>
-      </div>
+  <section class="case-hero fade-in">
+    <img src="upload/pharma_iot_case.webp" alt="Pharma IoT Cold Chain Monitoring" class="case-hero-image" />
+    <div class="case-hero-text">
+      <h1>Pharma: Cold Chain Monitoring</h1>
+      <p class="case-subtitle">Ensuring real-time temperature control in pharmaceutical logistics using MITE.</p>
     </div>
   </section>
+
+  <section class="case-body fade-in">
+    <h2 class="section-title">The Challenge</h2>
+    <p class="section-lead">
+      Pharmaceutical products must be stored and transported within precise temperature ranges to remain effective and safe. Manual monitoring often results in gaps, non-compliance, and product loss.
+    </p>
+
+    <h2 class="section-title">The MITE Solution</h2>
+    <p class="section-lead">
+      MITE digitizes the cold chain by collecting real-time data from temperature and humidity sensors placed inside storage units and delivery vehicles. It triggers alerts when thresholds are breached and automatically logs all events for full audit readiness.
+    </p>
+
+    <h2 class="section-title">Results</h2>
+    <p class="section-lead">
+      Clients achieved 100% regulatory compliance with EU GMP and FDA standards, reduced product losses by over 30%, and cut manual reporting time in half. The system operates 24/7 with zero human intervention.
+    </p>
+  </section>
+
+  <div class="cta-button fade-in">
+    <a href="index.html#demo">Request a Demo</a>
+  </div>
 
 </body>
 </html>
