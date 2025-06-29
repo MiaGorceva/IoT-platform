@@ -1,158 +1,92 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PharmaCase | MITE</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #0e151d;
-      color: #ffffff;
-    }
-    .toggle-buttons {
-      text-align: center;
-      padding: 20px;
-      background: #101c2c;
-    }
-    .toggle-buttons button {
-      margin: 0 10px;
-      padding: 10px 20px;
-      font-size: 1em;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .pharma-case {
-      display: none;
-      padding: 80px 20px;
-    }
-    .pharma-case.active {
-      display: block;
-    }
-    .section-container {
-      max-width: 1200px;
-      margin: auto;
-      text-align: center;
-    }
-    .features {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 40px;
-      margin-bottom: 60px;
-    }
-    .feature-box {
-      max-width: 300px;
-    }
-    .feature-box img {
-      height: 60px;
-      margin-bottom: 20px;
-    }
-    .benefits {
-      border-radius: 16px;
-      padding: 40px;
-      margin-bottom: 40px;
-    }
-    .dark-mode {
-      background: #060b12;
-      color: #ffffff;
-    }
-    .light-mode {
-      background: #f2f6f9;
-      color: #000;
-    }
-    a.cta {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      margin-top: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="/css/mite-styles.css" />
 </head>
-<body>
-  <div class="toggle-buttons">
-    <button onclick="showCase('dark')" style="background:#54e54a; color:#000;">🌑 Dark</button>
-    <button onclick="showCase('light')" style="background:#2e7d32; color:#fff;">☀️ Light</button>
-  </div>
-
-  <section id="pharma-dark" class="pharma-case active dark-mode">
+<body class="dark-mode">
+  <section class="section section-content fade-in">
     <div class="section-container">
-      <h2 style="font-size: 2.8em; color: #54e54a;">PharmaCase</h2>
-      <p style="font-size: 1.2em; color: #cfd8dc;">Real-time GMP monitoring. Cleanroom IoT for pharma powered by MITE.</p>
-      <div class="features">
-        <div class="feature-box">
-          <img src="/img/icons/temp.svg" alt="Temp" />
-          <h3 style="color: #48cfff;">24/7 Monitoring</h3>
-          <p>Environmental sensors track critical parameters in real time.</p>
+      <h2 class="section-title">PharmaCase</h2>
+      <p class="section-lead">
+        A real-world digital transformation of a pharmaceutical production site — from manual logs to intelligent automation.
+      </p>
+
+      <div class="before-after">
+        <div class="before spider-card">
+          <h3>Before MITE</h3>
+          <ul>
+            <li>📝 Paper logs for temperature and humidity.</li>
+            <li>⏳ Delayed alarm response — issues found only during audits.</li>
+            <li>🔒 No centralized visibility — every chamber managed separately.</li>
+            <li>📉 Risk of non-compliance with GMP Annex 1 and 21 CFR Part 11.</li>
+          </ul>
         </div>
-        <div class="feature-box">
-          <img src="/img/icons/gmp.svg" alt="GMP" />
-          <h3 style="color: #48cfff;">GMP-Ready</h3>
-          <p>Meets cleanroom standards and ensures audit-ready logs.</p>
-        </div>
-        <div class="feature-box">
-          <img src="/img/icons/cloud.svg" alt="Cloud" />
-          <h3 style="color: #48cfff;">Hybrid Deployment</h3>
-          <p>Cloud or on-premise — your security, your choice.</p>
+
+        <div class="after spider-card">
+          <h3>After MITE IoT</h3>
+          <ul>
+            <li>📡 Wireless IIoT sensors in every zone (chambers, warehouses, cleanrooms).</li>
+            <li>📱 Real-time alarms via Telegram and SCADA panels.</li>
+            <li>📊 Unified dashboard with role-based access and audit logs.</li>
+            <li>🧾 Automatic reports with full compliance and secure cloud backup.</li>
+          </ul>
         </div>
       </div>
-      <div class="benefits" style="background: rgba(255,255,255,0.04);">
-        <h3 style="color: #54e54a;">Why PharmaCase?</h3>
-        <ul style="list-style: none; padding: 0; font-size: 1.1em;">
-          <li>✔️ Wireless IIoT nodes for easy retrofit</li>
-          <li>✔️ Secure logging & 21 CFR Part 11 support</li>
-          <li>✔️ Live notifications via Telegram or SCADA</li>
-          <li>✔️ Full integration with the MITE platform</li>
+
+      <div class="features mite-grid">
+        <div class="feature-box mite-left spider-card">
+          <img src="/img/icons/temp.svg" alt="Monitoring" />
+          <h3 class="mite-icon">24/7 Environmental Monitoring</h3>
+          <p>Track temperature, humidity, and pressure in GMP zones.</p>
+        </div>
+        <div class="feature-box mite-core spider-card">
+          <img class="mite-spider-core" src="/upload/mite-spider-glow-final.webp" alt="MITE Spider" />
+        </div>
+        <div class="feature-box mite-right spider-card">
+          <img src="/img/icons/gmp.svg" alt="Compliance" />
+          <h3 class="mite-icon lsf">GMP & 21 CFR Part 11</h3>
+          <p>Validated data handling with audit trails and calibration control.</p>
+        </div>
+        <div class="feature-box mite-bottom spider-card">
+          <img src="/img/icons/cloud.svg" alt="Cloud" />
+          <h3 class="mite-icon">Hybrid Architecture</h3>
+          <p>Choose between cloud hosting or secure on-premise installation.</p>
+        </div>
+      </div>
+
+      <div class="results spider-card">
+        <h3>Results After Implementation</h3>
+        <ul>
+          <li>✅ 75% faster issue response time (alarms within seconds)</li>
+          <li>✅ Full compliance confirmed during audit with zero remarks</li>
+          <li>✅ >98% data availability uptime across all sensors</li>
+          <li>✅ Saved 3+ FTEs by removing manual reporting burden</li>
         </ul>
       </div>
-      <a href="/request-demo" class="cta" style="background: #54e54a; color: #000;">Request a Demo</a>
+
+      <div class="demo-form">
+        <h2>Want to replicate this success?</h2>
+        <p class="section-lead">We'll contact you personally and show how MITE works in your cleanroom.</p>
+        <form method="POST" action="https://your-form-endpoint.com">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+
+          <button type="submit">Request Consultation</button>
+        </form>
+        <p class="form-note">We'll get back to you within 1 business day.</p>
+      </div>
+
+      <a href="/request-demo" class="cta-button">Request a Demo</a>
     </div>
   </section>
-
-  <section id="pharma-light" class="pharma-case light-mode">
-    <div class="section-container">
-      <h2 style="font-size: 2.8em; color: #2e7d32;">PharmaCase</h2>
-      <p style="font-size: 1.2em; color: #444;">A new standard for IoT monitoring in pharma — compliant, scalable, and cloud-connected.</p>
-      <div class="features">
-        <div class="feature-box">
-          <img src="/img/icons/temp.svg" alt="Temp" />
-          <h3 style="color: #1a237e;">Continuous Monitoring</h3>
-          <p>Stability chambers, cold rooms, clean zones — all under control.</p>
-        </div>
-        <div class="feature-box">
-          <img src="/img/icons/gmp.svg" alt="GMP" />
-          <h3 style="color: #1a237e;">Full Compliance</h3>
-          <p>21 CFR Part 11, GMP Annex 11, ISO cleanroom — preconfigured templates.</p>
-        </div>
-        <div class="feature-box">
-          <img src="/img/icons/cloud.svg" alt="Cloud" />
-          <h3 style="color: #1a237e;">GDPR-Safe Cloud</h3>
-          <p>All data encrypted. No calibration loss. No excuses.</p>
-        </div>
-      </div>
-      <div class="benefits" style="background: #ffffff; box-shadow: 0 0 20px rgba(0,0,0,0.05);">
-        <h3 style="color: #2e7d32;">MITE Inside</h3>
-        <ul style="list-style: none; padding: 0; font-size: 1.1em; color: #333;">
-          <li>✔️ No installation downtime — wireless setup</li>
-          <li>✔️ GMP audits made easy with exports</li>
-          <li>✔️ Real-time dashboards & role-based access</li>
-          <li>✔️ Direct cloud integration with MITE</li>
-        </ul>
-      </div>
-      <a href="/request-demo" class="cta" style="background: #2e7d32; color: #fff;">Book a Demo</a>
-    </div>
-  </section>
-
-  <script>
-    function showCase(mode) {
-      document.querySelectorAll('.pharma-case').forEach(el => el.classList.remove('active'));
-      document.getElementById('pharma-' + mode).classList.add('active');
-    }
-  </script>
 </body>
 </html>
