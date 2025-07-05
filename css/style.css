@@ -317,6 +317,8 @@ input.focused {
   position: relative;
   animation: pulse 4s infinite ease-in-out;
   z-index: 2;
+   max-width: 500px;
+ height: auto;
  /* height: 220px;*/
 }
 
