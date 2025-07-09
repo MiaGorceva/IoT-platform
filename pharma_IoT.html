@@ -1,68 +1,62 @@
-<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PharmaCase | MITE</title>
+  <meta name="description" content="Discover how MITE enabled full GMP compliance, real-time monitoring, and cold chain traceability in pharmaceutical facilities using wireless IoT sensors." />
+  <meta name="keywords" content="Pharma IoT, GMP monitoring, wireless sensors, cold chain compliance, pharmaceutical automation, IIoT, cleanroom monitoring, 21 CFR Part 11" />
+  <meta name="robots" content="index, follow" />
   <link rel="stylesheet" href="css/style.css" />
+ 
+  <!-- Open Graph for social media preview -->
+<meta property="og:title" content="PharmaCase by MITE – Smart IoT for GMP Compliance" />
+<meta property="og:description" content="From paper logs to real-time automation in pharmaceutical GMP zones. Discover the transformation with MITE." />
+<meta property="og:image" content="https://mite.club/upload/pharma-case-IoT.webp" />
+<meta property="og:url" content="https://mite.club/pharma-case.html" />
+<meta property="og:type" content="website" />
+
+<!-- Twitter / Telegram Preview -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PharmaCase by MITE – Smart IoT for GMP Compliance" />
+<meta name="twitter:description" content="Cold chain monitoring and GMP automation made easy with wireless IIoT sensors. See the results." />
+<meta name="twitter:image" content="https://mite.club/upload/pharma-case-IoT.webp" />
+
 </head>
 <body>
 
   <header class="site-header">
-  <div class="header-inner">
-    <div class="nav-logo-block">
-      <a href="/" class="nav-logo-link" title="MITE – Industrial IoT Platform">
-        <img class="nav-logo-img" src="upload/mite-logo-green-w_o-background.webp" alt="IoT for pharma" />
-        <span class="nav-logo-text">MITE – The Future<br>of Industrial IoT</span>
-      </a>
+    <div class="header-inner">
+      <div class="nav-logo-block">
+        <a href="/" class="nav-logo-link" title="MITE – Industrial IoT Platform">
+          <img class="nav-logo-img" src="upload/mite-logo-green-w_o-background.webp" alt="IoT for pharma" />
+          <span class="nav-logo-text">MITE – The Future<br>of Industrial IoT</span>
+        </a>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-menu">
+          <li><a href="#pharma">PharmaCase</a></li>
+          <li><a href="#before-after">Before / After</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#results">Results</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank">Get Started</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav class="main-nav">
-      <ul class="nav-menu">
-        <li class="dropdown"><a href="#">About Us</a>
-          <div class="dropdown-content">
-            <a href="#why">Why MITE?</a>
-            <a href="#how">How It Works?</a>
-            <a href="#highlights">MITE Highlights</a>
-            <a href="#features">Features</a>
-            <a href="#reviews">Reviews</a>
-            <a href="#faq">FAQ</a>
-            <a href="#facts">Facts</a>
-          </div>
-        </li>
-        <li class="dropdown"><a href="#">Services</a>
-          <div class="dropdown-content">
-            <a href="#platform">IIoT Platform</a>
-            <a href="/MITE-ECO.html">MITE-ECO Sensors</a>
-            <a href="/smart-devices">Smart Metering</a>
-          </div>
-        </li>
-        <li><a href="#pricing">Price</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank">Get Started</a></li>
-        <li class="dropdown lang-switch en">
-          <a href="#"><!--<i class="globe-icon lucide lucide-globe" aria-label="Language Switcher"></i>-->
-          <i class="globe-icon" data-lucide="globe"></i></a>
-          <div class="dropdown-content">
-            <a href="/uk" onclick="setLang('uk')">🇺🇦 Ukrainian</a>
-            <a href="/ru" onclick="setLang('ru')">🇷🇺 Russian</a>
-            <a href="/" onclick="setLang('en')">🇬🇧 English</a>
-          </div>
-        </li>
-      </ul>
-    </nav>
-  </div>
-</header>
+  </header>
 
-  <section class="section section-content fade-in">
+  <section id="pharma" class="section section-content fade-in">
+    <div class="section-container">
       <h2 class="section-title">PharmaCase</h2>
       <p class="section-lead">
         A real-world <span class="highlight"> digital transformation of a pharmaceutical</span> production site — from manual logs to intelligent automation.
       </p>
-      <div class="mite-grid">
-       <div class="spider-core" style="grid-area: core;">
-        <img src="upload/pharma-case-IoT.webp" title="PharmaCase Transformation" ></img>
-      </div>
 
-       <div class="spider-card spider-list" style="grid-area: left;">
+      <div class="mite-grid" id="before-after">
+        <div class="spider-core" style="grid-area: core;">
+          <img src="upload/pharma-case-IoT.webp" title="PharmaCase Transformation" />
+        </div>
+
+        <div class="spider-card spider-list" style="grid-area: left;">
           <h3>Before MITE</h3>
           <ul>
             <li>📝 Paper logs for temperature and humidity.</li>
@@ -72,7 +66,7 @@
           </ul>
         </div>
 
-         <div class="spider-card spider-list" style="grid-area: right;">
+        <div class="spider-card spider-list" style="grid-area: right;">
           <h3>After MITE IoT</h3>
           <ul>
             <li>📡 Wireless IIoT sensors in every zone (chambers, warehouses, cleanrooms).</li>
@@ -82,24 +76,24 @@
           </ul>
         </div>
 
-        <div class="spider-card spider-list" style="grid-area: bottom;">
-        <h3>Results After Implementation</h3>
-        <ul>
-          <li>✅ 75% faster issue response time (alarms within seconds)</li>
-          <li>✅ Full compliance confirmed during audit with zero remarks</li>
-          <li>✅ >98% data availability uptime across all sensors</li>
-          <li>✅ Saved 3+ FTEs by removing manual reporting burden</li>
-        </ul>
-      </div>
+        <div class="spider-card spider-list" style="grid-area: bottom;" id="results">
+          <h3>Results After Implementation</h3>
+          <ul>
+            <li>✅ 75% faster issue response time (alarms within seconds)</li>
+            <li>✅ Full compliance confirmed during audit with zero remarks</li>
+            <li>✅ >98% data availability uptime across all sensors</li>
+            <li>✅ Saved 3+ FTEs by removing manual reporting burden</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="how-mite-works">
+      <div class="how-mite-works" id="how">
         <h2 class="section-title">How MITE Works</h2>
         <p class="section-lead">A step-by-step transition to smart GMP compliance</p>
         <div class="step-flow">
           <div class="step-item">
             <div class="step-image">
-              <img src="upload/pharma-step.png" alt="Step 1: Manual system" />
+              <img src="upload/pharma-step.webp" alt="Step 1: Manual system" />
             </div>
             <div class="step-content">
               <h3>Step 1: Identify risk zones </h3>
@@ -112,7 +106,7 @@
           </div>
           <div class="step-item reverse">
             <div class="step-image">
-              <img src="upload/pharma-step2.png" alt="Step 2: Sensor installation" />
+              <img src="upload/pharma-step2.webp" alt="Step 2: Sensor installation" />
             </div>
             <div class="step-content">
               <h3>Step 2: Deploy sensors</h3>
@@ -139,7 +133,7 @@
         </div>
       </div>
 
-      <div class="demo-form">
+      <div class="demo-form" id="contact">
         <h2>Want to replicate this success?</h2>
         <p class="section-lead">We'll contact you personally and show how MITE works in your cleanroom.</p>
         <form method="POST" action="https://your-form-endpoint.com">
@@ -158,7 +152,8 @@
       </div>
 
       <a href="/request-demo" class="cta-button">Request a Demo</a>
+    </div>
   </section>
-    <script src="js/main.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
