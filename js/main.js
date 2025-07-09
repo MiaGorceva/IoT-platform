@@ -136,3 +136,26 @@ document.getElementById('miteForm').addEventListener('submit', function(e) {
       el.classList.add(lang);
     }
   };
+
+    // Highlight active nav link on scroll
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".main-nav .nav-menu li a[href^='#']");
+
+    function onScroll() {
+      let scrollPos = window.scrollY + 80;
+      sections.forEach(section => {
+        const id = section.getAttribute("id");
+        if (
+          scrollPos >= section.offsetTop &&
+          scrollPos < section.offsetTop + section.offsetHeight
+        ) {
+          navLinks.forEach(link => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${id}`) {
+              link.classList.add("active");
+            }
+          });
+        }
+      });
+    }
+    window.addEventListener("scroll", onScroll);

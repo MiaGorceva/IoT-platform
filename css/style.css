@@ -56,6 +56,23 @@ body {
   flex-grow: 1;
 }
 
+.site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background-color: #0a0a0a;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+.main-nav .nav-menu li a.active {
+      color: #54e54a;
+      font-weight: bold;
+      border-bottom: 2px solid #54e54a;
+  }
+
+  html {
+      scroll-behavior: smooth;
+    }
+
 .nav-menu {
   display: flex;
   flex-wrap: wrap;
