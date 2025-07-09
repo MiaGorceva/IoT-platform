@@ -692,13 +692,15 @@ input.focused {
   flex-direction: row-reverse;
 }
 
+
 .step-image img {
-  width: 100%;
-  max-width: 280px;
-  max-height: 190px;
-  border-radius: 12px;
-  box-shadow: 0 0 14px rgba(72, 207, 255, 0.3);
-}
+      width: 100%;
+      max-width: 280px;
+      max-height: 190px;
+      border-radius: 12px;
+      box-shadow: 0 0 14px rgba(72, 207, 255, 0.3);
+      object-fit: contain;
+    }
 
 .step-content {
   flex: 1;
