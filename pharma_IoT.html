@@ -166,7 +166,7 @@
   </section>
 
   <section id="contact" class="section-content fade-in demo-form">
-    <form id="miteForm" class="miteForm" novalidate>
+    <form id="miteForm" class="demo-form" novalidate>
       <h2>Want to replicate this success?</h2>
       <p class="section-lead">We'll contact you personally and show how MITE works in your cleanroom.</p>
       <label for="name">Your Name</label>
@@ -176,10 +176,11 @@
       <input type="email" id="email" name="email" required />
 
       <label for="message">Message</label>
-      <textarea id="message" name="message" rows="4"></textarea>
+      <textarea id="message" name="message" rows="8"></textarea>
 
-      <button type="submit">Request Consultation</button>
-      <p class="form-note">We'll get back to you within 1 business day.</p>
+      <button type="submit" class="cta-button">Request Consultation</button>
+      <p id="form-success" style="display:none; margin-top: 1rem; color: #48cfff;">✅ We'll get back to you within 1 business day.</p>
+    <p id="form-error" style="display:none; margin-top: 1rem; color: yellow;"></p> 
     </form>
   </section>
 
