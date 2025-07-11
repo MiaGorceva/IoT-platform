@@ -180,11 +180,12 @@ a:hover {
       100% { transform: rotate(360deg); }
     }
 
-    .swiper-button-next,
+.swiper-button-next,
 .swiper-button-prev {
   color: #48cfff;
   text-shadow: 0 0 8px #48cfff;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
@@ -783,25 +784,44 @@ input.focused {
   transition: transform 0.3s ease;
   max-width: 320px;
   max-height: 436px;
+
 }
 .case-card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.02);
+  box-shadow: 0 0 16px rgba(84, 229, 74, 0.4);
+  transition: all 0.3s ease;
 }
 .case-card img {
   width: 100%;
-  height: auto;
+  height: 180px;
   border-radius: 12px;
   margin-bottom: 1rem;
   box-shadow: 0 0 14px rgba(72, 207, 255, 0.2);
+  object-fit: cover;
 }
+
 .case-card h3 {
   color: #48cfff;
   margin-bottom: 0.5rem;
   text-shadow: 0 0 6px #48cfff;
 }
 .case-card p {
-  color: #ccc;
-  font-size: 0.95rem;
+  display: -webkit-box;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mini-button {
+  margin-top: 0.5rem;
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #54e54a;
+  text-decoration: underline;
+}
+
+.swiper-pagination-bullet-active {
+  background: #54e54a !important;
 }
 
 .miteForm{
