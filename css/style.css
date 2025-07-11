@@ -672,10 +672,18 @@ input.focused {
       z-index: 2;
     }
 
+
     .step-flow {
   display: flex;
-  flex-direction: column;
-  gap: 3rem;
+  justify-content: space-between;
+  align-items: center; /* центрирует по вертикали */
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.step-content {
+  flex-grow: 1;
+  padding: 1rem 2rem;
 }
 
 .step-item {
@@ -687,6 +695,9 @@ input.focused {
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 0 30px rgba(84, 229, 74, 0.15), 0 0 40px rgba(72, 207, 255, 0.08);
+  flex: 1;
+  min-width: 300px;
+  min-height: 280px;
 }
 
 .step-item.reverse {
@@ -703,10 +714,6 @@ input.focused {
       object-fit: contain;
     }
 
-.step-content {
-  flex: 1;
-  color: #ccc;
-}
 
 .step-content h3 {
   color: #54e54a;
@@ -716,10 +723,6 @@ input.focused {
 .step-content ul {
   padding-left: 1.2rem;
   list-style: none;
-}
-
-.step-content li::marker {
-  color: #48cfff;
 }
 
 .step-cta {
@@ -755,6 +758,15 @@ input.focused {
   }
 }
 
+.step-image {
+  max-width: 280px;
+  flex-shrink: 0;
+  text-align: center;
+}
+.step-content {
+  flex-grow: 1;
+  padding: 1rem 2rem;
+}
 
 .case-studies {
   padding: 4rem 2rem;
@@ -774,6 +786,10 @@ input.focused {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+}
+
+.step-even .step-item {
+  flex-direction: row-reverse;
 }
 .case-card {
   background: rgba(255, 255, 255, 0.03);
