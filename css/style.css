@@ -715,6 +715,7 @@ input.focused {
 
 .step-content ul {
   padding-left: 1.2rem;
+  list-style: none;
 }
 
 .step-content li::marker {
