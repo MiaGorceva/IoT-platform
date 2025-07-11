@@ -159,3 +159,9 @@ document.getElementById('miteForm').addEventListener('submit', function(e) {
       });
     }
     window.addEventListener("scroll", onScroll);
+
+    window.addEventListener("load", function () {
+  if (window.mySwiper) {
+    window.mySwiper.update();
+  }
+});
