@@ -105,6 +105,36 @@ document.getElementById('miteForm').addEventListener('submit', function(e) {
   });
 });
 
+let mySwiper;
+
+  window.addEventListener("load", function () {
+    mySwiper = new Swiper('.case-carousel', {
+      slidesPerView: 1.1,
+      spaceBetween: 20,
+      loop: false,
+      centeredSlides: false,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        }
+      }
+    });
+
+    // Обновим Swiper после полной загрузки
+    mySwiper.update();
+  });
+
     // 🔹 8. Swiper init
     if (typeof Swiper !== 'undefined') {
       const swiper = new Swiper('.swiper', {
@@ -159,9 +189,3 @@ document.getElementById('miteForm').addEventListener('submit', function(e) {
       });
     }
     window.addEventListener("scroll", onScroll);
-
-    window.addEventListener("load", function () {
-  if (window.mySwiper) {
-    window.mySwiper.update();
-  }
-});
