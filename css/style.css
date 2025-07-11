@@ -788,6 +788,11 @@ input.focused {
   gap: 2rem;
 }
 
+.custom-pagination {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
 .step-even .step-item {
   flex-direction: row-reverse;
 }
