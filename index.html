@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="lang-root">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -73,15 +73,12 @@
         <li><a href="#pricing">Price</a></li>
         <li><a href="#contact">Contact Us</a></li>
         <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank">Get Started</a></li>
-        <li class="dropdown lang-switch en">
-          <a href="#"><!--<i class="globe-icon lucide lucide-globe" aria-label="Language Switcher"></i>-->
-          <i class="globe-icon" data-lucide="globe"></i></a>
-          <div class="dropdown-content">
-            <a href="/uk" onclick="setLang('uk')">🇺🇦 Ukrainian</a>
-            <a href="/ru" onclick="setLang('ru')">🇷🇺 Russian</a>
-            <a href="/" onclick="setLang('en')">🇬🇧 English</a>
-          </div>
-        </li>
+        <div class="lang-switch" id="langSwitcher">
+          <button data-lang="en" aria-label="Switch to English">🇬🇧</button>
+          <button data-lang="ru" aria-label="Переключить на русский">🇷🇺</button>
+          <button data-lang="uk" aria-label="Переключити на українську">🇺🇦</button>
+        </div>
+
       </ul>
     </nav>
   </div>

@@ -159,13 +159,39 @@ let mySwiper;
   });
 
   // 🔹 9. Language switcher (global function)
-  window.setLang = function (lang) {
-    const el = document.querySelector('.lang-switch');
-    if (el) {
-      el.classList.remove('en', 'ru', 'uk');
-      el.classList.add(lang);
-    }
-  };
+ // 🔹 Language switcher with memory
+const langButtons = document.querySelectorAll('#langSwitcher button');
+const htmlEl = document.documentElement;
+const langSwitcher = document.getElementById('langSwitcher');
+
+function setLang(lang) {
+  // 1. Добавим нужный класс на блок
+  if (langSwitcher) {
+    langSwitcher.classList.remove('en', 'ru', 'uk');
+    langSwitcher.classList.add(lang);
+  }
+
+  // 2. Обновим lang на <html>
+  htmlEl.lang = lang;
+
+  // 3. Сохраним в localStorage
+  localStorage.setItem('preferredLang', lang);
+}
+
+// 4. Обработка клика по кнопкам
+langButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const selectedLang = button.getAttribute('data-lang');
+    setLang(selectedLang);
+  });
+});
+
+// 5. При загрузке применим сохранённый язык
+const savedLang = localStorage.getItem('preferredLang');
+if (savedLang) {
+  setLang(savedLang);
+}
+
 
     // Highlight active nav link on scroll
     const sections = document.querySelectorAll("section[id]");

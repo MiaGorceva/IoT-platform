@@ -443,11 +443,6 @@ input.focused {
   cursor: grabbing;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
-  cursor: pointer;
-}
-
 /* Highlights grid areas */
 .mite-top    { grid-area: top; }
 .mite-left   { grid-area: left; }
@@ -727,22 +722,6 @@ input.focused {
 
 .step-cta {
   margin-top: 1.5rem;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: #54e54a;
-  color: #000;
-  font-weight: bold;
-  padding: 12px 24px;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-  background-color: #6eff5c;
 }
 
 @media (max-width: 768px) {
