@@ -1,25 +1,37 @@
 <!DOCTYPE html>
 <html lang="en" class="lang-root">
 <head>
-  <meta charset="UTF-8" />
+    <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MITE – The Most Flexible Industrial IoT Platform</title>
+  <title>MITE IIoT Platform — No-Code Automation for Pharma & Logistics</title>
+  <meta name="description" content="MITE is a next-gen IIoT platform for pharma, logistics, and infrastructure. Automate compliance, monitor wirelessly, and scale with zero code." />
+  <meta name="keywords" content="IIoT platform, Pharma automation, GMP compliance, cold chain monitoring, logistics sensors, MITE IoT, no-code SCADA, B2B IIoT, smart factory, 21 CFR Part 11" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="css/style.css" />
+  <!-- Favicon -->
+  <link rel="icon" href="/upload/favicon.png" />
+
+  <!-- Open Graph (Facebook, LinkedIn etc.) -->
+  <meta property="og:title" content="MITE — Next-Gen IIoT for Pharma and Logistics" />
+  <meta property="og:description" content="No-code automation, wireless monitoring, smart alerts, and audit-ready insights. Built for Pharma. Optimized for B2B." />
+  <meta property="og:image" content="mite.club/upload/mite-og.jpg" />
+  <meta property="og:url" content="mite.club/IoT-platform/" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="MITE — IIoT Made for Pharma & Logistics" />
+  <meta name="twitter:description" content="IIoT platform that works out-of-the-box. Automate, monitor and scale your pharma and logistics operations — 100% wireless." />
+  <meta name="twitter:image" content="mite.club/upload/mite-og.jpg" />
+
+  <!-- Swiper + Lucide -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-  <link rel="icon" href="upload/favicon_mite.png" type="image/png"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-
-  <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="MITE – IIoT Platform for Manufacturing, Logistics, Pharma, Construction, and Agriculture">
-  <meta property="og:description" content="Flexible industrial IoT platform for automation, temperature and humidity monitoring, and custom process customisation.">
-  <meta property="og:image" content="https://mite.club/upload/mite-og-preview.webp">
-  <meta property="og:url" content="https://mite.club">
-  <meta property="og:type" content="website">
-
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css" />
+ 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -74,11 +86,11 @@
         <li><a href="#contact">Contact Us</a></li>
         <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank">Get Started</a></li>
         <div class="lang-switch en" id="langSwitcher">
-          <div class="globe-icon"></div>
-          <div class="lang-dropdown">
-            <button data-lang="en">🇬🇧</button>
-            <button data-lang="ru">🇷🇺</button>
-            <button data-lang="uk">🇺🇦</button>
+          <div class="globe-icon" id="globeIcon"></div>
+          <div class="lang-options">
+            <button data-lang="en" aria-label="Switch to English">🇬🇧</button>
+            <button data-lang="ru" aria-label="Переключить на русский">🇷🇺</button>
+            <button data-lang="uk" aria-label="Переключити на українську">🇺🇦</button>
           </div>
         </div>
       </ul>

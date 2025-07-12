@@ -188,13 +188,6 @@ a:hover {
   text-shadow: 0 0 12px #48cfff;
   transform: scale(1.1);
 }
-.lang-switch.en .globe-icon {
-  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #0601f6 40%, #f2112b 70%);
-  -webkit-mask-image: radial-gradient(circle, white 60%, transparent 61%);
-  mask-image: radial-gradient(circle, white 60%, transparent 61%);
-  border-radius: 50%;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-}
 
 .lang-switch.ru .globe-icon {
   background-color: #d52b1e;
@@ -206,7 +199,7 @@ a:hover {
   box-shadow: 0 0 8px #0057b7;
 }
 
-.lang-dropdown {
+/*.lang-dropdown {
   display: none;
   position: absolute;
   background: #111;
@@ -215,16 +208,17 @@ a:hover {
   padding: 0.5rem;
   box-shadow: 0 0 12px rgba(72, 207, 255, 0.2);
   z-index: 999;
-}
-.lang-switch:hover .lang-dropdown {
-  display: block;
-}
-.lang-dropdown button {
+  .lang-dropdown button {
   background: none;
   border: none;
   font-size: 1.1rem;
   cursor: pointer;
   margin: 0.3rem;
+}
+
+}*/
+.lang-switch:hover .lang-dropdown {
+  display: block;
 }
 
 
