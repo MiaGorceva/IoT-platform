@@ -154,11 +154,6 @@ a:hover {
   min-width: none270px;
 }
 
-.lang-switch .fi {
-  font-size: 18px;
-  margin-right: 5px;
-}
-
 .globe-icon {
       width: 24px;
       height: 24px;
@@ -210,6 +205,28 @@ a:hover {
   background-color: #0057b7;
   box-shadow: 0 0 8px #0057b7;
 }
+
+.lang-dropdown {
+  display: none;
+  position: absolute;
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: 0 0 12px rgba(72, 207, 255, 0.2);
+  z-index: 999;
+}
+.lang-switch:hover .lang-dropdown {
+  display: block;
+}
+.lang-dropdown button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin: 0.3rem;
+}
+
 
 /* Hero */
 .hero-banner {
