@@ -158,39 +158,47 @@ let mySwiper;
     }
   });
 
-  // 🔹 9. Language switcher (global function)
- // 🔹 Language switcher with memory
-const langButtons = document.querySelectorAll('#langSwitcher button');
-const htmlEl = document.documentElement;
-const langSwitcher = document.getElementById('langSwitcher');
+  const globeWrap = document.querySelector('.globe-wrap');
+  const langOptions = document.querySelector('.lang-options');
+  const langButtons = document.querySelectorAll('#langSwitcher button');
+  const htmlEl = document.documentElement;
+  const langSwitcher = document.getElementById('langSwitcher');
 
-function setLang(lang) {
-  // 1. Добавим нужный класс на блок
-  if (langSwitcher) {
-    langSwitcher.classList.remove('en', 'ru', 'uk');
-    langSwitcher.classList.add(lang);
+  // Toggle visibility on globe click
+  globeWrap.addEventListener('click', (e) => {
+    e.preventDefault();
+    langOptions.classList.toggle('hidden');
+  });
+
+  // Hide on outside click
+  document.addEventListener('click', (e) => {
+    if (!globeWrap.contains(e.target) && !langOptions.contains(e.target)) {
+      langOptions.classList.add('hidden');
+    }
+  });
+
+  // Set language and remember
+  function setLang(lang) {
+    if (langSwitcher) {
+      langSwitcher.classList.remove('en', 'ru', 'uk');
+      langSwitcher.classList.add(lang);
+    }
+    htmlEl.lang = lang;
+    localStorage.setItem('preferredLang', lang);
   }
 
-  // 2. Обновим lang на <html>
-  htmlEl.lang = lang;
-
-  // 3. Сохраним в localStorage
-  localStorage.setItem('preferredLang', lang);
-}
-
-// 4. Обработка клика по кнопкам
-langButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    const selectedLang = button.getAttribute('data-lang');
-    setLang(selectedLang);
+  langButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedLang = button.getAttribute('data-lang');
+      setLang(selectedLang);
+      langOptions.classList.add('hidden'); // hide after selection
+    });
   });
-});
 
-// 5. При загрузке применим сохранённый язык
-const savedLang = localStorage.getItem('preferredLang');
-if (savedLang) {
-  setLang(savedLang);
-}
+  const savedLang = localStorage.getItem('preferredLang');
+  if (savedLang) {
+    setLang(savedLang);
+  }
 
 
     // Highlight active nav link on scroll

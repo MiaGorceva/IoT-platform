@@ -199,6 +199,37 @@ a:hover {
   box-shadow: 0 0 8px #0057b7;
 }
 
+.lang-switch {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+.lang-options {
+  top: 120%;
+  right: 0;
+  position: absolute;
+}
+
+.lang-options {
+  background: radial-gradient(ellipse at center, #0a0a0a 0%, #111 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 0.5rem 1rem;
+  gap: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+.lang-options button {
+  background: #1a1a1a;
+  border-radius: 6px;
+  padding: 0.4em 0.6em;
+  font-size: 1.1rem;
+  transition: background 0.2s ease;
+}
+.lang-options button:hover {
+  background: #2c2c2c;
+}
+
 /*.lang-dropdown {
   display: none;
   position: absolute;
