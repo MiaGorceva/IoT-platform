@@ -206,11 +206,6 @@ a:hover {
   margin-left: 1rem;
 }
 
-.lang-switch {
-    position: relative;
-    margin-left: 1rem;
-  }
-
   .globe-wrap {
     width: 32px;
     height: 32px;
@@ -271,10 +266,10 @@ a:hover {
   margin: 0.3rem;
 }
 
-}*/
+}
 .lang-switch:hover .lang-dropdown {
   display: block;
-}
+}*/
 
 
 /* Hero */
