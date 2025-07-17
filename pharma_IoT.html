@@ -56,16 +56,18 @@
           <li><a href="#pricing">Price</a></li>
           <li><a href="#contact">Contact Us</a></li>
           <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank">Get Started</a></li>
-          <li class="dropdown lang-switch en">
-            <a href="#">
-              <i class="globe-icon" data-lucide="globe"></i></a>
-          <div class="dropdown-content">
-            <a href="/uk" onclick="setLang('uk')">🇺🇦 Ukrainian</a>
-            <a href="/ru" onclick="setLang('ru')">🇷🇺 Russian</a>
-            <a href="/" onclick="setLang('en')">🇬🇧 English</a>
-          </div>
-          </li>
         </ul>
+          <div class="lang-switch memory" id="langSwitcher">
+          <div class="globe-wrap" aria-label="Language selector" title="Switch language">
+            <div class="globe-icon" id="globeIcon"></div>
+          </div>
+          <div class="dropdown-content hidden">
+            <button data-lang="en" aria-label="Switch to English" href = "#" >🇬🇧</button>
+            <button data-lang="ru" aria-label="Переключить на русский" href = ru/pharma_IoT.html>🇷🇺</button>
+            <button data-lang="uk" aria-label="Переключити на українську" href="uk/pharma_IoT.html">🇺🇦</button>
+             </div>
+        </div>
+      </div>
       </nav>
     </div>
   </header>
