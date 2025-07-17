@@ -146,6 +146,14 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  setTimeout(() => {
+  document.querySelectorAll('.swiper').forEach(swiperEl => {
+    if (swiperEl.swiper) {
+      swiperEl.swiper.update();
+    }
+  });
+}, 600); // через полсекунды после загрузки
+
   // 🔹 9. Highlight active nav link on scroll
   const sections = document.querySelectorAll("section[id]");
   const navLinks = document.querySelectorAll(".main-nav .nav-menu li a[href^='#']");

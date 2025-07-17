@@ -1,3 +1,81 @@
+/* ==== BASE STYLES ==== */
+body {
+  background-color: #0a0a0a;
+  color: grey;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ==== TYPOGRAPHY ==== */
+.section-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #54e54a;
+  text-align: center;
+  margin: 0 auto 1rem auto;
+  text-shadow: 0 8px 8px rgba(72, 207, 255, 0.5), 0 0 10px rgba(84, 229, 74, 0.2);
+  animation: fadeUp 1s ease-out both;
+}
+
+.section-lead {
+  font-size: 1.2rem;
+  color: #ccc;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
+}
+
+.section-content {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ==== HERO ==== */
+.hero-banner {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: radial-gradient(circle, rgba(41,200,83,0.05) 0%, #0a0a0a 100%);
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(41, 200, 83, 0.5);
+}
+
+/* ==== OTHER EXISTING STYLES KEEP UNCHANGED (TRIMMED FOR BREVITY) ==== */
+/* KEEP your .main-nav, .cta-button, .globe-icon, swiper styles, spider styles, form styles, footer styles, etc., AS IS. */
+
+/* ==== ANIMATIONS ==== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 40px rgba(72, 207, 255, 0.2); }
+  50% { box-shadow: 0 0 52px rgba(72, 207, 255, 0.5); }
+  100% { box-shadow: 0 0 60px rgba(72, 207, 255, 0.2); }
+}
+
+@keyframes spiderGlow {
+  0% { filter: drop-shadow(0 0 10px #54e54a); }
+  50% { filter: drop-shadow(0 0 18px #54e54a); }
+  100% { filter: drop-shadow(0 0 10px #54e54a); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+/////////////////////////
 /* Base Styles */
 body {
   background-color: #0a0a0a;
@@ -72,9 +150,6 @@ body {
       border-bottom: 2px solid #54e54a;
   }
 
-  html {
-      scroll-behavior: smooth;
-    }
 
 .nav-menu {
   display: flex;
@@ -231,9 +306,10 @@ a:hover {
     box-shadow: 0 0 10px rgba(0, 255, 150, 0.2);
     position: absolute;
     top: 40px;
-    right: 0;
     z-index: 999;
+    flex-direction:column;
     transition: all 0.3s ease;
+
   }
 
   .lang-options.hidden {
@@ -260,29 +336,6 @@ a:hover {
   align-items: center;
   justify-content: space-between;
 }
-
-
-/*.lang-dropdown {
-  display: none;
-  position: absolute;
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 0.5rem;
-  box-shadow: 0 0 12px rgba(72, 207, 255, 0.2);
-  z-index: 999;
-  .lang-dropdown button {
-  background: none;
-  border: none;
-  font-size: 1.1rem;
-  cursor: pointer;
-  margin: 0.3rem;
-}
-
-}
-.lang-switch:hover .lang-dropdown {
-  display: block;
-}*/
 
 
 /* Hero */
