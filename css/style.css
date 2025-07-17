@@ -738,7 +738,7 @@ input.focused {
     }
 
 
-    .step-flow {
+.step-flow {
   display: flex;
   justify-content: space-between;
   align-items: center; /* центрирует по вертикали */
@@ -760,8 +760,8 @@ input.focused {
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 0 30px rgba(84, 229, 74, 0.15), 0 0 40px rgba(72, 207, 255, 0.08);
-  flex: 1;
-  min-width: 300px;
+  flex: 1 1 300px;
+  max-width: 32%;
   min-height: 280px;
 }
 
