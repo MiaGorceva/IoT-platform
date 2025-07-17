@@ -170,3 +170,17 @@ window.addEventListener('DOMContentLoaded', () => {
 
   window.addEventListener("scroll", onScroll);
 });
+// 🔹 10. Toggle language options
+const globeWrap = document.querySelector('.globe-wrap');
+const langOptions = document.querySelector('.lang-options');
+
+if (globeWrap && langOptions) {
+  globeWrap.addEventListener('click', () => {
+    langOptions.classList.toggle('hidden');
+  });
+  document.addEventListener('click', (e) => {
+    if (!globeWrap.contains(e.target) && !langOptions.contains(e.target)) {
+      langOptions.classList.add('hidden');
+    }
+  });
+}
