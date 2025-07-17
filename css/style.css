@@ -173,6 +173,10 @@ a:hover {
       transform: scale(1.5);
     }
 
+    .globe-wrap:hover {
+  transform: scale(1.1);
+}
+
     @keyframes rotateGlobe {
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
