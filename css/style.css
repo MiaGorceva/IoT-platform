@@ -612,14 +612,15 @@ input.focused {
     }
 
     textarea#message {
-  min-height: 150px;
-  width: 100%;
-  background-color: #1a1a1a;
-  color: #fff;
-  border: 1px solid #444;
-  padding: 10px;
-  resize: vertical;
-}
+    background-color: var(--input-bg, #0f0f0f);
+    color: var(--text-color, #fff);
+    padding: 1rem;
+    border: 1px solid #48cfff;
+    border-radius: 8px;
+    resize: vertical;
+    width: 100%;
+    min-height: 150px;
+  }
 
     .demo-form button:hover {
      /* background-color: #48cfff;*/
