@@ -607,6 +607,16 @@ input.focused {
      /* box-shadow: 0 0 16px rgba(84,229,74,0.3);*/
     }
 
+    textarea#message {
+  min-height: 150px;
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #444;
+  padding: 10px;
+  resize: vertical;
+}
+
     .demo-form button:hover {
      /* background-color: #48cfff;*/
       box-shadow: 0 0 20px rgba(72, 207, 255, 0.5);
@@ -792,6 +802,17 @@ input.focused {
 
 .step-cta {
   margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    background-color: #000;
+  }
+  .nav-menu.open {
+    display: flex;
+  }
 }
 
 @media (max-width: 768px) {
