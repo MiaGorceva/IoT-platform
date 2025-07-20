@@ -565,7 +565,28 @@ input.focused {
 
 .swiper-slide {
   cursor: grab;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: auto;
+  padding: 1rem;
+  background-color: #111;
+  border-radius: 12px;
+  box-shadow: 0 0 24px rgba(0, 255, 255, 0.1);
 }
+
+.swiper-slide h3,
+.swiper-slide p {
+  color: #ccc;
+  text-shadow: 0 0 6px rgba(0, 255, 255, 0.2);
+}
+
+.swiper-slide p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-top: 0.5rem;
+}
+
 .swiper-slide:active {
   cursor: grabbing;
 }
