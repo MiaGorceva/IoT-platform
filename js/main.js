@@ -106,31 +106,27 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // 🔹 8. Swiper init (basic and case-carousel)
-  if (typeof Swiper !== 'undefined') {
-  const caseSwiper = new Swiper('.case-carousel', {
-    slidesPerView: 1.1,
-    spaceBetween: 20,
-    loop: false,
-    centeredSlides: false,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      640: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 },
-    }
-  });
 
-  // optional update
-  setTimeout(() => {
-    caseSwiper.update();
-  }, 600);
-}
+  const caseSwiper = new Swiper('.case-carousel', {
+  slidesPerView: 1.1,
+  spaceBetween: 20,
+  loop: false,
+  centeredSlides: false,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  breakpoints: {
+    640: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+  },
+  watchOverflow: true, // ✅ avoids empty scrolling
+});
+
 
   // 🔹 9. Highlight active nav link on scroll
   const sections = document.querySelectorAll("section[id]");

@@ -956,7 +956,7 @@ input.focused {
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease;
   max-width: 320px;
-  max-height: 436px;
+  min-height: 436px;
   height: 100%;
   box-sizing: border-box;
   display: flex;
@@ -965,6 +965,7 @@ input.focused {
   position: relative;
   padding-bottom: 3rem; /* резерв под кнопку */
 }
+
 
 .case-card a {
   position: absolute;
@@ -1013,6 +1014,7 @@ input.focused {
   left: 0;
   width: 100%;
   text-align: center;
+  align-items: stretch;
 }
 
 .swiper-pagination-bullet {
