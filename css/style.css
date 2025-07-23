@@ -951,12 +951,10 @@ input.focused {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(84, 229, 74, 0.15);
   border-radius: 16px;
-  padding: 1.5rem;
   box-shadow: 0 0 30px rgba(84, 229, 74, 0.12), 0 0 40px rgba(72, 207, 255, 0.08);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease;
   max-width: 320px;
-  min-height: 436px;
   height: 100%;
   box-sizing: border-box;
   display: flex;
@@ -964,6 +962,7 @@ input.focused {
   justify-content: space-between;
   position: relative;
   padding-bottom: 3rem; /* резерв под кнопку */
+  min-height: 460px; /* or max height of tallest card */
 }
 
 
