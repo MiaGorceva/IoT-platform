@@ -945,6 +945,8 @@ input.focused {
 .step-even .step-item {
   flex-direction: row-reverse;
 }
+
+
 .case-card {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(84, 229, 74, 0.15);
@@ -999,16 +1001,36 @@ input.focused {
   overflow: hidden;
 }
 
+.case-carousel {
+  padding-bottom: 3rem; /* чтобы было место для точек */
+  position: relative;
+}
+
+/* 🔘 Fix pagination */
+.case-carousel .swiper-pagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #54e54a;
+  opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #54e54a !important;
+}
+
 .mini-button {
   margin-top: 0.5rem;
   display: inline-block;
   font-size: 0.85rem;
   color: #54e54a;
   text-decoration: underline;
-}
-
-.swiper-pagination-bullet-active {
-  background: #54e54a !important;
 }
 
 .swiper-wrapper {

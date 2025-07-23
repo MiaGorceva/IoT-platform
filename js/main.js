@@ -107,52 +107,30 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // 🔹 8. Swiper init (basic and case-carousel)
   if (typeof Swiper !== 'undefined') {
-    new Swiper('.swiper', {
-      loop: true,
-      spaceBetween: 24,
-      slidesPerView: 1.2,
-      centeredSlides: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        768: { slidesPerView: 2.5 },
-        1024: { slidesPerView: 3.2 },
-      }
-    });
-
-    const caseSwiper = new Swiper('.case-carousel', {
-      slidesPerView: 1.1,
-      spaceBetween: 20,
-      loop: false,
-      centeredSlides: false,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }
-    });
-  }
-
-  setTimeout(() => {
-  document.querySelectorAll('.swiper').forEach(swiperEl => {
-    if (swiperEl.swiper) {
-      swiperEl.swiper.update();
+  const caseSwiper = new Swiper('.case-carousel', {
+    slidesPerView: 1.1,
+    spaceBetween: 20,
+    loop: false,
+    centeredSlides: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    breakpoints: {
+      640: { slidesPerView: 2 },
+      1024: { slidesPerView: 3 },
     }
   });
-}, 600); // через полсекунды после загрузки
+
+  // optional update
+  setTimeout(() => {
+    caseSwiper.update();
+  }, 600);
+}
 
   // 🔹 9. Highlight active nav link on scroll
   const sections = document.querySelectorAll("section[id]");
