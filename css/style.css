@@ -75,7 +75,7 @@ html {
   50% { transform: scale(1.05); opacity: 0.9; }
   100% { transform: scale(1); opacity: 1; }
 }
-/////////////////////////
+
 /* Base Styles */
 body {
   background-color: #0a0a0a;
@@ -937,10 +937,14 @@ input.focused {
   gap: 2rem;
 }
 
-.custom-pagination {
-  margin-top: 1.5rem;
+
+.case-pagination {
   text-align: center;
+  margin-top: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
+
 
 .step-even .step-item {
   flex-direction: row-reverse;

@@ -125,8 +125,14 @@ window.addEventListener('DOMContentLoaded', () => {
     1024: { slidesPerView: 3 },
   },
   watchOverflow: true, // ✅ avoids empty scrolling
+  slidesPerGroupAuto: true,
+  centeredSlides: false,
 });
 
+pagination: {
+  el: '.case-pagination',
+  clickable: true,
+},
 
   // 🔹 9. Highlight active nav link on scroll
   const sections = document.querySelectorAll("section[id]");
