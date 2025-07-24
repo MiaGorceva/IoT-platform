@@ -128,12 +128,11 @@
   watchOverflow: true, // ✅ avoids empty scrolling
   slidesPerGroupAuto: true,
   centeredSlides: false,
-});
-
-pagination: {
+  pagination: {
   el: '.case-pagination',
   clickable: true,
 },
+});
 
   // 🔹 9. Highlight active nav link on scroll
   const sections = document.querySelectorAll("section[id]");
