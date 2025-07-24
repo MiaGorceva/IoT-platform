@@ -271,18 +271,18 @@ a:hover {
   transform: scale(1.1);
 }
 
-.case-nav {
+/*.case-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-}
+}*/
 
-.swiper-button-prev.case-nav {
+.swiper-button-prev {
   left: -40px;
 }
 
-.swiper-button-next.case-nav {
+.swiper-button-next {
   right: -40px;
 }
 
