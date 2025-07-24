@@ -502,12 +502,13 @@ input.focused {
     "left   core   right"
     "extra  core    far"
     "bottom-l   bottom    bottom-r";
-  grid-template-columns: 1fr auto 1fr;
+ /* grid-template-columns: 1fr auto 1fr;*/
   grid-template-rows: auto auto auto auto;
   gap: 2rem;
   place-items: center;
   margin-top: 3rem;
   position: relative;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
 }
 
 .carousel {
