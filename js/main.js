@@ -109,6 +109,7 @@
   // 🔹 8. Swiper init (basic and case-carousel)
 
   const caseSwiper = new Swiper('.case-carousel', {
+      slidesPerGroup: 1,
       loop: true, // <-- обязательно true
       watchOverflow: false, // отключить
       slidesPerView: 1.1,
