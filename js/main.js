@@ -1,6 +1,7 @@
 // 🔹 JS Cleaned: Removed dynamic language switching logic
 
-window.addEventListener('DOMContentLoaded', () => {
+//window.addEventListener('DOMContentLoaded', () => {
+  window.addEventListener('load', () => {
   // 🔹 1. Lucide icons init
   if (window.lucide) {
     lucide.createIcons();
