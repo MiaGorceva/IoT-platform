@@ -109,25 +109,27 @@
   // 🔹 8. Swiper init (basic and case-carousel)
 
   const caseSwiper = new Swiper('.case-carousel', {
-      slidesPerGroup: 1,
-      loop: true, // <-- обязательно true
-      watchOverflow: false, // отключить
-      slidesPerView: 1.1,
-      spaceBetween: 20,
-      centeredSlides: false,
-      pagination: {
-        el: '.case-pagination',
-        clickable: true,
+    loop: true,
+    slidesPerView: 1.2, // или auto
+    spaceBetween: 24,
+    centeredSlides: true,
+    pagination: {
+      el: '.case-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+      640: {
+        slidesPerView: 2.2,
       },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      breakpoints: {
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+      1024: {
+        slidesPerView: 3,
       }
-    });
+    }
+  });
 
   // 🔹 9. Highlight active nav link on scroll
   const sections = document.querySelectorAll("section[id]");
