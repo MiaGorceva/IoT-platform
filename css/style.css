@@ -271,6 +271,21 @@ a:hover {
   transform: scale(1.1);
 }
 
+.case-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.swiper-button-prev.case-nav {
+  left: -40px;
+}
+
+.swiper-button-next.case-nav {
+  right: -40px;
+}
+
 .lang-switch.ru .globe-icon {
   background-color: #d52b1e;
   box-shadow: 0 0 8px #d52b1e;
