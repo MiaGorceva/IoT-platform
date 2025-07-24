@@ -113,6 +113,8 @@
     slidesPerView: 1.2, // или auto
     spaceBetween: 24,
     centeredSlides: true,
+    loopedSlides: 3,
+    watchSlidesProgress: true,
     pagination: {
       el: '.case-pagination',
       clickable: true,
