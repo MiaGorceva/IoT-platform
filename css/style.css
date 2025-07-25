@@ -841,61 +841,88 @@ input.focused {
 
 .step-flow {
   display: flex;
-  align-items: center; /* центрирует по вертикали */
-  gap: 2rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 3rem;
+  margin-top: 2rem;
 }
 
-.step-content {
-  flex-grow: 1;
-  padding: 1rem 2rem;
-}
+/* Для шлейфа: разные задержки */
+.step-item:nth-child(1) { transition-delay: 0.1s; }
+.step-item:nth-child(2) { transition-delay: 0.4s; }
+.step-item:nth-child(3) { transition-delay: 0.7s; }
 
 .step-item {
   display: flex;
-  flex-direction: column; /* Упрощает вертикальное выравнивание */
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  gap: 1.5rem;
+  gap: 2rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 0 30px rgba(84, 229, 74, 0.15), 0 0 40px rgba(72, 207, 255, 0.08);
-  width: 100%;
-  max-width: 420px;
-  min-height: 420px; /* фиксированная высота, чтобы не прыгали */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.step-item.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .step-item.reverse {
   flex-direction: row-reverse;
 }
 
-
 .step-image img {
-      width: 100%;
-      height: auto;
-      max-width: 240px;
-      max-height: 160px;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 0 14px rgba(72, 207, 255, 0.3);
-    }
+  width: 100%;
+  max-width: 260px;
+  max-height: 180px;
+  border-radius: 12px;
+  box-shadow: 0 0 14px rgba(72, 207, 255, 0.3);
+  object-fit: contain;
+}
 
+.step-content {
+  flex: 1;
+  padding: 1rem 0;
+}
 
 .step-content h3 {
   color: #54e54a;
-  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
 }
 
 .step-content ul {
-  padding-left: 1.2rem;
   list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.step-content ul li {
+  margin-bottom: 0.5rem;
+  color: #ccc;
 }
 
 .step-cta {
   margin-top: 1.5rem;
+}
+
+.step-indicator {
+  background: #54e54a;
+  color: #000;
+  font-weight: bold;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px #54e54a88;
 }
 
 @media (max-width: 768px) {
