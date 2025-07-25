@@ -477,8 +477,9 @@ input.focused {
 }
 
 .spider-core img{
-  max-width: 350px;
+ /* max-width: 350px;*/
  height: auto;
+ border-radius: 12px;
 }
 
 .mite-grid {
@@ -526,7 +527,7 @@ input.focused {
     }
     .carousel-item img {
       width: 100%;
-      border-radius: 8px;
+      border-radius: 12px;
       margin-bottom: 1rem;
     }
     .carousel h3 {
