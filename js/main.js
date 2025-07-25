@@ -27,7 +27,7 @@
     });
   }, { threshold: 0.2 });
 
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  document.querySelectorAll('.fade-in, .step-item').forEach(el => observer.observe(el));
 
   // 🔹 4. Input focus effect for demo form
   document.querySelectorAll('.mini-demo-form input').forEach(input => {
@@ -171,14 +171,3 @@ if (globeWrap && langOptions) {
     }
   });
 }
-
-// 11. for steps 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.2 });
-
-document.querySelectorAll('.step-item').forEach(el => observer.observe(el));
