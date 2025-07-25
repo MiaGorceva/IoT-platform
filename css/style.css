@@ -842,10 +842,8 @@ input.focused {
       z-index: 2;
     }
 
-
 .step-flow {
   display: flex;
-  justify-content: space-between;
   align-items: center; /* центрирует по вертикали */
   gap: 2rem;
   flex-wrap: wrap;
@@ -858,16 +856,19 @@ input.focused {
 
 .step-item {
   display: flex;
+  flex-direction: column; /* Упрощает вертикальное выравнивание */
   align-items: center;
-  gap: 2rem;
+  justify-content: flex-start;
+  text-align: center;
+  gap: 1.5rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 2rem;
   box-shadow: 0 0 30px rgba(84, 229, 74, 0.15), 0 0 40px rgba(72, 207, 255, 0.08);
-  flex: 1 1 300px;
-  max-width: 32%;
-  min-height: 280px;
+  width: 100%;
+  max-width: 420px;
+  min-height: 420px; /* фиксированная высота, чтобы не прыгали */
 }
 
 .step-item.reverse {
@@ -877,11 +878,12 @@ input.focused {
 
 .step-image img {
       width: 100%;
-      max-width: 280px;
-      max-height: 190px;
+      height: auto;
+      max-width: 240px;
+      max-height: 160px;
+      object-fit: contain;
       border-radius: 12px;
       box-shadow: 0 0 14px rgba(72, 207, 255, 0.3);
-      object-fit: contain;
     }
 
 
