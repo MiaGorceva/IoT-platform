@@ -257,13 +257,6 @@ a:hover {
       100% { transform: rotate(360deg); }
     }
 
-.swiper-button-next,
-.swiper-button-prev {
-  color: #48cfff;
-  text-shadow: 0 0 8px #48cfff;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
   color: #48cfff;
@@ -271,19 +264,22 @@ a:hover {
   transform: scale(1.1);
 }
 
-/*.case-nav {
-  position: absolute;
-  top: 50%;
+.swiper-button-prev,
+.swiper-button-next {
+  top: 40%;
   transform: translateY(-50%);
-  z-index: 10;
-}*/
+  width: 36px;
+  height: 36px;
+  background-color: transparent;
+  color: #48cfff;
+}
 
 .swiper-button-prev {
-  left: -40px;
+  left: 8px; /* было -40px */
 }
 
 .swiper-button-next {
-  right: -40px;
+  right: 8px; /* было -40px */
 }
 
 .lang-switch.ru .globe-icon {
@@ -1047,6 +1043,11 @@ input.focused {
   width: 100%;
   text-align: center;
   align-items: stretch;
+}
+
+.case-carousel.swiper {
+  padding: 0 20px; /* Убирает обрезание карточек */
+  overflow: visible; /* Карточки выходят за пределы - видно */
 }
 
 .swiper-pagination-bullet {
