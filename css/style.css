@@ -587,6 +587,7 @@ input.focused {
   box-shadow: 0 0 24px rgba(0, 255, 255, 0.1);
 }
 
+
 .swiper-slide h3,
 .swiper-slide p {
   color: #ccc;
@@ -1065,8 +1066,8 @@ input.focused {
 }
 
 .case-carousel {
-  padding-bottom: 3rem; /* чтобы было место для точек */
-  position: relative;
+  padding-left: 0 !important;  /* чтобы не съезжало */
+  overflow: visible; /* обязательно */
 }
 
 /* 🔘 Fix pagination */
