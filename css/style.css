@@ -576,15 +576,16 @@ input.focused {
 }
 
 .swiper-slide {
-  cursor: grab;
+ /* cursor: grab;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: auto;
+  
   padding: 1rem;
   background-color: #111;
   border-radius: 12px;
-  box-shadow: 0 0 24px rgba(0, 255, 255, 0.1);
+  box-shadow: 0 0 24px rgba(0, 255, 255, 0.1);*/
+  height: auto;
 }
 
 
@@ -1004,7 +1005,6 @@ input.focused {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(84, 229, 74, 0.15);
   border-radius: 16px;
-  padding: 1.5rem;
   box-shadow: 0 0 30px rgba(84, 229, 74, 0.12), 0 0 40px rgba(72, 207, 255, 0.08);
   backdrop-filter: blur(10px);
   transition: transform 0.3s ease;
@@ -1014,7 +1014,7 @@ input.focused {
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  padding-bottom: 3rem;
+  padding: 1.5rem 1.5rem 3rem; /* одно значение вместо 2 padding-ов */
   min-height: 440px; /* ключевой фикс */
   box-sizing: border-box;
 }
@@ -1066,8 +1066,8 @@ input.focused {
 }
 
 .case-carousel {
-  padding-left: 0 !important;  /* чтобы не съезжало */
-  overflow: visible; /* обязательно */
+  padding: 0 24px;
+  overflow: visible;
 }
 
 /* 🔘 Fix pagination */
