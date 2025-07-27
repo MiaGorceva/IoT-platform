@@ -110,9 +110,9 @@
 
   const caseSwiper = new Swiper('.case-carousel', {
     loop: true,
-    slidesPerView: 1,
     spaceBetween: 24,
-    centeredSlides: false,
+    slidesPerView: 'auto',
+    centeredSlides: false,  
     pagination: {
       el: '.case-pagination',
       clickable: true,
@@ -121,20 +121,6 @@
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-    breakpoints: {
-      480: {
-        slidesPerView: 2,
-      },
-      768: {
-        slidesPerView: 3,
-      },
-      1024: {
-        slidesPerView: 4,
-      },
-      1400: {
-        slidesPerView: 5,
-      }
-    }
   });
 
 
