@@ -575,19 +575,6 @@ input.focused {
   box-shadow: 0 0 20px rgba(72, 207, 255, 0.3);
 }
 
-.swiper-slide {
- /* cursor: grab;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  
-  padding: 1rem;
-  background-color: #111;
-  border-radius: 12px;
-  box-shadow: 0 0 24px rgba(0, 255, 255, 0.1);*/
-  height: auto;
-}
-
 
 .swiper-slide h3,
 .swiper-slide p {
@@ -1078,9 +1065,9 @@ input.focused {
 }
 
 .case-carousel {
-  padding: 0 24px;
-  overflow: visible;
+  padding: 2rem 0;
 }
+
 
 /* 🔘 Fix pagination */
 .case-carousel .swiper-pagination {
@@ -1118,6 +1105,14 @@ input.focused {
 .swiper-wrapper {
   display: flex;
   align-items: stretch;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  min-width: 300px;
 }
 
 .miteForm{
