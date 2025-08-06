@@ -173,3 +173,4 @@ if (globeWrap && langOptions) {
       if (localStorage.getItem("cookiesAccepted") === "true") {
         document.getElementById("cookie-banner").style.display = "none";
       }
+    });
