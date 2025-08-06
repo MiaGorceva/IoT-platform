@@ -361,7 +361,7 @@ a:hover {
   padding: 3rem 2rem;
  /* max-width: 1000px;*/
   margin: auto;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 .section-content h2,
@@ -789,7 +789,7 @@ input.focused {
       padding: 4rem 2rem;
     /*  max-width: 1200px;*/
       margin: auto;
-      text-align: center;
+     /* text-align: center;*/
       position: relative;
     }
     .how-mite-works::before {
@@ -825,11 +825,13 @@ input.focused {
   flex-direction: column;
   gap: 3rem;
   margin-top: 2rem;
+  align-items: center;
 }
 
 .step-item {
   display: flex;
   align-items: center;
+  justify-content: center; /* NEW — центрирование */
   gap: 2rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1041,7 +1043,6 @@ input.focused {
   margin-bottom: 0.5rem;
   text-shadow: 0 0 6px #48cfff;
   font-size: 1.1rem;
-  text-align: left;
 }
 .case-card p {
   flex-grow: 1;
