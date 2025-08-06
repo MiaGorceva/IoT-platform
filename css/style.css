@@ -904,7 +904,7 @@ input.focused {
   height: 12px;
   background: #54e54a;
   border-radius: 50%;
-  box-shadow: 0 0 8px #54e54a;
+  box-shadow: 0 0 4px #54e54a;
 }
 .step-connector .line {
   width: 2px;
@@ -986,11 +986,6 @@ input.focused {
   margin-top: 1.5rem;
   position: relative;
   z-index: 1;
-}
-
-
-.step-even .step-item {
-  flex-direction: row-reverse;
 }
 
 
