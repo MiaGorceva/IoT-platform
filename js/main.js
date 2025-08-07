@@ -166,18 +166,22 @@ if (globeWrap && langOptions) {
 
 //Cookies
   document.addEventListener('DOMContentLoaded', () => {
-    const cookieBanner = document.getElementById('cookie-banner');
-    const cookieAccepted = localStorage.getItem('cookiesAccepted');
+    const banner = document.getElementById('cookie-banner');
+    const acceptBtn = document.getElementById('cookie-accept');
 
-    if (!cookieAccepted && cookieBanner) {
-      cookieBanner.style.display = 'flex';
+    // Показываем баннер, если пользователь ещё не согласился
+    if (!localStorage.getItem('cookiesAccepted')) {
+      banner.style.display = 'flex';
     }
 
-    const acceptButton = document.getElementById('cookie-accept');
-    if (acceptButton) {
-      acceptButton.addEventListener('click', () => {
-        localStorage.setItem('cookiesAccepted', 'true');
-        cookieBanner.style.display = 'none';
-      });
+    // Обработка нажатия
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', 'true');
+      banner.style.display = 'none';
+    });
+
+    // Иконки Lucide (если нужно)
+    if (window.lucide) {
+      lucide.createIcons();
     }
   });
