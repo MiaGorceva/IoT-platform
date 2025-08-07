@@ -164,13 +164,14 @@ if (globeWrap && langOptions) {
 }
 
 //Cookies
-    function acceptCookies() {
-      localStorage.setItem("cookiesAccepted", "true");
-      document.getElementById("cookie-banner").style.display = "none";
-    }
+   const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAccepted = localStorage.getItem('cookiesAccepted');
 
-    window.addEventListener("DOMContentLoaded", () => {
-      if (localStorage.getItem("cookiesAccepted") === "true") {
-        document.getElementById("cookie-banner").style.display = "none";
-      }
-    });
+  if (!cookieAccepted) {
+    cookieBanner.style.display = 'flex';
+  }
+
+  document.getElementById('cookie-accept').addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', true);
+    cookieBanner.style.display = 'none';
+  });
