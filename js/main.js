@@ -3,9 +3,10 @@
 //window.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('load', () => {
   // 🔹 1. Lucide icons init
-  if (window.lucide) {
-    lucide.createIcons();
-  }
+  // Обновим иконки, если Lucide доступен
+    if (window.lucide) {
+      lucide.createIcons();
+    }
 
   // 🔹 2. Smooth scrolling for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -164,14 +165,19 @@ if (globeWrap && langOptions) {
 }
 
 //Cookies
-   const cookieBanner = document.getElementById('cookie-banner');
-  const cookieAccepted = localStorage.getItem('cookiesAccepted');
+  document.addEventListener('DOMContentLoaded', () => {
+    const cookieBanner = document.getElementById('cookie-banner');
+    const cookieAccepted = localStorage.getItem('cookiesAccepted');
 
-  if (!cookieAccepted) {
-    cookieBanner.style.display = 'flex';
-  }
+    if (!cookieAccepted && cookieBanner) {
+      cookieBanner.style.display = 'flex';
+    }
 
-  document.getElementById('cookie-accept').addEventListener('click', () => {
-    localStorage.setItem('cookiesAccepted', true);
-    cookieBanner.style.display = 'none';
+    const acceptButton = document.getElementById('cookie-accept');
+    if (acceptButton) {
+      acceptButton.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieBanner.style.display = 'none';
+      });
+    }
   });
