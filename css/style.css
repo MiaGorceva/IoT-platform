@@ -865,7 +865,7 @@ input.focused {
       top: 10%;
       left: 50%;
       transform: translateX(-50%);
-      background: url('/upload/mite-spider-glow-final.webp') no-repeat center center;
+      background: url('upload/mite-spider-glow-final.webp') no-repeat center center;
       background-size: 400px;
       opacity: 0.05;
       width: 400px;
