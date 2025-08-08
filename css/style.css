@@ -787,7 +787,7 @@ input.focused {
   font-size: 0.9rem;
 }
 
-.cookie-banner button {
+.cookie-banner .button {
   background: transparent;
   border: 1px solid #48cfff;
   color: #48cfff;
