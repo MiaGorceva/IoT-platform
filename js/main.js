@@ -179,9 +179,4 @@ if (globeWrap && langOptions) {
       localStorage.setItem('cookiesAccepted', 'true');
       banner.style.display = 'none';
     });
-
-    // Иконки Lucide (если нужно)
-    if (window.lucide) {
-      lucide.createIcons();
-    }
   });
