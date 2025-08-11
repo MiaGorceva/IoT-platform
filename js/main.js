@@ -137,3 +137,17 @@ document.addEventListener('DOMContentLoaded', () => {
   })();
 });
 window.addEventListener('scroll', onScroll, { passive: true });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const banner = document.getElementById('cookie-banner');
+  const btn = document.getElementById('cookie-accept');
+
+  if (!localStorage.getItem('cookiesAccepted')) {
+    banner.style.display = 'flex';
+  }
+
+  btn.addEventListener('click', () => {
+    localStorage.setItem('cookiesAccepted', 'true');
+    banner.style.display = 'none';
+  });
+});
