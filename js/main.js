@@ -1,24 +1,39 @@
-// === icons ===
-function refreshIcons() {
+window.addEventListener('DOMContentLoaded', () => {
+  // 1) Lucide иконки
   if (window.lucide && typeof lucide.createIcons === 'function') {
     lucide.createIcons();
   }
-}
-document.addEventListener('DOMContentLoaded', refreshIcons);
-window.addEventListener('load', refreshIcons);
 
-// === smooth scroll ===
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const id = a.getAttribute('href');
-      const target = document.querySelector(id);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
+  // 2) Активная ссылка в хедере при скролле (чтобы не падало, если секций нет)
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll(".main-nav .nav-menu li a[href^='#']");
+  function onScroll() {
+    const y = window.scrollY + 80;
+    sections.forEach(s => {
+      const id = s.id;
+      if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
       }
     });
-  });
+  }
+  if (sections.length && navLinks.length) {
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // 3) Cookie‑баннер
+  const banner = document.getElementById('cookie-banner');
+  const accept = document.getElementById('cookie-accept');
+  if (banner && accept) {
+    if (!localStorage.getItem('cookiesAccepted')) {
+      banner.classList.add('show');
+    }
+    accept.addEventListener('click', () => {
+      localStorage.setItem('cookiesAccepted', '1');
+      banner.classList.remove('show');
+    });
+  }
+});
 
   // === fade-in ===
   const io = new IntersectionObserver((entries) => {
@@ -118,36 +133,3 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
-  // === Cookie banner ===
-  (function initCookieBanner() {
-    const banner = document.getElementById('cookie-banner');
-    const acceptBtn = document.getElementById('cookie-accept');
-    if (!banner || !acceptBtn) return;
-
-    if (!localStorage.getItem('cookiesAccepted')) {
-      banner.style.display = 'flex';
-      refreshIcons(); // если в баннере есть иконки Lucide
-    }
-
-    acceptBtn.addEventListener('click', () => {
-      localStorage.setItem('cookiesAccepted', 'true');
-      banner.style.display = 'none';
-    });
-  })();
-});
-window.addEventListener('scroll', onScroll, { passive: true });
-
-document.addEventListener('DOMContentLoaded', () => {
-  const banner = document.getElementById('cookie-banner');
-  const btn = document.getElementById('cookie-accept');
-
-  if (!localStorage.getItem('cookiesAccepted')) {
-    banner.style.display = 'flex';
-  }
-
-  btn.addEventListener('click', () => {
-    localStorage.setItem('cookiesAccepted', 'true');
-    banner.style.display = 'none';
-  });
-});
