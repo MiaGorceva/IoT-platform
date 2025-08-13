@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html lang="en" class="lang-root">
 <head>
-    <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MITE IIoT Platform — No-Code Automation for Pharma & Logistics</title>
   <meta name="description" content="MITE is a next-gen IIoT platform for pharma, logistics, and infrastructure. Automate compliance, monitor wirelessly, and scale with zero code." />
@@ -12,7 +11,7 @@
   <!-- Favicon -->
   <link rel="icon" href="/upload/favicon_mite.png" />
 
-  <!-- Open Graph (Facebook, LinkedIn etc.) -->
+  <!-- Open Graph -->
   <meta property="og:title" content="MITE — Next-Gen IIoT for Pharma and Logistics" />
   <meta property="og:description" content="No-code automation, wireless monitoring, smart alerts, and audit-ready insights. Built for Pharma. Optimized for B2B." />
   <meta property="og:image" content="https://mite.club/upload/mite-og.jpg" />
@@ -23,17 +22,16 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="MITE — IIoT Made for Pharma & Logistics" />
   <meta name="twitter:description" content="IIoT platform that works out-of-the-box. Automate, monitor and scale your pharma and logistics operations — 100% wireless." />
-  <meta name="twitter:image" content="mite.club/upload/mite-og.jpg" />
+  <meta name="twitter:image" content="https://mite.club/upload/mite-og.jpg" />
 
-  <!-- Swiper + Lucide -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Libs -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="js/main.js" defer></script>
+  <script src="js/main.js" defer></script>
 
-
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css" />
- 
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -48,14 +46,13 @@
     ],
     "description": "MITE is an Industrial IoT (IIoT) platform for real-time temperature and humidity monitoring, smart metering, and automation in manufacturing, logistics, pharma, agriculture, and warehousing. Offers a scalable, customisable hardware + software solution. Enables unique business processes to be deployed in hours. Fully compliant with industry regulations.",
     "foundingDate": "2019",
-    "address": {
-      "addressCountry": "PT"
-    }
+    "address": { "addressCountry": "PT" }
   }
   </script>
 </head>
 
 <body>
+<!-- ================= HEADER ================= -->
 <header class="site-header">
   <div class="header-inner">
     <div class="nav-logo-block">
@@ -64,299 +61,307 @@
         <span class="nav-logo-text">MITE – The Future<br>of Industrial IoT</span>
       </a>
     </div>
-      <nav class="main-nav" aria-label="Main Navigation">
-        <ul class="nav-menu">
-          <li class="dropdown">
-            <a href="#" aria-haspopup="true" aria-expanded="false">About MITE</a>
-            <div class="dropdown-content">
-              <a href="#why" title="Why choose MITE IoT Platform for your industry">Why MITE?</a>
-              <a href="#how" title="How MITE IoT Works">How It Works?</a>
-              <a href="#highlights" title="Main Benefits and Capabilities of MITE">MITE Highlights</a>
-              <a href="#features" title="Industrial IoT Platform Features for B2B">Platform Features</a>
-              <a href="#reviews" title="What Clients Say about MITE">Client Reviews</a>
-              <a href="#faq" title="Frequently Asked Questions about MITE Platform">FAQ</a>
-              <a href="#facts" title="Key Facts and Performance Metrics">Platform Facts</a>
-            </div>
-          </li>
-          <li class="dropdown">
-            <a href="#" aria-haspopup="true" aria-expanded="false">Solutions</a>
-            <div class="dropdown-content">
-              <a href="#platform" title="Full IIoT Platform for Industrial Use">IIoT Platform</a>
-              <a href="/MITE-ECO.html" title="Wireless Environmental Sensors for Cleanrooms">MITE-ECO Sensors</a>
-              <a href="/smart-devices" title="Smart Metering for Utilities and Assets">Smart Metering</a>
-            </div>
-          </li>
-          <li><a href="#pricing" title="Pricing for MITE Platform and Services">Pricing</a></li>
-          <li><a href="#contact" title="Contact MITE Team">Contact Us</a></li>
-          <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank" title="Book a Demo with MITE">Get Started</a></li>
-          <li class="lang-switch">
-            <div class="globe-wrap" aria-label="Language selector" title="Switch language">
-              <div class="globe-icon"></div>
-            </div>
-            <div class="lang-options hidden">
-              <a href="#" aria-label="English">🇬🇧</a>
-              <a href="ru/index.html" aria-label="Русский">🇷🇺</a>
-              <a href="uk/index.html" aria-label="Українська">🇺🇦</a>
-            </div>
-          </li>
 
-        </ul>
-      </nav>
+    <nav class="main-nav" aria-label="Main Navigation">
+      <ul class="nav-menu">
+        <li class="dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">About MITE</a>
+          <div class="dropdown-content">
+            <a href="#why" title="Why choose MITE IoT Platform for your industry">Why MITE?</a>
+            <a href="#how" title="How MITE IoT Works">How It Works?</a>
+            <a href="#highlights" title="Main Benefits and Capabilities of MITE">MITE Highlights</a>
+            <a href="#features" title="Industrial IoT Platform Features for B2B">Platform Features</a>
+            <a href="#reviews" title="What Clients Say about MITE">Client Reviews</a>
+            <a href="#faq" title="Frequently Asked Questions about MITE Platform">FAQ</a>
+            <a href="#facts" title="Key Facts and Performance Metrics">Platform Facts</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="#" aria-haspopup="true" aria-expanded="false">Solutions</a>
+          <div class="dropdown-content">
+            <a href="#platform" title="Full IIoT Platform for Industrial Use">IIoT Platform</a>
+            <a href="/MITE-ECO.html" title="Wireless Environmental Sensors for Cleanrooms">MITE-ECO Sensors</a>
+            <a href="/smart-devices" title="Smart Metering for Utilities and Assets">Smart Metering</a>
+          </div>
+        </li>
+        <li><a href="#pricing" title="Pricing for MITE Platform and Services">Pricing</a></li>
+        <li><a href="#contact" title="Contact MITE Team">Contact Us</a></li>
+        <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank" title="Book a Demo with MITE">Get Started</a></li>
+        <li class="lang-switch">
+          <div class="globe-wrap" aria-label="Language selector" title="Switch language">
+            <div class="globe-icon"></div>
+          </div>
+          <div class="lang-options hidden">
+            <a href="#" aria-label="English">🇬🇧</a>
+            <a href="ru/index.html" aria-label="Русский">🇷🇺</a>
+            <a href="uk/index.html" aria-label="Українська">🇺🇦</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
   </div>
 </header>
 
+<!-- ================= HERO ================= -->
 <section class="hero-banner section-content fade-in">
   <img src="upload/mite-header.webp" alt="IIoT Platform Interface Overview – Smart Infrastructure" class="hero-image" />
 </section>
 
- <!-- WHY MITE Section -->
-  <section id="why" class="section-content fade-in">
-    <h2 class="section-title">Why MITE?</h2>
-    <p class="section-lead">MITE turns complex infrastructure into a <span class="highlight">dynamic digital landscape</span> that evolves with your business.</p>
-    <div class="mite-grid">
-      <div class="spider-card" style="grid-area: top;">
-        <div class="mite-icon neon"><i data-lucide="network"></i></div>
-        <h3>Comprehensive Control</h3>
-        <p>Orchestrate infrastructure effortlessly in one place.</p>
-      </div>
-      <div class="spider-card" style="grid-area: left;">
-        <div class="mite-icon neon"><i data-lucide="sparkles"></i></div>
-        <h3>Agile Logic</h3>
-        <p>Reconfigure business logic in minutes — no coding required.</p>
-      </div>
-      <div class="spider-core" style="grid-area: core;">
-        <img src="upload/mite-spider-glow-final.webp" class="mite-spider-core" alt="MITE the most flexible platform ever" />
-      </div>
-      <div class="spider-card" style="grid-area: right;">
-        <div class="mite-icon neon"><i data-lucide="bar-chart"></i></div>
-        <h3>Unlimited Data</h3>
-        <p>Collect & analyze any amount of real-time data.</p>
-      </div>
-      <div class="spider-card" style="grid-area: bottom;">
-        <div class="mite-icon neon"><i data-lucide="shield-check"></i></div>
-        <h3>Future-Proof</h3>
-        <p>Built-in AI-readiness and automation from day one.</p>
-      </div>
+<!-- ================= WHY MITE ================= -->
+<section id="why" class="section-content fade-in">
+  <h2 class="section-title">Why <span class="hl">MITE</span>?</h2>
+  <p class="section-lead">MITE turns complex infrastructure into a <span class="hl">dynamic digital landscape</span> that evolves with your business.</p>
+
+  <div class="mite-grid">
+    <div class="spider-card ga-top">
+      <div class="mite-icon neon"><i data-lucide="network"></i></div>
+      <h3>Comprehensive Control</h3>
+      <p>Orchestrate infrastructure effortlessly in one place.</p>
     </div>
-  </section>
 
-<section id="demo-form" class="section-content fade-in demo-form">
-  <form id="miteForm1" class="miteForm" novalidate>
-  <!-- Honeypot -->
-  <input type="text" name="_gotcha" style="display:none" />
+    <div class="spider-card ga-left">
+      <div class="mite-icon neon"><i data-lucide="sparkles"></i></div>
+      <h3>Agile Logic</h3>
+      <p>Reconfigure business logic in minutes — no coding required.</p>
+    </div>
 
-  <div class="form-group">
-    <label for="name">Full Name *</label>
-    <input type="text" name="name" id="name" placeholder="Enter your full name" required />
+    <div class="spider-core ga-core center">
+      <img src="upload/mite-spider-glow-final.webp" class="mite-spider-core" alt="MITE the most flexible platform ever" />
+    </div>
+
+    <div class="spider-card ga-right">
+      <div class="mite-icon neon"><i data-lucide="bar-chart"></i></div>
+      <h3>Unlimited Data</h3>
+      <p>Collect & analyze any amount of real-time data.</p>
+    </div>
+
+    <div class="spider-card ga-bottom">
+      <div class="mite-icon neon"><i data-lucide="shield-check"></i></div>
+      <h3>Future-Proof</h3>
+      <p>Built-in AI-readiness and automation from day one.</p>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label for="email">Email *</label>
-    <input type="email" name="email" id="email" placeholder="you@email.com" required />
-  </div>
-
-  <div class="form-group">
-    <label for="phone">Phone *</label>
-    <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
-  </div>
-
-  <label class="checkbox-label">
-    <input type="checkbox" name="privacy" required />
-    <span>I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></span>
-  </label>
-
-    <button type="submit" class="cta-button">Explore MITE</button>
-
-    <p id="form-success" style="display:none; margin-top: 1rem; color: #48cfff;">✅ Our experts will contact you within 1 business day.</p>
-    <p id="form-error" style="display:none; margin-top: 1rem; color: yellow;"></p>
-  </form> 
 </section>
 
-  <!-- MITE Highlights Section -->
-  <section id="highlights" class="section-content fade-in spider-layout">
-    <h2 class="section-title">MITE Platform Highlights</h2>
-    <p class="section-lead">MITE Industrial IoT Platform: Igniting Your Profit-Driven Journey. Let's Dive Deeper.</p>
-    <div class="mite-grid">
-      <div class="spider-card spider-top fade-in" style="grid-area: top;">
-        <div class="mite-icon neon"><i data-lucide="brain-circuit"></i></div>
-        <h3>Any Business Logic Complexity</h3>
-        <p>You will never be limited by the platform. Easily and profoundly customize your solution.</p>
-      </div>
-      <div class="spider-card spider-left fade-in" style="grid-area: left;">
-        <div class="mite-icon neon"><i data-lucide="merge"></i></div>
-        <h3>Any Industrial Protocols</h3>
-        <p>Implement without code. No IT skills needed. Built for business users.</p>
-      </div>
-      <div class="spider-core fade-in" style="grid-area: core; display: flex; justify-content: center; align-items: center;">
-        <img src="upload/mite-spider-glow-final.webp" class="mite-spider-corex2" alt="MITE spider logo" />
-      </div>
-      <div class="spider-card spider-right fade-in" style="grid-area: right;">
-        <div class="mite-icon neon"><i data-lucide="database"></i></div>
-        <h3>Any Amount of Transactions</h3>
-        <p>Scale easily and securely, handling terabytes of data seamlessly.</p>
-      </div>
-      <div class="spider-card spider-bottom fade-in" style="grid-area: bottom;">
-        <div class="mite-icon neon"><i data-lucide="flask-conical"></i></div>
-        <h3>Cutting-Edge Opportunities</h3>
-        <p>Test, refine, and innovate freely without sunk costs or tech debt.</p>
-      </div>
-      <div class="spider-card spider-extra fade-in" style="grid-area: extra;">
-        <div class="mite-icon neon"><i data-lucide="line-chart"></i></div>
-        <h3>Valuable Insights</h3>
-        <p>Visualize live data, connect systems, and customize dashboards easily.</p>
-      </div>
-      <div class="spider-card spider-far fade-in" style="grid-area: far;">
-        <div class="mite-icon neon"><i data-lucide="wallet"></i></div>
-        <h3>Cost-Effectiveness</h3>
-        <p>Focus on value. MITE grows your business, not your expenses.</p>
-      </div>
+<!-- ================= DEMO FORM 1 ================= -->
+<section id="demo-form" class="section-content fade-in demo-form">
+  <form id="miteForm1" class="miteForm" novalidate>
+    <input type="text" name="_gotcha" style="display:none" />
+    <div class="form-group">
+      <label for="name">Full Name *</label>
+      <input type="text" name="name" id="name" placeholder="Enter your full name" required />
     </div>
-    <div class="cta-button">
-    <a href="/mite_highlights" target="_blank">Learn more</a>
+    <div class="form-group">
+      <label for="email">Email *</label>
+      <input type="email" name="email" id="email" placeholder="you@email.com" required />
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone *</label>
+      <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
+    </div>
+    <label class="checkbox-label">
+      <input type="checkbox" name="privacy" required />
+      <span>I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></span>
+    </label>
+    <button type="submit" class="cta-button">Explore MITE</button>
+    <p id="form-success" style="display:none; margin-top: 1rem; color: #48cfff;">✅ Our experts will contact you within 1 business day.</p>
+    <p id="form-error" style="display:none; margin-top: 1rem; color: yellow;"></p>
+  </form>
+</section>
+
+<!-- ================= HIGHLIGHTS ================= -->
+<section id="highlights" class="section-content fade-in spider-layout">
+  <h2 class="section-title">MITE <span class="hl">Platform Highlights</span></h2>
+  <p class="section-lead">MITE Industrial IoT Platform: <span class="hl">Igniting</span> Your Profit‑Driven Journey. Let's dive deeper.</p>
+
+  <div class="mite-grid">
+    <div class="spider-card ga-top fade-in">
+      <div class="mite-icon neon"><i data-lucide="brain-circuit"></i></div>
+      <h3>Any Business Logic Complexity</h3>
+      <p>You will never be limited by the platform. Easily and profoundly customize your solution.</p>
+    </div>
+
+    <div class="spider-card ga-left fade-in">
+      <div class="mite-icon neon"><i data-lucide="merge"></i></div>
+      <h3>Any Industrial Protocols</h3>
+      <p>Implement without code. No IT skills needed. Built for business users.</p>
+    </div>
+
+    <div class="spider-core ga-core center fade-in">
+      <img src="upload/mite-spider-glow-final.webp" class="mite-spider-corex2" alt="MITE spider logo" />
+    </div>
+
+    <div class="spider-card ga-right fade-in">
+      <div class="mite-icon neon"><i data-lucide="database"></i></div>
+      <h3>Any Amount of Transactions</h3>
+      <p>Scale easily and securely, handling terabytes of data seamlessly.</p>
+    </div>
+
+    <div class="spider-card ga-bottom fade-in">
+      <div class="mite-icon neon"><i data-lucide="flask-conical"></i></div>
+      <h3>Cutting‑Edge Opportunities</h3>
+      <p>Test, refine, and innovate freely without sunk costs or tech debt.</p>
+    </div>
+
+    <div class="spider-card ga-extra fade-in">
+      <div class="mite-icon neon"><i data-lucide="line-chart"></i></div>
+      <h3>Valuable Insights</h3>
+      <p>Visualize live data, connect systems, and customize dashboards easily.</p>
+    </div>
+
+    <div class="spider-card ga-far fade-in">
+      <div class="mite-icon neon"><i data-lucide="wallet"></i></div>
+      <h3>Cost‑Effectiveness</h3>
+      <p>Focus on value. MITE grows your business, not your expenses.</p>
+    </div>
   </div>
-  </section>
 
-  <section id="engine" class="section-content fade-in spider-layout">
-    <h2 class="section-title">What Powers MITE?</h2>
-    <p class="section-lead">MITE is built on <a href="https://lsfusion.org" target="_blank" rel="noopener" class="highlight">lsFusion</a> — a low-code platform designed for <span class="highlight">complex, high-load enterprise systems.</span></p>
+  <div class="step-cta">
+    <a href="/mite_highlights" target="_blank" class="cta-button">Learn more</a>
+  </div>
+</section>
 
-    <div class="mite-grid highlights-mode">
-      <div class="spider-card fade-in" style="grid-area: top-l;">
-        <div class="lsf mite-icon neon"><i data-lucide="code"></i></div>
-        <h3 class="highlight">Declarative Language</h3>
-        <p>Instead of imperative code, logic is defined by rules. This allows for lightning-fast changes and high maintainability.</p>
-      </div>
+<!-- ================= ENGINE ================= -->
+<section id="engine" class="section-content fade-in spider-layout">
+  <h2 class="section-title">What <span class="hl">Powers</span> MITE?</h2>
+  <p class="section-lead">MITE is built on <a href="https://lsfusion.org" target="_blank" rel="noopener" class="hl">lsFusion</a> — a low‑code platform designed for <span class="hl">complex, high‑load enterprise systems.</span></p>
 
-      <div class="spider-card fade-in" style="grid-area: top-r;">
-        <div class="lsf mite-icon neon"><i data-lucide="activity"></i></div>
-        <h3 class="highlight">Reactive Execution</h3>
-        <p>Changes in one part of the system automatically propagate through dependencies — without manual triggers.</p>
-      </div>
-
-      <div class="spider-core fade-in">
-   <!--     <div class="video-wrapper">--->
-          <iframe
-            src="https://www.youtube.com/embed/T4zX1gGNo-0?rel=0&modestbranding=1"
-            title="The most declarative development platform ever"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
-     <!-- </div>-->
-      </div>
-      <div class="spider-card fade-in" style="grid-area: top;">
-        <div class="lsf mite-icon neon"><i data-lucide="bar-chart"></i></div>
-        <h3 class="highlight">Single Runtime</h3>
-        <p>Back-end and UI are synchronized in real time — from one source of truth, without glue code.</p>
-      </div>
-
-      <div class="spider-card fade-in" style="grid-area: far;">
-        <div class="mite-icon lsf neon"><i data-lucide="chevron-right-circle"></i></div>
-        <h3 class="highlight">Predictable Performance</h3>
-        <p>Thanks to rule prioritization and stateless execution, MITE easily handles millions of transactions.</p>
-      </div>
-
-      <div class="spider-card fade-in" style="grid-area: extra;">
-        <div class="lsf mite-icon neon"><i data-lucide="cpu"></i></div>
-        <h3 class="highlight">Efficient Memory Model</h3>
-        <p>Built-in garbage collection and optimized data structures allow scaling without bloat or slowdown.</p>
-      </div>
-
-      <div class="spider-card fade-in" style="grid-area: bottom;">
-        <div class="lsf mite-icon neon"><i data-lucide="repeat"></i></div>
-        <h3 class="highlight">Versioned Logic</h3>
-        <p>Every rule or screen can be versioned without conflicts, enabling agile and parallel development.</p>
-      </div>
-
-      <div class="spider-card fade-in" style="grid-area: bottom-r;">
-        <div class="lsf mite-icon neon"><i data-lucide="plug"></i></div>
-        <h3 class="highlight">Extensibility</h3>
-        <p>Need SAP, PostgreSQL, Redis or MQTT? lsFusion connects via modules — without complex refactoring.</p>
-      </div>
-
-      <div class="spider-card fade-in" style="grid-area: bottom-l;">
-        <div class="lsf mite-icon neon"><i data-lucide="lock"></i></div>
-        <h3 class="highlight">Built-In Security</h3>
-        <p>Fine-grained access control and transactional integrity are included — not bolted on.</p>
-      </div>
+  <div class="mite-grid">
+    <div class="spider-card ga-top-l fade-in">
+      <div class="lsf mite-icon neon"><i data-lucide="code"></i></div>
+      <h3 class="hl">Declarative Language</h3>
+      <p>Logic is defined by rules, enabling lightning‑fast changes and high maintainability.</p>
     </div>
 
-    <div class="cta-button">
-      <a href="https://lsfusion.org" target="_blank">Learn more</a>
+    <div class="spider-card ga-top-r fade-in">
+      <div class="lsf mite-icon neon"><i data-lucide="activity"></i></div>
+      <h3 class="hl">Reactive Execution</h3>
+      <p>Changes propagate automatically through dependencies — without manual triggers.</p>
     </div>
-  </section>
 
+    <div class="spider-core ga-core center fade-in">
+      <iframe
+        src="https://www.youtube.com/embed/T4zX1gGNo-0?rel=0&modestbranding=1"
+        title="The most declarative development platform ever"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+
+    <div class="spider-card ga-top fade-in">
+      <div class="lsf mite-icon neon"><i data-lucide="bar-chart"></i></div>
+      <h3 class="hl">Single Runtime</h3>
+      <p>Back‑end and UI are synchronized in real time from one source of truth.</p>
+    </div>
+
+    <div class="spider-card ga-far fade-in">
+      <div class="mite-icon lsf neon"><i data-lucide="chevron-right-circle"></i></div>
+      <h3 class="hl">Predictable Performance</h3>
+      <p>Rule prioritization and stateless execution handle millions of transactions.</p>
+    </div>
+
+    <div class="spider-card ga-extra fade-in">
+      <div class="lsf mite-icon neon"><i data-lucide="cpu"></i></div>
+      <h3 class="hl">Efficient Memory Model</h3>
+      <p>Optimized data structures allow scaling without bloat or slowdown.</p>
+    </div>
+
+    <div class="spider-card ga-bottom fade-in">
+      <div class="lsf mite-icon neon"><i data-lucide="repeat"></i></div>
+      <h3 class="hl">Versioned Logic</h3>
+      <p>Version any rule or screen to enable agile, parallel development.</p>
+    </div>
+
+    <div class="spider-card ga-bottom-r fade-in">
+      <div class="lsf mite-icon neon"><i data-lucide="plug"></i></div>
+      <h3 class="hl">Extensibility</h3>
+      <p>Connect SAP, PostgreSQL, Redis or MQTT via modules — no refactoring.</p>
+    </div>
+
+    <div class="spider-card ga-bottom-l fade-in">
+      <div class="lsf mite-icon neon"><i data-lucide="lock"></i></div>
+      <h3 class="hl">Built‑In Security</h3>
+      <p>Fine‑grained access control and transactional integrity included by design.</p>
+    </div>
+  </div>
+
+  <div class="step-cta">
+    <a href="https://lsfusion.org" target="_blank" class="cta-button">Learn more</a>
+  </div>
+</section>
+
+<!-- ================= CASE STUDIES ================= -->
 <section class="case-studies section-content fade-in">
-  <h2 class="section-title">Explore Our Case Studies</h2>
-  <p class="section-lead">See how MITE empowers different industries to automate, monitor, and optimize with precision and sustainability.</p>
+  <h2 class="section-title">Explore Our <span class="hl">Case Studies</span></h2>
+  <p class="section-lead">See how MITE empowers industries to automate, monitor, and optimize with precision and sustainability.</p>
 
   <div class="case-carousel swiper">
     <div class="swiper-wrapper">
-
       <div class="case-card swiper-slide">
         <img src="upload/healthcare_iot.webp" alt="Pharma Cold Chain Monitoring with IoT" />
         <h3>Pharma: Cold Chain Monitoring</h3>
-        <p>Ensure GMP-compliant pharmaceutical logistics with real-time temperature monitoring, instant alerts, and audit-ready digital records powered by IoT.</p>
+        <p>GMP‑compliant logistics with real‑time temperature, instant alerts, and audit‑ready digital records.</p>
         <a href="pharma_IoT.html" class="mini-button">Learn more</a>
       </div>
 
       <div class="case-card swiper-slide">
         <img src="upload/logistics_IoT.webp" alt="Logistics Automation for Fleets and Warehouses" />
         <h3>Logistics: Fleet and Warehouse Automation</h3>
-        <p>Track fleet movement and automate warehouse handling with smart sensors and robotic systems. Improve delivery precision and reduce operational downtime.</p>
+        <p>Track fleet and automate warehouse handling with smart sensors and robotics. Reduce downtime.</p>
         <a href="pharma_IoT.html" class="mini-button">Learn more</a>
       </div>
 
       <div class="case-card swiper-slide">
         <img src="upload/agriculture_IoT.webp" alt="Smart Farming with IoT Irrigation Systems" />
         <h3>Agriculture: Smart Irrigation</h3>
-        <p>Leverage IoT-driven irrigation and soil moisture sensors to optimize water usage, reduce costs, and improve crop health in real time.</p>
+        <p>IoT irrigation and soil moisture sensors to optimize water, cut costs, and improve crop health.</p>
         <a href="pharma_IoT.html" class="mini-button">Learn more</a>
       </div>
 
       <div class="case-card swiper-slide">
         <img src="upload/manufacturing_iot.webp" alt="Automated Manufacturing Line with MITE" />
         <h3>Manufacturing: Intelligent Production</h3>
-        <p>Connect machines and processes with no-code automation. Visualize KPIs instantly and streamline operations with full SCADA and ERP integration.</p>
+        <p>No‑code automation for machines and processes. KPIs, SCADA & ERP integration in one place.</p>
         <a href="pharma_IoT.html" class="mini-button">Learn more</a>
       </div>
 
       <div class="case-card swiper-slide">
         <img src="upload/ecology_iot.webp" alt="Eco-Monitoring and Smart Irrigation with IoT" />
         <h3>Ecology: Sustainable Resource Management</h3>
-        <p>Monitor environmental conditions and automate solar-powered irrigation. Use data-driven insights to promote sustainable land and resource use.</p>
+        <p>Monitor environment and automate solar‑powered irrigation with data‑driven insights.</p>
         <a href="pharma_IoT.html" class="mini-button">Learn more</a>
       </div>
 
       <div class="case-card swiper-slide">
         <img src="upload/construction_IoT.webp" alt="Construction Site Monitoring with IoT" />
         <h3>Construction: Site Intelligence</h3>
-        <p>Track heavy equipment, monitor worker safety, and control access in real time. Enable predictive maintenance and reduce delays with IoT analytics.</p>
+        <p>Track equipment, monitor safety, and control access in real time. Predictive maintenance.</p>
         <a href="pharma_IoT.html" class="mini-button">Learn more</a>
       </div>
-
     </div>
   </div>
-  <!-- Navigation -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  <!-- separate pagination -->
+
+  <!-- Navigation / Pagination -->
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
   <div class="swiper-pagination case-pagination"></div>
 
   <div class="step-cta">
-          <a href="https://booking.appointy.com/mite" target="_blank" class="cta-button">Request a Demo</a>
+    <a href="https://booking.appointy.com/mite" target="_blank" class="cta-button">Request a Demo</a>
   </div>
 </section>
 
-<section class="how-mite-works section-content fade-in spider-layout">
-  <h2 class="section-title">How MITE Works?</h2>
-  <p class="section-lead">Three Simple Steps to Leverage the Latest <span class="highlight">Technological Advances and Win</span> from Profit-Driven Journeys.</p>
+<!-- ================= HOW IT WORKS ================= -->
+<section id="how" class="how-mite-works section-content fade-in spider-layout">
+  <h2 class="section-title">How <span class="hl">MITE</span> Works?</h2>
+  <p class="section-lead">Three simple steps to leverage the latest <span class="hl">technological advances</span> and win.</p>
 
   <div class="step-flow step-even">
     <!-- Step 1 -->
-    <div class="step-item" style="--delay: 0.2s;">
+    <div class="step-item" style="--delay: 0.2s">
       <div class="step-image">
-        <img src="upload/configure_infrastructure.webp" alt="Step 1 iot configure infrastructure" />
+        <img src="upload/configure_infrastructure.webp" alt="Step 1 – configure infrastructure" />
       </div>
       <div class="step-content">
         <h3><span class="step-number">Step 1:</span> Configure the Physical Infrastructure</h3>
@@ -368,42 +373,41 @@
         </ul>
       </div>
     </div>
+
     <div class="step-connector">
-      <span class="dot"></span>
-      <div class="line"></div>
+      <span class="dot"></span><div class="line"></div>
     </div>
 
     <!-- Step 2 (reversed layout) -->
-    <div class="step-item reverse" style="--delay: 0.5s;">
+    <div class="step-item reverse" style="--delay: 0.5s">
       <div class="step-image">
-        <img src="upload/business_logics_iot.webp" alt="Step 2 IoT business logic" />
+        <img src="upload/business_logics_iot.webp" alt="Step 2 – business logic" />
       </div>
       <div class="step-content">
         <h3><span class="step-number">Step 2:</span> Design Business Logic to Meet Your Needs</h3>
         <ul>
           <li>Visual interface for rapid configuration.</li>
-          <li>No-code tools to build powerful automation flows.</li>
+          <li>No‑code tools to build powerful automation flows.</li>
           <li>Adjust logic and variables on the fly.</li>
-          <li>Integrate easily with third-party systems.</li>
+          <li>Integrate easily with third‑party systems.</li>
         </ul>
       </div>
     </div>
 
-     <div class="step-connector">
-      <span class="dot"></span>
-      <div class="line"></div>
+    <div class="step-connector">
+      <span class="dot"></span><div class="line"></div>
     </div>
 
     <!-- Step 3 -->
-    <div class="step-item" style="--delay: 0.8s;">
+    <div class="step-item" style="--delay: 0.8s">
       <div class="step-image">
-        <img src="upload/insights_iot.png" alt="Step 3" />
+        <img src="upload/insights_iot.png" alt="Step 3 – insights" />
       </div>
       <div class="step-content">
-        <h3><span class="step-number">Step 3:</span> Gain Real-Time Insights & Scale with Ease</h3>
+        <h3><span class="step-number">Step 3:</span> Gain Real‑Time Insights & Scale with Ease</h3>
         <ul>
           <li>Create dashboards in seconds.</li>
-          <li>Make data-driven decisions in real time.</li>
+          <li>Make data‑driven decisions in real time.</li>
           <li>Optimize operations with actionable reports.</li>
           <li>Scale effortlessly with modular cloud architecture.</li>
         </ul>
@@ -415,53 +419,42 @@
   </div>
 </section>
 
-
+<!-- ================= DEMO FORM 2 ================= -->
 <section class="section-content fade-in demo-form">
-  <form id="miteForm2" class="miteForm"  novalidate>
-
-    <!-- Honeypot field (anti-bot) -->
+  <form id="miteForm2" class="miteForm" novalidate>
     <input type="text" name="_honey" style="display:none" autocomplete="off" />
-
-    <!-- Optional FormSubmit settings -->
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_subject" value="New Request from MITE Website" />
 
     <div class="form-group">
-      <label for="name">Full Name *</label>
-      <input type="text" name="name" id="name" placeholder="Enter your full name" required />
+      <label for="name2">Full Name *</label>
+      <input type="text" name="name" id="name2" placeholder="Enter your full name" required />
     </div>
 
     <div class="form-group">
-      <label for="email">Email *</label>
-      <input type="email" name="email" id="email" placeholder="your@email.com" required />
+      <label for="email2">Email *</label>
+      <input type="email" name="email" id="email2" placeholder="your@email.com" required />
     </div>
 
     <div class="form-group">
-      <label for="phone">Phone Number *</label>
-      <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
+      <label for="phone2">Phone Number *</label>
+      <input type="tel" name="phone" id="phone2" placeholder="+351 961 234 567" required />
     </div>
 
     <div class="form-group checkbox-group">
       <label class="checkbox-label">
-        <input type="checkbox" name="privacy" id="privacy" />
+        <input type="checkbox" name="privacy" id="privacy2" />
         <span>I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></span>
       </label>
     </div>
 
     <button type="submit" class="cta-button">Explore MITE</button>
-
-    <p id="form-error" style="display:none; margin-top: 1rem; color: #ff4444;">
-  <!-- Текст ошибки будет здесь -->
-    </p>
-
-    <p id="form-success" style="display:none; margin-top: 1rem; color: #54e54a;">
-      ✅ Thank you! We’ll get in touch shortly.
-    </p>
+    <p id="form-error" style="display:none; margin-top: 1rem; color: #ff4444;"></p>
+    <p id="form-success" style="display:none; margin-top: 1rem; color: #54e54a;">✅ Thank you! We’ll get in touch shortly.</p>
   </form>
 </section>
 
-
-
+<!-- ================= FOOTER ================= -->
 <footer class="site-footer">
   <div class="footer-container">
     <div>
@@ -474,6 +467,7 @@
         <a href="#" aria-label="YouTube"><i class="icon-youtube"></i></a>
       </div>
     </div>
+
     <div>
       <h4>Quick Links</h4>
       <ul>
@@ -483,6 +477,7 @@
         <li><a href="#docs">Docs</a></li>
       </ul>
     </div>
+
     <div class="spider-list">
       <h4>Legal</h4>
       <ul>
@@ -492,14 +487,14 @@
       </ul>
     </div>
   </div>
+
   <div class="footer-bottom">
     <span>© 2025 MITE. All rights reserved.</span>
     <span><a href="#contact">Contact</a> · <a href="#status">System Status</a></span>
   </div>
 </footer>
 
-
-<!-- Cookie banner (всплывающий) -->
+<!-- ================= COOKIE BANNER ================= -->
 <div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
   <p>
     We use cookies to improve your experience.
@@ -511,6 +506,5 @@
 <audio id="hover-sound" preload="auto">
   <source src="sounds/hover.mp3" type="audio/mpeg" />
 </audio>
-
 </body>
 </html>
