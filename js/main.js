@@ -69,44 +69,62 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7) Forms submit (attach to any form with class .miteForm)
-  document.querySelectorAll('form.miteForm').forEach((form) => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const error = form.querySelector('#form-error') || document.getElementById('form-error');
-      const success = form.querySelector('#form-success') || document.getElementById('form-success');
-      const name = form.querySelector('input[name="name"]')?.value.trim();
-      const email = form.querySelector('input[name="email"]')?.value.trim();
-      const phone = form.querySelector('input[name="phone"]')?.value.trim();
-      const privacy = form.querySelector('input[name="privacy"]')?.checked;
-      const gotcha = form.querySelector('input[name="_gotcha"], input[name="_honey"]')?.value.trim();
+// 7) Forms submit (attach to any form with class .miteForm)
+document.querySelectorAll('form.miteForm').forEach((form) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      if (gotcha) return;
-      if (!name || !email || !phone || !privacy) {
-        if (error) {
-          error.textContent = "Please fill in all fields and agree to the Privacy Policy.";
-          error.style.display = "block";
-        if (success) { success.style.display = "none";
-        return;
-      if (error) { error.style.display = "none";
+    const error   = form.querySelector('#form-error')   || document.getElementById('form-error');
+    const success = form.querySelector('#form-success') || document.getElementById('form-success');
+    const name    = form.querySelector('input[name="name"]')?.value.trim();
+    const email   = form.querySelector('input[name="email"]')?.value.trim();
+    const phone   = form.querySelector('input[name="phone"]')?.value.trim();
+    const privacy = form.querySelector('input[name="privacy"]')?.checked;
+    const gotcha  = form.querySelector('input[name="_gotcha"], input[name="_honey"]')?.value.trim();
 
-      try {
-        const res = await fetch("https://formspree.io/f/mjkranro", {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name, email, phone })
-        });
-        if (res.ok) {
-          form.reset();
-          if (success) success.style.display = "block";
-        } else {
-          if (error) { error.textContent = "Something went wrong. Please try again later."; error.style.display = "block"; }
-        }
-      } catch {
-        if (error) { error.textContent = "Connection error. Please try again."; error.style.display = "block"; }
+    // honeypot
+    if (gotcha) return;
+
+    // basic validation
+    if (!name || !email || !phone || !privacy) {
+      if (error) {
+        error.textContent = "Please fill in all fields and agree to the Privacy Policy.";
+        error.style.display = "block";
       }
-    });
+      if (success) {
+        success.style.display = "none";
+      }
+      return;
+    }
+
+    if (error) {
+      error.style.display = "none";
+    }
+
+    try {
+      const res = await fetch("https://formspree.io/f/mjkranro", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone })
+      });
+
+      if (res.ok) {
+        form.reset();
+        if (success) success.style.display = "block";
+      } else {
+        if (error) {
+          error.textContent = "Something went wrong. Please try again later.";
+          error.style.display = "block";
+        }
+      }
+    } catch {
+      if (error) {
+        error.textContent = "Connection error. Please try again.";
+        error.style.display = "block";
+      }
+    }
   });
+});
 
   // 8) Swiper init if present
   if (window.Swiper) {
