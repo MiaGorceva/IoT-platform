@@ -1,18 +1,19 @@
 window.addEventListener('DOMContentLoaded', () => {
-  // 1) Lucide иконки
-  if (window.lucide && typeof lucide.createIcons === 'function') {
+  // 1) Lucide icons
+  if (window.lucide?.createIcons) {
     lucide.createIcons();
   }
 
-  // 2) Активная ссылка в хедере при скролле (чтобы не падало, если секций нет)
+  // 2) Active nav on scroll
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll(".main-nav .nav-menu li a[href^='#']");
+  const navLinks = document.querySelectorAll('.main-nav .nav-menu li a[href^="#"]');
   function onScroll() {
     const y = window.scrollY + 80;
     sections.forEach(s => {
-      const id = s.id;
       if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
-        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === `#${id}`));
+        navLinks.forEach(a =>
+          a.classList.toggle('active', a.getAttribute('href') === `#${s.id}`)
+        );
       }
     });
   }
@@ -21,7 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
     onScroll();
   }
 
-  // 3) Cookie‑баннер
+  // 3) Cookie banner
   const banner = document.getElementById('cookie-banner');
   const accept = document.getElementById('cookie-accept');
   if (banner && accept) {
@@ -33,15 +34,14 @@ window.addEventListener('DOMContentLoaded', () => {
       banner.classList.remove('show');
     });
   }
-});
 
-  // === fade-in ===
+  // 4) Fade-in
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => entry.isIntersecting && entry.target.classList.add('visible'));
   }, { threshold: 0.2 });
   document.querySelectorAll('.fade-in, .step-item').forEach(el => io.observe(el));
 
-  // === phone mask ===
+  // 5) Phone mask
   const phone = document.getElementById('phone');
   if (phone) {
     phone.addEventListener('input', function () {
@@ -52,14 +52,13 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === form ===
+  // 6) Form submit
   const form = document.getElementById('miteForm');
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const error = document.getElementById('form-error');
       const success = document.getElementById('form-success');
-
       const name = form.name?.value.trim();
       const email = form.email?.value.trim();
       const phone = form.phone?.value.trim();
@@ -96,7 +95,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === Swiper ===
+  // 7) Swiper
   if (window.Swiper) {
     new Swiper('.case-carousel', {
       loop: true,
@@ -108,21 +107,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // === Active nav on scroll ===
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.main-nav .nav-menu li a[href^="#"]');
-  function onScroll() {
-    const y = window.scrollY + 80;
-    sections.forEach(s => {
-      const id = s.id;
-      if (y >= s.offsetTop && y < s.offsetTop + s.offsetHeight) {
-        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
-      }
-    });
-  }
-  window.addEventListener('scroll', onScroll);
-
-  // === Lang dropdown ===
+  // 8) Language dropdown
   const globeWrap = document.querySelector('.globe-wrap');
   const langOptions = document.querySelector('.lang-options');
   if (globeWrap && langOptions) {
@@ -133,3 +118,4 @@ window.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+});
