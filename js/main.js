@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3) Cookie banner
-  const banner = document.getElementById('cookie-banner');
+ const banner = document.getElementById('cookie-banner');
   const accept = document.getElementById('cookie-accept');
   if (banner && accept) {
     if (!localStorage.getItem('cookiesAccepted')) {

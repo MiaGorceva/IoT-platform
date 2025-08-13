@@ -459,49 +459,73 @@
 </section>
 
 
- <footer class="site-footer">
+<footer class="site-footer" itemscope itemtype="https://schema.org/Organization">
+  <meta itemprop="name" content="Internet of Things, LLC" />
+  <meta itemprop="url" content="https://mite.club" />
+
   <div class="footer-container">
+    <!-- Лого и краткий текст -->
     <div class="spider-list">
-      <img src="upload/mite-logo-green-w_o-background.webp" alt="MITE logo" class="footer-logo" />
+      <img src="upload/mite-logo-green-w_o-background.webp"
+           alt="MITE logo" class="footer-logo" itemprop="logo" />
       <p class="footer-tagline">MITE – Industrial IoT Monitoring & Automation</p>
+      <p class="footer-desc">
+        MITE — платформа IIoT для фармы, логистики и производства: беспроводной мониторинг,
+        автоматизация, алерты и аудит‑трейлы без кода.
+      </p>
     </div>
-    <div class="spider-list">
+
+    <!-- Быстрые ссылки -->
+    <nav class="spider-list" aria-label="Footer Navigation">
       <h4>Explore</h4>
       <ul>
         <li><a href="#why">Why MITE?</a></li>
-        <li><a href="#platform">Platform</a></li>
+        <li><a href="#highlights">Highlights</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#pricing">Pricing</a></li>
       </ul>
-    </div>
-    <div class="spider-list">
-      <h4>Connect</h4>
-       <div class="social-icons">
-        <a href="https://t.me/mitemonitoring" target="_blank" aria-label="Telegram">
+    </nav>
+
+    <!-- Контакты + соцсети (микроразметка) -->
+    <div class="spider-list" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
+      <h4>Contact</h4>
+      <ul>
+        <li>Email: <a href="mailto:hello@mite.club" itemprop="email">hello@mite.club</a></li>
+        <li itemprop="contactType" content="customer support">Support</li>
+      </ul>
+
+      <div class="social-icons" itemprop="sameAs">
+        <a href="https://t.me/mitemonitoring" target="_blank" aria-label="Telegram" rel="noopener">
           <i data-lucide="send"></i>
         </a>
-        <a href="https://www.linkedin.com/company/mitemonitoring" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/company/mitemonitoring" target="_blank" aria-label="LinkedIn" rel="noopener">
           <i data-lucide="linkedin"></i>
         </a>
-        <a href="https://www.facebook.com/mitemonitoring" target="_blank" aria-label="Facebook">
+        <a href="https://www.facebook.com/mitemonitoring" target="_blank" aria-label="Facebook" rel="noopener">
           <i data-lucide="facebook"></i>
         </a>
       </div>
     </div>
   </div>
-  <div id="cookie-banner" class="cookie-banner">
-  <p>We use cookies to improve your experience.
-    <a class="learn-link" href="/privacy-policy.html" target="_blank" rel="noopener">Learn more</a>.
-  </p>
-  <button id="cookie-accept" class="cookie-btn">Accept</button>
-</div>
+
+  <div class="footer-line" aria-hidden="true"></div>
+
+  <div class="footer-bottom footer-legal">
+    <span>© 2019–2025 Internet of Things, LLC. All rights reserved.</span>
+    <span class="sep">•</span>
+    <a href="/privacy-policy.html">Privacy Policy</a>
+    <span class="sep">•</span>
+    <a href="/sitemap.xml" rel="sitemap">Sitemap</a>
+  </div>
 </footer>
 
-<div id="cookie-banner" class="cookie-banner" style="display:none;">
-  <p>We use cookies to improve your experience. 
-     <a href="privacy-policy.html" class="learn-link">Learn more</a>.
+<!-- Cookie banner (всплывающий) -->
+<div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
+  <p>
+    We use cookies to improve your experience.
+    <a class="learn-link" href="/privacy-policy.html">Learn more</a>
   </p>
-  <button id="cookie-accept">Accept</button>
+  <button id="cookie-accept" type="button" class="cookie-accept">Accept</button>
 </div>
 
 <audio id="hover-sound" preload="auto">
