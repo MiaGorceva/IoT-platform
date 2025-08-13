@@ -1,6 +1,5 @@
 {
-  "compilerOptions": {
-    "checkJs": false
-  },
-  "exclude": ["node_modules"]
+  "compilerOptions": { "checkJs": false },
+  "include": ["**/*.js"],
+  "exclude": ["node_modules", ".git", "**/.github/**", "**/vscode-vfs/**"]
 }
