@@ -78,47 +78,6 @@ html {
   margin: 0 auto;
 }
 
-////
-
-/* Ensure nav-menu doesn't break when complex elements like button/lang inside */
-.nav-menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 1rem;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-/* Ensure each list item behaves consistently */
-.nav-menu li {
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-
-/* Prevent large buttons from stretching the menu */
-.nav-menu .cta-button {
-  min-width: unset;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.9rem;
-}
-
-/* Keep lang-switch from breaking layout */
-.nav-menu .lang-switch {
-  margin-left: 0.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.lang-options {
-  top: 30px;
-  right: 0;
-  left: auto;
-}
-////
 .nav-logo-block {
   display: flex;
   flex-direction: column;
