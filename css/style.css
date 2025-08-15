@@ -2,6 +2,7 @@ body {
   background-color: #0a0a0a;
   color: grey;
   font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
 }
 html {
   scroll-behavior: smooth;
@@ -66,9 +67,6 @@ html {
   align-items: center;
 }
 
-h3 {
-  font-size: 1.8 rem;
-}
 .header-inner {
   display: flex;
   flex-wrap: wrap;
