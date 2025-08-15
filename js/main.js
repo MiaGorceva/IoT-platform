@@ -119,3 +119,9 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+document.querySelectorAll('.mite-icon').forEach(icon => {
+  icon.addEventListener('click', () => {
+    console.log('click!');
+    // или включение/отключение звука
+  });
+});
