@@ -828,7 +828,7 @@ input.focused {
 }
 .case-carousel.swiper {
   padding: 0 20px;
-  overflow: visible;
+  overflow: hidden;
 }
 .swiper-pagination-bullet {
   background: #54e54a;
