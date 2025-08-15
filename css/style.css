@@ -66,6 +66,9 @@ html {
   align-items: center;
 }
 
+h3 {
+  font-size: 1.8 rem;
+}
 .header-inner {
   display: flex;
   flex-wrap: wrap;
