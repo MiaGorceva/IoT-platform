@@ -351,7 +351,6 @@ input.focused {
   position: relative;
   animation: pulse 4s infinite ease-in-out;
   z-index: 2;
-  animation: spiderGlow 6s ease-in-out infinite;
   filter: drop-shadow(0 0 12px #54e54a);
 }
 .spider-core img{
