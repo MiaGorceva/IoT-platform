@@ -98,10 +98,14 @@ window.addEventListener('DOMContentLoaded', () => {
   // 7) Swiper
   if (window.Swiper) {
   new Swiper('.case-carousel', {
-    loop: true,
+    loop: true, // бесконечная прокрутка
     spaceBetween: 24,
-    slidesPerView: 'auto',
+    slidesPerView: 'auto', // показывать карточки адаптивно
     centeredSlides: false,
+    autoplay: {
+      delay: 3000,
+      disableOnInteraction: false
+    },
     pagination: {
       el: '.case-pagination',
       clickable: true
