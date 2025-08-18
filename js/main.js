@@ -100,6 +100,7 @@ window.addEventListener('DOMContentLoaded', () => {
   new Swiper('.case-carousel', {
     loop: true, // бесконечная прокрутка
     spaceBetween: 24,
+    loopedSlides: 6,
     slidesPerView: 'auto', // показывать карточки адаптивно
     centeredSlides: false,
     autoplay: {
