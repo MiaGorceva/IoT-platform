@@ -859,6 +859,7 @@ input.focused {
   box-sizing: border-box;
   min-width: 300px;
   margin-right: 24px;
+  flex-shrink: 0;
 }
 .miteForm{
   margin: 30px;
