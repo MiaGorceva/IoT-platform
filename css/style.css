@@ -7,6 +7,30 @@ body {
 html {
   scroll-behavior: smooth;
 }
+#scrollTopBtn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  background: #54e54a;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: none;
+  box-shadow: 0 0 20px rgba(84, 229, 74, 0.4);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+#scrollTopBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(72, 207, 255, 0.4);
+}
+#scrollTopBtn.show {
+  display: block;
+}
 .mite-logo {
   max-width: 100%;
   height: auto;
@@ -565,24 +589,151 @@ input.focused {
   50% { filter: drop-shadow(0 0 14px #54e54a); }
 }
 
-/* === Video background for logo === */
-.footer-logo-wrap {
+.site-footer {
+  background: #0b0b0b;
+  border-top: 1px solid rgba(84, 229, 74, 0.15);
+  padding: 24px 16px;
+  color: #bbb;
   position: relative;
 }
-.footer-logo-video-bg {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  overflow: hidden;
-  border-radius: 12px;
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
 }
-.footer-logo-video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.08;
-  filter: blur(8px);
+
+.footer-logo {
+  width: 180px;
+  margin-bottom: 12px;
+}
+.footer-tagline {
+  color: #54e54a;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.footer-desc {
+  font-size: 0.95rem;
+  color: #aaa;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+.spider-list h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  color: #fff;
+}
+.spider-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.spider-list li {
+  margin-bottom: 8px;
+}
+.site-footer a {
+  color: #bbb;
+  text-decoration: none;
+}
+.site-footer a:hover {
+  color: #48cfff;
+}
+.social-icons {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+}
+.social-icons [data-lucide] {
+  width: 22px;
+  height: 22px;
+  color: #bbb;
+  transition: 0.2s;
+}
+.social-icons a:hover [data-lucide] {
+  color: #54e54a;
+}
+
+.footer-line {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  margin: 24px 0 12px;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 0.9rem;
+  color: #8c8c8c;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+}
+.footer-bottom .sep {
+  margin: 0 8px;
+}
+
+/* Пульсация логотипа */
+.pulse-glow {
+  animation: pulseLogo 4s ease-in-out infinite;
+}
+@keyframes pulseLogo {
+  0%, 100% { filter: drop-shadow(0 0 6px #54e54a); }
+  50% { filter: drop-shadow(0 0 14px #54e54a); }
+}
+
+/* Кнопка вверх */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #48cfff;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  box-shadow: 0 0 20px rgba(72, 207, 255, 0.5);
+  cursor: pointer;
+  z-index: 1000;
+  display: none;
+  transition: transform 0.3s ease;
+}
+.back-to-top i {
+  width: 24px;
+  height: 24px;
+}
+.back-to-top:hover {
   transform: scale(1.1);
+}
+
+/* Показ при скролле */
+body.scrolled .back-to-top {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-container > .spider-list:last-child {
+    grid-column: span 2;
+  }
+}
+@media (max-width: 560px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .cookie-banner{
