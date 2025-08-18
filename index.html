@@ -494,17 +494,19 @@
   <meta itemprop="url" content="https://mite.club" />
 
   <div class="footer-container">
-    <!-- Лого и краткий текст -->
-    <div class="spider-list">
-      <img src="upload/mite-logo-green-w_o-background.webp"
-           alt="MITE logo" class="footer-logo" itemprop="logo"  loading="lazy decoding="async"/>
+    <div class="spider-list footer-logo-wrap">
+      <div class="footer-logo-video-bg">
+        <video autoplay muted loop playsinline>
+          <source src="upload/footer-background.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <img src="upload/mite-logo-green-w_o-background.webp" alt="MITE logo" class="footer-logo pulsating-logo" itemprop="logo" loading="lazy" decoding="async"/>
       <p class="footer-tagline">MITE – Industrial IoT Monitoring & Automation</p>
       <p class="footer-desc">
         MITE is an IIoT platform for pharma, logistics, and manufacturing — enabling wireless monitoring, automation, alerts, and audit trails with zero coding.
       </p>
     </div>
 
-    <!-- Быстрые ссылки -->
     <nav class="spider-list" aria-label="Footer Navigation">
       <h4>Explore</h4>
       <ul>
@@ -515,7 +517,6 @@
       </ul>
     </nav>
 
-    <!-- Контакты + соцсети (микроразметка) -->
     <div class="spider-list" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
       <h4>Contact</h4>
       <ul>
@@ -524,15 +525,9 @@
       </ul>
 
       <div class="social-icons" itemprop="sameAs">
-        <a href="https://t.me/mitemonitoring" target="_blank" aria-label="Telegram" rel="noopener">
-          <i data-lucide="send"></i>
-        </a>
-        <a href="https://www.linkedin.com/company/mitemonitoring" target="_blank" aria-label="LinkedIn" rel="noopener">
-          <i data-lucide="linkedin"></i>
-        </a>
-        <a href="https://www.facebook.com/mitemonitoring" target="_blank" aria-label="Facebook" rel="noopener">
-          <i data-lucide="facebook"></i>
-        </a>
+        <a href="https://t.me/mitemonitoring" target="_blank"><i data-lucide="send"></i></a>
+        <a href="https://www.linkedin.com/company/mitemonitoring" target="_blank"><i data-lucide="linkedin"></i></a>
+        <a href="https://www.facebook.com/mitemonitoring" target="_blank"><i data-lucide="facebook"></i></a>
       </div>
     </div>
   </div>
@@ -543,9 +538,12 @@
     <span>© 2019–2025 Internet of Things, LLC. All rights reserved.</span>
     <span class="sep">•</span>
     <a href="/privacy-policy.html">Privacy Policy</a>
-    <span class="sep">•</span>
-    <a href="/sitemap.xml" rel="sitemap">Sitemap</a>
   </div>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-to-top" aria-label="Scroll to top">
+    <i data-lucide="arrow-up"></i>
+  </button>
 </footer>
 
 <!-- Cookie banner (всплывающий) -->

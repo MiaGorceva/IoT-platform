@@ -529,43 +529,62 @@ input.focused {
       text-align: center;
       color: #aaa;
     }
-.site-footer {
-  background:#0b0b0b;
-  border-top:1px solid rgba(84,229,74,.15);
-  padding:24px 16px;
-  color:#bbb;
+/* === Scroll-to-top === */
+.scroll-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #48cfff;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  padding: 0.7rem;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(72, 207, 255, 0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
 }
-.footer-container{
-  max-width:1200px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:24px;
-  align-items:start;
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
 }
-.site-footer a{ color:#bbb; text-decoration:none; }
-.site-footer a:hover{ color:#48cfff; }
-.social-icons{ display:flex; gap:14px; align-items:center; }
-.social-icons [data-lucide], .social-icons i{
-  width:22px; height:22px; color:#bbb; transition:.2s;
+.scroll-to-top:hover {
+  transform: scale(1.1);
+  background: #54e54a;
+  color: black;
 }
-.social-icons a:hover [data-lucide],
-.social-icons a:hover i{ color:#54e54a; }
-.footer-bottom{
-  max-width:1200px; margin:18px auto 0; padding-top:12px;
-  border-top:1px solid rgba(255,255,255,.06);
-  display:flex; justify-content:space-between; gap:8px; flex-wrap:wrap;
-  font-size:.9rem; color:#8c8c8c;
+
+/* === Pulsating logo === */
+.pulsating-logo {
+  animation: pulseGlow 4s infinite ease-in-out;
 }
-@media (max-width:900px){
-  .footer-container{ grid-template-columns: 1fr 1fr; }
-  .footer-container > .spider-list:last-child{ grid-column: span 2; }
+@keyframes pulseGlow {
+  0%, 100% { filter: drop-shadow(0 0 6px #54e54a); }
+  50% { filter: drop-shadow(0 0 14px #54e54a); }
 }
-@media (max-width:560px){
-  .footer-container{ grid-template-columns:1fr; text-align:center; }
-  .social-icons{ justify-content:center; }
-  .footer-bottom{ flex-direction:column; align-items:center; text-align:center; }
+
+/* === Video background for logo === */
+.footer-logo-wrap {
+  position: relative;
 }
+.footer-logo-video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  border-radius: 12px;
+}
+.footer-logo-video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.08;
+  filter: blur(8px);
+  transform: scale(1.1);
+}
+
 .cookie-banner{
   position:fixed; left:0; right:0; bottom:0;
   background:rgba(15,15,15,.95);
