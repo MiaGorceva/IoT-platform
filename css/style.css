@@ -672,7 +672,7 @@ input.focused {
   color: #bbb;
 }
 .step-content ul li::before {
-  content: "✔“ ";
+  content: "✔";
   color: #54e54a;
   margin-right: 0.4rem;
 }
