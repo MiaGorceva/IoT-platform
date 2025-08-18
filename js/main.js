@@ -97,15 +97,21 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // 7) Swiper
   if (window.Swiper) {
-    new Swiper('.case-carousel', {
-      loop: true,
-      spaceBetween: 24,
-      slidesPerView: 'auto',
-      centeredSlides: false,
-      pagination: { el: '.case-pagination', clickable: true },
-      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-    });
-  }
+  new Swiper('.case-carousel', {
+    loop: true,
+    spaceBetween: 24,
+    slidesPerView: 'auto',
+    centeredSlides: false,
+    pagination: {
+      el: '.case-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  });
+}
 
   // 8) Language dropdown
   const globeWrap = document.querySelector('.globe-wrap');
