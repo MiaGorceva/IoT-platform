@@ -119,9 +119,15 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-document.querySelectorAll('.mite-icon').forEach(icon => {
-  icon.addEventListener('click', () => {
-    console.log('click!');
-    // или включение/отключение звука
+const hoverSound = document.getElementById('hover-sound');
+
+if (hoverSound) {
+  document.querySelectorAll('.mite-icon').forEach(icon => {
+    icon.addEventListener('mouseenter', () => {
+      hoverSound.currentTime = 0;
+      hoverSound.play().catch(e => {
+        console.warn('Sound playback blocked by browser.', e);
+      });
+    });
   });
-});
+}
