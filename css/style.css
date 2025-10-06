@@ -92,6 +92,22 @@ html {
   align-items: center;
 }
 
+.testimonial-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #48cfff; /* неоновый голубой */
+  box-shadow: 0 0 8px rgba(72, 207, 255, 0.5); /* мягкое свечение */
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(72, 207, 255, 0.8);
+}
+
 .header-inner {
   display: flex;
   flex-wrap: wrap;
