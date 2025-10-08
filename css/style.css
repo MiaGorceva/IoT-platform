@@ -491,6 +491,7 @@ input.focused {
   text-shadow: 0 0 10px #54e54a;
   transition: transform 0.3s ease, text-shadow 0.3s ease;
   cursor: pointer;
+  max-width: 260px; 
 }
 .mite-icon.lsf {
   color: #48cfff;
