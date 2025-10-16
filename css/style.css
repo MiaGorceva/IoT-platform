@@ -722,6 +722,40 @@ input.focused {
   transform: scale(1.1);
 }
 
+.faq-accordion {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.faq-accordion details {
+  background: #121212;
+  color: #eee;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.faq-accordion summary {
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  outline: none;
+  list-style: none;
+}
+
+.faq-accordion ul {
+  margin: 0.5rem 0 0 1rem;
+  padding-left: 1rem;
+  list-style: disc;
+}
+
+.faq-accordion p {
+  margin-top: 0.5rem;
+  color: #ccc;
+}
+
 /* Показ при скролле */
 body.scrolled .back-to-top {
   display: block;
