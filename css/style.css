@@ -773,6 +773,30 @@ input.focused {
   color: #48cfff;
 }
 
+.faq-answer ul {
+  list-style: none;
+  padding-left: 1rem;
+}
+
+.faq-answer ul li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+  color: #ccc;
+}
+
+.faq-answer ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #48cfff;
+  border-radius: 50%;
+  box-shadow: 0 0 5px #48cfff, 0 0 10px #48cfff;
+}
+
 /* Показ при скролле */
 body.scrolled .back-to-top {
   display: block;
