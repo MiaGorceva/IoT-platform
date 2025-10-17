@@ -722,38 +722,55 @@ input.focused {
   transform: scale(1.1);
 }
 
-.faq-accordion {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
+.faq-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.faq-accordion details {
-  background: #121212;
-  color: #eee;
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+.faq-item {
+  background: #111;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.faq-accordion summary {
-  font-weight: 600;
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
   font-size: 1.1rem;
+  font-weight: 600;
+  color: #54e54a;
+  background: #181818;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   cursor: pointer;
-  outline: none;
-  list-style: none;
+  transition: background 0.2s ease;
 }
 
-.faq-accordion ul {
-  margin: 0.5rem 0 0 1rem;
-  padding-left: 1rem;
-  list-style: disc;
+.faq-question:hover {
+  background: #1f1f1f;
 }
 
-.faq-accordion p {
-  margin-top: 0.5rem;
+.faq-answer {
+  display: none;
+  padding: 1rem;
   color: #ccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-question i {
+  color: #48cfff;
 }
 
 /* Показ при скролле */
