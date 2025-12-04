@@ -1,893 +1,1145 @@
-
 <!DOCTYPE html>
-<html lang="en" class="lang-root">
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MITE IIoT Platform — No-Code Automation for Pharma & Logistics</title>
-  <meta name="description" content="MITE is a next-gen IIoT platform for pharma, logistics, and infrastructure. Automate compliance, monitor wirelessly, and scale with zero code." />
-  <meta name="keywords" content="IIoT platform, Pharma automation, GMP compliance, cold chain monitoring, logistics sensors, MITE IoT, no-code SCADA, B2B IIoT, smart factory, 21 CFR Part 11" />
-  <meta name="robots" content="index, follow" />
+  <meta charset="UTF-8" />
+  <title>MITE — Industrial IoT Platform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="MITE — flexible Industrial IoT platform for B2B: connect devices, design business logic, and gain insights from one place."
+  />
 
-  <!-- Favicon -->
-  <link rel="icon" href="/upload/favicon_mite.png" />
+  <!-- TODO: Favicon / spider logo -->
+  <!-- <link rel="icon" href="/upload/mite-spider.svg" type="image/svg+xml" /> -->
 
-  <!-- Open Graph (Facebook, LinkedIn etc.) -->
-  <meta property="og:title" content="MITE — Next-Gen IIoT for Pharma and Logistics" />
-  <meta property="og:description" content="No-code automation, wireless monitoring, smart alerts, and audit-ready insights. Built for Pharma. Optimized for B2B." />
-  <meta property="og:image" content="https://mite.club/upload/mite-og.jpg" />
-  <meta property="og:url"   content="https://mite.club/IoT-platform/" />
-  <meta name="twitter:image" content="https://mite.club/upload/mite-og.jpg" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MITE — IIoT Made for Pharma & Logistics" />
-  <meta name="twitter:description" content="IIoT platform that works out-of-the-box. Automate, monitor and scale your pharma and logistics operations — 100% wireless." />
-  <meta name="twitter:image" content="mite.club/upload/mite-og.jpg" />
-
-  <!-- Swiper + Lucide -->
-  <script src="https://unpkg.com/lucide@latest" defer></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
-  
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="css/style.css" />
- 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Internet of Things, LLC",
-    "url": "https://mite.club",
-    "logo": "https://mite.club/upload/mite-logo-green-w_o-background.webp",
-    "sameAs": [
-      "https://www.linkedin.com/company/mitemonitoring",
-      "https://www.facebook.com/mitemonitoring"
-    ],
-    "description": "MITE is an Industrial IoT (IIoT) platform for real-time temperature and humidity monitoring, smart metering, and automation in manufacturing, logistics, pharma, agriculture, and warehousing. Offers a scalable, customisable hardware + software solution. Enables unique business processes to be deployed in milliseconds. Fully compliant with industry regulations.",
-    "foundingDate": "2019",
-    "address": {
-      "addressCountry": "PT"
-    }
-  }
+  <!-- TODO: Google Tag Manager / Analytics -->
+  <!--
+  <script>
+    // Paste your GTM or GA snippet here
   </script>
+  -->
+
 </head>
-
 <body>
-<header class="site-header">
-  <div class="header-inner">
-    
-    <!-- Logo -->
-    <div class="nav-logo-block">
-      <a href="/" class="nav-logo-link" title="MITE – Industrial IoT Platform">
-        <img class="nav-logo-img" src="upload/mite-logo-green-w_o-background.webp" alt="Industrial IoT Platform Logo – MITE" loading="lazy" decoding="async" />
-        <span class="nav-logo-text">MITE – The Future<br>of Industrial IoT</span>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="#top" class="logo">
+        <div class="logo-icon" aria-hidden="true"></div>
+        <span>MITE</span>
       </a>
-    </div>
 
-    <!-- Navigation -->
-    <nav class="main-nav" aria-label="Main Navigation">
-      <ul class="nav-menu">
-        <li class="dropdown">
-          <a href="#" aria-haspopup="true" aria-expanded="false">About MITE</a>
-          <div class="dropdown-content">
-            <a href="#why">Why MITE?</a>
-            <a href="#how">How It Works?</a>
-            <a href="#highlights">MITE Highlights</a>
-            <a href="#features">Platform Features</a>
-            <a href="#reviews">Client Reviews</a>
-            <a href="#faq">FAQ</a>
-            <a href="#facts">Platform Facts</a>
+      <nav class="main-nav">
+        <a href="#about" data-i18n="nav.about"></a>
+        <a href="#highlights" data-i18n="nav.platform"></a>
+        <a href="#use-cases" data-i18n="nav.solutions"></a>
+        <a href="#pricing" data-i18n="nav.pricing"></a>
+        <a href="#faq" data-i18n="nav.faq"></a>
+        <a href="#contact" data-i18n="nav.contact"></a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" data-lang-btn="en">EN</button>
+          <button type="button" data-lang-btn="ru">RU</button>
+          <button type="button" data-lang-btn="uk">UK</button>
+        </div>
+        <a href="#contact" class="btn btn-outline" data-i18n="nav.demoBtn"></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="page" id="top">
+    <!-- HERO -->
+    <section class="hero container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-kicker">
+            <span class="hero-kicker-dot"></span>
+            <span data-i18n="hero.kicker"></span>
           </div>
-        </li>
-        <li class="dropdown">
-          <a href="#">Solutions</a>
-          <div class="dropdown-content">
-            <a href="#platform">IIoT Platform</a>
-            <a href="/MITE-ECO.html">MITE-ECO Sensors</a>
-            <a href="/smart-devices">Smart Metering</a>
+          <h1 class="hero-title" data-i18n="hero.title"></h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
+
+          <div class="hero-cta-row">
+            <a href="#contact" class="btn btn-primary" data-i18n="hero.primaryCta"></a>
+            <a href="#how" class="btn btn-ghost" data-i18n="hero.secondaryCta"></a>
           </div>
-        </li>
-        <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Contact Us</a></li>
-        <li><a class="cta-button" href="https://booking.appointy.com/mite" target="_blank">Get Started</a></li>
-        <li class="lang-switch">
-          <div class="globe-wrap" aria-label="Language selector" title="Switch language">
-            <div class="globe-icon"></div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span>●</span><span data-i18n="hero.meta1"></span>
+            </div>
+            <div class="hero-meta-item">
+              <span>●</span><span data-i18n="hero.meta2"></span>
+            </div>
+            <div class="hero-meta-item">
+              <span>●</span><span data-i18n="hero.meta3"></span>
+            </div>
           </div>
-          <div class="lang-options hidden">
-            <a href="#">🇬🇧</a>
-            <a href="ru/index.html">🇷🇺</a>
-            <a href="uk/index.html">🇺🇦</a>
+
+          <div class="hero-card">
+            <span data-i18n="hero.badge"></span>
           </div>
-        </li>
-      </ul>
-    </nav>
+        </div>
 
-  </div>
-</header>
-
-<section id="positioning" class="section fade-in">
-  <div class="section-content">
-    <h2 class="section-title">More Than Just a Platform</h2>
-    <p class="section-lead">
-      MITE transforms your physical infrastructure into a <span class="highlight">responsive digital ecosystem</span>.
-      Orchestrate equipment, gather and interpret <span class="highlight">unlimited data</span> streams, and adapt your business logic on the fly — all without writing a <span class="highlight">single line of code.</span>
-    </p>
-
-    <img src="upload/mite-header.webp"
-         alt="MITE spider visual — digital infrastructure orchestration"
-         class="mite-logo"
-         loading="lazy"
-         decoding="async" />
-
-    <p class="section-note highlight fade-in" >
-      Empower your team. Accelerate decisions. Stay ahead of the curve.
-    </p>
-  </div>
-</section>
-
- <!-- WHY MITE Section -->
-  <section id="why" class="section fade-in">
-    <h2 class="section-title">Why MITE?</h2>
-    <p class="section-lead">MITE turns complex infrastructure into a <span class="highlight">dynamic digital landscape</span> that evolves with your business.</p>
-    <div class="mite-grid">
-      <div class="spider-card" style="grid-area: top;">
-        <div class="mite-icon neon"><i data-lucide="network"></i></div>
-        <h3>Comprehensive Control</h3>
-        <p>Orchestrate infrastructure effortlessly in one place.</p>
-      </div>
-      <div class="spider-card" style="grid-area: left;">
-        <div class="mite-icon neon"><i data-lucide="sparkles"></i></div>
-        <h3>Agile Logic</h3>
-        <p>Reconfigure business logic in minutes — no coding required.</p>
-      </div>
-      <div class="spider-core">
-        <img src="upload/mite-spider-glow-final.webp" class="mite-spider-core" alt="MITE the most flexible platform ever"  loading="lazy decoding="async"/>
-      </div>
-      <div class="spider-card" style="grid-area: right;">
-        <div class="mite-icon neon"><i data-lucide="bar-chart"></i></div>
-        <h3>Unlimited Data</h3>
-        <p>Collect & analyze any amount of real-time data.</p>
-      </div>
-      <div class="spider-card" style="grid-area: bottom;">
-        <div class="mite-icon neon"><i data-lucide="shield-check"></i></div>
-        <h3>Future-Proof</h3>
-        <p>Built-in AI-readiness and automation from day one.</p>
-      </div>
-    </div>
-  </section>
-
-<section id="demo-form" class="section fade-in demo-form">
-  <form id="miteForm1" class="miteForm" novalidate>
-  <!-- Honeypot -->
-  <input type="text" name="_gotcha" style="display:none" />
-
-  <div class="form-group">
-    <label for="name">Full Name *</label>
-    <input type="text" name="name" id="name" placeholder="Enter your full name" required />
-  </div>
-
-  <div class="form-group">
-    <label for="email">Email *</label>
-    <input type="email" name="email" id="email" placeholder="you@email.com" required />
-  </div>
-
-  <div class="form-group">
-    <label for="phone">Phone *</label>
-    <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
-  </div>
-
-  <label class="checkbox-label">
-    <input type="checkbox" name="privacy" required />
-    <span>I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></span>
-  </label>
-
-    <button type="submit" class="cta-button">Explore MITE</button>
-
-    <p id="form-success" style="display:none; margin-top: 1rem; color: #48cfff;">✅ Our experts will contact you within 1 business day.</p>
-    <p id="form-error" style="display:none; margin-top: 1rem; color: yellow;"></p>
-  </form> 
-</section>
-
-<section id="highlights" class="section fade-in spider-layout">
-  <h2 class="section-title">MITE Platform Highlights</h2>
-  <p class="section-lead">
-    MITE Industrial IoT Platform: Igniting <span class="highlight">Your Profit-Driven Journey</span>. Let's Dive Deeper.
-  </p>
-
-  <div class="mite-grid">
-    
-    <div class="spider-card fade-in" style="grid-area: top-l;">
-      <div class="mite-icon hover-sound neon" title="Usage-Based Pricing with Predictable Scaling">
-        <i data-lucide="wallet" aria-label="Usage-Based Billing Icon"></i>
-      </div>
-      <h3>Usage-Based Pricing</h3>
-      <p>
-        With MITE, you only pay for connected, active devices — no hidden fees, no locked features. Scale deployments at your pace with full cost transparency and zero vendor lock-in.
-      </p>
-    </div>
-
-    <div class="spider-card spider-top fade-in" style="grid-area: top;">
-      <div class="mite-icon hover-sound neon" title="Visual Automation & Business Logic Without Code">
-        <i data-lucide="brain-circuit" aria-label="Business Logic Icon"></i>
-      </div>
-      <h3>Any Business Logic Complexity</h3>
-      <p>Design complex automations tailored to your process — visually, without writing code. You gain total control and flexibility from day one.</p>
-    </div>
-
-    <div class="spider-card fade-in" style="grid-area: top-r;">
-      <div class="mite-icon hover-sound neon" title="Add Features On Request">
-        <i data-lucide="plus-circle" aria-label="Feature Request Icon"></i>
-      </div>
-      <h3>Adaptive by Request</h3>
-      <p>Missing something? Just ask — we’ll add it. MITE evolves with you, not against you.</p>
-    </div>
-
-    <div class="spider-card spider-left fade-in" style="grid-area: left;">
-      <div class="mite-icon hover-sound neon" title="Industrial Protocol Support (LoRaWAN, Modbus, OPC-UA)">
-        <i data-lucide="merge" aria-label="Protocol Support Icon"></i>
-      </div>
-      <h3>Protocol-Agnostic Connectivity</h3>
-      <p>Use any device — we’ll handle the protocol. LoRaWAN, Modbus, OPC-UA, or even your custom stack.</p>
-    </div>
-
-    <div class="spider-core hover-sound fade-in" style="grid-area: core; display: flex; justify-content: center; align-items: center;">
-      <img src="upload/mite-spider-glow-final.webp" class="mite-spider-corex2" alt="MITE Spider Logo – Visual Core of Industrial IoT Platform" loading="lazy" decoding="async"/>
-    </div>
-
-    <div class="spider-card spider-right fade-in" style="grid-area: right;">
-      <div class="mite-icon hover-sound neon" title="Scalable IIoT Data Storage and Performance">
-        <i data-lucide="database" aria-label="Scalability Icon"></i>
-      </div>
-      <h3>Scalable Performance</h3>
-      <p>No matter how many devices, users, or terabytes — MITE scales with your ambition.</p>
-    </div>
-
-    <div class="spider-card spider-extra fade-in" style="grid-area: extra;">
-      <div class="mite-icon hover-sound neon" title="Zero Coding – Instant Data Flow">
-        <i data-lucide="zap" aria-label="Zero Coding Icon"></i>
-      </div>
-      <h3>Zero Coding. Instant Results.</h3>
-      <p>No engineering team? No problem. From first click to insights — MITE makes complexity disappear.</p>
-    </div>
-
-    <div class="spider-card spider-far fade-in" style="grid-area: far;">
-      <div class="mite-icon hover-sound neon" title="Full Feature Access – No Paywalls">
-        <i data-lucide="lock-open" aria-label="Full Access Icon"></i>
-      </div>
-      <h3>All Features. Always.</h3>
-      <p>No feature locks. No upsells. Everything is included — because innovation shouldn't be behind a paywall.</p>
-    </div>
-
-    <div class="spider-card spider-bottom fade-in" style="grid-area: bottom;">
-      <div class="mite-icon hover-sound neon" title="Prototype & Innovate Freely – Test Without Risk">
-        <i data-lucide="flask-conical" aria-label="Prototyping Icon"></i>
-      </div>
-      <h3>Unleash, Prototype, Refine</h3>
-      <p>Test freely. Innovate continuously. Launch without fear. With MITE, your next idea is never blocked by your platform.</p>
-    </div>
-
-  </div>
-
-  <div class="cta-button">
-    <a href="/mite_highlights" target="_blank">Learn more</a>
-  </div>
-</section>
-
-
-<section id="engine" class="section fade-in spider-layout">
-  <h2 class="section-title">What Powers MITE?</h2>
-  <p class="section-lead">
-    At the heart of MITE lies <a href="https://lsfusion.org" target="_blank" rel="noopener" class="highlight">lsFusion</a> — a powerful low-code platform built for <span class="highlight">scalable, high-performance enterprise solutions</span>. 
-    <h3>Designed to cut development time and eliminate complexity, lsFusion enables rapid delivery of stable, extensible, and reactive business applications.</h3>
-  </p>
-
-  <div class="mite-grid highlights-mode">
-    <div class="spider-card fade-in" style="grid-area: top;">
-      <div class="lsf mite-icon neon"><i data-lucide="code"></i></div>
-      <h3 class="highlight">Declarative Logic</h3>
-      <p>Focus on *what* needs to be done, not *how*. lsFusion’s rule-based language lets you define system behavior without imperative code, dramatically simplifying development and change management.</p>
-    </div>
-
-    <div class="spider-card fade-in" style="grid-area: top-r;">
-      <div class="lsf mite-icon neon"><i data-lucide="activity"></i></div>
-      <h3 class="highlight">Reactive Engine</h3>
-      <p>Automatically responds to changes in data, triggering updates across the system. No manual triggers. No forgotten side effects. Just pure business logic.</p>
-    </div>
-
-    <div class="spider-core fade-in">
-      <iframe
-        src="https://www.youtube.com/embed/T4zX1gGNo-0?rel=0&modestbranding=1"
-        title="The most declarative development platform ever"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-    <div class="spider-card fade-in" style="grid-area: top-l;">
-      <div class="lsf mite-icon neon"><i data-lucide="bar-chart"></i></div>
-      <h3 class="highlight">Unified Runtime</h3>
-      <p>One language. One logic. One source of truth. UI and backend share the same reactive model — no bridges, no glue code, no inconsistencies.</p>
-    </div>
-
-    <div class="spider-card fade-in" style="grid-area: far;">
-      <div class="mite-icon lsf neon"><i data-lucide="chevron-right-circle"></i></div>
-      <h3 class="highlight">Deterministic Performance</h3>
-      <p>Thanks to stateless execution and rule prioritization, MITE runs predictably under extreme load — scaling to millions of operations per hour.</p>
-    </div>
-
-    <div class="spider-card fade-in" style="grid-area: extra;">
-      <div class="lsf mite-icon neon"><i data-lucide="cpu"></i></div>
-      <h3 class="highlight">Lean Memory Model</h3>
-      <p>Garbage collection and compact runtime objects ensure long-term performance without memory leaks or growing latency.</p>
-    </div>
-
-    <div class="spider-card fade-in" style="grid-area: bottom-l;">
-      <div class="lsf mite-icon neon"><i data-lucide="repeat"></i></div>
-      <h3 class="highlight">Agile Versioning</h3>
-      <p>Version any piece of business logic independently. Test, switch, and roll out updates safely — even across branches.</p>
-    </div>
-
-    <div class="spider-card fade-in" style="grid-area: bottom-r;">
-      <div class="lsf mite-icon neon"><i data-lucide="plug"></i></div>
-      <h3 class="highlight">Modular Extensibility</h3>
-      <p>Native support for PostgreSQL, Redis, SAP, MQTT, and more. Just plug in the module — no need to rewire your core logic.</p>
-    </div>
-
-    <div class="spider-card fade-in" style="grid-area: bottom;">
-      <div class="lsf mite-icon neon"><i data-lucide="lock"></i></div>
-      <h3 class="highlight">Enterprise-Grade Security</h3>
-      <p>Role-based access, transactional integrity, and audit trails come built-in — securing your operations by design, not afterthought.</p>
-    </div>
-  </div>
-
-  <div class="cta-button">
-    <a href="https://lsfusion.org" target="_blank">Explore lsFusion</a>
-  </div>
-</section>
-
-
-
-<section class="section fade-in">
-  <h2 class="section-title">Explore Our Case Studies</h2>
-  <p class="section-lead">See how MITE <span class="highlight" >different industries </span>to automate, monitor, and optimize with  <span class="highlight" >precision and sustainability.</span></p>
-
-  <div class="case-carousel swiper">
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide">
-        <div class="case-card">
-          <img src="upload/healthcare_iot.webp" alt="Pharma Cold Chain Monitoring with IoT"  loading="lazy decoding="async"/>
-          <h3>Pharma: Cold Chain Monitoring</h3>
-          <p>Ensure GMP-compliant pharmaceutical logistics with real-time temperature monitoring, instant alerts, and audit-ready digital records powered by IoT.</p>
-          <a href="pharma_IoT.html" class="mini-button">Learn more</a>
-      </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="case-card">
-        <img src="upload/logistics_IoT.webp" alt="Logistics Automation for Fleets and Warehouses"  loading="lazy decoding="async"/>
-        <h3>Logistics: Fleet and Warehouse Automation</h3>
-        <p>Track fleet movement and automate warehouse handling with smart sensors and robotic systems. Improve delivery precision and reduce operational downtime.</p>
-        <a href="pharma_IoT.html" class="mini-button">Learn more</a>
-      </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="case-card">
-        <img src="upload/agriculture_IoT.webp" alt="Smart Farming with IoT Irrigation Systems"  loading="lazy decoding="async"/>
-        <h3>Agriculture: Smart Irrigation</h3>
-        <p>Leverage IoT-driven irrigation and soil moisture sensors to optimize water usage, reduce costs, and improve crop health in real time.</p>
-        <a href="pharma_IoT.html" class="mini-button">Learn more</a>
-      </div>
-      </div>
-
-     <div class="swiper-slide">
-        <div class="case-card">
-        <img src="upload/manufacturing_iot.webp" alt="Automated Manufacturing Line with MITE"  loading="lazy decoding="async"/>
-        <h3>Manufacturing: Intelligent Production</h3>
-        <p>Digitize equipment and processes — without writing code. Monitor production lines, automate decisions, and deliver clean, actionable metrics. MITE replaces traditional SCADA systems and gives you full control over business logic tailored to your operations.
-</p></p>
-        <a href="pharma_IoT.html" class="mini-button">Learn more</a>
-      </div>
-     </div>
-
-      <div class="swiper-slide">
-        <div class="case-card">
-        <img src="upload/ecology_iot.webp" alt="Eco-Monitoring and Smart Irrigation with IoT"  loading="lazy decoding="async"/>
-        <h3>Ecology: Sustainable Resource Management</h3>
-        <p>Monitor environmental conditions and automate solar-powered irrigation. Use data-driven insights to promote sustainable land and resource use.</p>
-        <a href="pharma_IoT.html" class="mini-button">Learn more</a>
-      </div>
-      </div>
-
-      <div class="swiper-slide">
-        <div class="case-card">
-        <img src="upload/construction_IoT.webp" alt="Construction Site Monitoring with IoT"  loading="lazy decoding="async"/>
-        <h3>Construction: Site Intelligence</h3>
-        <p>Track heavy equipment, monitor worker safety, and control access in real time. Enable predictive maintenance and improve efficiency with IoT analytics.</p>
-        <a href="pharma_IoT.html" class="mini-button">Learn more</a>
-      </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Navigation -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  <!-- separate pagination -->
-  <div class="swiper-pagination case-pagination"></div>
-
-  <div class="step-cta">
-          <a href="https://booking.appointy.com/mite" target="_blank" class="cta-button">Request a Demo</a>
-  </div>
-</section>
-
-<section class="section fade-in spider-layout">
-  <h2 class="section-title">How MITE Works?</h2>
-  <p class="section-lead">Three Simple Steps to Leverage the Latest <span class="highlight">Technological Advances and Win</span> from Profit-Driven Journeys.</p>
-
-  <div class="step-flow step-even">
-    <!-- Step 1 -->
-    <div class="step-item" style="--delay: 0.2s;">
-      <div class="step-image">
-        <img src="upload/configure_infrastructure.webp" alt="Step 1 iot configure infrastructure"  loading="lazy decoding="async"/>
-      </div>
-      <div class="step-content">
-        <h3><span class="step-number">Step 1:</span> Configure the Physical Infrastructure</h3>
-        <ul>
-          <li>Effortlessly add industrial devices in seconds.</li>
-          <li>Support for any industrial protocols.</li>
-          <li>Instant and simultaneous processing of large datasets.</li>
-          <li>Flexible device mapping and management.</li>
-        </ul>
-      </div>
-    </div>
-    <div class="step-connector">
-      <span class="dot"></span>
-      <div class="line"></div>
-    </div>
-
-    <!-- Step 2 (reversed layout) -->
-    <div class="step-item reverse" style="--delay: 0.5s;">
-      <div class="step-image">
-        <img src="upload/business_logics_iot.webp" alt="Step 2 IoT business logic"  loading="lazy decoding="async"/>
-      </div>
-      <div class="step-content">
-        <h3><span class="step-number">Step 2:</span> Design Business Logic to Meet Your Needs</h3>
-        <ul>
-          <li>Visual interface for rapid configuration.</li>
-          <li>No-code tools to build powerful automation flows.</li>
-          <li>Adjust logic and variables on the fly.</li>
-          <li>Integrate easily with third-party systems.</li>
-        </ul>
-      </div>
-    </div>
-
-     <div class="step-connector">
-      <span class="dot"></span>
-      <div class="line"></div>
-    </div>
-
-    <!-- Step 3 -->
-    <div class="step-item" style="--delay: 0.8s;">
-      <div class="step-image">
-        <img src="upload/insights_iot.png" alt="Step 3" loading="lazy decoding="async"/>
-      </div>
-      <div class="step-content">
-        <h3><span class="step-number">Step 3:</span> Gain Real-Time Insights & Scale with Ease</h3>
-        <ul>
-          <li>Create dashboards in seconds.</li>
-          <li>Make data-driven decisions in real time.</li>
-          <li>Optimize operations with actionable reports.</li>
-          <li>Scale effortlessly with modular cloud architecture.</li>
-        </ul>
-        <div class="step-cta">
-          <a href="https://booking.appointy.com/mite" target="_blank" class="cta-button">Request a Demo</a>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb"></div>
+          <div class="orb-ring"></div>
+          <div class="orb-spider">MITE</div>
+          <div class="orb-badge" data-i18n="hero.orbBadge"></div>
+          <div class="orb-metric">
+            <strong data-i18n="hero.metricTitle"></strong>
+            <span data-i18n="hero.metricText"></span>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="testimonials" class="section fade-in">
-  <h2 class="section-title">What Our Clients Say</h2>
-
-  <div class="section-lead">
-    Real voices from industry professionals who trusted MITE to digitize and automate their operations.
-  </div>
-
-  <div class="mite-grid" >
-
-    <div class="mite-icon fade-in">
-      <img src="upload/testimonial-anna.webp"
-           alt="Photo of Anna Müller – Pharma Operations Director" class="testimonial-photo" loading="lazy" decoding="async" />
-      <p class="section-lead highlight">Anna Müller</p>
-      <p class="section-content">Pharma Operations Director</p>
-      <p class="section-lead">
-        “MITE gave us full control over our temperature monitoring within days. No IT needed, and our QA team loves it.”
-      </p>
-    </div>
-
-    <div class="mite-icon fade-in" >
-      <img src="upload/testimonial-matteo.webp"
-           alt="Photo of Matteo Bianchi – Logistics Engineer" class="testimonial-photo" loading="lazy" decoding="async" />
-      <p class="section-lead highlight">Matteo Bianchi</p>
-      <p class="section-content">Logistics Engineer</p>
-      <p class="section-lead" >
-        “We finally automated real-time asset tracking across 4 warehouses without writing a single line of code. This is a game-changer.”
-      </p>
-    </div>
-
-    <div class="mite-icon fade-in" >
-      <img src="upload/testimonial-lars.webp" alt="Photo of Lars Johansson – Industrial IoT Consultant" 
-      class="testimonial-photo" loading="lazy" decoding="async" />
-      <p class="section-lead highlight">Lars Johansson</p>
-      <p class="section-content">Industrial IoT Consultant</p>
-      <p class="section-lead" >
-        “MITE allowed us to pilot IIoT logic with real-time alarms in less than a week. Our clients were blown away.”
-      </p>
-    </div>
-
-  </div>
-</section>
-
-<section id="steps" class="section fade-in spider-layout">
-  <h2 class="section-title">From Data to Decisions</h2>
-  <p class="section-lead">
-    4 Steps to Transform Industrial Infrastructure with MITE
-  </p>
-  <p class="section-note">
-    Our step-by-step approach helps you unlock real value from connected assets — quickly, flexibly, and without writing code.
-  </p>
-
-  <div class="mite-grid">
-    <div class="spider-card fade-in" style="grid-area: top;">
-      <div class="mite-icon neon" title="Device Integration">
-        <i data-lucide="plug" aria-label="Device Integration"></i>
+    <!-- POSITIONING / ABOUT -->
+    <section id="about" class="section container">
+      <div class="section-header">
+        <div class="eyebrow" data-i18n="about.eyebrow"></div>
+        <h2 class="section-title" data-i18n="about.title"></h2>
+        <p class="section-subtitle" data-i18n="about.text"></p>
       </div>
-      <h3>Connect Any Equipment</h3>
-      <p>Use industrial protocols like Modbus, OPC UA, LoRa, or BLE to link devices and sensors of any type. Get connected in minutes — securely and reliably.</p>
-    </div>
+    </section>
 
-    <div class="spider-card fade-in" style="grid-area: left;">
-      <div class="mite-icon neon" title="Flexible Device Types">
-        <i data-lucide="settings" aria-label="Flexible Device Types"></i>
+    <!-- HIGHLIGHTS -->
+    <section id="highlights" class="section container">
+      <div class="section-header">
+        <div class="eyebrow" data-i18n="highlights.eyebrow"></div>
+        <h2 class="section-title" data-i18n="highlights.title"></h2>
+        <p class="section-subtitle" data-i18n="highlights.subtitle"></p>
       </div>
-      <h3>Define Your Asset Types</h3>
-      <p>Set up and manage device templates, parameters, and controls. Add, remove, or update assets without interrupting operations.</p>
-    </div>
 
-    <div class="spider-core fade-in" style="grid-area: core; display: flex; justify-content: center; align-items: center;">
-      <img src="upload/mite-spider-glow-final.webp" class="mite-spider-corex2" alt="MITE spider logo" loading="lazy" decoding="async"/>
-    </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="highlight.logic.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="highlight.logic.title"></h3>
+            <p class="card-text" data-i18n="highlight.logic.text"></p>
+            <div class="card-meta" data-i18n="highlight.logic.meta"></div>
+          </div>
+        </article>
 
-    <div class="spider-card fade-in" style="grid-area: right;">
-      <div class="mite-icon neon" title="Automation Logic">
-        <i data-lucide="code-2" aria-label="Automation Logic"></i>
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="highlight.protocols.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="highlight.protocols.title"></h3>
+            <p class="card-text" data-i18n="highlight.protocols.text"></p>
+            <div class="card-meta" data-i18n="highlight.protocols.meta"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="highlight.scaling.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="highlight.scaling.title"></h3>
+            <p class="card-text" data-i18n="highlight.scaling.text"></p>
+            <div class="card-meta" data-i18n="highlight.scaling.meta"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="highlight.insights.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="highlight.insights.title"></h3>
+            <p class="card-text" data-i18n="highlight.insights.text"></p>
+            <div class="card-meta" data-i18n="highlight.insights.meta"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="highlight.open.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="highlight.open.title"></h3>
+            <p class="card-text" data-i18n="highlight.open.text"></p>
+            <div class="card-meta" data-i18n="highlight.open.meta"></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="highlight.cost.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="highlight.cost.title"></h3>
+            <p class="card-text" data-i18n="highlight.cost.text"></p>
+            <div class="card-meta" data-i18n="highlight.cost.meta"></div>
+          </div>
+        </article>
       </div>
-      <h3>Automate & Control</h3>
-      <p>Configure rules, alerts, and control logic visually — no programming required. MITE adapts to your workflow, not the other way around.</p>
-    </div>
+    </section>
 
-    <div class="spider-card fade-in" style="grid-area: bottom;">
-      <div class="mite-icon neon" title="Analytics & Insights">
-        <i data-lucide="bar-chart" aria-label="Analytics"></i>
+    <!-- USE CASES -->
+    <section id="use-cases" class="section container">
+      <div class="section-header">
+        <div class="eyebrow" data-i18n="use.eyebrow"></div>
+        <h2 class="section-title" data-i18n="use.title"></h2>
+        <p class="section-subtitle" data-i18n="use.subtitle"></p>
       </div>
-      <h3>Analyze and Optimize</h3>
-      <p>Generate actionable insights through customizable dashboards and embedded analytics. Empower teams to improve results continuously.</p>
-    </div>
-  </div>
 
-  <div class="section-lead" style="margin-top: 3rem;">
-    Built-in Tools to Maximize Results
-  </div>
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-inner">
+            <h3 class="card-title" data-i18n="use.card1.title"></h3>
+            <p class="card-text" data-i18n="use.card1.text"></p>
+            <div class="pill-row">
+              <span class="pill" data-i18n="use.card1.pill1"></span>
+              <span class="pill" data-i18n="use.card1.pill2"></span>
+            </div>
+          </div>
+        </article>
 
-  <div class="mite-grid">
-    <div class="spider-card fade-in">
-      <div class="mite-icon neon" title="Grafana Integration">
-        <i data-lucide="monitor-smartphone" aria-label="Grafana"></i>
+        <article class="card">
+          <div class="card-inner">
+            <h3 class="card-title" data-i18n="use.card2.title"></h3>
+            <p class="card-text" data-i18n="use.card2.text"></p>
+            <div class="pill-row">
+              <span class="pill" data-i18n="use.card2.pill1"></span>
+              <span class="pill" data-i18n="use.card2.pill2"></span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-inner">
+            <h3 class="card-title" data-i18n="use.card3.title"></h3>
+            <p class="card-text" data-i18n="use.card3.text"></p>
+            <div class="pill-row">
+              <span class="pill" data-i18n="use.card3.pill1"></span>
+              <span class="pill" data-i18n="use.card3.pill2"></span>
+            </div>
+          </div>
+        </article>
       </div>
-      <h3>Powerful Analytics</h3>
-      <p>MITE includes embedded Grafana dashboards. Explore terabytes of data, discover trends, and make informed decisions — fast and visually.</p>
-    </div>
+    </section>
 
-    <div class="spider-card fade-in">
-      <div class="mite-icon neon" title="API and Integrations">
-        <i data-lucide="layers" aria-label="API Integrations"></i>
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section container">
+      <div class="section-header">
+        <div class="eyebrow" data-i18n="how.eyebrow"></div>
+        <h2 class="section-title" data-i18n="how.title"></h2>
+        <p class="section-subtitle" data-i18n="how.subtitle"></p>
       </div>
-      <h3>Easy Integrations</h3>
-      <p>Open API and flexible architecture make it easy to connect MITE with your existing systems — ERP, MES, or custom software.</p>
-    </div>
-  </div>
-</section>
 
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="how.step1.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="how.step1.title"></h3>
+            <p class="card-text" data-i18n="how.step1.text"></p>
+          </div>
+        </article>
 
-<section class="section fade-in demo-form">
-  <form id="miteForm2" class="miteForm"  novalidate>
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="how.step2.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="how.step2.title"></h3>
+            <p class="card-text" data-i18n="how.step2.text"></p>
+          </div>
+        </article>
 
-    <!-- Honeypot field (anti-bot) -->
-    <input type="text" name="_honey" style="display:none" autocomplete="off" />
-
-    <!-- Optional FormSubmit settings -->
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_subject" value="New Request from MITE Website" />
-
-    <div class="form-group">
-      <label for="name">Full Name *</label>
-      <input type="text" name="name" id="name" placeholder="Enter your full name" required />
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email *</label>
-      <input type="email" name="email" id="email" placeholder="your@email.com" required />
-    </div>
-
-    <div class="form-group">
-      <label for="phone">Phone Number *</label>
-      <input type="tel" name="phone" id="phone" placeholder="+351 961 234 567" required />
-    </div>
-
-    <div class="form-group checkbox-group">
-      <label class="checkbox-label">
-        <input type="checkbox" name="privacy" id="privacy" />
-        <span>I agree to the <a href="/privacy-policy.html" target="_blank">Privacy Policy</a></span>
-      </label>
-    </div>
-
-    <button type="submit" class="cta-button">Explore MITE</button>
-
-    <p id="form-error" style="display:none; margin-top: 1rem; color: #ff4444;">
-  <!-- Текст ошибки будет здесь -->
-    </p>
-
-    <p id="form-success" style="display:none; margin-top: 1rem; color: #54e54a;">
-      ✅ Thank you! We’ll get in touch shortly.
-    </p>
-  </form>
-</section>
-
-<section id="pricing" class="section fade-in">
-  <h2 class="section-title">Choose Your Pricing Plan</h2>
-  <p class="section-lead">Flexible plans tailored to your growth — from prototyping to enterprise-scale deployments.</p>
-
-  <div class="pricing-table">
-    <table>
-      <thead>
-        <tr>
-          <th>MITE Features</th>
-          <th>For Testing IoT Ideas<br><span class="plan-note">€9.99/month</span></th>
-          <th>For Small Business<br><span class="plan-note">€49.9/month</span></th>
-          <th>For Scalable Projects<br><span class="plan-note">from €99/month</span></th>
-          <th>Enterprise-Level<br>Businesses<br><span class="plan-note">from €499/month</span></th>
-          <th>Build Your Own<br><span class="plan-note"><a href="#contact">Contact us</a></span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Devices</td>
-          <td>Up to 10</td>
-          <td>Up to 30</td>
-          <td>Up to 50</td>
-          <td>Up to 500</td>
-          <td>∞</td>
-        </tr>
-        <tr>
-          <td>Unlimited Data Traffic</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-        </tr>
-        <tr>
-          <td>Any Data Amount</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-        </tr>
-        <tr>
-          <td>Unlimited Dashboards & Reports</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-        </tr>
-        <tr>
-          <td>All Features & Updates</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-        </tr>
-        <tr>
-          <td>PaaS for Clients</td>
-          <td>–</td>
-          <td>–</td>
-          <td>✔</td>
-          <td>✔</td>
-          <td>✔</td>
-        </tr>
-        <tr>
-          <td>White Labelling</td>
-          <td>–</td>
-          <td>–</td>
-          <td>–</td>
-          <td>Contact us</td>
-          <td>✔</td>
-        </tr>
-        <tr>
-          <td>Support</td>
-          <td>Basic</td>
-          <td>Basic</td>
-          <td>Extended</td>
-          <td>Extended</td>
-          <td>Premium</td>
-        </tr>
-        <tr>
-          <td>Billing Cycle</td>
-          <td>Monthly</td>
-          <td>Monthly</td>
-          <td>Monthly</td>
-          <td>Monthly</td>
-          <td>Monthly</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td><a class="mini-button" href="#">Start now</a></td>
-          <td><a class="mini-button" href="#">Start now</a></td>
-          <td><a class="mini-button" href="#">Start now</a></td>
-          <td><a class="mini-button" href="#">Start now</a></td>
-          <td><a class="mini-button" href="#contact">Start now</a></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<section id="faq" class="section fade-in">
-  <h2 class="section-title neon-text-green">FAQ: What B2B Decision-Makers Ask Us</h2>
-  <p class="section-lead">Key concerns from IT, finance, and operations — answered with facts, not fluff.</p>
-
-  <div class="faq-container">
-
-    <div class="faq-item">
-      <button class="faq-question">
-        <i data-lucide="shield-check"></i>
-        How do I convince our IT Director to adopt MITE?
-      </button>
-      <div class="faq-answer">
-        <ul>
-          <li>Protocol-agnostic, secure, and deployable anywhere — cloud or on-prem.</li>
-          <li>No vendor lock-in: logic is configured visually, not in code.</li>
-          <li>Enterprise-grade: audit logs, encrypted channels, RBAC.</li>
-          <li>Test ideas quickly with minimal IT involvement.</li>
-        </ul>
+        <article class="card">
+          <div class="card-inner">
+            <div class="card-tag">
+              <span class="card-tag-dot"></span>
+              <span data-i18n="how.step3.tag"></span>
+            </div>
+            <h3 class="card-title" data-i18n="how.step3.title"></h3>
+            <p class="card-text" data-i18n="how.step3.text"></p>
+          </div>
+        </article>
       </div>
-    </div>
+    </section>
 
-    <div class="faq-item">
-      <button class="faq-question">
-        <i data-lucide="lock"></i>
-        Is MITE compliant with corporate IT and cybersecurity standards?
-      </button>
-      <div class="faq-answer">
-        <ul>
-          <li>TLS/HTTPS encryption, audit logs, RBAC (role-based access control)</li>
-          <li>Support for MFA, IP filtering, password policies</li>
-          <li>Runs in DMZ, isolated networks, or fully air-gapped environments</li>
-        </ul>
+    <!-- PRICING -->
+    <section id="pricing" class="section container">
+      <div class="section-header">
+        <div class="eyebrow" data-i18n="pricing.eyebrow"></div>
+        <h2 class="section-title" data-i18n="pricing.title"></h2>
+        <p class="section-subtitle" data-i18n="pricing.subtitle"></p>
       </div>
-    </div>
 
-    <div class="faq-item">
-      <button class="faq-question">
-        <i data-lucide="plug"></i>
-        Can I integrate MITE with existing systems (SCADA, ERP, MES)?
-      </button>
-      <div class="faq-answer">
-        <p>MITE supports OPC-UA, Modbus, MQTT, REST APIs, and even legacy tech. Designed for seamless interoperability.</p>
+      <div class="grid grid-3 pricing-grid">
+        <article class="pricing-card">
+          <div class="pricing-label" data-i18n="pricing.plan1.label"></div>
+          <div class="pricing-name" data-i18n="pricing.plan1.name"></div>
+          <div class="pricing-tagline" data-i18n="pricing.plan1.tagline"></div>
+          <div class="pricing-price" data-i18n="pricing.plan1.price"></div>
+          <div class="pricing-note" data-i18n="pricing.plan1.note"></div>
+          <ul class="pricing-list">
+            <li><span>✓</span><span data-i18n="pricing.plan1.li1"></span></li>
+            <li><span>✓</span><span data-i18n="pricing.plan1.li2"></span></li>
+          </ul>
+          <div class="pricing-cta-row">
+            <a href="#contact" class="btn btn-ghost" data-i18n="pricing.plan1.cta"></a>
+          </div>
+        </article>
+
+        <article class="pricing-card highlight">
+          <div class="pricing-label" data-i18n="pricing.plan2.label"></div>
+          <div class="pricing-name" data-i18n="pricing.plan2.name"></div>
+          <div class="pricing-tagline" data-i18n="pricing.plan2.tagline"></div>
+          <div class="pricing-price" data-i18n="pricing.plan2.price"></div>
+          <div class="pricing-note" data-i18n="pricing.plan2.note"></div>
+          <ul class="pricing-list">
+            <li><span>✓</span><span data-i18n="pricing.plan2.li1"></span></li>
+            <li><span>✓</span><span data-i18n="pricing.plan2.li2"></span></li>
+            <li><span>✓</span><span data-i18n="pricing.plan2.li3"></span></li>
+          </ul>
+          <div class="pricing-cta-row">
+            <a href="#contact" class="btn btn-primary" data-i18n="pricing.plan2.cta"></a>
+            <span class="pricing-cta-note" data-i18n="pricing.plan2.ctaNote"></span>
+          </div>
+        </article>
+
+        <article class="pricing-card">
+          <div class="pricing-label" data-i18n="pricing.plan3.label"></div>
+          <div class="pricing-name" data-i18n="pricing.plan3.name"></div>
+          <div class="pricing-tagline" data-i18n="pricing.plan3.tagline"></div>
+          <div class="pricing-price" data-i18n="pricing.plan3.price"></div>
+          <div class="pricing-note" data-i18n="pricing.plan3.note"></div>
+          <ul class="pricing-list">
+            <li><span>✓</span><span data-i18n="pricing.plan3.li1"></span></li>
+            <li><span>✓</span><span data-i18n="pricing.plan3.li2"></span></li>
+            <li><span>✓</span><span data-i18n="pricing.plan3.li3"></span></li>
+          </ul>
+          <div class="pricing-cta-row">
+            <a href="#contact" class="btn btn-ghost" data-i18n="pricing.plan3.cta"></a>
+          </div>
+        </article>
       </div>
-    </div>
+    </section>
 
-    <div class="faq-item">
-      <button class="faq-question">
-        <i data-lucide="wallet"></i>
-        How do I explain MITE to our finance or procurement team?
-      </button>
-      <div class="faq-answer">
-        <ul>
-          <li>Pay only for active devices — no hidden fees.</li>
-          <li>No-code automation cuts outsourcing and IT costs.</li>
-          <li>Deployment in days — no large upfront investment.</li>
-        </ul>
+    <!-- TESTIMONIAL + FAQ -->
+    <section class="section container">
+      <div class="two-column">
+        <!-- Testimonials -->
+        <div>
+          <div class="section-header">
+            <div class="eyebrow" data-i18n="testimonials.eyebrow"></div>
+            <h2 class="section-title" data-i18n="testimonials.title"></h2>
+            <p class="section-subtitle" data-i18n="testimonials.subtitle"></p>
+          </div>
+
+          <article class="card">
+            <div class="card-inner">
+              <p class="card-text" data-i18n="testimonials.quote1.text"></p>
+              <div class="card-meta">
+                <span data-i18n="testimonials.quote1.author"></span> ·
+                <span data-i18n="testimonials.quote1.role"></span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- FAQ -->
+        <div id="faq">
+          <div class="section-header">
+            <div class="eyebrow" data-i18n="faq.eyebrow"></div>
+            <h2 class="section-title" data-i18n="faq.title"></h2>
+            <p class="section-subtitle" data-i18n="faq.subtitle"></p>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-q" data-i18n="faq.q1"></div>
+              <div class="faq-a" data-i18n="faq.a1"></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" data-i18n="faq.q2"></div>
+              <div class="faq-a" data-i18n="faq.a2"></div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-q" data-i18n="faq.q3"></div>
+              <div class="faq-a" data-i18n="faq.a3"></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="faq-item">
-      <button class="faq-question">
-        <i data-lucide="rocket"></i>
-        What happens if we outgrow MITE?
-      </button>
-      <div class="faq-answer">
-        <p>You won’t. MITE scales from 10 to 100,000+ devices across any infrastructure — vertically, horizontally, flexibly.</p>
+    <!-- CONTACT -->
+    <section id="contact" class="section container">
+      <div class="two-column">
+        <div class="section-header">
+          <div class="eyebrow" data-i18n="contact.eyebrow"></div>
+          <h2 class="section-title" data-i18n="contact.title"></h2>
+          <p class="section-subtitle" data-i18n="contact.subtitle"></p>
+        </div>
+
+        <div class="contact-card">
+          <form class="form-grid" autocomplete="on">
+            <div class="form-grid form-row-2">
+              <div>
+                <label for="name" data-i18n="contact.nameLabel"></label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  data-i18n-placeholder="contact.namePlaceholder"
+                />
+              </div>
+              <div>
+                <label for="email" data-i18n="contact.emailLabel"></label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  data-i18n-placeholder="contact.emailPlaceholder"
+                />
+              </div>
+            </div>
+
+            <div class="form-grid form-row-2">
+              <div>
+                <label for="company" data-i18n="contact.companyLabel"></label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  data-i18n-placeholder="contact.companyPlaceholder"
+                />
+              </div>
+              <div>
+                <label for="size" data-i18n="contact.sizeLabel"></label>
+                <input
+                  id="size"
+                  name="size"
+                  type="text"
+                  data-i18n-placeholder="contact.sizePlaceholder"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="message" data-i18n="contact.messageLabel"></label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                data-i18n-placeholder="contact.messagePlaceholder"
+              ></textarea>
+            </div>
+
+            <div class="pricing-cta-row">
+              <button type="submit" class="btn btn-primary" data-i18n="contact.submit"></button>
+              <span class="form-footnote" data-i18n="contact.legal"></span>
+            </div>
+          </form>
+        </div>
       </div>
-    </div>
+    </section>
+  </main>
 
-  </div>
-</section>
-
-
-<footer class="site-footer" itemscope itemtype="https://schema.org/Organization">
-  <meta itemprop="name" content="Internet of Things, LLC" />
-  <meta itemprop="url" content="https://mite.club" />
-
-  <div class="footer-container">
-    <div class="spider-list">
-      <img src="upload/mite-logo-green-w_o-background.webp" alt="MITE logo" class="footer-logo pulse-glow" itemprop="logo" loading="lazy" decoding="async" />
-      <p class="footer-tagline">MITE – Industrial IoT Monitoring & Automation</p>
-      <p class="footer-desc">
-        MITE is an IIoT platform for pharma, logistics, and manufacturing — enabling wireless monitoring, automation, alerts, and audit trails with zero coding.
-      </p>
-    </div>
-
-    <nav class="spider-list" aria-label="Footer Navigation">
-      <h4>Explore</h4>
-      <ul>
-        <li><a href="#why">Why MITE?</a></li>
-        <li><a href="#highlights">Highlights</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#pricing">Pricing</a></li>
-      </ul>
-    </nav>
-
-    <div class="spider-list" itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
-      <h4>Contact</h4>
-      <ul>
-        <li>Email: <a href="mailto:info@mite.club" itemprop="email">info@mite.club</a></li>
-        <li itemprop="contactType" content="customer support">Support</li>
-      </ul>
-      <div class="social-icons" itemprop="sameAs">
-        <a href="https://t.me/mitemonitoring" target="_blank"><i data-lucide="send"></i></a>
-        <a href="https://linkedin.com/company/mitemonitoring" target="_blank"><i data-lucide="linkedin"></i></a>
-        <a href="https://facebook.com/mitemonitoring" target="_blank"><i data-lucide="facebook"></i></a>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div data-i18n="footer.note"></div>
+      <div class="footer-links">
+        <a href="/privacy-policy.html" data-i18n="footer.privacy"></a>
+        <a href="#top" data-i18n="footer.backToTop"></a>
       </div>
     </div>
-  </div>
+  </footer>
 
-  <div class="footer-line" aria-hidden="true"></div>
+  <script>
+    const translations = {
+      en: {
+        // NAV
+        "nav.about": "Why MITE",
+        "nav.platform": "Platform",
+        "nav.solutions": "Solutions",
+        "nav.pricing": "Pricing",
+        "nav.faq": "FAQ",
+        "nav.contact": "Contact",
+        "nav.demoBtn": "Request a demo",
 
-  <div class="footer-bottom">
-    <span>© 2019–2025 Internet of Things, LLC. All rights reserved.</span>
-    <span class="sep">•</span>
-    <a href="/privacy-policy.html">Privacy Policy</a>
-  </div>
+        // HERO
+        "hero.kicker": "Industrial IoT, delivered",
+        "hero.title": "Not just another IIoT platform. <span>MITE changes the game.</span>",
+        "hero.subtitle":
+          "Connect industrial assets, design business logic, and analyse data in one place. MITE turns your physical infrastructure into a flexible digital layer that follows your business, not the other way around.",
+        "hero.primaryCta": "Book a discovery call",
+        "hero.secondaryCta": "See how it works",
+        "hero.meta1": "From rapid PoC to validated, production-grade rollout",
+        "hero.meta2": "Built on declarative technology for extreme flexibility",
+        "hero.meta3": "Designed for business and operations teams, not only IT",
+        "hero.badge":
+          "<strong>“It is so simple, clear, and just works.”</strong> That is the feedback we optimise for.",
+        "hero.orbBadge": "Connected infrastructure",
+        "hero.metricTitle": "Billions of records",
+        "hero.metricText": "Handle data growth by scaling logic, not rewriting systems.",
 
-<button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
-</footer>
+        // ABOUT / POSITIONING
+        "about.eyebrow": "Positioning",
+        "about.title": "The flexible Industrial IoT platform that grows with your processes",
+        "about.text":
+          "Most IoT platforms stop at dashboards. MITE goes further: you orchestrate devices, model complex business logic, and push decisions back to the shop floor from one environment. No hard limits on data volume, device types, or workflows.",
 
-<!-- Cookie banner (всплывающий) -->
-<div id="cookie-banner" class="cookie-banner" role="region" aria-label="Cookie consent">
-  <p>
-    We use cookies to improve your experience.
-    <a class="learn-link" href="/privacy-policy.html">Learn more</a>
-  </p>
-  <button id="cookie-accept" type="button" class="cookie-accept">Accept</button>
-</div>
+        // HIGHLIGHTS
+        "highlights.eyebrow": "What powers MITE",
+        "highlights.title": "One platform for devices, logic, and insights",
+        "highlights.subtitle":
+          "MITE is built for industrial teams that need to experiment, scale, and stay in control of their data and processes.",
 
-<audio id="hover-sound" preload="auto">
-  <source src="sounds/hover.mp3" type="audio/mpeg" />
-</audio>
+        "highlight.logic.tag": "Business logic",
+        "highlight.logic.title": "Any process complexity",
+        "highlight.logic.text":
+          "Model everything from simple alerts to multi-step workflows. Because the platform is declarative, you can evolve logic in hours instead of long release cycles.",
+        "highlight.logic.meta": "If you can describe the process, you can configure it.",
 
+        "highlight.protocols.tag": "Industrial protocols",
+        "highlight.protocols.title": "Any equipment, any vendor",
+        "highlight.protocols.text":
+          "Connect PLCs, meters, sensors, and controllers over industrial and web protocols. Standardise data once and reuse it across multiple use cases.",
+        "highlight.protocols.meta": "Modbus, LoRa, TCP/UDP, BLE, CAN and more.",
 
-<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js" defer></script>
-<script src="js/main.js" defer></script>
+        "highlight.scaling.tag": "Scaling",
+        "highlight.scaling.title": "Ready for billions of transactions",
+        "highlight.scaling.text":
+          "Grow from pilot to hundreds of sites by increasing capacity, not rewriting the solution. MITE handles heavy data without locking you into one scenario.",
+        "highlight.scaling.meta": "Horizontal growth without architectural drama.",
+
+        "highlight.insights.tag": "Insights",
+        "highlight.insights.title": "One screen, many perspectives",
+        "highlight.insights.text":
+          "Build dashboards and analytical views in minutes. Combine data from MITE and external systems to see the real operational context.",
+        "highlight.insights.meta": "From real-time monitoring to deep analysis.",
+
+        "highlight.open.tag": "Openness",
+        "highlight.open.title": "Open API and ecosystem",
+        "highlight.open.text":
+          "Use MITE as the backbone that feeds data to ERP, MES, SCADA, or custom applications. Keep ownership of the logic and of the data.",
+        "highlight.open.meta": "Your infrastructure, your rules.",
+
+        "highlight.cost.tag": "Value",
+        "highlight.cost.title": "Profit-driven, not feature-driven",
+        "highlight.cost.text":
+          "We focus on measurable outcomes: fewer incidents, faster rollouts, more value from each device. Implementation is guided by business impact.",
+        "highlight.cost.meta": "IoT as an investment, not just a cost.",
+
+        // USE CASES
+        "use.eyebrow": "Use cases",
+        "use.title": "From proof of concept to portfolio of IIoT solutions",
+        "use.subtitle":
+          "Start small with one scenario and reuse the same platform, data model, and connectors for the next projects.",
+
+        "use.card1.title": "Smart metering and utilities",
+        "use.card1.text":
+          "Consolidate data from meters, submeters, and gateways. Detect anomalies, reduce losses, and generate clear reports for finance and operations.",
+        "use.card1.pill1": "Energy and water",
+        "use.card1.pill2": "Loss and anomaly detection",
+
+        "use.card2.title": "Connected equipment and assets",
+        "use.card2.text":
+          "Monitor health, runtime, and conditions of critical assets. Trigger workflows for maintenance, quality checks, or safety actions based on real data.",
+        "use.card2.pill1": "Condition monitoring",
+        "use.card2.pill2": "Maintenance workflows",
+
+        "use.card3.title": "Industry-specific solutions",
+        "use.card3.text":
+          "Use MITE as a foundation for domain solutions — from pharma and food to manufacturing and infrastructure. Reuse 80 percent of the platform and customise the rest.",
+        "use.card3.pill1": "Regulated industries",
+        "use.card3.pill2": "White-label options",
+
+        // HOW IT WORKS
+        "how.eyebrow": "How it works",
+        "how.title": "Three steps from device to decision",
+        "how.subtitle":
+          "MITE brings together physical devices, business logic, and data visualisation in one feedback loop.",
+
+        "how.step1.tag": "Step 1",
+        "how.step1.title": "Connect and orchestrate the physical layer",
+        "how.step1.text":
+          "Onboard devices, gateways, and controllers in minutes. Map sites, buildings, and assets into a clear structure that everyone understands.",
+
+        "how.step2.tag": "Step 2",
+        "how.step2.title": "Design the business logic",
+        "how.step2.text":
+          "Configure rules, workflows, and data transformations without writing code. Adjust whenever processes change, not only in major releases.",
+
+        "how.step3.tag": "Step 3",
+        "how.step3.title": "Analyse, act, and refine",
+        "how.step3.text":
+          "Build dashboards, run diagnostics, and push actions back to the field. Test new ideas fast, keep what works, and retire what does not.",
+
+        // PRICING
+        "pricing.eyebrow": "Pricing",
+        "pricing.title": "Plans for pilots, products, and platforms",
+        "pricing.subtitle":
+          "Transparent entry points for experiments and scalable options for enterprise deployments.",
+
+        "pricing.plan1.label": "For pilots",
+        "pricing.plan1.name": "Start",
+        "pricing.plan1.tagline": "Ideal for testing IoT ideas and quick PoC projects.",
+        "pricing.plan1.price": "From €9.99 / month",
+        "pricing.plan1.note": "Limited number of devices, full access to core features.",
+        "pricing.plan1.li1": "Fast onboarding and preconfigured dashboards",
+        "pricing.plan1.li2": "Support for standard industrial and web protocols",
+        "pricing.plan1.cta": "Start a pilot",
+
+        "pricing.plan2.label": "For growing projects",
+        "pricing.plan2.name": "Scale",
+        "pricing.plan2.tagline": "For teams that take one successful pilot into multiple sites.",
+        "pricing.plan2.price": "From €99 / month",
+        "pricing.plan2.note": "Balanced package of devices, features, and support.",
+        "pricing.plan2.li1": "Advanced business logic and workflows",
+        "pricing.plan2.li2": "Integration with existing enterprise systems",
+        "pricing.plan2.li3": "Priority support during rollout",
+        "pricing.plan2.cta": "Talk to sales",
+        "pricing.plan2.ctaNote": "We help match the plan to your rollout strategy.",
+
+        "pricing.plan3.label": "For enterprises and partners",
+        "pricing.plan3.name": "Enterprise / OEM",
+        "pricing.plan3.tagline": "When MITE becomes the core of your digital infrastructure.",
+        "pricing.plan3.price": "Custom pricing",
+        "pricing.plan3.note": "Designed for industrial leaders and solution providers.",
+        "pricing.plan3.li1": "Large-scale multi-site deployments",
+        "pricing.plan3.li2": "White-label and OEM opportunities",
+        "pricing.plan3.li3": "Custom SLAs and governance model",
+        "pricing.plan3.cta": "Book a strategy session",
+
+        // TESTIMONIALS
+        "testimonials.eyebrow": "Customer voice",
+        "testimonials.title": "“So simple, clear, and it just works.”",
+        "testimonials.subtitle":
+          "Real feedback from industrial teams that wanted fewer surprises and more predictable outcomes.",
+        "testimonials.quote1.text":
+          "“We asked for a platform that does not force us to think like software developers. With MITE we finally design processes in the language of operations, not code.”",
+        "testimonials.quote1.author": "Operations Director",
+        "testimonials.quote1.role": "Manufacturing company",
+
+        // FAQ
+        "faq.eyebrow": "FAQ",
+        "faq.title": "Questions your IT and operations teams will ask",
+        "faq.subtitle":
+          "A short, practical FAQ focused on integration, security, and ownership of data.",
+
+        "faq.q1": "How does MITE integrate with our existing IT and OT landscape?",
+        "faq.a1":
+          "MITE exposes an open API and supports common industrial and web protocols. We can push and pull data to ERP, SCADA, MES, data lakes, or custom applications. You keep control of where the data lives.",
+
+        "faq.q2": "Who owns the configuration and business logic built on the platform?",
+        "faq.a2":
+          "You do. The logic is transparent and editable. You are not locked into a single use case – the same model can serve new projects, partners, or plants without starting from zero.",
+
+        "faq.q3": "Is the platform suitable for regulated industries such as pharma or food?",
+        "faq.a3":
+          "Yes. MITE was designed with validation, audit trails, and clear separation of responsibilities in mind. It can be aligned with internal QoS and external regulatory requirements.",
+
+        // CONTACT
+        "contact.eyebrow": "Contact",
+        "contact.title": "Let us map your first IIoT win",
+        "contact.subtitle":
+          "Share a short description of your infrastructure and the outcome you want. We will propose a realistic first step and outline how it scales.",
+        "contact.nameLabel": "Full name",
+        "contact.namePlaceholder": "Your name",
+        "contact.emailLabel": "Work email",
+        "contact.emailPlaceholder": "you@company.com",
+        "contact.companyLabel": "Company",
+        "contact.companyPlaceholder": "Company name",
+        "contact.sizeLabel": "Scale",
+        "contact.sizePlaceholder": "Number of sites, lines, or assets",
+        "contact.messageLabel": "What would you like to achieve with MITE?",
+        "contact.messagePlaceholder": "Describe your current situation, use cases, or challenges.",
+        "contact.submit": "Send request",
+        "contact.legal":
+          "By sending the form you agree that we may contact you about MITE and process your data according to our privacy policy.",
+
+        // FOOTER
+        "footer.note": "MITE — Industrial IoT platform for profit-driven industrial teams.",
+        "footer.privacy": "Privacy policy",
+        "footer.backToTop": "Back to top"
+      },
+
+      ru: {
+        // NAV
+        "nav.about": "Почему MITE",
+        "nav.platform": "Платформа",
+        "nav.solutions": "Решения",
+        "nav.pricing": "Тарифы",
+        "nav.faq": "FAQ",
+        "nav.contact": "Контакты",
+        "nav.demoBtn": "Запросить демо",
+
+        // HERO
+        "hero.kicker": "Промышленный IoT без лишней сложности",
+        "hero.title":
+          "Это не просто ещё одна IIoT-платформа. <span>MITE меняет правила игры.</span>",
+        "hero.subtitle":
+          "Подключайте промышленное оборудование, настраивайте бизнес-логику и анализируйте данные в одном месте. MITE превращает физическую инфраструктуру в гибкий цифровой слой, который подстраивается под бизнес.",
+        "hero.primaryCta": "Обсудить проект",
+        "hero.secondaryCta": "Посмотреть, как это работает",
+        "hero.meta1": "От быстрого PoC до промышленного внедрения",
+        "hero.meta2": "Декларативная технология для максимальной гибкости",
+        "hero.meta3": "Инструмент для бизнеса и эксплуатации, а не только для IT",
+        "hero.badge":
+          "<strong>«Всё просто, понятно и работает».</strong> Именно на такой отклик мы ориентируемся.",
+        "hero.orbBadge": "Цифровая инфраструктура",
+        "hero.metricTitle": "Миллиарды записей",
+        "hero.metricText":
+          "Рост объёма данных решается масштабированием, а не переписыванием системы.",
+
+        // ABOUT / POSITIONING
+        "about.eyebrow": "Позиционирование",
+        "about.title": "Гибкая IIoT-платформа, которая растёт вместе с процессами",
+        "about.text":
+          "Большинство IoT-решений заканчиваются дашбордами. MITE идёт дальше: вы управляете устройствами, моделируете сложную бизнес-логику и возвращаете решения обратно в цех — из единой среды. Без жёстких ограничений по объёму данных, типам устройств и сценариям.",
+
+        // HIGHLIGHTS
+        "highlights.eyebrow": "Что делает MITE особенным",
+        "highlights.title": "Одна платформа для устройств, логики и аналитики",
+        "highlights.subtitle":
+          "MITE создан для индустриальных команд, которым нужно экспериментировать, масштабироваться и сохранять контроль над процессами и данными.",
+
+        "highlight.logic.tag": "Бизнес-логика",
+        "highlight.logic.title": "Любая сложность процессов",
+        "highlight.logic.text":
+          "Опишите сценарий — и настройте его без кода. От простых уведомлений до многошаговых рабочих процессов, которые меняются по мере роста бизнеса.",
+        "highlight.logic.meta": "Если процесс можно описать словами, его можно настроить в MITE.",
+
+        "highlight.protocols.tag": "Промышленные протоколы",
+        "highlight.protocols.title": "Любое оборудование, разные вендоры",
+        "highlight.protocols.text":
+          "Подключайте ПЛК, счётчики, датчики и контроллеры по промышленным и веб-протоколам. Один раз нормализуете данные — и используете их во множестве сценариев.",
+        "highlight.protocols.meta": "Modbus, LoRa, TCP/UDP, BLE, CAN и другие.",
+
+        "highlight.scaling.tag": "Масштабирование",
+        "highlight.scaling.title": "Готово к миллиардам транзакций",
+        "highlight.scaling.text":
+          "Растите от пилота до сотен площадок, увеличивая мощность, а не перепроектируя архитектуру. Платформа выдерживает нагрузку и не привязывает к одному сценарию.",
+        "highlight.scaling.meta": "Горизонтальный рост без архитектурной боли.",
+
+        "highlight.insights.tag": "Аналитика",
+        "highlight.insights.title": "Важные показатели на одном экране",
+        "highlight.insights.text":
+          "Собирайте дашборды за минуты, комбинируйте данные из MITE и внешних систем. Видно не только показания датчиков, но и реальный контекст операций.",
+        "highlight.insights.meta": "От онлайн-мониторинга до глубокой аналитики.",
+
+        "highlight.open.tag": "Открытость",
+        "highlight.open.title": "Открытый API и интеграции",
+        "highlight.open.text":
+          "Используйте MITE как шину данных для ERP, MES, SCADA и других систем. Логика и данные остаются под вашим контролем.",
+        "highlight.open.meta": "Ваша инфраструктура — ваши правила.",
+
+        "highlight.cost.tag": "Ценность",
+        "highlight.cost.title": "IoT как инвестиция, а не расход",
+        "highlight.cost.text":
+          "Фокус не на количестве фич, а на результате: меньше инцидентов, быстрее внедрение, больше выгоды с каждого устройства.",
+        "highlight.cost.meta": "Окупаемость проекта в центре внимания.",
+
+        // USE CASES
+        "use.eyebrow": "Сценарии",
+        "use.title": "От пилота до портфеля IIoT-решений",
+        "use.subtitle":
+          "Начните с одного сценария и переиспользуйте платформу, модель данных и коннекторы для следующих проектов.",
+
+        "use.card1.title": "Смарт-учёт и коммунальная инфраструктура",
+        "use.card1.text":
+          "Собирайте данные со счётчиков и датчиков, находите аномалии, сокращайте потери и предоставляйте понятную отчётность для финансов и эксплуатации.",
+        "use.card1.pill1": "Энергия и вода",
+        "use.card1.pill2": "Поиск потерь и отклонений",
+
+        "use.card2.title": "Подключённое оборудование и активы",
+        "use.card2.text":
+          "Контролируйте состояние критичных активов, ресурс, режимы работы. Запускайте процессы обслуживания и проверки качества по фактическим данным.",
+        "use.card2.pill1": "Condition monitoring",
+        "use.card2.pill2": "Процессы ТОиР",
+
+        "use.card3.title": "Отраслевые решения на базе MITE",
+        "use.card3.text":
+          "Стройте решения для фармацевтики, пищевой промышленности, производства или инфраструктуры, переиспользуя до 80% платформы и кастомизируя только специфику.",
+        "use.card3.pill1": "Регулируемые отрасли",
+        "use.card3.pill2": "White-label и OEM",
+
+        // HOW IT WORKS
+        "how.eyebrow": "Как это работает",
+        "how.title": "Три шага от устройства до управляемого процесса",
+        "how.subtitle":
+          "MITE объединяет устройства, бизнес-логику и аналитику в один замкнутый цикл действий.",
+
+        "how.step1.tag": "Шаг 1",
+        "how.step1.title": "Подключите и опишите физический слой",
+        "how.step1.text":
+          "Онбординг устройств, шлюзов и контроллеров занимает минуты. Объекты, цеха и площадки собираются в понятную структуру.",
+
+        "how.step2.tag": "Шаг 2",
+        "how.step2.title": "Настройте бизнес-логику",
+        "how.step2.text":
+          "Определите правила, пороги, маршруты обработки и задания без программирования. Легко адаптируйте логику по мере изменения процессов.",
+
+        "how.step3.tag": "Шаг 3",
+        "how.step3.title": "Анализируйте, действуйте, улучшайте",
+        "how.step3.text":
+          "Создавайте дашборды, проводите диагностику, запускайте действия в поле. Быстро проверяйте гипотезы и закрепляйте рабочие сценарии.",
+
+        // PRICING
+        "pricing.eyebrow": "Тарифы",
+        "pricing.title": "Для пилотов, масштабирования и корпоративных платформ",
+        "pricing.subtitle":
+          "Порог входа для экспериментов и расширяемые опции для масштабных внедрений.",
+
+        "pricing.plan1.label": "Для пилотов",
+        "pricing.plan1.name": "Start",
+        "pricing.plan1.tagline": "Подходит для проверки IoT-идей и небольших PoC.",
+        "pricing.plan1.price": "От €9.99 / мес",
+        "pricing.plan1.note": "Ограниченное число устройств и доступ к ключевым функциям.",
+        "pricing.plan1.li1": "Быстрый старт и базовые дашборды",
+        "pricing.plan1.li2": "Поддержка стандартных протоколов",
+        "pricing.plan1.cta": "Запустить пилот",
+
+        "pricing.plan2.label": "Для растущих проектов",
+        "pricing.plan2.name": "Scale",
+        "pricing.plan2.tagline": "Когда успешный пилот нужно развернуть на нескольких площадках.",
+        "pricing.plan2.price": "От €99 / мес",
+        "pricing.plan2.note": "Баланс устройств, функций и поддержки.",
+        "pricing.plan2.li1": "Расширенная бизнес-логика и сценарии",
+        "pricing.plan2.li2": "Интеграция с корпоративными системами",
+        "pricing.plan2.li3": "Приоритетная поддержка на этапе внедрения",
+        "pricing.plan2.cta": "Связаться с продажами",
+        "pricing.plan2.ctaNote": "Поможем подобрать конфигурацию под вашу стратегию.",
+
+        "pricing.plan3.label": "Для корпораций и партнёров",
+        "pricing.plan3.name": "Enterprise / OEM",
+        "pricing.plan3.tagline":
+          "Когда MITE становится ядром вашей цифровой инфраструктуры.",
+        "pricing.plan3.price": "Индивидуальный расчёт",
+        "pricing.plan3.note": "Для лидеров отрасли и провайдеров отраслевых решений.",
+        "pricing.plan3.li1": "Крупные многоузловые внедрения",
+        "pricing.plan3.li2": "White-label и OEM-формат",
+        "pricing.plan3.li3": "Индивидуальные SLA и модель взаимодействия",
+        "pricing.plan3.cta": "Запросить стратегическую сессию",
+
+        // TESTIMONIALS
+        "testimonials.eyebrow": "Отзывы",
+        "testimonials.title": "«Просто, прозрачно и действительно работает»",
+        "testimonials.subtitle":
+          "Фидбек от команд, которым важнее предсказуемый результат, чем список модных технологий.",
+        "testimonials.quote1.text":
+          "«Нам нужна была платформа, которая не заставляет мыслить как разработчики. В MITE мы описываем процессы на языке эксплуатации, а не кода.»",
+        "testimonials.quote1.author": "Директор по операционной деятельности",
+        "testimonials.quote1.role": "Производственная компания",
+
+        // FAQ
+        "faq.eyebrow": "FAQ",
+        "faq.title": "Вопросы, которые зададут IT и эксплуатация",
+        "faq.subtitle":
+          "Минимум маркетинга, максимум ответов про интеграцию, безопасность и владение данными.",
+
+        "faq.q1": "Как MITE интегрируется с нашими IT и OT системами?",
+        "faq.a1":
+          "Платформа имеет открытый API и поддерживает популярные промышленные и веб-протоколы. Данные можно обменивать с ERP, SCADA, MES, хранилищами и кастомными приложениями. Контроль над тем, где живут данные, остаётся у вас.",
+
+        "faq.q2": "Кто владеет конфигурацией и бизнес-логикой в системе?",
+        "faq.a2":
+          "Вы. Логика прозрачна и изменяема. Платформа не привязана к одному сценарию: модель можно использовать повторно для новых проектов, партнёров или площадок.",
+
+        "faq.q3": "Подходит ли платформа для регулируемых отраслей (фарма, пищевка и т. п.)?",
+        "faq.a3":
+          "Да. MITE проектировалась с учётом требований к валидации, журналам изменений и разделению ответственности. Её можно адаптировать под внутренние регламенты и внешние требования проверяющих органов.",
+
+        // CONTACT
+        "contact.eyebrow": "Контакты",
+        "contact.title": "Найдём первый понятный IIoT-результат",
+        "contact.subtitle":
+          "Опишите инфраструктуру и желаемый эффект. Мы предложим реалистичный первый шаг и покажем, как он масштабируется.",
+        "contact.nameLabel": "Полное имя",
+        "contact.namePlaceholder": "Ваше имя",
+        "contact.emailLabel": "Рабочий e-mail",
+        "contact.emailPlaceholder": "you@company.com",
+        "contact.companyLabel": "Компания",
+        "contact.companyPlaceholder": "Название компании",
+        "contact.sizeLabel": "Масштаб",
+        "contact.sizePlaceholder": "Количество площадок, линий или активов",
+        "contact.messageLabel": "Что вы хотите получить от MITE?",
+        "contact.messagePlaceholder":
+          "Опишите текущую ситуацию, задачи или сценарии, которые хотите реализовать.",
+        "contact.submit": "Отправить запрос",
+        "contact.legal":
+          "Отправляя форму, вы соглашаетесь на контакт по поводу MITE и обработку данных согласно политике конфиденциальности.",
+
+        // FOOTER
+        "footer.note":
+          "MITE — промышленная IoT-платформа для команд, которые считают эффект в деньгах.",
+        "footer.privacy": "Политика конфиденциальности",
+        "footer.backToTop": "Наверх"
+      },
+
+      uk: {
+        // NAV
+        "nav.about": "Чому MITE",
+        "nav.platform": "Платформа",
+        "nav.solutions": "Рішення",
+        "nav.pricing": "Тарифи",
+        "nav.faq": "FAQ",
+        "nav.contact": "Контакти",
+        "nav.demoBtn": "Запросити демо",
+
+        // HERO
+        "hero.kicker": "Промисловий IoT без зайвої складності",
+        "hero.title":
+          "Це не просто ще одна IIoT-платформа. <span>MITE змінює правила гри.</span>",
+        "hero.subtitle":
+          "Підключайте обладнання, налаштовуйте бізнес-логіку та аналізуйте дані в єдиному середовищі. MITE перетворює фізичну інфраструктуру на гнучкий цифровий шар, що підлаштовується під бізнес.",
+        "hero.primaryCta": "Обговорити проєкт",
+        "hero.secondaryCta": "Подивитись, як це працює",
+        "hero.meta1": "Від швидкого PoC до промислового запуску",
+        "hero.meta2": "Декларативна технологія для максимальної гнучкості",
+        "hero.meta3": "Інструмент для бізнесу та експлуатації, а не тільки для IT",
+        "hero.badge":
+          "<strong>«Все просто, зрозуміло і працює».</strong> Саме такого фідбеку ми прагнемо.",
+        "hero.orbBadge": "Цифрова інфраструктура",
+        "hero.metricTitle": "Мільярди записів",
+        "hero.metricText":
+          "Зростання обсягу даних вирішується масштабуванням, а не переписуванням системи.",
+
+        // ABOUT / POSITIONING
+        "about.eyebrow": "Позиціонування",
+        "about.title":
+          "Гнучка IIoT-платформа, що розвивається разом із бізнес-процесами",
+        "about.text":
+          "Більшість IoT-рішень обмежуються дашбордами. MITE йде далі: ви керуєте пристроями, моделюєте складну бізнес-логіку і повертаєте рішення назад у цех — з єдиної платформи.",
+
+        // HIGHLIGHTS
+        "highlights.eyebrow": "Що відрізняє MITE",
+        "highlights.title": "Єдина платформа для пристроїв, логіки та аналітики",
+        "highlights.subtitle":
+          "MITE створена для промислових команд, яким потрібно експериментувати, масштабуватися та контролювати дані і процеси.",
+
+        "highlight.logic.tag": "Бізнес-логіка",
+        "highlight.logic.title": "Будь-яка складність процесів",
+        "highlight.logic.text":
+          "Опишіть сценарій словами та налаштуйте його без коду. Логіка може змінюватися так само швидко, як і операційні процеси.",
+        "highlight.logic.meta": "Якщо процес можна описати, його можна реалізувати в MITE.",
+
+        "highlight.protocols.tag": "Промислові протоколи",
+        "highlight.protocols.title": "Різні типи обладнання та вендори",
+        "highlight.protocols.text":
+          "Підключайте ПЛК, лічильники, датчики й контролери через промислові та веб-протоколи. Один раз нормалізуйте дані і використовуйте їх у різних рішеннях.",
+        "highlight.protocols.meta": "Modbus, LoRa, TCP/UDP, BLE, CAN та інші.",
+
+        "highlight.scaling.tag": "Масштабування",
+        "highlight.scaling.title": "Готовність до великих обсягів даних",
+        "highlight.scaling.text":
+          "Розвивайтеся від пілотів до десятків і сотень майданчиків, нарощуючи потужності, а не повністю змінюючи архітектуру.",
+        "highlight.scaling.meta": "Горизонтальне масштабування без радикальних змін.",
+
+        "highlight.insights.tag": "Аналітика",
+        "highlight.insights.title": "Ключові інсайти на одному екрані",
+        "highlight.insights.text":
+          "Створюйте дашборди за лічені хвилини, поєднуйте дані MITE та інших систем. Бачите не тільки показники, а й контекст виробництва.",
+        "highlight.insights.meta": "Від моніторингу до глибокого аналізу даних.",
+
+        "highlight.open.tag": "Відкритість",
+        "highlight.open.title": "Відкритий API та інтеграції",
+        "highlight.open.text":
+          "Використовуйте MITE як базовий рівень для ERP, MES, SCADA та власних застосунків. Ви контролюєте логіку та володієте даними.",
+        "highlight.open.meta": "Ваша інфраструктура — ваші правила.",
+
+        "highlight.cost.tag": "Цінність",
+        "highlight.cost.title": "IoT як інвестиція",
+        "highlight.cost.text":
+          "Фокус на результаті: менше інцидентів, швидше впровадження, більше користі з кожного пристрою.",
+        "highlight.cost.meta": "Окупність проекту у фокусі.",
+
+        // USE CASES
+        "use.eyebrow": "Сценарії",
+        "use.title": "Від PoC до портфеля IIoT-рішень",
+        "use.subtitle":
+          "Почніть з одного сценарію та пере використовуйте платформу, модель даних і конектори для наступних ініціатив.",
+
+        "use.card1.title": "Смарт-облік та сервісні мережі",
+        "use.card1.text":
+          "Консолідуйте дані з лічильників та сенсорів, виявляйте аномалії, зменшуйте втрати і формуйте прозору звітність для бізнесу.",
+        "use.card1.pill1": "Енергія та вода",
+        "use.card1.pill2": "Виявлення втрат",
+
+        "use.card2.title": "Підключені активи та обладнання",
+        "use.card2.text":
+          "Відстежуйте стан критичних активів, режими роботи та умови експлуатації. Автоматизуйте процеси обслуговування та контролю якості.",
+        "use.card2.pill1": "Моніторинг стану",
+        "use.card2.pill2": "ТО та сервіс",
+
+        "use.card3.title": "Галузеві рішення на MITE",
+        "use.card3.text":
+          "Створюйте рішення для фарми, харчової промисловості, виробництва чи інфраструктури на спільній платформі з мінімумом повторної роботи.",
+        "use.card3.pill1": "Регульовані галузі",
+        "use.card3.pill2": "White-label та OEM",
+
+        // HOW IT WORKS
+        "how.eyebrow": "Як це працює",
+        "how.title": "Три кроки від пристрою до дії",
+        "how.subtitle":
+          "MITE поєднує реальний світ пристроїв і цифровий рівень аналітики та бізнес-правил.",
+
+        "how.step1.tag": "Крок 1",
+        "how.step1.title": "Підключення і моделювання інфраструктури",
+        "how.step1.text":
+          "Підключення пристроїв, шлюзів і контролерів займає хвилини. Сайти, цехи та активи описуються у зрозумілій структурі.",
+
+        "how.step2.tag": "Крок 2",
+        "how.step2.title": "Налаштування бізнес-логіки",
+        "how.step2.text":
+          "Визначте правила, пороги, завдання та маршрути обробки без програмування. Легко коригуйте логіку під зміни операцій.",
+
+        "how.step3.tag": "Крок 3",
+        "how.step3.title": "Аналітика та зворотній зв'язок у поле",
+        "how.step3.text":
+          "Створюйте дашборди, діагностуйте проблеми та запускайте дії в реальному середовищі. Тестуйте нові ідеї без багатомісячних проектів.",
+
+        // PRICING
+        "pricing.eyebrow": "Тарифи",
+        "pricing.title": "Для пілотів, масштабування та корпоративних клієнтів",
+        "pricing.subtitle":
+          "Зрозумілі входи для експериментів та гнучкі опції для масштабних впроваджень.",
+
+        "pricing.plan1.label": "Для пілотів",
+        "pricing.plan1.name": "Start",
+        "pricing.plan1.tagline": "Для перевірки IoT-ідей та невеликих PoC.",
+        "pricing.plan1.price": "Від €9.99 / міс",
+        "pricing.plan1.note": "Обмежена кількість пристроїв, доступ до основних функцій.",
+        "pricing.plan1.li1": "Швидкий запуск і базові дашборди",
+        "pricing.plan1.li2": "Підтримка стандартних протоколів",
+        "pricing.plan1.cta": "Запустити пілот",
+
+        "pricing.plan2.label": "Для зростаючих проектів",
+        "pricing.plan2.name": "Scale",
+        "pricing.plan2.tagline":
+          "Коли успішний пілот потрібно розгорнути на декількох майданчиках.",
+        "pricing.plan2.price": "Від €99 / міс",
+        "pricing.plan2.note": "Баланс кількості пристроїв, функцій і підтримки.",
+        "pricing.plan2.li1": "Розширена бізнес-логіка та сценарії",
+        "pricing.plan2.li2": "Інтеграція з основними системами компанії",
+        "pricing.plan2.li3": "Пріоритетна підтримка під час запуску",
+        "pricing.plan2.cta": "Зв'язатися з продажами",
+        "pricing.plan2.ctaNote":
+          "Допоможемо підібрати конфігурацію під вашу стратегію впровадження.",
+
+        "pricing.plan3.label": "Для корпорацій і партнерів",
+        "pricing.plan3.name": "Enterprise / OEM",
+        "pricing.plan3.tagline":
+          "Коли MITE стає ядром вашої цифрової інфраструктури.",
+        "pricing.plan3.price": "Індивідуальна вартість",
+        "pricing.plan3.note":
+          "Для промислових лідерів та провайдерів галузевих рішень.",
+        "pricing.plan3.li1": "Великомасштабні багатосайтові впровадження",
+        "pricing.plan3.li2": "White-label та OEM-можливості",
+        "pricing.plan3.li3": "Індивідуальні SLA та модель співпраці",
+        "pricing.plan3.cta": "Запросити стратегічну сесію",
+
+        // TESTIMONIALS
+        "testimonials.eyebrow": "Відгуки",
+        "testimonials.title": "«Просто, прозоро і справді працює»",
+        "testimonials.subtitle":
+          "Фідбек від команд, що цінують прогнозований результат більше, ніж список модних технологій.",
+        "testimonials.quote1.text":
+          "«Нам була потрібна платформа, яка не змушує мислити як розробники. В MITE ми описуємо процеси мовою експлуатації, а не коду.»",
+        "testimonials.quote1.author": "Director of Operations",
+        "testimonials.quote1.role": "Виробнича компанія",
+
+        // FAQ
+        "faq.eyebrow": "FAQ",
+        "faq.title": "Питання, які поставлять IT та експлуатація",
+        "faq.subtitle":
+          "Коротко про інтеграції, безпеку і те, кому належать дані та логіка.",
+
+        "faq.q1": "Як MITE інтегрується з нашими IT та OT системами?",
+        "faq.a1":
+          "Платформа має відкритий API та підтримує популярні промислові й веб-протоколи. Дані можна обмінювати з ERP, SCADA, MES, сховищами та внутрішніми застосунками.",
+
+        "faq.q2": "Хто володіє конфігурацією та бізнес-логікою?",
+        "faq.a2":
+          "Ви. Логіка прозора й змінювана. Одна і та сама модель може слугувати основою для нових сценаріїв, партнерських рішень або майданчиків.",
+
+        "faq.q3": "Чи підходить платформа для галузей з жорстким регулюванням?",
+        "faq.a3":
+          "Так. MITE розроблялася з урахуванням вимог до валідації, протоколювання змін та розподілу відповідальності.",
+
+        // CONTACT
+        "contact.eyebrow": "Контакти",
+        "contact.title": "Знайдемо першу зрозумілу IIoT-перемогу",
+        "contact.subtitle":
+          "Опишіть інфраструктуру та бажаний ефект. Ми запропонуємо реалістичний перший крок і варіант масштабування.",
+        "contact.nameLabel": "Повне ім'я",
+        "contact.namePlaceholder": "Ваше ім'я",
+        "contact.emailLabel": "Робочий e-mail",
+        "contact.emailPlaceholder": "you@company.com",
+        "contact.companyLabel": "Компанія",
+        "contact.companyPlaceholder": "Назва компанії",
+        "contact.sizeLabel": "Масштаб",
+        "contact.sizePlaceholder": "Кількість майданчиків, ліній або активів",
+        "contact.messageLabel": "Що ви хочете реалізувати з MITE?",
+        "contact.messagePlaceholder":
+          "Опишіть поточну ситуацію, задачі чи ідеї для сценаріїв.",
+        "contact.submit": "Надіслати запит",
+        "contact.legal":
+          "Надсилаючи форму, ви погоджуєтеся на контакт щодо MITE та обробку даних згідно з політикою конфіденційності.",
+
+        // FOOTER
+        "footer.note":
+          "MITE — промислова IoT-платформа для команд, що вимірюють ефект у грошах.",
+        "footer.privacy": "Політика конфіденційності",
+        "footer.backToTop": "Угору"
+      }
+    };
+
+    function applyTranslations(lang) {
+      const dict = translations[lang] || translations.en;
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        const value = dict[key];
+        if (!value) return;
+        el.innerHTML = value;
+      });
+
+      document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        const value = dict[key];
+        if (!value) return;
+        el.setAttribute("placeholder", value);
+      });
+
+      document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+        const code = btn.getAttribute("data-lang-btn");
+        btn.classList.toggle("is-active", code === lang);
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      applyTranslations("en");
+
+      document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const code = btn.getAttribute("data-lang-btn");
+          applyTranslations(code);
+        });
+      });
+    });
+  </script>
 </body>
 </html>
