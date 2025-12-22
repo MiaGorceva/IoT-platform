@@ -36,9 +36,8 @@
 
         // ABOUT / POSITIONING
         "about.eyebrow": "Positioning",
-        "about.title": "The flexible Industrial IoT platform that grows with your processes",
-        "about.text":
-          "Most IoT platforms stop at dashboards. MITE goes further: you orchestrate devices, model complex business logic, and push decisions back to the shop floor from one environment. No hard limits on data volume, device types, or workflows.",
+        "about.title": "A unified operational data layer for industrial systems",
+        "about.text": "MITE acts as a unified operational data layer for industrial environments. It collects data from any devices, systems, or external sources and stores it in a consistent, structured model.\n\nOn top of this data layer, you define rules, workflows, and control logic — without writing code. The same platform is used to monitor operations, automate processes, and send commands back to the field.\n\nDashboards, analytics, and insights are built on top of this foundation — not the other way around. By combining data storage, business logic, and control in one environment, MITE removes the need for multiple intermediate industrial systems."
 
         // HIGHLIGHTS
         "highlights.eyebrow": "What powers MITE",
@@ -254,9 +253,9 @@
 
         // ABOUT / POSITIONING
         "about.eyebrow": "Позиционирование",
-        "about.title": "Гибкая IIoT-платформа, которая растёт вместе с процессами",
-        "about.text":
-          "Большинство IoT-решений заканчиваются дашбордами. MITE идёт дальше: вы управляете устройствами, моделируете сложную бизнес-логику и возвращаете решения обратно в цех — из единой среды. Без жёстких ограничений по объёму данных, типам устройств и сценариям.",
+        "about.title": "Единый операционный слой данных для промышленных систем",
+        "about.text": "MITE выступает в роли единого операционного слоя данных для промышленных сред. Платформа собирает данные с любых устройств, систем и внешних источников и сохраняет их в единой, структурированной модели.\n\nПоверх этого слоя данных вы настраиваете правила, рабочие процессы и управляющую логику — без написания кода. Та же платформа используется для мониторинга процессов, автоматизации действий и передачи команд обратно на уровень оборудования.\n\nДашборды, аналитика и инсайты строятся поверх этой основы, а не являются её ядром. Объединяя хранение данных, бизнес-логику и управление в одной среде, MITE устраняет необходимость в множестве промежуточных промышленных систем."
+
 
         // HIGHLIGHTS
         "highlights.eyebrow": "Что делает MITE особенным",
@@ -474,10 +473,9 @@
 
         // ABOUT / POSITIONING
         "about.eyebrow": "Позиціонування",
-        "about.title":
-          "Гнучка IIoT-платформа, що розвивається разом із бізнес-процесами",
-        "about.text":
-          "Більшість IoT-рішень обмежуються дашбордами. MITE йде далі: ви керуєте пристроями, моделюєте складну бізнес-логіку і повертаєте рішення назад у цех — з єдиної платформи.",
+        "about.title": "Єдиний операційний шар даних для промислових систем",
+        "about.text": "MITE виступає як єдиний операційний шар даних для промислових середовищ. Платформа збирає дані з будь-яких пристроїв, систем або зовнішніх джерел і зберігає їх у єдиній, структурованій моделі.\n\nПоверх цього шару даних ви налаштовуєте правила, робочі процеси та керуючу логіку — без написання коду. Та сама платформа використовується для моніторингу процесів, автоматизації дій і надсилання команд безпосередньо в поле.\n\nДашборди, аналітика та інсайти будуються поверх цієї основи, а не навпаки. Поєднуючи зберігання даних, бізнес-логіку та управління в одному середовищі, MITE усуває потребу в багатьох проміжних промислових системах."
+
 
         // HIGHLIGHTS
         "highlights.eyebrow": "Що відрізняє MITE",
