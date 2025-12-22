@@ -221,15 +221,19 @@
         "hero.kicker": "Промышленный IoT без лишней сложности",
         "hero.title":
           "Это не просто ещё одна IIoT-платформа. <span>MITE меняет правила игры.</span>",
-        "hero.subtitle":
-          "Подключайте промышленное оборудование, настраивайте бизнес-логику и анализируйте данные в одном месте. MITE превращает физическую инфраструктуру в гибкий цифровой слой, который подстраивается под бизнес.",
-        "hero.primaryCta": "Обсудить проект",
-        "hero.secondaryCta": "Посмотреть, как это работает",
-        "hero.meta1": "От быстрого PoC до промышленного внедрения",
-        "hero.meta2": "Декларативная технология для максимальной гибкости",
-        "hero.meta3": "Инструмент для бизнеса и эксплуатации, а не только для IT",
+       "hero.subtitle":
+        "By bringing structure, logic, and operational data into one unified industrial platform. " +
+        "Connect industrial assets, define business logic, and turn operational data into decisions — in one platform.",
+
+        "hero.primaryCta": "Request a demo",
+        "hero.secondaryCta": "Explore the platform",
+
+        "hero.meta1": "From pilot projects to production-ready industrial deployments",
+        "hero.meta2": "Declarative logic enables flexibility without complex custom code",
+        "hero.meta3": "Designed for operations, engineering, and IT teams",
+
         "hero.badge":
-          "<strong>«Всё просто, понятно и работает».</strong> Именно на такой отклик мы ориентируемся.",
+          "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
         "hero.orbBadge": "Цифровая инфраструктура",
         "hero.metricTitle": "Миллиарды записей",
         "hero.metricText":
