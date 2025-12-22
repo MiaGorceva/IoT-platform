@@ -9,18 +9,27 @@
         "nav.contact": "Contact",
         "nav.demoBtn": "Request a demo",
 
+        // SEO
+        "seo.title": "MITE — Industrial IIoT Platform for Connected Infrastructure",
+        "seo.description": "MITE is an industrial IIoT platform that connects assets, models business logic, and turns operational data into decisions.",
+
         // HERO
         "hero.kicker": "Industrial IoT, delivered",
         "hero.title": "Not just another IIoT platform. <span>MITE changes the game.</span>",
         "hero.subtitle":
-          "Connect industrial assets, design business logic, and analyse data in one place. MITE turns your physical infrastructure into a flexible digital layer that follows your business, not the other way around.",
-        "hero.primaryCta": "Book a discovery call",
-        "hero.secondaryCta": "See how it works",
-        "hero.meta1": "From rapid PoC to validated, production-grade rollout",
-        "hero.meta2": "Built on declarative technology for extreme flexibility",
-        "hero.meta3": "Designed for business and operations teams, not only IT",
+          "By bringing structure, logic, and operational data into one unified industrial platform. " +
+          "Connect industrial assets, define business logic, and turn operational data into decisions — in one platform.",
+
+        "hero.primaryCta": "Request a demo",
+        "hero.secondaryCta": "Explore the platform",
+
+        "hero.meta1": "From pilot projects to production-ready industrial deployments",
+        "hero.meta2": "Declarative logic enables flexibility without complex custom code",
+        "hero.meta3": "Designed for operations, engineering, and IT teams",
+
         "hero.badge":
-          "<strong>“It is so simple, clear, and just works.”</strong> That is the feedback we optimise for.",
+          "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
+
         "hero.orbBadge": "Connected infrastructure",
         "hero.metricTitle": "Billions of records",
         "hero.metricText": "Handle data growth by scaling logic, not rewriting systems.",
@@ -217,23 +226,27 @@
         "nav.contact": "Контакты",
         "nav.demoBtn": "Запросить демо",
 
+        // SEO
+        "seo.title": "MITE — промышленная IIoT-платформа для подключённой инфраструктуры",
+        "seo.description": "MITE — промышленная IIoT-платформа, которая объединяет оборудование, бизнес-логику и операционные данные и превращает их в управляемые решения.",
+
         // HERO
         "hero.kicker": "Промышленный IoT без лишней сложности",
-        "hero.title":
-          "Это не просто ещё одна IIoT-платформа. <span>MITE меняет правила игры.</span>",
-       "hero.subtitle":
-        "By bringing structure, logic, and operational data into one unified industrial platform. " +
-        "Connect industrial assets, define business logic, and turn operational data into decisions — in one platform.",
+        "hero.title": "Это не просто ещё одна IIoT-платформа. <span>MITE меняет правила игры.</span>",
+        "hero.subtitle":
+          "Объединяя структуру, бизнес-логику и операционные данные в единой промышленной платформе. " +
+          "Подключайте оборудование, описывайте процессы и превращайте данные в управляемые решения — в одной системе.",
 
-        "hero.primaryCta": "Request a demo",
-        "hero.secondaryCta": "Explore the platform",
+        "hero.primaryCta": "Запросить демо",
+        "hero.secondaryCta": "Ознакомиться с платформой",
 
-        "hero.meta1": "From pilot projects to production-ready industrial deployments",
-        "hero.meta2": "Declarative logic enables flexibility without complex custom code",
-        "hero.meta3": "Designed for operations, engineering, and IT teams",
+        "hero.meta1": "От пилотных проектов до промышленного внедрения",
+        "hero.meta2": "Декларативная логика без сложной кастомной разработки",
+        "hero.meta3": "Для эксплуатации, инженерии и IT-команд",
 
         "hero.badge":
-          "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
+          "<strong>«Просто, понятно и надёжно — именно так, как ожидают промышленные команды».</strong>",
+
         "hero.orbBadge": "Цифровая инфраструктура",
         "hero.metricTitle": "Миллиарды записей",
         "hero.metricText":
@@ -434,19 +447,26 @@
         "nav.contact": "Контакти",
         "nav.demoBtn": "Запросити демо",
 
+        // SEO
+        "seo.title": "MITE — промислова IIoT-платформа для підключеної інфраструктури",
+        "seo.description": "MITE — промислова IIoT-платформа, що поєднує обладнання, бізнес-логіку та операційні дані й перетворює їх на керовані рішення.",
+
         // HERO
         "hero.kicker": "Промисловий IoT без зайвої складності",
-        "hero.title":
-          "Це не просто ще одна IIoT-платформа. <span>MITE змінює правила гри.</span>",
+        "hero.title": "Це не просто ще одна IIoT-платформа. <span>MITE змінює правила гри.</span>",
         "hero.subtitle":
-          "Підключайте обладнання, налаштовуйте бізнес-логіку та аналізуйте дані в єдиному середовищі. MITE перетворює фізичну інфраструктуру на гнучкий цифровий шар, що підлаштовується під бізнес.",
-        "hero.primaryCta": "Обговорити проєкт",
-        "hero.secondaryCta": "Подивитись, як це працює",
-        "hero.meta1": "Від швидкого PoC до промислового запуску",
-        "hero.meta2": "Декларативна технологія для максимальної гнучкості",
-        "hero.meta3": "Інструмент для бізнесу та експлуатації, а не тільки для IT",
+          "Поєднуючи структуру, бізнес-логіку та операційні дані в єдиній промисловій платформі. " +
+          "Підключайте обладнання, описуйте процеси та перетворюйте дані на керовані рішення — в одній системі.",
+
+        "hero.primaryCta": "Запросити демо",
+        "hero.secondaryCta": "Ознайомитись із платформою",
+
+        "hero.meta1": "Від пілотних проєктів до промислового впровадження",
+        "hero.meta2": "Декларативна логіка без складної кастомної розробки",
+        "hero.meta3": "Для експлуатації, інженерії та IT-команд",
+
         "hero.badge":
-          "<strong>«Все просто, зрозуміло і працює».</strong> Саме такого фідбеку ми прагнемо.",
+          "<strong>«Просто, зрозуміло й надійно — саме так, як очікують промислові команди».</strong>",
         "hero.orbBadge": "Цифрова інфраструктура",
         "hero.metricTitle": "Мільярди записів",
         "hero.metricText":
@@ -645,6 +665,16 @@
     function applyTranslations(lang) {
       const dict = translations[lang] || translations.en;
       document.documentElement.lang = lang;
+
+      const title = dict["seo.title"];
+      if (title) document.title = title;
+
+      const desc = dict["seo.description"];
+      if (desc) {
+        const meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute("content", desc);
+      }
+
 
       document.querySelectorAll("[data-i18n]").forEach((el) => {
         const key = el.getAttribute("data-i18n");
