@@ -86,6 +86,7 @@
       height: 34px;
       width: auto;
       display: block;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,0.55)); 
     }
 
     .main-nav {
@@ -300,7 +301,7 @@
       flex-wrap: wrap;
       gap: 0.75rem;
       align-items: center;
-      margin-bottom: 1.3rem;
+      margin-bottom: 1.05rem;
     }
 
     .hero-meta-item span:first-child {
