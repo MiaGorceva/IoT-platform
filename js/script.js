@@ -39,6 +39,27 @@
         "about.title": "A unified operational data layer for industrial systems",
         "about.text": "MITE acts as a unified operational data layer for industrial environments. It collects data from any devices, systems, or external sources and stores it in a consistent, structured model.\n\nOn top of this data layer, you define rules, workflows, and control logic — without writing code. The same platform is used to monitor operations, automate processes, and send commands back to the field.\n\nDashboards, analytics, and insights are built on top of this foundation — not the other way around. By combining data storage, business logic, and control in one environment, MITE removes the need for multiple intermediate industrial systems.",
 
+        "about.point1.title": "Connect anything",
+        "about.point1.text": "Devices, PLCs, meters, gateways, external systems — MITE brings it into one structured model.",
+        "about.point2.title": "Define logic without code",
+        "about.point2.text": "Rules, workflows, approvals, and control actions are configured declaratively — fast to change, easy to govern.",
+        "about.point3.title": "Control, not just observe",
+        "about.point3.text": "Send commands back to the field and keep execution tied to your operational model.",
+        "about.cta": "Ask a question",
+
+        "about.side.label": "Typical outcomes",
+        "about.side.metric1.num": "Weeks",
+        "about.side.metric1.text": "to a working pilot with reusable connectors and logic",
+        "about.side.metric2.num": "One",
+        "about.side.metric2.text": "environment for data, business logic, and control loops",
+
+        "stickyAsk.btn": "Ask / Contact",
+        "stickyAsk.title": "Tell us what you want to automate",
+        "stickyAsk.sub": "1–2 sentences are enough. We’ll suggest the best first step.",
+        "stickyAsk.cta1": "Request a demo",
+        "stickyAsk.cta2": "Email a question",
+        "stickyAsk.hint": "Prefer quick chat? Use the form below on this page."
+
         // HIGHLIGHTS
         "highlights.eyebrow": "What powers MITE",
         "highlights.title": "One platform for devices, logic, and insights",
@@ -694,6 +715,17 @@
       });
     }
 
+    document.addEventListener("click", (e) => {
+      if (!drawer.classList.contains("is-open")) return;
+      const isInside = drawer.contains(e.target) || askBtn.contains(e.target);
+      if (!isInside) closeDrawer();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeDrawer();
+    });
+
+
     document.addEventListener("DOMContentLoaded", () => {
       applyTranslations("en");
 
@@ -704,3 +736,102 @@
         });
       });
     });
+
+    function setupQuickDrawer() {
+  const btn = document.getElementById("quickBtn");
+  const label = document.getElementById("quickLabel");
+  const overlay = document.getElementById("drawerOverlay");
+  const drawer = document.getElementById("drawer");
+  const closeBtn = document.getElementById("drawerClose");
+  const cancelBtn = document.getElementById("drawerCancel");
+  const form = document.getElementById("drawerForm");
+
+  const qName = document.getElementById("qName");
+  const qEmail = document.getElementById("qEmail");
+  const qMsg = document.getElementById("qMsg");
+
+  function openDrawer() {
+    overlay.classList.add("is-open");
+    drawer.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+    // фокус на сообщение
+    setTimeout(() => qMsg.focus(), 80);
+  }
+
+  function closeDrawer() {
+    overlay.classList.remove("is-open");
+    drawer.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+  }
+
+  btn?.addEventListener("click", openDrawer);
+  overlay?.addEventListener("click", closeDrawer);
+  closeBtn?.addEventListener("click", closeDrawer);
+  cancelBtn?.addEventListener("click", closeDrawer);
+
+  // Esc to close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
+  });
+
+  // submit => scroll to #contact + prefill
+  form?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const contact = document.getElementById("contact");
+    if (!contact) return;
+
+    // найти поля основной формы (под твои id/селекторы)
+    const nameInput = document.querySelector('#contact input[name="name"], #contact input[name="fullName"], #contact input[type="text"]');
+    const emailInput = document.querySelector('#contact input[type="email"]');
+    const msgTextarea = document.querySelector('#contact textarea');
+
+    if (nameInput && qName.value) nameInput.value = qName.value;
+    if (emailInput && qEmail.value) emailInput.value = qEmail.value;
+
+    if (msgTextarea) {
+      const existing = msgTextarea.value?.trim();
+      const add = qMsg.value?.trim();
+      msgTextarea.value = existing
+        ? `${existing}\n\n${add}`
+        : add || "";
+    }
+
+    closeDrawer();
+
+    // smooth scroll + подсветить форму
+    contact.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => {
+      msgTextarea?.focus();
+    }, 500);
+  });
+
+  // “Online” — можно просто менять текст по таймеру (без реального статуса)
+  // Если хочешь реальный статус — скажи, откуда брать (Telegram/WhatsApp/чат/сервер).
+  let on = true;
+  setInterval(() => {
+    on = !on;
+    btn.dataset.state = on ? "online" : "ask";
+    // текст берём из i18n, но проще: меняем data-i18n ключ
+    label.setAttribute("data-i18n", on ? "quick.labelOnline" : "quick.label");
+    // применяем перевод заново только к этому элементу
+    // (минимально: просто вызов applyTranslations с текущим lang)
+    const currentLang = document.documentElement.lang || "en";
+    applyTranslations(currentLang);
+  }, 5000);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // твой код
+  applyTranslations("en");
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const code = btn.getAttribute("data-lang-btn");
+      applyTranslations(code);
+    });
+  });
+
+  // новый
+  setupQuickDrawer();
+});
+
