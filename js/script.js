@@ -58,7 +58,7 @@
         "stickyAsk.sub": "1–2 sentences are enough. We’ll suggest the best first step.",
         "stickyAsk.cta1": "Request a demo",
         "stickyAsk.cta2": "Email a question",
-        "stickyAsk.hint": "Prefer quick chat? Use the form below on this page."
+        "stickyAsk.hint": "Prefer quick chat? Use the form below on this page.",
 
         // HIGHLIGHTS
         "highlights.eyebrow": "What powers MITE",
@@ -715,17 +715,6 @@
       });
     }
 
-    document.addEventListener("click", (e) => {
-      if (!drawer.classList.contains("is-open")) return;
-      const isInside = drawer.contains(e.target) || askBtn.contains(e.target);
-      if (!isInside) closeDrawer();
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") closeDrawer();
-    });
-
-
     document.addEventListener("DOMContentLoaded", () => {
       applyTranslations("en");
 
@@ -735,9 +724,11 @@
           applyTranslations(code);
         });
       });
+            // новый
+      setupQuickDrawer();
     });
 
-    function setupQuickDrawer() {
+  function setupQuickDrawer() {
   const btn = document.getElementById("quickBtn");
   const label = document.getElementById("quickLabel");
   const overlay = document.getElementById("drawerOverlay");
@@ -820,18 +811,4 @@
     applyTranslations(currentLang);
   }, 5000);
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  // твой код
-  applyTranslations("en");
-  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const code = btn.getAttribute("data-lang-btn");
-      applyTranslations(code);
-    });
-  });
-
-  // новый
-  setupQuickDrawer();
-});
 
