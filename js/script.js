@@ -731,7 +731,6 @@
 
   function setupQuickDrawer() {
   const btn = document.getElementById("quickBtn");
-  const label = document.getElementById("quickLabel");
   const overlay = document.getElementById("drawerOverlay");
   const drawer = document.getElementById("drawer");
   const closeBtn = document.getElementById("drawerClose");
@@ -743,22 +742,23 @@
 
   if (!btn || !overlay || !drawer || !mount || !contact || !contactForm) return;
 
-  // 1) Mount: clone original contact form into drawer (one time)
+  /* === 1. Clone contact form into drawer (ONE TIME) === */
   mount.innerHTML = "";
   const drawerForm = contactForm.cloneNode(true);
   drawerForm.setAttribute("data-drawer-form", "1");
   mount.appendChild(drawerForm);
 
-  // 2) Re-apply i18n after mount (so labels/placeholders appear)
+  /* === 2. Apply i18n to cloned form === */
   const currentLang = document.documentElement.lang || "en";
-  if (typeof applyTranslations === "function") applyTranslations(currentLang);
+  if (typeof applyTranslations === "function") {
+    applyTranslations(currentLang);
+  }
 
   function openDrawer() {
     overlay.classList.add("is-open");
     drawer.classList.add("is-open");
     overlay.setAttribute("aria-hidden", "false");
 
-    // focus first field
     const first = drawer.querySelector("input, textarea, select, button");
     setTimeout(() => first?.focus(), 80);
   }
@@ -769,34 +769,36 @@
     overlay.setAttribute("aria-hidden", "true");
   }
 
-  // Open/close handlers
+  /* === Open / Close === */
   btn.addEventListener("click", openDrawer);
   overlay.addEventListener("click", closeDrawer);
   closeBtn?.addEventListener("click", closeDrawer);
   cancelBtn?.addEventListener("click", closeDrawer);
 
-  // close on click outside drawer content (but not overlay itself)
-  document.addEventListener("click", (e) => {
-    if (!drawer.classList.contains("is-open")) return;
-    const inside = drawer.contains(e.target) || btn.contains(e.target);
-    if (!inside) closeDrawer();
-  });
-
-  // Esc to close
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
+    if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+      closeDrawer();
+    }
   });
 
-  // 3) Submit in drawer => copy values into real #contact form and scroll there
+  /* === 3. Submit drawer form → copy to main contact form === */
   drawerForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const srcName = drawerForm.querySelector('input[name="name"], input[name="fullName"], #name');
-    const srcEmail = drawerForm.querySelector('input[type="email"], #email');
+    const srcName = drawerForm.querySelector(
+      'input[name="name"], input[name="fullName"], #name'
+    );
+    const srcEmail = drawerForm.querySelector(
+      'input[type="email"], #email'
+    );
     const srcMsg = drawerForm.querySelector("textarea");
 
-    const dstName = contactForm.querySelector('input[name="name"], input[name="fullName"], #name');
-    const dstEmail = contactForm.querySelector('input[type="email"], #email');
+    const dstName = contactForm.querySelector(
+      'input[name="name"], input[name="fullName"], #name'
+    );
+    const dstEmail = contactForm.querySelector(
+      'input[type="email"], #email'
+    );
     const dstMsg = contactForm.querySelector("textarea");
 
     if (dstName && srcName?.value) dstName.value = srcName.value;
@@ -811,8 +813,9 @@
     closeDrawer();
 
     contact.scrollIntoView({ behavior: "smooth", block: "start" });
-    setTimeout(() => dstMsg?.focus(), 500);
+    setTimeout(() => dstMsg?.focus(), 400);
   });
 }
+
 
 
