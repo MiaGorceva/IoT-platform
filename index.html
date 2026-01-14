@@ -553,6 +553,10 @@
   <!-- Drawer -->
   <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
 
+  <div class="drawer-body">
+  <div id="drawerFormMount"></div>
+</div>
+
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
     <div class="drawer-head">
       <div class="drawer-title" id="drawerTitle" data-i18n="quick.title"></div>
@@ -560,7 +564,7 @@
     </div>
 
     <div class="drawer-body">
-      <form class="drawer-form" id="drawerForm">
+      <div id="drawerFormMount"></div>
         <div>
           <label data-i18n="quick.nameLabel"></label>
           <input type="text" id="qName" placeholder="" data-i18n-placeholder="quick.namePh">
@@ -580,9 +584,7 @@
         </div>
 
         <div class="drawer-note" data-i18n="quick.note"></div>
-      </form>
-    </div>
+      </div>
   </div>
-
 </body>
 </html>

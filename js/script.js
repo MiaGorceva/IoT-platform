@@ -724,9 +724,10 @@
           applyTranslations(code);
         });
       });
-            // новый
+
       setupQuickDrawer();
     });
+
 
   function setupQuickDrawer() {
   const btn = document.getElementById("quickBtn");
@@ -735,18 +736,31 @@
   const drawer = document.getElementById("drawer");
   const closeBtn = document.getElementById("drawerClose");
   const cancelBtn = document.getElementById("drawerCancel");
-  const form = document.getElementById("drawerForm");
+  const mount = document.getElementById("drawerFormMount");
 
-  const qName = document.getElementById("qName");
-  const qEmail = document.getElementById("qEmail");
-  const qMsg = document.getElementById("qMsg");
+  const contact = document.getElementById("contact");
+  const contactForm = document.querySelector("#contact .contact-card form");
+
+  if (!btn || !overlay || !drawer || !mount || !contact || !contactForm) return;
+
+  // 1) Mount: clone original contact form into drawer (one time)
+  mount.innerHTML = "";
+  const drawerForm = contactForm.cloneNode(true);
+  drawerForm.setAttribute("data-drawer-form", "1");
+  mount.appendChild(drawerForm);
+
+  // 2) Re-apply i18n after mount (so labels/placeholders appear)
+  const currentLang = document.documentElement.lang || "en";
+  if (typeof applyTranslations === "function") applyTranslations(currentLang);
 
   function openDrawer() {
     overlay.classList.add("is-open");
     drawer.classList.add("is-open");
     overlay.setAttribute("aria-hidden", "false");
-    // фокус на сообщение
-    setTimeout(() => qMsg.focus(), 80);
+
+    // focus first field
+    const first = drawer.querySelector("input, textarea, select, button");
+    setTimeout(() => first?.focus(), 80);
   }
 
   function closeDrawer() {
@@ -755,60 +769,50 @@
     overlay.setAttribute("aria-hidden", "true");
   }
 
-  btn?.addEventListener("click", openDrawer);
-  overlay?.addEventListener("click", closeDrawer);
+  // Open/close handlers
+  btn.addEventListener("click", openDrawer);
+  overlay.addEventListener("click", closeDrawer);
   closeBtn?.addEventListener("click", closeDrawer);
   cancelBtn?.addEventListener("click", closeDrawer);
+
+  // close on click outside drawer content (but not overlay itself)
+  document.addEventListener("click", (e) => {
+    if (!drawer.classList.contains("is-open")) return;
+    const inside = drawer.contains(e.target) || btn.contains(e.target);
+    if (!inside) closeDrawer();
+  });
 
   // Esc to close
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
   });
 
-  // submit => scroll to #contact + prefill
-  form?.addEventListener("submit", (e) => {
+  // 3) Submit in drawer => copy values into real #contact form and scroll there
+  drawerForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const contact = document.getElementById("contact");
-    if (!contact) return;
+    const srcName = drawerForm.querySelector('input[name="name"], input[name="fullName"], #name');
+    const srcEmail = drawerForm.querySelector('input[type="email"], #email');
+    const srcMsg = drawerForm.querySelector("textarea");
 
-    // найти поля основной формы (под твои id/селекторы)
-    const nameInput = document.querySelector('#contact input[name="name"], #contact input[name="fullName"], #contact input[type="text"]');
-    const emailInput = document.querySelector('#contact input[type="email"]');
-    const msgTextarea = document.querySelector('#contact textarea');
+    const dstName = contactForm.querySelector('input[name="name"], input[name="fullName"], #name');
+    const dstEmail = contactForm.querySelector('input[type="email"], #email');
+    const dstMsg = contactForm.querySelector("textarea");
 
-    if (nameInput && qName.value) nameInput.value = qName.value;
-    if (emailInput && qEmail.value) emailInput.value = qEmail.value;
+    if (dstName && srcName?.value) dstName.value = srcName.value;
+    if (dstEmail && srcEmail?.value) dstEmail.value = srcEmail.value;
 
-    if (msgTextarea) {
-      const existing = msgTextarea.value?.trim();
-      const add = qMsg.value?.trim();
-      msgTextarea.value = existing
-        ? `${existing}\n\n${add}`
-        : add || "";
+    if (dstMsg) {
+      const existing = (dstMsg.value || "").trim();
+      const add = (srcMsg?.value || "").trim();
+      dstMsg.value = existing ? `${existing}\n\n${add}` : add;
     }
 
     closeDrawer();
 
-    // smooth scroll + подсветить форму
     contact.scrollIntoView({ behavior: "smooth", block: "start" });
-    setTimeout(() => {
-      msgTextarea?.focus();
-    }, 500);
+    setTimeout(() => dstMsg?.focus(), 500);
   });
-
-  // “Online” — можно просто менять текст по таймеру (без реального статуса)
-  // Если хочешь реальный статус — скажи, откуда брать (Telegram/WhatsApp/чат/сервер).
-  let on = true;
-  setInterval(() => {
-    on = !on;
-    btn.dataset.state = on ? "online" : "ask";
-    // текст берём из i18n, но проще: меняем data-i18n ключ
-    label.setAttribute("data-i18n", on ? "quick.labelOnline" : "quick.label");
-    // применяем перевод заново только к этому элементу
-    // (минимально: просто вызов applyTranslations с текущим lang)
-    const currentLang = document.documentElement.lang || "en";
-    applyTranslations(currentLang);
-  }, 5000);
 }
+
 
