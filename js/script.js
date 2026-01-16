@@ -681,6 +681,54 @@
       }
     };
 
+    // EN
+translations.en.aboutOutcomes = [
+  {
+    num: "Weeks",
+    text: "to a working pilot: reusable connectors, a unified data model, and first live operational workflows."
+  },
+  {
+    num: "One",
+    text: "environment for data, rules, and control actions — without a patchwork of intermediate systems."
+  },
+  {
+    num: "Ready",
+    text: "workflows without “glue code”: extend спокойно — add steps, approvals, and new scenarios on the same foundation."
+  }
+];
+
+// RU
+translations.ru.aboutOutcomes = [
+  {
+    num: "Недели",
+    text: "до рабочего пилота: коннекторы, единая модель данных и первые живые процессы."
+  },
+  {
+    num: "Одна",
+    text: "среда для данных, правил и управляющих действий — без зоопарка промежуточных систем."
+  },
+  {
+    num: "Готовые",
+    text: "процессы без «костылей»: можно спокойно дорабатывать, добавлять шаги и собирать новые сценарии на той же базе."
+  }
+];
+
+// UK
+translations.uk.aboutOutcomes = [
+  {
+    num: "Тижні",
+    text: "до робочого пілоту: конектори, єдина модель даних і перші живі процеси."
+  },
+  {
+    num: "Одна",
+    text: "середа для даних, правил і керуючих дій — без «зоопарку» проміжних систем."
+  },
+  {
+    num: "Готові",
+    text: "процеси без «костилів»: можна спокійно розширювати, додавати кроки й будувати нові сценарії на тій самій основі."
+  }
+];
+
     function applyTranslations(lang) {
       const dict = translations[lang] || translations.en;
       document.documentElement.lang = lang;
@@ -726,6 +774,7 @@
       });
 
       setupQuickDrawer();
+      setupOutcomesCarousel();
     });
 
 
@@ -816,6 +865,58 @@
     setTimeout(() => dstMsg?.focus(), 400);
   });
 }
+
+
+function setupOutcomesCarousel() {
+  const range = document.getElementById("outcomesRange");
+  const numEl = document.getElementById("outcomeNum");
+  const textEl = document.getElementById("outcomeText");
+  const dotsWrap = document.querySelector(".outcomes-dots");
+
+  if (!range || !numEl || !textEl) return;
+
+  function getLang() {
+    return document.documentElement.lang || "en";
+  }
+
+  function getItems(lang) {
+    const dict = translations[lang] || translations.en;
+    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
+  }
+
+  function render(index, lang) {
+    const items = getItems(lang);
+    const safeIndex = Math.max(0, Math.min(index, items.length - 1));
+    const item = items[safeIndex];
+
+    numEl.textContent = item?.num || "";
+    textEl.textContent = item?.text || "";
+
+    // dots
+    const dots = dotsWrap ? Array.from(dotsWrap.querySelectorAll(".dot")) : [];
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === safeIndex));
+  }
+
+  // init max
+  function syncMax(lang) {
+    const items = getItems(lang);
+    range.max = Math.max(0, items.length - 1);
+    if (Number(range.value) > Number(range.max)) range.value = range.max;
+    render(Number(range.value), lang);
+  }
+
+  // listeners
+  range.addEventListener("input", () => render(Number(range.value), getLang()));
+
+  // expose method to update on language change
+  window.__updateOutcomesCarousel = function () {
+    syncMax(getLang());
+  };
+
+  // first run
+  syncMax(getLang());
+}
+
 
 
 

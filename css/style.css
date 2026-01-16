@@ -1020,4 +1020,45 @@
   line-height:1.45;
 }
 
+/* outcomes carousel */
+.outcomes-stage {
+  padding-top: 0.2rem;
+}
+
+.outcome-line {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.outcomes-controls {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.2rem;
+}
+
+.outcomes-range {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.outcomes-dots {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
+.outcomes-dots .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.35);
+  border: 1px solid rgba(31, 41, 55, 0.9);
+}
+
+.outcomes-dots .dot.is-active {
+  background: linear-gradient(120deg, var(--accent2), var(--accent));
+  box-shadow: 0 0 14px rgba(72, 207, 255, 0.22);
+}
+
+
 
