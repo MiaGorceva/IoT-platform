@@ -47,11 +47,12 @@
         "about.point3.text": "Send commands back to the field and keep execution tied to your operational model.",
         "about.cta": "Ask a question",
 
-        "about.side.label": "Typical outcomes",
-        "about.side.metric1.num": "Weeks",
-        "about.side.metric1.text": "to a working pilot with reusable connectors and logic",
-        "about.side.metric2.num": "One",
-        "about.side.metric2.text": "environment for data, business logic, and control loops",
+      //  "about.side.label": "Typical outcomes",
+      //  "about.side.metric1.num": "Weeks",
+      //  "about.side.metric1.text": "to a working pilot with reusable connectors and logic",
+      //  "about.side.metric2.num": "One",
+    //    "about.side.metric2.text": "environment for data, business logic, and control loops",
+
 
         "stickyAsk.btn": "Ask / Contact",
         "stickyAsk.title": "Tell us what you want to automate",
@@ -681,8 +682,42 @@
       }
     };
 
+    const translations = {
+      en: {
+        ...
+        "about.side.label": "Typical outcomes",
+        aboutOutcomes: [
+          { num: "Weeks", text: "to a working pilot: reusable connectors, a unified data model, and first live operational workflows." },
+          { num: "One", text: "environment for data, rules, and control actions — without a patchwork of intermediate systems." },
+          { num: "Ready", text: "workflows without “glue code”: extend safely — add steps, approvals, and new scenarios on the same foundation." }
+        ],
+        ...
+      },
+      ru: {
+        ...
+        "about.side.label": "Типичный результат",
+        aboutOutcomes: [
+          { num: "Недели", text: "до рабочего пилота: коннекторы, единая модель данных и первые живые процессы." },
+          { num: "Одна", text: "среда для данных, правил и управляющих действий — без зоопарка промежуточных систем." },
+          { num: "Готовые", text: "процессы без «костылей»: можно спокойно дорабатывать, добавлять шаги и собирать новые сценарии на той же базе." }
+        ],
+        ...
+      },
+      uk: {
+        ...
+        "about.side.label": "Типовий результат",
+        aboutOutcomes: [
+          { num: "Тижні", text: "до робочого пілоту: конектори, єдина модель даних і перші живі процеси." },
+          { num: "Одна", text: "середа для даних, правил і керуючих дій — без «зоопарку» проміжних систем." },
+          { num: "Готові", text: "процеси без «костилів»: можна спокійно розширювати, додавати кроки й будувати нові сценарії на тій самій основі." }
+        ],
+        ...
+      }
+    };
+
+
     // EN
-translations.en.aboutOutcomes = [
+/*translations.en.aboutOutcomes = [
   {
     num: "Weeks",
     text: "to a working pilot: reusable connectors, a unified data model, and first live operational workflows."
@@ -727,7 +762,11 @@ translations.uk.aboutOutcomes = [
     num: "Готові",
     text: "процеси без «костилів»: можна спокійно розширювати, додавати кроки й будувати нові сценарії на тій самій основі."
   }
-];
+];*/
+
+if (window.__updateOutcomesCarousel) {
+  window.__updateOutcomesCarousel();
+}
 
     function applyTranslations(lang) {
       const dict = translations[lang] || translations.en;
@@ -907,6 +946,25 @@ function setupOutcomesCarousel() {
 
   // listeners
   range.addEventListener("input", () => render(Number(range.value), getLang()));
+
+  if (dotsWrap) {
+  dotsWrap.innerHTML = "";
+  const items = getItems(lang);
+
+  items.forEach((_, i) => {
+    const d = document.createElement("span");
+    d.className = "dot";
+    if (i === Number(range.value)) d.classList.add("is-active");
+
+    d.addEventListener("click", () => {
+      range.value = i;
+      render(i, lang);
+    });
+
+    dotsWrap.appendChild(d);
+  });
+}
+
 
   // expose method to update on language change
   window.__updateOutcomesCarousel = function () {
