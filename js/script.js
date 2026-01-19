@@ -2,6 +2,9 @@
    i18n + Quick Drawer + Outcomes Slider (stable)
    ========================= */
 
+   /* =========================
+   i18n dictionary
+========================= */
 const translations = {
   en: {
     // NAV
@@ -33,6 +36,7 @@ const translations = {
     "hero.meta3": "Designed for operations, engineering, and IT teams",
 
     "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
+
     "hero.orbBadge": "Connected infrastructure",
     "hero.metricTitle": "Billions of records",
     "hero.metricText": "Handle data growth by scaling logic, not rewriting systems.",
@@ -56,27 +60,56 @@ const translations = {
       "Send commands back to the field and keep execution tied to your operational model.",
     "about.cta": "Ask a question",
 
-    // RIGHT CARD LABEL
+    // OUTCOMES
     "about.side.label": "Typical outcomes",
-    // SLIDER ITEMS
-    aboutOutcomes: [
+    aboutOutcomeSlides: [
       {
-        num: "Weeks",
-        text:
-          "to a working pilot: reusable connectors, a unified data model, and first live operational workflows.",
+        label: "Fast first value",
+        items: [
+          {
+            num: "Weeks",
+            text:
+              "to a working pilot: connectors, a unified data model, and first live operational workflows.",
+          },
+          {
+            num: "One",
+            text:
+              "environment for data, rules, and control actions — without a patchwork of intermediate systems.",
+          },
+          {
+            num: "Ready",
+            text:
+              "workflows without “glue code”: extend safely — add steps, approvals, and new scenarios on the same foundation.",
+          },
+        ],
       },
       {
-        num: "One",
-        text: "environment for data, rules, and control actions — without a patchwork of intermediate systems.",
+        label: "Lower operational costs",
+        items: [
+          { num: "Fewer", text: "manual checks and routine interventions — exceptions are handled by rules and workflows." },
+          { num: "Less", text: "data reconciliation between systems — one structured model becomes the shared source of truth." },
+          { num: "Faster", text: "incident handling — alerts trigger actions and assignments instead of long email chains." },
+        ],
       },
       {
-        num: "Ready",
-        text:
-          "workflows without “glue code”: extend safely — add steps, approvals, and new scenarios on the same foundation.",
+        label: "Higher productivity",
+        items: [
+          { num: "Faster", text: "root-cause analysis — context is captured with data, events, and process history in one place." },
+          { num: "Shorter", text: "rollout cycles — reuse connectors and logic across sites and scenarios." },
+          { num: "More", text: "work done by operations teams — improvements don’t wait for platform developers." },
+        ],
+      },
+      {
+        label: "New products & services",
+        items: [
+          { num: "From", text: "pilot to repeatable product — the same model supports new customers, sites, or partners." },
+          { num: "New", text: "service scenarios — monitoring + workflows + control loops become packaged offerings." },
+          { num: "Clear", text: "economics — measure value per asset/site and justify scaling with real operational metrics." },
+        ],
       },
     ],
 
-    // STICKY ASK
+    // STICKY DRAWER
     "stickyAsk.btn": "Ask / Contact",
     "stickyAsk.title": "Tell us what you want to automate",
     "stickyAsk.sub": "1–2 sentences are enough. We’ll suggest the best first step.",
@@ -84,184 +117,10 @@ const translations = {
     "stickyAsk.cta2": "Email a question",
     "stickyAsk.hint": "Prefer quick chat? Use the form below on this page.",
 
-    // HIGHLIGHTS
-    "highlights.eyebrow": "What powers MITE",
-    "highlights.title": "One platform for devices, logic, and insights",
-    "highlights.subtitle":
-      "MITE is built for industrial teams that need to experiment, scale, and stay in control of their data and processes.",
-
-    "highlight.logic.tag": "Business logic",
-    "highlight.logic.title": "Any process complexity",
-    "highlight.logic.text":
-      "Model everything from simple alerts to multi-step workflows. Because the platform is declarative, you can evolve logic in hours instead of long release cycles.",
-    "highlight.logic.meta": "If you can describe the process, you can configure it.",
-
-    "highlight.protocols.tag": "Industrial protocols",
-    "highlight.protocols.title": "Any equipment, any vendor",
-    "highlight.protocols.text":
-      "Connect PLCs, meters, sensors, and controllers over industrial and web protocols. Standardise data once and reuse it across multiple use cases.",
-    "highlight.protocols.meta": "Modbus, LoRa, TCP/UDP, BLE, CAN and more.",
-
-    "highlight.scaling.tag": "Scaling",
-    "highlight.scaling.title": "Ready for billions of transactions",
-    "highlight.scaling.text":
-      "Grow from pilot to hundreds of sites by increasing capacity, not rewriting the solution. MITE handles heavy data without locking you into one scenario.",
-    "highlight.scaling.meta": "Horizontal growth without architectural drama.",
-
-    "highlight.insights.tag": "Insights",
-    "highlight.insights.title": "One screen, many perspectives",
-    "highlight.insights.text":
-      "Build dashboards and analytical views in minutes. Combine data from MITE and external systems to see the real operational context.",
-    "highlight.insights.meta": "From real-time monitoring to deep analysis.",
-
-    "highlight.open.tag": "Openness",
-    "highlight.open.title": "Open API and ecosystem",
-    "highlight.open.text":
-      "Use MITE as the backbone that feeds data to ERP, MES, SCADA, or custom applications. Keep ownership of the logic and of the data.",
-    "highlight.open.meta": "Your infrastructure, your rules.",
-
-    "highlight.cost.tag": "Value",
-    "highlight.cost.title": "Profit-driven, not feature-driven",
-    "highlight.cost.text":
-      "We focus on measurable outcomes: fewer incidents, faster rollouts, more value from each device. Implementation is guided by business impact.",
-    "highlight.cost.meta": "IoT as an investment, not just a cost.",
-
-    // USE CASES
-    "use.eyebrow": "Use cases",
-    "use.title": "From proof of concept to portfolio of IIoT solutions",
-    "use.subtitle":
-      "Start small with one scenario and reuse the same platform, data model, and connectors for the next projects.",
-
-    "use.card1.title": "Smart metering and utilities",
-    "use.card1.text":
-      "Consolidate data from meters, submeters, and gateways. Detect anomalies, reduce losses, and generate clear reports for finance and operations.",
-    "use.card1.pill1": "Energy and water",
-    "use.card1.pill2": "Loss and anomaly detection",
-
-    "use.card2.title": "Connected equipment and assets",
-    "use.card2.text":
-      "Monitor health, runtime, and conditions of critical assets. Trigger workflows for maintenance, quality checks, or safety actions based on real data.",
-    "use.card2.pill1": "Condition monitoring",
-    "use.card2.pill2": "Maintenance workflows",
-
-    "use.card3.title": "Industry-specific solutions",
-    "use.card3.text":
-      "Use MITE as a foundation for domain solutions — from pharma and food to manufacturing and infrastructure. Reuse 80 percent of the platform and customise the rest.",
-    "use.card3.pill1": "Regulated industries",
-    "use.card3.pill2": "White-label options",
-
-    // HOW IT WORKS
-    "how.eyebrow": "How it works",
-    "how.title": "Three steps from device to decision",
-    "how.subtitle":
-      "MITE brings together physical devices, business logic, and data visualisation in one feedback loop.",
-
-    "how.step1.tag": "Step 1",
-    "how.step1.title": "Connect and orchestrate the physical layer",
-    "how.step1.text":
-      "Onboard devices, gateways, and controllers in minutes. Map sites, buildings, and assets into a clear structure that everyone understands.",
-
-    "how.step2.tag": "Step 2",
-    "how.step2.title": "Design the business logic",
-    "how.step2.text":
-      "Configure rules, workflows, and data transformations without writing code. Adjust whenever processes change, not only in major releases.",
-
-    "how.step3.tag": "Step 3",
-    "how.step3.title": "Analyse, act, and refine",
-    "how.step3.text":
-      "Build dashboards, run diagnostics, and push actions back to the field. Test new ideas fast, keep what works, and retire what does not.",
-
-    // PRICING
-    "pricing.eyebrow": "Pricing",
-    "pricing.title": "Plans for pilots, products, and platforms",
-    "pricing.subtitle":
-      "Transparent entry points for experiments and scalable options for enterprise deployments.",
-
-    "pricing.plan1.label": "For pilots",
-    "pricing.plan1.name": "Start",
-    "pricing.plan1.tagline": "Ideal for testing IoT ideas and quick PoC projects.",
-    "pricing.plan1.price": "From €9.99 / month",
-    "pricing.plan1.note": "Limited number of devices, full access to core features.",
-    "pricing.plan1.li1": "Fast onboarding and preconfigured dashboards",
-    "pricing.plan1.li2": "Support for standard industrial and web protocols",
-    "pricing.plan1.cta": "Start a pilot",
-
-    "pricing.plan2.label": "For growing projects",
-    "pricing.plan2.name": "Scale",
-    "pricing.plan2.tagline": "For teams that take one successful pilot into multiple sites.",
-    "pricing.plan2.price": "From €99 / month",
-    "pricing.plan2.note": "Balanced package of devices, features, and support.",
-    "pricing.plan2.li1": "Advanced business logic and workflows",
-    "pricing.plan2.li2": "Integration with existing enterprise systems",
-    "pricing.plan2.li3": "Priority support during rollout",
-    "pricing.plan2.cta": "Talk to sales",
-    "pricing.plan2.ctaNote": "We help match the plan to your rollout strategy.",
-
-    "pricing.plan3.label": "For enterprises and partners",
-    "pricing.plan3.name": "Enterprise / OEM",
-    "pricing.plan3.tagline": "When MITE becomes the core of your digital infrastructure.",
-    "pricing.plan3.price": "Custom pricing",
-    "pricing.plan3.note": "Designed for industrial leaders and solution providers.",
-    "pricing.plan3.li1": "Large-scale multi-site deployments",
-    "pricing.plan3.li2": "White-label and OEM opportunities",
-    "pricing.plan3.li3": "Custom SLAs and governance model",
-    "pricing.plan3.cta": "Book a strategy session",
-
-    // TESTIMONIALS
-    "testimonials.eyebrow": "Customer voice",
-    "testimonials.title": "“So simple, clear, and it just works.”",
-    "testimonials.subtitle":
-      "Real feedback from industrial teams that wanted fewer surprises and more predictable outcomes.",
-    "testimonials.quote1.text":
-      "“We asked for a platform that does not force us to think like software developers. With MITE we finally design processes in the language of operations, not code.”",
-    "testimonials.quote1.author": "Operations Director",
-    "testimonials.quote1.role": "Manufacturing company",
-
-    // FAQ
-    "faq.eyebrow": "FAQ",
-    "faq.title": "Questions your IT and operations teams will ask",
-    "faq.subtitle":
-      "A short, practical FAQ focused on integration, security, and ownership of data.",
-
-    "faq.q1": "How does MITE integrate with our existing IT and OT landscape?",
-    "faq.a1":
-      "MITE exposes an open API and supports common industrial and web protocols. We can push and pull data to ERP, SCADA, MES, data lakes, or custom applications. You keep control of where the data lives.",
-
-    "faq.q2": "Who owns the configuration and business logic built on the platform?",
-    "faq.a2":
-      "You do. The logic is transparent and editable. You are not locked into a single use case – the same model can serve new projects, partners, or plants without starting from zero.",
-
-    "faq.q3": "Is the platform suitable for regulated industries such as pharma or food?",
-    "faq.a3":
-      "Yes. MITE was designed with validation, audit trails, and clear separation of responsibilities in mind. It can be aligned with internal QoS and external regulatory requirements.",
-
-    // CONTACT
-    "contact.eyebrow": "Contact",
-    "contact.title": "Let us map your first IIoT win",
-    "contact.subtitle":
-      "Share a short description of your infrastructure and the outcome you want. We will propose a realistic first step and outline how it scales.",
-    "contact.nameLabel": "Full name",
-    "contact.namePlaceholder": "Your name",
-    "contact.emailLabel": "Work email",
-    "contact.emailPlaceholder": "you@company.com",
-    "contact.companyLabel": "Company",
-    "contact.companyPlaceholder": "Company name",
-    "contact.sizeLabel": "Scale",
-    "contact.sizePlaceholder": "Number of sites, lines, or assets",
-    "contact.messageLabel": "What would you like to achieve with MITE?",
-    "contact.messagePlaceholder": "Describe your current situation, use cases, or challenges.",
-    "contact.submit": "Send request",
-    "contact.legal":
-      "By sending the form you agree that we may contact you about MITE and process your data according to our privacy policy.",
-
-    // FOOTER
-    "footer.note": "MITE — Industrial IoT platform for profit-driven industrial teams.",
-    "footer.privacy": "Privacy policy",
-    "footer.backToTop": "Back to top",
+    // ... остальное оставляй как у тебя (highlights/use/how/pricing/testimonials/faq/contact/footer)
   },
 
   ru: {
-    // NAV
     "nav.about": "Почему MITE",
     "nav.platform": "Платформа",
     "nav.solutions": "Решения",
@@ -270,12 +129,10 @@ const translations = {
     "nav.contact": "Контакты",
     "nav.demoBtn": "Запросить демо",
 
-    // SEO
     "seo.title": "MITE — промышленная IIoT-платформа для подключённой инфраструктуры",
     "seo.description":
       "MITE — промышленная IIoT-платформа, которая объединяет оборудование, бизнес-логику и операционные данные и превращает их в управляемые решения.",
 
-    // HERO
     "hero.kicker": "Промышленный IoT без лишней сложности",
     "hero.title": "Это не просто ещё одна IIoT-платформа. <span>MITE меняет правила игры.</span>",
     "hero.subtitle":
@@ -290,11 +147,11 @@ const translations = {
     "hero.meta3": "Для эксплуатации, инженерии и IT-команд",
 
     "hero.badge": "<strong>«Просто, понятно и надёжно — именно так, как ожидают промышленные команды».</strong>",
+
     "hero.orbBadge": "Цифровая инфраструктура",
     "hero.metricTitle": "Миллиарды записей",
     "hero.metricText": "Рост объёма данных решается масштабированием, а не переписыванием системы.",
 
-    // ABOUT / POSITIONING
     "about.eyebrow": "Позиционирование",
     "about.title": "Единый операционный слой данных для промышленных систем",
     "about.text":
@@ -303,208 +160,58 @@ const translations = {
       "Дашборды, аналитика и инсайты строятся поверх этой основы, а не являются её ядром. Объединяя хранение данных, бизнес-логику и управление в одной среде, MITE устраняет необходимость в множестве промежуточных промышленных систем.",
 
     "about.point1.title": "Подключайте что угодно",
-    "about.point1.text":
-      "Устройства, ПЛК, счётчики, шлюзы, внешние системы — MITE собирает всё в единую структурированную модель.",
+    "about.point1.text": "Устройства, ПЛК, счётчики, шлюзы, внешние системы — всё в одной структурированной модели.",
     "about.point2.title": "Логика без кода",
-    "about.point2.text":
-      "Правила, процессы, согласования и управляющие действия задаются декларативно — быстро менять и легко контролировать.",
-    "about.point3.title": "Управляйте, а не только наблюдайте",
-    "about.point3.text":
-      "Отправляйте команды обратно «в поле» и держите исполнение привязанным к операционной модели.",
+    "about.point2.text": "Правила, процессы, согласования и управляющие действия настраиваются декларативно — быстро и прозрачно.",
+    "about.point3.title": "Не только наблюдение",
+    "about.point3.text": "Команды в поле и контроль исполнения остаются связаны с вашей операционной моделью.",
     "about.cta": "Задать вопрос",
 
     "about.side.label": "Типичный результат",
-    aboutOutcomes: [
-      { num: "Недели", text: "до рабочего пилота: коннекторы, единая модель данных и первые живые процессы." },
-      { num: "Одна", text: "среда для данных, правил и управляющих действий — без зоопарка промежуточных систем." },
-      { num: "Готовые", text: "процессы без «костылей»: можно спокойно дорабатывать, добавлять шаги и собирать новые сценарии на той же базе." },
+    aboutOutcomeSlides: [
+      {
+        label: "Быстрый первый эффект",
+        items: [
+          { num: "Недели", text: "до рабочего пилота: коннекторы, единая модель данных и первые живые процессы." },
+          { num: "Одна", text: "среда для данных, правил и управляющих действий — без зоопарка промежуточных систем." },
+          { num: "Готовые", text: "процессы без «костылей»: можно спокойно дорабатывать, добавлять шаги и собирать новые сценарии на той же базе." },
+        ],
+      },
+      {
+        label: "Снижение издержек",
+        items: [
+          { num: "Меньше", text: "ручных проверок и рутины — исключения обрабатываются правилами и процессами." },
+          { num: "Меньше", text: "сверок между системами — единая модель данных становится общей опорой для всех." },
+          { num: "Быстрее", text: "реакция на инциденты — тревога запускает действия и назначение задач, а не цепочку писем." },
+        ],
+      },
+      {
+        label: "Рост производительности",
+        items: [
+          { num: "Быстрее", text: "диагностика причин — контекст хранится вместе с данными, событиями и историей процесса." },
+          { num: "Коротче", text: "цикл внедрения — коннекторы и логика переиспользуются между площадками и сценариями." },
+          { num: "Больше", text: "делает эксплуатация — улучшения не зависят от разработчиков платформы." },
+        ],
+      },
+      {
+        label: "Новые продукты и сервисы",
+        items: [
+          { num: "От", text: "пилота к повторяемому продукту — одна модель поддерживает новых клиентов, площадки и партнёров." },
+          { num: "Новые", text: "сервисные сценарии — мониторинг + процессы + управляющие действия как готовое предложение." },
+          { num: "Понятно", text: "в деньгах — считаем эффект по активу/площадке и масштабируемся на реальных метриках." },
+        ],
+      },
     ],
 
-    // STICKY ASK
-    "stickyAsk.btn": "Вопрос / Контакт",
-    "stickyAsk.title": "Скажите, что вы хотите автоматизировать",
+    "stickyAsk.btn": "Задать вопрос",
+    "stickyAsk.title": "Опишите, что хотите автоматизировать",
     "stickyAsk.sub": "Достаточно 1–2 предложений. Подскажем лучший первый шаг.",
     "stickyAsk.cta1": "Запросить демо",
-    "stickyAsk.cta2": "Написать вопрос",
-    "stickyAsk.hint": "Предпочитаете быстро? Используйте форму ниже на странице.",
-
-    // HIGHLIGHTS
-    "highlights.eyebrow": "Что делает MITE особенным",
-    "highlights.title": "Одна платформа для устройств, логики и аналитики",
-    "highlights.subtitle":
-      "MITE создан для индустриальных команд, которым нужно экспериментировать, масштабироваться и сохранять контроль над процессами и данными.",
-
-    "highlight.logic.tag": "Бизнес-логика",
-    "highlight.logic.title": "Любая сложность процессов",
-    "highlight.logic.text":
-      "Опишите сценарий — и настройте его без кода. От простых уведомлений до многошаговых рабочих процессов, которые меняются по мере роста бизнеса.",
-    "highlight.logic.meta": "Если процесс можно описать словами, его можно настроить в MITE.",
-
-    "highlight.protocols.tag": "Промышленные протоколы",
-    "highlight.protocols.title": "Любое оборудование, разные вендоры",
-    "highlight.protocols.text":
-      "Подключайте ПЛК, счётчики, датчики и контроллеры по промышленным и веб-протоколам. Один раз нормализуете данные — и используете их во множестве сценариев.",
-    "highlight.protocols.meta": "Modbus, LoRa, TCP/UDP, BLE, CAN и другие.",
-
-    "highlight.scaling.tag": "Масштабирование",
-    "highlight.scaling.title": "Готово к миллиардам транзакций",
-    "highlight.scaling.text":
-      "Растите от пилота до сотен площадок, увеличивая мощность, а не перепроектируя архитектуру. Платформа выдерживает нагрузку и не привязывает к одному сценарию.",
-    "highlight.scaling.meta": "Горизонтальный рост без архитектурной боли.",
-
-    "highlight.insights.tag": "Аналитика",
-    "highlight.insights.title": "Важные показатели на одном экране",
-    "highlight.insights.text":
-      "Собирайте дашборды за минуты, комбинируйте данные из MITE и внешних систем. Видно не только показания датчиков, но и реальный контекст операций.",
-    "highlight.insights.meta": "От онлайн-мониторинга до глубокой аналитики.",
-
-    "highlight.open.tag": "Открытость",
-    "highlight.open.title": "Открытый API и интеграции",
-    "highlight.open.text":
-      "Используйте MITE как шину данных для ERP, MES, SCADA и других систем. Логика и данные остаются под вашим контролем.",
-    "highlight.open.meta": "Ваша инфраструктура — ваши правила.",
-
-    "highlight.cost.tag": "Ценность",
-    "highlight.cost.title": "IoT как инвестиция, а не расход",
-    "highlight.cost.text":
-      "Фокус не на количестве фич, а на результате: меньше инцидентов, быстрее внедрение, больше выгоды с каждого устройства.",
-    "highlight.cost.meta": "Окупаемость проекта в центре внимания.",
-
-    // USE CASES
-    "use.eyebrow": "Сценарии",
-    "use.title": "От пилота до портфеля IIoT-решений",
-    "use.subtitle":
-      "Начните с одного сценария и переиспользуйте платформу, модель данных и коннекторы для следующих проектов.",
-
-    "use.card1.title": "Смарт-учёт и коммунальная инфраструктура",
-    "use.card1.text":
-      "Собирайте данные со счётчиков и датчиков, находите аномалии, сокращайте потери и предоставляйте понятную отчётность для финансов и эксплуатации.",
-    "use.card1.pill1": "Энергия и вода",
-    "use.card1.pill2": "Поиск потерь и отклонений",
-
-    "use.card2.title": "Подключённое оборудование и активы",
-    "use.card2.text":
-      "Контролируйте состояние критичных активов, ресурс, режимы работы. Запускайте процессы обслуживания и проверки качества по фактическим данным.",
-    "use.card2.pill1": "Condition monitoring",
-    "use.card2.pill2": "Процессы ТОиР",
-
-    "use.card3.title": "Отраслевые решения на базе MITE",
-    "use.card3.text":
-      "Стройте решения для фармацевтики, пищевой промышленности, производства или инфраструктуры, переиспользуя до 80% платформы и кастомизируя только специфику.",
-    "use.card3.pill1": "Регулируемые отрасли",
-    "use.card3.pill2": "White-label и OEM",
-
-    // HOW IT WORKS
-    "how.eyebrow": "Как это работает",
-    "how.title": "Три шага от устройства до управляемого процесса",
-    "how.subtitle":
-      "MITE объединяет устройства, бизнес-логику и аналитику в один замкнутый цикл действий.",
-
-    "how.step1.tag": "Шаг 1",
-    "how.step1.title": "Подключите и опишите физический слой",
-    "how.step1.text":
-      "Онбординг устройств, шлюзов и контроллеров занимает минуты. Объекты, цеха и площадки собираются в понятную структуру.",
-
-    "how.step2.tag": "Шаг 2",
-    "how.step2.title": "Настройте бизнес-логику",
-    "how.step2.text":
-      "Определите правила, пороги, маршруты обработки и задания без программирования. Легко адаптируйте логику по мере изменения процессов.",
-
-    "how.step3.tag": "Шаг 3",
-    "how.step3.title": "Анализируйте, действуйте, улучшайте",
-    "how.step3.text":
-      "Создавайте дашборды, проводите диагностику, запускайте действия в поле. Быстро проверяйте гипотезы и закрепляйте рабочие сценарии.",
-
-    // PRICING
-    "pricing.eyebrow": "Тарифы",
-    "pricing.title": "Для пилотов, масштабирования и корпоративных платформ",
-    "pricing.subtitle": "Порог входа для экспериментов и расширяемые опции для масштабных внедрений.",
-
-    "pricing.plan1.label": "Для пилотов",
-    "pricing.plan1.name": "Start",
-    "pricing.plan1.tagline": "Подходит для проверки IoT-идей и небольших PoC.",
-    "pricing.plan1.price": "От €9.99 / мес",
-    "pricing.plan1.note": "Ограниченное число устройств и доступ к ключевым функциям.",
-    "pricing.plan1.li1": "Быстрый старт и базовые дашборды",
-    "pricing.plan1.li2": "Поддержка стандартных протоколов",
-    "pricing.plan1.cta": "Запустить пилот",
-
-    "pricing.plan2.label": "Для растущих проектов",
-    "pricing.plan2.name": "Scale",
-    "pricing.plan2.tagline": "Когда успешный пилот нужно развернуть на нескольких площадках.",
-    "pricing.plan2.price": "От €99 / мес",
-    "pricing.plan2.note": "Баланс устройств, функций и поддержки.",
-    "pricing.plan2.li1": "Расширенная бизнес-логика и сценарии",
-    "pricing.plan2.li2": "Интеграция с корпоративными системами",
-    "pricing.plan2.li3": "Приоритетная поддержка на этапе внедрения",
-    "pricing.plan2.cta": "Связаться с продажами",
-    "pricing.plan2.ctaNote": "Поможем подобрать конфигурацию под вашу стратегию.",
-
-    "pricing.plan3.label": "Для корпораций и партнёров",
-    "pricing.plan3.name": "Enterprise / OEM",
-    "pricing.plan3.tagline": "Когда MITE становится ядром вашей цифровой инфраструктуры.",
-    "pricing.plan3.price": "Индивидуальный расчёт",
-    "pricing.plan3.note": "Для лидеров отрасли и провайдеров отраслевых решений.",
-    "pricing.plan3.li1": "Крупные многоузловые внедрения",
-    "pricing.plan3.li2": "White-label и OEM-формат",
-    "pricing.plan3.li3": "Индивидуальные SLA и модель взаимодействия",
-    "pricing.plan3.cta": "Запросить стратегическую сессию",
-
-    // TESTIMONIALS
-    "testimonials.eyebrow": "Отзывы",
-    "testimonials.title": "«Просто, прозрачно и действительно работает»",
-    "testimonials.subtitle":
-      "Фидбек от команд, которым важнее предсказуемый результат, чем список модных технологий.",
-    "testimonials.quote1.text":
-      "«Нам нужна была платформа, которая не заставляет мыслить как разработчики. В MITE мы описываем процессы на языке эксплуатации, а не кода.»",
-    "testimonials.quote1.author": "Директор по операционной деятельности",
-    "testimonials.quote1.role": "Производственная компания",
-
-    // FAQ
-    "faq.eyebrow": "FAQ",
-    "faq.title": "Вопросы, которые зададут IT и эксплуатация",
-    "faq.subtitle": "Минимум маркетинга, максимум ответов про интеграцию, безопасность и владение данными.",
-
-    "faq.q1": "Как MITE интегрируется с нашими IT и OT системами?",
-    "faq.a1":
-      "Платформа имеет открытый API и поддерживает популярные промышленные и веб-протоколы. Данные можно обменивать с ERP, SCADA, MES, хранилищами и кастомными приложениями. Контроль над тем, где живут данные, остаётся у вас.",
-
-    "faq.q2": "Кто владеет конфигурацией и бизнес-логикой в системе?",
-    "faq.a2":
-      "Вы. Логика прозрачна и изменяема. Платформа не привязана к одному сценарию: модель можно использовать повторно для новых проектов, партнёров или площадок.",
-
-    "faq.q3": "Подходит ли платформа для регулируемых отраслей (фарма, пищевка и т. п.)?",
-    "faq.a3":
-      "Да. MITE проектировалась с учётом требований к валидации, журналам изменений и разделению ответственности. Её можно адаптировать под внутренние регламенты и внешние требования проверяющих органов.",
-
-    // CONTACT
-    "contact.eyebrow": "Контакты",
-    "contact.title": "Найдём первый понятный IIoT-результат",
-    "contact.subtitle":
-      "Опишите инфраструктуру и желаемый эффект. Мы предложим реалистичный первый шаг и покажем, как он масштабируется.",
-    "contact.nameLabel": "Полное имя",
-    "contact.namePlaceholder": "Ваше имя",
-    "contact.emailLabel": "Рабочий e-mail",
-    "contact.emailPlaceholder": "you@company.com",
-    "contact.companyLabel": "Компания",
-    "contact.companyPlaceholder": "Название компании",
-    "contact.sizeLabel": "Масштаб",
-    "contact.sizePlaceholder": "Количество площадок, линий или активов",
-    "contact.messageLabel": "Что вы хотите получить от MITE?",
-    "contact.messagePlaceholder":
-      "Опишите текущую ситуацию, задачи или сценарии, которые хотите реализовать.",
-    "contact.submit": "Отправить запрос",
-    "contact.legal":
-      "Отправляя форму, вы соглашаетесь на контакт по поводу MITE и обработку данных согласно политике конфиденциальности.",
-
-    // FOOTER
-    "footer.note": "MITE — промышленная IoT-платформа для команд, которые считают эффект в деньгах.",
-    "footer.privacy": "Политика конфиденциальности",
-    "footer.backToTop": "Наверх",
+    "stickyAsk.cta2": "Написать на email",
+    "stickyAsk.hint": "Нужно быстро? Можно и через форму ниже на странице.",
   },
 
   uk: {
-    // NAV
     "nav.about": "Чому MITE",
     "nav.platform": "Платформа",
     "nav.solutions": "Рішення",
@@ -513,12 +220,10 @@ const translations = {
     "nav.contact": "Контакти",
     "nav.demoBtn": "Запросити демо",
 
-    // SEO
     "seo.title": "MITE — промислова IIoT-платформа для підключеної інфраструктури",
     "seo.description":
       "MITE — промислова IIoT-платформа, що поєднує обладнання, бізнес-логіку та операційні дані й перетворює їх на керовані рішення.",
 
-    // HERO
     "hero.kicker": "Промисловий IoT без зайвої складності",
     "hero.title": "Це не просто ще одна IIoT-платформа. <span>MITE змінює правила гри.</span>",
     "hero.subtitle":
@@ -533,11 +238,11 @@ const translations = {
     "hero.meta3": "Для експлуатації, інженерії та IT-команд",
 
     "hero.badge": "<strong>«Просто, зрозуміло й надійно — саме так, як очікують промислові команди».</strong>",
+
     "hero.orbBadge": "Цифрова інфраструктура",
     "hero.metricTitle": "Мільярди записів",
     "hero.metricText": "Зростання обсягу даних вирішується масштабуванням, а не переписуванням системи.",
 
-    // ABOUT / POSITIONING
     "about.eyebrow": "Позиціонування",
     "about.title": "Єдиний операційний шар даних для промислових систем",
     "about.text":
@@ -545,47 +250,66 @@ const translations = {
       "Поверх цього шару даних ви налаштовуєте правила, робочі процеси та керуючу логіку — без написання коду. Та сама платформа використовується для моніторингу процесів, автоматизації дій і надсилання команд безпосередньо в поле.\n\n" +
       "Дашборди, аналітика та інсайти будуються поверх цієї основи, а не навпаки. Поєднуючи зберігання даних, бізнес-логіку та управління в одному середовищі, MITE усуває потребу в багатьох проміжних промислових системах.",
 
-    "about.point1.title": "Підключайте що завгодно",
-    "about.point1.text":
-      "Пристрої, ПЛК, лічильники, шлюзи, зовнішні системи — MITE зводить усе в єдину структуровану модель.",
+    "about.point1.title": "Підключайте будь-що",
+    "about.point1.text": "Пристрої, ПЛК, лічильники, шлюзи, зовнішні системи — усе в одній структурованій моделі.",
     "about.point2.title": "Логіка без коду",
-    "about.point2.text":
-      "Правила, процеси, погодження й керуючі дії задаються декларативно — швидко змінювати й легко контролювати.",
-    "about.point3.title": "Керуйте, а не лише спостерігайте",
-    "about.point3.text":
-      "Надсилайте команди назад «у поле» й тримайте виконання прив’язаним до операційної моделі.",
-    "about.cta": "Поставити питання",
+    "about.point2.text": "Правила, процеси, погодження та керуючі дії налаштовуються декларативно — швидко і прозоро.",
+    "about.point3.title": "Не лише спостереження",
+    "about.point3.text": "Команди в поле та контроль виконання пов’язані з вашою операційною моделлю.",
+    "about.cta": "Поставити запитання",
 
     "about.side.label": "Типовий результат",
-    aboutOutcomes: [
-      { num: "Тижні", text: "до робочого пілоту: конектори, єдина модель даних і перші живі процеси." },
-      { num: "Одна", text: "середа для даних, правил і керуючих дій — без «зоопарку» проміжних систем." },
-      { num: "Готові", text: "процеси без «костилів»: можна спокійно розширювати, додавати кроки й будувати нові сценарії на тій самій основі." },
+    aboutOutcomeSlides: [
+      {
+        label: "Швидкий перший ефект",
+        items: [
+          { num: "Тижні", text: "до робочого пілоту: конектори, єдина модель даних і перші живі процеси." },
+          { num: "Одна", text: "середа для даних, правил і керуючих дій — без «зоопарку» проміжних систем." },
+          { num: "Готові", text: "процеси без «костилів»: можна спокійно розширювати, додавати кроки й будувати нові сценарії на тій самій основі." },
+        ],
+      },
+      {
+        label: "Менші операційні витрати",
+        items: [
+          { num: "Менше", text: "ручних перевірок і рутини — винятки обробляються правилами та процесами." },
+          { num: "Менше", text: "звірок між системами — єдина модель даних стає спільною опорою для всіх." },
+          { num: "Швидше", text: "реакція на інциденти — тривога запускає дії й задачі замість довгих листувань." },
+        ],
+      },
+      {
+        label: "Вища продуктивність",
+        items: [
+          { num: "Швидше", text: "пошук причин — контекст зберігається разом із даними, подіями та історією процесу." },
+          { num: "Коротше", text: "впровадження — конектори й логіка перевикористовуються між майданчиками та сценаріями." },
+          { num: "Більше", text: "робить експлуатація — покращення не чекають розробників платформи." },
+        ],
+      },
+      {
+        label: "Нові продукти та сервіси",
+        items: [
+          { num: "Від", text: "пілоту до повторюваного продукту — одна модель підтримує нових клієнтів, майданчики й партнерів." },
+          { num: "Нові", text: "сервісні сценарії — моніторинг + процеси + керуючі дії як готова пропозиція." },
+          { num: "Чітко", text: "в економіці — рахуємо ефект по активу/майданчику й масштабуємося на реальних метриках." },
+        ],
+      },
     ],
 
-    // STICKY ASK
-    "stickyAsk.btn": "Питання / Контакт",
-    "stickyAsk.title": "Скажіть, що ви хочете автоматизувати",
+    "stickyAsk.btn": "Запит / Контакт",
+    "stickyAsk.title": "Опишіть, що хочете автоматизувати",
     "stickyAsk.sub": "Достатньо 1–2 речень. Підкажемо найкращий перший крок.",
     "stickyAsk.cta1": "Запросити демо",
-    "stickyAsk.cta2": "Написати питання",
-    "stickyAsk.hint": "Хочете швидко? Використайте форму нижче на сторінці.",
-
-    // (остальные блоки uk можно оставить как у тебя; этот JS уже рабочий)
-    "footer.backToTop": "Угору",
-    "footer.privacy": "Політика конфіденційності",
-    "footer.note": "MITE — промислова IoT-платформа для команд, що вимірюють ефект у грошах.",
+    "stickyAsk.cta2": "Написати на email",
+    "stickyAsk.hint": "Потрібно швидко? Можна і через форму нижче на сторінці.",
   },
 };
 
 /* =========================
    Apply translations
-   ========================= */
+========================= */
 function applyTranslations(lang) {
   const dict = translations[lang] || translations.en;
   document.documentElement.lang = lang;
 
-  // SEO
   const title = dict["seo.title"];
   if (title) document.title = title;
 
@@ -595,40 +319,34 @@ function applyTranslations(lang) {
     if (meta) meta.setAttribute("content", desc);
   }
 
-  // data-i18n
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const value = dict[key];
-    if (value === undefined || value === null) return;
-
-    // allow line breaks from \n\n if you want: convert to <br><br>
-    const v = typeof value === "string" ? value.replace(/\n\n/g, "<br><br>") : value;
-    el.innerHTML = v;
+    if (value == null) return;
+    el.innerHTML = value;
   });
 
-  // placeholders
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     const value = dict[key];
-    if (!value) return;
+    if (value == null) return;
     el.setAttribute("placeholder", value);
   });
 
-  // active lang buttons
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     const code = btn.getAttribute("data-lang-btn");
     btn.classList.toggle("is-active", code === lang);
   });
 
-  // update outcomes slider on language change
+  // refresh outcomes UI after language switch
   if (window.__updateOutcomesCarousel) {
     window.__updateOutcomesCarousel();
   }
 }
 
 /* =========================
-   Quick drawer (clone form)
-   ========================= */
+   Quick drawer (cloned form)
+========================= */
 function setupQuickDrawer() {
   const btn = document.getElementById("quickBtn");
   const overlay = document.getElementById("drawerOverlay");
@@ -642,13 +360,13 @@ function setupQuickDrawer() {
 
   if (!btn || !overlay || !drawer || !mount || !contact || !contactForm) return;
 
-  // clone main contact form into drawer
+  // clone form into drawer once
   mount.innerHTML = "";
   const drawerForm = contactForm.cloneNode(true);
   drawerForm.setAttribute("data-drawer-form", "1");
   mount.appendChild(drawerForm);
 
-  // apply i18n to cloned nodes
+  // apply i18n to cloned form
   const currentLang = document.documentElement.lang || "en";
   applyTranslations(currentLang);
 
@@ -656,7 +374,6 @@ function setupQuickDrawer() {
     overlay.classList.add("is-open");
     drawer.classList.add("is-open");
     overlay.setAttribute("aria-hidden", "false");
-
     const first = drawer.querySelector("input, textarea, select, button");
     setTimeout(() => first && first.focus(), 80);
   }
@@ -676,7 +393,7 @@ function setupQuickDrawer() {
     if (e.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
   });
 
-  // submit drawer => copy into main form
+  // submit in drawer -> copy values to real form + scroll
   drawerForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -693,7 +410,7 @@ function setupQuickDrawer() {
 
     if (dstMsg) {
       const existing = (dstMsg.value || "").trim();
-      const add = (srcMsg ? srcMsg.value : "").trim();
+      const add = (srcMsg && srcMsg.value ? srcMsg.value : "").trim();
       dstMsg.value = existing ? `${existing}\n\n${add}` : add;
     }
 
@@ -704,89 +421,114 @@ function setupQuickDrawer() {
 }
 
 /* =========================
-   Typical outcomes slider
-   expects HTML ids:
-   #outcomesRange, #outcomeNum, #outcomeText
-   optional .outcomes-dots
-   ========================= */
+   Outcomes carousel (slides + dots)
+   - slides: 4 (prev/next)
+   - dots: 3 (within current slide)
+========================= */
 function setupOutcomesCarousel() {
-  const range = document.getElementById("outcomesRange");
+  const prevBtn = document.getElementById("outcomesPrev");
+  const nextBtn = document.getElementById("outcomesNext");
+  const slideLabelEl = document.getElementById("outcomesSlideLabel");
+
   const numEl = document.getElementById("outcomeNum");
   const textEl = document.getElementById("outcomeText");
   const dotsWrap = document.querySelector(".outcomes-dots");
 
-  if (!range || !numEl || !textEl) return;
+  if (!numEl || !textEl || !dotsWrap || !slideLabelEl) return;
+
+  let slideIndex = 0; // which outcome slide (0..n-1)
+  let itemIndex = 0;  // which item inside slide (0..2)
 
   function getLang() {
     return document.documentElement.lang || "en";
   }
 
-  function getItems(lang) {
+  function getSlides(lang) {
     const dict = translations[lang] || translations.en;
-    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
+    return dict.aboutOutcomeSlides || translations.en.aboutOutcomeSlides || [];
   }
 
-  function render(index, lang) {
-    const items = getItems(lang);
-    if (!items.length) return;
+  function clamp(v, min, max) {
+    return Math.max(min, Math.min(max, v));
+  }
 
-    const safeIndex = Math.max(0, Math.min(index, items.length - 1));
-    const item = items[safeIndex];
+  function render() {
+    const slides = getSlides(getLang());
+    if (!slides.length) return;
+
+    slideIndex = clamp(slideIndex, 0, slides.length - 1);
+    const slide = slides[slideIndex];
+
+    // label
+    slideLabelEl.textContent = slide.label || "";
+
+    // items
+    const items = slide.items || [];
+    itemIndex = clamp(itemIndex, 0, Math.max(0, items.length - 1));
+    const item = items[itemIndex] || { num: "", text: "" };
 
     numEl.textContent = item.num || "";
     textEl.textContent = item.text || "";
 
-    if (dotsWrap) {
-      const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
-      dots.forEach((d, i) => d.classList.toggle("is-active", i === safeIndex));
-    }
-  }
-
-  function buildDots(items, lang) {
-    if (!dotsWrap) return;
+    // dots (per items in current slide)
     dotsWrap.innerHTML = "";
-
     items.forEach((_, i) => {
-      const d = document.createElement("span");
-      d.className = "dot";
-      d.addEventListener("click", () => {
-        range.value = String(i);
-        render(i, lang);
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "dot";
+      dot.setAttribute("aria-label", `Outcome point ${i + 1}`);
+      if (i === itemIndex) dot.classList.add("is-active");
+
+      dot.addEventListener("click", () => {
+        itemIndex = i;
+        render();
       });
-      dotsWrap.appendChild(d);
+
+      dotsWrap.appendChild(dot);
     });
+
+    // disable arrows when at edges (optional, clean B2B)
+    if (prevBtn) prevBtn.disabled = slideIndex === 0;
+    if (nextBtn) nextBtn.disabled = slideIndex === slides.length - 1;
   }
 
-  function sync(lang) {
-    const items = getItems(lang);
-    range.max = String(Math.max(0, items.length - 1));
-
-    if (Number(range.value) > Number(range.max)) range.value = range.max;
-
-    buildDots(items, lang);
-    render(Number(range.value || 0), lang);
+  function goPrevSlide() {
+    slideIndex -= 1;
+    itemIndex = 0;
+    render();
   }
 
-  range.addEventListener("input", () => {
-    render(Number(range.value), getLang());
-  });
+  function goNextSlide() {
+    slideIndex += 1;
+    itemIndex = 0;
+    render();
+  }
 
+  if (prevBtn) prevBtn.addEventListener("click", goPrevSlide);
+  if (nextBtn) nextBtn.addEventListener("click", goNextSlide);
+
+  // expose update hook for language change
   window.__updateOutcomesCarousel = function () {
-    sync(getLang());
+    const slides = getSlides(getLang());
+    slideIndex = clamp(slideIndex, 0, Math.max(0, slides.length - 1));
+    itemIndex = 0; // reset inside slide on language switch (cleaner)
+    render();
   };
 
-  sync(getLang());
+  render();
 }
 
 /* =========================
-   Boot
-   ========================= */
+   Init
+========================= */
 document.addEventListener("DOMContentLoaded", () => {
+  // default language
   applyTranslations("en");
 
+  // language buttons
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const code = btn.getAttribute("data-lang-btn") || "en";
+      const code = btn.getAttribute("data-lang-btn");
       applyTranslations(code);
     });
   });
