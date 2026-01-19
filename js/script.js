@@ -54,23 +54,49 @@ const translations = {
 
     // RIGHT CARD LABEL
     "about.side.label": "Typical outcomes",
-    // SLIDER ITEMS
-    aboutOutcomes: [
-      {
-        num: "Weeks",
-        text:
-          "to a working pilot: reusable connectors, a unified data model, and first live operational workflows.",
-      },
-      {
-        num: "One",
-        text: "environment for data, rules, and control actions — without a patchwork of intermediate systems.",
-      },
-      {
-        num: "Ready",
-        text:
-          "workflows without “glue code”: extend safely — add steps, approvals, and new scenarios on the same foundation.",
-      },
-    ],
+      aboutOutcomes: [
+        {
+          num: "Weeks",
+          title: "to a working pilot",
+          text: "Reusable connectors, a unified data model, and the first live workflows.",
+          bullets: [
+            "Devices and data sources connected",
+            "Operational model structured once",
+            "First real process running end-to-end"
+          ]
+        },
+        {
+          num: "Cost",
+          title: "reduced without patchwork",
+          text: "Fewer intermediate systems, fewer integrations to maintain, fewer surprises.",
+          bullets: [
+            "Less time spent on data plumbing",
+            "Lower integration and support overhead",
+            "One place to change rules safely"
+          ]
+        },
+        {
+          num: "Uptime",
+          title: "and faster response",
+          text: "Issues become visible earlier, actions are triggered automatically.",
+          bullets: [
+            "Earlier anomaly detection",
+            "Clear escalation and approvals",
+            "Actions sent back to the field"
+          ]
+        },
+        {
+          num: "New",
+          title: "processes and products faster",
+          text: "Teams extend workflows themselves as operations evolve — no platform rework.",
+          bullets: [
+            "Add steps and logic safely",
+            "Reuse the same foundation for new scenarios",
+            "Scale to more sites without rebuilding"
+          ]
+        }
+      ],
+
 
     // STICKY ASK
     "stickyAsk.btn": "Ask / Contact",
@@ -309,12 +335,50 @@ const translations = {
       "Отправляйте команды обратно «в поле» и держите исполнение привязанным к операционной модели.",
     "about.cta": "Задать вопрос",
 
-    "about.side.label": "Типичный результат",
+   "about.side.label": "Типичный результат",
     aboutOutcomes: [
-      { num: "Недели", text: "до рабочего пилота: коннекторы, единая модель данных и первые живые процессы." },
-      { num: "Одна", text: "среда для данных, правил и управляющих действий — без зоопарка промежуточных систем." },
-      { num: "Готовые", text: "процессы без «костылей»: можно спокойно дорабатывать, добавлять шаги и собирать новые сценарии на той же базе." },
-    ],
+      {
+        num: "Недели",
+        title: "до рабочего пилота",
+        text: "Коннекторы, единая модель данных и первые живые процессы — без “песочницы ради отчёта”.",
+        bullets: [
+          "Подключены устройства и источники данных",
+          "Единая структурированная модель объектов",
+          "Первый процесс работает end-to-end"
+        ]
+      },
+      {
+        num: "Издержки",
+        title: "ниже без “зоопарка” систем",
+        text: "Меньше промежуточных слоёв и интеграций, меньше поддержки и ручных костылей.",
+        bullets: [
+          "Меньше времени на “склейку” данных",
+          "Меньше точек отказа и сопровождения",
+          "Правила меняются в одном месте"
+        ]
+      },
+      {
+        num: "Простои",
+        title: "ниже, реакция быстрее",
+        text: "Проблемы видны раньше, сценарии запускаются автоматически, действия фиксируются в модели.",
+        bullets: [
+          "Раннее обнаружение отклонений",
+          "Понятная эскалация и согласования",
+          "Команды и действия обратно “в поле”"
+        ]
+      },
+      {
+        num: "Новые",
+        title: "процессы и продукты быстрее",
+        text: "Команда спокойно дорабатывает логику и собирает новые сценарии на той же базе.",
+        bullets: [
+          "Добавлять шаги и правила безопасно",
+          "Переиспользовать основу для новых кейсов",
+          "Масштабировать на площадки без переписывания"
+        ]
+      }
+],
+
 
     // STICKY ASK
     "stickyAsk.btn": "Вопрос / Контакт",
@@ -554,9 +618,46 @@ const translations = {
 
     "about.side.label": "Типовий результат",
     aboutOutcomes: [
-      { num: "Тижні", text: "до робочого пілоту: конектори, єдина модель даних і перші живі процеси." },
-      { num: "Одна", text: "середа для даних, правил і керуючих дій — без «зоопарку» проміжних систем." },
-      { num: "Готові", text: "процеси без «костилів»: можна спокійно розширювати, додавати кроки й будувати нові сценарії на тій самій основі." },
+      {
+        num: "Тижні",
+        title: "до робочого пілоту",
+        text: "Конектори, єдина модель даних і перші живі процеси — без “пілота заради галочки”.",
+        bullets: [
+          "Підключені пристрої та джерела даних",
+          "Єдина структурована модель об’єктів",
+          "Перший процес працює end-to-end"
+        ]
+      },
+      {
+        num: "Витрати",
+        title: "нижчі без “зоопарку” систем",
+        text: "Менше проміжних шарів та інтеграцій, менше підтримки та ручних костилів.",
+        bullets: [
+          "Менше часу на “склейку” даних",
+          "Менше точок відмови і супроводу",
+          "Правила змінюються в одному місці"
+        ]
+      },
+      {
+        num: "Простої",
+        title: "нижчі, реакція швидша",
+        text: "Проблеми видно раніше, сценарії запускаються автоматично, дії закріплені в моделі.",
+        bullets: [
+          "Раннє виявлення відхилень",
+          "Зрозуміла ескалація і погодження",
+          "Команди та дії назад “у поле”"
+        ]
+      },
+      {
+        num: "Нові",
+        title: "процеси та продукти швидше",
+        text: "Команда спокійно розширює логіку й будує нові сценарії на тій самій основі.",
+        bullets: [
+          "Додавати кроки й правила безпечно",
+          "Перевикористовувати основу для нових кейсів",
+          "Масштабувати на майданчики без переписування"
+        ]
+      }
     ],
 
     // STICKY ASK
@@ -616,10 +717,105 @@ function applyTranslations(lang) {
     btn.classList.toggle("is-active", code === lang);
   });
 
-  // update outcomes slider on language change
   if (window.__updateOutcomesCarousel) {
-    window.__updateOutcomesCarousel();
+  window.__updateOutcomesCarousel();
+}
+}
+
+function setupOutcomesCarousel() {
+  const numEl = document.getElementById("outcomeNum");
+  const titleEl = document.getElementById("outcomeTitle");
+  const textEl = document.getElementById("outcomeText");
+  const bulletsEl = document.getElementById("outcomeBullets");
+
+  const prevBtn = document.getElementById("outcomesPrev");
+  const nextBtn = document.getElementById("outcomesNext");
+  const dotsWrap = document.getElementById("outcomesDots");
+
+  if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return;
+
+  let index = 0;
+
+  function getLang() {
+    return document.documentElement.lang || "en";
   }
+
+  function getItems(lang) {
+    const dict = translations[lang] || translations.en;
+    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
+  }
+
+  function clamp(i, max) {
+    if (max <= 0) return 0;
+    return Math.max(0, Math.min(i, max - 1));
+  }
+
+  function buildDots(items) {
+    dotsWrap.innerHTML = "";
+    items.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot";
+      d.setAttribute("aria-label", `Outcome ${i + 1}`);
+      d.addEventListener("click", () => {
+        index = i;
+        render();
+      });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function render() {
+    const lang = getLang();
+    const items = getItems(lang);
+    const max = items.length;
+
+    index = clamp(index, max);
+    const item = items[index] || {};
+
+    numEl.textContent = item.num || "";
+    titleEl.textContent = item.title || "";
+    textEl.textContent = item.text || "";
+
+    bulletsEl.innerHTML = "";
+    (item.bullets || []).forEach((b) => {
+      const li = document.createElement("li");
+      li.textContent = b;
+      bulletsEl.appendChild(li);
+    });
+
+    // dots active
+    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+  }
+
+  function next() {
+    const items = getItems(getLang());
+    if (!items.length) return;
+    index = (index + 1) % items.length;
+    render();
+  }
+
+  function prev() {
+    const items = getItems(getLang());
+    if (!items.length) return;
+    index = (index - 1 + items.length) % items.length;
+    render();
+  }
+
+  prevBtn?.addEventListener("click", prev);
+  nextBtn?.addEventListener("click", next);
+
+  // expose for language change
+  window.__updateOutcomesCarousel = function () {
+    const items = getItems(getLang());
+    buildDots(items);
+    index = clamp(index, items.length);
+    render();
+  };
+
+  // init
+  window.__updateOutcomesCarousel();
 }
 
 /* =========================
@@ -699,80 +895,6 @@ function setupQuickDrawer() {
   });
 }
 
-/* =========================
-   Typical outcomes slider
-   expects HTML ids:
-   #outcomesRange, #outcomeNum, #outcomeText
-   optional .outcomes-dots
-   ========================= */
-function setupOutcomesCarousel() {
-  const range = document.getElementById("outcomesRange");
-  const numEl = document.getElementById("outcomeNum");
-  const textEl = document.getElementById("outcomeText");
-  const dotsWrap = document.querySelector(".outcomes-dots");
-
-  if (!range || !numEl || !textEl) return;
-
-  function getLang() {
-    return document.documentElement.lang || "en";
-  }
-
-  function getItems(lang) {
-    const dict = translations[lang] || translations.en;
-    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
-  }
-
-  function render(index, lang) {
-    const items = getItems(lang);
-    if (!items.length) return;
-
-    const safeIndex = Math.max(0, Math.min(index, items.length - 1));
-    const item = items[safeIndex];
-
-    numEl.textContent = item.num || "";
-    textEl.textContent = item.text || "";
-
-    if (dotsWrap) {
-      const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
-      dots.forEach((d, i) => d.classList.toggle("is-active", i === safeIndex));
-    }
-  }
-
-  function buildDots(items, lang) {
-    if (!dotsWrap) return;
-    dotsWrap.innerHTML = "";
-
-    items.forEach((_, i) => {
-      const d = document.createElement("span");
-      d.className = "dot";
-      d.addEventListener("click", () => {
-        range.value = String(i);
-        render(i, lang);
-      });
-      dotsWrap.appendChild(d);
-    });
-  }
-
-  function sync(lang) {
-    const items = getItems(lang);
-    range.max = String(Math.max(0, items.length - 1));
-
-    if (Number(range.value) > Number(range.max)) range.value = range.max;
-
-    buildDots(items, lang);
-    render(Number(range.value || 0), lang);
-  }
-
-  range.addEventListener("input", () => {
-    render(Number(range.value), getLang());
-  });
-
-  window.__updateOutcomesCarousel = function () {
-    sync(getLang());
-  };
-
-  sync(getLang());
-}
 
 /* =========================
    Boot
@@ -782,7 +904,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const code = btn.getAttribute("data-lang-btn") || "en";
+      const code = btn.getAttribute("data-lang-btn");
       applyTranslations(code);
     });
   });
