@@ -743,9 +743,7 @@ function setupOutcomesCarousel() {
   const nextBtn = document.getElementById("outcomesNext");
   const dotsWrap = document.getElementById("outcomesDots");
 
-  if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return;
-
-  let index = 0;
+  if (!numEl || !titleEl || !textEl || !bulletsEl || !prevBtn || !nextBtn || !dotsWrap) return;
 
   function getLang() {
     return document.documentElement.lang || "en";
@@ -756,18 +754,13 @@ function setupOutcomesCarousel() {
     return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
   }
 
-  function clamp(i, max) {
-    if (max <= 0) return 0;
-    return Math.max(0, Math.min(i, max - 1));
-  }
+  let index = 0;
 
-  function buildDots(items) {
+  function renderDots(items) {
     dotsWrap.innerHTML = "";
     items.forEach((_, i) => {
-      const d = document.createElement("button");
-      d.type = "button";
-      d.className = "dot";
-      d.setAttribute("aria-label", `Outcome ${i + 1}`);
+      const d = document.createElement("span");
+      d.className = "dot" + (i === index ? " is-active" : "");
       d.addEventListener("click", () => {
         index = i;
         render();
@@ -776,58 +769,64 @@ function setupOutcomesCarousel() {
     });
   }
 
-  function render() {
-    const lang = getLang();
-    const items = getItems(lang);
-    const max = items.length;
-
-    index = clamp(index, max);
-    const item = items[index] || {};
-
-    numEl.textContent = item.num || "";
-    titleEl.textContent = item.title || "";
-    textEl.textContent = item.text || "";
-
+  function renderBullets(bullets) {
     bulletsEl.innerHTML = "";
-    (item.bullets || []).forEach((b) => {
+    (bullets || []).forEach((b) => {
       const li = document.createElement("li");
       li.textContent = b;
       bulletsEl.appendChild(li);
     });
+    bulletsEl.style.display = (bullets && bullets.length) ? "grid" : "none";
+  }
+
+  function render() {
+    const items = getItems(getLang());
+    if (!items.length) return;
+
+    if (index < 0) index = 0;
+    if (index > items.length - 1) index = items.length - 1;
+
+    const it = items[index];
+
+    numEl.textContent = it.num || "";
+    titleEl.textContent = it.title || "";
+    textEl.textContent = it.text || "";
+    renderBullets(it.bullets || []);
 
     // dots active
     const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
-    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+    if (!dots.length) renderDots(items);
+    else dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+
+    // buttons
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === items.length - 1;
   }
 
-  function next() {
+  function syncForLanguageChange() {
     const items = getItems(getLang());
-    if (!items.length) return;
-    index = (index + 1) % items.length;
+    index = Math.min(index, Math.max(0, items.length - 1));
+    renderDots(items);
     render();
   }
 
-  function prev() {
-    const items = getItems(getLang());
-    if (!items.length) return;
-    index = (index - 1 + items.length) % items.length;
+  prevBtn.addEventListener("click", () => {
+    index -= 1;
     render();
-  }
+  });
 
-  prevBtn?.addEventListener("click", prev);
-  nextBtn?.addEventListener("click", next);
-
-  // expose for language change
-  window.__updateOutcomesCarousel = function () {
-    const items = getItems(getLang());
-    buildDots(items);
-    index = clamp(index, items.length);
+  nextBtn.addEventListener("click", () => {
+    index += 1;
     render();
-  };
+  });
+
+  // Экспорт для applyTranslations: вызывай после смены языка
+  window.__updateOutcomesCarousel = syncForLanguageChange;
 
   // init
-  window.__updateOutcomesCarousel();
+  syncForLanguageChange();
 }
+
 
 function setupPricingCarousel() {
   const root = document.getElementById("pricingCarousel");
