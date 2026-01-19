@@ -379,64 +379,101 @@
       </div>
     </section>
 
-    <!-- PRICING -->
-    <section id="pricing" class="section container">
-      <div class="section-header">
-        <div class="eyebrow" data-i18n="pricing.eyebrow"></div>
-        <h2 class="section-title" data-i18n="pricing.title"></h2>
-        <p class="section-subtitle" data-i18n="pricing.subtitle"></p>
+    <!-- PRICING CAROUSEL -->
+    <div class="pricing-carousel" id="pricingCarousel">
+      <button class="pc-nav pc-prev" type="button" aria-label="Previous plan">‹</button>
+
+      <div class="pc-viewport">
+        <div class="pc-track">
+          <!-- Slide 1 -->
+          <article class="pc-card" data-plan="start">
+            <div class="pc-top">
+              <div class="pc-label" data-i18n="pricing.plan1.label"></div>
+              <h3 class="pc-name" data-i18n="pricing.plan1.name"></h3>
+              <p class="pc-tagline" data-i18n="pricing.plan1.tagline"></p>
+            </div>
+
+            <div class="pc-price" data-i18n="pricing.plan1.price"></div>
+            <div class="pc-note" data-i18n="pricing.plan1.note"></div>
+
+            <ul class="pc-list">
+              <li data-i18n="pricing.plan1.li1"></li>
+              <li data-i18n="pricing.plan1.li2"></li>
+            </ul>
+
+            <a class="btn btn-primary pc-cta" href="#contact" data-i18n="pricing.plan1.cta"></a>
+          </article>
+
+          <!-- Slide 2 -->
+          <article class="pc-card is-featured" data-plan="scale">
+            <div class="pc-top">
+              <div class="pc-label" data-i18n="pricing.plan2.label"></div>
+              <h3 class="pc-name" data-i18n="pricing.plan2.name"></h3>
+              <p class="pc-tagline" data-i18n="pricing.plan2.tagline"></p>
+            </div>
+
+            <div class="pc-price" data-i18n="pricing.plan2.price"></div>
+            <div class="pc-note" data-i18n="pricing.plan2.note"></div>
+
+            <ul class="pc-list">
+              <li data-i18n="pricing.plan2.li1"></li>
+              <li data-i18n="pricing.plan2.li2"></li>
+              <li data-i18n="pricing.plan2.li3"></li>
+            </ul>
+
+            <a class="btn btn-primary pc-cta" href="#contact" data-i18n="pricing.plan2.cta"></a>
+            <div class="pc-cta-note" data-i18n="pricing.plan2.ctaNote"></div>
+          </article>
+
+          <!-- Slide 3 -->
+          <article class="pc-card" data-plan="enterprise">
+            <div class="pc-top">
+              <div class="pc-label" data-i18n="pricing.plan3.label"></div>
+              <h3 class="pc-name" data-i18n="pricing.plan3.name"></h3>
+              <p class="pc-tagline" data-i18n="pricing.plan3.tagline"></p>
+            </div>
+
+            <div class="pc-price" data-i18n="pricing.plan3.price"></div>
+            <div class="pc-note" data-i18n="pricing.plan3.note"></div>
+
+            <ul class="pc-list">
+              <li data-i18n="pricing.plan3.li1"></li>
+              <li data-i18n="pricing.plan3.li2"></li>
+              <li data-i18n="pricing.plan3.li3"></li>
+            </ul>
+
+            <a class="btn btn-primary pc-cta" href="#contact" data-i18n="pricing.plan3.cta"></a>
+          </article>
+
+          <!-- Slide 4: Custom Free → €100 -->
+          <article class="pc-card pc-custom" data-plan="custom">
+            <div class="pc-top">
+              <div class="pc-label" data-i18n="pricing.plan4.label"></div>
+              <h3 class="pc-name" data-i18n="pricing.plan4.name"></h3>
+              <p class="pc-tagline" data-i18n="pricing.plan4.tagline"></p>
+            </div>
+
+            <div class="pc-price">
+              <span class="pc-price-big" data-i18n="pricing.plan4.price"></span>
+            </div>
+            <div class="pc-note" data-i18n="pricing.plan4.note"></div>
+
+            <ul class="pc-list">
+              <li data-i18n="pricing.plan4.li1"></li>
+              <li data-i18n="pricing.plan4.li2"></li>
+              <li data-i18n="pricing.plan4.li3"></li>
+            </ul>
+
+            <a class="btn btn-primary pc-cta" href="#contact" data-i18n="pricing.plan4.cta"></a>
+          </article>
+        </div>
       </div>
 
-      <div class="grid grid-3 pricing-grid">
-        <article class="pricing-card">
-          <div class="pricing-label" data-i18n="pricing.plan1.label"></div>
-          <div class="pricing-name" data-i18n="pricing.plan1.name"></div>
-          <div class="pricing-tagline" data-i18n="pricing.plan1.tagline"></div>
-          <div class="pricing-price" data-i18n="pricing.plan1.price"></div>
-          <div class="pricing-note" data-i18n="pricing.plan1.note"></div>
-          <ul class="pricing-list">
-            <li><span>✓</span><span data-i18n="pricing.plan1.li1"></span></li>
-            <li><span>✓</span><span data-i18n="pricing.plan1.li2"></span></li>
-          </ul>
-          <div class="pricing-cta-row">
-            <a href="#contact" class="btn btn-ghost" data-i18n="pricing.plan1.cta"></a>
-          </div>
-        </article>
+      <button class="pc-nav pc-next" type="button" aria-label="Next plan">›</button>
 
-        <article class="pricing-card highlight">
-          <div class="pricing-label" data-i18n="pricing.plan2.label"></div>
-          <div class="pricing-name" data-i18n="pricing.plan2.name"></div>
-          <div class="pricing-tagline" data-i18n="pricing.plan2.tagline"></div>
-          <div class="pricing-price" data-i18n="pricing.plan2.price"></div>
-          <div class="pricing-note" data-i18n="pricing.plan2.note"></div>
-          <ul class="pricing-list">
-            <li><span>✓</span><span data-i18n="pricing.plan2.li1"></span></li>
-            <li><span>✓</span><span data-i18n="pricing.plan2.li2"></span></li>
-            <li><span>✓</span><span data-i18n="pricing.plan2.li3"></span></li>
-          </ul>
-          <div class="pricing-cta-row">
-            <a href="#contact" class="btn btn-primary" data-i18n="pricing.plan2.cta"></a>
-            <span class="pricing-cta-note" data-i18n="pricing.plan2.ctaNote"></span>
-          </div>
-        </article>
+      <div class="pc-dots" id="pricingDots" aria-label="Pricing carousel pagination"></div>
+    </div>
 
-        <article class="pricing-card">
-          <div class="pricing-label" data-i18n="pricing.plan3.label"></div>
-          <div class="pricing-name" data-i18n="pricing.plan3.name"></div>
-          <div class="pricing-tagline" data-i18n="pricing.plan3.tagline"></div>
-          <div class="pricing-price" data-i18n="pricing.plan3.price"></div>
-          <div class="pricing-note" data-i18n="pricing.plan3.note"></div>
-          <ul class="pricing-list">
-            <li><span>✓</span><span data-i18n="pricing.plan3.li1"></span></li>
-            <li><span>✓</span><span data-i18n="pricing.plan3.li2"></span></li>
-            <li><span>✓</span><span data-i18n="pricing.plan3.li3"></span></li>
-          </ul>
-          <div class="pricing-cta-row">
-            <a href="#contact" class="btn btn-ghost" data-i18n="pricing.plan3.cta"></a>
-          </div>
-        </article>
-      </div>
-    </section>
 
     <!-- TESTIMONIAL + FAQ -->
     <section class="section container">

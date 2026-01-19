@@ -229,6 +229,17 @@ const translations = {
     "pricing.plan3.li3": "Custom SLAs and governance model",
     "pricing.plan3.cta": "Book a strategy session",
 
+    "pricing.plan4.label": "For custom needs",
+    "pricing.plan4.name": "Custom (Free → €100)",
+    "pricing.plan4.tagline": "Small custom tweaks without bureaucracy.",
+    "pricing.plan4.price": "Free → €100",
+    "pricing.plan4.note": "For quick adjustments, minor integrations, and getting the first outcome fast.",
+    "pricing.plan4.li1": "Small change requests (UI/logic tweaks)",
+    "pricing.plan4.li2": "Fast turnaround, no platform developers needed",
+    "pricing.plan4.li3": "If it grows — we move you to Rollout/Enterprise",
+    "pricing.plan4.cta": "Request a custom estimate",
+
+
     // TESTIMONIALS
     "testimonials.eyebrow": "Customer voice",
     "testimonials.title": "“So simple, clear, and it just works.”",
@@ -818,6 +829,77 @@ function setupOutcomesCarousel() {
   window.__updateOutcomesCarousel();
 }
 
+function setupPricingCarousel() {
+  const root = document.getElementById("pricingCarousel");
+  const track = root?.querySelector(".pc-track");
+  const prev = root?.querySelector(".pc-prev");
+  const next = root?.querySelector(".pc-next");
+  const dotsWrap = document.getElementById("pricingDots");
+
+  if (!root || !track || !dotsWrap) return;
+
+  const cards = Array.from(track.querySelectorAll(".pc-card"));
+  let index = 0;
+
+  function cardStep() {
+    const first = cards[0];
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.columnGap || style.gap || "0") || 0;
+    return first.getBoundingClientRect().width + gap;
+  }
+
+  function clamp(i) {
+    return Math.max(0, Math.min(i, cards.length - 1));
+  }
+
+  function renderDots() {
+    dotsWrap.innerHTML = "";
+    cards.forEach((_, i) => {
+      const d = document.createElement("span");
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => {
+        index = i;
+        update();
+      });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function update() {
+    index = clamp(index);
+    const x = -(index * cardStep());
+    track.style.transform = `translate3d(${x}px,0,0)`;
+
+    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+  }
+
+  prev?.addEventListener("click", () => { index -= 1; update(); });
+  next?.addEventListener("click", () => { index += 1; update(); });
+
+  // touch swipe (mobile + desktop trackpad feel)
+  let startX = 0;
+  let isDown = false;
+
+  root.addEventListener("pointerdown", (e) => {
+    isDown = true;
+    startX = e.clientX;
+  });
+  root.addEventListener("pointerup", (e) => {
+    if (!isDown) return;
+    isDown = false;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) < 40) return;
+    index += (dx < 0 ? 1 : -1);
+    update();
+  });
+
+  window.addEventListener("resize", () => update());
+
+  renderDots();
+  update();
+}
+
 /* =========================
    Quick drawer (clone form)
    ========================= */
@@ -911,4 +993,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupQuickDrawer();
   setupOutcomesCarousel();
+  setupPricingCarousel();
 });
