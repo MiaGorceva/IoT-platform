@@ -1274,6 +1274,143 @@
   transform: scale(1.15);
 }
 
+/* ===== Outcomes card (B2B clean) ===== */
+
+.about-side-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(31, 41, 55, 0.92);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(72, 207, 255, 0.18), transparent 58%),
+    radial-gradient(circle at 85% 90%, rgba(84, 229, 74, 0.14), transparent 58%),
+    rgba(15, 23, 42, 0.92);
+  box-shadow:
+    0 18px 44px rgba(0, 0, 0, 0.78),
+    0 0 0 1px rgba(15, 23, 42, 0.7);
+  padding: 1.05rem 1.1rem;
+}
+
+.about-side-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(72, 207, 255, 0.9);
+  margin-bottom: 0.85rem;
+}
+
+.about-side-metric {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.about-side-num {
+  font-size: 1.35rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: rgba(84, 229, 74, 0.95);
+  line-height: 1.1;
+}
+
+/* ты добавила outcomeTitle — делаем его "подзаголовком" */
+.about-side-title {
+  font-size: 1.0rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.35;
+  margin-top: 0.1rem;
+}
+
+.about-side-text {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+  margin-top: 0.2rem;
+}
+
+/* bullets внутри outcome */
+.outcome-bullets {
+  margin: 0.65rem 0 0 0;
+  padding-left: 1.05rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.outcome-bullets li {
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.45;
+}
+
+.outcome-bullets li::marker {
+  color: rgba(72, 207, 255, 0.85);
+}
+
+.about-side-divider {
+  height: 1px;
+  background: rgba(31, 41, 55, 0.9);
+  margin: 0.95rem 0 0.85rem;
+}
+
+/* nav row */
+.outcomes-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* buttons (prev/next) */
+.outcomes-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(10, 18, 35, 0.55);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .2s ease, transform .2s ease, background .2s ease, opacity .2s ease;
+  user-select: none;
+}
+
+.outcomes-btn:hover {
+  border-color: rgba(72, 207, 255, 0.35);
+  background: rgba(10, 18, 35, 0.72);
+  transform: translateY(-1px);
+}
+
+.outcomes-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+  transform: none;
+}
+
+/* dots */
+.outcomes-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.outcomes-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.outcomes-dots .dot:hover {
+  transform: translateY(-1px);
+}
+
+.outcomes-dots .dot.is-active {
+  background: rgba(84, 229, 74, 0.95);
+  box-shadow: 0 0 16px rgba(84, 229, 74, 0.28);
+}
+
+
 
 
 
