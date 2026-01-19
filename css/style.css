@@ -1410,6 +1410,173 @@
   box-shadow: 0 0 16px rgba(84, 229, 74, 0.28);
 }
 
+/* =========================
+   ABOUT / OUTCOMES (B2B polish)
+   ========================= */
+
+/* card container */
+.about-side-card {
+  border-radius: 22px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  background:
+    radial-gradient(circle at 18% 14%, rgba(72, 207, 255, 0.14), transparent 58%),
+    radial-gradient(circle at 82% 86%, rgba(84, 229, 74, 0.12), transparent 58%),
+    rgba(15, 23, 42, 0.86);
+  box-shadow:
+    0 26px 64px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  padding: 1.15rem 1.25rem;
+}
+
+/* label */
+.about-side-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(72, 207, 255, 0.9);
+  margin-bottom: 0.9rem;
+}
+
+/* layout inside metric */
+.about-side-metric {
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
+}
+
+/* BIG outcome number (Weeks / One / Ready) */
+.about-side-num {
+  font-size: 2.05rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: rgba(84, 229, 74, 0.95);
+  text-shadow: 0 0 18px rgba(84, 229, 74, 0.16);
+}
+
+/* subtitle line: "to a working pilot" */
+.about-side-title {
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.35;
+  margin-top: 0.1rem;
+}
+
+/* body text */
+.about-side-text {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.6;
+  max-width: 36rem;
+}
+
+/* bullets – remove ugly default, make compact */
+.outcome-bullets {
+  margin: 0.7rem 0 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.outcome-bullets li {
+  position: relative;
+  padding-left: 1.05rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+.outcome-bullets li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  background: rgba(72, 207, 255, 0.9);
+  box-shadow: 0 0 14px rgba(72, 207, 255, 0.18);
+}
+
+/* divider */
+.about-side-divider {
+  height: 1px;
+  background: rgba(148, 163, 184, 0.12);
+  margin: 1rem 0 0.85rem;
+}
+
+/* nav row: arrows + dots, aligned nicely */
+.outcomes-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* arrow buttons: not system-grey */
+.outcomes-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(2, 6, 23, 0.35);
+  color: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, opacity .18s ease;
+}
+
+.outcomes-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(72, 207, 255, 0.32);
+  background: rgba(2, 6, 23, 0.55);
+}
+
+.outcomes-btn:active {
+  transform: translateY(0);
+}
+
+.outcomes-btn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* dots in the middle */
+.outcomes-dots {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto; /* центрируем */
+}
+
+.outcomes-dots .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+
+.outcomes-dots .dot:hover {
+  transform: translateY(-1px);
+}
+
+.outcomes-dots .dot.is-active {
+  background: rgba(84, 229, 74, 0.95);
+  box-shadow: 0 0 16px rgba(84, 229, 74, 0.22);
+}
+
+/* optional: tighten on smaller screens */
+@media (max-width: 960px) {
+  .about-side-num { font-size: 1.85rem; }
+  .about-side-title { font-size: 1rem; }
+  .about-side-text { font-size: 0.92rem; }
+}
+
 
 
 
