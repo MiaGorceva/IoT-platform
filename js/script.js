@@ -1031,7 +1031,96 @@ function applyTranslations(lang) {
   if (window.__updateOutcomesCarousel) {
   window.__updateOutcomesCarousel();
 }
+
+  window.__updateUseCasesCarousel?.();
+  window.__updateOutcomesCarousel?.();
 }
+
+function setupUseCasesCarousel() {
+  const root = document.getElementById("ucCarousel");
+  const track = document.getElementById("ucTrack");
+  const dots = document.getElementById("ucDots");
+  const prev = document.getElementById("ucPrev");
+  const next = document.getElementById("ucNext");
+  if (!root || !track || !dots || !prev || !next) return;
+
+  let index = 0;
+
+  const getLang = () => document.documentElement.lang || "en";
+  const getItems = (lang) => (translations[lang] || translations.en).useCasesReal || translations.en.useCasesReal || [];
+
+  function buildCards(lang) {
+    const items = getItems(lang);
+    track.innerHTML = "";
+
+    items.forEach((it) => {
+      const card = document.createElement("div");
+      card.className = "pc-card"; // reuse pricing card shell
+
+      card.innerHTML = `
+        <div class="uc-industry">${it.industry || ""}</div>
+        <h3 class="uc-title">${it.title || ""}</h3>
+
+        ${(it.blocks || []).map(b => `
+          <p class="uc-block"><strong>${b.k}:</strong> ${b.v}</p>
+        `).join("")}
+
+        <ul class="uc-bullets">
+          ${(it.bullets || []).map(x => `<li>${x}</li>`).join("")}
+        </ul>
+      `;
+
+      track.appendChild(card);
+    });
+
+    // dots
+    dots.innerHTML = "";
+    items.forEach((_, i) => {
+      const d = document.createElement("span");
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => { index = i; render(); });
+      dots.appendChild(d);
+    });
+  }
+
+  function slideTo(i) {
+    const cards = Array.from(track.children);
+    if (!cards.length) return;
+
+    // wrap
+    const n = cards.length;
+    if (i < 0) i = n - 1;
+    if (i >= n) i = 0;
+    index = i;
+
+    // compute step (card width + gap)
+    const first = cards[0];
+    const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
+    const step = first.getBoundingClientRect().width + gap;
+
+    track.style.transform = `translateX(${-index * step}px)`;
+
+    // update dots
+    Array.from(dots.querySelectorAll(".dot")).forEach((d, di) => {
+      d.classList.toggle("is-active", di === index);
+    });
+  }
+
+  function render() {
+    buildCards(getLang());
+    // reset transform after rebuild
+    requestAnimationFrame(() => slideTo(index));
+  }
+
+  prev.addEventListener("click", () => slideTo(index - 1));
+  next.addEventListener("click", () => slideTo(index + 1));
+
+  // expose for language change
+  window.__updateUseCasesCarousel = () => { index = 0; render(); };
+
+  render();
+}
+
 
 function setupOutcomesCarousel() {
   const numEl = document.getElementById("outcomeNum");
@@ -1257,4 +1346,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupQuickDrawer();
   setupOutcomesCarousel();
   setupPricingCarousel();
+  setupUseCasesCarousel();
+
 });
