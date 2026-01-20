@@ -56,46 +56,335 @@ const translations = {
     "about.side.label": "Typical outcomes",
       aboutOutcomes: [
         {
-          num: "Weeks",
-          title: "to a working pilot",
-          text: "Reusable connectors, a unified data model, and the first live workflows.",
-          bullets: [
-            "Devices and data sources connected",
-            "Operational model structured once",
-            "First real process running end-to-end"
-          ]
-        },
-        {
-          num: "Cost",
-          title: "reduced without patchwork",
-          text: "Fewer intermediate systems, fewer integrations to maintain, fewer surprises.",
-          bullets: [
-            "Less time spent on data plumbing",
-            "Lower integration and support overhead",
-            "One place to change rules safely"
-          ]
-        },
-        {
-          num: "Uptime",
-          title: "and faster response",
-          text: "Issues become visible earlier, actions are triggered automatically.",
-          bullets: [
-            "Earlier anomaly detection",
-            "Clear escalation and approvals",
-            "Actions sent back to the field"
-          ]
-        },
-        {
-          num: "New",
-          title: "processes and products faster",
-          text: "Teams extend workflows themselves as operations evolve — no platform rework.",
-          bullets: [
-            "Add steps and logic safely",
-            "Reuse the same foundation for new scenarios",
-            "Scale to more sites without rebuilding"
-          ]
-        }
-      ],
+          num: "Days",
+            title: "to a working pilot",
+            text: "Reusable connectors, a unified data model, and first live workflows.",
+            bullets: [
+              "Devices and data sources connected",
+              "Operational model structured once",
+              "First real process running end-to-end",
+              "Owner value: a repeatable foundation to roll out new scenarios without rebuilding"
+            ]
+          },
+          {
+            num: "One",
+            title: "environment for operations",
+            text: "Data, rules, and control actions in one place — no patchwork of intermediate systems.",
+            bullets: [
+              "Single source of operational truth",
+              "Rules + workflows governed centrally",
+              "Actions tied to the operating model",
+              "Owner value: lower integration cost and fewer “hidden” operational risks"
+            ]
+          },
+          {
+            num: "Ready",
+            title: "workflows without glue code",
+            text: "Extend safely — add steps, approvals, and new scenarios on the same base.",
+            bullets: [
+              "Stable processes that keep evolving",
+              "Faster change cycles without platform dev",
+              "Reusable building blocks across sites",
+              "Owner value: predictable scaling with less dependency on vendor/dev teams"
+            ]
+          },
+          {
+            num: "Measured",
+            title: "ROI drivers you can track",
+            text: "Not promises — measurable drivers you can instrument from day one.",
+            bullets: [
+              "Fewer incidents / losses",
+              "Shorter downtime & diagnostics",
+              "Faster rollouts to new sites",
+              "Owner value: visibility into where profit is won or lost"
+            ]
+          }
+        ],
+
+        // inside translations.en
+        "useReal.eyebrow": "Real use cases",
+        "useReal.title": "Operational scenarios teams actually deploy",
+        "useReal.subtitle": "Each case = signals + logic + actions + measurable outcome. Reuse the same connectors and data model across industries.",
+
+        useCasesReal: [
+          {
+            industry: "Utilities",
+            title: "Non-technical loss detection (water/electricity)",
+            blocks: [
+              { k:"Signals", v:"Meters, submeters, gateways, site structure" },
+              { k:"Logic", v:"Zone balance + anomaly rules + night-profile leakage patterns" },
+              { k:"Actions", v:"Tickets to field teams, priority queues, finance-ready reports" }
+            ],
+            bullets: [
+              "Earlier detection of hidden losses",
+              "Fewer manual investigations",
+              "Clear accountability by zone/site",
+              "Owner value: measurable loss reduction drivers and predictable operational control"
+            ]
+          },
+          {
+            industry: "Utilities",
+            title: "District heating leak & abnormal consumption",
+            blocks: [
+              { k:"Signals", v:"Heat meters, pressure/temperature, weather context" },
+              { k:"Logic", v:"Deviation from baseline + correlation across network branches" },
+              { k:"Actions", v:"Escalation workflow, dispatch, incident lifecycle tracking" }
+            ],
+            bullets: [
+              "Faster localisation of leaks",
+              "Reduced emergency interventions",
+              "Better planning of repairs",
+              "Owner value: fewer major incidents and lower cost of unplanned works"
+            ]
+          },
+          {
+            industry: "Utilities",
+            title: "Remote meter commissioning & data quality control",
+            blocks: [
+              { k:"Signals", v:"Install events, connectivity, telemetry completeness" },
+              { k:"Logic", v:"Acceptance checklist + auto root-cause on failures" },
+              { k:"Actions", v:"Return-to-install tasks, re-check flows, acceptance logs" }
+            ],
+            bullets: [
+              "Less rework after rollout",
+              "Higher data trust from day one",
+              "Faster onboarding per site",
+              "Owner value: smoother deployment at scale with fewer surprises"
+            ]
+          },
+
+          {
+            industry: "Manufacturing",
+            title: "Downtime workflow (not just dashboards)",
+            blocks: [
+              { k:"Signals", v:"PLC tags, operator inputs, shift logs" },
+              { k:"Logic", v:"Downtime classification + routing by reason/line/team" },
+              { k:"Actions", v:"Tickets, shift reports, CAPA-style follow-up" }
+            ],
+            bullets: [
+              "Faster root-cause loop",
+              "Less repeated downtime patterns",
+              "Transparent action ownership",
+              "Owner value: improved throughput without rebuilding SCADA/MES landscape"
+            ]
+          },
+          {
+            industry: "Manufacturing",
+            title: "Energy intensity per batch / per line",
+            blocks: [
+              { k:"Signals", v:"Meters + batch IDs / MES events" },
+              { k:"Logic", v:"Normalize consumption by product/batch, detect deviations" },
+              { k:"Actions", v:"Alerts + investigation workflow + cost analytics export" }
+            ],
+            bullets: [
+              "Cost visibility by product",
+              "Early detection of energy waste",
+              "Better process discipline",
+              "Owner value: controllable cost drivers and stronger margin protection"
+            ]
+          },
+          {
+            industry: "Manufacturing",
+            title: "Maintenance triggers (rules-first predictive lite)",
+            blocks: [
+              { k:"Signals", v:"Vibration/temp/runtime counters, alarm history" },
+              { k:"Logic", v:"Trend + threshold combinations, symptom patterns" },
+              { k:"Actions", v:"Work orders, maintenance windows, spare parts prompts" }
+            ],
+            bullets: [
+              "Fewer unexpected stops",
+              "Better maintenance planning",
+              "Less firefighting",
+              "Owner value: higher asset availability with pragmatic automation"
+            ]
+          },
+
+          {
+            industry: "Pharma / Regulated",
+            title: "Environmental monitoring with excursion handling",
+            blocks: [
+              { k:"Signals", v:"Room sensors, zone mapping, calibrated devices" },
+              { k:"Logic", v:"Excursion rules + timers + approvals + audit-ready history" },
+              { k:"Actions", v:"Escalation, deviation workflow, reporting" }
+            ],
+            bullets: [
+              "Faster response to excursions",
+              "Clear traceability for audits",
+              "Less manual paperwork",
+              "Owner value: lower compliance risk and smoother inspections"
+            ]
+          },
+          {
+            industry: "Pharma / Logistics",
+            title: "Cold-chain monitoring with escalation ladder",
+            blocks: [
+              { k:"Signals", v:"Temperature loggers, door events, shipment context" },
+              { k:"Logic", v:"Multi-level escalation + SLA timers" },
+              { k:"Actions", v:"Dispatch, quarantine decisions, incident reports" }
+            ],
+            bullets: [
+              "Reduced spoilage risk",
+              "Faster reaction times",
+              "Cleaner incident documentation",
+              "Owner value: fewer write-offs and stronger customer trust"
+            ]
+          },
+
+          {
+            industry: "Food & Beverage",
+            title: "CIP/SIP cycle verification and optimisation",
+            blocks: [
+              { k:"Signals", v:"Flow/temp/conductivity + cycle timing" },
+              { k:"Logic", v:"Parameter compliance checks + deviation paths" },
+              { k:"Actions", v:"Reject/redo cycle, investigation workflow, reports" }
+            ],
+            bullets: [
+              "More consistent sanitation quality",
+              "Less manual validation",
+              "Fewer production interruptions",
+              "Owner value: stable quality with lower operational overhead"
+            ]
+          },
+          {
+            industry: "Food & Beverage",
+            title: "OEE + the ‘why’ (closed-loop improvement)",
+            blocks: [
+              { k:"Signals", v:"PLC/MES events + operator reason capture" },
+              { k:"Logic", v:"Link event → reason → corrective action tasks" },
+              { k:"Actions", v:"Ownered improvements, shift KPIs, weekly tracking" }
+            ],
+            bullets: [
+              "Not just OEE — actions that move it",
+              "Faster improvement cycles",
+              "Clear responsibility chain",
+              "Owner value: continuous productivity gains without heavy IT projects"
+            ]
+          },
+
+          {
+            industry: "Retail / Warehousing",
+            title: "HVAC optimisation across distributed sites",
+            blocks: [
+              { k:"Signals", v:"HVAC controllers, sensors, schedules" },
+              { k:"Logic", v:"Time/temperature rules + anomaly detection" },
+              { k:"Actions", v:"Setpoint commands, service tickets, performance reports" }
+            ],
+            bullets: [
+              "Lower energy waste",
+              "Fewer comfort complaints",
+              "Better remote control",
+              "Owner value: standardised operations across many locations"
+            ]
+          },
+          {
+            industry: "Retail / Cold rooms",
+            title: "Refrigeration monitoring that triggers service",
+            blocks: [
+              { k:"Signals", v:"Case temps, compressors, defrost cycles" },
+              { k:"Logic", v:"Early degradation signals + group correlation" },
+              { k:"Actions", v:"Service dispatch, prioritised incidents, SLA tracking" }
+            ],
+            bullets: [
+              "Reduced spoilage incidents",
+              "Earlier fault detection",
+              "Less emergency maintenance",
+              "Owner value: protected revenue and predictable service costs"
+            ]
+          },
+
+          {
+            industry: "Buildings",
+            title: "Water leak detection in commercial buildings",
+            blocks: [
+              { k:"Signals", v:"Flow/pressure + night profiles + zones" },
+              { k:"Logic", v:"Leak signatures + abnormal change rules" },
+              { k:"Actions", v:"Notifications, dispatch, optional valve actions" }
+            ],
+            bullets: [
+              "Earlier leak discovery",
+              "Lower damage impact",
+              "Clear incident workflow",
+              "Owner value: reduced claims and lower operational risk"
+            ]
+          },
+          {
+            industry: "Infrastructure / Safety",
+            title: "Fire safety system health & coverage monitoring",
+            blocks: [
+              { k:"Signals", v:"Sensor/controller status, tests, connectivity" },
+              { k:"Logic", v:"Missing signals, degradation patterns, periodic checks" },
+              { k:"Actions", v:"Maintenance tasks, compliance logs" }
+            ],
+            bullets: [
+              "Fewer blind spots",
+              "More reliable readiness",
+              "Less manual checking",
+              "Owner value: safety assurance with audit-friendly evidence"
+            ]
+          },
+
+          {
+            industry: "OEM",
+            title: "Fleet monitoring for deployed equipment (white-label)",
+            blocks: [
+              { k:"Signals", v:"Device telemetry, errors, versions, usage events" },
+              { k:"Logic", v:"SLA rules + failure patterns + cohort analytics" },
+              { k:"Actions", v:"Service flows, remote actions, customer reporting" }
+            ],
+            bullets: [
+              "Lower support load",
+              "Better product reliability visibility",
+              "Faster issue triage",
+              "Owner value: scalable product operations without building a platform from scratch"
+            ]
+          },
+          {
+            industry: "OEM / Product",
+            title: "Feature rollout based on real usage (safe enablement)",
+            blocks: [
+              { k:"Signals", v:"Feature events, performance, error rates" },
+              { k:"Logic", v:"Readiness rules by site/customer/cohort" },
+              { k:"Actions", v:"Enable/disable per site, staged rollout, reporting" }
+            ],
+            bullets: [
+              "Lower rollout risk",
+              "Faster delivery of value",
+              "Cleaner change governance",
+              "Owner value: faster product growth with controlled operational risk"
+            ]
+          },
+
+          {
+            industry: "Infrastructure",
+            title: "Theft prevention workflow (sensor → alarm → response)",
+            blocks: [
+              { k:"Signals", v:"Tamper events, location, time windows" },
+              { k:"Logic", v:"Anti-fraud rules + correlation + escalation ladder" },
+              { k:"Actions", v:"Dispatch, verification steps, incident closure" }
+            ],
+            bullets: [
+              "Faster response to alarms",
+              "Less false-positive noise",
+              "Clear incident lifecycle",
+              "Owner value: reduced losses and operational accountability"
+            ]
+          },
+          {
+            industry: "Operations",
+            title: "Incident lifecycle: detect → verify → dispatch → close",
+            blocks: [
+              { k:"Signals", v:"Alarms + confirmations + work status updates" },
+              { k:"Logic", v:"Routing, approvals, SLA timers, closure rules" },
+              { k:"Actions", v:"Tasks, escalations, post-mortem reporting" }
+            ],
+            bullets: [
+              "Standardised response process",
+              "Shorter resolution time",
+              "Better KPI visibility",
+              "Owner value: a controllable operating system, not a mess of chats and spreadsheets"
+            ]
+          }
+        ],
 
 
     // STICKY ASK
@@ -347,48 +636,53 @@ const translations = {
     "about.cta": "Задать вопрос",
 
    "about.side.label": "Типичный результат",
+   // inside translations.ru
     aboutOutcomes: [
       {
-        num: "Недели",
+        num: "Дни",
         title: "до рабочего пилота",
-        text: "Коннекторы, единая модель данных и первые живые процессы — без “песочницы ради отчёта”.",
+        text: "Коннекторы, единая модель данных и первые живые процессы.",
         bullets: [
           "Подключены устройства и источники данных",
-          "Единая структурированная модель объектов",
-          "Первый процесс работает end-to-end"
+          "Операционная модель описана один раз",
+          "Первый сценарий работает end-to-end",
+          "Ценность для собственника: база для масштабирования и новых кейсов без переделок"
         ]
       },
       {
-        num: "Издержки",
-        title: "ниже без “зоопарка” систем",
-        text: "Меньше промежуточных слоёв и интеграций, меньше поддержки и ручных костылей.",
+        num: "Одна",
+        title: "среда для операций",
+        text: "Данные, правила и управляющие действия — без «зоопарка» промежуточных систем.",
         bullets: [
-          "Меньше времени на “склейку” данных",
-          "Меньше точек отказа и сопровождения",
-          "Правила меняются в одном месте"
+          "Единая «правда» по операциям",
+          "Правила и процессы управляются централизованно",
+          "Действия привязаны к операционной модели",
+          "Ценность для собственника: ниже интеграционные издержки и меньше скрытых рисков"
         ]
       },
       {
-        num: "Простои",
-        title: "ниже, реакция быстрее",
-        text: "Проблемы видны раньше, сценарии запускаются автоматически, действия фиксируются в модели.",
+        num: "Готовые",
+        title: "процессы без «костылей»",
+        text: "Можно спокойно дорабатывать, добавлять шаги и собирать новые сценарии на той же базе.",
         bullets: [
-          "Раннее обнаружение отклонений",
-          "Понятная эскалация и согласования",
-          "Команды и действия обратно “в поле”"
+          "Процессы устойчивы и эволюционируют",
+          "Изменения быстрее без разработки платформы",
+          "Переиспользование блоков между площадками",
+          "Ценность для собственника: предсказуемое масштабирование и меньше зависимость от подрядчиков"
         ]
       },
       {
-        num: "Новые",
-        title: "процессы и продукты быстрее",
-        text: "Команда спокойно дорабатывает логику и собирает новые сценарии на той же базе.",
+        num: "Измеримо",
+        title: "драйверы ROI",
+        text: "Не обещания — показатели, которые можно начать измерять сразу.",
         bullets: [
-          "Добавлять шаги и правила безопасно",
-          "Переиспользовать основу для новых кейсов",
-          "Масштабировать на площадки без переписывания"
+          "Меньше потерь и инцидентов",
+          "Быстрее диагностика и меньше простоев",
+          "Быстрее rollout на новые объекты",
+          "Ценность для собственника: видно, где теряются деньги и где их можно вернуть"
         ]
       }
-],
+    ],
 
 
     // STICKY ASK
@@ -628,48 +922,54 @@ const translations = {
     "about.cta": "Поставити питання",
 
     "about.side.label": "Типовий результат",
+    // inside translations.uk
     aboutOutcomes: [
       {
-        num: "Тижні",
+        num: "Дні",
         title: "до робочого пілоту",
-        text: "Конектори, єдина модель даних і перші живі процеси — без “пілота заради галочки”.",
+        text: "Конектори, єдина модель даних і перші живі процеси.",
         bullets: [
           "Підключені пристрої та джерела даних",
-          "Єдина структурована модель об’єктів",
-          "Перший процес працює end-to-end"
+          "Операційна модель описана один раз",
+          "Перший сценарій працює end-to-end",
+          "Цінність для власника: основа для масштабування без переробок"
         ]
       },
       {
-        num: "Витрати",
-        title: "нижчі без “зоопарку” систем",
-        text: "Менше проміжних шарів та інтеграцій, менше підтримки та ручних костилів.",
+        num: "Одна",
+        title: "середа для операцій",
+        text: "Дані, правила та керуючі дії — без «зоопарку» проміжних систем.",
         bullets: [
-          "Менше часу на “склейку” даних",
-          "Менше точок відмови і супроводу",
-          "Правила змінюються в одному місці"
+          "Єдине джерело операційної правди",
+          "Правила й процеси керуються централізовано",
+          "Дії прив’язані до операційної моделі",
+          "Цінність для власника: нижчі інтеграційні витрати та менше прихованих ризиків"
         ]
       },
       {
-        num: "Простої",
-        title: "нижчі, реакція швидша",
-        text: "Проблеми видно раніше, сценарії запускаються автоматично, дії закріплені в моделі.",
+        num: "Готові",
+        title: "процеси без «костилів»",
+        text: "Можна спокійно розширювати, додавати кроки й будувати нові сценарії на тій самій основі.",
         bullets: [
-          "Раннє виявлення відхилень",
-          "Зрозуміла ескалація і погодження",
-          "Команди та дії назад “у поле”"
+          "Стабільні процеси, що еволюціонують",
+          "Швидші зміни без розробки платформи",
+          "Повторне використання блоків між майданчиками",
+          "Цінність для власника: прогнозоване масштабування і менша залежність від підрядників"
         ]
       },
       {
-        num: "Нові",
-        title: "процеси та продукти швидше",
-        text: "Команда спокійно розширює логіку й будує нові сценарії на тій самій основі.",
+        num: "Вимірно",
+        title: "драйвери ROI",
+        text: "Не обіцянки — метрики, які можна вимірювати з першого дня.",
         bullets: [
-          "Додавати кроки й правила безпечно",
-          "Перевикористовувати основу для нових кейсів",
-          "Масштабувати на майданчики без переписування"
+          "Менше втрат та інцидентів",
+          "Швидша діагностика та менше простоїв",
+          "Швидший rollout на нові об’єкти",
+          "Цінність для власника: видно, де втрачаються гроші і як їх повернути"
         ]
       }
     ],
+
 
     // STICKY ASK
     "stickyAsk.btn": "Питання / Контакт",
@@ -738,94 +1038,58 @@ function setupOutcomesCarousel() {
   const titleEl = document.getElementById("outcomeTitle");
   const textEl = document.getElementById("outcomeText");
   const bulletsEl = document.getElementById("outcomeBullets");
-
+  const dotsWrap = document.getElementById("outcomesDots");
   const prevBtn = document.getElementById("outcomesPrev");
   const nextBtn = document.getElementById("outcomesNext");
-  const dotsWrap = document.getElementById("outcomesDots");
 
-  if (!numEl || !titleEl || !textEl || !bulletsEl || !prevBtn || !nextBtn || !dotsWrap) return;
-
-  function getLang() {
-    return document.documentElement.lang || "en";
-  }
-
-  function getItems(lang) {
-    const dict = translations[lang] || translations.en;
-    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
-  }
+  if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap || !prevBtn || !nextBtn) return;
 
   let index = 0;
 
-  function renderDots(items) {
-    dotsWrap.innerHTML = "";
-    items.forEach((_, i) => {
-      const d = document.createElement("span");
-      d.className = "dot" + (i === index ? " is-active" : "");
-      d.addEventListener("click", () => {
-        index = i;
-        render();
-      });
-      dotsWrap.appendChild(d);
-    });
-  }
-
-  function renderBullets(bullets) {
-    bulletsEl.innerHTML = "";
-    (bullets || []).forEach((b) => {
-      const li = document.createElement("li");
-      li.textContent = b;
-      bulletsEl.appendChild(li);
-    });
-    bulletsEl.style.display = (bullets && bullets.length) ? "grid" : "none";
-  }
+  const getLang = () => document.documentElement.lang || "en";
+  const getItems = (lang) => (translations[lang] || translations.en).aboutOutcomes || translations.en.aboutOutcomes || [];
 
   function render() {
     const items = getItems(getLang());
     if (!items.length) return;
 
-    if (index < 0) index = 0;
-    if (index > items.length - 1) index = items.length - 1;
+    // wrap-around
+    if (index < 0) index = items.length - 1;
+    if (index >= items.length) index = 0;
 
     const it = items[index];
-
     numEl.textContent = it.num || "";
     titleEl.textContent = it.title || "";
     textEl.textContent = it.text || "";
-    renderBullets(it.bullets || []);
 
-    // dots active
-    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
-    if (!dots.length) renderDots(items);
-    else dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+    // bullets
+    bulletsEl.innerHTML = "";
+    (it.bullets || []).forEach((b) => {
+      const li = document.createElement("li");
+      li.textContent = b;
+      bulletsEl.appendChild(li);
+    });
 
-    // buttons
-    prevBtn.disabled = index === 0;
-    nextBtn.disabled = index === items.length - 1;
+    // dots
+    dotsWrap.innerHTML = "";
+    items.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => { index = i; render(); });
+      dotsWrap.appendChild(d);
+    });
   }
 
-  function syncForLanguageChange() {
-    const items = getItems(getLang());
-    index = Math.min(index, Math.max(0, items.length - 1));
-    renderDots(items);
-    render();
-  }
+  prevBtn.addEventListener("click", () => { index--; render(); });
+  nextBtn.addEventListener("click", () => { index++; render(); });
 
-  prevBtn.addEventListener("click", () => {
-    index -= 1;
-    render();
-  });
+  // expose for language switch
+  window.__updateOutcomesCarousel = () => { index = 0; render(); };
 
-  nextBtn.addEventListener("click", () => {
-    index += 1;
-    render();
-  });
-
-  // Экспорт для applyTranslations: вызывай после смены языка
-  window.__updateOutcomesCarousel = syncForLanguageChange;
-
-  // init
-  syncForLanguageChange();
+  render();
 }
+
 
 
 function setupPricingCarousel() {

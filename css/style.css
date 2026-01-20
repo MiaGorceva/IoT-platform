@@ -1577,6 +1577,63 @@
   .about-side-text { font-size: 0.92rem; }
 }
 
+/* Use-cases card content (reuse pc-card shell) */
+.uc-industry {
+  display:inline-flex;
+  gap:.4rem;
+  align-items:center;
+  font-size:12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(72,207,255,.85);
+  margin-bottom:10px;
+}
+
+.uc-title{
+  font-size:18px;
+  margin:0 0 10px 0;
+  line-height:1.25;
+}
+
+.uc-block{
+  margin:10px 0 0 0;
+  color:rgba(255,255,255,.72);
+  font-size:13.5px;
+  line-height:1.45;
+}
+
+.uc-block strong{
+  color:rgba(255,255,255,.9);
+  font-weight:600;
+}
+
+.uc-bullets{
+  margin:10px 0 0 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:6px;
+}
+
+.uc-bullets li{
+  position:relative;
+  padding-left:14px;
+  color:rgba(255,255,255,.70);
+  font-size:13.5px;
+  line-height:1.35;
+}
+
+.uc-bullets li:before{
+  content:"";
+  width:7px;
+  height:7px;
+  border-radius:999px;
+  position:absolute;
+  left:0;
+  top:.55em;
+  background:rgba(84,229,74,.95);
+  box-shadow:0 0 14px rgba(84,229,74,.18);
+}
 
 
 
