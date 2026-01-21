@@ -63,40 +63,40 @@ const translations = {
               "Devices and data sources connected",
               "Operational model structured once",
               "First real process running end-to-end",
-              "Owner value: a repeatable foundation to roll out new scenarios without rebuilding"
+               "Outcome: a controllable process with measurable KPIs — easy to tune and scale"
             ]
           },
           {
             num: "One",
             title: "environment for operations",
-            text: "Data, rules, and control actions in one place — no patchwork of intermediate systems.",
+            text: "Data, rules, and control actions in one place — without a patchwork of intermediate systems.",
             bullets: [
-              "Single source of operational truth",
-              "Rules + workflows governed centrally",
-              "Actions tied to the operating model",
-              "Owner value: lower integration cost and fewer “hidden” operational risks"
+              "Single operational model for teams and systems",
+              "Rules and workflows governed centrally",
+              "Actions tied to data and context (not dashboards)",
+              "Outcome: fewer integration gaps and clearer control with measurable metrics"
             ]
           },
           {
-            num: "Ready",
-            title: "workflows without glue code",
-            text: "Extend safely — add steps, approvals, and new scenarios on the same base.",
+            num: "Fast",
+            title: "changes without code churn",
+            text: "Adjust logic in hours: add steps, approvals, and new scenarios on the same foundation.",
             bullets: [
-              "Stable processes that keep evolving",
-              "Faster change cycles without platform dev",
-              "Reusable building blocks across sites",
-              "Owner value: predictable scaling with less dependency on vendor/dev teams"
+              "Change workflows without rewriting solutions",
+              "Test new rules safely and roll back if needed",
+              "Reuse building blocks across sites",
+              "Outcome: faster experimentation with immediate feedback in metrics"
             ]
           },
           {
-            num: "Measured",
-            title: "ROI drivers you can track",
-            text: "Not promises — measurable drivers you can instrument from day one.",
+            num: "Stable",
+            title: "scaling without rebuilds",
+            text: "Grow from one scenario to many sites without re-architecting every time.",
             bullets: [
-              "Fewer incidents / losses",
-              "Shorter downtime & diagnostics",
-              "Faster rollouts to new sites",
-              "Owner value: visibility into where profit is won or lost"
+              "Same connectors and model reused across projects",
+              "Consistent governance and auditability",
+              "Predictable rollout playbooks",
+              "Outcome: scalable operations with consistent KPIs across the portfolio"
             ]
           }
         ],
@@ -646,40 +646,40 @@ const translations = {
           "Подключены устройства и источники данных",
           "Операционная модель описана один раз",
           "Первый сценарий работает end-to-end",
-          "Ценность для собственника: база для масштабирования и новых кейсов без переделок"
+          "Итог: управляемый процесс с измеримыми KPI — легко настраивать и масштабировать"
         ]
       },
       {
         num: "Одна",
         title: "среда для операций",
-        text: "Данные, правила и управляющие действия — без «зоопарка» промежуточных систем.",
+        text: "Данные, правила и управляющие действия в одном месте — без «зоопарка» промежуточных систем.",
         bullets: [
-          "Единая «правда» по операциям",
+          "Единая операционная модель для команд и систем",
           "Правила и процессы управляются централизованно",
-          "Действия привязаны к операционной модели",
-          "Ценность для собственника: ниже интеграционные издержки и меньше скрытых рисков"
+          "Действия привязаны к данным и контексту (не к дашбордам)",
+          "Итог: меньше интеграционных разрывов и больше контроля через метрики"
         ]
       },
       {
-        num: "Готовые",
-        title: "процессы без «костылей»",
-        text: "Можно спокойно дорабатывать, добавлять шаги и собирать новые сценарии на той же базе.",
+        num: "Быстро",
+        title: "изменения без переписываний",
+        text: "Меняйте логику за часы: добавляйте шаги, согласования и новые сценарии на той же базе.",
         bullets: [
-          "Процессы устойчивы и эволюционируют",
-          "Изменения быстрее без разработки платформы",
-          "Переиспользование блоков между площадками",
-          "Ценность для собственника: предсказуемое масштабирование и меньше зависимость от подрядчиков"
+          "Меняйте процессы без переписывания решения",
+          "Тестируйте правила безопасно и откатывайте при необходимости",
+          "Переиспользуйте блоки между площадками",
+          "Итог: быстрее эксперименты и сразу видно эффект в метриках"
         ]
       },
       {
-        num: "Измеримо",
-        title: "драйверы ROI",
-        text: "Не обещания — показатели, которые можно начать измерять сразу.",
+        num: "Стабильно",
+        title: "масштабирование без переделок",
+        text: "Переходите от одного кейса к десяткам площадок без постоянного ре-дизайна архитектуры.",
         bullets: [
-          "Меньше потерь и инцидентов",
-          "Быстрее диагностика и меньше простоев",
-          "Быстрее rollout на новые объекты",
-          "Ценность для собственника: видно, где теряются деньги и где их можно вернуть"
+          "Те же коннекторы и модель переиспользуются между проектами",
+          "Единые правила управления и трассируемость",
+          "Предсказуемые сценарии rollout’а",
+          "Итог: масштабируемые операции с одинаковыми KPI по всему портфелю"
         ]
       }
     ],
@@ -929,46 +929,46 @@ const translations = {
         title: "до робочого пілоту",
         text: "Конектори, єдина модель даних і перші живі процеси.",
         bullets: [
-          "Підключені пристрої та джерела даних",
-          "Операційна модель описана один раз",
-          "Перший сценарій працює end-to-end",
-          "Цінність для власника: основа для масштабування без переробок"
-        ]
-      },
-      {
-        num: "Одна",
-        title: "середа для операцій",
-        text: "Дані, правила та керуючі дії — без «зоопарку» проміжних систем.",
-        bullets: [
-          "Єдине джерело операційної правди",
-          "Правила й процеси керуються централізовано",
-          "Дії прив’язані до операційної моделі",
-          "Цінність для власника: нижчі інтеграційні витрати та менше прихованих ризиків"
-        ]
-      },
-      {
-        num: "Готові",
-        title: "процеси без «костилів»",
-        text: "Можна спокійно розширювати, додавати кроки й будувати нові сценарії на тій самій основі.",
-        bullets: [
-          "Стабільні процеси, що еволюціонують",
-          "Швидші зміни без розробки платформи",
-          "Повторне використання блоків між майданчиками",
-          "Цінність для власника: прогнозоване масштабування і менша залежність від підрядників"
-        ]
-      },
-      {
-        num: "Вимірно",
-        title: "драйвери ROI",
-        text: "Не обіцянки — метрики, які можна вимірювати з першого дня.",
-        bullets: [
-          "Менше втрат та інцидентів",
-          "Швидша діагностика та менше простоїв",
-          "Швидший rollout на нові об’єкти",
-          "Цінність для власника: видно, де втрачаються гроші і як їх повернути"
-        ]
-      }
-    ],
+        "Підключені пристрої та джерела даних",
+        "Операційна модель описана один раз",
+        "Перший сценарій працює end-to-end",
+        "Підсумок: керований процес із вимірюваними KPI — легко налаштовувати та масштабувати"
+      ]
+    },
+    {
+      num: "Одна",
+      title: "середа для операцій",
+      text: "Дані, правила та керуючі дії в одному місці — без «зоопарку» проміжних систем.",
+      bullets: [
+        "Єдина операційна модель для команд і систем",
+        "Правила й процеси керуються централізовано",
+        "Дії прив’язані до даних і контексту (не до дашбордів)",
+        "Підсумок: менше інтеграційних розривів і більше контролю через метрики"
+      ]
+    },
+    {
+      num: "Швидко",
+      title: "зміни без переписування",
+      text: "Налаштовуйте логіку за години: додавайте кроки, погодження та нові сценарії на тій самій основі.",
+      bullets: [
+        "Змінюйте процеси без переписування рішення",
+        "Безпечно тестуйте правила й за потреби відкочуйте",
+        "Повторно використовуйте блоки між майданчиками",
+        "Підсумок: швидше експерименти й одразу видно ефект у метриках"
+      ]
+    },
+    {
+      num: "Стабільно",
+      title: "масштабування без переробок",
+      text: "Від одного кейсу — до десятків майданчиків без постійного перероблення архітектури.",
+      bullets: [
+        "Ті самі конектори й модель повторно використовуються між проєктами",
+        "Єдині правила керування та трасованість",
+        "Передбачувані сценарії rollout’у",
+        "Підсумок: масштабовані операції з однаковими KPI по всьому портфелю"
+      ]
+    }
+  ],
 
 
     // STICKY ASK
