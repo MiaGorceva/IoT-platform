@@ -616,6 +616,77 @@ const translations = {
     "hero.metricTitle": "Миллиарды записей",
     "hero.metricText": "Рост объёма данных решается масштабированием, а не переписыванием системы.",
 
+
+    // ABOUT / POSITIONING
+"about.eyebrow": "Positioning",
+"about.title": "One system you control — from data to execution",
+"about.text":
+  "MITE turns industrial data into a single, manageable system — not a set of disconnected signals and workflows.\n\n" +
+  "It collects data from devices, PLCs, meters, gateways, and external systems and stores it in a consistent operational model. On top of that model, you define rules, workflows, and control logic — without heavy custom code.\n\n" +
+  "Dashboards and analytics reflect real execution, not just raw readings. MITE tracks process state, flags deviations, and supports timely actions — so you manage the system through clear metrics, not constant manual supervision.",
+
+"about.point1.title": "Connect anything into one model",
+"about.point1.text":
+  "Devices, PLCs, meters, gateways, external systems — mapped into a consistent structure your teams can reuse across use cases.",
+"about.point2.title": "Define logic that adapts fast",
+"about.point2.text":
+  "Rules, workflows, approvals, and actions are configured declaratively — change in hours/days when conditions change.",
+"about.point3.title": "Control with transparency, not micromanagement",
+"about.point3.text":
+  "Execution is tracked against your logic, deviations are visible immediately, and decisions are tied to measurable KPIs.",
+
+"about.cta": "Ask a question",
+
+// RIGHT CARD LABEL
+"about.side.label": "Typical outcomes",
+
+aboutOutcomes: [
+  {
+    num: "Days",
+    title: "to a working pilot",
+    text: "Reusable connectors, a unified data model, and first live workflows.",
+    bullets: [
+      "Devices and data sources connected",
+      "Operational model structured once",
+      "First real process running end-to-end",
+      "Outcome: a controllable process with measurable KPIs — easy to tune and scale"
+    ]
+  },
+  {
+    num: "One",
+    title: "environment for operations",
+    text: "Data, rules, and actions in one place — without a patchwork of intermediate systems.",
+    bullets: [
+      "Single operational model for teams and systems",
+      "Rules and workflows governed centrally",
+      "Actions tied to data and context (not dashboards alone)",
+      "Outcome: fewer integration gaps and clearer control through shared metrics"
+    ]
+  },
+  {
+    num: "Fast",
+    title: "changes without code churn",
+    text: "Adjust logic in hours: add steps, approvals, and new scenarios on the same foundation.",
+    bullets: [
+      "Change workflows without rewriting solutions",
+      "Test new rules safely and roll back if needed",
+      "Reuse building blocks across sites",
+      "Outcome: faster experimentation with immediate feedback in KPIs"
+    ]
+  },
+  {
+    num: "Stable",
+    title: "scaling without rebuilds",
+    text: "Grow from one scenario to many sites without re-architecting every time.",
+    bullets: [
+      "Same connectors and model reused across projects",
+      "Consistent governance and auditability",
+      "Predictable rollout playbooks",
+      "Outcome: consistent performance metrics across your portfolio"
+    ]
+  }
+],
+
     // ABOUT / POSITIONING
     "about.eyebrow": "Позиционирование",
     "about.title": "Единый операционный слой данных для промышленных систем",
