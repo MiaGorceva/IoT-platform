@@ -150,7 +150,6 @@
               </div>
             </div>
           </div>
-          <div class="about-bridge" data-i18n="about.bridge"></div>
 
           <div class="about-cta-row">
             <a class="btn btn-primary" href="#contact" data-i18n="about.cta"></a>
@@ -302,6 +301,22 @@
   </div>
 
   <div class="pricing-carousel" id="ucCarousel">
+    <div class="uc-toolbar">
+      <div class="uc-filters" id="ucFilters" aria-label="Industry filters">
+        <button class="uc-chip is-active" type="button" data-uc-filter="all">All</button>
+        <button class="uc-chip" type="button" data-uc-filter="utilities">Utilities</button>
+        <button class="uc-chip" type="button" data-uc-filter="manufacturing">Manufacturing</button>
+        <button class="uc-chip" type="button" data-uc-filter="infrastructure">Infrastructure</button>
+        <button class="uc-chip" type="button" data-uc-filter="pharma">Pharma</button>
+        <button class="uc-chip" type="button" data-uc-filter="food">Food</button>
+        <!-- добавишь остальные отрасли -->
+      </div>
+
+  <div class="uc-search">
+    <input id="ucSearch" type="search" placeholder="Search use cases…" />
+  </div>
+</div>
+
     <button class="pc-nav pc-prev" type="button" aria-label="Previous" id="ucPrev">‹</button>
 
     <div class="pc-viewport">
@@ -404,6 +419,15 @@
       </div>
     </section>
 
+    //////////////////
+
+<section id="pricing" class="section container">
+  <div class="section-header">
+    <div class="eyebrow" data-i18n="pricing.eyebrow"></div>
+    <h2 class="section-title" data-i18n="pricing.title"></h2>
+    <p class="section-subtitle" data-i18n="pricing.subtitle"></p>
+  </div>
+
     <!-- PRICING CAROUSEL -->
     <div class="pricing-carousel" id="pricingCarousel">
       <button class="pc-nav pc-prev" type="button" aria-label="Previous plan">‹</button>
@@ -498,6 +522,7 @@
 
       <div class="pc-dots" id="pricingDots" aria-label="Pricing carousel pagination"></div>
     </div>
+</section>
 
 
     <!-- TESTIMONIAL + FAQ -->
@@ -637,13 +662,10 @@
   <span class="quick-label" id="quickLabel" data-i18n="quick.label"></span>
 </button>
 
-  <!-- Drawer -->
+  <!-- Drawer overlay -->
   <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
 
-  <div class="drawer-body">
-  <div id="drawerFormMount"></div>
-</div>
-
+  <!-- Drawer -->
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
     <div class="drawer-head">
       <div class="drawer-title" id="drawerTitle" data-i18n="quick.title"></div>
@@ -651,18 +673,18 @@
     </div>
 
     <div class="drawer-body">
-      <div id="drawerFormMount"></div>
+      <form class="drawer-form" id="quickForm">
         <div>
           <label data-i18n="quick.nameLabel"></label>
-          <input type="text" id="qName" placeholder="" data-i18n-placeholder="quick.namePh">
+          <input type="text" id="qName" data-i18n-placeholder="quick.namePh">
         </div>
         <div>
           <label data-i18n="quick.emailLabel"></label>
-          <input type="email" id="qEmail" placeholder="" data-i18n-placeholder="quick.emailPh">
+          <input type="email" id="qEmail" data-i18n-placeholder="quick.emailPh">
         </div>
         <div>
           <label data-i18n="quick.msgLabel"></label>
-          <textarea id="qMsg" rows="3" placeholder="" data-i18n-placeholder="quick.msgPh"></textarea>
+          <textarea id="qMsg" rows="3" data-i18n-placeholder="quick.msgPh"></textarea>
         </div>
 
         <div class="drawer-actions">
@@ -671,7 +693,9 @@
         </div>
 
         <div class="drawer-note" data-i18n="quick.note"></div>
-      </div>
+      </form>
+    </div>
   </div>
+
 </body>
 </html>

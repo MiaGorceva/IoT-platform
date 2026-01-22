@@ -103,7 +103,7 @@ const translations = {
         // inside translations.en
         "useReal.eyebrow": "Real use cases",
         "useReal.title": "Operational scenarios teams actually deploy",
-        "useReal.subtitle": "Each case = signals + logic + actions + measurable outcome. Reuse the same connectors and data model across industries.",
+        "useReal.subtitle": "18 proven operational scenarios. Each is a governed loop: signals → logic → actions → KPIs. Filter by industry and reuse the same building blocks across projects.",
 
         useCasesReal: [
           {
@@ -436,15 +436,16 @@ const translations = {
       "We focus on measurable outcomes: fewer incidents, faster rollouts, more value from each device. Implementation is guided by business impact.",
     "highlight.cost.meta": "IoT as an investment, not just a cost.",
 
-    // USE CASES
-    "use.eyebrow": "Use cases",
-    "use.title": "From proof of concept to portfolio of IIoT solutions",
+    // USE CASES_OLD
+
+    "use.eyebrow": "What teams build on MITE",
+    "use.title": "Start with one scenario — then reuse the same data model, connectors, and governance for the next.",
     "use.subtitle":
       "Start small with one scenario and reuse the same platform, data model, and connectors for the next projects.",
 
-    "use.card1.title": "Smart metering and utilities",
+    "use.card1.title": "Operational monitoring → governed actions",
     "use.card1.text":
-      "Consolidate data from meters, submeters, and gateways. Detect anomalies, reduce losses, and generate clear reports for finance and operations.",
+      "Not dashboards alone: alerts, routing, approvals, and closed-loop execution.",
     "use.card1.pill1": "Energy and water",
     "use.card1.pill2": "Loss and anomaly detection",
 
@@ -693,7 +694,6 @@ aboutOutcomes: [
       "MITE выступает в роли единого операционного слоя данных для промышленных сред. Платформа собирает данные с любых устройств, систем и внешних источников и сохраняет их в единой, структурированной модели.\n\n" +
       "Поверх этого слоя данных вы настраиваете правила, рабочие процессы и управляющую логику — без написания кода. Та же платформа используется для мониторинга процессов, автоматизации действий и передачи команд обратно на уровень оборудования.\n\n" +
       "Дашборды, аналитика и инсайты строятся поверх этой основы, а не являются её ядром. Объединяя хранение данных, бизнес-логику и управление в одной среде, MITE устраняет необходимость в множестве промежуточных промышленных систем.",
-      "about.bridge": "Справа — типичный результат: как это выглядит на практике.",
 
     "about.point1.title": "Подключайте что угодно",
     "about.point1.text":
@@ -980,7 +980,6 @@ aboutOutcomes: [
       "MITE виступає як єдиний операційний шар даних для промислових середовищ. Платформа збирає дані з будь-яких пристроїв, систем або зовнішніх джерел і зберігає їх у єдиній, структурованій моделі.\n\n" +
       "Поверх цього шару даних ви налаштовуєте правила, робочі процеси та керуючу логіку — без написання коду. Та сама платформа використовується для моніторингу процесів, автоматизації дій і надсилання команд безпосередньо в поле.\n\n" +
       "Дашборди, аналітика та інсайти будуються поверх цієї основи, а не навпаки. Поєднуючи зберігання даних, бізнес-логіку та управління в одному середовищі, MITE усуває потребу в багатьох проміжних промислових системах.",
-    "about.bridge": "Праворуч — типовий результат: як це виглядає на практиці.",
 
     "about.point1.title": "Підключайте що завгодно",
     "about.point1.text":
@@ -1421,3 +1420,273 @@ document.addEventListener("DOMContentLoaded", () => {
   setupUseCasesCarousel();
 
 });
+
+/* =========================
+   Carousel core (loop, dots, responsive step)
+   ========================= */
+
+function initCarousel({
+  root,
+  track,
+  prev,
+  next,
+  dotsWrap,
+  loop = true
+}) {
+  if (!root || !track || !dotsWrap) return null;
+
+  const getCards = () =>
+    Array.from(track.querySelectorAll(".pc-card")).filter(el => el.offsetParent !== null);
+
+  let index = 0;
+
+  function getStep() {
+    const cards = getCards();
+    if (!cards.length) return 0;
+
+    const cardW = cards[0].getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
+    return cardW + gap;
+  }
+
+  function buildDots() {
+    const cards = getCards();
+    dotsWrap.innerHTML = "";
+    cards.forEach((_, i) => {
+      const d = document.createElement("span");
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function setDots() {
+    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+  }
+
+  function goTo(i) {
+    const cards = getCards();
+    if (!cards.length) return;
+
+    if (loop) {
+      if (i < 0) index = cards.length - 1;
+      else if (i > cards.length - 1) index = 0;
+      else index = i;
+    } else {
+      index = Math.max(0, Math.min(i, cards.length - 1));
+    }
+
+    const step = getStep();
+    track.style.transform = `translateX(${-index * step}px)`;
+    setDots();
+  }
+
+  const onPrev = () => goTo(index - 1);
+  const onNext = () => goTo(index + 1);
+
+  prev && prev.addEventListener("click", onPrev);
+  next && next.addEventListener("click", onNext);
+
+  const onResize = () => goTo(index);
+  window.addEventListener("resize", onResize);
+
+  buildDots();
+  goTo(0);
+
+  return {
+    rebuild() {
+      buildDots();
+      goTo(0);
+    },
+    destroy() {
+      prev && prev.removeEventListener("click", onPrev);
+      next && next.removeEventListener("click", onNext);
+      window.removeEventListener("resize", onResize);
+    }
+  };
+}
+
+/* =========================
+   Use cases (EN dataset for now)
+   ========================= */
+
+const useCasesEN = [
+  // оставляю пример 3 штуки для наглядности — ты уже просила 18, их добавим/подключим дальше
+  // ВАЖНО: структура под твой дизайн: industry, title, signals, logic, actions, results[]
+  {
+    industry: "Utilities",
+    title: "District heating leak & abnormal consumption",
+    signals: "Heat meters, pressure/temperature, weather context, network topology",
+    logic: "Deviation vs baseline + correlation across branches + anomaly scoring",
+    actions: "Escalation workflow, dispatch, incident lifecycle tracking",
+    results: [
+      "Faster localisation of leaks",
+      "Reduced emergency interventions",
+      "Better planning of repairs",
+      "Outcome: a controlled process with KPIs for analysis and operational control"
+    ]
+  },
+  {
+    industry: "Utilities",
+    title: "Remote meter commissioning & data quality control",
+    signals: "Install events, connectivity, telemetry completeness, firmware status",
+    logic: "Acceptance checklist + auto root-cause on failures + retry policies",
+    actions: "Return-to-install tasks, re-check flows, acceptance logs",
+    results: [
+      "Less rework after rollout",
+      "Higher data trust from day one",
+      "Faster onboarding per site",
+      "Outcome: predictable rollout with measurable acceptance metrics"
+    ]
+  },
+  {
+    industry: "Manufacturing",
+    title: "Downtime workflow (not just dashboards)",
+    signals: "PLC tags, operator inputs, shift logs, line state",
+    logic: "Downtime classification + routing by reason/line/team",
+    actions: "Tickets, shift reports, CAPA-style follow-up",
+    results: [
+      "Faster root-cause loop",
+      "Less repeated downtime patterns",
+      "Transparent action ownership",
+      "Outcome: throughput improvement tracked in action-linked KPIs"
+    ]
+  }
+];
+
+function renderUseCases(cards) {
+  const track = document.getElementById("ucTrack");
+  if (!track) return;
+
+  track.innerHTML = cards.map((c) => {
+    const bullets = (c.results || []).map((t, idx) => {
+      const isOutcome = idx === c.results.length - 1;
+      return `<li class="${isOutcome ? "is-outcome" : ""}">${t}</li>`;
+    }).join("");
+
+    return `
+      <article class="pc-card uc-card">
+        <div class="uc-card-strip"></div>
+
+        <div class="uc-head">
+          <div class="uc-badge">${(c.industry || "").toUpperCase()}</div>
+          <div class="uc-icon" aria-hidden="true">●</div>
+        </div>
+
+        <h3 class="uc-title">${c.title}</h3>
+
+        <div class="uc-kv">
+          <div class="uc-row">
+            <div class="uc-key">Signals:</div>
+            <div class="uc-val">${c.signals}</div>
+          </div>
+          <div class="uc-row">
+            <div class="uc-key">Logic:</div>
+            <div class="uc-val">${c.logic}</div>
+          </div>
+          <div class="uc-row">
+            <div class="uc-key">Actions:</div>
+            <div class="uc-val">${c.actions}</div>
+          </div>
+        </div>
+
+        <ul class="uc-results">
+          ${bullets}
+        </ul>
+      </article>
+    `;
+  }).join("");
+}
+
+/* =========================
+   Use cases filters + search (simple)
+   ========================= */
+
+function setupUseCasesUX(allCards) {
+  const filters = document.getElementById("ucFilters");
+  const search = document.getElementById("ucSearch");
+  const chips = filters ? Array.from(filters.querySelectorAll(".uc-chip")) : [];
+
+  function apply() {
+    const active = filters?.querySelector(".uc-chip.is-active")?.dataset.ucFilter || "all";
+    const q = (search?.value || "").trim().toLowerCase();
+
+    const filtered = allCards.filter(c => {
+      const okIndustry = (active === "all")
+        ? true
+        : (c.industry || "").toLowerCase().includes(active);
+
+      const blob = `${c.title} ${c.signals} ${c.logic} ${c.actions} ${(c.results||[]).join(" ")}`.toLowerCase();
+      const okQuery = q ? blob.includes(q) : true;
+
+      return okIndustry && okQuery;
+    });
+
+    return filtered;
+  }
+
+  chips.forEach(ch => {
+    ch.addEventListener("click", () => {
+      chips.forEach(x => x.classList.remove("is-active"));
+      ch.classList.add("is-active");
+      document.dispatchEvent(new CustomEvent("uc:update"));
+    });
+  });
+
+  search?.addEventListener("input", () => {
+    document.dispatchEvent(new CustomEvent("uc:update"));
+  });
+
+  return { apply };
+}
+
+/* =========================
+   Init (Pricing + UseCases)
+   ========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Pricing carousel
+  const pricingRoot = document.getElementById("pricingCarousel");
+  const pricingCtrl = initCarousel({
+    root: pricingRoot,
+    track: pricingRoot?.querySelector(".pc-track"),
+    prev: pricingRoot?.querySelector(".pc-prev"),
+    next: pricingRoot?.querySelector(".pc-next"),
+    dotsWrap: document.getElementById("pricingDots"),
+    loop: true
+  });
+
+  // --- Use cases carousel
+  renderUseCases(useCasesEN);
+
+  const ucRoot = document.getElementById("ucCarousel");
+  const ucDots = document.getElementById("ucDots");
+  let ucCtrl = initCarousel({
+    root: ucRoot,
+    track: document.getElementById("ucTrack"),
+    prev: document.getElementById("ucPrev"),
+    next: document.getElementById("ucNext"),
+    dotsWrap: ucDots,
+    loop: true
+  });
+
+  const ux = setupUseCasesUX(useCasesEN);
+
+  document.addEventListener("uc:update", () => {
+    const filtered = ux.apply();
+    renderUseCases(filtered);
+
+    // перезапуск карусели после перерендера
+    ucCtrl?.destroy();
+    ucCtrl = initCarousel({
+      root: ucRoot,
+      track: document.getElementById("ucTrack"),
+      prev: document.getElementById("ucPrev"),
+      next: document.getElementById("ucNext"),
+      dotsWrap: ucDots,
+      loop: true
+    });
+  });
+});
+

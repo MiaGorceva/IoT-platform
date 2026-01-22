@@ -624,14 +624,14 @@
     .pc-track{
       display:flex;
       gap:18px;
-      will-change:transform;
-      transition:transform .35s ease;
-      padding:6px;
+      padding: 6px 10px; /* чуть больше внутренний отступ */
+      will-change: transform;
+      transition: transform .35s ease;
     }
 
     .pc-card{
-      flex:0 0 340px;
-      max-width:340px;
+      flex: 0 0 min(360px, calc(100vw - 72px));
+  max-width: min(360px, calc(100vw - 72px));
       background:rgba(10,18,35,.72);
       border:1px solid rgba(255,255,255,.08);
       border-radius:22px;
@@ -718,8 +718,11 @@
       justify-content:center;
       z-index:2;
     }
-    .pc-prev{ left:-8px; }
-    .pc-next{ right:-8px; }
+
+    /* nav не должен вылазить за контейнер */
+    .pc-prev{ left: 8px; }
+    .pc-next{ right: 8px; }
+
 
     .pc-nav:hover{
       border-color:rgba(72,207,255,.35);
@@ -743,11 +746,12 @@
       box-shadow:0 0 18px rgba(84,229,74,.35);
     }
 
-    @media (max-width: 860px){
-      .pc-nav{ display:none; }
-      .pc-card{ flex-basis: 78vw; max-width:78vw; }
-      .pc-track{ gap:14px; }
-    }
+    /* на небольших — скрываем nav, оставляем свайп/дотсы */
+@media (max-width: 860px){
+  .pc-nav{ display:none; }
+  .pc-track{ padding: 6px; gap: 14px; }
+  .pc-card{ flex-basis: 86vw; max-width: 86vw; }
+}
 
     .two-column {
       display: grid;
@@ -1650,6 +1654,9 @@
   content:"→ ";
   color: rgba(72,207,255,0.88);
 }
+
+
+
 
 
 
