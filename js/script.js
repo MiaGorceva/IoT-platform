@@ -43,7 +43,6 @@ const translations = {
   "about.point2.title": "Define logic once — evolve continuously",
   "about.point2.text":
     "Rules, workflows, and approvals are configured declaratively, making change fast, controlled, and auditable.",
-  about.point3 (переписан по твоему запросу)
   
   "about.point3.title": "Trust the system, stay in control",
   "about.point3.text":
