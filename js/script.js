@@ -621,10 +621,10 @@ const translations = {
 "about.eyebrow": "Positioning",
 "about.title": "One system you control — from data to execution",
 "about.text":
-  "MITE turns industrial data into a single, manageable system — not a set of disconnected signals and workflows.\n\n" +
-  "It collects data from devices, PLCs, meters, gateways, and external systems and stores it in a consistent operational model. On top of that model, you define rules, workflows, and control logic — without heavy custom code.\n\n" +
-  "Dashboards and analytics reflect real execution, not just raw readings. MITE tracks process state, flags deviations, and supports timely actions — so you manage the system through clear metrics, not constant manual supervision.",
-
+  "MITE turns operational data into a single, manageable system — not a set of disconnected signals and processes."
+  "Connect devices, PLCs, meters, gateways, and external systems into one structured operational model."
+  "Define rules and workflows on top of that model, and the platform keeps execution aligned, tracks deviations, and records results as measurable KPIs."
+  "Dashboards and analytics reflect real execution — not just raw readings. MITE continuously monitors process state, flags deviations, and supports timely actions, so you manage the system through clear metrics and can adapt processes and scale scenarios quickly — without relying on developers or waiting for contractors.",
 "about.point1.title": "Connect anything into one model",
 "about.point1.text":
   "Devices, PLCs, meters, gateways, external systems — mapped into a consistent structure your teams can reuse across use cases.",
@@ -1689,4 +1689,116 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/* =========================
+   Typical outcomes: render + dots + autoplay + hover link
+   ========================= */
+
+function initTypicalOutcomes({ outcomes, intervalMs = 5000 }){
+  const numEl = document.getElementById("outcomeNum");
+  const titleEl = document.getElementById("outcomeTitle");
+  const textEl = document.getElementById("outcomeText");
+  const bulletsEl = document.getElementById("outcomeBullets");
+
+  const prevBtn = document.getElementById("outcomesPrev");
+  const nextBtn = document.getElementById("outcomesNext");
+  const dotsWrap = document.getElementById("outcomesDots");
+
+  const card = document.querySelector(".about-side-card"); // правая карточка
+  const pointEls = Array.from(document.querySelectorAll(".about-point[data-outcome]"));
+
+  if(!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return null;
+  if(!Array.isArray(outcomes) || outcomes.length === 0) return null;
+
+  let idx = 0;
+  let timer = null;
+  let paused = false;
+
+  function render(i){
+    idx = (i + outcomes.length) % outcomes.length;
+    const o = outcomes[idx];
+
+    numEl.textContent = o.num || "";
+    titleEl.textContent = o.title || "";
+    textEl.textContent = o.text || "";
+
+    bulletsEl.innerHTML = "";
+    (o.bullets || []).forEach((b, bi) => {
+      const li = document.createElement("li");
+      li.textContent = b;
+      // (опционально) последний пункт “Outcome:” выделяем
+      if (bi === (o.bullets.length - 1) && /^Outcome:/i.test(b)) {
+        li.classList.add("is-outcome");
+      }
+      bulletsEl.appendChild(li);
+    });
+
+    // dots
+    Array.from(dotsWrap.children).forEach((d, di) => {
+      d.classList.toggle("is-active", di === idx);
+    });
+  }
+
+  function buildDots(){
+    dotsWrap.innerHTML = "";
+    outcomes.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (i === idx ? " is-active" : "");
+      d.setAttribute("aria-label", `Outcome ${i+1}`);
+      d.addEventListener("click", () => {
+        stopAuto(); // чтобы не прыгало
+        render(i);
+        startAuto();
+      });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function next(){ render(idx + 1); }
+  function prev(){ render(idx - 1); }
+
+  function startAuto(){
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => {
+      if (!paused) next();
+    }, intervalMs);
+  }
+
+  function stopAuto(){
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  // arrows
+  prevBtn?.addEventListener("click", () => { stopAuto(); prev(); startAuto(); });
+  nextBtn?.addEventListener("click", () => { stopAuto(); next(); startAuto(); });
+
+  // pause on hover over the right card
+  if (card){
+    card.addEventListener("mouseenter", () => { paused = true; });
+    card.addEventListener("mouseleave", () => { paused = false; });
+  }
+
+  // hover link from left points -> show related outcome
+  pointEls.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      const target = parseInt(el.dataset.outcome, 10);
+      if (!Number.isNaN(target)){
+        paused = true;       // чтобы авто не переключил сразу обратно
+        render(target);
+      }
+    });
+    el.addEventListener("mouseleave", () => {
+      paused = false;
+    });
+  });
+
+  buildDots();
+  render(0);
+  startAuto();
+
+  return { render, startAuto, stopAuto };
+}
+
 

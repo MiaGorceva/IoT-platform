@@ -1190,6 +1190,14 @@
   line-height: 1.5;
 }
 
+.outcome-bullets li.is-outcome{
+  margin-top: .25rem;
+  padding-top: .25rem;
+  border-top: 1px solid rgba(148,163,184,.12);
+  color: rgba(226,232,240,.88);
+}
+
+
 .outcome-bullets li::before {
   content: "—";
   position: absolute;
