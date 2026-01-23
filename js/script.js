@@ -1060,260 +1060,745 @@ aboutOutcomes: [
 /* =========================
    Apply translations
    ========================= */
-/* =========================================================
-   I18N
-   ========================================================= */
-
 function applyTranslations(lang) {
   const dict = translations[lang] || translations.en;
   document.documentElement.lang = lang;
 
   // SEO
-  if (dict["seo.title"]) document.title = dict["seo.title"];
-  if (dict["seo.description"]) {
+  const title = dict["seo.title"];
+  if (title) document.title = title;
+
+  const desc = dict["seo.description"];
+  if (desc) {
     const meta = document.querySelector('meta[name="description"]');
-    meta && meta.setAttribute("content", dict["seo.description"]);
+    if (meta) meta.setAttribute("content", desc);
   }
 
-  // text
-  document.querySelectorAll("[data-i18n]").forEach(el => {
+  // data-i18n
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    if (dict[key]) {
-      el.innerHTML = dict[key].replace(/\n\n/g, "<br><br>");
-    }
+    const value = dict[key];
+    if (value === undefined || value === null) return;
+
+    // allow line breaks from \n\n if you want: convert to <br><br>
+    const v = typeof value === "string" ? value.replace(/\n\n/g, "<br><br>") : value;
+    el.innerHTML = v;
   });
 
   // placeholders
-  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
-    if (dict[key]) el.setAttribute("placeholder", dict[key]);
+    const value = dict[key];
+    if (!value) return;
+    el.setAttribute("placeholder", value);
   });
 
-  // active lang btn
-  document.querySelectorAll("[data-lang-btn]").forEach(btn => {
-    btn.classList.toggle(
-      "is-active",
-      btn.getAttribute("data-lang-btn") === lang
-    );
+  // active lang buttons
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+    const code = btn.getAttribute("data-lang-btn");
+    btn.classList.toggle("is-active", code === lang);
   });
 
-  // re-render dependent blocks
-  window.__initOutcomes?.();
-  window.__renderUseCases?.();
+  if (window.__updateOutcomesCarousel) {
+  window.__updateOutcomesCarousel();
 }
 
-/* =========================================================
-   Generic carousel (pricing + use cases)
-   ========================================================= */
+  window.__updateUseCasesCarousel?.();
+  window.__updateOutcomesCarousel?.();
+}
 
-function initCarousel({ root, track, prev, next, dotsWrap, loop = true }) {
-  if (!root || !track || !dotsWrap) return null;
+function setupUseCasesCarousel() {
+  const root = document.getElementById("ucCarousel");
+  const track = document.getElementById("ucTrack");
+  const dots = document.getElementById("ucDots");
+  const prev = document.getElementById("ucPrev");
+  const next = document.getElementById("ucNext");
+  if (!root || !track || !dots || !prev || !next) return;
 
   let index = 0;
 
-  const cards = () =>
-    Array.from(track.children).filter(el => el.offsetParent !== null);
+  const getLang = () => document.documentElement.lang || "en";
+  const getItems = (lang) => (translations[lang] || translations.en).useCasesReal || translations.en.useCasesReal || [];
 
-  function step() {
-    const c = cards()[0];
-    if (!c) return 0;
-    const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
-    return c.getBoundingClientRect().width + gap;
-  }
+  function buildCards(lang) {
+    const items = getItems(lang);
+    track.innerHTML = "";
 
-  function go(i) {
-    const len = cards().length;
-    if (!len) return;
+    items.forEach((it) => {
+      const card = document.createElement("div");
+      card.className = "pc-card"; // reuse pricing card shell
 
-    if (loop) {
-      index = (i + len) % len;
-    } else {
-      index = Math.max(0, Math.min(i, len - 1));
-    }
+      card.innerHTML = `
+        <div class="uc-industry">${it.industry || ""}</div>
+        <h3 class="uc-title">${it.title || ""}</h3>
 
-    track.style.transform = `translateX(${-index * step()}px)`;
-    updateDots();
-  }
+        ${(it.blocks || []).map(b => `
+          <p class="uc-block"><strong>${b.k}:</strong> ${b.v}</p>
+        `).join("")}
 
-  function buildDots() {
-    dotsWrap.innerHTML = "";
-    cards().forEach((_, i) => {
+        <ul class="uc-bullets">
+          ${(it.bullets || []).map(x => `<li>${x}</li>`).join("")}
+        </ul>
+      `;
+
+      track.appendChild(card);
+    });
+
+    // dots
+    dots.innerHTML = "";
+    items.forEach((_, i) => {
       const d = document.createElement("span");
       d.className = "dot" + (i === index ? " is-active" : "");
-      d.onclick = () => go(i);
-      dotsWrap.appendChild(d);
-    });
-  }
-
-  function updateDots() {
-    Array.from(dotsWrap.children).forEach((d, i) =>
-      d.classList.toggle("is-active", i === index)
-    );
-  }
-
-  prev && prev.addEventListener("click", () => go(index - 1));
-  next && next.addEventListener("click", () => go(index + 1));
-  window.addEventListener("resize", () => go(index));
-
-  buildDots();
-  go(0);
-
-  return {
-    rebuild() {
-      buildDots();
-      go(0);
-    }
-  };
-}
-
-/* =========================================================
-   Typical outcomes (right card)
-   ========================================================= */
-
-function initTypicalOutcomes() {
-  const lang = document.documentElement.lang || "en";
-  const items = (translations[lang] || translations.en).aboutOutcomes || [];
-  if (!items.length) return;
-
-  const num = document.getElementById("outcomeNum");
-  const title = document.getElementById("outcomeTitle");
-  const text = document.getElementById("outcomeText");
-  const bullets = document.getElementById("outcomeBullets");
-  const dots = document.getElementById("outcomesDots");
-  const prev = document.getElementById("outcomesPrev");
-  const next = document.getElementById("outcomesNext");
-
-  let i = 0;
-  let timer = null;
-  let paused = false;
-
-  function render(idx) {
-    i = (idx + items.length) % items.length;
-    const o = items[i];
-
-    num.textContent = o.num;
-    title.textContent = o.title;
-    text.textContent = o.text;
-
-    bullets.innerHTML = "";
-    o.bullets.forEach(b => {
-      const li = document.createElement("li");
-      li.textContent = b;
-      if (/^Outcome:/i.test(b)) li.classList.add("is-outcome");
-      bullets.appendChild(li);
-    });
-
-    Array.from(dots.children).forEach((d, di) =>
-      d.classList.toggle("is-active", di === i)
-    );
-  }
-
-  function buildDots() {
-    dots.innerHTML = "";
-    items.forEach((_, di) => {
-      const d = document.createElement("button");
-      d.className = "dot" + (di === i ? " is-active" : "");
-      d.onclick = () => {
-        stop();
-        render(di);
-        start();
-      };
+      d.addEventListener("click", () => { index = i; render(); });
       dots.appendChild(d);
     });
   }
 
-  function start() {
-    stop();
-    timer = setInterval(() => !paused && render(i + 1), 5000);
-  }
-  function stop() {
-    if (timer) clearInterval(timer);
-  }
+  function slideTo(i) {
+    const cards = Array.from(track.children);
+    if (!cards.length) return;
 
-  prev.onclick = () => { stop(); render(i - 1); start(); };
-  next.onclick = () => { stop(); render(i + 1); start(); };
+    // wrap
+    const n = cards.length;
+    if (i < 0) i = n - 1;
+    if (i >= n) i = 0;
+    index = i;
 
-  document
-    .querySelector(".about-side-card")
-    ?.addEventListener("mouseenter", () => paused = true);
-  document
-    .querySelector(".about-side-card")
-    ?.addEventListener("mouseleave", () => paused = false);
+    // compute step (card width + gap)
+    const first = cards[0];
+    const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
+    const step = first.getBoundingClientRect().width + gap;
 
-  // hover from left points
-  document.querySelectorAll(".about-point[data-outcome]").forEach(p => {
-    p.addEventListener("mouseenter", () => {
-      paused = true;
-      render(+p.dataset.outcome);
+    track.style.transform = `translateX(${-index * step}px)`;
+
+    // update dots
+    Array.from(dots.querySelectorAll(".dot")).forEach((d, di) => {
+      d.classList.toggle("is-active", di === index);
     });
-    p.addEventListener("mouseleave", () => paused = false);
+  }
+
+  function render() {
+    buildCards(getLang());
+    // reset transform after rebuild
+    requestAnimationFrame(() => slideTo(index));
+  }
+
+  prev.addEventListener("click", () => slideTo(index - 1));
+  next.addEventListener("click", () => slideTo(index + 1));
+
+  // expose for language change
+  window.__updateUseCasesCarousel = () => { index = 0; render(); };
+
+  render();
+}
+
+
+function setupOutcomesCarousel() {
+  const numEl = document.getElementById("outcomeNum");
+  const titleEl = document.getElementById("outcomeTitle");
+  const textEl = document.getElementById("outcomeText");
+  const bulletsEl = document.getElementById("outcomeBullets");
+  const dotsWrap = document.getElementById("outcomesDots");
+  const prevBtn = document.getElementById("outcomesPrev");
+  const nextBtn = document.getElementById("outcomesNext");
+
+  if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap || !prevBtn || !nextBtn) return;
+
+  let index = 0;
+
+  const getLang = () => document.documentElement.lang || "en";
+  const getItems = (lang) => (translations[lang] || translations.en).aboutOutcomes || translations.en.aboutOutcomes || [];
+
+  function render() {
+    const items = getItems(getLang());
+    if (!items.length) return;
+
+    // wrap-around
+    if (index < 0) index = items.length - 1;
+    if (index >= items.length) index = 0;
+
+    const it = items[index];
+    numEl.textContent = it.num || "";
+    titleEl.textContent = it.title || "";
+    textEl.textContent = it.text || "";
+
+    // bullets
+    bulletsEl.innerHTML = "";
+    (it.bullets || []).forEach((b) => {
+      const li = document.createElement("li");
+      li.textContent = b;
+      bulletsEl.appendChild(li);
+    });
+
+    // dots
+    dotsWrap.innerHTML = "";
+    items.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => { index = i; render(); });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  prevBtn.addEventListener("click", () => { index--; render(); });
+  nextBtn.addEventListener("click", () => { index++; render(); });
+
+  // expose for language switch
+  window.__updateOutcomesCarousel = () => { index = 0; render(); };
+
+  render();
+}
+
+
+
+function setupPricingCarousel() {
+  const root = document.getElementById("pricingCarousel");
+  const track = root?.querySelector(".pc-track");
+  const prev = root?.querySelector(".pc-prev");
+  const next = root?.querySelector(".pc-next");
+  const dotsWrap = document.getElementById("pricingDots");
+
+  if (!root || !track || !dotsWrap) return;
+
+  const cards = Array.from(track.querySelectorAll(".pc-card"));
+  let index = 0;
+
+  function cardStep() {
+    const first = cards[0];
+    const style = window.getComputedStyle(track);
+    const gap = parseFloat(style.columnGap || style.gap || "0") || 0;
+    return first.getBoundingClientRect().width + gap;
+  }
+
+  function clamp(i) {
+    return Math.max(0, Math.min(i, cards.length - 1));
+  }
+
+  function renderDots() {
+    dotsWrap.innerHTML = "";
+    cards.forEach((_, i) => {
+      const d = document.createElement("span");
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => {
+        index = i;
+        update();
+      });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function update() {
+    index = clamp(index);
+    const x = -(index * cardStep());
+    track.style.transform = `translate3d(${x}px,0,0)`;
+
+    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+  }
+
+  prev?.addEventListener("click", () => { index -= 1; update(); });
+  next?.addEventListener("click", () => { index += 1; update(); });
+
+  // touch swipe (mobile + desktop trackpad feel)
+  let startX = 0;
+  let isDown = false;
+
+  root.addEventListener("pointerdown", (e) => {
+    isDown = true;
+    startX = e.clientX;
+  });
+  root.addEventListener("pointerup", (e) => {
+    if (!isDown) return;
+    isDown = false;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) < 40) return;
+    index += (dx < 0 ? 1 : -1);
+    update();
+  });
+
+  window.addEventListener("resize", () => update());
+
+  renderDots();
+  update();
+}
+
+/* =========================
+   Quick drawer (clone form)
+   ========================= */
+function setupQuickDrawer() {
+  const btn = document.getElementById("quickBtn");
+  const overlay = document.getElementById("drawerOverlay");
+  const drawer = document.getElementById("drawer");
+  const closeBtn = document.getElementById("drawerClose");
+  const cancelBtn = document.getElementById("drawerCancel");
+  const mount = document.getElementById("drawerFormMount");
+
+  const contact = document.getElementById("contact");
+  const contactForm = document.querySelector("#contact .contact-card form");
+
+  if (!btn || !overlay || !drawer || !mount || !contact || !contactForm) return;
+
+  // clone main contact form into drawer
+  mount.innerHTML = "";
+  const drawerForm = contactForm.cloneNode(true);
+  drawerForm.setAttribute("data-drawer-form", "1");
+  mount.appendChild(drawerForm);
+
+  // apply i18n to cloned nodes
+  const currentLang = document.documentElement.lang || "en";
+  applyTranslations(currentLang);
+
+  function openDrawer() {
+    overlay.classList.add("is-open");
+    drawer.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+
+    const first = drawer.querySelector("input, textarea, select, button");
+    setTimeout(() => first && first.focus(), 80);
+  }
+
+  function closeDrawer() {
+    overlay.classList.remove("is-open");
+    drawer.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+  }
+
+  btn.addEventListener("click", openDrawer);
+  overlay.addEventListener("click", closeDrawer);
+  if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+  if (cancelBtn) cancelBtn.addEventListener("click", closeDrawer);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && drawer.classList.contains("is-open")) closeDrawer();
+  });
+
+  // submit drawer => copy into main form
+  drawerForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const srcName = drawerForm.querySelector('input[name="name"], input[name="fullName"], #name');
+    const srcEmail = drawerForm.querySelector('input[type="email"], #email');
+    const srcMsg = drawerForm.querySelector("textarea");
+
+    const dstName = contactForm.querySelector('input[name="name"], input[name="fullName"], #name');
+    const dstEmail = contactForm.querySelector('input[type="email"], #email');
+    const dstMsg = contactForm.querySelector("textarea");
+
+    if (dstName && srcName && srcName.value) dstName.value = srcName.value;
+    if (dstEmail && srcEmail && srcEmail.value) dstEmail.value = srcEmail.value;
+
+    if (dstMsg) {
+      const existing = (dstMsg.value || "").trim();
+      const add = (srcMsg ? srcMsg.value : "").trim();
+      dstMsg.value = existing ? `${existing}\n\n${add}` : add;
+    }
+
+    closeDrawer();
+    contact.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => dstMsg && dstMsg.focus(), 400);
+  });
+}
+
+
+/* =========================
+   Boot
+   ========================= */
+document.addEventListener("DOMContentLoaded", () => {
+  applyTranslations("en");
+
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const code = btn.getAttribute("data-lang-btn");
+      applyTranslations(code);
+    });
+  });
+
+  setupQuickDrawer();
+  setupOutcomesCarousel();
+  setupPricingCarousel();
+  setupUseCasesCarousel();
+
+});
+
+/* =========================
+   Carousel core (loop, dots, responsive step)
+   ========================= */
+
+function initCarousel({
+  root,
+  track,
+  prev,
+  next,
+  dotsWrap,
+  loop = true
+}) {
+  if (!root || !track || !dotsWrap) return null;
+
+  const getCards = () =>
+    Array.from(track.querySelectorAll(".pc-card")).filter(el => el.offsetParent !== null);
+
+  let index = 0;
+
+  function getStep() {
+    const cards = getCards();
+    if (!cards.length) return 0;
+
+    const cardW = cards[0].getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
+    return cardW + gap;
+  }
+
+  function buildDots() {
+    const cards = getCards();
+    dotsWrap.innerHTML = "";
+    cards.forEach((_, i) => {
+      const d = document.createElement("span");
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function setDots() {
+    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
+    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
+  }
+
+  function goTo(i) {
+    const cards = getCards();
+    if (!cards.length) return;
+
+    if (loop) {
+      if (i < 0) index = cards.length - 1;
+      else if (i > cards.length - 1) index = 0;
+      else index = i;
+    } else {
+      index = Math.max(0, Math.min(i, cards.length - 1));
+    }
+
+    const step = getStep();
+    track.style.transform = `translateX(${-index * step}px)`;
+    setDots();
+  }
+
+  const onPrev = () => goTo(index - 1);
+  const onNext = () => goTo(index + 1);
+
+  prev && prev.addEventListener("click", onPrev);
+  next && next.addEventListener("click", onNext);
+
+  const onResize = () => goTo(index);
+  window.addEventListener("resize", onResize);
+
+  buildDots();
+  goTo(0);
+
+  return {
+    rebuild() {
+      buildDots();
+      goTo(0);
+    },
+    destroy() {
+      prev && prev.removeEventListener("click", onPrev);
+      next && next.removeEventListener("click", onNext);
+      window.removeEventListener("resize", onResize);
+    }
+  };
+}
+
+/* =========================
+   Use cases (EN dataset for now)
+   ========================= */
+
+const useCasesEN = [
+  // оставляю пример 3 штуки для наглядности — ты уже просила 18, их добавим/подключим дальше
+  // ВАЖНО: структура под твой дизайн: industry, title, signals, logic, actions, results[]
+  {
+    industry: "Utilities",
+    title: "District heating leak & abnormal consumption",
+    signals: "Heat meters, pressure/temperature, weather context, network topology",
+    logic: "Deviation vs baseline + correlation across branches + anomaly scoring",
+    actions: "Escalation workflow, dispatch, incident lifecycle tracking",
+    results: [
+      "Faster localisation of leaks",
+      "Reduced emergency interventions",
+      "Better planning of repairs",
+      "Outcome: a controlled process with KPIs for analysis and operational control"
+    ]
+  },
+  {
+    industry: "Utilities",
+    title: "Remote meter commissioning & data quality control",
+    signals: "Install events, connectivity, telemetry completeness, firmware status",
+    logic: "Acceptance checklist + auto root-cause on failures + retry policies",
+    actions: "Return-to-install tasks, re-check flows, acceptance logs",
+    results: [
+      "Less rework after rollout",
+      "Higher data trust from day one",
+      "Faster onboarding per site",
+      "Outcome: predictable rollout with measurable acceptance metrics"
+    ]
+  },
+  {
+    industry: "Manufacturing",
+    title: "Downtime workflow (not just dashboards)",
+    signals: "PLC tags, operator inputs, shift logs, line state",
+    logic: "Downtime classification + routing by reason/line/team",
+    actions: "Tickets, shift reports, CAPA-style follow-up",
+    results: [
+      "Faster root-cause loop",
+      "Less repeated downtime patterns",
+      "Transparent action ownership",
+      "Outcome: throughput improvement tracked in action-linked KPIs"
+    ]
+  }
+];
+
+function renderUseCases(cards) {
+  const track = document.getElementById("ucTrack");
+  if (!track) return;
+
+  track.innerHTML = cards.map((c) => {
+    const bullets = (c.results || []).map((t, idx) => {
+      const isOutcome = idx === c.results.length - 1;
+      return `<li class="${isOutcome ? "is-outcome" : ""}">${t}</li>`;
+    }).join("");
+
+    return `
+      <article class="pc-card uc-card">
+        <div class="uc-card-strip"></div>
+
+        <div class="uc-head">
+          <div class="uc-badge">${(c.industry || "").toUpperCase()}</div>
+          <div class="uc-icon" aria-hidden="true">●</div>
+        </div>
+
+        <h3 class="uc-title">${c.title}</h3>
+
+        <div class="uc-kv">
+          <div class="uc-row">
+            <div class="uc-key">Signals:</div>
+            <div class="uc-val">${c.signals}</div>
+          </div>
+          <div class="uc-row">
+            <div class="uc-key">Logic:</div>
+            <div class="uc-val">${c.logic}</div>
+          </div>
+          <div class="uc-row">
+            <div class="uc-key">Actions:</div>
+            <div class="uc-val">${c.actions}</div>
+          </div>
+        </div>
+
+        <ul class="uc-results">
+          ${bullets}
+        </ul>
+      </article>
+    `;
+  }).join("");
+}
+
+/* =========================
+   Use cases filters + search (simple)
+   ========================= */
+
+function setupUseCasesUX(allCards) {
+  const filters = document.getElementById("ucFilters");
+  const search = document.getElementById("ucSearch");
+  const chips = filters ? Array.from(filters.querySelectorAll(".uc-chip")) : [];
+
+  function apply() {
+    const active = filters?.querySelector(".uc-chip.is-active")?.dataset.ucFilter || "all";
+    const q = (search?.value || "").trim().toLowerCase();
+
+    const filtered = allCards.filter(c => {
+      const okIndustry = (active === "all")
+        ? true
+        : (c.industry || "").toLowerCase().includes(active);
+
+      const blob = `${c.title} ${c.signals} ${c.logic} ${c.actions} ${(c.results||[]).join(" ")}`.toLowerCase();
+      const okQuery = q ? blob.includes(q) : true;
+
+      return okIndustry && okQuery;
+    });
+
+    return filtered;
+  }
+
+  chips.forEach(ch => {
+    ch.addEventListener("click", () => {
+      chips.forEach(x => x.classList.remove("is-active"));
+      ch.classList.add("is-active");
+      document.dispatchEvent(new CustomEvent("uc:update"));
+    });
+  });
+
+  search?.addEventListener("input", () => {
+    document.dispatchEvent(new CustomEvent("uc:update"));
+  });
+
+  return { apply };
+}
+
+/* =========================
+   Init (Pricing + UseCases)
+   ========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Pricing carousel
+  const pricingRoot = document.getElementById("pricingCarousel");
+  const pricingCtrl = initCarousel({
+    root: pricingRoot,
+    track: pricingRoot?.querySelector(".pc-track"),
+    prev: pricingRoot?.querySelector(".pc-prev"),
+    next: pricingRoot?.querySelector(".pc-next"),
+    dotsWrap: document.getElementById("pricingDots"),
+    loop: true
+  });
+
+  // --- Use cases carousel
+  renderUseCases(useCasesEN);
+
+  const ucRoot = document.getElementById("ucCarousel");
+  const ucDots = document.getElementById("ucDots");
+  let ucCtrl = initCarousel({
+    root: ucRoot,
+    track: document.getElementById("ucTrack"),
+    prev: document.getElementById("ucPrev"),
+    next: document.getElementById("ucNext"),
+    dotsWrap: ucDots,
+    loop: true
+  });
+
+  const ux = setupUseCasesUX(useCasesEN);
+
+  document.addEventListener("uc:update", () => {
+    const filtered = ux.apply();
+    renderUseCases(filtered);
+
+    // перезапуск карусели после перерендера
+    ucCtrl?.destroy();
+    ucCtrl = initCarousel({
+      root: ucRoot,
+      track: document.getElementById("ucTrack"),
+      prev: document.getElementById("ucPrev"),
+      next: document.getElementById("ucNext"),
+      dotsWrap: ucDots,
+      loop: true
+    });
+  });
+});
+
+/* =========================
+   Typical outcomes: render + dots + autoplay + hover link
+   ========================= */
+
+function initTypicalOutcomes({ outcomes, intervalMs = 5000 }){
+  const numEl = document.getElementById("outcomeNum");
+  const titleEl = document.getElementById("outcomeTitle");
+  const textEl = document.getElementById("outcomeText");
+  const bulletsEl = document.getElementById("outcomeBullets");
+
+  const prevBtn = document.getElementById("outcomesPrev");
+  const nextBtn = document.getElementById("outcomesNext");
+  const dotsWrap = document.getElementById("outcomesDots");
+
+  const card = document.querySelector(".about-side-card"); // правая карточка
+  const pointEls = Array.from(document.querySelectorAll(".about-point[data-outcome]"));
+
+  if(!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return null;
+  if(!Array.isArray(outcomes) || outcomes.length === 0) return null;
+
+  let idx = 0;
+  let timer = null;
+  let paused = false;
+
+  function render(i){
+    idx = (i + outcomes.length) % outcomes.length;
+    const o = outcomes[idx];
+
+    numEl.textContent = o.num || "";
+    titleEl.textContent = o.title || "";
+    textEl.textContent = o.text || "";
+
+    bulletsEl.innerHTML = "";
+    (o.bullets || []).forEach((b, bi) => {
+      const li = document.createElement("li");
+      li.textContent = b;
+      // (опционально) последний пункт “Outcome:” выделяем
+      if (bi === (o.bullets.length - 1) && /^Outcome:/i.test(b)) {
+        li.classList.add("is-outcome");
+      }
+      bulletsEl.appendChild(li);
+    });
+
+    // dots
+    Array.from(dotsWrap.children).forEach((d, di) => {
+      d.classList.toggle("is-active", di === idx);
+    });
+  }
+
+  function buildDots(){
+    dotsWrap.innerHTML = "";
+    outcomes.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (i === idx ? " is-active" : "");
+      d.setAttribute("aria-label", `Outcome ${i+1}`);
+      d.addEventListener("click", () => {
+        stopAuto(); // чтобы не прыгало
+        render(i);
+        startAuto();
+      });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function next(){ render(idx + 1); }
+  function prev(){ render(idx - 1); }
+
+  function startAuto(){
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => {
+      if (!paused) next();
+    }, intervalMs);
+  }
+
+  function stopAuto(){
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  // arrows
+  prevBtn?.addEventListener("click", () => { stopAuto(); prev(); startAuto(); });
+  nextBtn?.addEventListener("click", () => { stopAuto(); next(); startAuto(); });
+
+  // pause on hover over the right card
+  if (card){
+    card.addEventListener("mouseenter", () => { paused = true; });
+    card.addEventListener("mouseleave", () => { paused = false; });
+  }
+
+  // hover link from left points -> show related outcome
+  pointEls.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      const target = parseInt(el.dataset.outcome, 10);
+      if (!Number.isNaN(target)){
+        paused = true;       // чтобы авто не переключил сразу обратно
+        render(target);
+      }
+    });
+    el.addEventListener("mouseleave", () => {
+      paused = false;
+    });
   });
 
   buildDots();
   render(0);
-  start();
+  startAuto();
+
+  return { render, startAuto, stopAuto };
 }
 
-/* =========================================================
-   Use cases
-   ========================================================= */
 
-function renderUseCases() {
-  const lang = document.documentElement.lang || "en";
-  const items =
-    (translations[lang] || translations.en).useCasesReal ||
-    translations.en.useCasesReal;
-
-  const track = document.getElementById("ucTrack");
-  if (!track) return;
-
-  track.innerHTML = items.map(it => `
-    <article class="pc-card uc-card">
-      <div class="uc-industry">${it.industry}</div>
-      <h3 class="uc-title">${it.title}</h3>
-      ${it.blocks.map(b => `<p><strong>${b.k}:</strong> ${b.v}</p>`).join("")}
-      <ul>${it.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
-    </article>
-  `).join("");
-}
-
-/* =========================================================
-   BOOT (ОДИН!)
-   ========================================================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-  applyTranslations("en");
-
-  document.querySelectorAll("[data-lang-btn]").forEach(btn =>
-    btn.addEventListener("click", () =>
-      applyTranslations(btn.dataset.langBtn)
-    )
-  );
-
-  // outcomes
-  window.__initOutcomes = initTypicalOutcomes;
-  initTypicalOutcomes();
-
-  // use cases
-  window.__renderUseCases = renderUseCases;
-  renderUseCases();
-
-  initCarousel({
-    root: document.getElementById("ucCarousel"),
-    track: document.getElementById("ucTrack"),
-    prev: document.getElementById("ucPrev"),
-    next: document.getElementById("ucNext"),
-    dotsWrap: document.getElementById("ucDots"),
-    loop: true
-  });
-
-  // pricing
-  initCarousel({
-    root: document.getElementById("pricingCarousel"),
-    track: document.querySelector("#pricingCarousel .pc-track"),
-    prev: document.querySelector("#pricingCarousel .pc-prev"),
-    next: document.querySelector("#pricingCarousel .pc-next"),
-    dotsWrap: document.getElementById("pricingDots"),
-    loop: true
-  });
-});
