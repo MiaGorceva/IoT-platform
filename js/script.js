@@ -700,11 +700,12 @@ function setupOutcomesCarousel() {
   let timer = null;
   let paused = false;
 
-  function items() {
-    const lang = document.documentElement.lang || "en";
-    const dict = getDict(lang);
-    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
-  }
+  (function items() {
+  const lang = document.documentElement.lang || "en";
+  const dict = translations[lang] || translations.en;
+  return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
+})();
+
 
   function buildDots(n) {
     dotsWrap.innerHTML = "";
