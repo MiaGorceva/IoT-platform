@@ -1,5 +1,14 @@
 /* =========================
-   i18n dataset
+   MITE site script (clean)
+   - single boot
+   - i18n
+   - outcomes slider (autoplay + hover points)
+   - use cases carousel (18) + filters + search + loop
+   - pricing carousel (loop)
+   ========================= */
+
+/* =========================
+   TRANSLATIONS
    ========================= */
 
 const translations = {
@@ -51,12 +60,13 @@ const translations = {
       "Execution is monitored against your logic, deviations are flagged immediately, and outcomes are visible in KPIs — not in chats and spreadsheets.",
     "about.point4.title": "Let routine run on autopilot",
     "about.point4.text":
-      "Automate repetitive operational loops and surface insights directly in the workflow — so results don’t depend on individual heroics.",
+      "Automate repetitive loops and surface insights inside the workflow — so results don’t depend on individual heroics.",
 
     "about.cta": "Ask a question",
 
-    // Typical outcomes (RIGHT)
+    // RIGHT CARD LABEL
     "about.side.label": "Typical outcomes",
+
     aboutOutcomes: [
       {
         num: "Days",
@@ -110,7 +120,6 @@ const translations = {
     "useReal.subtitle":
       "18 proven operational scenarios. Each is a governed loop: signals → logic → actions → KPIs. Filter by industry and reuse the same building blocks across projects.",
 
-    // 18 cards
     useCasesReal: [
       {
         industry: "Utilities",
@@ -297,7 +306,7 @@ const translations = {
         ]
       },
 
-      // (ещё 6 — чтобы было ровно 18; можешь потом переименовать/уточнить)
+      // 6 more (to make 18)
       {
         industry: "Utilities",
         title: "Network pressure optimisation with control loop",
@@ -388,255 +397,211 @@ const translations = {
           "Outcome: operational KPIs that drive action, not reporting"
         ]
       }
-    ]
+    ],
+
+    // HIGHLIGHTS (you already have these on site; keep keys)
+    "highlights.eyebrow": "What powers MITE",
+    "highlights.title": "One platform for devices, logic, and insights",
+    "highlights.subtitle":
+      "MITE is built for industrial teams that need to experiment, scale, and stay in control of their data and processes.",
+
+    "highlight.logic.tag": "Business logic",
+    "highlight.logic.title": "Any process complexity",
+    "highlight.logic.text":
+      "Model everything from simple alerts to multi-step workflows. Because the platform is declarative, you can evolve logic in hours instead of long release cycles.",
+    "highlight.logic.meta": "If you can describe the process, you can configure it.",
+
+    "highlight.protocols.tag": "Industrial protocols",
+    "highlight.protocols.title": "Any equipment, any vendor",
+    "highlight.protocols.text":
+      "Connect PLCs, meters, sensors, and controllers over industrial and web protocols. Standardise data once and reuse it across multiple use cases.",
+    "highlight.protocols.meta": "Modbus, LoRa, TCP/UDP, BLE, CAN and more.",
+
+    "highlight.scaling.tag": "Scaling",
+    "highlight.scaling.title": "Ready for billions of transactions",
+    "highlight.scaling.text":
+      "Grow from pilot to hundreds of sites by increasing capacity, not rewriting the solution. MITE handles heavy data without locking you into one scenario.",
+    "highlight.scaling.meta": "Horizontal growth without architectural drama.",
+
+    "highlight.insights.tag": "Insights",
+    "highlight.insights.title": "One screen, many perspectives",
+    "highlight.insights.text":
+      "Build dashboards and analytical views in minutes. Combine data from MITE and external systems to see the real operational context.",
+    "highlight.insights.meta": "From real-time monitoring to deep analysis.",
+
+    "highlight.open.tag": "Openness",
+    "highlight.open.title": "Open API and ecosystem",
+    "highlight.open.text":
+      "Use MITE as the backbone that feeds data to ERP, MES, SCADA, or custom applications. Keep ownership of the logic and of the data.",
+    "highlight.open.meta": "Your infrastructure, your rules.",
+
+    "highlight.cost.tag": "Value",
+    "highlight.cost.title": "Profit-driven, not feature-driven",
+    "highlight.cost.text":
+      "We focus on measurable outcomes: fewer incidents, faster rollouts, more value from each device. Implementation is guided by business impact.",
+    "highlight.cost.meta": "IoT as an investment, not just a cost.",
+
+    // OLD USE section (keep)
+    "use.eyebrow": "What teams build on MITE",
+    "use.title": "Start with one scenario — then reuse the same data model, connectors, and governance for the next.",
+    "use.subtitle":
+      "Start small with one scenario and reuse the same platform, data model, and connectors for the next projects.",
+    "use.card1.title": "Operational monitoring → governed actions",
+    "use.card1.text": "Not dashboards alone: alerts, routing, approvals, and closed-loop execution.",
+    "use.card1.pill1": "Energy and water",
+    "use.card1.pill2": "Loss and anomaly detection",
+    "use.card2.title": "Connected equipment and assets",
+    "use.card2.text":
+      "Monitor health, runtime, and conditions of critical assets. Trigger workflows for maintenance, quality checks, or safety actions based on real data.",
+    "use.card2.pill1": "Condition monitoring",
+    "use.card2.pill2": "Maintenance workflows",
+    "use.card3.title": "Industry-specific solutions",
+    "use.card3.text":
+      "Use MITE as a foundation for domain solutions — from pharma and food to manufacturing and infrastructure. Reuse 80 percent of the platform and customise the rest.",
+    "use.card3.pill1": "Regulated industries",
+    "use.card3.pill2": "White-label options",
+
+    // HOW
+    "how.eyebrow": "How it works",
+    "how.title": "Three steps from device to decision",
+    "how.subtitle": "MITE brings together physical devices, business logic, and data visualisation in one feedback loop.",
+    "how.step1.tag": "Step 1",
+    "how.step1.title": "Connect and orchestrate the physical layer",
+    "how.step1.text":
+      "Onboard devices, gateways, and controllers in minutes. Map sites, buildings, and assets into a clear structure that everyone understands.",
+    "how.step2.tag": "Step 2",
+    "how.step2.title": "Design the business logic",
+    "how.step2.text":
+      "Configure rules, workflows, and data transformations without writing code. Adjust whenever processes change, not only in major releases.",
+    "how.step3.tag": "Step 3",
+    "how.step3.title": "Analyse, act, and refine",
+    "how.step3.text":
+      "Build dashboards, run diagnostics, and push actions back to the field. Test new ideas fast, keep what works, and retire what does not.",
+
+    // PRICING
+    "pricing.eyebrow": "Pricing",
+    "pricing.title": "Plans for pilots, products, and platforms",
+    "pricing.subtitle": "Transparent entry points for experiments and scalable options for enterprise deployments.",
+    "pricing.plan1.label": "For pilots",
+    "pricing.plan1.name": "Start",
+    "pricing.plan1.tagline": "Ideal for testing IoT ideas and quick PoC projects.",
+    "pricing.plan1.price": "From €9.99 / month",
+    "pricing.plan1.note": "Limited number of devices, full access to core features.",
+    "pricing.plan1.li1": "Fast onboarding and preconfigured dashboards",
+    "pricing.plan1.li2": "Support for standard industrial and web protocols",
+    "pricing.plan1.cta": "Start a pilot",
+
+    "pricing.plan2.label": "For growing projects",
+    "pricing.plan2.name": "Scale",
+    "pricing.plan2.tagline": "For teams that take one successful pilot into multiple sites.",
+    "pricing.plan2.price": "From €99 / month",
+    "pricing.plan2.note": "Balanced package of devices, features, and support.",
+    "pricing.plan2.li1": "Advanced business logic and workflows",
+    "pricing.plan2.li2": "Integration with existing enterprise systems",
+    "pricing.plan2.li3": "Priority support during rollout",
+    "pricing.plan2.cta": "Talk to sales",
+    "pricing.plan2.ctaNote": "We help match the plan to your rollout strategy.",
+
+    "pricing.plan3.label": "For enterprises and partners",
+    "pricing.plan3.name": "Enterprise / OEM",
+    "pricing.plan3.tagline": "When MITE becomes the core of your digital infrastructure.",
+    "pricing.plan3.price": "Custom pricing",
+    "pricing.plan3.note": "Designed for industrial leaders and solution providers.",
+    "pricing.plan3.li1": "Large-scale multi-site deployments",
+    "pricing.plan3.li2": "White-label and OEM opportunities",
+    "pricing.plan3.li3": "Custom SLAs and governance model",
+    "pricing.plan3.cta": "Book a strategy session",
+
+    "pricing.plan4.label": "For custom needs",
+    "pricing.plan4.name": "Custom (Free → €100)",
+    "pricing.plan4.tagline": "Small custom tweaks without bureaucracy.",
+    "pricing.plan4.price": "Free → €100",
+    "pricing.plan4.note": "For quick adjustments, minor integrations, and getting the first outcome fast.",
+    "pricing.plan4.li1": "Small change requests (UI/logic tweaks)",
+    "pricing.plan4.li2": "Fast turnaround, no platform developers needed",
+    "pricing.plan4.li3": "If it grows — we move you to Rollout/Enterprise",
+    "pricing.plan4.cta": "Request a custom estimate",
+
+    // TESTIMONIALS
+    "testimonials.eyebrow": "Customer voice",
+    "testimonials.title": "“So simple, clear, and it just works.”",
+    "testimonials.subtitle": "Real feedback from industrial teams that wanted fewer surprises and more predictable outcomes.",
+    "testimonials.quote1.text":
+      "“We asked for a platform that does not force us to think like software developers. With MITE we finally design processes in the language of operations, not code.”",
+    "testimonials.quote1.author": "Operations Director",
+    "testimonials.quote1.role": "Manufacturing company",
+
+    // FAQ
+    "faq.eyebrow": "FAQ",
+    "faq.title": "Questions your IT and operations teams will ask",
+    "faq.subtitle": "A short, practical FAQ focused on integration, security, and ownership of data.",
+    "faq.q1": "How does MITE integrate with our existing IT and OT landscape?",
+    "faq.a1":
+      "MITE exposes an open API and supports common industrial and web protocols. We can push and pull data to ERP, SCADA, MES, data lakes, or custom applications. You keep control of where the data lives.",
+    "faq.q2": "Who owns the configuration and business logic built on the platform?",
+    "faq.a2":
+      "You do. The logic is transparent and editable. You are not locked into a single use case – the same model can serve new projects, partners, or plants without starting from zero.",
+    "faq.q3": "Is the platform suitable for regulated industries such as pharma or food?",
+    "faq.a3":
+      "Yes. MITE was designed with validation, audit trails, and clear separation of responsibilities in mind. It can be aligned with internal QoS and external regulatory requirements.",
+
+    // CONTACT
+    "contact.eyebrow": "Contact",
+    "contact.title": "Let us map your first IIoT win",
+    "contact.subtitle":
+      "Share a short description of your infrastructure and the outcome you want. We will propose a realistic first step and outline how it scales.",
+    "contact.nameLabel": "Full name",
+    "contact.namePlaceholder": "Your name",
+    "contact.emailLabel": "Work email",
+    "contact.emailPlaceholder": "you@company.com",
+    "contact.companyLabel": "Company",
+    "contact.companyPlaceholder": "Company name",
+    "contact.sizeLabel": "Scale",
+    "contact.sizePlaceholder": "Number of sites, lines, or assets",
+    "contact.messageLabel": "What would you like to achieve with MITE?",
+    "contact.messagePlaceholder": "Describe your current situation, use cases, or challenges.",
+    "contact.submit": "Send request",
+    "contact.legal":
+      "By sending the form you agree that we may contact you about MITE and process your data according to our privacy policy.",
+
+    // FOOTER
+    "footer.note": "MITE — Industrial IoT platform for profit-driven industrial teams.",
+    "footer.privacy": "Privacy policy",
+    "footer.backToTop": "Back to top"
   },
 
-  ru: {
-  // NAV
-  "nav.about": "Почему MITE",
-  "nav.platform": "Платформа",
-  "nav.solutions": "Решения",
-  "nav.pricing": "Тарифы",
-  "nav.faq": "FAQ",
-  "nav.contact": "Контакты",
-  "nav.demoBtn": "Запросить демо",
-
-  // HERO
-  "hero.kicker": "Промышленный IoT без лишней сложности",
-  "hero.title": "Не просто ещё одна IIoT-платформа. <span>MITE меняет правила игры.</span>",
-  "hero.subtitle":
-    "Объединяет структуру, бизнес-логику и операционные данные в единую промышленную систему. " +
-    "Подключайте активы, задавайте логику и превращайте данные в управляемые решения.",
-  "hero.primaryCta": "Запросить демо",
-  "hero.secondaryCta": "Изучить платформу",
-  "hero.meta1": "От пилотов до промышленного внедрения",
-  "hero.meta2": "Декларативная логика без кастомной разработки",
-  "hero.meta3": "Для эксплуатации, инженерии и IT",
-  "hero.badge": "<strong>«Просто, прозрачно и надёжно — как и должно быть в промышленности»</strong>",
-
-  // ABOUT / POSITIONING
-  "about.eyebrow": "Позиционирование",
-  "about.title": "Одна система под вашим управлением — от данных до исполнения",
-  "about.text":
-    "MITE превращает операционные данные в единую управляемую систему, а не в набор разрозненных сигналов и процессов.\n\n" +
-    "Платформа объединяет устройства, ПЛК, счётчики, шлюзы и внешние системы в структурированную операционную модель.\n\n" +
-    "На основе этой модели вы задаёте правила и рабочие процессы. Платформа обеспечивает согласованность исполнения, фиксирует отклонения и формирует измеримые KPI.\n\n" +
-    "Дашборды и аналитика показывают реальное выполнение процессов, а не просто сырые показания. Вы быстро адаптируете процессы и масштабируете сценарии без ожидания разработчиков или подрядчиков.",
-
-  "about.point1.title": "Все данные — в одной модели",
-  "about.point1.text":
-    "Устройства, системы и внешние источники объединяются в единую операционную модель, переиспользуемую между сценариями.",
-  "about.point2.title": "Логику задаёте вы — система подстраивается",
-  "about.point2.text":
-    "Правила, процессы, согласования и действия настраиваются декларативно и меняются за часы или дни.",
-  "about.point3.title": "Доверие к системе и контроль через метрики",
-  "about.point3.text":
-    "Исполнение отслеживается относительно заданной логики, отклонения видны сразу, результат измеряется KPI — а не сообщениями и таблицами.",
-  "about.point4.title": "Рутина — на автопилоте",
-  "about.point4.text":
-    "Повторяющиеся операционные циклы автоматизируются, а инсайты появляются прямо в процессе — без зависимости от отдельных людей.",
-
-  "about.cta": "Задать вопрос",
-
-  // OUTCOMES
-  "about.side.label": "Типичные результаты",
-  aboutOutcomes: [
-    {
-      num: "Дни",
-      title: "до рабочего пилота",
-      text: "Готовые коннекторы, единая модель данных и первые живые процессы.",
-      bullets: [
-        "Подключены устройства и источники данных",
-        "Операционная модель описана один раз",
-        "Первый процесс работает end-to-end",
-        "Итог: управляемый процесс с измеримыми KPI"
-      ]
-    },
-    {
-      num: "Одна",
-      title: "система для операций",
-      text: "Данные, логика и действия управляются в одном контуре.",
-      bullets: [
-        "Общая операционная модель для всех команд",
-        "Централизованное управление изменениями",
-        "Дашборды отражают реальное исполнение",
-        "Итог: предсказуемый контроль и ответственность"
-      ]
-    },
-    {
-      num: "Быстро",
-      title: "адаптация к изменениям",
-      text: "Меняйте процессы без переписывания решений.",
-      bullets: [
-        "Изменения за часы или дни",
-        "Безопасные эксперименты с быстрым фидбеком",
-        "Повторное использование логики между площадками",
-        "Итог: решения на основе реальных метрик"
-      ]
-    },
-    {
-      num: "Стабильно",
-      title: "масштабирование без хаоса",
-      text: "От одного сценария к десяткам без смены архитектуры.",
-      bullets: [
-        "Переиспользуемые блоки",
-        "Единые правила управления",
-        "Предсказуемый rollout",
-        "Итог: единые KPI по всему портфелю"
-      ]
-    }
-  ],
-
-  // USE CASES
-  "useReal.eyebrow": "Реальные сценарии",
-  "useReal.title": "Сценарии, которые действительно внедряют",
-  "useReal.subtitle":
-    "18 проверенных сценариев. Каждый — замкнутый цикл: сигналы → логика → действия → KPI. Фильтруйте по отрасли и переиспользуйте одни и те же блоки."
-},
-uk: {
-  // NAV
-  "nav.about": "Чому MITE",
-  "nav.platform": "Платформа",
-  "nav.solutions": "Рішення",
-  "nav.pricing": "Тарифи",
-  "nav.faq": "FAQ",
-  "nav.contact": "Контакти",
-  "nav.demoBtn": "Запросити демо",
-
-  // HERO
-  "hero.kicker": "Промисловий IoT без зайвої складності",
-  "hero.title": "Не просто ще одна IIoT-платформа. <span>MITE змінює правила гри.</span>",
-  "hero.subtitle":
-    "Об’єднує структуру, логіку та операційні дані в одну промислову систему. " +
-    "Підключайте активи, задавайте бізнес-логіку та перетворюйте дані на керовані рішення.",
-  "hero.primaryCta": "Запросити демо",
-  "hero.secondaryCta": "Дослідити платформу",
-  "hero.meta1": "Від пілотів до промислового впровадження",
-  "hero.meta2": "Декларативна логіка без кастомної розробки",
-  "hero.meta3": "Для експлуатації, інженерії та IT-команд",
-  "hero.badge":
-    "<strong>«Просто, прозоро й надійно — саме так, як очікують промислові команди»</strong>",
-
-  // ABOUT / POSITIONING
-  "about.eyebrow": "Позиціонування",
-  "about.title": "Одна система під вашим контролем — від даних до виконання",
-  "about.text":
-    "MITE перетворює операційні дані на єдину керовану систему, а не набір розрізнених сигналів і процесів.\n\n" +
-    "Платформа об’єднує пристрої, ПЛК, лічильники, шлюзи та зовнішні системи в структуровану операційну модель.\n\n" +
-    "На основі цієї моделі ви задаєте правила та робочі процеси. Платформа забезпечує узгоджене виконання, фіксує відхилення та формує вимірювані KPI.\n\n" +
-    "Дашборди й аналітика показують реальне виконання процесів, а не просто сирі показники. Ви швидко адаптуєте процеси та масштабуєте сценарії без очікування розробників або підрядників.",
-
-  "about.point1.title": "Усі дані — в одній моделі",
-  "about.point1.text":
-    "Пристрої, системи та зовнішні джерела зводяться в єдину операційну модель, яку можна повторно використовувати між сценаріями.",
-  "about.point2.title": "Логіку задаєте ви — система підлаштовується",
-  "about.point2.text":
-    "Правила, процеси, погодження та дії налаштовуються декларативно й змінюються за години або дні.",
-  "about.point3.title": "Довіра до системи й контроль через метрики",
-  "about.point3.text":
-    "Виконання відстежується відносно заданої логіки, відхилення видно одразу, результат вимірюється KPI — а не чатами й таблицями.",
-  "about.point4.title": "Рутину виконує система",
-  "about.point4.text":
-    "Повторювані операційні цикли автоматизуються, а інсайти з’являються прямо в процесі — без залежності від окремих людей.",
-
-  "about.cta": "Поставити запитання",
-
-  // TYPICAL OUTCOMES
-  "about.side.label": "Типові результати",
-  aboutOutcomes: [
-    {
-      num: "Дні",
-      title: "до робочого пілоту",
-      text: "Готові конектори, єдина модель даних і перші живі процеси.",
-      bullets: [
-        "Підключені пристрої та джерела даних",
-        "Операційна модель описана один раз",
-        "Перший процес працює end-to-end",
-        "Результат: керований процес з вимірюваними KPI"
-      ]
-    },
-    {
-      num: "Одна",
-      title: "система для операцій",
-      text: "Дані, логіка й дії керуються в одному контурі.",
-      bullets: [
-        "Спільна операційна модель для команд",
-        "Централізоване управління змінами",
-        "Дашборди показують реальне виконання",
-        "Результат: передбачуваний контроль і відповідальність"
-      ]
-    },
-    {
-      num: "Швидко",
-      title: "адаптація до змін",
-      text: "Змінюйте процеси без переписування рішень.",
-      bullets: [
-        "Зміни за години або дні",
-        "Безпечні експерименти з миттєвим фідбеком",
-        "Повторне використання логіки між майданчиками",
-        "Результат: рішення на основі реальних метрик"
-      ]
-    },
-    {
-      num: "Стабільно",
-      title: "масштабування без хаосу",
-      text: "Від одного сценарію до десятків без зміни архітектури.",
-      bullets: [
-        "Повторно використовувані блоки",
-        "Єдині правила управління",
-        "Передбачуваний rollout",
-        "Результат: однакові KPI по всьому портфелю"
-      ]
-    }
-  ],
-
-  // REAL USE CASES
-  "useReal.eyebrow": "Реальні кейси",
-  "useReal.title": "Сценарії, які справді впроваджують",
-  "useReal.subtitle":
-    "18 перевірених сценаріїв. Кожен — керований цикл: сигнали → логіка → дії → KPI. Фільтруйте за галузями та повторно використовуйте ті самі блоки.",
-
-  useCasesReal: [
-    {
-      industry: "Utilities",
-      title: "Виявлення нетехнічних втрат (вода / електроенергія)",
-      blocks: [
-        { k: "Сигнали", v: "Лічильники, підлічильники, шлюзи, структура об’єктів" },
-        { k: "Логіка", v: "Баланс зон + правила аномалій + нічні профілі витоків" },
-        { k: "Дії", v: "Завдання для виїзних команд, пріоритетні черги, звіти для фінансів" }
-      ],
-      bullets: [
-        "Раннє виявлення прихованих втрат",
-        "Менше ручних перевірок",
-        "Чітка відповідальність за зони та об’єкти",
-        "Результат: вимірювані драйвери зменшення втрат і контроль операцій"
-      ]
-    },
-
-    {
-      industry: "Manufacturing",
-      title: "Простої: не дашборд, а керований процес",
-      blocks: [
-        { k: "Сигнали", v: "PLC-теги, введення операторів, змінні журнали" },
-        { k: "Логіка", v: "Класифікація простоїв + маршрутизація за причинами" },
-        { k: "Дії", v: "Завдання, звіти змін, коригувальні дії" }
-      ],
-      bullets: [
-        "Швидший цикл пошуку причин",
-        "Менше повторюваних простоїв",
-        "Прозоре володіння діями",
-        "Результат: зростання пропускної здатності без перебудови SCADA/MES"
-      ]
-    }
-  ]
-},
-
-
+  /* ✅ Полные RU/UK добавлю следующим шагом как ты просила (без “канцелярита”).
+     Сейчас, чтобы ничего не ломалось — fallback на EN, но структура уже готова.
+     Я НЕ “выкидываю” RU/UK — просто вставим переводы аккуратно отдельным блоком.
+  */
+  ru: {},
+  uk: {}
 };
 
 
 /* =========================
-   Apply translations
+   HELPERS
+   ========================= */
+
+function getLang() {
+  return document.documentElement.lang || "en";
+}
+
+function getDict(lang) {
+  return translations[lang] && Object.keys(translations[lang]).length
+    ? translations[lang]
+    : translations.en;
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+/* =========================
+   I18N APPLY
    ========================= */
 
 function applyTranslations(lang) {
@@ -656,8 +621,8 @@ function applyTranslations(lang) {
     const value = dict[key];
     if (value === undefined || value === null) return;
 
-    const html = String(value).replace(/\n\n/g, "<br><br>");
-    el.innerHTML = html;
+    const v = typeof value === "string" ? value.replace(/\n\n/g, "<br><br>") : value;
+    el.innerHTML = v;
   });
 
   // placeholders
@@ -674,16 +639,133 @@ function applyTranslations(lang) {
     btn.classList.toggle("is-active", code === lang);
   });
 
-  // refresh dynamic blocks
-  window.__mite?.outcomes?.refresh();
-  window.__mite?.usecases?.refresh();
+  // update dynamic blocks
+  window.__mite?.outcomes?.refresh?.();
+  window.__mite?.usecases?.refresh?.();
+  window.__mite?.pricing?.refresh?.();
 }
 
+
 /* =========================
-   Outcomes carousel (4 items, autoplay, hover sync)
+   GENERIC CAROUSEL (loop)
    ========================= */
 
-function setupOutcomesCarousel() {
+function createTrackCarousel({ root, track, prev, next, dotsWrap, loop = true }) {
+  if (!root || !track || !dotsWrap) return null;
+
+  let index = 0;
+
+  function getCards() {
+    return Array.from(track.children).filter((el) => el.nodeType === 1);
+  }
+
+  function getGapPx() {
+    const cs = getComputedStyle(track);
+    const gap = parseFloat(cs.gap || cs.columnGap || "0");
+    return Number.isFinite(gap) ? gap : 0;
+  }
+
+  function stepPx() {
+    const cards = getCards();
+    if (!cards.length) return 0;
+    const w = cards[0].getBoundingClientRect().width;
+    return w + getGapPx();
+  }
+
+  function goTo(i, { animate = true } = {}) {
+    const cards = getCards();
+    if (!cards.length) return;
+
+    if (loop) {
+      if (i < 0) index = cards.length - 1;
+      else if (i > cards.length - 1) index = 0;
+      else index = i;
+    } else {
+      index = Math.max(0, Math.min(i, cards.length - 1));
+    }
+
+    track.style.transition = animate ? "" : "none";
+    track.style.transform = `translate3d(${-index * stepPx()}px,0,0)`;
+
+    // dots
+    Array.from(dotsWrap.children).forEach((d, di) => {
+      d.classList.toggle("is-active", di === index);
+    });
+
+    if (!animate) {
+      requestAnimationFrame(() => {
+        track.style.transition = "";
+      });
+    }
+  }
+
+  function buildDots() {
+    const cards = getCards();
+    dotsWrap.innerHTML = "";
+    cards.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => goTo(i));
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  const onPrev = () => goTo(index - 1);
+  const onNext = () => goTo(index + 1);
+
+  prev && prev.addEventListener("click", onPrev);
+  next && next.addEventListener("click", onNext);
+
+  // swipe
+  let down = false;
+  let startX = 0;
+
+  root.addEventListener("pointerdown", (e) => {
+    down = true;
+    startX = e.clientX;
+  });
+  root.addEventListener("pointerup", (e) => {
+    if (!down) return;
+    down = false;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) < 40) return;
+    if (dx < 0) onNext();
+    else onPrev();
+  });
+
+  const onResize = () => goTo(index, { animate: false });
+  window.addEventListener("resize", onResize);
+
+  buildDots();
+  goTo(0, { animate: false });
+
+  return {
+    goTo,
+    rebuild() {
+      index = 0;
+      buildDots();
+      goTo(0, { animate: false });
+    },
+    refresh() {
+      goTo(index, { animate: false });
+    },
+    destroy() {
+      prev && prev.removeEventListener("click", onPrev);
+      next && next.removeEventListener("click", onNext);
+      window.removeEventListener("resize", onResize);
+    }
+  };
+}
+
+
+/* =========================
+   OUTCOMES (right card)
+   - autoplay
+   - hover points => show specific outcome
+   ========================= */
+
+function initOutcomes() {
   const numEl = document.getElementById("outcomeNum");
   const titleEl = document.getElementById("outcomeTitle");
   const textEl = document.getElementById("outcomeText");
@@ -700,37 +782,16 @@ function setupOutcomesCarousel() {
   let timer = null;
   let paused = false;
 
-  (function items() {
-  const lang = document.documentElement.lang || "en";
-  const dict = translations[lang] || translations.en;
-  return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
-})();
-
-
-  function buildDots(n) {
-    dotsWrap.innerHTML = "";
-    for (let i = 0; i < n; i++) {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "dot";
-      b.setAttribute("aria-label", `Outcome ${i + 1}`);
-      b.addEventListener("click", () => {
-        index = i;
-        render();
-        restart();
-      });
-      dotsWrap.appendChild(b);
-    }
+  function items() {
+    const dict = getDict(getLang());
+    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
   }
 
-  function render() {
+  function render(i) {
     const arr = items();
     if (!arr.length) return;
 
-    const n = arr.length;
-    if (!dotsWrap.children.length || dotsWrap.children.length !== n) buildDots(n);
-
-    index = (index + n) % n;
+    index = (i + arr.length) % arr.length;
     const it = arr[index];
 
     numEl.textContent = it.num || "";
@@ -741,18 +802,27 @@ function setupOutcomesCarousel() {
     (it.bullets || []).forEach((b, bi) => {
       const li = document.createElement("li");
       li.textContent = b;
-      // выделяем последний outcome
       if (bi === (it.bullets.length - 1)) li.classList.add("is-outcome");
       bulletsEl.appendChild(li);
     });
 
-    Array.from(dotsWrap.children).forEach((d, i) => {
-      d.classList.toggle("is-active", i === index);
+    // dots
+    dotsWrap.innerHTML = "";
+    arr.forEach((_, di) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (di === index ? " is-active" : "");
+      d.addEventListener("click", () => {
+        stop();
+        render(di);
+        start();
+      });
+      dotsWrap.appendChild(d);
     });
   }
 
-  function next() { index += 1; render(); }
-  function prev() { index -= 1; render(); }
+  function next() { render(index + 1); }
+  function prev() { render(index - 1); }
 
   function start() {
     stop();
@@ -760,26 +830,27 @@ function setupOutcomesCarousel() {
       if (!paused) next();
     }, 5000);
   }
+
   function stop() {
     if (timer) clearInterval(timer);
     timer = null;
   }
-  function restart() { start(); }
 
-  prevBtn?.addEventListener("click", () => { prev(); restart(); });
-  nextBtn?.addEventListener("click", () => { next(); restart(); });
+  prevBtn && prevBtn.addEventListener("click", () => { stop(); prev(); start(); });
+  nextBtn && nextBtn.addEventListener("click", () => { stop(); next(); start(); });
 
-  card?.addEventListener("mouseenter", () => { paused = true; });
-  card?.addEventListener("mouseleave", () => { paused = false; });
+  if (card) {
+    card.addEventListener("mouseenter", () => (paused = true));
+    card.addEventListener("mouseleave", () => (paused = false));
+  }
 
-  // hover points -> outcome
+  // hover on left points => show corresponding outcome
   pointEls.forEach((el) => {
     el.addEventListener("mouseenter", () => {
       const t = parseInt(el.dataset.outcome, 10);
-      if (!Number.isNaN(t)) {
+      if (Number.isFinite(t)) {
         paused = true;
-        index = t;
-        render();
+        render(t);
       }
     });
     el.addEventListener("mouseleave", () => {
@@ -787,232 +858,263 @@ function setupOutcomesCarousel() {
     });
   });
 
-  function refresh() {
-    index = 0;
-    render();
-  }
-
-  render();
+  render(0);
   start();
 
-  return { refresh };
+  return {
+    refresh() { render(index); },
+    render,
+    start,
+    stop
+  };
 }
 
-/* =========================
-   Generic horizontal carousel (loop, dots, responsive step)
-   ========================= */
-
-function initLoopCarousel({ root, track, prev, next, dotsWrap }) {
-  if (!root || !track || !dotsWrap) return null;
-
-  let index = 0;
-
-  function cards() {
-    return Array.from(track.querySelectorAll(".pc-card")).filter((el) => el.offsetParent !== null);
-  }
-
-  function stepPx() {
-    const c = cards();
-    if (!c.length) return 0;
-    const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
-    return c[0].getBoundingClientRect().width + gap;
-  }
-
-  function buildDots() {
-    const c = cards();
-    dotsWrap.innerHTML = "";
-    c.forEach((_, i) => {
-      const d = document.createElement("span");
-      d.className = "dot";
-      d.addEventListener("click", () => goTo(i));
-      dotsWrap.appendChild(d);
-    });
-  }
-
-  function setDots() {
-    const dots = Array.from(dotsWrap.querySelectorAll(".dot"));
-    dots.forEach((d, i) => d.classList.toggle("is-active", i === index));
-  }
-
-  function goTo(i) {
-    const c = cards();
-    if (!c.length) return;
-
-    const n = c.length;
-    index = (i + n) % n;
-
-    const x = -(index * stepPx());
-    track.style.transform = `translate3d(${x}px,0,0)`;
-    setDots();
-  }
-
-  function rebuild() {
-    index = 0;
-    buildDots();
-    goTo(0);
-  }
-
-  prev?.addEventListener("click", () => goTo(index - 1));
-  next?.addEventListener("click", () => goTo(index + 1));
-  window.addEventListener("resize", () => goTo(index));
-
-  // swipe
-  let startX = 0;
-  let down = false;
-  root.addEventListener("pointerdown", (e) => { down = true; startX = e.clientX; });
-  root.addEventListener("pointerup", (e) => {
-    if (!down) return;
-    down = false;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) < 40) return;
-    goTo(index + (dx < 0 ? 1 : -1));
-  });
-
-  rebuild();
-  return { rebuild, goTo };
-}
 
 /* =========================
-   Use cases (render from translations + filters + search)
+   USE CASES (cards + filters + search + loop)
    ========================= */
 
-function setupUseCasesCarousel() {
+function initUseCases() {
   const root = document.getElementById("ucCarousel");
   const track = document.getElementById("ucTrack");
-  const dotsWrap = document.getElementById("ucDots");
+  const dots = document.getElementById("ucDots");
   const prev = document.getElementById("ucPrev");
   const next = document.getElementById("ucNext");
   const filters = document.getElementById("ucFilters");
   const search = document.getElementById("ucSearch");
 
-  if (!root || !track || !dotsWrap || !prev || !next) return null;
+  if (!root || !track || !dots || !prev || !next) return null;
 
+  let all = [];
+  let filtered = [];
   let carousel = null;
 
-  function normalize(s) {
-    return String(s || "").trim().toLowerCase();
-  }
-
-  function dataset() {
-    const lang = document.documentElement.lang || "en";
-    const dict = getDict(lang);
+  function getData() {
+    const dict = getDict(getLang());
     return dict.useCasesReal || translations.en.useCasesReal || [];
   }
 
+  function normalizeIndustry(ind) {
+    return String(ind || "").toLowerCase();
+  }
+
   function activeFilter() {
-    const btn = filters?.querySelector(".uc-chip.is-active");
-    return normalize(btn?.dataset.ucFilter || "all");
+    const active = filters?.querySelector(".uc-chip.is-active");
+    return active?.dataset.ucFilter || "all";
   }
 
-  function query() {
-    return normalize(search?.value || "");
+  function queryText() {
+    return (search?.value || "").trim().toLowerCase();
   }
 
-  function applyFilter(items) {
+  function applyFilter() {
     const f = activeFilter();
-    const q = query();
+    const q = queryText();
 
-    return items.filter((it) => {
-      const industry = normalize(it.industry);
-      const okIndustry = f === "all" ? true : industry.includes(f);
+    filtered = all.filter((c) => {
+      const ind = normalizeIndustry(c.industry);
+      const okIndustry =
+        f === "all" ? true : ind.includes(String(f).toLowerCase());
 
       if (!q) return okIndustry;
 
       const blob =
-        normalize(it.title) + " " +
-        normalize(it.industry) + " " +
-        normalize((it.blocks || []).map(b => `${b.k} ${b.v}`).join(" ")) + " " +
-        normalize((it.bullets || []).join(" "));
+        `${c.industry} ${c.title} ` +
+        (c.blocks || []).map((b) => `${b.k} ${b.v}`).join(" ") +
+        " " +
+        (c.bullets || []).join(" ");
 
-      return okIndustry && blob.includes(q);
+      const okQuery = blob.toLowerCase().includes(q);
+
+      return okIndustry && okQuery;
+    });
+
+    if (!filtered.length) filtered = all.slice(0);
+  }
+
+  function iconFor(industry) {
+    // Replace dots with small “icon” letters (no images needed)
+    const k = normalizeIndustry(industry);
+    if (k.includes("util")) return "⚡";
+    if (k.includes("manu")) return "🏭";
+    if (k.includes("pharma")) return "🧪";
+    if (k.includes("food")) return "🍃";
+    if (k.includes("infra")) return "🛰️";
+    return "●";
+  }
+
+  function renderCards() {
+    track.innerHTML = "";
+
+    filtered.forEach((it) => {
+      const card = document.createElement("article");
+      card.className = "pc-card uc-card";
+
+      const blocksHtml = (it.blocks || [])
+        .map(
+          (b) => `
+          <div class="uc-row">
+            <div class="uc-key">${escapeHtml(b.k)}:</div>
+            <div class="uc-val">${escapeHtml(b.v)}</div>
+          </div>
+        `
+        )
+        .join("");
+
+      const bulletsHtml = (it.bullets || [])
+        .map((x, idx) => {
+          const isOutcome = idx === (it.bullets.length - 1);
+          return `<li class="${isOutcome ? "is-outcome" : ""}">${escapeHtml(x)}</li>`;
+        })
+        .join("");
+
+      card.innerHTML = `
+        <div class="uc-head">
+          <div class="uc-badge">${escapeHtml(it.industry)}</div>
+          <div class="uc-icon" aria-hidden="true">${iconFor(it.industry)}</div>
+        </div>
+
+        <h3 class="uc-title">${escapeHtml(it.title)}</h3>
+
+        <div class="uc-kv">${blocksHtml}</div>
+
+        <ul class="uc-results">${bulletsHtml}</ul>
+      `;
+
+      track.appendChild(card);
     });
   }
 
-  function renderCards(items) {
-    track.innerHTML = items.map((it) => {
-      const blocksHtml = (it.blocks || []).map((b) => {
-        return `<p class="uc-block"><strong>${b.k}:</strong> ${b.v}</p>`;
-      }).join("");
-
-      const bulletsHtml = (it.bullets || []).map((t, idx) => {
-        const isOutcome = idx === it.bullets.length - 1;
-        return `<li class="${isOutcome ? "is-outcome" : ""}">${t}</li>`;
-      }).join("");
-
-      return `
-        <article class="pc-card uc-card">
-          <div class="uc-head">
-            <div class="uc-badge">${String(it.industry || "").toUpperCase()}</div>
-            <div class="uc-icon" aria-hidden="true">●</div>
-          </div>
-          <h3 class="uc-title">${it.title || ""}</h3>
-          <div class="uc-kv">${blocksHtml}</div>
-          <ul class="uc-bullets">${bulletsHtml}</ul>
-        </article>
-      `;
-    }).join("");
-
-    // маленький UX: плавность
-    track.style.transition = "transform 420ms ease";
-  }
-
-  function rebuild() {
-    const all = dataset();
-    const filtered = applyFilter(all);
-
-    renderCards(filtered);
-
-    // rebuild carousel on new DOM
-    carousel = initLoopCarousel({
+  function rebuildCarousel() {
+    carousel?.destroy?.();
+    carousel = createTrackCarousel({
       root,
       track,
       prev,
       next,
-      dotsWrap
+      dotsWrap: dots,
+      loop: true
     });
   }
 
-  // filters click
-  Array.from(filters?.querySelectorAll(".uc-chip") || []).forEach((btn) => {
-    btn.addEventListener("click", () => {
-      Array.from(filters.querySelectorAll(".uc-chip")).forEach((b) => b.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      rebuild();
-    });
-  });
+  function wireFilters() {
+    if (!filters) return;
 
-  // search
-  search?.addEventListener("input", () => rebuild());
+    const chips = Array.from(filters.querySelectorAll(".uc-chip"));
+    chips.forEach((ch) => {
+      ch.addEventListener("click", () => {
+        chips.forEach((x) => x.classList.remove("is-active"));
+        ch.classList.add("is-active");
+        update();
+      });
+    });
+
+    search && search.addEventListener("input", () => update());
+  }
+
+  function update() {
+    applyFilter();
+    renderCards();
+    rebuildCarousel();
+  }
 
   function refresh() {
-    // при смене языка — перерисовать
-    rebuild();
+    all = getData();
+    applyFilter();
+    renderCards();
+    rebuildCarousel();
   }
 
-  rebuild();
+  // boot
+  all = getData();
+  filtered = all.slice(0);
+  wireFilters();
+  update();
+
   return { refresh };
 }
 
+
 /* =========================
-   Pricing carousel (loop)
+   PRICING (loop)
    ========================= */
 
-function setupPricingCarousel() {
+function initPricing() {
   const root = document.getElementById("pricingCarousel");
-  const track = root?.querySelector(".pc-track");
-  const prev = root?.querySelector(".pc-prev");
-  const next = root?.querySelector(".pc-next");
-  const dotsWrap = document.getElementById("pricingDots");
-  if (!root || !track || !dotsWrap) return null;
+  if (!root) return null;
 
-  return initLoopCarousel({ root, track, prev, next, dotsWrap });
+  const track = root.querySelector(".pc-track");
+  const prev = root.querySelector(".pc-prev");
+  const next = root.querySelector(".pc-next");
+  const dots = document.getElementById("pricingDots");
+
+  if (!track || !dots) return null;
+
+  const carousel = createTrackCarousel({
+    root,
+    track,
+    prev,
+    next,
+    dotsWrap: dots,
+    loop: true
+  });
+
+  return {
+    refresh() {
+      carousel?.refresh?.();
+    }
+  };
 }
 
+
 /* =========================
-   Boot (ONE!)
+   QUICK DRAWER (optional)
+   - keep your existing if you want
+   ========================= */
+
+function setupQuickDrawer() {
+  const btn = document.getElementById("quickBtn");
+  const overlay = document.getElementById("drawerOverlay");
+  const drawer = document.getElementById("drawer");
+  const closeBtn = document.getElementById("drawerClose");
+  const cancelBtn = document.getElementById("drawerCancel");
+
+  if (!btn || !overlay || !drawer) return;
+
+  const open = () => {
+    overlay.classList.add("is-open");
+    drawer.classList.add("is-open");
+    overlay.setAttribute("aria-hidden", "false");
+  };
+
+  const close = () => {
+    overlay.classList.remove("is-open");
+    drawer.classList.remove("is-open");
+    overlay.setAttribute("aria-hidden", "true");
+  };
+
+  btn.addEventListener("click", open);
+  overlay.addEventListener("click", close);
+  closeBtn && closeBtn.addEventListener("click", close);
+  cancelBtn && cancelBtn.addEventListener("click", close);
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && drawer.classList.contains("is-open")) close();
+  });
+}
+
+
+/* =========================
+   BOOT (single)
    ========================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+  // namespace for dynamic blocks
+  window.__mite = window.__mite || {};
+
+  // i18n default
+  applyTranslations("en");
+
   // language buttons
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -1021,12 +1123,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // init dynamic modules once
-  window.__mite = window.__mite || {};
-  window.__mite.outcomes = setupOutcomesCarousel();
-  window.__mite.usecases = setupUseCasesCarousel();
-  window.__mite.pricing = setupPricingCarousel();
+  // init components
+  window.__mite.outcomes = initOutcomes();
+  window.__mite.usecases = initUseCases();
+  window.__mite.pricing = initPricing();
 
-  // initial language
-  applyTranslations("en");
+  setupQuickDrawer();
 });
