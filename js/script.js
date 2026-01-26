@@ -38,7 +38,7 @@ const translations = {
     "hero.meta1": "From pilots to production-ready industrial deployments",
     "hero.meta2": "Declarative logic — flexibility without custom code churn",
     "hero.meta3": "Any logic complexity • any industrial reality • fast iterations",
-    "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",*/
+    "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
 
 
     // ABOUT / POSITIONING
