@@ -28,7 +28,7 @@ const translations = {
       "MITE is an industrial IIoT platform that connects assets, models business logic, and turns operational data into decisions.",
 
     // HERO
-    "hero.kicker": "Industrial IoT, delivered",
+    "hero.kicker": "Industrial IIoT, delivered",
     "hero.title": "Not just another IIoT platform. <span>MITE changes the game.</span>",
     "hero.subtitle":
       "Bring structure, logic, and operational data into one unified industrial platform. " +
@@ -37,8 +37,9 @@ const translations = {
     "hero.secondaryCta": "Explore the platform",
     "hero.meta1": "From pilots to production-ready industrial deployments",
     "hero.meta2": "Declarative logic — flexibility without custom code churn",
-    "hero.meta3": "Built for operations, engineering, and IT teams",
-    "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
+    "hero.meta3": "Any logic complexity • any industrial reality • fast iterations",
+    "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",*/
+
 
     // ABOUT / POSITIONING
     "about.eyebrow": "Positioning",
@@ -399,6 +400,70 @@ const translations = {
       }
     ],
 
+    // WHY FLEXIBLE (lsFusion / approach)
+"flex.tag": "Why MITE is flexible",
+"flex.title": "Declarative logic — industrial flexibility without code churn",
+"flex.text": "MITE adapts to your processes, not the other way around. We model data + rules so changes stay controlled, auditable, and fast.",
+
+"flex.b1": "Complex business logic: rules, workflows, exceptions, escalation paths",
+"flex.b2": "Rapid changes: update logic without rebuilding the whole system",
+"flex.b3": "Single data model: dashboards, alerts, reports and integrations share the same truth",
+"flex.b4": "A platform approach (incl. lsFusion concepts) — logic is expressed declaratively and stays maintainable",
+
+"flex.side.tag": "What this gives you",
+"flex.side.title": "Speed, control, and scalability",
+"flex.side.text": "Pilot quickly, then scale confidently — with consistent governance and predictable ownership for IT and operations.",
+
+"flex.p1": "Faster pilots",
+"flex.p2": "Controlled changes",
+"flex.p3": "Lower TCO",
+
+// Architecture
+"arch.eyebrow": "Architecture",
+"arch.title": "From devices to decisions — in one controlled flow",
+"arch.subtitle": "A practical IIoT architecture: connect equipment, normalize data, apply logic, and deliver actions to teams and systems.",
+
+"arch.flow.tag": "End-to-end flow",
+"arch.flow.title": "How data becomes actions",
+
+"arch.flow.s1.k": "Edge",
+"arch.flow.s1.t": "Sensors & equipment",
+"arch.flow.s1.d": "Meters, sensors, PLC signals, counters, status data, events.",
+
+"arch.flow.s2.k": "Connectivity",
+"arch.flow.s2.t": "Gateways & networks",
+"arch.flow.s2.d": "LoRaWAN / Ethernet / cellular — reliable delivery from field to platform.",
+
+"arch.flow.s3.k": "Platform",
+"arch.flow.s3.t": "MITE core",
+"arch.flow.s3.d": "Data model, rules, alerts, workflows, dashboards, audit trails.",
+
+"arch.flow.s4.k": "Apps",
+"arch.flow.s4.t": "Users & integrations",
+"arch.flow.s4.d": "Operators, engineers, security — plus ERP/SCADA/BI via APIs.",
+
+"arch.tech.tag": "Connectivity & integration",
+"arch.tech.title": "Works with real industrial environments",
+"arch.tech.p1": "REST API",
+"arch.tech.p2": "Webhooks",
+"arch.tech.p3": "MQTT",
+"arch.tech.p4": "LoRaWAN",
+"arch.tech.p5": "Modbus (via gateways)",
+"arch.tech.p6": "OPC UA (optional)",
+"arch.tech.p7": "On-prem or cloud",
+"arch.tech.p8": "Role-based access",
+"arch.tech.note": "Exact protocol stack depends on your devices and site constraints — we adapt the integration layer to your reality.",
+
+// Use cases as steps
+"useReal.step1.t": "Connect & normalize",
+"useReal.step1.d": "Bring sensors, meters, PLC signals and events into one structured model.",
+"useReal.step2.t": "Detect what matters",
+"useReal.step2.d": "Rules + anomaly logic highlight risks, losses and abnormal behavior in real time.",
+"useReal.step3.t": "Act with workflows",
+"useReal.step3.d": "Alerts, escalations, tasks and evidence — so teams respond consistently.",
+"useReal.step4.t": "Scale & integrate",
+"useReal.step4.d": "API, exports and integrations with ERP/SCADA/BI — scale from pilot to multi-site.",
+
     // HIGHLIGHTS (you already have these on site; keep keys)
     "highlights.eyebrow": "What powers MITE",
     "highlights.title": "One platform for devices, logic, and insights",
@@ -460,6 +525,7 @@ const translations = {
       "Use MITE as a foundation for domain solutions — from pharma and food to manufacturing and infrastructure. Reuse 80 percent of the platform and customise the rest.",
     "use.card3.pill1": "Regulated industries",
     "use.card3.pill2": "White-label options",
+
 
     // HOW
     "how.eyebrow": "How it works",

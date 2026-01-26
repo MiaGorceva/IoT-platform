@@ -1709,6 +1709,53 @@
   backdrop-filter: blur(10px);
 }
 
+.flex-block{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+@media (max-width: 980px){
+  .flex-block{ grid-template-columns: 1fr; }
+}
+
+.uc-steps{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: .9rem;
+  margin: 1rem 0 1.1rem;
+}
+.uc-step{
+  display:flex;
+  gap:.75rem;
+  border:1px solid var(--border);
+  border-radius: var(--radius);
+  padding: .85rem .9rem;
+  background: rgba(2, 6, 23, 0.35);
+}
+.uc-step-num{
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 800;
+  border: 1px solid var(--border);
+  background: rgba(84, 229, 74, 0.08);
+}
+.uc-step-title{ font-weight: 800; margin-bottom: .15rem; }
+.uc-step-text{ opacity:.85; line-height: 1.4; font-size: .95rem; }
+
+@media (max-width: 980px){
+  .uc-steps{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px){
+  .uc-steps{ grid-template-columns: 1fr; }
+}
+
+
+
 
 
 
