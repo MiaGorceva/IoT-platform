@@ -97,8 +97,8 @@ const translations = {
         bullets: [
           "Processes updated in hours or days",
           "Safe experimentation with immediate feedback",
-          "Same logic reused across sites",
-          "Outcome: faster decisions based on real metrics"
+          "Same tools reused for different logic",
+          "Outcome: faster adoption to business changes"
         ]
       },
       {
