@@ -47,23 +47,28 @@ const translations = {
     "about.text":
       "MITE turns operational data into a single, manageable system — not a set of disconnected signals and processes.\n\n" +
       "Connect devices, PLCs, meters, gateways, and external systems into one structured operational model.\n\n" +
-      "Define rules and workflows on top of that model, and the platform keeps execution aligned, tracks deviations, and records results as measurable KPIs.\n\n" +
-      "Dashboards and analytics reflect real execution — not just raw readings. You adapt processes fast and scale scenarios without waiting for developers or contractors.",
+      "Describe rules, workflows, logic model and the platform takes care of how it happens. Manual coordinations will be done by execution aligned, tracks deviations, and records results as measurable KPIs.\n\n" +
+      "Dashboards show real execution, deviations, and outcomes. You manage the system through clear metrics and adapt processes in hours or days — without developers or contractors.",    
 
-    "about.point1.title": "Bring all data into one model",
-    "about.point1.text":
-      "Devices, systems, and external sources are unified into a consistent operational model your teams can reuse across scenarios.",
-    "about.point2.title": "Define logic once — evolve continuously",
-    "about.point2.text":
-      "Rules, workflows, approvals, and actions are configured declaratively — change in hours/days when conditions change.",
-    "about.point3.title": "Trust the system, stay in control",
-    "about.point3.text":
-      "Execution is monitored against your logic, deviations are flagged immediately, and outcomes are visible in KPIs — not in chats and spreadsheets.",
-    "about.point4.title": "Let routine run on autopilot",
-    "about.point4.text":
-      "Automate repetitive loops and surface insights inside the workflow — so results don’t depend on individual heroics.",
+      "about.point1.title": "One operational model for all data",
+      "about.point1.text":
+      "All signals — devices, controllers, systems, and external sources — are unified into a reusable operational model instead of scattered integrations.",
+
+      "about.point2.title": "Declarative logic instead of code",
+      "about.point2.text":
+      "You define rules, workflows, approvals, and actions as logic when conditions change and changes will be immidiately shown (without waiting proggrammers or ). Complexity grows without turning into custom code chaos.",
+
+      "about.point3.title": "Trust the system, stay in control",
+      "about.point3.text":
+      "The platform tracks execution, detects deviations, and ties actions to KPIs — so control is based on facts, not on people manually watching screens, chats or spreadsheets.",
+
+      "about.point4.title": "Routine runs on autopilot, insights surface automatically",
+      "about.point4.text":
+      "Repetitive operational loops are automated. AI-assisted analysis surfaces patterns and insights so results don’t depend on individual heroics."
+
 
     "about.cta": "Ask a question",
+
 
     // RIGHT CARD LABEL
     "about.side.label": "Typical outcomes",
@@ -115,11 +120,123 @@ const translations = {
       }
     ],
 
+
+    useCasesReal: [
+{
+  industry: "Manufacturing",
+  title: "Unplanned line downtime",
+  pain: "Frequent stops with unclear ownership and delayed root-cause analysis.",
+  result: "Downtime reduced by 22% through rule-based classification and automated follow-up workflows."
+},
+{
+  industry: "Manufacturing",
+  title: "Energy cost spikes per batch",
+  pain: "Energy consumption monitored, but not linked to batches or processes.",
+  result: "Energy intensity tracked per batch; cost deviations detected early, saving up to 15%."
+},
+{
+  industry: "Utilities",
+  title: "Hidden water losses",
+  pain: "Non-technical losses detected too late through manual analysis.",
+  result: "Automated zone balance and anomaly logic reduced losses by 18%."
+},
+{
+  industry: "Utilities",
+  title: "Remote meter rollout failures",
+  pain: "Large-scale deployments with poor data quality after installation.",
+  result: "Acceptance logic and auto-checks reduced rework and accelerated rollout."
+},
+{
+  industry: "Infrastructure",
+  title: "False alarms overload",
+  pain: "Operators overwhelmed by alarms without prioritisation.",
+  result: "Noise reduced by 40% using correlation rules and escalation logic."
+},
+{
+  industry: "Infrastructure",
+  title: "Theft incidents without closure",
+  pain: "Incidents detected but not consistently resolved.",
+  result: "End-to-end incident lifecycle introduced with clear accountability."
+},
+{
+  industry: "Pharma",
+  title: "Environmental excursions",
+  pain: "Delayed reaction to temperature and humidity deviations.",
+  result: "Excursion handling workflows reduced compliance risk and response time."
+},
+{
+  industry: "Pharma",
+  title: "Audit preparation chaos",
+  pain: "Manual reconstruction of histories before inspections.",
+  result: "Audit-ready execution logs available by default."
+},
+{
+  industry: "Food",
+  title: "Inconsistent sanitation cycles",
+  pain: "CIP/SIP quality depended on operator discipline.",
+  result: "Automated compliance checks stabilised sanitation quality."
+},
+{
+  industry: "Food",
+  title: "Temperature drift in storage zones",
+  pain: "Issues discovered only after product quality degraded.",
+  result: "Early alerts and escalation logic reduced spoilage."
+},
+{
+  industry: "Manufacturing",
+  title: "Maintenance driven by firefighting",
+  pain: "Assets serviced reactively after failures.",
+  result: "Rule-based triggers improved maintenance planning and uptime."
+},
+{
+  industry: "Manufacturing",
+  title: "Shift handover gaps",
+  pain: "Issues repeated because knowledge wasn’t transferred.",
+  result: "KPIs and follow-up tasks automated across shifts."
+},
+{
+  industry: "Utilities",
+  title: "Pressure instability in networks",
+  pain: "Manual adjustments caused inconsistent service.",
+  result: "Controlled setpoints improved stability and reduced incidents."
+},
+{
+  industry: "Infrastructure",
+  title: "Distributed site monitoring",
+  pain: "Too many sites for manual supervision.",
+  result: "Unified logic enabled predictable SLA control at scale."
+},
+{
+  industry: "Pharma",
+  title: "Cold-chain risk",
+  pain: "Temperature breaches discovered post-factum.",
+  result: "Escalation ladders reduced spoilage and write-offs."
+},
+{
+  industry: "Food",
+  title: "Yield losses due to environment",
+  pain: "Environmental parameters adjusted manually.",
+  result: "Automated rules improved yield and consistency."
+},
+{
+  industry: "Manufacturing",
+  title: "Quality deviations detected too late",
+  pain: "Defects found after production completed.",
+  result: "Early deviation logic reduced scrap and rework."
+},
+{
+  industry: "Utilities",
+  title: "Operational decisions based on intuition",
+  pain: "Lack of measurable operational feedback.",
+  result: "KPIs tied to actions enabled data-driven control."
+}
+],
     // REAL USE CASES
     "useReal.eyebrow": "Real use cases",
     "useReal.title": "Operational scenarios teams actually deploy",
     "useReal.subtitle":
       "18 proven operational scenarios. Each is a governed loop: signals → logic → actions → KPIs. Filter by industry and reuse the same building blocks across projects.",
+
 
     useCasesReal: [
       {
