@@ -47,25 +47,25 @@ const translations = {
 
 "about.text":
 "MITE turns operational data into a single, manageable system — not a set of disconnected signals and isolated processes.\n\n" +
-"Connect devices, PLCs, meters, gateways, and external systems into one structured operational model.\n\n" +
-"You describe rules, workflows, and logic — the platform takes care of execution. Manual coordination is replaced by consistent process execution, deviation tracking, and measurable KPIs.\n\n" +
-"Dashboards show real execution, deviations, and outcomes. You manage the system through clear metrics and adapt processes in hours or days — without developers or contractors.",
+"Connect devices, PLCs, meters, gateways, and external systems are connected into one structured operational model that reflects how your processes actually work.\n\n" +
+"You define rules, workflows, and logic — the platform handles how execution happens. Manual coordination is replaced by consistent process execution, deviation tracking, and measurable KPIs.\n\n" +
+"Dashboards show real execution, deviations, and outcomes. You manage the system through clear metrics and adapt processes in hours or days — without developers, contractors, or fragile integrations.",
 
-"about.point1.title": "One operational model for all data",
-"about.point1.text":
-"All signals — devices, controllers, systems, and external sources — are unified into a reusable operational model instead of scattered integrations.",
+  "about.point1.title": "One operational model for all data",
+  "about.point1.text":
+    "All signals — devices, controllers, systems, and external sources — are unified into a reusable operational model instead of scattered point integrations.",
 
-"about.point2.title": "Declarative logic instead of code",
-"about.point2.text":
-"You define rules, workflows, approvals, and actions as logic. When conditions change, updates are applied immediately — without waiting for programmers or rebuilding solutions.",
+  "about.point2.title": "Declarative logic instead of code",
+  "about.point2.text":
+    "You define rules, workflows, approvals, and actions as logic. When conditions change, updates are applied immediately — without waiting for programmers or rebuilding solutions.",
 
-"about.point3.title": "Trust the system, stay in control",
-"about.point3.text":
-"The platform tracks execution, detects deviations, and ties actions to KPIs — so control is based on facts, not on people watching screens, chats, or spreadsheets.",
+  "about.point3.title": "Trust the system, stay in control",
+  "about.point3.text":
+     "The platform tracks execution, detects deviations, and ties actions to KPIs — so control is based on facts, not on people watching screens, chats, or spreadsheets.",
 
-"about.point4.title": "Routine runs on autopilot, insights surface automatically",
-"about.point4.text":
-"Repetitive operational loops are automated. AI-assisted analysis surfaces patterns and insights so results don’t depend on individual heroics.",
+  "about.point4.title": "Routine runs on autopilot, insights surface automatically",
+  "about.point4.text":
+    "Repetitive operational loops are automated. AI-assisted analysis surfaces patterns and insights so results do not depend on individual heroics.",
 
     "about.cta": "Ask a question",
 
