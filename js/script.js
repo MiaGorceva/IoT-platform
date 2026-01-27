@@ -43,29 +43,29 @@ const translations = {
 
     // ABOUT / POSITIONING
     "about.eyebrow": "Positioning",
-    "about.title": "One system you control — from data to execution",
-    "about.text":
-      "MITE turns operational data into a single, manageable system — not a set of disconnected signals and processes.\n\n" +
-      "Connect devices, PLCs, meters, gateways, and external systems into one structured operational model.\n\n" +
-      "Describe rules, workflows, logic model and the platform takes care of how it happens. Manual coordinations will be done by execution aligned, tracks deviations, and records results as measurable KPIs.\n\n" +
-      "Dashboards show real execution, deviations, and outcomes. You manage the system through clear metrics and adapt processes in hours or days — without developers or contractors.",    
+"about.title": "One system you control — from data to execution",
 
-      "about.point1.title": "One operational model for all data",
-      "about.point1.text":
-      "All signals — devices, controllers, systems, and external sources — are unified into a reusable operational model instead of scattered integrations.",
+"about.text":
+"MITE turns operational data into a single, manageable system — not a set of disconnected signals and isolated processes.\n\n" +
+"Connect devices, PLCs, meters, gateways, and external systems into one structured operational model.\n\n" +
+"You describe rules, workflows, and logic — the platform takes care of execution. Manual coordination is replaced by consistent process execution, deviation tracking, and measurable KPIs.\n\n" +
+"Dashboards show real execution, deviations, and outcomes. You manage the system through clear metrics and adapt processes in hours or days — without developers or contractors.",
 
-      "about.point2.title": "Declarative logic instead of code",
-      "about.point2.text":
-      "You define rules, workflows, approvals, and actions as logic when conditions change and changes will be immidiately shown (without waiting proggrammers or ). Complexity grows without turning into custom code chaos.",
+"about.point1.title": "One operational model for all data",
+"about.point1.text":
+"All signals — devices, controllers, systems, and external sources — are unified into a reusable operational model instead of scattered integrations.",
 
-      "about.point3.title": "Trust the system, stay in control",
-      "about.point3.text":
-      "The platform tracks execution, detects deviations, and ties actions to KPIs — so control is based on facts, not on people manually watching screens, chats or spreadsheets.",
+"about.point2.title": "Declarative logic instead of code",
+"about.point2.text":
+"You define rules, workflows, approvals, and actions as logic. When conditions change, updates are applied immediately — without waiting for programmers or rebuilding solutions.",
 
-      "about.point4.title": "Routine runs on autopilot, insights surface automatically",
-      "about.point4.text":
-      "Repetitive operational loops are automated. AI-assisted analysis surfaces patterns and insights so results don’t depend on individual heroics."
+"about.point3.title": "Trust the system, stay in control",
+"about.point3.text":
+"The platform tracks execution, detects deviations, and ties actions to KPIs — so control is based on facts, not on people watching screens, chats, or spreadsheets.",
 
+"about.point4.title": "Routine runs on autopilot, insights surface automatically",
+"about.point4.text":
+"Repetitive operational loops are automated. AI-assisted analysis surfaces patterns and insights so results don’t depend on individual heroics.",
 
     "about.cta": "Ask a question",
 
@@ -231,291 +231,22 @@ const translations = {
   result: "KPIs tied to actions enabled data-driven control."
 }
 ],
-    // REAL USE CASES
-    "useReal.eyebrow": "Real use cases",
-    "useReal.title": "Operational scenarios teams actually deploy",
-    "useReal.subtitle":
-      "18 proven operational scenarios. Each is a governed loop: signals → logic → actions → KPIs. Filter by industry and reuse the same building blocks across projects.",
 
+    /* =========================
+     REAL USE CASES (short cards)
+     ========================= */
+  "useReal.eyebrow": "Real use cases",
+  "useReal.title": "Operational problems solved in practice",
+  "useReal.subtitle":
+    "Short, real-world scenarios. Each starts with an operational pain and ends with measurable results.",
 
-    useCasesReal: [
-      {
-        industry: "Utilities",
-        title: "Non-technical loss detection (water/electricity)",
-        blocks: [
-          { k: "Signals", v: "Meters, submeters, gateways, site structure" },
-          { k: "Logic", v: "Zone balance + anomaly rules + night-profile leakage patterns" },
-          { k: "Actions", v: "Tickets to field teams, priority queues, finance-ready reports" }
-        ],
-        bullets: [
-          "Earlier detection of hidden losses",
-          "Fewer manual investigations",
-          "Clear accountability by zone/site",
-          "Outcome: measurable loss reduction drivers and predictable operational control"
-        ]
-      },
-      {
-        industry: "Utilities",
-        title: "District heating leak & abnormal consumption",
-        blocks: [
-          { k: "Signals", v: "Heat meters, pressure/temperature, weather context" },
-          { k: "Logic", v: "Deviation from baseline + correlation across network branches" },
-          { k: "Actions", v: "Escalation workflow, dispatch, incident lifecycle tracking" }
-        ],
-        bullets: [
-          "Faster localisation of leaks",
-          "Reduced emergency interventions",
-          "Better planning of repairs",
-          "Outcome: fewer major incidents and lower cost of unplanned works"
-        ]
-      },
-      {
-        industry: "Utilities",
-        title: "Remote meter commissioning & data quality control",
-        blocks: [
-          { k: "Signals", v: "Install events, connectivity, telemetry completeness" },
-          { k: "Logic", v: "Acceptance checklist + auto root-cause on failures" },
-          { k: "Actions", v: "Return-to-install tasks, re-check flows, acceptance logs" }
-        ],
-        bullets: [
-          "Less rework after rollout",
-          "Higher data trust from day one",
-          "Faster onboarding per site",
-          "Outcome: smoother deployment at scale with fewer surprises"
-        ]
-      },
-
-      {
-        industry: "Manufacturing",
-        title: "Downtime workflow (not just dashboards)",
-        blocks: [
-          { k: "Signals", v: "PLC tags, operator inputs, shift logs" },
-          { k: "Logic", v: "Downtime classification + routing by reason/line/team" },
-          { k: "Actions", v: "Tickets, shift reports, CAPA-style follow-up" }
-        ],
-        bullets: [
-          "Faster root-cause loop",
-          "Less repeated downtime patterns",
-          "Transparent action ownership",
-          "Outcome: improved throughput without rebuilding SCADA/MES landscape"
-        ]
-      },
-      {
-        industry: "Manufacturing",
-        title: "Energy intensity per batch / per line",
-        blocks: [
-          { k: "Signals", v: "Meters + batch IDs / MES events" },
-          { k: "Logic", v: "Normalize consumption by product/batch, detect deviations" },
-          { k: "Actions", v: "Alerts + investigation workflow + cost analytics export" }
-        ],
-        bullets: [
-          "Cost visibility by product",
-          "Early detection of energy waste",
-          "Better process discipline",
-          "Outcome: controllable cost drivers and stronger margin protection"
-        ]
-      },
-      {
-        industry: "Manufacturing",
-        title: "Maintenance triggers (rules-first predictive lite)",
-        blocks: [
-          { k: "Signals", v: "Vibration/temp/runtime counters, alarm history" },
-          { k: "Logic", v: "Trend + threshold combinations, symptom patterns" },
-          { k: "Actions", v: "Work orders, maintenance windows, spare parts prompts" }
-        ],
-        bullets: [
-          "Fewer unexpected stops",
-          "Better maintenance planning",
-          "Less firefighting",
-          "Outcome: higher asset availability with pragmatic automation"
-        ]
-      },
-
-      {
-        industry: "Pharma",
-        title: "Environmental monitoring with excursion handling",
-        blocks: [
-          { k: "Signals", v: "Room sensors, zone mapping, calibrated devices" },
-          { k: "Logic", v: "Excursion rules + timers + approvals + audit-ready history" },
-          { k: "Actions", v: "Escalation, deviation workflow, reporting" }
-        ],
-        bullets: [
-          "Faster response to excursions",
-          "Clear traceability for audits",
-          "Less manual paperwork",
-          "Outcome: lower compliance risk and smoother inspections"
-        ]
-      },
-      {
-        industry: "Pharma",
-        title: "Cold-chain monitoring with escalation ladder",
-        blocks: [
-          { k: "Signals", v: "Temperature loggers, door events, shipment context" },
-          { k: "Logic", v: "Multi-level escalation + SLA timers" },
-          { k: "Actions", v: "Dispatch, quarantine decisions, incident reports" }
-        ],
-        bullets: [
-          "Reduced spoilage risk",
-          "Faster reaction times",
-          "Cleaner incident documentation",
-          "Outcome: fewer write-offs and stronger customer trust"
-        ]
-      },
-
-      {
-        industry: "Food",
-        title: "CIP/SIP cycle verification and optimisation",
-        blocks: [
-          { k: "Signals", v: "Flow/temp/conductivity + cycle timing" },
-          { k: "Logic", v: "Parameter compliance checks + deviation paths" },
-          { k: "Actions", v: "Reject/redo cycle, investigation workflow, reports" }
-        ],
-        bullets: [
-          "More consistent sanitation quality",
-          "Less manual validation",
-          "Fewer production interruptions",
-          "Outcome: stable quality with lower operational overhead"
-        ]
-      },
-      {
-        industry: "Food",
-        title: "OEE + the ‘why’ (closed-loop improvement)",
-        blocks: [
-          { k: "Signals", v: "PLC/MES events + operator reason capture" },
-          { k: "Logic", v: "Link event → reason → corrective action tasks" },
-          { k: "Actions", v: "Owned improvements, shift KPIs, weekly tracking" }
-        ],
-        bullets: [
-          "Not just OEE — actions that move it",
-          "Faster improvement cycles",
-          "Clear responsibility chain",
-          "Outcome: continuous productivity gains without heavy IT projects"
-        ]
-      },
-
-      {
-        industry: "Infrastructure",
-        title: "Theft prevention workflow (sensor → alarm → response)",
-        blocks: [
-          { k: "Signals", v: "Tamper events, location, time windows" },
-          { k: "Logic", v: "Anti-fraud rules + correlation + escalation ladder" },
-          { k: "Actions", v: "Dispatch, verification steps, incident closure" }
-        ],
-        bullets: [
-          "Faster response to alarms",
-          "Less false-positive noise",
-          "Clear incident lifecycle",
-          "Outcome: reduced losses and operational accountability"
-        ]
-      },
-      {
-        industry: "Infrastructure",
-        title: "Incident lifecycle: detect → verify → dispatch → close",
-        blocks: [
-          { k: "Signals", v: "Alarms + confirmations + work status updates" },
-          { k: "Logic", v: "Routing, approvals, SLA timers, closure rules" },
-          { k: "Actions", v: "Tasks, escalations, post-mortem reporting" }
-        ],
-        bullets: [
-          "Standardised response process",
-          "Shorter resolution time",
-          "Better KPI visibility",
-          "Outcome: a controllable operating system, not a mess of chats and spreadsheets"
-        ]
-      },
-
-      // 6 more (to make 18)
-      {
-        industry: "Utilities",
-        title: "Network pressure optimisation with control loop",
-        blocks: [
-          { k: "Signals", v: "Pressure sensors, flow, pump states, time schedules" },
-          { k: "Logic", v: "Rules + safe limits + deviation detection" },
-          { k: "Actions", v: "Setpoint commands, alerts, maintenance prompts" }
-        ],
-        bullets: [
-          "Lower leakage impact",
-          "More stable service levels",
-          "Less operator load",
-          "Outcome: measurable pressure KPIs with controlled adjustments"
-        ]
-      },
-      {
-        industry: "Manufacturing",
-        title: "Quality deviations: detect → isolate → correct",
-        blocks: [
-          { k: "Signals", v: "Process parameters, batch context, operator inputs" },
-          { k: "Logic", v: "Deviation rules + context correlation + thresholds" },
-          { k: "Actions", v: "Stop/hold workflow, CAPA tasks, reporting" }
-        ],
-        bullets: [
-          "Earlier detection of drift",
-          "Less scrap and rework",
-          "Clear corrective actions",
-          "Outcome: quality KPIs tied to actions, not post-mortems"
-        ]
-      },
-      {
-        industry: "Food",
-        title: "Temperature compliance across production zones",
-        blocks: [
-          { k: "Signals", v: "Zone sensors, doors, equipment status" },
-          { k: "Logic", v: "Timers + excursion rules + escalation ladder" },
-          { k: "Actions", v: "Notifications, tasks, audit-ready logs" }
-        ],
-        bullets: [
-          "Fewer compliance incidents",
-          "Faster reaction to excursions",
-          "Clear traceability",
-          "Outcome: controlled compliance KPIs without manual chasing"
-        ]
-      },
-      {
-        industry: "Pharma",
-        title: "Equipment status + validation-ready audit trail",
-        blocks: [
-          { k: "Signals", v: "Device health, calibration status, alarms, usage events" },
-          { k: "Logic", v: "Governance rules + approvals + immutable history" },
-          { k: "Actions", v: "Deviations, tickets, compliance exports" }
-        ],
-        bullets: [
-          "Reduced inspection stress",
-          "Better traceability",
-          "Less manual reconciliation",
-          "Outcome: compliance KPIs and evidence built into execution"
-        ]
-      },
-      {
-        industry: "Infrastructure",
-        title: "Distributed site monitoring with escalations",
-        blocks: [
-          { k: "Signals", v: "Sensors, controllers, connectivity, power events" },
-          { k: "Logic", v: "Rules by site class + SLA timers + escalation" },
-          { k: "Actions", v: "Dispatch, prioritised queues, closure reporting" }
-        ],
-        bullets: [
-          "Faster incident response",
-          "Less noise, more signal",
-          "Better service consistency",
-          "Outcome: stable SLA KPIs across many sites"
-        ]
-      },
-      {
-        industry: "Manufacturing",
-        title: "Shift handover: KPIs with action follow-up",
-        blocks: [
-          { k: "Signals", v: "Line events, operator notes, counters" },
-          { k: "Logic", v: "KPI calculation + rule-based follow-up creation" },
-          { k: "Actions", v: "Tasks, acknowledgements, weekly trend review" }
-        ],
-        bullets: [
-          "Cleaner handovers",
-          "Less repeated issues",
-          "Better ownership chain",
-          "Outcome: operational KPIs that drive action, not reporting"
-        ]
-      }
-    ],
+  "useReal.filter.all": "All",
+  "useReal.filter.utilities": "Utilities",
+  "useReal.filter.manufacturing": "Manufacturing",
+  "useReal.filter.pharma": "Pharma",
+  "useReal.filter.food": "Food",
+  "useReal.filter.infrastructure": "Infrastructure",
+  "useReal.searchPh": "Search use cases…",
 
     // WHY FLEXIBLE (lsFusion / approach)
 "flex.tag": "Why MITE is flexible",
@@ -1286,6 +1017,186 @@ function setupQuickDrawer() {
   });
 }
 
+/* =========================
+   Use cases UI + carousel (loop + filters + search)
+   Paste once in your script.js (remove any older uc carousel code)
+   ========================= */
+(function setupUseCasesReal() {
+  const root = document.getElementById("ucCarousel");
+  const track = document.getElementById("ucTrack");
+  const dotsWrap = document.getElementById("ucDots");
+  const prev = document.getElementById("ucPrev");
+  const next = document.getElementById("ucNext");
+  const filters = document.getElementById("ucFilters");
+  const search = document.getElementById("ucSearch");
+  if (!root || !track || !dotsWrap || !prev || !next || !filters) return;
+
+  const ICONS = {
+    drop: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2s6 7 6 12a6 6 0 1 1-12 0c0-5 6-12 6-12Z" fill="currentColor" opacity=".9"/></svg>`,
+    heat: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2v10a4 4 0 1 1-2 0V2h2Z" fill="currentColor"/><path d="M6 18c2 2 10 2 12 0" stroke="currentColor" stroke-width="2" fill="none" opacity=".7"/></svg>`,
+    meter: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" fill="currentColor" opacity=".25"/><path d="M7 10h10M7 14h6" stroke="currentColor" stroke-width="2" opacity=".9"/></svg>`,
+    factory: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V10l6 3V10l6 3V8l6 3v10H3Z" fill="currentColor" opacity=".9"/></svg>`,
+    bolt: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z" fill="currentColor"/></svg>`,
+    wrench: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 7a6 6 0 0 1-8 5L8 18l-2 2-4-4 2-2 6-6A6 6 0 0 1 17 2l-3 3 3 3 5-1Z" fill="currentColor" opacity=".9"/></svg>`,
+    shield: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 20 6v7c0 5-3.4 9.4-8 10-4.6-.6-8-5-8-10V6l8-4Z" fill="currentColor" opacity=".9"/></svg>`,
+    snow: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M4 6l16 12M20 6 4 18" stroke="currentColor" stroke-width="2" opacity=".9"/></svg>`,
+    clean: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l-1 18H8L7 3Z" fill="currentColor" opacity=".25"/><path d="M9 7h6M9 11h6M9 15h6" stroke="currentColor" stroke-width="2" opacity=".9"/></svg>`,
+    chart: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16" stroke="currentColor" stroke-width="2" opacity=".9"/><path d="M7 16l4-5 3 3 5-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>`,
+    lock: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="2" fill="none"/><path d="M6 11h12v10H6z" fill="currentColor" opacity=".25"/></svg>`,
+    cycle: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 13a6 6 0 0 1 10-4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M18 11V6h-5" stroke="currentColor" stroke-width="2"/><path d="M18 11a6 6 0 0 1-10 4" stroke="currentColor" stroke-width="2" fill="none"/><path d="M6 13v5h5" stroke="currentColor" stroke-width="2"/></svg>`,
+    gauge: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4a9 9 0 0 0-9 9v6h18v-6a9 9 0 0 0-9-9Z" fill="currentColor" opacity=".25"/><path d="M12 13l4-4" stroke="currentColor" stroke-width="2"/><path d="M7 19h10" stroke="currentColor" stroke-width="2" opacity=".9"/></svg>`,
+    check: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="3" fill="none" opacity=".9"/></svg>`,
+    thermo: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0Z" fill="currentColor" opacity=".9"/></svg>`,
+    file: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h7l5 5v15H7V2Z" fill="currentColor" opacity=".25"/><path d="M14 2v6h6" stroke="currentColor" stroke-width="2"/><path d="M9 12h6M9 16h6" stroke="currentColor" stroke-width="2" opacity=".9"/></svg>`,
+    tower: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 7 22h10L12 2Z" fill="currentColor" opacity=".25"/><path d="M9 12h6M8 16h8" stroke="currentColor" stroke-width="2" opacity=".9"/></svg>`,
+    shift: `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 1 8 8" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 7v6l4 2" stroke="currentColor" stroke-width="2"/><path d="M4 20h8v-4" stroke="currentColor" stroke-width="2"/></svg>`
+  };
+
+  const normIndustry = (s) => (s || "").toLowerCase().trim();
+  const getLang = () => document.documentElement.lang || "en";
+  const getDict = (lang) => translations[lang] || translations.en;
+
+  let all = [];
+  let view = [];
+  let index = 0;
+
+  function matchesFilter(card) {
+    const active = filters.querySelector(".uc-chip.is-active")?.dataset.ucFilter || "all";
+    const q = (search?.value || "").trim().toLowerCase();
+
+    const ind = normIndustry(card.industry);
+    const okIndustry = active === "all" ? true : ind === active;
+
+    const blob = `${card.industry} ${card.pain} ${card.what} ${card.result} ${card.outcome}`.toLowerCase();
+    const okQuery = q ? blob.includes(q) : true;
+
+    return okIndustry && okQuery;
+  }
+
+  function renderCards() {
+    track.innerHTML = view
+      .map((c) => {
+        const iconSvg = ICONS[c.icon] || ICONS.chart;
+        return `
+          <article class="pc-card uc-card" data-uc-id="${c.id}">
+            <div class="uc-card-strip"></div>
+
+            <div class="uc-head">
+              <div class="uc-badge">${c.industry}</div>
+              <div class="uc-mini" aria-hidden="true">${iconSvg}</div>
+            </div>
+
+            <div class="uc-body">
+              <div class="uc-row">
+                <div class="uc-k">Pain</div>
+                <div class="uc-v">${c.pain}</div>
+              </div>
+
+              <div class="uc-row">
+                <div class="uc-k">What MITE does</div>
+                <div class="uc-v">${c.what}</div>
+              </div>
+
+              <div class="uc-row">
+                <div class="uc-k">Result</div>
+                <div class="uc-v">${c.result}</div>
+              </div>
+
+              <div class="uc-outcome">
+                <span class="uc-outcome-label">Outcome:</span>
+                <span class="uc-outcome-text">${c.outcome}</span>
+              </div>
+            </div>
+          </article>
+        `;
+      })
+      .join("");
+
+    renderDots();
+    requestAnimationFrame(() => slideTo(index));
+  }
+
+  function cardStep() {
+    const cards = Array.from(track.children);
+    if (!cards.length) return 0;
+    const gap = parseFloat(getComputedStyle(track).gap || "0") || 0;
+    return cards[0].getBoundingClientRect().width + gap;
+  }
+
+  function renderDots() {
+    dotsWrap.innerHTML = "";
+    view.forEach((_, i) => {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (i === index ? " is-active" : "");
+      d.addEventListener("click", () => slideTo(i));
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function slideTo(i) {
+    const n = view.length;
+    if (!n) return;
+
+    // loop
+    if (i < 0) i = n - 1;
+    if (i >= n) i = 0;
+    index = i;
+
+    const x = -(index * cardStep());
+    track.style.transform = `translate3d(${x}px,0,0)`;
+
+    Array.from(dotsWrap.querySelectorAll(".dot")).forEach((d, di) => {
+      d.classList.toggle("is-active", di === index);
+    });
+  }
+
+  function applyView() {
+    view = all.filter(matchesFilter);
+    index = 0;
+    renderCards();
+  }
+
+  // chips
+  Array.from(filters.querySelectorAll(".uc-chip")).forEach((btn) => {
+    btn.addEventListener("click", () => {
+      Array.from(filters.querySelectorAll(".uc-chip")).forEach((b) => b.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      applyView();
+    });
+  });
+
+  // search
+  search?.addEventListener("input", () => applyView());
+
+  // arrows
+  prev.addEventListener("click", () => slideTo(index - 1));
+  next.addEventListener("click", () => slideTo(index + 1));
+
+  // swipe
+  let down = false;
+  let startX = 0;
+  root.addEventListener("pointerdown", (e) => { down = true; startX = e.clientX; });
+  root.addEventListener("pointerup", (e) => {
+    if (!down) return;
+    down = false;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) < 40) return;
+    slideTo(index + (dx < 0 ? 1 : -1));
+  });
+
+  window.addEventListener("resize", () => slideTo(index));
+
+  // expose for language switch
+  window.__updateUseCasesCarousel = () => {
+    const dict = getDict(getLang());
+    all = (dict.useCasesReal || translations.en.useCasesReal || []).map((x) => x);
+    applyView();
+  };
+
+  // init
+  window.__updateUseCasesCarousel();
+})();
 
 /* =========================
    BOOT (single)

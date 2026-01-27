@@ -419,80 +419,101 @@
 </div>
 
 
-  <div class="pricing-carousel" id="ucCarousel">
+  <section id="usecases-real" class="section container">
+
+  <div class="section-header">
+    <div class="eyebrow" data-i18n="useReal.eyebrow"></div>
+    <h2 class="section-title" data-i18n="useReal.title"></h2>
+    <p class="section-subtitle" data-i18n="useReal.subtitle"></p>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="uc-toolbar">
+
+    <div class="uc-filters" id="ucFilters" aria-label="Industry filters">
+      <button class="uc-chip is-active" type="button" data-uc-filter="all">All</button>
+      <button class="uc-chip" type="button" data-uc-filter="utilities">Utilities</button>
+      <button class="uc-chip" type="button" data-uc-filter="manufacturing">Manufacturing</button>
+      <button class="uc-chip" type="button" data-uc-filter="infrastructure">Infrastructure</button>
+      <button class="uc-chip" type="button" data-uc-filter="pharma">Pharma</button>
+      <button class="uc-chip" type="button" data-uc-filter="food">Food</button>
+    </div>
+
+    <div class="uc-search">
+      <input
+        id="ucSearch"
+        type="search"
+        placeholder="Search use cases…"
+        aria-label="Search use cases"
+      />
+    </div>
+
+  </div>
+
+  <!-- Carousel -->
+  <div class="uc-carousel">
+
+    <button class="pc-nav pc-prev" type="button" id="ucPrev" aria-label="Previous use case">‹</button>
+
+    <div class="pc-viewport">
+      <div class="pc-track" id="ucTrack">
+        <!-- Use-case cards injected by JS -->
+      </div>
+    </div>
+
+    <button class="pc-nav pc-next" type="button" id="ucNext" aria-label="Next use case">›</button>
+
+  </div>
+
+  <!-- Pagination dots -->
+  <div class="pc-dots" id="ucDots" aria-hidden="true"></div>
+
+</section>
+
+<!-- REAL USE CASES (replace your current ucCarousel block with this) -->
+<section id="usecases-real" class="section container">
+  <div class="section-header">
+    <div class="eyebrow" data-i18n="useReal.eyebrow"></div>
+    <h2 class="section-title" data-i18n="useReal.title"></h2>
+    <p class="section-subtitle" data-i18n="useReal.subtitle"></p>
+  </div>
+
+  <div class="pricing-carousel uc-carousel" id="ucCarousel">
     <div class="uc-toolbar">
       <div class="uc-filters" id="ucFilters" aria-label="Industry filters">
-        <button class="uc-chip is-active" type="button" data-uc-filter="all">All</button>
-        <button class="uc-chip" type="button" data-uc-filter="utilities">Utilities</button>
-        <button class="uc-chip" type="button" data-uc-filter="manufacturing">Manufacturing</button>
-        <button class="uc-chip" type="button" data-uc-filter="infrastructure">Infrastructure</button>
-        <button class="uc-chip" type="button" data-uc-filter="pharma">Pharma</button>
-        <button class="uc-chip" type="button" data-uc-filter="food">Food</button>
-        <!-- добавишь остальные отрасли -->
+        <!-- labels come from JS via data-i18n -->
+        <button class="uc-chip is-active" type="button" data-uc-filter="all" data-i18n="useReal.filter.all"></button>
+        <button class="uc-chip" type="button" data-uc-filter="utilities" data-i18n="useReal.filter.utilities"></button>
+        <button class="uc-chip" type="button" data-uc-filter="manufacturing" data-i18n="useReal.filter.manufacturing"></button>
+        <button class="uc-chip" type="button" data-uc-filter="pharma" data-i18n="useReal.filter.pharma"></button>
+        <button class="uc-chip" type="button" data-uc-filter="food" data-i18n="useReal.filter.food"></button>
+        <button class="uc-chip" type="button" data-uc-filter="infrastructure" data-i18n="useReal.filter.infrastructure"></button>
       </div>
 
-  <div class="uc-search">
-    <input id="ucSearch" type="search" placeholder="Search use cases…" />
-  </div>
-</div>
+      <div class="uc-search">
+        <input
+          id="ucSearch"
+          type="search"
+          data-i18n-placeholder="useReal.searchPh"
+          aria-label="Search use cases"
+        />
+      </div>
+    </div>
 
     <button class="pc-nav pc-prev" type="button" aria-label="Previous" id="ucPrev">‹</button>
 
     <div class="pc-viewport">
       <div class="pc-track" id="ucTrack">
-        <!-- cards injected by JS from translations -->
+        <!-- cards injected by JS -->
       </div>
     </div>
 
     <button class="pc-nav pc-next" type="button" aria-label="Next" id="ucNext">›</button>
 
-    <div class="pc-dots" id="ucDots" aria-hidden="true"></div>
+    <div class="pc-dots" id="ucDots" aria-label="Use cases pagination"></div>
   </div>
 </section>
 
-
-    <section id="use-cases" class="section container">
-      <div class="section-header">
-        <div class="eyebrow" data-i18n="use.eyebrow"></div>
-        <h2 class="section-title" data-i18n="use.title"></h2>
-        <p class="section-subtitle" data-i18n="use.subtitle"></p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="card-inner">
-            <h3 class="card-title" data-i18n="use.card1.title"></h3>
-            <p class="card-text" data-i18n="use.card1.text"></p>
-            <div class="pill-row">
-              <span class="pill" data-i18n="use.card1.pill1"></span>
-              <span class="pill" data-i18n="use.card1.pill2"></span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <h3 class="card-title" data-i18n="use.card2.title"></h3>
-            <p class="card-text" data-i18n="use.card2.text"></p>
-            <div class="pill-row">
-              <span class="pill" data-i18n="use.card2.pill1"></span>
-              <span class="pill" data-i18n="use.card2.pill2"></span>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <h3 class="card-title" data-i18n="use.card3.title"></h3>
-            <p class="card-text" data-i18n="use.card3.text"></p>
-            <div class="pill-row">
-              <span class="pill" data-i18n="use.card3.pill1"></span>
-              <span class="pill" data-i18n="use.card3.pill2"></span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
 
     <!-- HOW IT WORKS -->
     <section id="how" class="section container">
