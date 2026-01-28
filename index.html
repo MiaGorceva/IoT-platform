@@ -1,111 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>MITE — Industrial IIoT Platform for Connected Infrastructure</title>
   <meta name="description" content="MITE is an industrial IIoT platform that connects assets, models business logic, and turns operational data into decisions. Built for operations, engineering, and IT." />
   <link rel="canonical" href="https://mite.club/" />
+
   <meta property="og:title" content="MITE — Industrial IIoT Platform" />
   <meta property="og:description" content="Connect industrial assets, define business logic, and turn operational data into decisions — in one platform." />
   <meta property="og:type" content="website" />
 
-  <!-- Favicon / spider logo -->
   <link rel="icon" href="upload/favicon_mite.png" type="image/png" />
-
-  <!-- Main styles -->
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Google Optimize: должен быть ПЕРЕД gtag.js -->
-<script async src="https://www.googleoptimize.com/optimize.js?id=OPT-5R6SJ2X"></script>
+  <!-- Google Optimize: BEFORE gtag.js -->
+  <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-5R6SJ2X"></script>
 
-<!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WNZ8GSS8XE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNZ8GSS8XE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WNZ8GSS8XE', { 'optimize_id': 'OPT-5R6SJ2X' });
+  </script>
 
-  // GA4 measurement ID
-  gtag('config', 'G-WNZ8GSS8XE', {
-    'optimize_id': 'OPT-5R6SJ2X'
-  });
-</script>
-
-  <!-- Основной скрипт сайта -->
+  <!-- Main script -->
   <script defer src="js/script.js"></script>
-
 </head>
+
 <body>
   <header class="site-header">
     <div class="container nav-inner">
-      <a href="#top" class="logo">
-        <img src="upload/mite-logo-green-w_o-background.webp"
-            alt="MITE — make IoT easy"
-            class="logo-img">
+      <a href="#top" class="logo" aria-label="MITE home">
+        <img
+          src="upload/mite-logo-green-w_o-background.webp"
+          alt="MITE — make IoT easy"
+          class="logo-img"
+        />
       </a>
 
-
-      <nav class="main-nav">
-        <a href="#about" data-i18n="nav.about"></a>
-        <a href="#highlights" data-i18n="nav.platform"></a>
-        <a href="#usecases-real" data-i18n="nav.solutions"></a>
-        <a href="#pricing" data-i18n="nav.pricing"></a>
-        <a href="#faq" data-i18n="nav.faq"></a>
-        <a href="#contact" data-i18n="nav.contact"></a>
+      <nav class="main-nav" aria-label="Primary navigation">
+        <a href="#about" data-i18n="nav.about">Why MITE</a>
+        <a href="#platform" data-i18n="nav.platform">Platform</a>
+        <a href="#usecases" data-i18n="nav.solutions">Solutions</a>
+        <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
         <div class="lang-switch" aria-label="Language switcher">
-          <button type="button" data-lang-btn="en">EN</button>
+          <button type="button" data-lang-btn="en" class="is-active">EN</button>
           <button type="button" data-lang-btn="ru">RU</button>
           <button type="button" data-lang-btn="uk">UK</button>
         </div>
-        <a href="#contact" class="btn btn-outline" data-i18n="nav.demoBtn"></a>
+        <a href="#contact" class="btn btn-outline" data-i18n="nav.demoBtn">Request a demo</a>
       </div>
     </div>
   </header>
 
   <main class="page" id="top">
+
     <!-- HERO -->
     <section class="hero container">
       <div class="hero-grid">
         <div>
           <div class="hero-kicker">
-            <span class="hero-kicker-dot"></span>
-            <span data-i18n="hero.kicker"></span>
+            <span class="hero-kicker-dot" aria-hidden="true"></span>
+            <span data-i18n="hero.kicker">Industrial IoT, delivered</span>
           </div>
-          <h1 class="hero-title" data-i18n="hero.title"></h1>
-          <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
+
+          <h1 class="hero-title" data-i18n="hero.title">
+            Not just another IIoT platform. <span>MITE changes the game.</span>
+          </h1>
+
+          <p class="hero-subtitle" data-i18n="hero.subtitle">
+            Bring structure, logic, and operational data into one unified industrial platform.
+            Connect assets, define business logic, and turn operational data into decisions — in one system.
+          </p>
 
           <div class="hero-cta-row">
-            <a href="#contact" class="btn btn-primary" data-i18n="hero.primaryCta"></a>
-            <a href="#how" class="btn btn-ghost" data-i18n="hero.secondaryCta"></a>
+            <a href="#contact" class="btn btn-primary" data-i18n="hero.primaryCta">Request a demo</a>
+            <a href="#how" class="btn btn-ghost" data-i18n="hero.secondaryCta">Explore the platform</a>
           </div>
 
           <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span>●</span><span data-i18n="hero.meta1"></span>
-            </div>
-            <div class="hero-meta-item">
-              <span>●</span><span data-i18n="hero.meta2"></span>
-            </div>
-            <div class="hero-meta-item">
-              <span>●</span><span data-i18n="hero.meta3"></span>
-            </div>
+            <div class="hero-meta-item"><span aria-hidden="true">●</span><span data-i18n="hero.meta1">From pilots to production-ready industrial deployments</span></div>
+            <div class="hero-meta-item"><span aria-hidden="true">●</span><span data-i18n="hero.meta2">Declarative logic — flexibility without custom code churn</span></div>
+            <div class="hero-meta-item"><span aria-hidden="true">●</span><span data-i18n="hero.meta3">Any logic complexity • any industrial reality • fast iterations</span></div>
           </div>
 
           <div class="hero-card">
-            <span data-i18n="hero.badge"></span>
+            <span data-i18n="hero.badge"><strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong></span>
           </div>
         </div>
 
         <div class="hero-visual" aria-hidden="true">
           <div class="orb-spider">
-            <img src="upload/the most flexible platform ever.png"
-                alt="MITE spider logo"
-                class="orb-spider-img">
+            <img
+              src="upload/the most flexible platform ever.png"
+              alt=""
+              class="orb-spider-img"
+            />
           </div>
-
         </div>
       </div>
     </section>
@@ -114,12 +114,18 @@
       Industrial IoT (IIoT) platform for manufacturing, utilities, smart metering, gateways, sensors, PLC integration, dashboards, workflows, and operational analytics.
     </p>
 
-    <!-- POSITIONING / ABOUT -->
+    <!-- POSITIONING / ABOUT (DO NOT CHANGE ABOVE THIS PER YOUR REQUEST) -->
     <section id="about" class="section container">
       <div class="section-header">
-        <div class="eyebrow" data-i18n="about.eyebrow"></div>
-        <h2 class="section-title" data-i18n="about.title"></h2>
-        <p class="section-subtitle about-text" data-i18n="about.text"></p>
+        <div class="eyebrow" data-i18n="about.eyebrow">Positioning</div>
+        <h2 class="section-title" data-i18n="about.title">One system you control — from data to execution</h2>
+
+        <p class="section-subtitle about-text" data-i18n="about.text">
+          MITE turns operational data into a single, manageable system — not a set of disconnected signals and processes.<br><br>
+          Connect devices, PLCs, meters, gateways, and external systems into one structured operational model.<br><br>
+          Describe rules, workflows, and control logic — and the platform takes care of how it happens: execution stays aligned, deviations are flagged, and results are captured as measurable KPIs.<br><br>
+          Dashboards show real execution, deviations, and outcomes. You manage the system through clear metrics and adapt processes in hours or days — without developers or contractors.
+        </p>
       </div>
 
       <div class="about-grid">
@@ -127,52 +133,65 @@
         <div>
           <div class="about-points">
             <div class="about-point" data-outcome="0">
-              <div class="about-point-icon">●</div>
+              <div class="about-point-icon" aria-hidden="true">●</div>
               <div>
-                <div class="about-point-title" data-i18n="about.point1.title"></div>
-                <div class="about-point-text" data-i18n="about.point1.text"></div>
+                <div class="about-point-title" data-i18n="about.point1.title">One operational model for all data</div>
+                <div class="about-point-text" data-i18n="about.point1.text">
+                  All signals — devices, controllers, systems, and external sources — are unified into a reusable operational model instead of scattered integrations.
+                </div>
               </div>
             </div>
 
             <div class="about-point" data-outcome="1">
-              <div class="about-point-icon">●</div>
+              <div class="about-point-icon" aria-hidden="true">●</div>
               <div>
-                <div class="about-point-title" data-i18n="about.point2.title"></div>
-                <div class="about-point-text" data-i18n="about.point2.text"></div>
+                <div class="about-point-title" data-i18n="about.point2.title">Declarative logic instead of code</div>
+                <div class="about-point-text" data-i18n="about.point2.text">
+                  You define what should happen — not how to implement it. Change rules, workflows, approvals, and actions in hours/days as conditions change, without “custom code chaos”.
+                </div>
               </div>
             </div>
 
             <div class="about-point" data-outcome="2">
-              <div class="about-point-icon">●</div>
+              <div class="about-point-icon" aria-hidden="true">●</div>
               <div>
-                <div class="about-point-title" data-i18n="about.point3.title"></div>
-                <div class="about-point-text" data-i18n="about.point3.text"></div>
+                <div class="about-point-title" data-i18n="about.point3.title">Trust the system, stay in control</div>
+                <div class="about-point-text" data-i18n="about.point3.text">
+                  The platform tracks execution, detects deviations, and ties actions to KPIs — so control is based on facts, not on people constantly watching screens, chats, or spreadsheets.
+                </div>
               </div>
             </div>
 
             <div class="about-point" data-outcome="3">
-              <div class="about-point-icon">●</div>
+              <div class="about-point-icon" aria-hidden="true">●</div>
               <div>
-                <div class="about-point-title" data-i18n="about.point4.title"></div>
-                <div class="about-point-text" data-i18n="about.point4.text"></div>
+                <div class="about-point-title" data-i18n="about.point4.title">Routine runs on autopilot, insights surface automatically</div>
+                <div class="about-point-text" data-i18n="about.point4.text">
+                  Repetitive operational loops are automated. AI-assisted analysis helps surface patterns and opportunities — so results don’t depend on individual heroics.
+                </div>
               </div>
             </div>
-
           </div>
 
           <div class="about-cta-row">
-            <a class="btn btn-primary" href="#contact" data-i18n="about.cta"></a>
+            <a class="btn btn-primary" href="#contact" data-i18n="about.cta">Ask a question</a>
           </div>
         </div>
 
+        <!-- RIGHT: Typical outcomes card -->
         <div class="about-side-card">
-          <div class="about-side-label" data-i18n="about.side.label"></div>
+          <div class="about-side-label" data-i18n="about.side.label">Typical outcomes</div>
 
           <div class="about-side-metric">
-            <div id="outcomeNum" class="about-side-num"></div>
-            <div id="outcomeTitle" class="about-side-title"></div>
-            <div id="outcomeText" class="about-side-text"></div>
-            <ul id="outcomeBullets" class="outcome-bullets"></ul>
+            <div id="outcomeNum" class="about-side-num">Days</div>
+            <div id="outcomeTitle" class="about-side-title">to a working pilot</div>
+            <div id="outcomeText" class="about-side-text">Reusable connectors, a unified data model, and first live workflows.</div>
+            <ul id="outcomeBullets" class="outcome-bullets">
+              <li>Devices and data sources connected</li>
+              <li>Operational model structured once</li>
+              <li>First real process running end-to-end</li>
+              <li class="is-outcome">Outcome: a controllable process with measurable KPIs</li>
+            </ul>
           </div>
 
           <div class="about-side-divider"></div>
@@ -183,532 +202,351 @@
             <button class="outcomes-btn" id="outcomesNext" type="button" aria-label="Next">›</button>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- WHY FLEXIBLE -->
-<div class="flex-block">
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-tag" data-i18n="flex.tag"></div>
-      <h3 class="card-title" data-i18n="flex.title"></h3>
-      <p class="card-text" data-i18n="flex.text"></p>
-
-      <ul class="bullets" style="margin-top:.9rem">
-        <li><span class="dot"></span><span data-i18n="flex.b1"></span></li>
-        <li><span class="dot"></span><span data-i18n="flex.b2"></span></li>
-        <li><span class="dot"></span><span data-i18n="flex.b3"></span></li>
-        <li><span class="dot"></span><span data-i18n="flex.b4"></span></li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-inner">
-      <div class="card-tag" data-i18n="flex.side.tag"></div>
-      <h3 class="card-title" data-i18n="flex.side.title"></h3>
-      <p class="card-text" data-i18n="flex.side.text"></p>
-
-      <div class="pill-row" style="margin-top:.9rem">
-        <span class="pill" data-i18n="flex.p1"></span>
-        <span class="pill" data-i18n="flex.p2"></span>
-        <span class="pill" data-i18n="flex.p3"></span>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-    <!-- HIGHLIGHTS -->
-    <section id="highlights" class="section container">
+    <!-- PLATFORM (under the hood / lsFusion / "why we are so flexible") -->
+    <section id="platform" class="section container">
       <div class="section-header">
-        <div class="eyebrow" data-i18n="highlights.eyebrow"></div>
-        <h2 class="section-title" data-i18n="highlights.title"></h2>
-        <p class="section-subtitle" data-i18n="highlights.subtitle"></p>
+        <div class="eyebrow">Platform</div>
+        <h2 class="section-title">Built for fast change — and serious scale</h2>
+        <p class="section-subtitle">
+          MITE is powered by open-source <a href="https://lsfusion.org" target="_blank" rel="noopener noreferrer">lsFusion</a> — a deeply declarative technology.
+          That’s why you describe logic as business rules, while the platform takes care of execution, consistency, and performance.
+        </p>
       </div>
 
       <div class="grid grid-3">
         <article class="card">
           <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="highlight.logic.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="highlight.logic.title"></h3>
-            <p class="card-text" data-i18n="highlight.logic.text"></p>
-            <div class="card-meta" data-i18n="highlight.logic.meta"></div>
+            <h3 class="card-title">Declarative by design</h3>
+            <p class="card-text">
+              Define “what should happen” in human-readable logic. Change processes without long dev cycles — and keep governance and auditability.
+            </p>
+            <div class="card-meta">Less code • faster iterations • cleaner ownership</div>
           </div>
         </article>
 
         <article class="card">
           <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="highlight.protocols.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="highlight.protocols.title"></h3>
-            <p class="card-text" data-i18n="highlight.protocols.text"></p>
-            <div class="card-meta" data-i18n="highlight.protocols.meta"></div>
+            <h3 class="card-title">Handles real industrial data</h3>
+            <p class="card-text">
+              Billions of records and terabytes of telemetry are normal. One operational model, many scenarios — without performance surprises.
+            </p>
+            <div class="card-meta">Scale logic, not complexity</div>
           </div>
         </article>
 
         <article class="card">
           <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="highlight.scaling.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="highlight.scaling.title"></h3>
-            <p class="card-text" data-i18n="highlight.scaling.text"></p>
-            <div class="card-meta" data-i18n="highlight.scaling.meta"></div>
+            <h3 class="card-title">Infrastructure-friendly</h3>
+            <p class="card-text">
+              Works even on constrained networks. Start small, expand horizontally when needed — without re-architecting your solution.
+            </p>
+            <div class="card-meta">Predictable growth, not fragile deployments</div>
           </div>
         </article>
+      </div>
 
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="highlight.insights.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="highlight.insights.title"></h3>
-            <p class="card-text" data-i18n="highlight.insights.text"></p>
-            <div class="card-meta" data-i18n="highlight.insights.meta"></div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="highlight.open.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="highlight.open.title"></h3>
-            <p class="card-text" data-i18n="highlight.open.text"></p>
-            <div class="card-meta" data-i18n="highlight.open.meta"></div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="highlight.cost.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="highlight.cost.title"></h3>
-            <p class="card-text" data-i18n="highlight.cost.text"></p>
-            <div class="card-meta" data-i18n="highlight.cost.meta"></div>
-          </div>
-        </article>
+      <div class="card platform-story">
+        <div class="card-inner">
+          <h3 class="card-title">More than 7 years in the field — built to evolve</h3>
+          <p class="card-text">
+            We continuously integrate modern technologies to keep teams ahead — not just “monitoring data”, but operating a system that produces outcomes.
+            Our mission is to change how IoT is valued: not as an expense, but as a gateway to new operational capabilities and measurable business advantage.
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- ARCHITECTURE -->
-<section id="architecture" class="section container">
-  <div class="section-header">
-    <div class="eyebrow" data-i18n="arch.eyebrow"></div>
-    <h2 class="section-title" data-i18n="arch.title"></h2>
-    <p class="section-subtitle" data-i18n="arch.subtitle"></p>
-  </div>
+    <!-- HIGHLIGHTS (what powers MITE) -->
+    <section id="highlights" class="section container">
+      <div class="section-header">
+        <div class="eyebrow" data-i18n="highlights.eyebrow">What powers MITE</div>
+        <h2 class="section-title" data-i18n="highlights.title">One platform for devices, logic, and insights</h2>
+        <p class="section-subtitle" data-i18n="highlights.subtitle">
+          MITE is built for industrial teams that need to experiment, scale, and stay in control of their data and processes.
+        </p>
+      </div>
 
-  <div class="arch-grid">
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-tag" data-i18n="arch.flow.tag"></div>
-        <h3 class="card-title" data-i18n="arch.flow.title"></h3>
+      <div class="grid grid-3">
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Business logic</span></div>
+          <h3 class="card-title">Any process complexity</h3>
+          <p class="card-text">Model anything from simple alerts to multi-step workflows. Evolve logic in hours instead of long release cycles.</p>
+          <div class="card-meta">If you can describe the process, you can configure it.</div>
+        </div></article>
 
-        <div class="arch-flow">
-          <div class="arch-step">
-            <div class="arch-step-kicker" data-i18n="arch.flow.s1.k"></div>
-            <div class="arch-step-title" data-i18n="arch.flow.s1.t"></div>
-            <div class="arch-step-text" data-i18n="arch.flow.s1.d"></div>
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Connectivity</span></div>
+          <h3 class="card-title">Any equipment, any vendor</h3>
+          <p class="card-text">Connect PLCs, meters, sensors, controllers, and external systems. Normalize once, reuse everywhere.</p>
+          <div class="card-meta">Industrial + web protocols.</div>
+        </div></article>
+
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Control loop</span></div>
+          <h3 class="card-title">Operate, not just observe</h3>
+          <p class="card-text">Dashboards + rules + actions + KPIs — tied together in one governed execution loop.</p>
+          <div class="card-meta">Visibility that drives action.</div>
+        </div></article>
+
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Insights</span></div>
+          <h3 class="card-title">From data to decisions</h3>
+          <p class="card-text">See real execution and outcomes. Use AI-assisted analysis to surface patterns, risks, and opportunities.</p>
+          <div class="card-meta">Not “more charts” — more control.</div>
+        </div></article>
+
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Open</span></div>
+          <h3 class="card-title">Open API and ecosystem</h3>
+          <p class="card-text">Feed ERP/MES/SCADA/data-lakes or your apps. Keep ownership of data and logic.</p>
+          <div class="card-meta">Your infrastructure, your rules.</div>
+        </div></article>
+
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Value</span></div>
+          <h3 class="card-title">Profit-driven outcomes</h3>
+          <p class="card-text">Less loss. Fewer incidents. Faster rollouts. Measurable effects tied to KPIs and governance.</p>
+          <div class="card-meta">IoT as an investment, not a cost.</div>
+        </div></article>
+      </div>
+    </section>
+
+    <!-- REAL USE CASES (cards injected by JS later) -->
+    <section id="usecases" class="section container">
+      <div class="section-header">
+        <div class="eyebrow" data-i18n="useReal.eyebrow">Real use cases</div>
+        <h2 class="section-title" data-i18n="useReal.title">Operational scenarios teams actually deploy</h2>
+        <p class="section-subtitle" data-i18n="useReal.subtitle">
+          18 proven operational scenarios. Filter by industry and reuse the same platform building blocks across projects.
+        </p>
+      </div>
+
+      <!-- REUSE pricing carousel markup / classes -->
+      <div class="pricing-carousel" id="ucCarousel">
+        <div class="uc-toolbar">
+          <div class="uc-filters" id="ucFilters" aria-label="Industry filters">
+            <button class="uc-chip is-active" type="button" data-uc-filter="all">All</button>
+            <button class="uc-chip" type="button" data-uc-filter="pharma">Pharma</button>
+            <button class="uc-chip" type="button" data-uc-filter="manufacturing">Manufacturing</button>
+            <button class="uc-chip" type="button" data-uc-filter="agriculture">Agriculture</button>
+            <button class="uc-chip" type="button" data-uc-filter="energy">Energy</button>
+            <button class="uc-chip" type="button" data-uc-filter="environment">Environment</button>
+            <button class="uc-chip" type="button" data-uc-filter="smartcities">Smart cities</button>
+            <button class="uc-chip" type="button" data-uc-filter="logistics">Logistics</button>
+            <button class="uc-chip" type="button" data-uc-filter="construction">Construction</button>
           </div>
 
-          <div class="arch-arrow">→</div>
-
-          <div class="arch-step">
-            <div class="arch-step-kicker" data-i18n="arch.flow.s2.k"></div>
-            <div class="arch-step-title" data-i18n="arch.flow.s2.t"></div>
-            <div class="arch-step-text" data-i18n="arch.flow.s2.d"></div>
-          </div>
-
-          <div class="arch-arrow">→</div>
-
-          <div class="arch-step">
-            <div class="arch-step-kicker" data-i18n="arch.flow.s3.k"></div>
-            <div class="arch-step-title" data-i18n="arch.flow.s3.t"></div>
-            <div class="arch-step-text" data-i18n="arch.flow.s3.d"></div>
-          </div>
-
-          <div class="arch-arrow">→</div>
-
-          <div class="arch-step">
-            <div class="arch-step-kicker" data-i18n="arch.flow.s4.k"></div>
-            <div class="arch-step-title" data-i18n="arch.flow.s4.t"></div>
-            <div class="arch-step-text" data-i18n="arch.flow.s4.d"></div>
+          <div class="uc-search">
+            <input id="ucSearch" type="search" placeholder="Search use cases…" aria-label="Search use cases" />
           </div>
         </div>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="card-inner">
-        <div class="card-tag" data-i18n="arch.tech.tag"></div>
-        <h3 class="card-title" data-i18n="arch.tech.title"></h3>
+        <button class="pc-nav pc-prev" type="button" aria-label="Previous use case" id="ucPrev">‹</button>
 
-        <div class="pill-list">
-          <span class="pill" data-i18n="arch.tech.p1"></span>
-          <span class="pill" data-i18n="arch.tech.p2"></span>
-          <span class="pill" data-i18n="arch.tech.p3"></span>
-          <span class="pill" data-i18n="arch.tech.p4"></span>
-          <span class="pill" data-i18n="arch.tech.p5"></span>
-          <span class="pill" data-i18n="arch.tech.p6"></span>
-          <span class="pill" data-i18n="arch.tech.p7"></span>
-          <span class="pill" data-i18n="arch.tech.p8"></span>
+        <div class="pc-viewport">
+          <div class="pc-track" id="ucTrack">
+            <!-- cards injected by JS -->
+          </div>
         </div>
 
-        <div class="muted" style="margin-top:.9rem" data-i18n="arch.tech.note"></div>
+        <button class="pc-nav pc-next" type="button" aria-label="Next use case" id="ucNext">›</button>
+
+        <div class="pc-dots" id="ucDots" aria-label="Use cases carousel pagination"></div>
       </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- USE CASES -->
-
-    <section id="usecases-real" class="section container">
-  <div class="section-header">
-    <div class="eyebrow" data-i18n="useReal.eyebrow"></div>
-    <h2 class="section-title" data-i18n="useReal.title"></h2>
-    <p class="section-subtitle" data-i18n="useReal.subtitle"></p>
-  </div>
-
-  <!-- USE CASES AS STEPS -->
-<div class="uc-steps" aria-label="Use cases steps">
-  <div class="uc-step">
-    <div class="uc-step-num">1</div>
-    <div>
-      <div class="uc-step-title" data-i18n="useReal.step1.t"></div>
-      <div class="uc-step-text" data-i18n="useReal.step1.d"></div>
-    </div>
-  </div>
-
-  <div class="uc-step">
-    <div class="uc-step-num">2</div>
-    <div>
-      <div class="uc-step-title" data-i18n="useReal.step2.t"></div>
-      <div class="uc-step-text" data-i18n="useReal.step2.d"></div>
-    </div>
-  </div>
-
-  <div class="uc-step">
-    <div class="uc-step-num">3</div>
-    <div>
-      <div class="uc-step-title" data-i18n="useReal.step3.t"></div>
-      <div class="uc-step-text" data-i18n="useReal.step3.d"></div>
-    </div>
-  </div>
-
-  <div class="uc-step">
-    <div class="uc-step-num">4</div>
-    <div>
-      <div class="uc-step-title" data-i18n="useReal.step4.t"></div>
-      <div class="uc-step-text" data-i18n="useReal.step4.d"></div>
-    </div>
-  </div>
-</div>
-
-
-  <section id="usecases-real" class="section container">
-
-  <div class="section-header">
-    <div class="eyebrow" data-i18n="useReal.eyebrow"></div>
-    <h2 class="section-title" data-i18n="useReal.title"></h2>
-    <p class="section-subtitle" data-i18n="useReal.subtitle"></p>
-  </div>
-
-  <!-- Toolbar -->
-  <div class="uc-toolbar">
-
-    <div class="uc-filters" id="ucFilters" aria-label="Industry filters">
-      <button class="uc-chip is-active" type="button" data-uc-filter="all">All</button>
-      <button class="uc-chip" type="button" data-uc-filter="utilities">Utilities</button>
-      <button class="uc-chip" type="button" data-uc-filter="manufacturing">Manufacturing</button>
-      <button class="uc-chip" type="button" data-uc-filter="infrastructure">Infrastructure</button>
-      <button class="uc-chip" type="button" data-uc-filter="pharma">Pharma</button>
-      <button class="uc-chip" type="button" data-uc-filter="food">Food</button>
-    </div>
-
-    <div class="uc-search">
-      <input
-        id="ucSearch"
-        type="search"
-        placeholder="Search use cases…"
-        aria-label="Search use cases"
-      />
-    </div>
-
-  </div>
-
-  <!-- Carousel -->
-  <div class="uc-carousel">
-
-    <button class="pc-nav pc-prev" type="button" id="ucPrev" aria-label="Previous use case">‹</button>
-
-    <div class="pc-viewport">
-      <div class="pc-track" id="ucTrack">
-        <!-- Use-case cards injected by JS -->
-      </div>
-    </div>
-
-    <button class="pc-nav pc-next" type="button" id="ucNext" aria-label="Next use case">›</button>
-
-  </div>
-
-  <!-- Pagination dots -->
-  <div class="pc-dots" id="ucDots" aria-hidden="true"></div>
-
-</section>
-
-<!-- REAL USE CASES (replace your current ucCarousel block with this) -->
-<section id="usecases-real" class="section container">
-  <div class="section-header">
-    <div class="eyebrow" data-i18n="useReal.eyebrow"></div>
-    <h2 class="section-title" data-i18n="useReal.title"></h2>
-    <p class="section-subtitle" data-i18n="useReal.subtitle"></p>
-  </div>
-
-  <div class="pricing-carousel uc-carousel" id="ucCarousel">
-    <div class="uc-toolbar">
-      <div class="uc-filters" id="ucFilters" aria-label="Industry filters">
-        <!-- labels come from JS via data-i18n -->
-        <button class="uc-chip is-active" type="button" data-uc-filter="all" data-i18n="useReal.filter.all"></button>
-        <button class="uc-chip" type="button" data-uc-filter="utilities" data-i18n="useReal.filter.utilities"></button>
-        <button class="uc-chip" type="button" data-uc-filter="manufacturing" data-i18n="useReal.filter.manufacturing"></button>
-        <button class="uc-chip" type="button" data-uc-filter="pharma" data-i18n="useReal.filter.pharma"></button>
-        <button class="uc-chip" type="button" data-uc-filter="food" data-i18n="useReal.filter.food"></button>
-        <button class="uc-chip" type="button" data-uc-filter="infrastructure" data-i18n="useReal.filter.infrastructure"></button>
-      </div>
-
-      <div class="uc-search">
-        <input
-          id="ucSearch"
-          type="search"
-          data-i18n-placeholder="useReal.searchPh"
-          aria-label="Search use cases"
-        />
-      </div>
-    </div>
-
-    <button class="pc-nav pc-prev" type="button" aria-label="Previous" id="ucPrev">‹</button>
-
-    <div class="pc-viewport">
-      <div class="pc-track" id="ucTrack">
-        <!-- cards injected by JS -->
-      </div>
-    </div>
-
-    <button class="pc-nav pc-next" type="button" aria-label="Next" id="ucNext">›</button>
-
-    <div class="pc-dots" id="ucDots" aria-label="Use cases pagination"></div>
-  </div>
-</section>
-
+    </section>
 
     <!-- HOW IT WORKS -->
     <section id="how" class="section container">
       <div class="section-header">
-        <div class="eyebrow" data-i18n="how.eyebrow"></div>
-        <h2 class="section-title" data-i18n="how.title"></h2>
-        <p class="section-subtitle" data-i18n="how.subtitle"></p>
+        <div class="eyebrow">How it works</div>
+        <h2 class="section-title">Three steps from device to decision</h2>
+        <p class="section-subtitle">MITE ties devices, logic, actions, and KPIs into one feedback loop.</p>
       </div>
 
       <div class="grid grid-3">
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="how.step1.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="how.step1.title"></h3>
-            <p class="card-text" data-i18n="how.step1.text"></p>
-          </div>
-        </article>
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Step 1</span></div>
+          <h3 class="card-title">Connect and map the reality</h3>
+          <p class="card-text">Onboard devices, gateways, controllers, and external systems. Model sites, assets, and context once.</p>
+        </div></article>
 
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="how.step2.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="how.step2.title"></h3>
-            <p class="card-text" data-i18n="how.step2.text"></p>
-          </div>
-        </article>
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Step 2</span></div>
+          <h3 class="card-title">Describe logic (no code churn)</h3>
+          <p class="card-text">Define rules, workflows, approvals, and actions declaratively. Change fast when operations change.</p>
+        </div></article>
 
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag">
-              <span class="card-tag-dot"></span>
-              <span data-i18n="how.step3.tag"></span>
-            </div>
-            <h3 class="card-title" data-i18n="how.step3.title"></h3>
-            <p class="card-text" data-i18n="how.step3.text"></p>
-          </div>
-        </article>
+        <article class="card"><div class="card-inner">
+          <div class="card-tag"><span class="card-tag-dot"></span><span>Step 3</span></div>
+          <h3 class="card-title">Run, measure, improve</h3>
+          <p class="card-text">Dashboards show execution. Deviations trigger action. KPIs show outcomes. Iterate safely and scale.</p>
+        </div></article>
       </div>
     </section>
 
-    //////////////////
-
-<section id="pricing" class="section container">
-  <div class="section-header">
-    <div class="eyebrow" data-i18n="pricing.eyebrow"></div>
-    <h2 class="section-title" data-i18n="pricing.title"></h2>
-    <p class="section-subtitle" data-i18n="pricing.subtitle"></p>
-  </div>
-
-    <!-- PRICING CAROUSEL -->
-    <div class="pricing-carousel" id="pricingCarousel">
-      <button class="pc-nav pc-prev" type="button" aria-label="Previous plan">‹</button>
-
-      <div class="pc-viewport">
-        <div class="pc-track">
-          <!-- Slide 1 -->
-          <article class="pc-card" data-plan="start">
-            <div class="pc-top">
-              <div class="pc-label" data-i18n="pricing.plan1.label"></div>
-              <h3 class="pc-name" data-i18n="pricing.plan1.name"></h3>
-              <p class="pc-tagline" data-i18n="pricing.plan1.tagline"></p>
-            </div>
-
-            <div class="pc-price" data-i18n="pricing.plan1.price"></div>
-            <div class="pc-note" data-i18n="pricing.plan1.note"></div>
-
-            <ul class="pc-list">
-              <li data-i18n="pricing.plan1.li1"></li>
-              <li data-i18n="pricing.plan1.li2"></li>
-            </ul>
-
-            <a class="btn btn-primary pc-cta" href="#contact" data-i18n="pricing.plan1.cta"></a>
-          </article>
-
-          <!-- Slide 2 -->
-          <article class="pc-card is-featured" data-plan="scale">
-            <div class="pc-top">
-              <div class="pc-label" data-i18n="pricing.plan2.label"></div>
-              <h3 class="pc-name" data-i18n="pricing.plan2.name"></h3>
-              <p class="pc-tagline" data-i18n="pricing.plan2.tagline"></p>
-            </div>
-
-            <div class="pc-price" data-i18n="pricing.plan2.price"></div>
-            <div class="pc-note" data-i18n="pricing.plan2.note"></div>
-
-            <ul class="pc-list">
-              <li data-i18n="pricing.plan2.li1"></li>
-              <li data-i18n="pricing.plan2.li2"></li>
-              <li data-i18n="pricing.plan2.li3"></li>
-            </ul>
-
-            <a class="btn btn-primary pc-cta" href="#contact" data-i18n="pricing.plan2.cta"></a>
-            <div class="pc-cta-note" data-i18n="pricing.plan2.ctaNote"></div>
-          </article>
-
-          <!-- Slide 3 -->
-          <article class="pc-card" data-plan="enterprise">
-            <div class="pc-top">
-              <div class="pc-label" data-i18n="pricing.plan3.label"></div>
-              <h3 class="pc-name" data-i18n="pricing.plan3.name"></h3>
-              <p class="pc-tagline" data-i18n="pricing.plan3.tagline"></p>
-            </div>
-
-            <div class="pc-price" data-i18n="pricing.plan3.price"></div>
-            <div class="pc-note" data-i18n="pricing.plan3.note"></div>
-
-            <ul class="pc-list">
-              <li data-i18n="pricing.plan3.li1"></li>
-              <li data-i18n="pricing.plan3.li2"></li>
-              <li data-i18n="pricing.plan3.li3"></li>
-            </ul>
-
-            <a class="btn btn-primary pc-cta" href="#contact" data-i18n="pricing.plan3.cta"></a>
-          </article>
-
-          <!-- Slide 4: Custom Free → €100 -->
-          <article class="pc-card pc-custom" data-plan="custom">
-            <div class="pc-top">
-              <div class="pc-label" data-i18n="pricing.plan4.label"></div>
-              <h3 class="pc-name" data-i18n="pricing.plan4.name"></h3>
-              <p class="pc-tagline" data-i18n="pricing.plan4.tagline"></p>
-            </div>
-
-            <div class="pc-price">
-              <span class="pc-price-big" data-i18n="pricing.plan4.price"></span>
-            </div>
-            <div class="pc-note" data-i18n="pricing.plan4.note"></div>
-
-            <ul class="pc-list">
-              <li data-i18n="pricing.plan4.li1"></li>
-              <li data-i18n="pricing.plan4.li2"></li>
-              <li data-i18n="pricing.plan4.li3"></li>
-            </ul>
-
-            <a class="btn btn-primary pc-cta" href="#contact" data-i18n="pricing.plan4.cta"></a>
-          </article>
-        </div>
+    <!-- PRICING -->
+    <section id="pricing" class="section container">
+      <div class="section-header">
+        <div class="eyebrow">Pricing</div>
+        <h2 class="section-title">Plans for pilots, products, and platforms</h2>
+        <p class="section-subtitle">Start free, validate fast, scale predictably.</p>
       </div>
 
-      <button class="pc-nav pc-next" type="button" aria-label="Next plan">›</button>
+      <div class="pricing-carousel" id="pricingCarousel">
+        <button class="pc-nav pc-prev" type="button" aria-label="Previous plan">‹</button>
 
-      <div class="pc-dots" id="pricingDots" aria-label="Pricing carousel pagination"></div>
-    </div>
-</section>
+        <div class="pc-viewport">
+          <div class="pc-track">
 
-
-    <!-- TESTIMONIAL + FAQ -->
-    <section class="section container">
-      <div class="two-column">
-        <!-- Testimonials -->
-        <div>
-          <div class="section-header">
-            <div class="eyebrow" data-i18n="testimonials.eyebrow"></div>
-            <h2 class="section-title" data-i18n="testimonials.title"></h2>
-            <p class="section-subtitle" data-i18n="testimonials.subtitle"></p>
-          </div>
-
-          <article class="card">
-            <div class="card-inner">
-              <p class="card-text" data-i18n="testimonials.quote1.text"></p>
-              <div class="card-meta">
-                <span data-i18n="testimonials.quote1.author"></span> ·
-                <span data-i18n="testimonials.quote1.role"></span>
+            <!-- FREE: up to 10 devices -->
+            <article class="pc-card" data-plan="free">
+              <div class="pc-top">
+                <div class="pc-label">Free</div>
+                <h3 class="pc-name">Starter</h3>
+                <p class="pc-tagline">Perfect to explore MITE and validate one scenario.</p>
               </div>
-            </div>
-          </article>
+
+              <div class="pc-price"><strong>€0</strong> / month</div>
+              <div class="pc-note">Up to 10 devices · Core platform access</div>
+
+              <ul class="pc-list">
+                <li>Dashboards + alerts</li>
+                <li>Basic rules + workflows</li>
+                <li>Export / API access</li>
+              </ul>
+
+              <a class="btn btn-primary pc-cta" href="#contact">Request access</a>
+            </article>
+
+            <!-- Start -->
+            <article class="pc-card" data-plan="start">
+              <div class="pc-top">
+                <div class="pc-label">For pilots</div>
+                <h3 class="pc-name">Start</h3>
+                <p class="pc-tagline">Ideal for quick PoC and first real operational loop.</p>
+              </div>
+
+              <div class="pc-price">From €9.99 / month</div>
+              <div class="pc-note">Limited devices, full core features.</div>
+
+              <ul class="pc-list">
+                <li>Fast onboarding and templates</li>
+                <li>Standard industrial/web protocols</li>
+              </ul>
+
+              <a class="btn btn-primary pc-cta" href="#contact">Start a pilot</a>
+            </article>
+
+            <!-- Scale -->
+            <article class="pc-card is-featured" data-plan="scale">
+              <div class="pc-top">
+                <div class="pc-label">For rollouts</div>
+                <h3 class="pc-name">Scale</h3>
+                <p class="pc-tagline">Take one successful scenario into multiple sites.</p>
+              </div>
+
+              <div class="pc-price">From €99 / month</div>
+              <div class="pc-note">Balanced package of devices, governance, support.</div>
+
+              <ul class="pc-list">
+                <li>Advanced workflows + approvals</li>
+                <li>Integrations with enterprise systems</li>
+                <li>Priority support during rollout</li>
+              </ul>
+
+              <a class="btn btn-primary pc-cta" href="#contact">Talk to sales</a>
+              <div class="pc-cta-note">We align the plan to your rollout strategy.</div>
+            </article>
+
+            <!-- Enterprise -->
+            <article class="pc-card" data-plan="enterprise">
+              <div class="pc-top">
+                <div class="pc-label">Enterprise / OEM</div>
+                <h3 class="pc-name">Enterprise</h3>
+                <p class="pc-tagline">When MITE becomes the core of your infrastructure.</p>
+              </div>
+
+              <div class="pc-price">Custom pricing</div>
+              <div class="pc-note">Multi-site · white-label · custom SLAs.</div>
+
+              <ul class="pc-list">
+                <li>Large-scale deployments</li>
+                <li>OEM / white-label options</li>
+                <li>Custom governance model</li>
+              </ul>
+
+              <a class="btn btn-primary pc-cta" href="#contact">Book a strategy session</a>
+            </article>
+
+          </div>
         </div>
 
-        <!-- FAQ -->
-        <div id="faq">
-          <div class="section-header">
-            <div class="eyebrow" data-i18n="faq.eyebrow"></div>
-            <h2 class="section-title" data-i18n="faq.title"></h2>
-            <p class="section-subtitle" data-i18n="faq.subtitle"></p>
-          </div>
+        <button class="pc-nav pc-next" type="button" aria-label="Next plan">›</button>
+        <div class="pc-dots" id="pricingDots" aria-label="Pricing carousel pagination"></div>
+      </div>
+    </section>
 
-          <div class="faq-list">
-            <div class="faq-item">
-              <div class="faq-q" data-i18n="faq.q1"></div>
-              <div class="faq-a" data-i18n="faq.a1"></div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q" data-i18n="faq.q2"></div>
-              <div class="faq-a" data-i18n="faq.a2"></div>
-            </div>
-            <div class="faq-item">
-              <div class="faq-q" data-i18n="faq.q3"></div>
-              <div class="faq-a" data-i18n="faq.a3"></div>
-            </div>
-          </div>
+    <!-- TESTIMONIALS -->
+    <section class="section container" id="testimonials">
+      <div class="section-header">
+        <div class="eyebrow">Customer voice</div>
+        <h2 class="section-title">Teams choose MITE when they need outcomes — not just dashboards</h2>
+        <p class="section-subtitle">A few examples of what customers value most.</p>
+      </div>
+
+      <div class="grid grid-2">
+        <article class="card"><div class="card-inner">
+          <p class="card-text">“We stopped chasing incidents in chat. Now deviations create tasks, execution is tracked, and KPIs show the real impact.”</p>
+          <div class="card-meta">Operations Director · Manufacturing</div>
+        </div></article>
+
+        <article class="card"><div class="card-inner">
+          <p class="card-text">“The key was changing logic fast. We tuned thresholds and workflows weekly — without waiting for developers — and saw results immediately.”</p>
+          <div class="card-meta">Head of Engineering · Distributed infrastructure</div>
+        </div></article>
+
+        <article class="card"><div class="card-inner">
+          <p class="card-text">“Audit readiness became easier: deviations, approvals, and reports live in one place. Less manual evidence gathering.”</p>
+          <div class="card-meta">Quality & Compliance Lead · Pharma</div>
+        </div></article>
+
+        <article class="card"><div class="card-inner">
+          <p class="card-text">“We scaled from one pilot to multiple sites without rebuilding integrations every time. The rollout became predictable.”</p>
+          <div class="card-meta">Program Manager · Utilities</div>
+        </div></article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section container">
+      <div class="section-header">
+        <div class="eyebrow">FAQ</div>
+        <h2 class="section-title">Questions your IT and operations teams will ask</h2>
+        <p class="section-subtitle">Practical answers about integration, security, and ownership.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">How does MITE integrate with our IT/OT landscape?</div>
+          <div class="faq-a">MITE supports industrial + web protocols and exposes an open API. We can push/pull data to ERP/MES/SCADA/data lakes or custom apps. You control where data lives.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Do we need developers to change workflows?</div>
+          <div class="faq-a">No. With declarative logic, you describe what should happen. Operations teams can adjust rules, routes, approvals, and KPIs without long dev cycles.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is MITE suitable for regulated industries?</div>
+          <div class="faq-a">Yes. You can keep audit trails, approvals, and traceability as part of execution. Reports and evidence are generated from the same governed process, not assembled manually.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What happens if we need a new mechanism or capability?</div>
+          <div class="faq-a">If it’s a platform-level improvement (not a narrow local-only request), we typically generalize it and deliver it quickly — so you don’t pay for “one-off” plumbing.</div>
         </div>
       </div>
     </section>
@@ -717,90 +555,79 @@
     <section id="contact" class="section container">
       <div class="two-column">
         <div class="section-header">
-          <div class="eyebrow" data-i18n="contact.eyebrow"></div>
-          <h2 class="section-title" data-i18n="contact.title"></h2>
-          <p class="section-subtitle" data-i18n="contact.subtitle"></p>
+          <div class="eyebrow">Contact</div>
+          <h2 class="section-title">Tell us what you want to control — we’ll map the first win</h2>
+          <p class="section-subtitle">
+            Share a short description of your infrastructure and the outcome you want. We’ll propose the best first step and show how it scales.
+          </p>
         </div>
 
         <div class="contact-card">
           <form class="form-grid" autocomplete="on">
             <div class="form-grid form-row-2">
               <div>
-                <label for="name" data-i18n="contact.nameLabel"></label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  data-i18n-placeholder="contact.namePlaceholder"
-                />
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" />
               </div>
               <div>
-                <label for="email" data-i18n="contact.emailLabel"></label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  data-i18n-placeholder="contact.emailPlaceholder"
-                />
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" placeholder="you@company.com" />
               </div>
             </div>
 
             <div class="form-grid form-row-2">
               <div>
-                <label for="company" data-i18n="contact.companyLabel"></label>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  data-i18n-placeholder="contact.companyPlaceholder"
-                />
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" placeholder="Company name" />
               </div>
               <div>
-                <label for="size" data-i18n="contact.sizeLabel"></label>
-                <input
-                  id="size"
-                  name="size"
-                  type="text"
-                  data-i18n-placeholder="contact.sizePlaceholder"
-                />
+                <label for="size">Scale</label>
+                <input id="size" name="size" type="text" placeholder="Sites / lines / assets" />
               </div>
             </div>
 
             <div>
-              <label for="message" data-i18n="contact.messageLabel"></label>
-              <textarea
-                id="message"
-                name="message"
-                rows="4"
-                data-i18n-placeholder="contact.messagePlaceholder"
-              ></textarea>
+              <label for="message">What would you like to achieve with MITE?</label>
+              <textarea id="message" name="message" rows="4" placeholder="Describe your current situation and desired outcome."></textarea>
             </div>
 
             <div class="pricing-cta-row">
-              <button type="submit" class="btn btn-primary" data-i18n="contact.submit"></button>
-              <span class="form-footnote" data-i18n="contact.legal"></span>
+              <button type="submit" class="btn btn-primary">Send request</button>
+              <span class="form-footnote">
+                By sending the form you agree that we may contact you about MITE and process your data according to our privacy policy.
+              </span>
             </div>
           </form>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div data-i18n="footer.note"></div>
+      <div>© <span id="y"></span> MITE — Industrial IoT platform for outcome-driven industrial teams.</div>
+
       <div class="footer-links">
-        <a href="/privacy-policy.html" data-i18n="footer.privacy"></a>
-        <a href="#top" data-i18n="footer.backToTop"></a>
+        <a href="/privacy-policy.html">Privacy policy</a>
+        <a href="/mite-eco.html">MITE-ECO devices</a>
+        <a href="#top">Back to top</a>
+      </div>
+
+      <div class="footer-social" aria-label="Social links">
+        <!-- Replace href later with your real profiles -->
+        <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+        <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube">yt</a>
+        <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
       </div>
     </div>
   </footer>
 
   <!-- Quick contact sticky button -->
-<button class="quick-contact" type="button" id="quickBtn">
-  <span class="quick-dot" aria-hidden="true"></span>
-  <span class="quick-label" id="quickLabel" data-i18n="quick.label"></span>
-</button>
+  <button class="quick-contact" type="button" id="quickBtn">
+    <span class="quick-dot" aria-hidden="true"></span>
+    <span class="quick-label" id="quickLabel">Ask / Contact</span>
+  </button>
 
   <!-- Drawer overlay -->
   <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
@@ -808,34 +635,33 @@
   <!-- Drawer -->
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
     <div class="drawer-head">
-      <div class="drawer-title" id="drawerTitle" data-i18n="quick.title"></div>
+      <div class="drawer-title" id="drawerTitle">Quick question</div>
       <button class="drawer-close" type="button" id="drawerClose" aria-label="Close">×</button>
     </div>
 
     <div class="drawer-body">
       <form class="drawer-form" id="quickForm">
         <div>
-          <label data-i18n="quick.nameLabel"></label>
-          <input type="text" id="qName" data-i18n-placeholder="quick.namePh">
+          <label>Name</label>
+          <input type="text" id="qName" placeholder="Your name" />
         </div>
         <div>
-          <label data-i18n="quick.emailLabel"></label>
-          <input type="email" id="qEmail" data-i18n-placeholder="quick.emailPh">
+          <label>Email</label>
+          <input type="email" id="qEmail" placeholder="you@company.com" />
         </div>
         <div>
-          <label data-i18n="quick.msgLabel"></label>
-          <textarea id="qMsg" rows="3" data-i18n-placeholder="quick.msgPh"></textarea>
+          <label>Message</label>
+          <textarea id="qMsg" rows="3" placeholder="What do you want to control or automate?"></textarea>
         </div>
 
         <div class="drawer-actions">
-          <button class="btn btn-ghost" type="button" id="drawerCancel" data-i18n="quick.cancel"></button>
-          <button class="btn btn-primary" type="submit" data-i18n="quick.send"></button>
+          <button class="btn btn-ghost" type="button" id="drawerCancel">Cancel</button>
+          <button class="btn btn-primary" type="submit">Send</button>
         </div>
 
-        <div class="drawer-note" data-i18n="quick.note"></div>
+        <div class="drawer-note">We’ll respond with a practical first step and expected outcomes.</div>
       </form>
     </div>
   </div>
-
 </body>
 </html>
