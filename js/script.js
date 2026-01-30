@@ -260,38 +260,168 @@ function setupOutcomes() {
   render();
 }
 
-/* -------------------------
-   Use-cases data (placeholder list)
-   NOTE: you will replace this with your “meaty” 18 cards next step.
-   Structure: { industry, title, pain, how, result, icon }
-------------------------- */
 const useCases = [
-  // оставляю 3 заглушки чтобы код работал (ты попросишь — я заменю на 18 “мясных”)
+  /* ================= PHARMA (cold chain — ключевой) ================= */
   {
     industry: "pharma",
-    title: "Cold-chain compliance with auto reporting",
-    pain: "Manual reconciliation across warehouses, trucks, borders, and different sensors.",
-    how: "Unified model + route context + rule ladder + audit trail exports.",
-    result: "Less spoilage risk + faster audits + lower ops cost.",
+    title: "Cold-chain monitoring with automatic compliance reporting",
+    pain: "Temperature excursions across warehouses, trucks, borders, and pharmacies lead to manual reconciliation and audit stress.",
+    how: "Unified model for sensors in storage and transport, route context, time-based rules per drug type, automatic excursion tracking and report generation.",
+    result: "Lower spoilage risk, faster audits, and reduced manual compliance effort.",
     icon: "pharma"
   },
+
+  /* ================= MANUFACTURING (8 кейсов) ================= */
   {
     industry: "manufacturing",
     title: "Downtime: detect → classify → assign → verify",
-    pain: "Stops repeat because actions are not governed — only dashboards exist.",
-    how: "Rules + routing by line/reason + CAPA tasks + shift handover KPIs.",
-    result: "Higher throughput + fewer repeated stops.",
+    pain: "Stops repeat because causes are logged inconsistently and actions are not enforced.",
+    how: "PLC signals + operator input → rule-based classification → task routing → KPI tracking per line and shift.",
+    result: "Reduced repeated downtime and higher throughput.",
     icon: "factory"
   },
   {
+    industry: "manufacturing",
+    title: "Energy cost per batch and per product",
+    pain: "Energy bills grow, but true cost drivers by product are invisible.",
+    how: "Meters + batch context → normalization rules → deviation alerts → cost KPIs per product.",
+    result: "Early waste detection and better margin control.",
+    icon: "factory"
+  },
+  {
+    industry: "manufacturing",
+    title: "Maintenance triggers based on real usage",
+    pain: "Preventive schedules don’t reflect real wear, causing over- or under-maintenance.",
+    how: "Runtime counters + condition signals → trend rules → work order workflows.",
+    result: "Fewer unplanned stops and better maintenance planning.",
+    icon: "factory"
+  },
+  {
+    industry: "manufacturing",
+    title: "Quality drift detection before scrap",
+    pain: "Quality issues are found too late, after material is wasted.",
+    how: "Process parameters + tolerance rules → early deviation alerts → corrective action tracking.",
+    result: "Less scrap and more stable output quality.",
+    icon: "factory"
+  },
+  {
+    industry: "manufacturing",
+    title: "Shift handover with enforced follow-ups",
+    pain: "Problems disappear between shifts and repeat every week.",
+    how: "Shift KPIs + unresolved issues → automatic carry-over tasks and ownership.",
+    result: "Cleaner handovers and fewer recurring issues.",
+    icon: "factory"
+  },
+  {
+    industry: "manufacturing",
+    title: "OEE with closed-loop improvement",
+    pain: "OEE dashboards exist, but no action follows.",
+    how: "Event → reason → action → KPI loop tied together in one workflow.",
+    result: "OEE that actually improves, not just reports.",
+    icon: "factory"
+  },
+  {
+    industry: "manufacturing",
+    title: "Line imbalance and bottleneck detection",
+    pain: "Throughput loss caused by hidden micro-stops.",
+    how: "Cycle time analysis + correlation rules → targeted improvement tasks.",
+    result: "Higher line efficiency without new equipment.",
+    icon: "factory"
+  },
+  {
+    industry: "manufacturing",
+    title: "Commissioning and acceptance verification",
+    pain: "New lines go live with hidden configuration issues.",
+    how: "Acceptance checklist rules + telemetry validation → sign-off workflow.",
+    result: "Fewer post-launch surprises.",
+    icon: "factory"
+  },
+
+  /* ================= AGRICULTURE (4 кейса) ================= */
+  {
     industry: "agriculture",
-    title: "Barn microclimate control with alerts",
-    pain: "Human factor: late reaction to temperature/humidity drift.",
-    how: "Sensors → rules → alerts → action workflow + KPI trend history.",
-    result: "Lower losses + stable conditions with less supervision.",
+    title: "Barn microclimate control",
+    pain: "Late reaction to temperature and humidity drift increases livestock loss.",
+    how: "Sensors → age-aware thresholds → alerts → action workflows.",
+    result: "Lower mortality and reduced human factor.",
     icon: "agro"
+  },
+  {
+    industry: "agriculture",
+    title: "Water consumption and leakage monitoring",
+    pain: "Water losses go unnoticed until bills arrive.",
+    how: "Flow meters + zone logic → night-profile anomaly detection.",
+    result: "Reduced water loss and faster response.",
+    icon: "agro"
+  },
+  {
+    industry: "agriculture",
+    title: "Feed efficiency tracking",
+    pain: "Feed cost rises, but efficiency per group is unclear.",
+    how: "Feed input + growth data → KPI correlation and alerts.",
+    result: "Better feed conversion and cost control.",
+    icon: "agro"
+  },
+  {
+    industry: "agriculture",
+    title: "Animal health trend monitoring",
+    pain: "Health issues detected only after visible symptoms.",
+    how: "Wearable sensors + trend rules → early warnings.",
+    result: "Earlier intervention and reduced losses.",
+    icon: "agro"
+  },
+
+  /* ================= ENERGY ================= */
+  {
+    industry: "energy",
+    title: "Battery health and predictive replacement",
+    pain: "Unexpected battery failures cause outages.",
+    how: "Charge cycles + temperature trends → degradation rules.",
+    result: "Predictable maintenance and fewer outages.",
+    icon: "energy"
+  },
+
+  /* ================= ENVIRONMENT ================= */
+  {
+    industry: "environment",
+    title: "Air quality monitoring and impact maps",
+    pain: "Pollution data exists, but is fragmented and hard to interpret.",
+    how: "Sensors + wind context → spatial correlation and heatmaps.",
+    result: "Clear visibility into environmental impact zones.",
+    icon: "env"
+  },
+
+  /* ================= SMART CITIES ================= */
+  {
+    industry: "smartcities",
+    title: "Adaptive street lighting",
+    pain: "Lights run full power regardless of traffic or time.",
+    how: "Motion + schedule rules → dynamic lighting control.",
+    result: "Lower energy cost with maintained safety.",
+    icon: "city"
+  },
+
+  /* ================= LOGISTICS ================= */
+  {
+    industry: "logistics",
+    title: "Shipment condition tracking",
+    pain: "Damage claims without proof of when conditions were violated.",
+    how: "Sensor data + route context → incident timeline and reports.",
+    result: "Fewer disputes and clearer responsibility.",
+    icon: "logistics"
+  },
+
+  /* ================= CONSTRUCTION ================= */
+  {
+    industry: "construction",
+    title: "Equipment utilization on sites",
+    pain: "Machinery sits idle while schedules slip.",
+    how: "Runtime tracking + utilization rules.",
+    result: "Higher equipment ROI and better planning.",
+    icon: "construction"
   }
 ];
+
 
 /* -------------------------
    Use-cases render + filters + search
