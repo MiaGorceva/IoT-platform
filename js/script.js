@@ -279,6 +279,192 @@ const translations = {
     "footer.backToTop": "Back to top",
   },
 
+  /* =========================
+       PLATFORM (under the hood)
+    ========================= */
+    "platform.eyebrow": "Under the hood",
+    "platform.title": "Built for fast change — and serious scale",
+    "platform.subtitle":
+      `MITE is powered by open-source <a href="https://lsfusion.org" target="_blank" rel="noopener noreferrer">lsFusion</a> — a deeply declarative technology.
+       That’s why you describe logic as business rules, while the platform takes care of execution, consistency, and performance.`,
+
+    platformCards: [
+      {
+        title: "Developed on lsFusion — declarative by design",
+        text:
+          "Describe what needs to happen in business terms. The platform figures out how to execute it — so you don’t burn months on custom code and rework.",
+        meta: "Change logic in hours/days • no “developer bottleneck”"
+      },
+      {
+        title: "Customize processes without technical pain",
+        text:
+          "Operations can adjust workflows, approvals, alerts, escalations, and KPIs without turning every change into a development project.",
+        meta: "Business logic stays editable and governed"
+      },
+      {
+        title: "Scale without performance surprises",
+        text:
+          "Built to handle high volumes: billions of records, terabytes of data, and thousands of concurrent users — while keeping logic consistent.",
+        meta: "Serious data • serious concurrency • predictable behavior"
+      }
+    ],
+
+    "platform.story.title": "More than 7 years in real industrial work",
+    "platform.story.text":
+      "MITE is not “monitoring software”. It’s an operating model for IoT: signals become governed decisions and actions, with measurable outcomes. " +
+      "We continuously strengthen the platform with generalized improvements (not narrow one-offs), so customers get new capabilities fast — without being charged for plumbing.",
+
+    /* =========================
+       HIGHLIGHTS (12)
+       (avoid “templates limitation” — wording emphasizes “anything you can describe”)
+    ========================= */
+    "highlights.eyebrow": "Platform highlights",
+    "highlights.title": "Any process you can describe — automated and measurable",
+    "highlights.subtitle":
+      "MITE turns IoT into a controlled execution loop: data → logic → action → KPI. You’re not limited to predefined scenarios — you evolve the platform as operations evolve.",
+
+    highlightsItems: [
+      {
+        tag: "Declarative logic",
+        title: "Describe what to do — not how to code it",
+        text: "Turn business rules into execution. Change workflows fast without rewriting integrations or rebuilding apps.",
+        meta: "No custom-code churn"
+      },
+      {
+        tag: "Operational model",
+        title: "One model for assets, sites, and context",
+        text: "Unify devices, controllers, meters, and external systems into a coherent structure teams can reuse.",
+        meta: "Less fragmentation"
+      },
+      {
+        tag: "Governed execution",
+        title: "Actions, ownership, and proof — built-in",
+        text: "Every deviation can trigger an owned task, approvals, escalation ladders, and closure evidence.",
+        meta: "Accountability by design"
+      },
+      {
+        tag: "KPIs that mean something",
+        title: "KPIs from real execution, not manual reporting",
+        text: "Dashboards reflect what was done, what failed, and what improved — tied to the same logic that runs the process.",
+        meta: "No spreadsheet theater"
+      },
+      {
+        tag: "Fast iteration",
+        title: "Tune logic weekly — or daily — safely",
+        text: "Adjust thresholds, routes, and decision logic without risky deployments. Test, refine, and roll out confidently.",
+        meta: "Change without chaos"
+      },
+      {
+        tag: "AI-assisted insights",
+        title: "Find patterns your team doesn’t have time to see",
+        text: "Surface anomalies, correlations, and operational opportunities — directly inside the workflow, not in separate tooling.",
+        meta: "Insights → action"
+      },
+      {
+        tag: "Integrations",
+        title: "Connect any industrial reality",
+        text: "Industrial + web protocols, API-first design. Normalize once, reuse across sites and scenarios.",
+        meta: "Any vendor ecosystem"
+      },
+      {
+        tag: "Data volume",
+        title: "High-throughput telemetry, clean logic",
+        text: "Handle large datasets without turning every report or rule into a performance nightmare.",
+        meta: "Built for scale"
+      },
+      {
+        tag: "Auditability",
+        title: "Traceability for regulated environments",
+        text: "Immutable history, approvals, roles, and evidence generation — aligned with compliance workflows.",
+        meta: "Audit-ready by default"
+      },
+      {
+        tag: "Security",
+        title: "Roles, access, and operational governance",
+        text: "Control who can change what, track changes, and keep operational decisions explainable.",
+        meta: "Secure execution"
+      },
+      {
+        tag: "Deployment",
+        title: "Start small, expand predictably",
+        text: "Pilot fast, then scale horizontally as needed. Keep the same logic and governance as scope grows.",
+        meta: "Predictable rollout"
+      },
+      {
+        tag: "Business value",
+        title: "Profit-driven outcomes",
+        text: "Reduce loss, incidents, downtime, and manual work. Make improvements measurable and repeatable.",
+        meta: "IoT as investment"
+      }
+    ],
+
+    /* =========================
+       TESTIMONIALS (4+)
+    ========================= */
+    "testimonials.eyebrow": "Customer voice",
+    "testimonials.title": "Teams choose MITE for outcomes — not dashboards",
+    "testimonials.subtitle": "A few examples of what industrial teams value most.",
+
+    testimonialsItems: [
+      {
+        text:
+          "“We stopped chasing incidents in chat. Now deviations create tasks, execution is tracked, and KPIs show the real impact.”",
+        meta: "Operations Director · Manufacturing"
+      },
+      {
+        text:
+          "“The key was changing logic fast. We tuned thresholds and workflows weekly — without waiting for developers — and saw results immediately.”",
+        meta: "Head of Engineering · Distributed infrastructure"
+      },
+      {
+        text:
+          "“Audit readiness became easier: deviations, approvals, and reports live in one place. Less manual evidence gathering.”",
+        meta: "Quality & Compliance Lead · Pharma"
+      },
+      {
+        text:
+          "“We scaled from one scenario to multiple sites without rebuilding integrations every time. The rollout became predictable.”",
+        meta: "Program Manager · Utilities"
+      }
+    ],
+
+    /* =========================
+       FAQ (include GDPR)
+    ========================= */
+    "faq.eyebrow": "FAQ",
+    "faq.title": "Questions IT and operations will ask",
+    "faq.subtitle": "Practical answers about integration, security, ownership, and compliance.",
+
+    faqItems: [
+      {
+        q: "How does MITE integrate with our existing systems?",
+        a:
+          "MITE supports industrial and web protocols and provides an open API. You can integrate with ERP/MES/SCADA/data lakes or custom apps, and keep control over where data lives."
+      },
+      {
+        q: "Do we need developers to change workflows and rules?",
+        a:
+          "No. MITE is built around declarative logic: you describe what should happen, and the platform executes it. Teams can adjust rules, routes, approvals, and KPIs without long dev cycles."
+      },
+      {
+        q: "Is MITE suitable for regulated industries (pharma, food, utilities)?",
+        a:
+          "Yes. You can build traceability into execution: roles, approvals, deviation workflows, and audit history. Reports and evidence come from the same governed process — not from manual compilation."
+      },
+      {
+        q: "How do you handle GDPR and data privacy?",
+        a:
+          "MITE supports role-based access, audit trails, and controlled data handling. You can define data retention, access policies, and processing rules aligned with GDPR requirements. " +
+          "Where needed, we help structure compliance-ready exports and evidence from the same governed workflows."
+      },
+      {
+        q: "What if we need a new mechanism or capability?",
+        a:
+          "If it’s a platform-level improvement (not a narrow one-off), we typically generalize it and deliver it quickly — so you don’t pay for plumbing that strengthens the whole platform."
+      }
+    ]
+  },
+
   // fallback now
   ru: {},
   uk: {}
@@ -297,22 +483,17 @@ function applyTranslations(lang = "en") {
   const dict = getDict(lang);
   document.documentElement.lang = lang;
 
-  // SEO
   if (dict["seo.title"]) document.title = dict["seo.title"];
   const meta = document.querySelector('meta[name="description"]');
   if (meta && dict["seo.description"]) meta.setAttribute("content", dict["seo.description"]);
 
-  // text nodes
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const value = dict[key];
     if (value === undefined || value === null) return;
-    if (typeof value === "string") {
-      el.innerHTML = value.replace(/\n\n/g, "<br><br>");
-    }
+    el.innerHTML = typeof value === "string" ? value.replace(/\n\n/g, "<br><br>") : el.innerHTML;
   });
 
-  // placeholders
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     const value = dict[key];
@@ -320,17 +501,133 @@ function applyTranslations(lang = "en") {
     el.setAttribute("placeholder", value);
   });
 
-  // active lang buttons
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     const code = btn.getAttribute("data-lang-btn");
     btn.classList.toggle("is-active", code === lang);
   });
 
-  // update dynamic widgets
   window.__updateOutcomes?.();
   window.__updateUseCases?.();
+
+  // new renders
+  renderPlatform();
+  renderHighlights();
+  renderTestimonials();
+  renderFAQ();
 }
 
+/* -------------------------
+   RENDER: Platform cards
+------------------------- */
+function renderPlatform() {
+  const wrap = document.getElementById("platformCards");
+  if (!wrap) return;
+
+  const dict = getDict(document.documentElement.lang || "en");
+  const cards = dict.platformCards || translations.en.platformCards || [];
+
+  wrap.innerHTML = cards.map((c) => `
+    <article class="card">
+      <div class="card-inner">
+        <h3 class="card-title">${c.title}</h3>
+        <p class="card-text">${c.text}</p>
+        <div class="card-meta">${c.meta || ""}</div>
+      </div>
+    </article>
+  `).join("");
+}
+
+/* -------------------------
+   RENDER: Highlights (12)
+------------------------- */
+function renderHighlights() {
+  const wrap = document.getElementById("highlightsGrid");
+  if (!wrap) return;
+
+  const dict = getDict(document.documentElement.lang || "en");
+  const items = dict.highlightsItems || translations.en.highlightsItems || [];
+
+  wrap.innerHTML = items.map((h) => `
+    <article class="card">
+      <div class="card-inner">
+        <div class="card-tag">
+          <span class="card-tag-dot" aria-hidden="true"></span>
+          <span>${h.tag}</span>
+        </div>
+        <h3 class="card-title">${h.title}</h3>
+        <p class="card-text">${h.text}</p>
+        <div class="card-meta">${h.meta || ""}</div>
+      </div>
+    </article>
+  `).join("");
+}
+
+/* -------------------------
+   RENDER: Testimonials
+------------------------- */
+function renderTestimonials() {
+  const wrap = document.getElementById("testimonialsGrid");
+  if (!wrap) return;
+
+  const dict = getDict(document.documentElement.lang || "en");
+  const items = dict.testimonialsItems || translations.en.testimonialsItems || [];
+
+  wrap.innerHTML = items.map((t) => `
+    <article class="card">
+      <div class="card-inner">
+        <p class="card-text">${t.text}</p>
+        <div class="card-meta">${t.meta || ""}</div>
+      </div>
+    </article>
+  `).join("");
+}
+
+/* -------------------------
+   RENDER: FAQ
+------------------------- */
+function renderFAQ() {
+  const wrap = document.getElementById("faqList");
+  if (!wrap) return;
+
+  const dict = getDict(document.documentElement.lang || "en");
+  const items = dict.faqItems || translations.en.faqItems || [];
+
+  wrap.innerHTML = items.map((x) => `
+    <div class="faq-item">
+      <div class="faq-q">${x.q}</div>
+      <div class="faq-a">${x.a}</div>
+    </div>
+  `).join("");
+}
+
+/* -------------------------
+   Footer year (#y)
+------------------------- */
+function setupYear() {
+  const y = document.getElementById("y");
+  if (y) y.textContent = new Date().getFullYear();
+}
+
+/* -------------------------
+   BOOT
+   (keep your setupOutcomes/setupUseCases)
+------------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  applyTranslations("en");
+
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const code = btn.getAttribute("data-lang-btn") || "en";
+      applyTranslations(code);
+    });
+  });
+
+  // keep these if you already have them
+  if (typeof setupOutcomes === "function") setupOutcomes();
+  if (typeof setupUseCases === "function") setupUseCases();
+
+  setupYear();
+});
 /* -------------------------
    Typical outcomes widget
    Uses: #outcomeNum #outcomeTitle #outcomeText #outcomeBullets
