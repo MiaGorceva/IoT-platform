@@ -115,6 +115,31 @@ const translations = {
       }
     ],
 
+    // CONNECTIVITY & INTEGRATION
+      "ci.eyebrow": "Connectivity & integration",
+      "ci.title": "Works with real industrial environments",
+      "ci.note":
+        "There is no single ‘right’ protocol stack in the real world. " +
+        "Devices, networks, security rules, and constraints differ by site — " +
+        "so MITE adapts the integration layer to your reality instead of forcing architectural compromises.",
+
+      "ci.chips": [
+        "REST API",
+        "Webhooks",
+        "MQTT",
+        "LoRaWAN",
+        "Modbus (via gateways)",
+        "OPC UA (optional)",
+        "On-prem or cloud",
+        "Role-based access"
+      ],
+
+      "ci.footer":
+        "Exact connectivity setup depends on your devices, network quality, security policies, and site constraints. " +
+        "MITE absorbs this complexity at the integration layer — so your operational logic stays clean, reusable, and stable.",
+
+
+
     // USE CASES (header texts)
     "useReal.eyebrow": "Real use cases",
     "useReal.title": "Operational scenarios teams actually deploy",
