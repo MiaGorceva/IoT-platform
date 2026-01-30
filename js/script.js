@@ -462,10 +462,8 @@ const translations = {
         a:
           "If it’s a platform-level improvement (not a narrow one-off), we typically generalize it and deliver it quickly — so you don’t pay for plumbing that strengthens the whole platform."
       }
-    ]
-  },
+    ],
 
-  // fallback now
   ru: {},
   uk: {}
 };
