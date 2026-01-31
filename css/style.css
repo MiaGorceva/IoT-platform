@@ -1894,6 +1894,60 @@
 }
 .is-hidden{ display:none !important; }
 
+/* =========================
+   Use-cases carousel (stable)
+========================= */
+
+#ucCarousel .pc-viewport{
+  overflow: hidden;
+}
+
+#ucTrack{
+  display: flex;
+  gap: 16px;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  transition: transform .35s ease;
+}
+
+.uc-card{
+  flex: 0 0 calc((100% - 32px)/3); /* 3 per view by default */
+}
+
+@media (max-width: 980px){
+  .uc-card{ flex-basis: calc((100% - 16px)/2); } /* 2 per view */
+}
+@media (max-width: 640px){
+  .uc-card{ flex-basis: 100%; } /* 1 per view */
+}
+
+#ucDots{
+  display:flex;
+  gap:10px;
+  justify-content:center;
+  margin-top:14px;
+}
+
+#ucDots .dot{
+  width:10px; height:10px; border-radius:999px;
+  border:1px solid rgba(72,207,255,.55);
+  background: transparent;
+  cursor:pointer;
+  transition: transform .2s ease, background .2s ease, border-color .2s ease;
+}
+#ucDots .dot.is-active{
+  background: rgba(84,229,74,.85);
+  border-color: rgba(84,229,74,.9);
+  transform: scale(1.1);
+}
+
+#ucPrev.is-disabled,
+#ucNext.is-disabled{
+  opacity:.35;
+  pointer-events:none;
+}
+
+
 
 
 

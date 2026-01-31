@@ -916,14 +916,20 @@ function setupUseCases() {
   const track = document.getElementById("ucTrack");
   const filters = document.getElementById("ucFilters");
   const search = document.getElementById("ucSearch");
+  const prevBtn = document.getElementById("ucPrev");
+  const nextBtn = document.getElementById("ucNext");
+  const dotsWrap = document.getElementById("ucDots");
+  const viewport = track?.closest(".pc-viewport");
 
-  if (!track) return;
+  if (!track || !viewport) return;
 
   const chips = filters ? Array.from(filters.querySelectorAll(".uc-chip")) : [];
   let active = "all";
   let query = "";
+  let page = 0;
 
   function iconSvg(kind) {
+    // твои SVG-паттерны (оставляю тот же подход, можно расширять)
     const s = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
     switch (kind) {
       case "snow": return `<svg viewBox="0 0 24 24" ${s}><path d="M12 2v20"/><path d="M4 7l16 10"/><path d="M20 7L4 17"/><path d="M7 4l10 16"/><path d="M17 4L7 20"/></svg>`;
@@ -931,11 +937,9 @@ function setupUseCases() {
       case "bolt": return `<svg viewBox="0 0 24 24" ${s}><path d="M13 2L3 14h7l-1 8 12-14h-7z"/></svg>`;
       case "wrench": return `<svg viewBox="0 0 24 24" ${s}><path d="M14 7a4 4 0 0 0-5 5L3 18l3 3 6-6a4 4 0 0 0 5-5l-3 3-3-3z"/></svg>`;
       case "target": return `<svg viewBox="0 0 24 24" ${s}><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><path d="M12 7v2"/><path d="M12 15v2"/><path d="M7 12h2"/><path d="M15 12h2"/></svg>`;
-      case "handover": return `<svg viewBox="0 0 24 24" ${s}><path d="M7 7h10v6H7z"/><path d="M5 21h14"/><path d="M9 13v4"/><path d="M15 13v4"/></svg>`;
       case "chart": return `<svg viewBox="0 0 24 24" ${s}><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15l3-3 3 2 5-6"/></svg>`;
       case "pipe": return `<svg viewBox="0 0 24 24" ${s}><path d="M6 7h6a4 4 0 0 1 0 8H9"/><path d="M3 7h3"/><path d="M3 15h6"/><path d="M18 7h3"/><path d="M18 15h3"/></svg>`;
       case "shield": return `<svg viewBox="0 0 24 24" ${s}><path d="M12 2l8 4v6c0 5-3 9-8 10C7 21 4 17 4 12V6z"/><path d="M9 12l2 2 4-5"/></svg>`;
-      case "cone": return `<svg viewBox="0 0 24 24" ${s}><path d="M12 3l6 18H6z"/><path d="M8 16h8"/><path d="M7 20h10"/></svg>`;
       case "cow": return `<svg viewBox="0 0 24 24" ${s}><path d="M6 10c0-3 12-3 12 0v6a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4z"/><path d="M7 10V7"/><path d="M17 10V7"/><path d="M9 14h0"/><path d="M15 14h0"/></svg>`;
       case "drop": return `<svg viewBox="0 0 24 24" ${s}><path d="M12 2s7 7 7 13a7 7 0 0 1-14 0C5 9 12 2 12 2z"/></svg>`;
       case "leaf": return `<svg viewBox="0 0 24 24" ${s}><path d="M20 4c-8 0-14 6-14 14 8 0 14-6 14-14z"/><path d="M6 18c3-6 8-9 14-14"/></svg>`;
@@ -944,6 +948,7 @@ function setupUseCases() {
       case "wind": return `<svg viewBox="0 0 24 24" ${s}><path d="M3 12h10a3 3 0 1 0-3-3"/><path d="M3 18h14a3 3 0 1 1-3 3"/><path d="M3 6h12a3 3 0 1 1-3 3"/></svg>`;
       case "city": return `<svg viewBox="0 0 24 24" ${s}><path d="M3 21V9l6-3v3l6-3v15z"/><path d="M21 21V11l-6-3"/><path d="M7 21v-4"/><path d="M11 21v-6"/></svg>`;
       case "truck": return `<svg viewBox="0 0 24 24" ${s}><path d="M3 7h12v10H3z"/><path d="M15 10h4l2 2v5h-6z"/><circle cx="7" cy="19" r="2"/><circle cx="17" cy="19" r="2"/></svg>`;
+      case "cone": return `<svg viewBox="0 0 24 24" ${s}><path d="M12 3l6 18H6z"/><path d="M8 16h8"/><path d="M7 20h10"/></svg>`;
       default: return `<svg viewBox="0 0 24 24" ${s}><circle cx="12" cy="12" r="9"/></svg>`;
     }
   }
@@ -955,46 +960,138 @@ function setupUseCases() {
     return okIndustry && okQuery;
   }
 
-  function render() {
-    const list = useCases.filter(matches);
-
-    track.classList.add("uc-grid");
-    track.innerHTML = list.map((u) => `
-      <article class="uc-card" data-industry="${u.industry}">
-        <div class="uc-head">
-          <div class="uc-badge">${u.industry}</div>
-          <div class="uc-icon" aria-hidden="true">${iconSvg(u.icon)}</div>
-        </div>
-        <h3 class="uc-title">${u.title}</h3>
-        <p class="uc-line"><strong>Pain:</strong> ${u.pain}</p>
-        <p class="uc-line"><strong>How:</strong> ${u.how}</p>
-        <p class="uc-line"><strong>Result:</strong> ${u.result}</p>
-      </article>
-    `).join("");
-
-    // скрываем навигацию карусели (если в HTML оставила кнопки prev/next)
-    document.getElementById("ucPrev")?.classList.add("is-hidden");
-    document.getElementById("ucNext")?.classList.add("is-hidden");
-    document.getElementById("ucDots")?.classList.add("is-hidden");
+  function filteredList() {
+    return (useCases || []).filter(matches);
   }
 
+  function cardsPerView() {
+    const w = viewport.getBoundingClientRect().width;
+    if (w <= 640) return 1;
+    if (w <= 980) return 2;
+    return 3;
+  }
+
+  function pageCount(list) {
+    const per = cardsPerView();
+    return Math.max(1, Math.ceil(list.length / per));
+  }
+
+  function clampPage(p, list) {
+    const max = pageCount(list) - 1;
+    return Math.max(0, Math.min(p, max));
+  }
+
+  function renderCards(list) {
+    track.innerHTML = list.map((u) => `
+      <article class="uc-card card" data-industry="${u.industry}">
+        <div class="card-inner">
+          <div class="uc-head">
+            <div class="uc-badge">${u.industry}</div>
+            <div class="uc-icon" aria-hidden="true">${iconSvg(u.icon)}</div>
+          </div>
+
+          <h3 class="uc-title">${u.title}</h3>
+
+          <p class="uc-line"><strong>Pain:</strong> ${u.pain}</p>
+          <p class="uc-line"><strong>How:</strong> ${u.how}</p>
+          <p class="uc-line"><strong>Result:</strong> ${u.result}</p>
+        </div>
+      </article>
+    `).join("");
+  }
+
+  function renderDots(list) {
+    if (!dotsWrap) return;
+    const total = pageCount(list);
+
+    dotsWrap.innerHTML = "";
+    for (let i = 0; i < total; i++) {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (i === page ? " is-active" : "");
+      d.setAttribute("aria-label", `Go to page ${i + 1}`);
+      d.addEventListener("click", () => {
+        page = i;
+        update();
+      });
+      dotsWrap.appendChild(d);
+    }
+  }
+
+  function setNavDisabled(list) {
+    const total = pageCount(list);
+    prevBtn?.classList.toggle("is-disabled", page <= 0);
+    nextBtn?.classList.toggle("is-disabled", page >= total - 1);
+  }
+
+  function applyTransform(list) {
+    const per = cardsPerView();
+    const gap = 16; // совпадает с CSS gap
+    const vp = viewport.getBoundingClientRect().width;
+
+    // ширина карточки зависит от per:
+    // 1: 100%
+    // 2: (100% - gap)/2
+    // 3: (100% - 2*gap)/3
+    const cardW = (vp - gap * (per - 1)) / per;
+
+    const x = page * (cardW * per + gap * per); // целая “страница” карточек + gaps
+    track.style.transform = `translate3d(${-x}px,0,0)`;
+  }
+
+  function update(resetPage = false) {
+    const list = filteredList();
+    renderCards(list);
+
+    if (resetPage) page = 0;
+    page = clampPage(page, list);
+
+    renderDots(list);
+    setNavDisabled(list);
+    // трансформ после рендера, чтобы размеры были актуальны
+    requestAnimationFrame(() => applyTransform(list));
+  }
+
+  // events
   chips.forEach((ch) => {
     ch.addEventListener("click", () => {
       chips.forEach((x) => x.classList.remove("is-active"));
       ch.classList.add("is-active");
       active = ch.dataset.ucFilter || "all";
-      render();
+      update(true);
     });
   });
 
   search?.addEventListener("input", () => {
     query = (search.value || "").trim().toLowerCase();
-    render();
+    update(true);
   });
 
-  window.__updateUseCases = () => render();
-  render();
+  prevBtn?.addEventListener("click", () => {
+    const list = filteredList();
+    page = clampPage(page - 1, list);
+    update(false);
+  });
+
+  nextBtn?.addEventListener("click", () => {
+    const list = filteredList();
+    page = clampPage(page + 1, list);
+    update(false);
+  });
+
+  // on resize: keep page valid and recompute transform
+  let rAF = null;
+  window.addEventListener("resize", () => {
+    if (rAF) cancelAnimationFrame(rAF);
+    rAF = requestAnimationFrame(() => update(false));
+  }, { passive: true });
+
+  window.__updateUseCases = () => update(true);
+
+  // boot
+  update(true);
 }
+
 
 
 
