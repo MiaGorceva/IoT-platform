@@ -120,19 +120,21 @@ const translations = {
       "MITE is powered by open-source <a href='https://lsfusion.org' target='_blank' rel='noopener noreferrer'>lsFusion</a> — a deeply declarative technology. " +
       "That’s why you can describe business behavior quickly, while the platform ensures execution, consistency, auditability, and performance.",
 
-    // ✅ Connectivity & Integration block (как на скрине)
-    "ci.eyebrow": "Connectivity & integration",
-    "ci.title": "Works with real industrial environments",
-    "ci.chip1": "REST API",
-    "ci.chip2": "Webhooks",
-    "ci.chip3": "MQTT",
-    "ci.chip4": "LoRaWAN",
-    "ci.chip5": "Modbus (via gateways)",
-    "ci.chip6": "OPC UA (optional)",
-    "ci.chip7": "On-prem or cloud",
-    "ci.chip8": "Role-based access",
-    "ci.note":
-      "There is no single “right” protocol stack in the real world. Devices, networks, security rules, and constraints differ by site — so MITE adapts the integration layer to your reality instead of forcing architectural compromises.",
+   "ci.eyebrow": "CONNECTIVITY & INTEGRATION",
+"ci.title": "Works with real industrial environments",
+
+"ci.chip1": "REST API",
+"ci.chip2": "Webhooks",
+"ci.chip3": "MQTT",
+"ci.chip4": "LoRaWAN",
+"ci.chip5": "Modbus (via gateways)",
+"ci.chip6": "OPC UA (optional)",
+"ci.chip7": "On-prem or cloud",
+"ci.chip8": "Role-based access",
+
+"ci.note":
+  "There is no single ‘right’ protocol stack in the real world. Devices, networks, security rules, and constraints differ by site — so MITE adapts the integration layer to your reality instead of forcing architectural compromises.",
+
 
     // Platform cards (под скрином)
     "platform.card1.title": "Describe what to do — not how to code it",
