@@ -345,9 +345,9 @@
       border: 1px solid rgba(148,163,184,0.14);
       box-shadow: 0 16px 40px rgba(0,0,0,0.55);
     }
-    .hero-card strong{
-      color: rgba(84,229,74,0.95);
-      font-weight: 600;
+     .hero-card strong {
+      color: var(--accent);
+      font-weight: 500;
     }
 
 
@@ -358,7 +358,7 @@
       font-size: 0.9em;
     }
 
-    .hero-card {
+    /*.hero-card {
       border-radius: 999px;
       border: 1px solid rgba(31, 41, 55, 0.9);
       padding: 0.55rem 0.95rem;
@@ -1880,7 +1880,7 @@
   color: rgba(72,207,255,.92);
 }
 
-/* Use-cases grid layout */
+/* Use-cases grid layout 
 #ucTrack.uc-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
@@ -1891,7 +1891,7 @@
 }
 @media (max-width: 640px){
   #ucTrack.uc-grid{ grid-template-columns:1fr; }
-}
+}*/
 .is-hidden{ display:none !important; }
 
 /* =========================

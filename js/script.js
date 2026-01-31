@@ -33,8 +33,8 @@ const translations = {
     "hero.kicker": "Industrial IoT, delivered",
     "hero.title": "Not just another IIoT platform. <span>MITE changes the game.</span>",
     "hero.subtitle":
-      "MITE turns raw telemetry into an operational system you can actually run. " +
-      "You connect assets, describe business logic (what to do), and the platform executes it (how it happens) — with measurable outcomes.",
+      "MITE transforms raw IoT telemetry into a scalable operational system you can actually run." +
+      "You connect devices and assets, describe what should happen, and MITE takes care of how — processing data, executing logic, and delivering real operational outcomes.",
     "hero.primaryCta": "Request a demo",
     "hero.secondaryCta": "Explore the platform",
     "hero.meta1": "From pilots to production-ready deployments",
@@ -1020,10 +1020,13 @@ function setupDrawer() {
   if (!btn || !overlay || !drawer) return;
 
   function open() {
+    overlay.classList.add("is-open");
     overlay.setAttribute("aria-hidden", "false");
     drawer.classList.add("is-open");
   }
+
   function shut() {
+    overlay.classList.remove("is-open");
     overlay.setAttribute("aria-hidden", "true");
     drawer.classList.remove("is-open");
   }
@@ -1037,6 +1040,7 @@ function setupDrawer() {
     if (e.key === "Escape") shut();
   });
 }
+
 
 /* -------------------------
    Footer year (#y)
