@@ -115,50 +115,46 @@ const translations = {
 
     // PLATFORM
     "platform.eyebrow": "Platform",
-    "platform.title": "A structured data sandbox + tools to build any operational logic",
+    "platform.title": "Built for fast change — and serious scale",
     "platform.subtitle":
-      "MITE is powered by open-source <a href='https://lsfusion.org' target='_blank' rel='noopener noreferrer'>lsFusion</a> — a deeply declarative technology. " +
-      "That’s why you can describe business behavior quickly, while the platform ensures execution, consistency, auditability, and performance.",
+      "MITE is powered by open-source <a href=\"https://lsfusion.org\" target=\"_blank\" rel=\"noopener noreferrer\">lsFusion</a>. " +
+      "That’s why you describe logic as business rules, while the platform takes care of execution consistency and performance.",
 
-   "ci.eyebrow": "CONNECTIVITY & INTEGRATION",
-"ci.title": "Works with real industrial environments",
+    // Connectivity & Integration block (your screenshot)
+    "ci.eyebrow": "Connectivity & Integration",
+    "ci.title": "Works with real industrial environments",
+    "ci.chip1": "REST API",
+    "ci.chip2": "Webhooks",
+    "ci.chip3": "MQTT",
+    "ci.chip4": "LoRaWAN",
+    "ci.chip5": "Modbus (via gateways)",
+    "ci.chip6": "OPC UA (optional)",
+    "ci.chip7": "On-prem or cloud",
+    "ci.chip8": "Role-based access",
+    "ci.note":
+      "There is no single “right” protocol stack in the real world. Devices, networks, security rules, and constraints differ by site — " +
+      "so MITE adapts the integration layer to your reality instead of forcing architectural compromises.",
 
-"ci.chip1": "REST API",
-"ci.chip2": "Webhooks",
-"ci.chip3": "MQTT",
-"ci.chip4": "LoRaWAN",
-"ci.chip5": "Modbus (via gateways)",
-"ci.chip6": "OPC UA (optional)",
-"ci.chip7": "On-prem or cloud",
-"ci.chip8": "Role-based access",
-
-"ci.note":
-  "There is no single ‘right’ protocol stack in the real world. Devices, networks, security rules, and constraints differ by site — so MITE adapts the integration layer to your reality instead of forcing architectural compromises.",
-
-
-    // Platform cards (под скрином)
     "platform.card1.title": "Describe what to do — not how to code it",
     "platform.card1.text":
-      "Processes, rules, approvals, and KPIs are defined as logic, not hardcoded workflows. " +
-      "Ops teams can adapt behavior quickly without rebuilding solutions or waiting for developers.",
+      "Processes, rules, approvals, and KPIs are defined as logic, not hardcoded workflows — so operations teams can adapt quickly without rebuilding solutions.",
     "platform.card1.meta": "Less dev friction • faster iterations • clearer ownership",
 
     "platform.card2.title": "Built for real scale, not demos",
     "platform.card2.text":
-      "Billions of records, terabytes of telemetry, thousands of concurrent users — this is normal operating mode. " +
-      "One structured model supports many scenarios without performance surprises.",
+      "Billions of records, terabytes of telemetry, thousands of concurrent users — this is normal operating mode. One logical model supports many scenarios without surprises.",
     "platform.card2.meta": "Scale outcomes, not technical complexity",
 
     "platform.card3.title": "Infrastructure-agnostic by design",
     "platform.card3.text":
-      "MITE works in constrained networks and mixed environments. " +
-      "Run on-prem, in the cloud, or hybrid — and scale horizontally when needed without re-architecture.",
+      "Works in constrained networks and mixed environments. Run on-prem, in the cloud, or hybrid — and scale horizontally when needed without re-architecture.",
     "platform.card3.meta": "Predictable growth instead of fragile rollouts",
 
     "platform.story.title": "Why this matters in practice",
     "platform.story.text":
-      "When a customer needs a new mechanism or capability, we usually generalize it at platform level instead of building a one-off feature. " +
-      "That’s why improvements often arrive in hours or days — and why the platform becomes stronger with every real deployment.",
+      "When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. " +
+      "That’s why improvements arrive in hours or days — and why the platform gets stronger with every real deployment.",
+
 
     // HIGHLIGHTS (6 cards)
     "highlights.eyebrow": "MITE Platform Highlights",
@@ -406,8 +402,8 @@ function applyTranslations(lang = "en") {
   window.__updatePricing?.();
 }
 
-/* -------------------------
-   Typical outcomes widget
+* -------------------------
+   Typical outcomes (hover + dots + arrows)
 ------------------------- */
 function setupOutcomes() {
   const numEl = document.getElementById("outcomeNum");
@@ -417,6 +413,8 @@ function setupOutcomes() {
   const dotsWrap = document.getElementById("outcomesDots");
   const prevBtn = document.getElementById("outcomesPrev");
   const nextBtn = document.getElementById("outcomesNext");
+  const metricWrap = document.querySelector(".about-side-metric");
+  const leftPoints = Array.from(document.querySelectorAll(".about-point[data-outcome]"));
 
   if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return;
 
@@ -428,7 +426,7 @@ function setupOutcomes() {
     return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
   }
 
-  function render() {
+  function render(withFade = false) {
     const arr = items();
     if (!arr.length) return;
 
@@ -436,78 +434,83 @@ function setupOutcomes() {
     if (index >= arr.length) index = 0;
 
     const it = arr[index];
-    numEl.textContent = it.num || "";
-    titleEl.textContent = it.title || "";
-    textEl.textContent = it.text || "";
 
-    bulletsEl.innerHTML = "";
-    (it.bullets || []).forEach((b) => {
-      const li = document.createElement("li");
-      li.textContent = b;
-      bulletsEl.appendChild(li);
-    });
+    if (withFade && metricWrap) metricWrap.classList.add("is-fade");
 
-    dotsWrap.innerHTML = "";
-    arr.forEach((_, i) => {
-      const d = document.createElement("button");
-      d.type = "button";
-      d.className = "dot" + (i === index ? " is-active" : "");
-      d.addEventListener("click", () => {
-        index = i;
-        render();
+    window.clearTimeout(render.__t);
+    render.__t = window.setTimeout(() => {
+      numEl.textContent = it.num || "";
+      titleEl.textContent = it.title || "";
+      textEl.textContent = it.text || "";
+
+      bulletsEl.innerHTML = "";
+      (it.bullets || []).forEach((b) => {
+        const li = document.createElement("li");
+        li.textContent = b;
+        bulletsEl.appendChild(li);
       });
-      dotsWrap.appendChild(d);
+
+      dotsWrap.innerHTML = "";
+      arr.forEach((_, i) => {
+        const d = document.createElement("button");
+        d.type = "button";
+        d.className = "dot" + (i === index ? " is-active" : "");
+        d.addEventListener("click", () => { index = i; render(true); });
+        dotsWrap.appendChild(d);
+      });
+
+      if (metricWrap) metricWrap.classList.remove("is-fade");
+    }, withFade ? 140 : 0);
+
+    // left points highlight (optional visual)
+    leftPoints.forEach((p) => {
+      const i = Number(p.getAttribute("data-outcome"));
+      p.classList.toggle("is-active", i === index);
     });
   }
 
-  prevBtn?.addEventListener("click", () => {
-    index--;
-    render();
-  });
-  nextBtn?.addEventListener("click", () => {
-    index++;
-    render();
+  // arrows
+  prevBtn?.addEventListener("click", () => { index--; render(true); });
+  nextBtn?.addEventListener("click", () => { index++; render(true); });
+
+  // hover on left items (your requirement)
+  leftPoints.forEach((p) => {
+    p.addEventListener("mouseenter", () => {
+      const i = Number(p.getAttribute("data-outcome"));
+      if (!Number.isFinite(i)) return;
+      index = i;
+      render(true);
+    });
   });
 
-  window.__updateOutcomes = () => {
-    index = 0;
-    render();
+  window.__updateOutcomes = (reset = false) => {
+    if (reset) index = 0;
+    render(false);
   };
 
-  render();
+  render(false);
 }
 
 /* -------------------------
-   Use-cases data (18, “meaty”, realistic)
-   Required industry counts:
-   - pharma: 1 (cold chain ключевой)
-   - manufacturing: 8
-   - construction: 1
-   - agriculture: 4
-   - energy: 1
-   - environment: 1
-   - smart cities: 1
-   - logistics: 1
-   TOTAL: 18
+   Use-cases data (18 “meaty”)
 ------------------------- */
 const useCases = [
-  // PHARMA (1)
+  // Pharma (1)
   {
-    id: "pharma-coldchain",
     industry: "pharma",
     title: "Cold chain with multi-leg traceability & audit-ready reports",
     pain:
-      "Different sensors in warehouses and trucks, border delays, variable temperature regimes by product — and then manual reconciliation for every shipment and inspection.",
+      "Different sensors in warehouses and trucks, border delays, variable temperature regimes by product — then manual reconciliation for every shipment, inspection, and claim.",
     how:
-      "Single timeline per batch/shipment: ingest all sensor streams + route context + product regime rules + escalation ladder + approvals + automatic PDF/CSV reporting.",
+      "Single timeline per batch/shipment: ingest all sensor streams + route context + product regime rules + escalation ladder + approvals + automatic PDF/CSV reporting and long-term storage.",
     result:
-      "Less spoilage risk, fewer claim disputes, and audits become “export in minutes” instead of manual evidence gathering.",
-    icon: "pill"
+      "Lower spoilage risk, fewer disputes, and audits become “export in minutes” instead of manual evidence gathering.",
+    icon: "pharma",
+    tags: ["cold chain", "audit", "reporting", "warehouse", "truck", "batch"]
   },
 
-  // MANUFACTURING (8)
+  // Manufacturing (8)
   {
-    id: "mfg-downtime-loop",
     industry: "manufacturing",
     title: "Downtime: detect → classify → assign → verify (not just OEE charts)",
     pain:
@@ -516,418 +519,383 @@ const useCases = [
       "PLC events + operator reason capture → routing rules by line/reason/team → CAPA-style tasks → verification checklist → KPI closure.",
     result:
       "Higher throughput and fewer repeated stops because every event becomes an owned, measurable loop.",
-    icon: "factory"
+    icon: "factory",
+    tags: ["downtime", "oee", "capa", "routing", "kpi"]
   },
   {
-    id: "mfg-quality-drift",
     industry: "manufacturing",
     title: "Quality drift: early detection + automatic containment workflow",
     pain:
-      "Quality issues are found late (scrap/rework), and containment decisions are slow or inconsistent.",
+      "Quality issues are found late (scrap/rework), and containment decisions are slow or inconsistent across shifts.",
     how:
-      "Process parameters + batch context → deviation rules + correlation → hold/stop workflow + approvals → evidence + reporting.",
+      "Process parameters + batch context → deviation rules + correlation → hold/stop workflow + approvals → evidence pack + reporting.",
     result:
       "Less scrap and rework, faster containment, clearer accountability for corrective actions.",
-    icon: "check"
+    icon: "quality",
+    tags: ["quality", "scrap", "rework", "batch", "approvals"]
   },
   {
-    id: "mfg-energy-per-batch",
     industry: "manufacturing",
-    title: "Energy intensity per batch/line with cost leakage detection",
+    title: "Predictive maintenance: condition signals → prioritized work orders",
     pain:
-      "Energy cost is “invisible” per product, and waste hides inside normal variability.",
+      "Sensors exist, but maintenance still reacts late because signals don’t translate into prioritized actions with proof of completion.",
     how:
-      "Meters + batch IDs/MES events → normalization rules → anomaly detection → investigation workflow + cost export.",
+      "Condition indicators → rules per asset criticality → work order creation → SLA timers + escalation → completion verification + KPI impact.",
     result:
-      "Clear cost drivers per product, faster waste detection, and margin protection tied to KPIs.",
-    icon: "bolt"
+      "Fewer unplanned failures, shorter MTTR, measurable maintenance ROI.",
+    icon: "wrench",
+    tags: ["predictive", "maintenance", "mttr", "sla", "work orders"]
   },
   {
-    id: "mfg-maintenance-triggers",
     industry: "manufacturing",
-    title: "Maintenance triggers (pragmatic predictive) from trends + symptoms",
+    title: "Energy spikes: detect → explain → fix (per line, per shift)",
     pain:
-      "Unexpected stops and firefighting because maintenance is calendar-based or alarm-only.",
+      "Energy costs rise, but teams can’t link spikes to equipment states, shifts, or batches — so savings stay theoretical.",
     how:
-      "Vibration/temp/runtime counters + alarm history → trend+threshold logic → work order prompts + planned window routing.",
+      "Meters + equipment states + schedule context → anomaly rules → root-cause capture → corrective workflow → savings KPI tracking.",
     result:
-      "Fewer surprise failures and more predictable maintenance with realistic automation (no “AI magic” required).",
-    icon: "wrench"
+      "Documented cost savings and repeatable reduction playbooks.",
+    icon: "bolt",
+    tags: ["energy", "anomaly", "cost", "shift", "savings"]
   },
   {
-    id: "mfg-changeover-discipline",
     industry: "manufacturing",
-    title: "Changeover discipline: checklists + KPI proof of improvement",
+    title: "Changeover governance: reduce variance between shifts",
     pain:
-      "Changeovers drift into tribal knowledge. Variability grows and the ‘why’ is unclear.",
+      "Changeovers depend on “tribal knowledge”. Steps are skipped, time is lost, and quality suffers.",
     how:
-      "Events + checklist steps → rule-based validation + time capture → noncompliance workflow → improvement KPIs.",
+      "Checklist + sensor confirmations → approvals where needed → timers + alerts → post-changeover KPIs and evidence.",
     result:
-      "Shorter changeovers and less variability, with proof (KPIs) not opinions.",
-    icon: "list"
+      "More consistent changeovers, less time loss, fewer start-up defects.",
+    icon: "swap",
+    tags: ["changeover", "checklist", "shift", "quality"]
   },
   {
-    id: "mfg-line-bottlenecks",
     industry: "manufacturing",
-    title: "Bottleneck visibility that generates actions (not reports)",
+    title: "EHS incidents: near-miss → action → closure with proof",
     pain:
-      "Teams see bottlenecks but don’t convert them into owned improvements — the same constraints return.",
+      "Near-misses are logged, but actions aren’t tracked and lessons don’t become enforced routines.",
     how:
-      "Cycle/queue signals → rule-based bottleneck detection → action backlog with owners → weekly outcome review KPIs.",
+      "Event capture → severity rules → task routing → evidence attachments → closure KPIs → trend dashboards.",
     result:
-      "Continuous improvement becomes a system: fewer recurring bottlenecks, measurable throughput gains.",
-    icon: "target"
+      "Lower incident rates and audit-ready EHS evidence.",
+    icon: "shield",
+    tags: ["ehs", "incident", "tasks", "evidence", "audit"]
   },
   {
-    id: "mfg-safety-permits",
     industry: "manufacturing",
-    title: "Safety permits & lockout events with traceable approvals",
+    title: "Traceability: batch genealogy + instant evidence packs",
     pain:
-      "Permits are handled in paper/Excel. Missing traceability creates audit and safety risks.",
+      "When something goes wrong, traceability is a scramble: multiple systems, partial data, manual reconstruction.",
     how:
-      "Permit events + equipment state → rule ladder + approvals + audit trail → closure KPIs and reporting.",
+      "Normalize production + quality + logistics events → genealogy model → one-click evidence pack export for audits/claims.",
     result:
-      "Lower compliance risk, cleaner audits, and fewer procedural violations.",
-    icon: "shield"
+      "Faster investigations, fewer losses, stronger customer trust.",
+    icon: "trace",
+    tags: ["traceability", "genealogy", "evidence", "batch"]
   },
   {
-    id: "mfg-shift-handover",
     industry: "manufacturing",
-    title: "Shift handover: KPIs + issues + tasks in one governed flow",
+    title: "KPI governance: actions tied to KPIs, not dashboards",
     pain:
-      "Handover depends on people. Issues repeat because nothing is tracked end-to-end.",
+      "KPIs exist but don’t drive behavior. Teams report numbers, but execution stays unmanaged.",
     how:
-      "Line events + notes → KPI pack auto-generated → rule-based follow-up tasks → confirmation on next shift.",
+      "Define KPI-linked workflows: triggers → actions → verification → KPI updates and accountability trail.",
     result:
-      "Cleaner handovers, fewer repeated issues, and stable operations across shifts.",
-    icon: "swap"
+      "KPIs become operational levers, not monthly slides.",
+    icon: "kpi",
+    tags: ["kpi", "governance", "execution", "accountability"]
   },
 
-  // CONSTRUCTION (1)
+  // Agriculture (4)
   {
-    id: "construction-site-equipment",
-    industry: "construction",
-    title: "Site equipment utilization + theft-risk workflow",
+    industry: "agriculture",
+    title: "Barn microclimate: conditions → action workflow → loss reduction",
     pain:
-      "Equipment disappears or sits idle. GPS alone doesn’t create an operational response.",
+      "Late reaction to temperature/humidity/ammonia drift causes stress, disease, and productivity loss.",
     how:
-      "Telematics + geofences + time windows → anomaly rules → verification steps → dispatch workflow → closure KPIs.",
+      "Sensors → regimes by age/zone → escalation ladder → tasks/alerts → trend KPIs (mortality, feed conversion, productivity).",
     result:
-      "Lower losses and higher utilization with a clear incident lifecycle.",
-    icon: "crane"
+      "Lower losses and more stable conditions with less supervision.",
+    icon: "cow",
+    tags: ["barn", "microclimate", "ammonia", "loss", "kpi"]
+  },
+  {
+    industry: "agriculture",
+    title: "Poultry house control: early warning for ventilation failures",
+    pain:
+      "Ventilation issues and heat stress can cascade fast; teams notice too late.",
+    how:
+      "Multi-sensor correlation (temp, CO₂, fans) → anomaly rules → immediate routing to responsible staff → closure tracking.",
+    result:
+      "Fewer critical events and measurable reduction in mortality spikes.",
+    icon: "chicken",
+    tags: ["poultry", "ventilation", "co2", "alerting"]
+  },
+  {
+    industry: "agriculture",
+    title: "Irrigation efficiency: soil moisture → scheduling → water savings",
+    pain:
+      "Water is wasted because irrigation is schedule-driven, not condition-driven; savings are hard to prove.",
+    how:
+      "Soil moisture + weather + zones → rules → irrigation tasks → water usage KPI + yield correlation.",
+    result:
+      "Water savings with proof, better yield stability.",
+    icon: "drop",
+    tags: ["irrigation", "moisture", "water", "yield"]
+  },
+  {
+    industry: "agriculture",
+    title: "Cold storage for produce: quality hold rules + compliance exports",
+    pain:
+      "Quality degrades silently; different rooms and sensors make consistent control and reporting hard.",
+    how:
+      "Storage zones + regimes → deviations → containment workflow → exportable reports + long-term data retention.",
+    result:
+      "Less spoilage, faster quality decisions, fewer manual reports.",
+    icon: "snow",
+    tags: ["storage", "quality", "compliance", "reports"]
   },
 
-  // AGRICULTURE (4)
+  // Energy (1)
   {
-    id: "agro-poultry-microclimate",
-    industry: "agriculture",
-    title: "Poultry house microclimate: alerts + regime-by-age control",
-    pain:
-      "Microclimate drift causes losses. Staff reacts late; settings don’t adapt to bird age and weather.",
-    how:
-      "Temp/humidity/airflow sensors + age profile + weather context → rules + alerts → action workflow; AI assists in tuning regimes.",
-    result:
-      "Less human factor, fewer losses, and measurable improvement from optimized regimes.",
-    icon: "chicken"
-  },
-  {
-    id: "agro-dairy-health",
-    industry: "agriculture",
-    title: "Dairy health trends: detect early stress and illness signals",
-    pain:
-      "Health issues are noticed too late. Vet interventions become reactive and expensive.",
-    how:
-      "Wearables + barn sensors → trend logic (activity/temp/rumination) → escalation ladder → tasks + evidence timeline.",
-    result:
-      "Earlier interventions, fewer severe cases, and better productivity KPIs.",
-    icon: "cow"
-  },
-  {
-    id: "agro-irrigation-water",
-    industry: "agriculture",
-    title: "Smart irrigation: soil moisture + leak detection + water KPI control",
-    pain:
-      "Overwatering wastes money; leaks go unnoticed; water KPIs are estimated, not measured.",
-    how:
-      "Moisture/flow/pressure sensors → rules by field zone + schedules → alerts + maintenance tasks → KPI dashboards.",
-    result:
-      "Lower water cost, fewer failures, and stable yield conditions with evidence.",
-    icon: "drop"
-  },
-  {
-    id: "agro-grain-storage",
-    industry: "agriculture",
-    title: "Grain storage: spoilage prevention with automated evidence",
-    pain:
-      "Temperature hotspots and humidity drift lead to spoilage; inspections are manual and inconsistent.",
-    how:
-      "Silo sensors → deviation rules + escalation ladder → actions (ventilation/inspection) → audit trail + reports.",
-    result:
-      "Reduced spoilage and clearer accountability with minimal supervision.",
-    icon: "grain"
-  },
-
-  // ENERGY (1)
-  {
-    id: "energy-battery-health",
     industry: "energy",
-    title: "Battery fleet health: predictive maintenance and safe operation limits",
+    title: "Battery health & predictive replacement planning",
     pain:
-      "Battery degradation is gradual until failures hit. Alerts are noisy and lack context.",
+      "Battery fleets fail unpredictably; teams replace too early or too late, and downtime is costly.",
     how:
-      "BMS telemetry → trend+threshold logic + safe-limit governance → maintenance prompts → KPI tracking by site/fleet.",
+      "Health indicators → rules per site criticality → predictive alerts → replacement workflow → savings + downtime KPIs.",
     result:
-      "Fewer incidents, better planning, and longer asset life — tied to measurable KPIs.",
-    icon: "battery"
+      "Fewer outages, lower replacement cost, predictable maintenance windows.",
+    icon: "battery",
+    tags: ["battery", "predictive", "downtime", "maintenance"]
   },
 
-  // ENVIRONMENT (1)
+  // Environment (1)
   {
-    id: "env-emissions-map",
     industry: "environment",
-    title: "Emissions & air quality: live map + evidence for regulators",
+    title: "Air quality: sensor network → heatmaps → actionable interventions",
     pain:
-      "Measurements exist but don’t translate into actionable control or audit-ready evidence.",
+      "Raw readings don’t translate into decisions: where it’s worse, why, and what to do next is unclear.",
     how:
-      "Sensors + wind context → anomaly detection → investigation workflows → geospatial dashboards + exportable reports.",
+      "Ingest sensors → geo model → anomaly + wind-context rules → heatmaps + alerts → action routing and reporting.",
     result:
-      "Faster response, clearer compliance posture, and defensible evidence when questioned.",
-    icon: "leaf"
+      "Clear prioritization and evidence for interventions and compliance reporting.",
+    icon: "wind",
+    tags: ["air", "map", "heatmap", "wind", "compliance"]
   },
 
-  // SMART CITIES (1)
+  // Smart cities (1)
   {
-    id: "smartcities-water-quality",
     industry: "smartcities",
-    title: "City water quality: detect anomalies before citizens complain",
+    title: "Street lighting: faults → routing → SLA closure (with proof)",
     pain:
-      "Incidents are discovered via complaints. Response is slow and evidence is scattered.",
+      "Citizens complain, but repairs are slow: no clear ownership, no SLA control, no proof of closure.",
     how:
-      "Distributed sensors → deviation rules + correlation by zones → dispatch workflow → closure KPIs + public-facing summaries.",
+      "Lamp telemetry + grid context → fault rules → contractor routing → SLA timers + escalation → closure evidence + KPIs.",
     result:
-      "Faster response, fewer incidents, and accountability by zone/site.",
-    icon: "city"
+      "Faster repairs, fewer repeat complaints, measurable SLA compliance.",
+    icon: "lamp",
+    tags: ["lighting", "sla", "routing", "contractors"]
   },
 
-  // LOGISTICS (1)
+  // Logistics (1)
   {
-    id: "logistics-route-integrity",
     industry: "logistics",
-    title: "Route integrity: delays + temperature excursions + automatic claims pack",
+    title: "Fleet cold transport: route context + exception handling",
     pain:
-      "Delays and excursions are discovered late; claims/disputes become time-consuming and manual.",
+      "Temperature exceptions are noticed after delivery; disputes and claims are painful and data is fragmented.",
     how:
-      "Telemetry + route milestones → rule ladder → escalation → evidence timeline + automatic report pack for partners.",
+      "Truck sensors + route milestones + regime rules → exceptions → driver/dispatcher workflow → evidence packs for customers.",
     result:
-      "Less dispute time, faster root cause, and lower loss exposure.",
-    icon: "truck"
+      "Fewer claims, faster dispute resolution, higher delivery quality.",
+    icon: "truck",
+    tags: ["fleet", "cold", "route", "evidence"]
+  },
+
+  // Construction (1)
+  {
+    industry: "construction",
+    title: "Fuel theft prevention: events → alarm → response workflow",
+    pain:
+      "Fuel theft and leakage are discovered late; even when alarms exist, response is inconsistent.",
+    how:
+      "Tank sensors → deviation rules → alarm + routing → response checklist → closure evidence + loss KPI tracking.",
+    result:
+      "Reduced losses and faster response with auditable proof.",
+    icon: "cone",
+    tags: ["fuel", "theft", "alarm", "workflow", "kpi"]
   }
 ];
 
 /* -------------------------
-   Use-cases carousel (filters + search + stable paging)
-   Requires:
-   #ucFilters .uc-chip[data-uc-filter]
-   #ucSearch
-   #ucTrack
-   #ucPrev #ucNext #ucDots
+   Use-cases carousel + filters + search + icons
 ------------------------- */
 function setupUseCases() {
+  const carousel = document.getElementById("ucCarousel");
   const track = document.getElementById("ucTrack");
+  const dots = document.getElementById("ucDots");
+  const prev = document.getElementById("ucPrev");
+  const next = document.getElementById("ucNext");
   const filters = document.getElementById("ucFilters");
   const search = document.getElementById("ucSearch");
-  const prevBtn = document.getElementById("ucPrev");
-  const nextBtn = document.getElementById("ucNext");
-  const dots = document.getElementById("ucDots");
 
-  if (!track) return;
+  if (!carousel || !track) return;
 
   const chips = filters ? Array.from(filters.querySelectorAll(".uc-chip")) : [];
   let active = "all";
   let query = "";
   let page = 0;
-  let perView = 1;
-  let currentList = [];
-
-  function computePerView() {
-    const w = window.innerWidth;
-    if (w >= 1100) return 3;
-    if (w >= 760) return 2;
-    return 1;
-  }
 
   function iconSvg(kind) {
-    // Minimal “non-emoji” inline icons; you can refine later without changing data.
     const s = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+    const wrap = (inner) => `<svg viewBox="0 0 24 24" ${s}>${inner}</svg>`;
+
     switch (kind) {
-      case "pill":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M8 16l8-8"/><path d="M7 17a5 5 0 0 1 0-7l3-3a5 5 0 0 1 7 7l-3 3a5 5 0 0 1-7 0z"/></svg>`;
-      case "factory":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/></svg>`;
-      case "crane":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M4 20h16"/><path d="M6 20V6h6l6 4v10"/><path d="M12 6v8"/><path d="M12 14h4"/></svg>`;
-      case "truck":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M3 7h12v10H3z"/><path d="M15 10h4l2 2v5h-6z"/><circle cx="7" cy="19" r="2"/><circle cx="18" cy="19" r="2"/></svg>`;
-      case "battery":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M7 7h10v10H7z"/><path d="M17 10h2v4h-2"/><path d="M10 12h4"/></svg>`;
-      case "leaf":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M21 3c-7 1-12 6-13 13 7-1 12-6 13-13z"/><path d="M8 16c-2 2-4 5-4 5"/></svg>`;
-      case "city":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M4 21V8l6-3v16"/><path d="M10 21V11l6-3v13"/><path d="M16 21V6l4 2v13"/></svg>`;
-      case "bolt":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M13 2L3 14h7l-1 8 12-14h-7z"/></svg>`;
-      case "wrench":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M21 7a6 6 0 0 1-8 5L7 18l-3-3 6-6a6 6 0 0 1 5-8l-3 3 3 3 3-3z"/></svg>`;
-      case "check":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M20 6L9 17l-5-5"/></svg>`;
-      case "list":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg>`;
-      case "target":
-        return `<svg viewBox="0 0 24 24" ${s}><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v2"/><path d="M22 12h-2"/></svg>`;
-      case "shield":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M12 2l8 4v6c0 5-3 9-8 10C7 21 4 17 4 12V6z"/></svg>`;
-      case "swap":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M7 7h11l-3-3"/><path d="M17 17H6l3 3"/></svg>`;
-      case "chicken":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M7 13c0-4 3-7 7-7 2 0 4 1 5 3"/><path d="M8 14c1 3 4 5 7 5 2 0 4-1 5-3"/><path d="M14 9h.01"/><path d="M6 17l-2 2"/></svg>`;
-      case "cow":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M7 10c0-2 2-4 5-4s5 2 5 4v6c0 2-2 4-5 4s-5-2-5-4z"/><path d="M7 12H4"/><path d="M17 12h3"/></svg>`;
-      case "drop":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z"/></svg>`;
-      case "grain":
-        return `<svg viewBox="0 0 24 24" ${s}><path d="M12 20V4"/><path d="M12 6c-3 1-5 3-5 6 3 0 5-2 5-6z"/><path d="M12 10c3 1 5 3 5 6-3 0-5-2-5-6z"/></svg>`;
-      default:
-        return `<svg viewBox="0 0 24 24" ${s}><circle cx="12" cy="12" r="9"/></svg>`;
+      case "pharma": return wrap(`<path d="M10 2v6l-4 8a4 4 0 0 0 3.6 6h4.8A4 4 0 0 0 18 16l-4-8V2"/><path d="M8 8h8"/>`);
+      case "factory": return wrap(`<path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/>`);
+      case "quality": return wrap(`<path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"/><path d="M9 12l2 2 4-4"/>`);
+      case "wrench": return wrap(`<path d="M21 7l-5 5"/><path d="M16 7l1 1"/><path d="M2 22l7-7"/><path d="M7 17l2 2"/>`);
+      case "bolt": return wrap(`<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>`);
+      case "swap": return wrap(`<path d="M7 7h11l-2-2"/><path d="M18 7l-2 2"/><path d="M17 17H6l2 2"/><path d="M6 17l2-2"/>`);
+      case "shield": return wrap(`<path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"/>`);
+      case "trace": return wrap(`<circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="M9 7h6"/><path d="M8 9l3 6"/><path d="M16 9l-3 6"/>`);
+      case "kpi": return wrap(`<path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 14l3-3 3 2 4-5"/>`);
+      case "cow": return wrap(`<path d="M7 14c0 3 2 6 5 6s5-3 5-6"/><path d="M6 10h12"/><path d="M8 10V7"/><path d="M16 10V7"/>`);
+      case "chicken": return wrap(`<path d="M9 14c0 3 2 6 6 6"/><path d="M9 14c0-4 2-7 6-7"/><path d="M15 7l2 1"/><path d="M12 12h6"/>`);
+      case "drop": return wrap(`<path d="M12 2s7 8 7 13a7 7 0 0 1-14 0C5 10 12 2 12 2z"/>`);
+      case "snow": return wrap(`<path d="M12 2v20"/><path d="M4 6l16 12"/><path d="M20 6L4 18"/><path d="M6 20l12-16"/>`);
+      case "battery": return wrap(`<path d="M7 7h12v10H7z"/><path d="M5 10v4"/><path d="M21 10v4"/>`);
+      case "wind": return wrap(`<path d="M3 8h10a3 3 0 1 0-3-3"/><path d="M3 12h14a3 3 0 1 1-3 3"/><path d="M3 16h8"/>`);
+      case "lamp": return wrap(`<path d="M9 21h6"/><path d="M12 21v-3"/><path d="M7 10a5 5 0 1 1 10 0c0 2-1 3-2 4s-1 2-1 4h-4c0-2 0-3-1-4s-2-2-2-4z"/>`);
+      case "truck": return wrap(`<path d="M3 17V7h11v10z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>`);
+      case "cone": return wrap(`<path d="M12 2l5 18H7z"/><path d="M9 14h6"/><path d="M8 18h8"/>`);
+      default: return wrap(`<circle cx="12" cy="12" r="9"/>`);
     }
   }
 
-  function matches(u) {
-    const okIndustry = active === "all" ? true : u.industry === active;
-    const blob = `${u.title} ${u.pain} ${u.how} ${u.result}`.toLowerCase();
-    const okQuery = query ? blob.includes(query) : true;
-    return okIndustry && okQuery;
+  function filtered() {
+    return useCases.filter((u) => {
+      const okIndustry = active === "all" ? true : u.industry === active;
+      const blob = `${u.title} ${u.pain} ${u.how} ${u.result} ${(u.tags || []).join(" ")}`.toLowerCase();
+      const okQuery = query ? blob.includes(query) : true;
+      return okIndustry && okQuery;
+    });
   }
 
-  function renderCards() {
-    currentList = useCases.filter(matches);
+  function perView() {
+    const w = carousel.getBoundingClientRect().width;
+    if (w < 640) return 1;
+    if (w < 980) return 2;
+    return 3;
+  }
 
-    track.innerHTML = currentList
-      .map(
-        (u) => `
+  function clampPage(maxPages) {
+    if (page < 0) page = 0;
+    if (page > maxPages - 1) page = Math.max(0, maxPages - 1);
+  }
+
+  function renderDots(maxPages) {
+    if (!dots) return;
+    dots.innerHTML = "";
+    for (let i = 0; i < maxPages; i++) {
+      const d = document.createElement("button");
+      d.type = "button";
+      d.className = "dot" + (i === page ? " is-active" : "");
+      d.addEventListener("click", () => {
+        page = i;
+        updateCarousel();
+      });
+      dots.appendChild(d);
+    }
+  }
+
+  function renderCards(list) {
+    track.innerHTML = list.map((u) => `
       <article class="pc-card uc-card" data-industry="${u.industry}">
+        <div class="uc-card-strip" aria-hidden="true"></div>
+
         <div class="uc-head">
-          <div class="uc-badge">${u.industry.replace("smartcities","smart cities").toUpperCase()}</div>
-          <div class="uc-icon" aria-hidden="true">${iconSvg(u.icon)}</div>
+          <div class="uc-badge">${u.industry.toUpperCase()}</div>
+          <div class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</div>
         </div>
 
         <h3 class="uc-title">${u.title}</h3>
 
-        <div class="uc-lines">
-          <p class="uc-line"><strong>Pain:</strong> ${u.pain}</p>
-          <p class="uc-line"><strong>How:</strong> ${u.how}</p>
-          <p class="uc-line"><strong>Result:</strong> ${u.result}</p>
+        <div class="uc-body">
+          <div class="uc-row">
+            <div class="uc-k">Pain</div>
+            <div class="uc-v">${u.pain}</div>
+          </div>
+          <div class="uc-row">
+            <div class="uc-k">How</div>
+            <div class="uc-v">${u.how}</div>
+          </div>
+
+          <div class="uc-outcome">
+            <span class="uc-outcome-label">Result:</span>
+            <span class="uc-outcome-text">${u.result}</span>
+          </div>
         </div>
       </article>
-    `
-      )
-      .join("");
-
-    // reset carousel paging
-    page = 0;
-    perView = computePerView();
-    updateDots();
-    applyCarouselPosition();
-    updateNavState();
+    `).join("");
   }
 
-  function pagesCount() {
-    const n = currentList.length || 0;
-    return Math.max(1, Math.ceil(n / perView));
+  function updateCarousel() {
+    const list = filtered();
+    renderCards(list);
+
+    const pv = perView();
+    const maxPages = Math.ceil(list.length / pv) || 1;
+    clampPage(maxPages);
+
+    // measure card width after render
+    const first = track.querySelector(".uc-card");
+    const cardW = first ? first.getBoundingClientRect().width : 0;
+    const gap = 16; // keep in sync with CSS (#ucTrack gap)
+    const step = pv > 1 ? (cardW + gap) * pv : (cardW + gap);
+
+    const x = page * step;
+    track.style.transform = `translate3d(${-x}px, 0, 0)`;
+
+    renderDots(maxPages);
+
+    if (prev) prev.classList.toggle("is-disabled", page === 0);
+    if (next) next.classList.toggle("is-disabled", page >= maxPages - 1);
   }
 
-  function updateDots() {
-    if (!dots) return;
-    const total = pagesCount();
-    dots.innerHTML = "";
-    for (let i = 0; i < total; i++) {
-      const b = document.createElement("button");
-      b.type = "button";
-      b.className = "dot" + (i === page ? " is-active" : "");
-      b.addEventListener("click", () => {
-        page = i;
-        applyCarouselPosition();
-        updateDots();
-        updateNavState();
-      });
-      dots.appendChild(b);
-    }
-  }
-
-  function applyCarouselPosition() {
-    // Move by viewport width, not card width → stable, no jitter
-    const viewport = track.closest(".pc-viewport");
-    if (!viewport) return;
-    const x = page * viewport.clientWidth;
-    track.style.transform = `translateX(${-x}px)`;
-  }
-
-  function updateNavState() {
-    const total = pagesCount();
-    if (prevBtn) prevBtn.disabled = page <= 0;
-    if (nextBtn) nextBtn.disabled = page >= total - 1;
-  }
-
-  function onResize() {
-    const newPerView = computePerView();
-    if (newPerView !== perView) {
-      perView = newPerView;
-      page = Math.min(page, pagesCount() - 1);
-      updateDots();
-    }
-    applyCarouselPosition();
-    updateNavState();
-  }
-
-  // chips
+  // filters
   chips.forEach((ch) => {
     ch.addEventListener("click", () => {
       chips.forEach((x) => x.classList.remove("is-active"));
       ch.classList.add("is-active");
       active = ch.dataset.ucFilter || "all";
-      renderCards();
+      page = 0;
+      updateCarousel();
     });
   });
 
   // search
   search?.addEventListener("input", () => {
     query = (search.value || "").trim().toLowerCase();
-    renderCards();
+    page = 0;
+    updateCarousel();
   });
 
   // arrows
-  prevBtn?.addEventListener("click", () => {
-    page = Math.max(0, page - 1);
-    applyCarouselPosition();
-    updateDots();
-    updateNavState();
+  prev?.addEventListener("click", () => { page--; updateCarousel(); });
+  next?.addEventListener("click", () => { page++; updateCarousel(); });
+
+  // resize
+  let rAF = 0;
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(rAF);
+    rAF = requestAnimationFrame(() => updateCarousel());
   });
 
-  nextBtn?.addEventListener("click", () => {
-    page = Math.min(pagesCount() - 1, page + 1);
-    applyCarouselPosition();
-    updateDots();
-    updateNavState();
-  });
+  window.__updateUseCases = () => { page = 0; updateCarousel(); };
 
-  // expose update hook for language changes (cards are EN-only now)
-  window.__updateUseCases = () => {
-    // keep same filter/search state
-    renderCards();
-  };
-
-  // init
-  renderCards();
-  window.addEventListener("resize", onResize, { passive: true });
+  updateCarousel();
 }
 
 /* -------------------------
