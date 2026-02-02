@@ -33,8 +33,7 @@ const translations = {
     "hero.kicker": "Industrial IoT, delivered",
     "hero.title": "Not just another IIoT platform. <span>MITE changes the game.</span>",
     "hero.subtitle":
-      "MITE transforms raw IoT telemetry into a scalable operational system you can actually run." +
-      "You connect devices and assets, describe what should happen, and MITE takes care of how — processing data, executing logic, and delivering real operational outcomes.",
+      "From raw telemetry to real execution: connect assets, describe logic, and let MITE run your operations.",
     "hero.primaryCta": "Request a demo",
     "hero.secondaryCta": "Explore the platform",
     "hero.meta1": "From pilots to production-ready deployments",
@@ -68,17 +67,6 @@ const translations = {
     "about.side.label": "Typical outcomes",
     aboutOutcomes: [
       {
-        num: "Days",
-        title: "to a working pilot",
-        text: "A connected data flow + first governed loop (signals → logic → action → KPI).",
-        bullets: [
-          "Your data normalized into one model",
-          "First rules & alerts live",
-          "First workflow running end-to-end",
-          "Outcome: controllable process with measurable KPIs"
-        ]
-      },
-      {
         num: "One",
         title: "operational system",
         text: "Data, logic, actions, and evidence live in one place.",
@@ -87,6 +75,17 @@ const translations = {
           "Central control of rules & changes",
           "Dashboards show outcomes, not noise",
           "Outcome: predictable control and clear accountability"
+        ]
+      },
+      {
+        num: "Days",
+        title: "to a working pilot",
+        text: "A connected data flow + first governed loop (signals → logic → action → KPI).",
+        bullets: [
+          "Your data normalized into one model",
+          "First rules & alerts live",
+          "First workflow running end-to-end",
+          "Outcome: controllable process with measurable KPIs"
         ]
       },
       {
