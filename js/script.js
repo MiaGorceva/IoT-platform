@@ -417,7 +417,7 @@ function applyTranslations(lang = "en") {
   window.__updatePricing?.();
 }
 
-* -------------------------
+/* -------------------------
    Typical outcomes (hover + dots + arrows)
 ------------------------- */
 function setupOutcomes() {
