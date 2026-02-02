@@ -150,6 +150,21 @@ const translations = {
       "Works in constrained networks and mixed environments. Run on-prem, in the cloud, or hybrid — and scale horizontally when needed without re-architecture.",
     "platform.card3.meta": "Predictable growth instead of fragile rollouts",
 
+    "platform.card4.title": "Governance built-in (who does what, when, and why)",
+    "platform.card4.text":
+      "Define ownership, approvals, escalation ladders, and evidence capture — so execution doesn’t depend on individual discipline.",
+    "platform.card4.meta": "Accountability by design",
+
+    "platform.card5.title": "Reporting that comes from the process, not manual work",
+    "platform.card5.text":
+      "Export audit-ready packs (PDF/CSV) from the same workflow that ran the actions — no manual reconciliation across systems.",
+    "platform.card5.meta": "Evidence in one click",
+
+    "platform.card6.title": "A sandbox of forms and views — for any operational style",
+    "platform.card6.text":
+      "Once data is structured, teams can build many forms, dashboards, and control panels on top — matching how they actually work.",
+    "platform.card6.meta": "Many interfaces, one data truth",
+
     "platform.story.title": "Why this matters in practice",
     "platform.story.text":
       "When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. " +
