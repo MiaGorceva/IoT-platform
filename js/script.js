@@ -52,12 +52,12 @@ const translations = {
       "Dashboards show real execution and outcomes. You adapt processes in hours or days — without “waiting for developers” as the bottleneck.",
     "about.point1.title": "A clean data sandbox — your reality, structured",
     "about.point1.text":
-      "All signals become one ordered operational model (tables + context), so you stop drowning in scattered integrations and inconsistent formats." + 
+      "All signals become one ordered operational model (tables + context), so you stop drowning in scattered integrations and inconsistent formats. " + 
       "You work with your reality — structured, consistent, and ready for analysis, logic, and execution.",
     "about.point2.title": "Unlimited logic layers — no custom code chaos, no artificial limits",
     "about.point2.text":
-      "You describe processes as logic: conditions, routes, approvals, escalations, KPIs. Add new behavior fast — without rewriting systems." +
-      "— with any number of parallel mechanisms, flows, and decision models." +
+      "You describe processes as logic: conditions, routes, approvals, escalations, KPIs. Add new behavior fast — without rewriting systems, " +
+      "with any number of parallel mechanisms, flows, and decision models. " +
       "There is no \“single workflow\” or \“one mechanism\” — logic grows organically with your operations.",
     "about.point3.title": "Execution is governed — patterns are analyzed and visualized",
     "about.point3.text":
