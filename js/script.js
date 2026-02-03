@@ -33,7 +33,8 @@ const translations = {
     "hero.kicker": "Industrial IoT, delivered",
     "hero.title": "Not just another IIoT platform. <span>MITE changes the game.</span>",
     "hero.subtitle":
-      "From raw telemetry to real execution: connect assets, describe logic, and let MITE run your operations.",
+      "From raw telemetry to real execution: connect assets, describe logic, and let MITE run your operations." +
+      "Every executed action becomes data — fueling the next decision, rule, and improvement.",
     "hero.primaryCta": "Request a demo",
     "hero.secondaryCta": "Explore the platform",
     "hero.meta1": "From pilots to production-ready deployments",
