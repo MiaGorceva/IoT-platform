@@ -51,63 +51,68 @@ const translations = {
       "Dashboards show real execution and outcomes. You adapt processes in hours or days — without “waiting for developers” as the bottleneck.",
     "about.point1.title": "A clean data sandbox — your reality, structured",
     "about.point1.text":
-      "All signals become one ordered operational model (tables + context), so you stop drowning in scattered integrations and inconsistent formats.",
-    "about.point2.title": "Unlimited logic layers — without custom code chaos",
+      "All signals become one ordered operational model (tables + context), so you stop drowning in scattered integrations and inconsistent formats." + 
+      "You work with your reality — structured, consistent, and ready for analysis, logic, and execution.",
+    "about.point2.title": "Unlimited logic layers — no custom code chaos, no artificial limits",
     "about.point2.text":
-      "You describe processes as logic: conditions, routes, approvals, escalations, KPIs. Add new behavior fast — without rewriting systems.",
-    "about.point3.title": "Execution is governed, not manual coordination",
+      "You describe processes as logic: conditions, routes, approvals, escalations, KPIs. Add new behavior fast — without rewriting systems." +
+      "— with any number of parallel mechanisms, flows, and decision models." +
+      "There is no \“single workflow\” or \“one mechanism\” — logic grows organically with your operations.",
+    "about.point3.title": "Execution is governed — patterns are analyzed and visualized",
     "about.point3.text":
-      "MITE tracks what happened, when, and why. Deviations trigger actions. Responsibility is explicit — not buried in chats and spreadsheets.",
-    "about.point4.title": "Routine runs on autopilot, insights surface automatically",
+      "MITE tracks what happens, when, and why  — across all processes and logic layers. Execution data is continuously analyzed:" +
+      "patterns, deviations, bottlenecks, and recurring behaviors are surfaced and visualized, not hidden in logs or spreadsheets." +
+      "Responsibility, cause, and impact are always explicit.",
+    "about.point4.title": "Change is constant — systems must adapt without stopping",
     "about.point4.text":
-      "Repetitive loops are automated. AI-assisted analysis helps surface patterns and opportunities — results don’t depend on individual heroics.",
+      "Business never stands still: rules change, priorities shift, conditions evolve. With MITE, logic and processes are adapted in hours or days," +
+      "while existing operations continue to run and generate data —feeding the next iteration instead of breaking it.",
     "about.cta": "Ask a question",
-
     // Typical outcomes (RIGHT)
     "about.side.label": "Typical outcomes",
     aboutOutcomes: [
       {
         num: "One",
         title: "operational system",
-        text: "Data, logic, actions, and evidence live in one place.",
+        text: "Decisions based on patterns, not gut feeling",
         bullets: [
-          "Single source of truth for execution",
-          "Central control of rules & changes",
-          "Dashboards show outcomes, not noise",
-          "Outcome: predictable control and clear accountability"
+          "Single source of truth for execution. Data becomes insight.",
+          "Central control of rules & changes. Bottlenecks are explainable",
+          "Dashboards show outcomes, not noise. Patterns and trends are visible",
+          "Outcome: decisions rely on observed system behavior, not assumptions"
         ]
       },
       {
         num: "Days",
         title: "to a working pilot",
-        text: "A connected data flow + first governed loop (signals → logic → action → KPI).",
+        text: "Everything is under control from day one",
         bullets: [
-          "Your data normalized into one model",
-          "First rules & alerts live",
-          "First workflow running end-to-end",
-          "Outcome: controllable process with measurable KPIs"
+          "Your data normalized into one model. Clear visibility of what runs and why",
+          "You see real execution, real ownership, and real system behavior — immediately, not \“after rollout\”",
+          "First workflow running end-to-end. Deviations don’t hide — they surface",
+          "Outcome: controllable process with measurable KPIs. Control exists by design, not by heroics"
+        ]
+      },
+      {
+       num: "Stable",
+        title: "scaling without chaos",
+        text: "Successful patterns are reused, not re-implemented. Scalable stability, not fragile growth",
+        bullets: [
+          "Rollout playbooks instead of one-offs",
+          "Many mechanisms, one governed execution model",
+          "Predictable behavior across sites and teams stay reliable at scale",
+          "Outcome: consistent KPIs across your portfolio"
         ]
       },
       {
         num: "Fast",
         title: "adaptation to change",
-        text: "Operations change weekly — your system should too.",
+        text: "Operations change weekly — your system keeps up.",
         bullets: [
           "Update logic in hours/days",
-          "Safe iteration with immediate feedback",
-          "Same mechanism reused across sites",
-          "Outcome: faster decisions based on real metrics"
-        ]
-      },
-      {
-        num: "Stable",
-        title: "scaling without chaos",
-        text: "Roll out one success to many locations — predictably.",
-        bullets: [
-          "Rollout playbooks instead of one-offs",
-          "Governance & auditability stay consistent",
-          "Performance stays reliable at scale",
-          "Outcome: consistent KPIs across your portfolio"
+          "Safe iteration with immediate feedback. Each change generates data for the next improvement",
+          "New rules coexist with existing ones",
+          "Outcome: smarter decisions based on real metrics"
         ]
       }
     ],
