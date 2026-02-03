@@ -70,10 +70,8 @@ const translations = {
       "With MITE, logic and processes are adapted in hours or days," +
       "while existing operations keep running and generate data — feeding the next iteration instead of breaking it.",
     "about.cta": "Ask a question",
-    // Typical outcomes (RIGHT)
     "about.side.label": "Typical outcomes",
     aboutOutcomes: [// RIGHT SIDE — Typical outcomes
-"about.side.label": "Typical outcomes",
       {
         num: "One",
         title: "operational system",
