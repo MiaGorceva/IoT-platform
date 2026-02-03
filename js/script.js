@@ -42,42 +42,44 @@ const translations = {
     "hero.meta3": "Any logic complexity • any industrial reality • fast iterations",
     "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
 
-    // ABOUT / POSITIONING (смысл не меняем)
+    // ABOUT / POSITIONING 
     "about.eyebrow": "Positioning",
     "about.title": "One system you control — from data to execution",
     "about.text":
       "MITE turns operational data into a single, manageable system — not a set of disconnected signals and processes.\n\n" +
-      "We listen to your channels (devices, gateways, PLCs, services), parse incoming events into a clean structure, and store them in a consistent data model.\n\n" +
+      "We listen to your real environment: devices, gateways, PLCs, services, external systems, parse incoming events into a clean structure, and store them in a consistent data model.\n\n" +
       "Then you build as much logic as you want on top: rules, workflows, approvals, KPIs. You describe what should happen — MITE takes care of how it happens.\n\n" +
       "Dashboards show real execution and outcomes. You adapt processes in hours or days — without “waiting for developers” as the bottleneck.",
     "about.point1.title": "A clean data sandbox — your reality, structured",
     "about.point1.text":
       "All signals become one ordered operational model (tables + context), so you stop drowning in scattered integrations and inconsistent formats. " + 
       "You work with your reality — structured, consistent, and ready for analysis, logic, and execution.",
-    "about.point2.title": "Unlimited logic layers — no custom code chaos, no artificial limits",
+    "about.point2.title": "Logic grows with operations — not with code debt",
     "about.point2.text":
-      "You describe processes as logic: conditions, routes, approvals, escalations, KPIs. Add new behavior fast — without rewriting systems, " +
+      "Processes are defined declaratively: conditions, routes, approvals, escalations, KPIs.  Add new behavior fast — without rewriting systems, " +
       "with any number of parallel mechanisms, flows, and decision models. " +
       "There is no \“single workflow\” or \“one mechanism\” — logic grows organically with your operations.",
     "about.point3.title": "Execution is governed — patterns are analyzed and visualized",
     "about.point3.text":
-      "MITE tracks what happens, when, and why  — across all processes and logic layers. Execution data is continuously analyzed:" +
-      "patterns, deviations, bottlenecks, and recurring behaviors are surfaced and visualized, not hidden in logs or spreadsheets." +
+      "MITE tracks what happens, when, and why  — across all processes and logic layers. Execution data is continuously analyzed: " +
+      "patterns, deviations, bottlenecks, and recurring behaviors are surfaced and visualized, not hidden in logs or spreadsheets. " +
       "Responsibility, cause, and impact are always explicit.",
-    "about.point4.title": "Change is constant — systems must adapt without stopping",
+    "about.point4.title": "Change is constant — processes must adapt without stopping",
     "about.point4.text":
-      "Business never stands still: rules change, priorities shift, conditions evolve. With MITE, logic and processes are adapted in hours or days," +
-      "while existing operations continue to run and generate data —feeding the next iteration instead of breaking it.",
+      "Business never stands still: rules change, priorities shift, conditions evolve. " + 
+      "With MITE, logic and processes are adapted in hours or days," +
+      "while existing operations keep running and generate data — feeding the next iteration instead of breaking it.",
     "about.cta": "Ask a question",
     // Typical outcomes (RIGHT)
     "about.side.label": "Typical outcomes",
-    aboutOutcomes: [
+    aboutOutcomes: [// RIGHT SIDE — Typical outcomes
+"about.side.label": "Typical outcomes",
       {
         num: "One",
         title: "operational system",
         text: "Decisions based on patterns, not gut feeling",
         bullets: [
-          "Single source of truth for execution. Data becomes insight.",
+          "Single source of truth for execution — data becomes insight",
           "Central control of rules & changes. Bottlenecks are explainable",
           "Dashboards show outcomes, not noise. Patterns and trends are visible",
           "Outcome: decisions rely on observed system behavior, not assumptions"
@@ -86,12 +88,12 @@ const translations = {
       {
         num: "Days",
         title: "to a working pilot",
-        text: "Everything is under control from day one",
+        text: "Control exists from day one",
         bullets: [
           "Your data normalized into one model. Clear visibility of what runs and why",
-          "You see real execution, real ownership, and real system behavior — immediately, not \“after rollout\”",
-          "First workflow running end-to-end. Deviations don’t hide — they surface",
-          "Outcome: controllable process with measurable KPIs. Control exists by design, not by heroics"
+          "Real execution, ownership, and system behavior visible immediately",
+          "First workflow running end-to-end with deviations surfaced",
+          "Outcome: controllable process with measurable KPIs — by design, not heroics"
         ]
       },
       {
@@ -108,12 +110,12 @@ const translations = {
       {
         num: "Fast",
         title: "adaptation to change",
-        text: "Operations change weekly — your system keeps up.",
+        text: "Operations change daily — your system keeps up.",
         bullets: [
-          "Update logic in hours/days",
+          "Update rules and workflows in hours or days",
           "Safe iteration with immediate feedback. Each change generates data for the next improvement",
           "New rules coexist with existing ones",
-          "Outcome: smarter decisions based on real metrics"
+          "Outcome: smarter decisions driven by real metrics"
         ]
       }
     ],
