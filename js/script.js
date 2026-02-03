@@ -37,7 +37,7 @@ const translations = {
       "Every executed action becomes data — fueling the next decision, rule, and improvement.",
     "hero.primaryCta": "Request a demo",
     "hero.secondaryCta": "Explore the platform",
-    "hero.meta1": "From pilots to production-ready deployments",
+    "hero.meta1": "From pilots to production — ready deployments",
     "hero.meta2": "Declarative logic — describe what to do, not how to code it",
     "hero.meta3": "Any logic complexity • any industrial reality • fast iterations",
     "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
