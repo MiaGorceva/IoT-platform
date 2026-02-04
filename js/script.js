@@ -53,7 +53,7 @@ const translations = {
     "about.point1.title": "A clean data sandbox — your reality, structured",
     "about.point1.text":
       "All signals become one ordered operational model (tables + context), so you stop drowning in scattered integrations and inconsistent formats. " + 
-      "You work with your reality — one structured, consistent foundation for logic, execution, and analysis.",
+      "You work with your reality — one structured, consistent foundation for logic, execution and analysis.",
     "about.point2.title": "Logic grows with operations — not with code debt",
     "about.point2.text":
       "Processes are defined declaratively: conditions, routes, approvals, escalations, KPIs.  Add new behavior fast — without rewriting systems, " +
