@@ -963,7 +963,7 @@
 }
 
 .about-points{
-  margin-top:1.2rem;
+ /* margin-top:1.2rem;*/
   display:grid;
   gap:.9rem;
   max-width:44rem;
