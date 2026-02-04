@@ -67,7 +67,7 @@ const translations = {
     "about.point4.title": "Change is constant — processes must adapt without stopping",
     "about.point4.text":
       "Business never stands still: rules change, priorities shift, conditions evolve. " + 
-      "With MITE, logic and processes are adapted in hours or days," +
+      "With MITE, logic and processes are adapted in hours or days, " +
       "while existing operations keep running and generate data — feeding the next iteration instead of breaking it.",
     "about.cta": "Ask a question",
     "about.side.label": "Typical outcomes",
@@ -102,7 +102,7 @@ const translations = {
           "Rollout playbooks instead of one-offs",
           "Many mechanisms, one governed execution model",
           "Predictable behavior across sites and teams stay reliable at scale",
-          "Outcome: consistent KPIs across your portfolio"
+          "Outcome: Scale remains predictable even as operational complexity grows"
         ]
       },
       {
@@ -155,7 +155,7 @@ const translations = {
     "platform.story.title": "Why this matters in practice",
     "platform.story.text":
       "When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. " +
-      "That’s why improvements arrive in hours or days — and why the platform gets stronger with every real deployment.",
+      "That’s why improvements arrive in hours or days — and why the platform gets <strong>stronger with every real deployment.</strong>",
 
 
     // HIGHLIGHTS (6 cards)
