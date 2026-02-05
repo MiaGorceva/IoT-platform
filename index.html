@@ -184,77 +184,94 @@
 
    <section id="platform" class="section container">
     <div class="section-header">
-      <div class="eyebrow" data-i18n="platform.eyebrow"></div>
-      <h2 class="section-title" data-i18n="platform.title"></h2>
-      <p class="section-subtitle" data-i18n="platform.subtitle"></p>
+      <div class="eyebrow" data-i18n="platform.eyebrow">Platform</div>
+      <h2 class="section-title" data-i18n="platform.title">Built for fast change — and serious scale</h2>
+      <p class="section-subtitle" data-i18n="platform.subtitle">
+        MITE is powered by open-source lsFusion. You describe logic as business rules — the platform handles execution consistency and performance.
+      </p>
     </div>
 
-    <!-- CORE + PILLARS -->
-    <div class="platform-grid">
-      <!-- CORE (главная мысль) -->
-      <article class="card platform-card platform-core">
+    <div class="grid grid-3">
+      <!-- MAIN CARD -->
+      <article class="card platform-card platform-card-main">
         <div class="card-inner">
-          <h3 class="card-title" data-i18n="platform.core.title"></h3>
-          <p class="card-text" data-i18n="platform.core.text"></p>
-
-          <div class="platform-kpis">
-            <span class="platform-chip" data-i18n="platform.core.chip1"></span>
-            <span class="platform-chip" data-i18n="platform.core.chip2"></span>
-            <span class="platform-chip" data-i18n="platform.core.chip3"></span>
+          <h3 class="card-title" data-i18n="platform.card1.title">
+            Describe any process — any complexity — without code
+          </h3>
+          <p class="card-text" data-i18n="platform.card1.text">
+            You define what should happen (rules, routes, approvals, escalations, KPIs). MITE takes care of how it happens — reliably, at runtime.
+          </p>
+          <div class="card-meta" data-i18n="platform.card1.meta">
+            No developers as a bottleneck • fast iterations • governed execution
           </div>
-
-          <div class="platform-foot" data-i18n="platform.core.foot"></div>
         </div>
       </article>
 
-      <!-- PILLAR 1 -->
       <article class="card platform-card">
         <div class="card-inner">
-          <h3 class="card-title" data-i18n="platform.p1.title"></h3>
-          <p class="card-text" data-i18n="platform.p1.text"></p>
-          <div class="platform-foot" data-i18n="platform.p1.foot"></div>
+          <h3 class="card-title" data-i18n="platform.card2.title">Future-proof stack — no paid DB / Windows lock-in</h3>
+          <p class="card-text" data-i18n="platform.card2.text">
+            Run on-prem, cloud, or hybrid. Keep infrastructure flexible and cost-predictable — without legacy dependencies.
+          </p>
+          <div class="card-meta" data-i18n="platform.card2.meta">
+            Lower TCO • simpler ops • easier compliance
+          </div>
         </div>
       </article>
 
-      <!-- PILLAR 2 -->
       <article class="card platform-card">
         <div class="card-inner">
-          <h3 class="card-title" data-i18n="platform.p2.title"></h3>
-          <p class="card-text" data-i18n="platform.p2.text"></p>
-          <div class="platform-foot" data-i18n="platform.p2.foot"></div>
+          <h3 class="card-title" data-i18n="platform.card3.title">Readable logic — AI-friendly by design</h3>
+          <p class="card-text" data-i18n="platform.card3.text">
+            The system describes business logic in a structured way — easy to audit, explain, evolve, and accelerate with AI assistance.
+          </p>
+          <div class="card-meta" data-i18n="platform.card3.meta">
+            Explainability • governance • faster improvements
+          </div>
         </div>
       </article>
     </div>
 
-    <!-- CONNECTIVITY STRIP (технический, “спокойный”) -->
-    <article class="card platform-strip">
+    <!-- Connectivity card (как на скрине) -->
+    <article class="card ci-card" style="margin-top: 1.1rem;">
       <div class="card-inner">
-        <div class="platform-strip-eyebrow" data-i18n="platform.conn.eyebrow"></div>
-        <div class="platform-strip-title" data-i18n="platform.conn.title"></div>
-
-        <div class="platform-tags" aria-label="Connectivity tags">
-          <span class="platform-tag">REST API</span>
-          <span class="platform-tag">Webhooks</span>
-          <span class="platform-tag">MQTT</span>
-          <span class="platform-tag">LoRaWAN</span>
-          <span class="platform-tag" data-i18n="platform.conn.tag.modbus"></span>
-          <span class="platform-tag" data-i18n="platform.conn.tag.opcua"></span>
-          <span class="platform-tag" data-i18n="platform.conn.tag.deploy"></span>
-          <span class="platform-tag" data-i18n="platform.conn.tag.rbac"></span>
+        <div class="card-tag">
+          <span class="card-tag-dot"></span>
+          <span data-i18n="platform.ci.tag">Connectivity & Integration</span>
         </div>
 
-        <p class="platform-strip-text" data-i18n="platform.conn.text"></p>
+        <h3 class="ci-title" data-i18n="platform.ci.title">Works with real industrial environments</h3>
+
+        <div class="ci-chips">
+          <span class="ci-chip">REST API</span>
+          <span class="ci-chip">Webhooks</span>
+          <span class="ci-chip">MQTT</span>
+          <span class="ci-chip">LoRaWAN</span>
+          <span class="ci-chip">Modbus (via gateways)</span>
+          <span class="ci-chip">OPC UA (optional)</span>
+          <span class="ci-chip">On-prem or cloud</span>
+          <span class="ci-chip">Role-based access</span>
+        </div>
+
+        <p class="ci-note" data-i18n="platform.ci.note">
+          There is no single “right” protocol stack in the real world. Devices, networks, security rules, and constraints differ by site —
+          so MITE adapts the integration layer to your reality instead of forcing architectural compromises.
+        </p>
       </div>
     </article>
 
-    <!-- STORY STRIP -->
-    <article class="card platform-story">
+    <article class="card platform-story" style="margin-top: 1.1rem;">
       <div class="card-inner">
-        <div class="platform-story-title" data-i18n="platform.story.title"></div>
-        <p class="platform-story-text" data-i18n="platform.story.text"></p>
+        <h3 class="card-title" data-i18n="platform.story.title">Why this matters in practice</h3>
+        <p class="card-text" data-i18n="platform.story.text">
+          When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature.
+          That’s why improvements arrive in hours or days — and why the platform gets
+          <span class="highlighting">stronger with every real deployment</span>.
+        </p>
       </div>
     </article>
   </section>
+
 
 
     <!-- HIGHLIGHTS -->
