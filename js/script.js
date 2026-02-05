@@ -203,7 +203,7 @@ const translations = {
       "platform.story.title": "Why this matters in practice",
       "platform.story.text":
         "When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. " +
-        "That’s why improvements arrive in hours or days — and why the platform gets <span class=\"hl\">stronger with every real deployment</span>."
+        "That’s why improvements arrive in hours or days — and why the platform gets <span class=\"hl\">stronger with every real deployment</span>.",
 
 
     // HIGHLIGHTS (6 cards)
