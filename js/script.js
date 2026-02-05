@@ -119,7 +119,7 @@ const translations = {
     ],
 
     // PLATFORM
-    "platform.eyebrow": "Platform",
+   /* "platform.eyebrow": "Platform",
     "platform.title": "Built for fast change — and serious scale",
     "platform.subtitle":
       "MITE is powered by open-source <a href=\"https://lsfusion.org\" target=\"_blank\" rel=\"noopener noreferrer\">lsFusion</a>. " +
@@ -156,7 +156,54 @@ const translations = {
     "platform.story.text":
       "When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. " +
       "That’s why improvements arrive in hours or days — and why the platform gets "+
-       "<span class=\"highligting\">stronger with every real deployment</span>.",
+       "<span class=\"highligting\">stronger with every real deployment</span>.",*/
+
+       // PLATFORM
+      "platform.eyebrow": "Platform",
+      "platform.title": "Built for fast change — and serious scale",
+      "platform.subtitle":
+        "You describe logic as rules and processes. The platform executes them consistently — at scale.",
+
+      // CORE
+      "platform.core.title": "Any process complexity — without code. And it actually runs.",
+      "platform.core.text":
+        "Model processes as logic: conditions, routes, approvals, escalations, KPIs. " +
+        "Describe what must happen — MITE takes care of execution, consistency, and traceability. " +
+        "Complexity can grow without turning into custom-code chaos.",
+      "platform.core.chip1": "Unlimited logic layers",
+      "platform.core.chip2": "Governed execution",
+      "platform.core.chip3": "KPIs from real work",
+      "platform.core.foot": "Less dev friction • faster iterations • clearer ownership",
+
+      // PILLARS
+      "platform.p1.title": "Predictable scaling — even when complexity grows",
+      "platform.p1.text":
+        "The same operational model and building blocks support many scenarios across sites, teams, and time. " +
+        "You scale outcomes, not technical complexity.",
+      "platform.p1.foot": "Scale outcomes, not technical debt",
+
+      "platform.p2.title": "Future-proof by design: open, flexible, AI-readable",
+      "platform.p2.text":
+        "Transparent logic and structured data make the system easy to evolve and explain. " +
+        "You avoid lock-in to legacy stacks and keep the platform adaptable to modern tooling and AI-assisted work.",
+      "platform.p2.foot": "Built for tomorrow’s operations",
+
+      // CONNECTIVITY
+      "platform.conn.eyebrow": "Connectivity & Integration",
+      "platform.conn.title": "Works with real industrial environments",
+      "platform.conn.tag.modbus": "Modbus (via gateways)",
+      "platform.conn.tag.opcua": "OPC UA (optional)",
+      "platform.conn.tag.deploy": "On-prem / cloud / hybrid",
+      "platform.conn.tag.rbac": "Role-based access",
+      "platform.conn.text":
+        "There is no single “right” protocol stack in the real world. Devices, networks, and constraints differ by site — " +
+        "so MITE adapts the integration layer to your reality instead of forcing architectural compromises.",
+
+      // STORY (тут можно выделение через <span class="hl">…</span>)
+      "platform.story.title": "Why this matters in practice",
+      "platform.story.text":
+        "When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. " +
+        "That’s why improvements arrive in hours or days — and why the platform gets <span class=\"hl\">stronger with every real deployment</span>."
 
 
     // HIGHLIGHTS (6 cards)
