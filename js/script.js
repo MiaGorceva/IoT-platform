@@ -221,7 +221,7 @@ const translations = {
     "highlight.2.title": "Any protocols, any vendors — one clean model",
     "highlight.2.text":
       "Connect sensors, PLCs, gateways, third-party systems, and manual inputs. Normalize once, then reuse the same structured data everywhere.",
-    "highlight.2.meta": "No “one stack fits all” fantasies — we adapt to your site reality.",
+    "highlight.2.meta": "No “one stack fits all” fantasies — we adapt to site reality.",
 
     "highlight.3.tag": "Scale",
     "highlight.3.title": "Production scale by design",
