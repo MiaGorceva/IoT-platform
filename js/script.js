@@ -191,8 +191,8 @@ const translations = {
       // CONNECTIVITY
       "platform.conn.eyebrow": "Connectivity & Integration",
       "platform.conn.title": "Works with real industrial environments",
-      "platform.conn.tag.modbus": "Modbus (via gateways)",
-      "platform.conn.tag.opcua": "OPC UA (optional)",
+      "platform.conn.tag.modbus": "Modbus",
+      "platform.conn.tag.opcua": "OPC UA",
       "platform.conn.tag.deploy": "On-prem / cloud / hybrid",
       "platform.conn.tag.rbac": "Role-based access",
       "platform.conn.text":
@@ -353,7 +353,7 @@ const translations = {
       "No. In MITE you describe behavior as declarative logic (what to do). Operations teams can change rules, thresholds, routes, approvals, and KPIs without long development cycles.",
     "faq.q2": "How does MITE integrate with our landscape?",
     "faq.a2":
-      "MITE supports industrial and web protocols (MQTT, LoRaWAN via gateways, Modbus/OPC UA optional, REST, webhooks) and exposes open APIs. We can push/pull data to ERP/MES/SCADA, data lakes, or your apps.",
+      "MITE supports industrial and web protocols (MQTT, LoRaWAN, Modbus/OPC UA, REST, webhooks) and exposes open APIs. We can push/pull data to ERP/MES/SCADA, data lakes, or your apps.",
     "faq.q3": "Is it suitable for regulated industries (pharma, etc.)?",
     "faq.a3":
       "Yes. You can run governed workflows with approvals, full audit trails, immutable evidence, and exportable reports. Compliance is built into execution, not assembled manually after the fact.",
