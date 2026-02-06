@@ -543,6 +543,7 @@ function setupOutcomes() {
 /* -------------------------
    Use-cases data (18 “meaty”)
 ------------------------- */
+
 const useCases = [
   // Pharma (1)
   {
@@ -557,6 +558,34 @@ const useCases = [
     icon: "pharma",
     tags: ["cold chain", "audit", "reporting", "warehouse", "truck", "batch"]
   },
+  {
+    industry: "pharma",
+    title: "Environmental monitoring: excursions → governed deviations → evidence packs",
+    pain:
+      "Excursions are detected, but handling is manual: unclear escalation, missing approvals, scattered evidence for audits.",
+    how:
+      "Zone sensors + calibrated device registry → excursion rules + timers → escalation ladder + approvals → deviation workflow → exportable evidence packs (PDF/CSV) + long-term retention.",
+    result:
+      "Faster reaction, cleaner audits, and fewer compliance gaps because every excursion becomes a tracked process.",
+    icon: "thermo",
+    tags: ["environmental", "excursion", "deviation", "audit", "retention"]
+  },
+
+  const useCases = [
+  // Pharma (1)
+  {
+    industry: "pharma",
+    title: "Cold chain with multi-leg traceability & audit-ready reports",
+    pain:
+      "Different sensors in warehouses and trucks, border delays, variable temperature regimes by product — then manual reconciliation for every shipment, inspection, and claim.",
+    how:
+      "Single timeline per batch/shipment: ingest all sensor streams + route context + product regime rules + escalation ladder + approvals + automatic PDF/CSV reporting and long-term storage.",
+    result:
+      "Lower spoilage risk, fewer disputes, and audits become “export in minutes” instead of manual evidence gathering.",
+    icon: "pharma",
+    tags: ["cold chain", "audit", "reporting", "warehouse", "truck", "batch"]
+  },
+
 
   // Manufacturing (8)
   {
