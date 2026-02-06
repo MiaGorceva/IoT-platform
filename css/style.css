@@ -1600,11 +1600,11 @@
 }
 
 .uc-card{
-  flex: 0 0 calc((100% - 32px)/3); /* 3 per view by default */
+  flex: 0 0 calc((100% - 32px)/2); /* 2 per view by default */
 }
 
 @media (max-width: 980px){
-  .uc-card{ flex-basis: calc((100% - 16px)/2); } /* 2 per view */
+  .uc-card{ flex-basis: calc((100% - 16px)/1); } /* 1 per view */
 }
 @media (max-width: 640px){
   .uc-card{ flex-basis: 100%; } /* 1 per view */
