@@ -207,26 +207,26 @@ const translations = {
 
     // HIGHLIGHTS (6 cards)
     "highlights.eyebrow": "MITE Platform Highlights",
-    "highlights.title": "Why teams pick MITE for outcomes — not dashboards",
+    "highlights.title": "An execution system for operations — not another dashboard layer",
     "highlights.subtitle":
       "You get a structured data sandbox plus tools to build any control logic and operational experience — fast.",
 
-    "highlight.1.tag": "Business logic",
-    "highlight.1.title": "Any process complexity",
+    "highlight.1.tag": "BUSINESS LOGIC",
+    "highlight.1.title": "Any process complexity  — described as logic",
     "highlight.1.text":
-      "From simple alarms to multi-step execution with approvals and escalation ladders. When operations change, your logic changes — in hours, not quarters.",
-    "highlight.1.meta": "If you can describe the process, you can build it.",
+      "From simple alarms to multi-step execution with approvals, escalations, SLAs, and KPIs. Change the rules in hours when reality changes — without code rewrites.",
+    "highlight.1.meta": "If you can describe the process, you can run it.",
 
     "highlight.2.tag": "Connectivity",
-    "highlight.2.title": "Any protocols, any vendors",
+    "highlight.2.title": "Any protocols, any vendors — one clean model",
     "highlight.2.text":
-      "Bring in sensors, PLCs, gateways, third-party systems, and manual inputs. Normalize once, then reuse the same clean data everywhere.",
+      "Connect sensors, PLCs, gateways, third-party systems, and manual inputs. Normalize once, then reuse the same structured data everywhere.",
     "highlight.2.meta": "No “one stack fits all” fantasies — we adapt to your site reality.",
 
     "highlight.3.tag": "Scale",
-    "highlight.3.title": "Billions of records, thousands of users",
+    "highlight.3.title": "Production scale by design",
     "highlight.3.text":
-      "MITE is designed for real production load: long histories, heavy analytics, and many users working simultaneously.",
+      "Billions of records, heavy telemetry, thousands of concurrent users, and analytics running continuously — this is normal mode, not a “later upgrade",
     "highlight.3.meta": "Performance is a feature, not an afterthought.",
 
     "highlight.4.tag": "Insights",
@@ -236,15 +236,15 @@ const translations = {
     "highlight.4.meta": "Less human factor • more repeatable outcomes.",
 
     "highlight.5.tag": "Experience",
-    "highlight.5.title": "A lot of “forms” — on purpose",
+    "highlight.5.title": "Built for real roles — not one UI for everyone",
     "highlight.5.text":
-      "Different teams need different views. MITE gives you many UI patterns (tables, cards, maps, timelines, reports) so each role gets the right interface.",
-    "highlight.5.meta": "Same data model • unlimited experiences.",
+      "Operations, engineering, and management need different views. MITE supports multiple UI patterns (tables, maps, cards, timelines, reports) on top of the same governed model.",
+    "highlight.5.meta": "Same data truth • unlimited operational experiences.",
 
     "highlight.6.tag": "Value",
     "highlight.6.title": "Profit-driven results",
     "highlight.6.text":
-      "Less spoilage, fewer incidents, lower losses, faster rollouts, cleaner compliance. Tie every loop to KPIs and prove ROI.",
+      "Every loop is measurable: fewer incidents, lower losses, cleaner compliance, faster rollouts — because actions are tied to results, not to “monitoring”.",
     "highlight.6.meta": "IoT as an investment, not a cost.",
 
     // USE CASES header

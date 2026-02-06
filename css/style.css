@@ -452,6 +452,7 @@
     }
 
     .card {
+      height: 100%;
       position: relative;
       border-radius: var(--radius-lg);
       background: rgba(15, 23, 42, 0.96);
@@ -460,6 +461,7 @@
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
       overflow: hidden;
     }
+
 
     .card::before {
       content: "";
@@ -475,6 +477,9 @@
     .card-inner {
       position: relative;
       z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
     .card-tag {
@@ -499,18 +504,22 @@
     .card-title {
       font-size: 0.96rem;
       margin-bottom: 0.3rem;
+      min-height: 2.6em;         /* 2 строки */
+      line-height: 1.25;
     }
 
     .card-text {
       font-size: 0.85rem;
       color: var(--muted);
       line-height: 1.6;
+      min-height: 5.2em;         /* 3–4 строки, подгони по вкусу */
     }
 
     .card-meta {
-      margin-top: 0.75rem;
       font-size: 0.78rem;
       color: var(--accent2);
+      margin-top: auto;
+      padding-top: 0.75rem;      /* чтобы был “воздух” */
     }
 
     .pill-row {
@@ -1778,6 +1787,7 @@
   opacity:.35;
   pointer-events:none;
 }
+
 
 
 
