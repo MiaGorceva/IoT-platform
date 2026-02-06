@@ -548,15 +548,22 @@ const useCases = [
   // Pharma (1)
   {
     industry: "pharma",
-    title: "Cold chain with multi-leg traceability & audit-ready reports",
-    pain:
-      "Different sensors in warehouses and trucks, border delays, variable temperature regimes by product — then manual reconciliation for every shipment, inspection, and claim.",
-    how:
-      "Single timeline per batch/shipment: ingest all sensor streams + route context + product regime rules + escalation ladder + approvals + automatic PDF/CSV reporting and long-term storage.",
-    result:
-      "Lower spoilage risk, fewer disputes, and audits become “export in minutes” instead of manual evidence gathering.",
-    icon: "pharma",
-    tags: ["cold chain", "audit", "reporting", "warehouse", "truck", "batch"]
+  title: "Cold chain across warehouses, trucks, and borders — with audit-ready evidence",
+  pain:
+    "Temperature sensors exist everywhere — warehouses, trucks, cross-docks — but data lives in fragments. " +
+    "Different products have different regimes, routes change, borders delay shipments. " +
+    "When something goes wrong, teams manually reconstruct history across systems, emails, and spreadsheets — " +
+    "shipment by shipment, inspection by inspection.",
+  how:
+    "MITE builds a single governed timeline per batch or shipment. " +
+    "All sensor streams, route milestones, and product-specific temperature regimes are normalized into one model. " +
+    "Deviations trigger escalation rules, approvals are logged, and every action is tied to the batch context. " +
+    "Reports (PDF/CSV) are generated automatically and stored with long-term retention.",
+  result:
+    "Lower spoilage risk, fewer disputes with partners and regulators, " +
+    "and audits turn into a one-click export instead of days of manual evidence gathering.",
+  icon: "pharma",
+  tags: ["cold chain", "audit", "compliance", "warehouse", "transport", "batch"]
   },
   {
     industry: "pharma",
