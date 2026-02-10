@@ -547,7 +547,7 @@ function setupOutcomes() {
 const useCases = [
   // Pharma (1)
   {
-    industry: "pharma",
+    industry: "pharma", 
   title: "Cold chain across warehouses, trucks, and borders — with audit-ready evidence",
   pain:
     "Temperature sensors exist everywhere — warehouses, trucks, cross-docks — but data lives in fragments. " +
@@ -884,12 +884,16 @@ function setupUseCases() {
       <article class="pc-card uc-card" data-industry="${u.industry}">
         <div class="uc-card-strip" aria-hidden="true"></div>
 
+        article.innerHTML = `
+        <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
+
         <div class="uc-head">
           <div class="uc-badge">${u.industry.toUpperCase()}</div>
           <div class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</div>
         </div>
 
         <h3 class="uc-title">${u.title}</h3>
+        <div class="uc-badge">${u.badge}</div>
 
         <div class="uc-body">
           <div class="uc-row">
