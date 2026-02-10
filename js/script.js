@@ -568,16 +568,17 @@ const useCases = [
   },
   {
     industry: "pharma",
-    badge: "KPIs drive execution",
-    title: "Environmental monitoring: excursions → governed deviations → evidence packs",
-    pain:
-      "Excursions are detected, but handling is manual: unclear escalation, missing approvals, scattered evidence for audits.",
-    how:
-      "Zone sensors + calibrated device registry → excursion rules + timers → escalation ladder + approvals → deviation workflow → exportable evidence packs (PDF/CSV) + long-term retention.",
-    result:
-      "Faster reaction, cleaner audits, and fewer compliance gaps because every excursion becomes a tracked process.",
-    icon: "thermo",
-    tags: ["environmental", "excursion", "deviation", "audit", "retention"]
+  industryLabel: "Pharma",
+  title: "Compliance & GDPR: controlled access, retention, and audit trails",
+  badge: "Audit-ready & GDPR-safe",
+  pain:
+    "Operational data is scattered across systems, access rights are unclear, and audits require manual evidence collection. GDPR requests and inspections become stressful and risky.",
+  how:
+    "Unified data model with role-based access, immutable audit trails, configurable retention policies, and one-click evidence exports for auditors and regulators.",
+  result:
+    "Lower compliance risk, faster audits, and GDPR requests handled in minutes instead of weeks.",
+  icon: "shield",
+  tags: ["gdpr", "compliance", "audit", "retention", "pharma"]
   },
 
   // Manufacturing (8)
