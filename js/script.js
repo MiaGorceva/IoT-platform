@@ -904,18 +904,22 @@ function setupUseCases() {
       <article class="pc-card uc-card" data-industry="${u.industry}">
         <div class="uc-card-strip" aria-hidden="true"></div>
 
-        <div class="uc-toprow">
-          <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
+        <!-- Case number -->
+        <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
 
-          <div class="uc-head">
-            <div class="uc-badge uc-badge--industry">${u.industryLabel || u.industry.toUpperCase()}</div>
-            <div class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</div>
+        <div class="uc-head">
+          <div class="uc-badge">${u.industryLabel}</div>
+          <div class="uc-mini" aria-hidden="true">
+            ${iconSvg(u.icon)}
           </div>
         </div>
 
         <h3 class="uc-title">${u.title}</h3>
 
-        ${u.badge ? `<div class="uc-badge uc-badge--outcome">${u.badge}</div>` : ""}
+        <!-- Outcome badge -->
+        <div class="uc-badge uc-badge--outcome">
+          ${u.badge}
+        </div>
 
         <div class="uc-body">
           <div class="uc-row">
