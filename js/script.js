@@ -568,7 +568,6 @@ const useCases = [
   },
   {
     industry: "pharma",
-  industryLabel: "Pharma",
   title: "Compliance & GDPR: controlled access, retention, and audit trails",
   badge: "Audit-ready & GDPR-safe",
   pain:
