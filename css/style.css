@@ -1789,6 +1789,37 @@
   pointer-events:none;
 }
 
+.uc-toprow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.uc-index{
+  font-size: 12px;
+  letter-spacing: .18em;
+  font-weight: 800;
+  color: rgba(255,255,255,.55);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.03);
+}
+
+.uc-badge--industry{
+  color: rgba(72,207,255,.92);
+  border-color: rgba(72,207,255,.30);
+}
+
+.uc-badge--outcome{
+  margin-top: 10px;
+  color: rgba(84,229,74,.95);
+  border-color: rgba(84,229,74,.28);
+}
+
+
 
 
 

@@ -549,6 +549,7 @@ const useCases = [
   {
     industry: "pharma", 
   title: "Cold chain across warehouses, trucks, and borders — with audit-ready evidence",
+  badge: "Audit-ready cold chain",
   pain:
     "Temperature sensors exist everywhere — warehouses, trucks, cross-docks — but data lives in fragments. " +
     "Different products have different regimes, routes change, borders delay shipments. " +
@@ -567,6 +568,7 @@ const useCases = [
   },
   {
     industry: "pharma",
+    badge: "KPIs drive execution",
     title: "Environmental monitoring: excursions → governed deviations → evidence packs",
     pain:
       "Excursions are detected, but handling is manual: unclear escalation, missing approvals, scattered evidence for audits.",
@@ -581,6 +583,7 @@ const useCases = [
   // Manufacturing (8)
   {
     industry: "manufacturing",
+    badge: "Downtime as a closed loop",
     title: "Downtime: detect → classify → assign → verify (not just OEE charts)",
     pain:
       "Stops repeat because dashboards don’t create governed actions. Ownership is unclear, and root-cause work dies in chat.",
@@ -593,6 +596,7 @@ const useCases = [
   },
   {
     industry: "manufacturing",
+    badge: "Early containment, not rework",
     title: "Quality drift: early detection + automatic containment workflow",
     pain:
       "Quality issues are found late (scrap/rework), and containment decisions are slow or inconsistent across shifts.",
@@ -605,6 +609,7 @@ const useCases = [
   },
   {
     industry: "manufacturing",
+    badge: "Early containment, not rework",
     title: "Predictive maintenance: condition signals → prioritized work orders",
     pain:
       "Sensors exist, but maintenance still reacts late because signals don’t translate into prioritized actions with proof of completion.",
@@ -617,6 +622,7 @@ const useCases = [
   },
   {
     industry: "manufacturing",
+    badge: "Failures become planned",
     title: "Energy spikes: detect → explain → fix (per line, per shift)",
     pain:
       "Energy costs rise, but teams can’t link spikes to equipment states, shifts, or batches — so savings stay theoretical.",
@@ -629,6 +635,7 @@ const useCases = [
   },
   {
     industry: "manufacturing",
+    badge: "Savings you can prove",
     title: "Changeover governance: reduce variance between shifts",
     pain:
       "Changeovers depend on “tribal knowledge”. Steps are skipped, time is lost, and quality suffers.",
@@ -641,6 +648,7 @@ const useCases = [
   },
   {
     industry: "manufacturing",
+    badge: "Consistent changeovers",
     title: "EHS incidents: near-miss → action → closure with proof",
     pain:
       "Near-misses are logged, but actions aren’t tracked and lessons don’t become enforced routines.",
@@ -653,6 +661,7 @@ const useCases = [
   },
   {
     industry: "manufacturing",
+    badge: "Evidence-driven EHS",
     title: "Traceability: batch genealogy + instant evidence packs",
     pain:
       "When something goes wrong, traceability is a scramble: multiple systems, partial data, manual reconstruction.",
@@ -665,6 +674,7 @@ const useCases = [
   },
   {
     industry: "manufacturing",
+    badge: "Evidence pack in minutes",
     title: "KPI governance: actions tied to KPIs, not dashboards",
     pain:
       "KPIs exist but don’t drive behavior. Teams report numbers, but execution stays unmanaged.",
@@ -679,6 +689,7 @@ const useCases = [
   // Agriculture (4)
   {
     industry: "agriculture",
+    badge: "KPIs drive execution",
     title: "Barn microclimate: conditions → action workflow → loss reduction",
     pain:
       "Late reaction to temperature/humidity/ammonia drift causes stress, disease, and productivity loss.",
@@ -691,6 +702,7 @@ const useCases = [
   },
   {
     industry: "agriculture",
+    badge: "KPIs drive execution",
     title: "Poultry house control: early warning for ventilation failures",
     pain:
       "Ventilation issues and heat stress can cascade fast; teams notice too late.",
@@ -703,6 +715,7 @@ const useCases = [
   },
   {
     industry: "agriculture",
+    badge: "KPIs drive execution",
     title: "Irrigation efficiency: soil moisture → scheduling → water savings",
     pain:
       "Water is wasted because irrigation is schedule-driven, not condition-driven; savings are hard to prove.",
@@ -715,6 +728,7 @@ const useCases = [
   },
   {
     industry: "agriculture",
+    badge: "KPIs drive execution",
     title: "Cold storage for produce: quality hold rules + compliance exports",
     pain:
       "Quality degrades silently; different rooms and sensors make consistent control and reporting hard.",
@@ -729,6 +743,7 @@ const useCases = [
   // Energy (1)
   {
     industry: "energy",
+    badge: "KPIs drive execution",
     title: "Battery health & predictive replacement planning",
     pain:
       "Battery fleets fail unpredictably; teams replace too early or too late, and downtime is costly.",
@@ -743,6 +758,7 @@ const useCases = [
   // Environment (1)
   {
     industry: "environment",
+    badge: "KPIs drive execution",
     title: "Air quality: sensor network → heatmaps → actionable interventions",
     pain:
       "Raw readings don’t translate into decisions: where it’s worse, why, and what to do next is unclear.",
@@ -757,6 +773,7 @@ const useCases = [
   // Smart cities (1)
   {
     industry: "smartcities",
+    badge: "KPIs drive execution",
     title: "Street lighting: faults → routing → SLA closure (with proof)",
     pain:
       "Citizens complain, but repairs are slow: no clear ownership, no SLA control, no proof of closure.",
@@ -771,6 +788,7 @@ const useCases = [
   // Logistics (1)
   {
     industry: "logistics",
+    badge: "KPIs drive execution",
     title: "Fleet cold transport: route context + exception handling",
     pain:
       "Temperature exceptions are noticed after delivery; disputes and claims are painful and data is fragmented.",
@@ -785,6 +803,7 @@ const useCases = [
   // Construction (1)
   {
     industry: "construction",
+    badge: "KPIs drive execution",
     title: "Fuel theft prevention: events → alarm → response workflow",
     pain:
       "Fuel theft and leakage are discovered late; even when alarms exist, response is inconsistent.",
@@ -880,26 +899,30 @@ function setupUseCases() {
   }
 
   function renderCards(list) {
-    track.innerHTML = list.map((u) => `
+  track.innerHTML = list
+    .map((u, index) => `
       <article class="pc-card uc-card" data-industry="${u.industry}">
         <div class="uc-card-strip" aria-hidden="true"></div>
 
-        article.innerHTML = `
-        <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
+        <div class="uc-toprow">
+          <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
 
-        <div class="uc-head">
-          <div class="uc-badge">${u.industry.toUpperCase()}</div>
-          <div class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</div>
+          <div class="uc-head">
+            <div class="uc-badge uc-badge--industry">${u.industryLabel || u.industry.toUpperCase()}</div>
+            <div class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</div>
+          </div>
         </div>
 
         <h3 class="uc-title">${u.title}</h3>
-        <div class="uc-badge">${u.badge}</div>
+
+        ${u.badge ? `<div class="uc-badge uc-badge--outcome">${u.badge}</div>` : ""}
 
         <div class="uc-body">
           <div class="uc-row">
             <div class="uc-k">Pain</div>
             <div class="uc-v">${u.pain}</div>
           </div>
+
           <div class="uc-row">
             <div class="uc-k">How</div>
             <div class="uc-v">${u.how}</div>
@@ -911,8 +934,10 @@ function setupUseCases() {
           </div>
         </div>
       </article>
-    `).join("");
-  }
+    `)
+    .join("");
+}
+
 
   function updateCarousel() {
     const list = filtered();
