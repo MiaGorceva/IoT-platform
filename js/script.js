@@ -552,7 +552,6 @@ function setupOutcomes() {
 ------------------------- */
 
 const useCases = [
-  const useCases = [
   // PHARMA (2)
   {
     id: 1,
