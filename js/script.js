@@ -912,7 +912,7 @@ function setupUseCases() {
           <div class="uc-badge uc-badge--outcome">
             ${u.badge}
           </div>
-          <!--  <div class="uc-badge">${u.industryLabel}</div>-->
+          <div class="uc-badge">${u.industryLabel}</div>
             <div class="uc-mini" aria-hidden="true">
               ${iconSvg(u.icon)}
             </div>
