@@ -907,19 +907,19 @@ function setupUseCases() {
         <!-- Case number -->
         <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
 
+         <!-- Outcome badge -->
+        <div class="uc-badge uc-badge--outcome">
+          ${u.badge}
+        </div>
+
         <div class="uc-head">
-          <div class="uc-badge">${u.industryLabel}</div>
+        <!--  <div class="uc-badge">${u.industryLabel}</div>-->
           <div class="uc-mini" aria-hidden="true">
             ${iconSvg(u.icon)}
           </div>
         </div>
 
         <h3 class="uc-title">${u.title}</h3>
-
-        <!-- Outcome badge -->
-        <div class="uc-badge uc-badge--outcome">
-          ${u.badge}
-        </div>
 
         <div class="uc-body">
           <div class="uc-row">
