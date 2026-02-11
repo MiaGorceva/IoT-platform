@@ -268,19 +268,26 @@ const translations = {
     // HOW
     "how.eyebrow": "How it works",
     "how.title": "Three steps from device to decision",
-    "how.subtitle": "MITE ties data, logic, actions, evidence, and KPIs into one feedback loop.",
-    "how.step1.tag": "Step 1",
-    "how.step1.title": "Ingest and structure your reality",
+    "how.subtitle": "From raw signals to actions, evidence, and KPI outcomes — in days, not months.",
+    "how.step1.tag": "2-5 DAYS",
+    "how.step1.title": "Data in. Clean model out.",
     "how.step1.text":
-      "We listen to your channels and normalize events into a clean operational model (assets, sites, routes, context).",
-    "how.step2.tag": "Step 2",
-    "how.step2.title": "Describe logic (what to do)",
+      "Collect & normalize your reality (in days). Providers push telemetry to your endpoint — we ingest it and turn raw events into a clean, queryable operational model.",
+    "how.step1.outout": "Output: a normalized data “sandbox” (assets, sites, routes, context, timestamps) ready for logic and execution.",
+    "how.step1.micro": "Raw → normalized → usable",
+    "how.step2.tag": "3-5 Days",
+    "how.step2.title": "Turn data into logic.",
     "how.step2.text":
-      "Define rules, workflows, approvals, escalations, and KPIs. Add as many layers as you need — fast.",
-    "how.step3.tag": "Step 3",
+      "Define logic: triggers, workflows, KPIs. Configure what matters: thresholds, anomaly patterns, approvals, escalation paths, SLA timers, and KPI definitions — fast, with full traceability.",
+      "how.step2.outout": "Output: clear “if-this-then-that” operations, plus dashboards and audit-ready evidence.",
+    "how.step2.micro": "Events → decisions → actions",
+    "how.step3.tag": "GO-LIVE",
     "how.step3.title": "Execute, measure, improve",
     "how.step3.text":
-      "MITE runs the loop. Deviations trigger actions. Evidence is stored. KPIs show outcomes. Iterate safely and scale.",
+      "Execute → measure → improve. MITE runs the loop continuously: triggers actions, stores evidence, tracks KPI impact, and helps you iterate safely — without breaking production.",
+      "how.step3.outout": "Output: stable process, measurable results, and a feedback loop your team can trust.",
+    "how.step3.micro": "Actions → evidence → KPI outcomes",
+
 
     // PRICING
     "pricing.eyebrow": "Pricing",
@@ -940,6 +947,31 @@ function setupUseCases() {
     `)
     .join("");
 }
+
+function setFocusCard() {
+  const cards = [...track.querySelectorAll(".uc-card")];
+  if (!cards.length) return;
+
+  const vp = document.querySelector("#ucCarousel .pc-viewport");
+  const vpRect = vp.getBoundingClientRect();
+  const centerX = vpRect.left + vpRect.width / 2;
+
+  let best = null;
+  let bestDist = Infinity;
+
+  cards.forEach((c) => {
+    const r = c.getBoundingClientRect();
+    const cx = r.left + r.width / 2;
+    const d = Math.abs(cx - centerX);
+    if (d < bestDist) { bestDist = d; best = c; }
+  });
+
+  cards.forEach((c) => {
+    c.classList.toggle("is-focus", c === best);
+    c.classList.toggle("is-dim", c !== best);
+  });
+}
+
 
 
   function updateCarousel() {
