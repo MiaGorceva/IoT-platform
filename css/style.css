@@ -1882,27 +1882,80 @@
   box-shadow: 0 0 14px rgba(84,229,74,.25);
 }
 
+/* outcome: заметный “результат/выход” */
+.card-outcome{
+  margin: .85rem 0 0;
+  padding: .55rem .75rem;
+  border-radius: 14px;
+  border: 1px solid rgba(84,229,74,.28);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(84,229,74,.14), transparent 55%),
+    rgba(2, 6, 23, 0.25);
+  color: rgba(255,255,255,.88);
+  font-size: .86rem;
+  line-height: 1.45;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 26px rgba(0,0,0,.22);
+}
 
+.card-outcome::before{
+  content: "Output";
+  display: inline-block;
+  margin-right: .55rem;
+  padding: .12rem .5rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(72,207,255,.22);
+  background: rgba(15,23,42,.55);
+  color: rgba(72,207,255,.92);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
 
+/* micro: текстовая “формула”, вставляется i18n-скриптом */
+.card-micro{
+  margin: .55rem 0 0;
+  padding: .45rem .6rem .45rem 1.05rem;
+  position: relative;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(2,6,23,.20);
+  color: rgba(226,232,240,.72);
+  font-size: .78rem;
+  line-height: 1.35;
+  letter-spacing: .02em;
+  font-variant-numeric: tabular-nums;
+  white-space: pre-line; /* если в i18n будут переносы */
+}
 
+/* неоновая точка слева */
+.card-micro::before{
+  content:"";
+  position:absolute;
+  left:.55rem;
+  top:.78rem;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(72,207,255,.95);
+  box-shadow: 0 0 14px rgba(72,207,255,.30);
+}
 
+/* подсветка стрелок/разделителей прямо в тексте (без HTML) */
+.card-micro{
+  /* поддержим оба символа: → и -> */
+  /* будет красиво если ты используешь именно "→" в i18n */
+}
 
+/* hover чуть “дороже” */
+.card:hover .card-micro{
+  border-color: rgba(72,207,255,.22);
+  box-shadow: 0 0 0 1px rgba(72,207,255,.10);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* мобилка */
+@media (max-width: 720px){
+  .card-outcome{ font-size: .84rem; }
+  .card-micro{ font-size: .76rem; }
+}
