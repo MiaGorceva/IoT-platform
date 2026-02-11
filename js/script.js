@@ -552,272 +552,289 @@ function setupOutcomes() {
 ------------------------- */
 
 const useCases = [
-  // Pharma (1)
+  const useCases = [
+  // PHARMA (2)
   {
-    industry: "pharma", 
-  title: "Cold chain across warehouses, trucks, and borders — with audit-ready evidence",
-  badge: "Audit-ready cold chain",
-  pain:
-    "Temperature sensors exist everywhere — warehouses, trucks, cross-docks — but data lives in fragments. " +
-    "Different products have different regimes, routes change, borders delay shipments. " +
-    "When something goes wrong, teams manually reconstruct history across systems, emails, and spreadsheets — " +
-    "shipment by shipment, inspection by inspection.",
-  how:
-    "MITE builds a single governed timeline per batch or shipment. " +
-    "All sensor streams, route milestones, and product-specific temperature regimes are normalized into one model. " +
-    "Deviations trigger escalation rules, approvals are logged, and every action is tied to the batch context. " +
-    "Reports (PDF/CSV) are generated automatically and stored with long-term retention.",
-  result:
-    "Lower spoilage risk, fewer disputes with partners and regulators, " +
-    "and audits turn into a one-click export instead of days of manual evidence gathering.",
-  icon: "pharma",
-  tags: ["cold chain", "audit", "compliance", "warehouse", "transport", "batch"]
+    id: 1,
+    industry: "pharma",
+    industryLabel: "PHARMA",
+    title: "Cold chain: multi-leg traceability + audit-ready reports (warehouse → truck → border → customer)",
+    badge: "Lower spoilage + audits in minutes",
+    pain:
+      "Temperature data is fragmented across devices, warehouses, trucks, and forwarders. Excursions are discovered late, claims turn into “prove it” battles, and audits require manual reconciliation per shipment/batch.",
+    how:
+      "All sensor streams (warehouse + vehicle + door events) are ingested into one timeline per batch/shipment. Product-specific regimes, timers, and escalation ladders drive actions (dispatcher → QA → decision). Evidence pack (PDF/CSV) is generated from the same workflow that handled the excursion.",
+    result:
+      "Less spoilage risk, fewer disputes, faster deviation handling, and audit evidence becomes exportable instead of rebuilt manually.",
+    icon: "pharma",
+    tags: ["cold chain", "audit", "traceability", "warehouse", "fleet", "reports"]
   },
   {
+    id: 2,
     industry: "pharma",
-  title: "Compliance & GDPR: controlled access, retention, and audit trails",
-  badge: "Audit-ready & GDPR-safe",
-  pain:
-    "Operational data is scattered across systems, access rights are unclear, and audits require manual evidence collection. GDPR requests and inspections become stressful and risky.",
-  how:
-    "Unified data model with role-based access, immutable audit trails, configurable retention policies, and one-click evidence exports for auditors and regulators.",
-  result:
-    "Lower compliance risk, faster audits, and GDPR requests handled in minutes instead of weeks.",
-  icon: "shield",
-  tags: ["gdpr", "compliance", "audit", "retention", "pharma"]
+    industryLabel: "PHARMA",
+    title: "GxP/GDPR evidence pack: who accessed what, when, why — without manual logs",
+    badge: "Compliance by design, not by heroics",
+    pain:
+      "Even if monitoring works, compliance breaks on the “paperwork layer”: access control is scattered, data retention rules are unclear, and audit trails are built from multiple systems. During inspections, teams lose days proving integrity and accountability.",
+    how:
+      "Role-based access + immutable audit trail on every key action (view/change/approve/export). Retention policies per dataset (e.g., 5+ years), controlled exports, and “inspection mode” evidence packs that include sensor history + deviations + approvals + signatures + access trace.",
+    result:
+      "Audits become predictable: evidence is produced in one click, accountability is explicit, and compliance doesn’t depend on manually maintained logs/spreadsheets.",
+    icon: "shield",
+    tags: ["gdpr", "gxp", "audit trail", "rbac", "retention", "evidence"]
   },
 
-  // Manufacturing (8)
+  // MANUFACTURING (8)
   {
+    id: 3,
     industry: "manufacturing",
-    badge: "Downtime as a closed loop",
+    industryLabel: "MANUFACTURING",
     title: "Downtime: detect → classify → assign → verify (not just OEE charts)",
+    badge: "Downtime becomes an owned loop",
     pain:
-      "Stops repeat because dashboards don’t create governed actions. Ownership is unclear, and root-cause work dies in chat.",
+      "Stops repeat because dashboards don’t create governed actions. Operators log reasons inconsistently, ownership is unclear, and root-cause work dies in chat. After a month you have OEE charts — but not fewer stops.",
     how:
-      "PLC events + operator reason capture → routing rules by line/reason/team → CAPA-style tasks → verification checklist → KPI closure.",
+      "PLC events + operator reason capture → rule-based classification → automatic routing by line/reason/team → CAPA-style tasks with SLA timers → verification checklist → KPI closure (same loop records cause and fix).",
     result:
-      "Higher throughput and fewer repeated stops because every event becomes an owned, measurable loop.",
+      "Fewer repeated stops and higher throughput because every downtime event becomes an owned, measurable execution loop.",
     icon: "factory",
-    tags: ["downtime", "oee", "capa", "routing", "kpi"]
+    tags: ["downtime", "oee", "capa", "routing", "sla", "kpi"]
   },
   {
+    id: 4,
     industry: "manufacturing",
-    badge: "Early containment, not rework",
+    industryLabel: "MANUFACTURING",
     title: "Quality drift: early detection + automatic containment workflow",
-    pain:
-      "Quality issues are found late (scrap/rework), and containment decisions are slow or inconsistent across shifts.",
-    how:
-      "Process parameters + batch context → deviation rules + correlation → hold/stop workflow + approvals → evidence pack + reporting.",
-    result:
-      "Less scrap and rework, faster containment, clearer accountability for corrective actions.",
-    icon: "quality",
-    tags: ["quality", "scrap", "rework", "batch", "approvals"]
-  },
-  {
-    industry: "manufacturing",
     badge: "Early containment, not rework",
-    title: "Predictive maintenance: condition signals → prioritized work orders",
     pain:
-      "Sensors exist, but maintenance still reacts late because signals don’t translate into prioritized actions with proof of completion.",
+      "Quality issues are found late (scrap/rework). Different lines show different deviation rates, but ‘overall average is fine’ hides the real problem: one conveyor might be at 35% deviation while another is at 3%, and nobody sees the split until losses accumulate.",
     how:
-      "Condition indicators → rules per asset criticality → work order creation → SLA timers + escalation → completion verification + KPI impact.",
+      "Process parameters + batch/context → per-line baselines + deviation rules → correlation (line A vs line B vs overall) → hold/stop workflow + approvals → capture ‘why’ + actions → evidence pack + reporting tied to the same containment loop.",
     result:
-      "Fewer unplanned failures, shorter MTTR, measurable maintenance ROI.",
+      "Less scrap and rework, faster containment decisions, and clear accountability because drift is detected at the source (line-level), not averaged away.",
+    icon: "quality",
+    tags: ["quality", "drift", "containment", "scrap", "batch", "approvals"]
+  },
+  {
+    id: 5,
+    industry: "manufacturing",
+    industryLabel: "MANUFACTURING",
+    title: "Process accuracy: explain why one line is stable and another is chaotic",
+    badge: "Line-level truth beats averages",
+    pain:
+      "Teams see ‘10% deviation overall’ and accept it as normal. But the real story is uneven: line #2 runs at 35% deviation due to a specific machine state, raw material lot, or shift pattern. Without a unified model, it’s guesswork and arguments.",
+    how:
+      "Unify sensors + machine states + batch lots + shift logs into one model → compute baselines per line/asset → surface outliers + ‘what changed’ factors (state/lot/operator/maintenance window) → route investigation tasks with required evidence and closure KPIs.",
+    result:
+      "You stop managing by averages. You see where variability actually comes from and turn investigations into repeatable fixes.",
+    icon: "kpi",
+    tags: ["variance", "baseline", "line comparison", "root cause", "kpi"]
+  },
+  {
+    id: 6,
+    industry: "manufacturing",
+    industryLabel: "MANUFACTURING",
+    title: "Predictive maintenance: condition signals → prioritized work orders with proof",
+    badge: "Predictive lite that actually executes",
+    pain:
+      "Sensors exist, but maintenance still reacts late because signals don’t translate into prioritized actions. Teams get alerts, but nobody owns them, and there’s no proof that the right fix happened.",
+    how:
+      "Condition indicators (vibration/temp/runtime) → rules per asset criticality → work order creation → SLA timers + escalation → completion verification + before/after KPI impact tracked in the same loop.",
+    result:
+      "Fewer unplanned failures and measurable maintenance ROI because alerts become governed work, not ‘notifications’.",
     icon: "wrench",
-    tags: ["predictive", "maintenance", "mttr", "sla", "work orders"]
+    tags: ["predictive", "maintenance", "work order", "sla", "mttr"]
   },
   {
+    id: 7,
     industry: "manufacturing",
-    badge: "Failures become planned",
-    title: "Energy spikes: detect → explain → fix (per line, per shift)",
+    industryLabel: "MANUFACTURING",
+    title: "Energy spikes: detect → explain → fix (per line / per shift / per batch)",
+    badge: "Savings with proof, not theory",
     pain:
-      "Energy costs rise, but teams can’t link spikes to equipment states, shifts, or batches — so savings stay theoretical.",
+      "Energy costs rise, but teams can’t link spikes to equipment states, shifts, or batches. ‘We should save energy’ stays a presentation — no repeatable playbook, no proof per fix.",
     how:
-      "Meters + equipment states + schedule context → anomaly rules → root-cause capture → corrective workflow → savings KPI tracking.",
+      "Meters + equipment states + schedule/batch context → anomaly rules → root-cause capture → corrective workflow → savings KPI tracked per line and compared to baseline.",
     result:
-      "Documented cost savings and repeatable reduction playbooks.",
+      "Documented savings and repeatable reduction playbooks (what changed, by whom, what it saved).",
     icon: "bolt",
-    tags: ["energy", "anomaly", "cost", "shift", "savings"]
+    tags: ["energy", "anomaly", "baseline", "cost", "shift", "batch"]
   },
   {
+    id: 8,
     industry: "manufacturing",
-    badge: "Savings you can prove",
+    industryLabel: "MANUFACTURING",
     title: "Changeover governance: reduce variance between shifts",
+    badge: "Repeatable changeovers",
     pain:
-      "Changeovers depend on “tribal knowledge”. Steps are skipped, time is lost, and quality suffers.",
+      "Changeovers depend on ‘tribal knowledge’. Steps are skipped, setups vary by shift, and the first hour after changeover produces defects or lower throughput.",
     how:
-      "Checklist + sensor confirmations → approvals where needed → timers + alerts → post-changeover KPIs and evidence.",
+      "Digital checklist + sensor confirmations → approvals where needed → timers + alerts → post-changeover KPIs + evidence captured automatically.",
     result:
       "More consistent changeovers, less time loss, fewer start-up defects.",
     icon: "swap",
-    tags: ["changeover", "checklist", "shift", "quality"]
+    tags: ["changeover", "checklist", "shift", "setup", "quality"]
   },
   {
+    id: 9,
     industry: "manufacturing",
-    badge: "Consistent changeovers",
-    title: "EHS incidents: near-miss → action → closure with proof",
+    industryLabel: "MANUFACTURING",
+    title: "EHS incidents: near-miss → action → closure with evidence",
+    badge: "Accountability by design",
     pain:
-      "Near-misses are logged, but actions aren’t tracked and lessons don’t become enforced routines.",
+      "Near-misses are logged, but actions aren’t enforced. Evidence is scattered, and recurring patterns repeat because ‘learning’ doesn’t become governed execution.",
     how:
-      "Event capture → severity rules → task routing → evidence attachments → closure KPIs → trend dashboards.",
+      "Event capture → severity rules → routing to responsible owners → required evidence attachments → closure criteria → trend analytics by site/area/cause.",
     result:
-      "Lower incident rates and audit-ready EHS evidence.",
+      "Lower incident rates and audit-ready evidence, with clear ownership and closure discipline.",
     icon: "shield",
-    tags: ["ehs", "incident", "tasks", "evidence", "audit"]
+    tags: ["ehs", "incident", "evidence", "routing", "audit"]
   },
   {
+    id: 10,
     industry: "manufacturing",
-    badge: "Evidence-driven EHS",
-    title: "Traceability: batch genealogy + instant evidence packs",
+    industryLabel: "MANUFACTURING",
+    title: "Traceability: batch genealogy + instant evidence packs for claims",
+    badge: "Investigations in hours, not days",
     pain:
-      "When something goes wrong, traceability is a scramble: multiple systems, partial data, manual reconstruction.",
+      "When something goes wrong, traceability becomes a scramble: multiple systems, partial data, manual reconstruction. Customers want evidence fast — you can’t.",
     how:
-      "Normalize production + quality + logistics events → genealogy model → one-click evidence pack export for audits/claims.",
+      "Normalize production + quality + logistics events → genealogy model per batch → one-click evidence pack export (timeline, parameters, approvals, deviations, actions).",
     result:
       "Faster investigations, fewer losses, stronger customer trust.",
     icon: "trace",
-    tags: ["traceability", "genealogy", "evidence", "batch"]
-  },
-  {
-    industry: "manufacturing",
-    badge: "Evidence pack in minutes",
-    title: "KPI governance: actions tied to KPIs, not dashboards",
-    pain:
-      "KPIs exist but don’t drive behavior. Teams report numbers, but execution stays unmanaged.",
-    how:
-      "Define KPI-linked workflows: triggers → actions → verification → KPI updates and accountability trail.",
-    result:
-      "KPIs become operational levers, not monthly slides.",
-    icon: "kpi",
-    tags: ["kpi", "governance", "execution", "accountability"]
+    tags: ["traceability", "genealogy", "evidence", "claims", "batch"]
   },
 
-  // Agriculture (4)
+  // AGRICULTURE (2)
   {
+    id: 11,
     industry: "agriculture",
-    badge: "KPIs drive execution",
+    industryLabel: "AGRICULTURE",
     title: "Barn microclimate: conditions → action workflow → loss reduction",
+    badge: "Less loss, fewer critical events",
     pain:
-      "Late reaction to temperature/humidity/ammonia drift causes stress, disease, and productivity loss.",
+      "Temperature/humidity/ammonia drift is noticed too late. Teams rely on manual checks, and the same ‘almost-incident’ repeats because there’s no governed response loop.",
     how:
-      "Sensors → regimes by age/zone → escalation ladder → tasks/alerts → trend KPIs (mortality, feed conversion, productivity).",
+      "Sensors → regimes by zone/age → escalation ladder → tasks/alerts to responsible staff → closure tracking + KPIs (mortality, feed conversion, productivity) with trends.",
     result:
-      "Lower losses and more stable conditions with less supervision.",
+      "More stable conditions with less supervision, fewer critical spikes, and measurable improvements tied to actions.",
     icon: "cow",
-    tags: ["barn", "microclimate", "ammonia", "loss", "kpi"]
+    tags: ["microclimate", "ammonia", "regimes", "alerts", "kpi"]
   },
   {
+    id: 12,
     industry: "agriculture",
-    badge: "KPIs drive execution",
-    title: "Poultry house control: early warning for ventilation failures",
+    industryLabel: "AGRICULTURE",
+    title: "Irrigation: soil moisture + weather → scheduling → water savings with evidence",
+    badge: "Water savings you can prove",
     pain:
-      "Ventilation issues and heat stress can cascade fast; teams notice too late.",
+      "Irrigation is schedule-driven, not condition-driven. Water gets wasted, crops get uneven stress, and savings are hard to prove to management.",
     how:
-      "Multi-sensor correlation (temp, CO₂, fans) → anomaly rules → immediate routing to responsible staff → closure tracking.",
+      "Soil moisture + weather + zones → rules → irrigation actions/tasks → water usage KPI + yield correlation and season baselines.",
     result:
-      "Fewer critical events and measurable reduction in mortality spikes.",
-    icon: "chicken",
-    tags: ["poultry", "ventilation", "co2", "alerting"]
-  },
-  {
-    industry: "agriculture",
-    badge: "KPIs drive execution",
-    title: "Irrigation efficiency: soil moisture → scheduling → water savings",
-    pain:
-      "Water is wasted because irrigation is schedule-driven, not condition-driven; savings are hard to prove.",
-    how:
-      "Soil moisture + weather + zones → rules → irrigation tasks → water usage KPI + yield correlation.",
-    result:
-      "Water savings with proof, better yield stability.",
+      "Lower water spend with proof and more stable yield outcomes.",
     icon: "drop",
-    tags: ["irrigation", "moisture", "water", "yield"]
-  },
-  {
-    industry: "agriculture",
-    badge: "KPIs drive execution",
-    title: "Cold storage for produce: quality hold rules + compliance exports",
-    pain:
-      "Quality degrades silently; different rooms and sensors make consistent control and reporting hard.",
-    how:
-      "Storage zones + regimes → deviations → containment workflow → exportable reports + long-term data retention.",
-    result:
-      "Less spoilage, faster quality decisions, fewer manual reports.",
-    icon: "snow",
-    tags: ["storage", "quality", "compliance", "reports"]
+    tags: ["irrigation", "moisture", "weather", "water", "yield"]
   },
 
-  // Energy (1)
+  // ENERGY (1)
   {
+    id: 13,
     industry: "energy",
-    badge: "KPIs drive execution",
-    title: "Battery health & predictive replacement planning",
+    industryLabel: "ENERGY",
+    title: "Battery health: predictive replacement planning for distributed fleets",
+    badge: "Fewer outages, predictable windows",
     pain:
-      "Battery fleets fail unpredictably; teams replace too early or too late, and downtime is costly.",
+      "Battery fleets fail unpredictably; teams replace too early or too late. Critical sites get surprises, and maintenance planning is reactive.",
     how:
-      "Health indicators → rules per site criticality → predictive alerts → replacement workflow → savings + downtime KPIs.",
+      "Health indicators → rules per site criticality → predictive alerts → replacement workflow → KPI tracking (downtime avoided, cost per site, replacement efficiency).",
     result:
       "Fewer outages, lower replacement cost, predictable maintenance windows.",
     icon: "battery",
-    tags: ["battery", "predictive", "downtime", "maintenance"]
+    tags: ["battery", "predictive", "maintenance", "downtime", "planning"]
   },
 
-  // Environment (1)
+  // ENVIRONMENT (2)
   {
+    id: 14,
     industry: "environment",
-    badge: "KPIs drive execution",
+    industryLabel: "ENVIRONMENT",
     title: "Air quality: sensor network → heatmaps → actionable interventions",
+    badge: "From readings to decisions",
     pain:
-      "Raw readings don’t translate into decisions: where it’s worse, why, and what to do next is unclear.",
+      "Raw readings don’t translate into decisions: where it’s worse, why, and what to do next is unclear. Stakeholders want priorities and evidence, not graphs.",
     how:
-      "Ingest sensors → geo model → anomaly + wind-context rules → heatmaps + alerts → action routing and reporting.",
+      "Ingest sensors → geo model → anomaly + wind/context rules → heatmaps + alerts → action routing and compliance-ready reporting.",
     result:
-      "Clear prioritization and evidence for interventions and compliance reporting.",
+      "Clear prioritization and evidence for interventions and reporting.",
     icon: "wind",
     tags: ["air", "map", "heatmap", "wind", "compliance"]
   },
-
-  // Smart cities (1)
   {
-    industry: "smartcities",
-    badge: "KPIs drive execution",
-    title: "Street lighting: faults → routing → SLA closure (with proof)",
+    id: 15,
+    industry: "environment",
+    industryLabel: "ENVIRONMENT",
+    title: "Industrial emissions: detect abnormal patterns + prove corrective actions",
+    badge: "Compliance + fewer surprises",
     pain:
-      "Citizens complain, but repairs are slow: no clear ownership, no SLA control, no proof of closure.",
+      "Emissions are monitored, but abnormal patterns are explained after the fact. During inspections, it’s hard to show what happened and what actions were taken.",
+    how:
+      "Unify emissions sensors + production context → baseline per mode/shift → deviations trigger workflows (investigate → fix → verify) → evidence pack includes context, actions, and before/after metrics.",
+    result:
+      "Fewer compliance incidents and credible proof of corrective action.",
+    icon: "leaf",
+    tags: ["emissions", "baseline", "workflow", "evidence", "compliance"]
+  },
+
+  // SMART CITIES (1)
+  {
+    id: 16,
+    industry: "smartcities",
+    industryLabel: "SMART CITIES",
+    title: "Street lighting: faults → routing → SLA closure (with proof)",
+    badge: "Faster repairs + SLA proof",
+    pain:
+      "Citizens complain, but repairs are slow: no clear ownership, weak SLA control, and no proof of closure across contractors.",
     how:
       "Lamp telemetry + grid context → fault rules → contractor routing → SLA timers + escalation → closure evidence + KPIs.",
     result:
       "Faster repairs, fewer repeat complaints, measurable SLA compliance.",
     icon: "lamp",
-    tags: ["lighting", "sla", "routing", "contractors"]
+    tags: ["lighting", "sla", "routing", "contractors", "evidence"]
   },
 
-  // Logistics (1)
+  // LOGISTICS (1)
   {
+    id: 17,
     industry: "logistics",
-    badge: "KPIs drive execution",
-    title: "Fleet cold transport: route context + exception handling",
+    industryLabel: "LOGISTICS",
+    title: "Fleet cold transport: route context + exception handling + customer evidence packs",
+    badge: "Fewer claims, faster resolution",
     pain:
-      "Temperature exceptions are noticed after delivery; disputes and claims are painful and data is fragmented.",
+      "Temperature exceptions are noticed after delivery. Disputes and claims are painful because data is fragmented across devices, drivers, and forwarders.",
     how:
-      "Truck sensors + route milestones + regime rules → exceptions → driver/dispatcher workflow → evidence packs for customers.",
+      "Truck sensors + route milestones + regime rules → exceptions trigger dispatcher/driver workflow → decisions recorded with timestamps → evidence packs shared with customers.",
     result:
       "Fewer claims, faster dispute resolution, higher delivery quality.",
     icon: "truck",
-    tags: ["fleet", "cold", "route", "evidence"]
+    tags: ["fleet", "cold", "route", "exceptions", "evidence"]
   },
 
-  // Construction (1)
+  // CONSTRUCTION (1)
   {
+    id: 18,
     industry: "construction",
-    badge: "KPIs drive execution",
-    title: "Fuel theft prevention: events → alarm → response workflow",
+    industryLabel: "CONSTRUCTION",
+    title: "Fuel theft prevention: events → alarm → response workflow (with auditable closure)",
+    badge: "Reduced losses + faster response",
     pain:
-      "Fuel theft and leakage are discovered late; even when alarms exist, response is inconsistent.",
+      "Fuel theft/leakage is discovered late. Even when alarms exist, response is inconsistent and ‘what was done’ is hard to prove afterwards.",
     how:
       "Tank sensors → deviation rules → alarm + routing → response checklist → closure evidence + loss KPI tracking.",
     result:
-      "Reduced losses and faster response with auditable proof.",
+      "Reduced losses and faster response with auditable proof and repeatable playbooks.",
     icon: "cone",
     tags: ["fuel", "theft", "alarm", "workflow", "kpi"]
   }
@@ -908,7 +925,7 @@ function setupUseCases() {
   function renderCards(list) {
   track.innerHTML = list
     .map((u, index) => `
-      <article class="pc-card uc-card" data-industry="${u.industry}">
+      <article class="pc-card uc-card" data-industry="${u.industryLabel}">
         <div class="uc-card-strip" aria-hidden="true"></div>
 
         <!-- Case number -->
