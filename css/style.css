@@ -1718,6 +1718,7 @@
 .uc-badge{
   font-size: 12px;
   opacity:.9;
+  max-width: fit-content;
   border: 1px solid rgba(255,255,255,.14);
   padding: 6px 10px;
   border-radius: 999px;
