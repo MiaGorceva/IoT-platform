@@ -273,19 +273,19 @@ const translations = {
     "how.step1.title": "Data in. Clean model out.",
     "how.step1.text":
       "Collect & normalize your reality (in days). Providers push telemetry to your endpoint — we ingest it and turn raw events into a clean, queryable operational model.",
-    "how.step1.outout": "Output: a normalized data “sandbox” (assets, sites, routes, context, timestamps) ready for logic and execution.",
+    "how.step1.outout": "a normalized data “sandbox” (assets, sites, routes, context, timestamps) ready for logic and execution.",
     "how.step1.micro": "Raw → normalized → usable",
     "how.step2.tag": "3-5 Days",
     "how.step2.title": "Turn data into logic.",
     "how.step2.text":
       "Define logic: triggers, workflows, KPIs. Configure what matters: thresholds, anomaly patterns, approvals, escalation paths, SLA timers, and KPI definitions — fast, with full traceability.",
-      "how.step2.outout": "Output: clear “if-this-then-that” operations, plus dashboards and audit-ready evidence.",
+      "how.step2.outout": "clear “if-this-then-that” operations, plus dashboards and audit-ready evidence.",
     "how.step2.micro": "Events → decisions → actions",
     "how.step3.tag": "GO-LIVE",
     "how.step3.title": "Execute, measure, improve",
     "how.step3.text":
       "Execute → measure → improve. MITE runs the loop continuously: triggers actions, stores evidence, tracks KPI impact, and helps you iterate safely — without breaking production.",
-      "how.step3.outout": "Output: stable process, measurable results, and a feedback loop your team can trust.",
+      "how.step3.outout": "stable process, measurable results, and a feedback loop your team can trust.",
     "how.step3.micro": "Actions → evidence → KPI outcomes",
 
 

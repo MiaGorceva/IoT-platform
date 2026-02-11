@@ -1933,19 +1933,13 @@
 .card-micro::before{
   content:"";
   position:absolute;
-  left:.55rem;
+  left:.1rem;
   top:.78rem;
   width: 7px;
   height: 7px;
   border-radius: 999px;
   background: rgba(72,207,255,.95);
   box-shadow: 0 0 14px rgba(72,207,255,.30);
-}
-
-/* подсветка стрелок/разделителей прямо в тексте (без HTML) */
-.card-micro{
-  /* поддержим оба символа: → и -> */
-  /* будет красиво если ты используешь именно "→" в i18n */
 }
 
 /* hover чуть “дороже” */
