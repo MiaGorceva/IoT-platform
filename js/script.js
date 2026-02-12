@@ -288,48 +288,58 @@ const translations = {
       "how.step3.outout": "stable process, measurable results, and a feedback loop your team can trust.",
     "how.step3.micro": "Actions → evidence → KPI outcomes",
 
-
     // PRICING (UPDATED)
+    "pricing.eyebrow": "Pricing",
+    "pricing.title": "Start free, scale predictably",
+    "pricing.subtitle": "Validate one loop, then expand to sites, fleets, or full portfolios.",
+
+    // Start-ups
     "pricing.free.label": "Free",
     "pricing.free.name": "Starter",
-    "pricing.free.tagline": "For startups validating the first loop.",
+    "pricing.free.tagline": "Up to 10 devices · full platform access.",
     "pricing.free.price": "€0 / month",
-    "pricing.free.note": "Up to 10 devices · Full platform access · Support as-is",
-    "pricing.free.li1": "All platform features included",
-    "pricing.free.li2": "Dashboards + alerts + workflows",
-    "pricing.free.li3": "API / export access",
+    "pricing.free.note": "Devices: up to 10 · Platform: full access · Support: as-is",
+    "pricing.free.li1": "Devices: up to 10",
+    "pricing.free.li2": "Platform: all features included",
+    "pricing.free.li3": "Support: as-is (best effort)",
     "pricing.free.cta": "Request access",
 
+    // Start (Pilots)
     "pricing.plan1.label": "For pilots",
     "pricing.plan1.name": "Start",
-    "pricing.plan1.tagline": "10–100 devices · Full access + roadmap input.",
+    "pricing.plan1.tagline": "10–100 devices · pilot + roadmap input.",
     "pricing.plan1.price": "€99 / month",
-    "pricing.plan1.note": "Full platform access · Support 8×5",
-    "pricing.plan1.li1": "Everything from Starter",
-    "pricing.plan1.li2": "Feature requests possible (on request)",
-    "pricing.plan1.li3": "Support window: 8×5",
+    "pricing.plan1.note": "Devices: 10–100 · Platform: full access · Support: 8×5",
+    "pricing.plan1.li1": "Devices: 10–100",
+    "pricing.plan1.li2": "Platform: all features included",
+    "pricing.plan1.li3": "Support: 8×5 business hours",
+    "pricing.plan1.li4": "Feature requests: possible (on request)",
     "pricing.plan1.cta": "Start a pilot",
 
+    // Scale (Rollouts)
     "pricing.plan2.label": "For rollouts",
     "pricing.plan2.name": "Scale",
     "pricing.plan2.tagline": "100–1000 devices · predictable rollout.",
     "pricing.plan2.price": "From €99 / month",
-    "pricing.plan2.note": "Full platform access · Support 24×7",
-    "pricing.plan2.li1": "Everything from Start",
-    "pricing.plan2.li2": "Priority response + escalation",
-    "pricing.plan2.li3": "Support window: 24×7",
+    "pricing.plan2.note": "Devices: 100–1000 · Platform: full access · Support: 24×7",
+    "pricing.plan2.li1": "Devices: 100–1000",
+    "pricing.plan2.li2": "Platform: all features included",
+    "pricing.plan2.li3": "Support: 24×7",
+    "pricing.plan2.li4": "Priority response + escalation",
     "pricing.plan2.cta": "Talk to us",
     "pricing.plan2.ctaNote": "We align the plan to your rollout strategy.",
 
+    // Enterprise
     "pricing.plan3.label": "Enterprise / OEM",
     "pricing.plan3.name": "Enterprise",
-    "pricing.plan3.tagline": "Unlimited devices — terms tailored to your reality.",
+    "pricing.plan3.tagline": "Unlimited devices · custom governance + SLA.",
     "pricing.plan3.price": "Custom pricing",
-    "pricing.plan3.note": "Unlimited · custom SLA · governance · OEM options",
-    "pricing.plan3.li1": "Unlimited devices / multi-site",
-    "pricing.plan3.li2": "Custom SLA + governance model",
+    "pricing.plan3.note": "Devices: unlimited · Platform: full access · SLA: custom",
+    "pricing.plan3.li1": "Devices: unlimited (multi-site)",
+    "pricing.plan3.li2": "Custom SLA & governance model",
     "pricing.plan3.li3": "OEM / white-label options",
     "pricing.plan3.cta": "Book a session",
+
 
 
     // TESTIMONIALS
