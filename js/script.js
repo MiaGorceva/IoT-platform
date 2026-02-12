@@ -554,36 +554,52 @@ const useCases = [
   {
     industry: "pharma",
     industryLabel: "Pharma",
-    title: "Cold chain: multi-leg traceability + audit-ready evidence packs",
-    kpiBadge: "↓ Spoilage · ↓ Claims · ↓ Audit time",
-    ttvBadge: "Evidence in 1 click",
+    title: "Cold chain: GDP-compliant multi-leg traceability + real-time deviation control",
+    kpiBadge: "↓ Spoilage 15–30% · ↓ Claims 20–40% · ↓ QA workload",
+    ttvBadge: "Pilot in 2–4 weeks",
     pain:
-      "Sensors are split across warehouses, trucks, and couriers. Border delays happen. Different products require different regimes — but teams see only an “average temperature” after delivery. When an excursion happens, evidence is collected manually from 3–5 systems and email threads.",
+      "Temperature data is fragmented across warehouse loggers, truck telematics, and 3PL couriers. During cross-dock or border delays, pallets are reassigned and sensor IDs no longer match shipment IDs. " +
+      "A 2–8°C batch is occasionally shipped under the wrong regime template. QA receives only an average temperature PDF after delivery. " +
+      "When an excursion happens, investigation requires 3–5 systems, email threads, and manual reconciliation — taking 4–8 hours per incident.",
+
     how:
-      "MITE builds one timeline per batch/shipment: all sensor streams + route milestones + regime rules per SKU. When temperature drifts for 12–15 minutes, the escalation ladder triggers (driver → dispatcher → QA). AI flags the likely cause: door events + compressor duty cycle + ambient heat spike on the same segment, so the team sees not just “bad temp”, but why it happened and what to do next.",
+      "MITE builds a GDP-aligned chain-of-custody timeline per batch/shipment: sensor streams + geofences (warehouse, cross-dock, border) + door events + compressor duty cycle + SKU-specific regimes. " +
+      "If temperature drifts beyond 2–8°C for >10 minutes (configurable per product), an escalation ladder triggers automatically (driver → dispatcher → QA). " +
+      "Sensor ↔ pallet ↔ batch mismatches are flagged in real time. AI correlates deviation with door openings, dwell time, ambient spikes, or refrigeration anomalies — surfacing likely root cause within seconds.",
+
     result:
-      "Excursions are handled during transport, not after delivery. Claim disputes shrink because evidence is exportable in minutes. Typical spoilage risk reduced by 15–30% on problem lanes.",
+      "Excursions are handled during transport, not after release review. " +
+      "On typical problematic lanes, spoilage risk drops by 15–30%. " +
+      "Claim disputes reduce by 20–40% because evidence packs (timeline + regime + actions + approvals + access log) are exportable in <2 minutes. " +
+      "Deviation investigation time shrinks from 4–8 hours to 20–40 minutes.",
     icon: "pharma",
-    tags: ["cold chain", "audit", "reporting", "warehouse", "truck", "batch"]
+    tags: ["cold chain", "GDP", "batch", "traceability", "transport", "QA"]
   },
 
-  // 2) Pharma — Compliance / retention / GDPR
+  // 2) Pharma — Compliance / retention / GDPR / GxP
   {
     industry: "pharma",
     industryLabel: "Pharma",
-    title: "Compliance layer: retention, access control, and audit exports (GDPR-ready)",
-    kpiBadge: "↓ Audit effort · ↓ Risk · ↑ Traceability",
-    ttvBadge: "Minutes, not weeks",
+    title: "Compliance layer: GDP/GxP retention, controlled access, and GDPR-aligned audit exports",
+    kpiBadge: "↓ Audit prep 60–80% · ↓ Compliance risk · ↑ Traceability",
+    ttvBadge: "Evidence in 1 click",
     pain:
-      "Data exists, but compliance is fragile: exports are manual, retention rules differ by site, and access is managed “by habit”. During an inspection, the team spends 2–3 days assembling logs, approvals, and sensor histories.",
-    how:
-      "MITE enforces retention and access policies at platform level: role-based access, immutable evidence trails, and export templates. Every deviation/workflow closure automatically attaches the evidence pack (events, confirmations, approvals, timestamps). GDPR requirements are addressed with controlled access, deletion rules where applicable, and clear audit trails of who viewed/changed what.",
-    result:
-      "Audit prep time drops from days to hours. Evidence packs are one-click exports. Risk shifts from “manual process” to governed system behavior.",
-    icon: "shield",
-    tags: ["gdpr", "audit", "retention", "access", "evidence"]
-  },
+      "Operational data exists, but compliance is fragile. Retention differs by site, access rights are maintained informally, and audit trails are spread across SCADA, spreadsheets, and shared folders. " +
+      "During inspections, teams spend 2–3 days assembling sensor histories, approvals, and deviation logs. " +
+      "It is difficult to prove who accessed what data, when, and under which role — creating GDPR and GxP exposure.",
 
+    how:
+      "MITE enforces retention and access at platform level: role-based access control (RBAC), immutable audit trail on every key action (view, edit, approve, export), and dataset-level retention policies (e.g., 5–10 years for regulated batches). " +
+      "Each deviation or workflow closure automatically attaches a structured evidence pack: timeline, sensor data, regime validation, decisions, electronic approvals, timestamps, and access history. " +
+      "GDPR requirements are addressed via controlled role scopes, export logging, and configurable data retention/deletion rules where legally applicable.",
+
+    result:
+      "Audit preparation time typically drops by 60–80% (from days to hours). " +
+      "Evidence exports take <2 minutes and are reproducible. " +
+      "Compliance risk shifts from manual coordination to governed system behavior — reducing dependency on individual experts and ad-hoc documentation.",
+    icon: "shield",
+    tags: ["GDP", "GxP", "GDPR", "retention", "audit", "RBAC"]
+  },
   // 3) Manufacturing — Downtime (your story: average hides truth + AI vibration)
   {
     industry: "manufacturing",
