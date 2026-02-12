@@ -990,51 +990,6 @@ function setupUseCases() {
     .join("");
 }
 
-  track.innerHTML = list
-    .map((u, index) => `
-      <article class="pc-card uc-card" data-industry="${u.industryLabel}">
-        <div class="uc-card-strip" aria-hidden="true"></div>
-
-        <!-- Case number -->
-        <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
-
-         <div class="uc-head">
-          <!-- Outcome badge -->
-          <div class="uc-legend-dot kpi">
-            ${u.kpiBadge}
-          </div>
-          <div class="uc-legend-dot ttv">
-            ${u.ttvBadge}
-          </div>
-          <div class="uc-badge">${u.industry}</div>
-            <div class="uc-mini" aria-hidden="true">
-              ${iconSvg(u.icon)}
-            </div>
-        </div>
-
-        <h3 class="uc-title">${u.title}</h3>
-
-        <div class="uc-body">
-          <div class="uc-row">
-            <div class="uc-k">Pain</div>
-            <div class="uc-v">${u.pain}</div>
-          </div>
-
-          <div class="uc-row">
-            <div class="uc-k">How</div>
-            <div class="uc-v">${u.how}</div>
-          </div>
-
-          <div class="uc-outcome">
-            <span class="uc-outcome-label">Result:</span>
-            <span class="uc-outcome-text">${u.result}</span>
-          </div>
-        </div>
-      </article>
-    `)
-    .join("");
-}
-
 function setFocusCard() {
   const cards = [...track.querySelectorAll(".uc-card")];
   if (!cards.length) return;
