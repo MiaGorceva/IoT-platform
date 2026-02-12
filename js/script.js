@@ -962,13 +962,18 @@ function setupUseCases() {
   }
 
   function renderCards(list) {
+
+    useCases.forEach((u, i) => {
+      u.seq = i + 1; // 1..18 — навсегда
+    });
+    
     track.innerHTML = list
-      .map((u, index) => `
+      .map((u, u.seq) => `
         <article class="pc-card uc-card" data-industry="${u.industry}">
           <div class="uc-card-strip" aria-hidden="true"></div>
 
           <div class="uc-toprow">
-            <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
+            <div class="uc-index">#${String(u.seq + 1).padStart(2, "0")}</div>
 
             <div class="uc-pills">
               ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${highlightNumbers(u.ttvBadge)}</span>` : ""}
