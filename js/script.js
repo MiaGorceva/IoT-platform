@@ -980,7 +980,6 @@ function setupUseCases() {
         </article>
       `;
     }).join("");
-  }
 
   track.innerHTML = list
     .map((u, index) => `
