@@ -293,52 +293,33 @@ const translations = {
     "pricing.title": "Start free, scale predictably",
     "pricing.subtitle": "Validate one loop, then expand to sites, fleets, or full portfolios.",
 
-    // Start-ups
-    "pricing.free.label": "Free",
-    "pricing.free.name": "Starter",
-    "pricing.free.tagline": "Up to 10 devices · full platform access.",
-    "pricing.free.price": "€0 / month",
-    "pricing.free.note": "Devices: up to 10 · Platform: full access · Support: as-is",
-    "pricing.free.li1": "Devices: up to 10",
-    "pricing.free.li2": "Platform: all features included",
-    "pricing.free.li3": "Support: as-is (best effort)",
-    "pricing.free.cta": "Request access",
+    // Pricing clean version
 
-    // Start (Pilots)
-    "pricing.plan1.label": "For pilots",
-    "pricing.plan1.name": "Start",
-    "pricing.plan1.tagline": "10–100 devices · pilot + roadmap input.",
-    "pricing.plan1.price": "€99 / month",
-    "pricing.plan1.note": "Devices: 10–100 · Platform: full access · Support: 8×5",
-    "pricing.plan1.li1": "Devices: 10–100",
-    "pricing.plan1.li2": "Platform: all features included",
-    "pricing.plan1.li3": "Support: 8×5 business hours",
-    "pricing.plan1.li4": "Feature requests: possible (on request)",
-    "pricing.plan1.cta": "Start a pilot",
+"pricing.common": "All plans include full platform access, API access, and unlimited workflows.",
 
-    // Scale (Rollouts)
-    "pricing.plan2.label": "For rollouts",
-    "pricing.plan2.name": "Scale",
-    "pricing.plan2.tagline": "100–1000 devices · predictable rollout.",
-    "pricing.plan2.price": "From €99 / month",
-    "pricing.plan2.note": "Devices: 100–1000 · Platform: full access · Support: 24×7",
-    "pricing.plan2.li1": "Devices: 100–1000",
-    "pricing.plan2.li2": "Platform: all features included",
-    "pricing.plan2.li3": "Support: 24×7",
-    "pricing.plan2.li4": "Priority response + escalation",
-    "pricing.plan2.cta": "Talk to us",
-    "pricing.plan2.ctaNote": "We align the plan to your rollout strategy.",
+// Starter
+"pricing.free.li1": "Devices: up to 10",
+"pricing.free.li2": "Support: community / as-is",
+"pricing.free.li3": "SLA: best effort",
+"pricing.free.li4": "Best for: early validation",
 
-    // Enterprise
-    "pricing.plan3.label": "Enterprise / OEM",
-    "pricing.plan3.name": "Enterprise",
-    "pricing.plan3.tagline": "Unlimited devices · custom governance + SLA.",
-    "pricing.plan3.price": "Custom pricing",
-    "pricing.plan3.note": "Devices: unlimited · Platform: full access · SLA: custom",
-    "pricing.plan3.li1": "Devices: unlimited (multi-site)",
-    "pricing.plan3.li2": "Custom SLA & governance model",
-    "pricing.plan3.li3": "OEM / white-label options",
-    "pricing.plan3.cta": "Book a session",
+// Start
+"pricing.plan1.li1": "Devices: 10–100",
+"pricing.plan1.li2": "Support: 8×5 business hours",
+"pricing.plan1.li3": "SLA: business-hours response",
+"pricing.plan1.li4": "Roadmap input: yes",
+
+// Scale
+"pricing.plan2.li1": "Devices: 100–1000",
+"pricing.plan2.li2": "Support: 24×7",
+"pricing.plan2.li3": "SLA: priority response",
+"pricing.plan2.li4": "Escalation path: guaranteed",
+
+// Enterprise
+"pricing.plan3.li1": "Devices: unlimited",
+"pricing.plan3.li2": "Dedicated support team",
+"pricing.plan3.li3": "Custom SLA",
+"pricing.plan3.li4": "Governance & white-label options",
 
 
 
@@ -1156,65 +1137,37 @@ function setupPricingCarousel() {
 
   if (!viewport || !track) return;
 
+  const cards = Array.from(track.children);
   let page = 0;
 
-  const getCards = () => Array.from(track.children);
-
-  // Держи брейкпоинты синхронно с твоим layout
-  function perView() {
-    if (window.matchMedia("(min-width: 960px)").matches) return 3;
-    if (window.matchMedia("(min-width: 720px)").matches) return 2;
-    return 1;
+  function pagesCount() {
+    return Math.max(1, Math.ceil(track.scrollWidth / viewport.clientWidth));
   }
 
-  function pagesCount(total, pv) {
-    return Math.max(1, Math.ceil(total / pv));
-  }
+  function update() {
+    const pages = pagesCount();
+    page = Math.max(0, Math.min(page, pages - 1));
 
-  function goToPage(p) {
-    const cards = getCards();
-    const pv = perView();
-    const pages = pagesCount(cards.length, pv);
+    const x = page * viewport.clientWidth;
+    track.style.transform = `translate3d(${-x}px,0,0)`;
 
-    page = Math.max(0, Math.min(p, pages - 1));
+    prev.disabled = page === 0;
+    next.disabled = page === pages - 1;
 
-    const firstCard = cards[page * pv];
-    const x = firstCard ? firstCard.offsetLeft : 0;
-
-    track.style.transform = `translate3d(${-x}px, 0, 0)`;
-
-    if (prev) prev.disabled = page === 0;
-    if (next) next.disabled = page >= pages - 1;
-
-    if (dots) {
-      dots.innerHTML = "";
-      for (let i = 0; i < pages; i++) {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.className = "dot" + (i === page ? " is-active" : "");
-        b.addEventListener("click", () => goToPage(i));
-        dots.appendChild(b);
-      }
+    dots.innerHTML = "";
+    for (let i = 0; i < pages; i++) {
+      const d = document.createElement("button");
+      d.className = "dot" + (i === page ? " is-active" : "");
+      d.onclick = () => { page = i; update(); };
+      dots.appendChild(d);
     }
   }
 
-  prev?.addEventListener("click", () => goToPage(page - 1));
-  next?.addEventListener("click", () => goToPage(page + 1));
+  prev.onclick = () => { page--; update(); };
+  next.onclick = () => { page++; update(); };
 
-  // expose for i18n refresh
-  window.__updatePricing = () => goToPage(0);
-
-  goToPage(0);
-
-  let rAF = 0;
-  window.addEventListener(
-    "resize",
-    () => {
-      cancelAnimationFrame(rAF);
-      rAF = requestAnimationFrame(() => goToPage(0));
-    },
-    { passive: true }
-  );
+  window.addEventListener("resize", update);
+  update();
 }
 
 
