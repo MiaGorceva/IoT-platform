@@ -542,6 +542,12 @@
       gap: 1.2rem;
     }
 
+    #pricingCarousel .pc-track{
+      will-change: transform;
+      transform: translate3d(0,0,0);
+    }
+
+
     .pricing-card {
       border-radius: var(--radius-lg);
       padding: 1.15rem 1.2rem;

@@ -1115,53 +1115,75 @@ function setupPricingCarousel() {
   const root = document.getElementById("pricingCarousel");
   if (!root) return;
 
+  const viewport = root.querySelector(".pc-viewport");
   const track = root.querySelector(".pc-track");
   const prev = root.querySelector(".pc-prev");
   const next = root.querySelector(".pc-next");
   const dots = document.getElementById("pricingDots");
-  const cards = track ? Array.from(track.children) : [];
-  if (!track || !cards.length) return;
 
-  let index = 0;
+  if (!viewport || !track) return;
 
-  function update() {
-    const viewport = root.querySelector(".pc-viewport");
-    if (!viewport) return;
-    const x = index * viewport.clientWidth;
-    track.style.transform = `translateX(${-x}px)`;
+  let page = 0;
 
-    if (prev) prev.disabled = index <= 0;
-    if (next) next.disabled = index >= cards.length - 1;
+  const getCards = () => Array.from(track.children);
+
+  // Держи брейкпоинты синхронно с твоим layout
+  function perView() {
+    if (window.matchMedia("(min-width: 960px)").matches) return 3;
+    if (window.matchMedia("(min-width: 720px)").matches) return 2;
+    return 1;
+  }
+
+  function pagesCount(total, pv) {
+    return Math.max(1, Math.ceil(total / pv));
+  }
+
+  function goToPage(p) {
+    const cards = getCards();
+    const pv = perView();
+    const pages = pagesCount(cards.length, pv);
+
+    page = Math.max(0, Math.min(p, pages - 1));
+
+    const firstCard = cards[page * pv];
+    const x = firstCard ? firstCard.offsetLeft : 0;
+
+    track.style.transform = `translate3d(${-x}px, 0, 0)`;
+
+    if (prev) prev.disabled = page === 0;
+    if (next) next.disabled = page >= pages - 1;
 
     if (dots) {
       dots.innerHTML = "";
-      for (let i = 0; i < cards.length; i++) {
+      for (let i = 0; i < pages; i++) {
         const b = document.createElement("button");
         b.type = "button";
-        b.className = "dot" + (i === index ? " is-active" : "");
-        b.addEventListener("click", () => {
-          index = i;
-          update();
-        });
+        b.className = "dot" + (i === page ? " is-active" : "");
+        b.addEventListener("click", () => goToPage(i));
         dots.appendChild(b);
       }
     }
   }
 
-  prev?.addEventListener("click", () => {
-    index = Math.max(0, index - 1);
-    update();
-  });
-  next?.addEventListener("click", () => {
-    index = Math.min(cards.length - 1, index + 1);
-    update();
-  });
+  prev?.addEventListener("click", () => goToPage(page - 1));
+  next?.addEventListener("click", () => goToPage(page + 1));
 
-  window.__updatePricing = () => update();
+  // expose for i18n refresh
+  window.__updatePricing = () => goToPage(0);
 
-  update();
-  window.addEventListener("resize", update, { passive: true });
+  goToPage(0);
+
+  let rAF = 0;
+  window.addEventListener(
+    "resize",
+    () => {
+      cancelAnimationFrame(rAF);
+      rAF = requestAnimationFrame(() => goToPage(0));
+    },
+    { passive: true }
+  );
 }
+
 
 /* -------------------------
    FAQ accordion (optional but nice)
