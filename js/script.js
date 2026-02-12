@@ -864,6 +864,20 @@ const useCases = [
   }
 ];
 
+function highlightNumbers(html) {
+  if (!html) return "";
+  return String(html)
+    .replace(/(\b\d{1,3}(?:[.,]\d+)?)(\s?(?:%|x|X|k|K))\b/g, '<span class="uc-num">$1$2</span>')
+    .replace(
+      /(\b\d{1,3}(?:[.,]\d+)?\s?(?:min|mins|minutes|hour|hours|day|days|week|weeks|month|months|click|clicks|devices)\b)/gi,
+      '<span class="uc-num">$1</span>'
+    )
+    .replace(
+      /(\b\d{1,3}(?:[.,]\d+)?\s?–\s?\d{1,3}(?:[.,]\d+)?\s?(?:min|mins|minutes|hour|hours|day|days|week|weeks|month|months)\b)/gi,
+      '<span class="uc-num">$1</span>'
+    );
+}
+
 
 /* -------------------------
    Use-cases carousel + filters + search + icons
@@ -948,47 +962,47 @@ function setupUseCases() {
   }
 
   function renderCards(list) {
-  track.innerHTML = list
-    .map((u, index) => `
-      <article class="pc-card uc-card" data-industry="${u.industry}">
-        <div class="uc-card-strip" aria-hidden="true"></div>
+    track.innerHTML = list
+      .map((u, index) => `
+        <article class="pc-card uc-card" data-industry="${u.industry}">
+          <div class="uc-card-strip" aria-hidden="true"></div>
 
-        <div class="uc-toprow">
-          <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
+          <div class="uc-toprow">
+            <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
 
-          <div class="uc-pills">
-            ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${u.ttvBadge}</span>` : ""}
-            ${u.kpiBadge ? `<span class="uc-pill uc-pill--kpi">${u.kpiBadge}</span>` : ""}
+            <div class="uc-pills">
+              ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${highlightNumbers(u.ttvBadge)}</span>` : ""}
+              ${u.kpiBadge ? `<span class="uc-pill uc-pill--kpi">${highlightNumbers(u.kpiBadge)}</span>` : ""}
+            </div>
+
+            <div class="uc-meta">
+              <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
+              <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
+            </div>
           </div>
 
-          <div class="uc-meta">
-            <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
-            <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
-          </div>
-        </div>
+          <h3 class="uc-title">${u.title}</h3>
 
-        <h3 class="uc-title">${u.title}</h3>
+          <div class="uc-body">
+            <div class="uc-row">
+              <div class="uc-k">Pain</div>
+              <div class="uc-v">${highlightNumbers(u.pain)}</div>
+            </div>
 
-        <div class="uc-body">
-          <div class="uc-row">
-            <div class="uc-k">Pain</div>
-            <div class="uc-v">${u.pain}</div>
-          </div>
+            <div class="uc-row">
+              <div class="uc-k">How</div>
+              <div class="uc-v">${highlightNumbers(u.how)}</div>
+            </div>
 
-          <div class="uc-row">
-            <div class="uc-k">How</div>
-            <div class="uc-v">${u.how}</div>
+            <div class="uc-outcome">
+              <span class="uc-outcome-label">Result:</span>
+              <span class="uc-outcome-text">${highlightNumbers(u.result)}</span>
+            </div>
           </div>
-
-          <div class="uc-outcome">
-            <span class="uc-outcome-label">Result:</span>
-            <span class="uc-outcome-text">${u.result}</span>
-          </div>
-        </div>
-      </article>
-    `)
-    .join("");
-}
+        </article>
+      `)
+      .join("");
+    }
 
 function setFocusCard() {
   const cards = [...track.querySelectorAll(".uc-card")];
@@ -1034,9 +1048,12 @@ function setFocusCard() {
     track.style.transform = `translate3d(${-x}px, 0, 0)`;
 
     renderDots(maxPages);
+    requestAnimationFrame(setFocusCard);
 
     if (prev) prev.classList.toggle("is-disabled", page === 0);
     if (next) next.classList.toggle("is-disabled", page >= maxPages - 1);
+
+    setFocusCard();
   }
 
   // filters
@@ -1213,14 +1230,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
-
-function highlightNumbers(html) {
-  if (!html) return "";
-  // 3%, 35%, 4–6 weeks, 30 min, 1 click, 2 days, 10 devices, etc.
-  return String(html)
-    .replace(/(\b\d{1,3}(?:[.,]\d+)?)(\s?(?:%|x|X|k|K))\b/g, '<span class="uc-num">$1$2</span>')
-    .replace(/(\b\d{1,3}(?:[.,]\d+)?\s?(?:min|mins|minutes|hour|hours|day|days|week|weeks|month|months|click|clicks|devices)\b)/gi,
-      '<span class="uc-num">$1</span>')
-    .replace(/(\b\d{1,3}(?:[.,]\d+)?\s?–\s?\d{1,3}(?:[.,]\d+)?\s?(?:min|mins|minutes|hour|hours|day|days|week|weeks|month|months)\b)/gi,
-      '<span class="uc-num">$1</span>');
-};
