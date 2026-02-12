@@ -967,43 +967,47 @@ function setupUseCases() {
   }
 
   function renderCards(list) {
-    track.innerHTML = list.map((u, index) => {
-      const id = index + 1; // 1..18
+  track.innerHTML = list
+    .map((u, index) => `
+      <article class="pc-card uc-card" data-industry="${u.industry}">
+        <div class="uc-card-strip" aria-hidden="true"></div>
 
-      return `
-        <article class="pc-card uc-card" data-industry="${u.industry}">
-          <div class="uc-card-strip" aria-hidden="true"></div>
-          <div class="uc-index">#${String(id).padStart(2, "0")}</div>
+        <div class="uc-toprow">
+          <div class="uc-index">#${String(index + 1).padStart(2, "0")}</div>
 
-          <div class="uc-head">
-            <div class="uc-badge">${(u.industryLabel || u.industry).toUpperCase()}</div>
-            <div class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</div>
+          <div class="uc-pills">
+            ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${u.ttvBadge}</span>` : ""}
+            ${u.kpiBadge ? `<span class="uc-pill uc-pill--kpi">${u.kpiBadge}</span>` : ""}
           </div>
 
-          ${u.kpiBadge ? `<div class="uc-kpi-badge">${highlightNumbers(u.kpiBadge)}</div>` : ""}
-          ${u.ttvBadge ? `<div class="uc-ttv-badge">${highlightNumbers(u.ttvBadge)}</div>` : ""}
-
-          <h3 class="uc-title">${u.title}</h3>
-
-          <div class="uc-body">
-            <div class="uc-row">
-              <div class="uc-k">Pain</div>
-              <div class="uc-v">${highlightNumbers(u.pain)}</div>
-            </div>
-
-            <div class="uc-row">
-              <div class="uc-k">How</div>
-              <div class="uc-v">${highlightNumbers(u.how)}</div>
-            </div>
-
-            <div class="uc-outcome">
-              <span class="uc-outcome-label">Result:</span>
-              <span class="uc-outcome-text">${highlightNumbers(u.result)}</span>
-            </div>
+          <div class="uc-meta">
+            <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
+            <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
           </div>
-        </article>
-      `;
-    }).join("");
+        </div>
+
+        <h3 class="uc-title">${u.title}</h3>
+
+        <div class="uc-body">
+          <div class="uc-row">
+            <div class="uc-k">Pain</div>
+            <div class="uc-v">${u.pain}</div>
+          </div>
+
+          <div class="uc-row">
+            <div class="uc-k">How</div>
+            <div class="uc-v">${u.how}</div>
+          </div>
+
+          <div class="uc-outcome">
+            <span class="uc-outcome-label">Result:</span>
+            <span class="uc-outcome-text">${u.result}</span>
+          </div>
+        </div>
+      </article>
+    `)
+    .join("");
+}
 
   track.innerHTML = list
     .map((u, index) => `
