@@ -989,8 +989,11 @@ function setupUseCases() {
 
          <div class="uc-head">
           <!-- Outcome badge -->
-          <div class="uc-badge uc-badge--outcome">
-            ${u.badge}
+          <div class="uc-legend-dot kpi">
+            ${u.kpiBadge}
+          </div>
+          <div class="uc-legend-dot ttv">
+            ${u.ttvBadge}
           </div>
           <div class="uc-badge">${u.industry}</div>
             <div class="uc-mini" aria-hidden="true">
