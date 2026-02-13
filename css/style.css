@@ -460,6 +460,7 @@
       padding: 1.1rem 1.15rem;
       box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
       overflow: hidden;
+      display: flex;  
     }
 
 
@@ -480,6 +481,10 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      width: 100%;
+      gap: .9rem;
+      min-height: 170px;          /* подбери 160–220 по вкусу */
+      padding: 1.15rem 1.15rem;
     }
 
     .card-tag {
@@ -513,13 +518,20 @@
       color: var(--muted);
       line-height: 1.6;
       min-height: 5.2em;         /* 3–4 строки, подгони по вкусу */
+      flex: 1;                    /* <-- текст забирает место */
+      margin: 0;
+      /* опционально: ограничить "прыжки" от разных цитат */
+       display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden; 
     }
 
     .card-meta {
-      font-size: 0.78rem;
       color: var(--accent2);
       margin-top: auto;
       padding-top: 0.75rem;      /* чтобы был “воздух” */
+      border-top: 1px solid rgba(255,255,255,.08);
+      font-size: .95rem;
     }
 
     .pill-row {
@@ -1627,19 +1639,6 @@
   transition: transform .22s ease, filter .22s ease, opacity .22s ease, box-shadow .22s ease;
 }
 
-.uc-card.is-dim{
-  opacity: .55;
-  filter: saturate(.85) blur(.15px);
-  transform: scale(.985);
-}
-
-.uc-card.is-focus{
-  opacity: 1;
-  filter: none;
-  transform: scale(1.01);
-  box-shadow: 0 26px 70px rgba(0,0,0,.55), 0 0 0 1px rgba(84,229,74,.18);
-}
-
 .uc-row{
   position: relative;
   padding-left: 12px;
@@ -2070,6 +2069,16 @@
 /* make text blocks stable — avoid “jumping” */
 .uc-row .uc-v{
   min-height: 5.2em; /* Pain/How won’t collapse if text differs */
+}
+
+
+/* TESTIMONIALS: fix alignment + equal-height feel */
+.grid.grid-2 {
+  align-items: stretch; /* важно: карточки одной "логики" по высоте */
+}
+
+@media (max-width: 720px){
+  .uc-pill{ white-space: normal; }
 }
 
 

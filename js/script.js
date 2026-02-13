@@ -863,6 +863,7 @@ const useCases = [
     tags: ["fleet", "cold", "route", "evidence"]
   }
 ];
+useCases.forEach((u, i) => { u.seq = i + 1; });
 
 function highlightNumbers(html) {
   if (!html) return "";
@@ -962,52 +963,48 @@ function setupUseCases() {
   }
 
   function renderCards(list) {
+  track.innerHTML = list
+    .map((u) => `
+      <article class="pc-card uc-card" data-industry="${u.industry}">
+        <div class="uc-card-strip" aria-hidden="true"></div>
 
-    useCases.forEach((u, i) => {
-      u.seq = i + 1; // 1..18 — навсегда
-    });
-    
-    track.innerHTML = list
-      .map((u, u.seq) => `
-        <article class="pc-card uc-card" data-industry="${u.industry}">
-          <div class="uc-card-strip" aria-hidden="true"></div>
+        <div class="uc-toprow">
+          <div class="uc-index">#${String(u.seq).padStart(2, "0")}</div>
 
-          <div class="uc-toprow">
-            <div class="uc-index">#${String(u.seq + 1).padStart(2, "0")}</div>
-
-            <div class="uc-pills">
-              ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${highlightNumbers(u.ttvBadge)}</span>` : ""}
-              ${u.kpiBadge ? `<span class="uc-pill uc-pill--kpi">${highlightNumbers(u.kpiBadge)}</span>` : ""}
-            </div>
-
-            <div class="uc-meta">
-              <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
-              <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
-            </div>
+          <div class="uc-pills">
+            ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${highlightNumbers(u.ttvBadge)}</span>` : ""}
+            ${u.kpiBadge ? `<span class="uc-pill uc-pill--kpi">${highlightNumbers(u.kpiBadge)}</span>` : ""}
           </div>
 
-          <h3 class="uc-title">${u.title}</h3>
-
-          <div class="uc-body">
-            <div class="uc-row">
-              <div class="uc-k">Pain</div>
-              <div class="uc-v">${highlightNumbers(u.pain)}</div>
-            </div>
-
-            <div class="uc-row">
-              <div class="uc-k">How</div>
-              <div class="uc-v">${highlightNumbers(u.how)}</div>
-            </div>
-
-            <div class="uc-outcome">
-              <span class="uc-outcome-label">Result:</span>
-              <span class="uc-outcome-text">${highlightNumbers(u.result)}</span>
-            </div>
+          <div class="uc-meta">
+            <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
+            <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
           </div>
-        </article>
-      `)
-      .join("");
-    }
+        </div>
+
+        <h3 class="uc-title">${u.title}</h3>
+
+        <div class="uc-body">
+          <div class="uc-row">
+            <div class="uc-k">Pain</div>
+            <div class="uc-v">${highlightNumbers(u.pain)}</div>
+          </div>
+
+          <div class="uc-row">
+            <div class="uc-k">How</div>
+            <div class="uc-v">${highlightNumbers(u.how)}</div>
+          </div>
+
+          <div class="uc-outcome">
+            <span class="uc-outcome-label">Result:</span>
+            <span class="uc-outcome-text">${highlightNumbers(u.result)}</span>
+          </div>
+        </div>
+      </article>
+    `)
+    .join("");
+}
+
 
 function setFocusCard() {
   const cards = [...track.querySelectorAll(".uc-card")];
@@ -1025,11 +1022,6 @@ function setFocusCard() {
     const cx = r.left + r.width / 2;
     const d = Math.abs(cx - centerX);
     if (d < bestDist) { bestDist = d; best = c; }
-  });
-
-  cards.forEach((c) => {
-    c.classList.toggle("is-focus", c === best);
-    c.classList.toggle("is-dim", c !== best);
   });
 }
 
