@@ -2030,12 +2030,18 @@
 .uc-legend-dot.kpi{ background: rgba(84,229,74,.55); border-color: rgba(84,229,74,.55); }
 .uc-legend-dot.ttv{ background: rgba(72,207,255,.45); border-color: rgba(72,207,255,.55); }
 
-/* number highlight inside text */
-.uc-num{
+.uc-num {
   font-weight: 700;
-  color: #54e54a;
-  text-shadow: 0 0 10px rgba(84,229,74,.25);
+  color: #6BFF7C;
+  position: relative;
   white-space: nowrap;
+  animation: ucGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes ucGlow {
+  0%   { text-shadow: 0 0 4px rgba(84,229,74,.25); }
+  50%  { text-shadow: 0 0 12px rgba(84,229,74,.55); }
+  100% { text-shadow: 0 0 4px rgba(84,229,74,.25); }
 }
 
 
