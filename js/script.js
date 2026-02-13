@@ -285,13 +285,13 @@ const translations = {
     "how.step3.title": "Execute, measure, improve",
     "how.step3.text":
       "Execute → measure → improve. MITE runs the loop continuously: triggers actions, stores evidence, tracks KPI impact, and helps you iterate safely — without breaking production.",
-      "how.step3.outout": "stable process, measurable results, and a feedback loop your team can trust.",
+      "how.step3.outout": "stable process, measurable results, and a feedback process your team can trust.",
     "how.step3.micro": "Actions → evidence → KPI outcomes",
 
     // PRICING (UPDATED)
     "pricing.eyebrow": "Pricing",
     "pricing.title": "Start free, scale predictably",
-    "pricing.subtitle": "Validate one loop, then expand to sites, fleets, or full portfolios.",
+    "pricing.subtitle": "Validate one business process, then expand to sites, fleets, or full portfolios.",
 
     // Pricing clean version
 
@@ -300,7 +300,7 @@ const translations = {
     // STARTER — Free
     "pricing.free.label": "Free",
     "pricing.free.name": "Start-ups",
-    "pricing.free.tagline": "Validate your first operational loop.",
+    "pricing.free.tagline": "Validate your first operational business process.",
     "pricing.free.price": "€0 / month",
     "pricing.free.note": "Devices: up to 10 · Platform: full access · Support: best effort",
 
@@ -382,7 +382,7 @@ const translations = {
     "faq.q1": "Do we need developers to change logic and workflows?",
     "faq.a1":
       "No. In MITE, processes are described as declarative logic — you define what should happen, not how to code it. " +
-      "Operations teams can adjust thresholds, routing rules, approvals, escalation ladders, and KPIs in hours — without rebuilding systems or waiting in a development backlog. " +
+      "Operations teams can change business logic, adjust thresholds, routing rules, approvals, escalation ladders, and KPIs in hours — without rebuilding systems or waiting in a development backlog. " +
       "Logic evolves with operations, not with code debt.",
 
     "faq.q2": "How does MITE integrate with our existing landscape?",
