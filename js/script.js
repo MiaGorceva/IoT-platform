@@ -407,7 +407,7 @@ const translations = {
     "contact.eyebrow": "Contact",
     "contact.title": "Tell us what you want to control — we’ll map the first win",
     "contact.subtitle":
-      "Share your infrastructure and the outcome you want. We’ll propose the first measurable loop and how it scales.",
+      "Share your infrastructure and the outcome you want. We’ll propose the first measurable profit and how it scales.",
     "contact.nameLabel": "Full name",
     "contact.namePlaceholder": "Your name",
     "contact.emailLabel": "Work email",
@@ -1183,37 +1183,82 @@ function setupPricingCarousel() {
 
   if (!viewport || !track) return;
 
-  const cards = Array.from(track.children);
   let page = 0;
 
-  function pagesCount() {
-    return Math.max(1, Math.ceil(track.scrollWidth / viewport.clientWidth));
+  const getCards = () => Array.from(track.children);
+
+  // 4 на десктопе, 1 на остальных
+  function perView() {
+    return window.matchMedia("(min-width: 1100px)").matches ? 4 : 1;
   }
 
-  function update() {
-    const pages = pagesCount();
-    page = Math.max(0, Math.min(page, pages - 1));
+  function pagesCount(total, pv) {
+    return Math.max(1, Math.ceil(total / pv));
+  }
 
-    const x = page * viewport.clientWidth;
-    track.style.transform = `translate3d(${-x}px,0,0)`;
+  function normalizePage(p, pages) {
+    // круговая нормализация: -1 -> last, last+1 -> 0
+    return ((p % pages) + pages) % pages;
+  }
 
-    prev.disabled = page === 0;
-    next.disabled = page === pages - 1;
-
+  function renderDots(pages) {
+    if (!dots) return;
     dots.innerHTML = "";
     for (let i = 0; i < pages; i++) {
-      const d = document.createElement("button");
-      d.className = "dot" + (i === page ? " is-active" : "");
-      d.onclick = () => { page = i; update(); };
-      dots.appendChild(d);
+      const b = document.createElement("button");
+      b.type = "button";
+      b.className = "dot" + (i === page ? " is-active" : "");
+      b.addEventListener("click", () => goToPage(i));
+      dots.appendChild(b);
     }
   }
 
-  prev.onclick = () => { page--; update(); };
-  next.onclick = () => { page++; update(); };
+  function goToPage(p) {
+    const cards = getCards();
+    const pv = perView();
+    const pages = pagesCount(cards.length, pv);
 
-  window.addEventListener("resize", update);
-  update();
+    // если desktop: карусель не нужна
+    if (pv === 4) {
+      page = 0;
+      track.style.transform = "none";
+      renderDots(1);
+      if (prev) prev.disabled = true;
+      if (next) next.disabled = true;
+      return;
+    }
+
+    page = normalizePage(p, pages);
+
+    const firstCard = cards[page * pv];
+    const x = firstCard ? firstCard.offsetLeft : 0;
+
+    track.style.transform = `translate3d(${-x}px, 0, 0)`;
+
+    // ВАЖНО: теперь стрелки всегда активны (по кругу)
+    if (prev) prev.disabled = false;
+    if (next) next.disabled = false;
+
+    renderDots(pages);
+  }
+
+  prev?.addEventListener("click", () => goToPage(page - 1));
+  next?.addEventListener("click", () => goToPage(page + 1));
+
+  // i18n refresh hook
+  window.__updatePricing = () => goToPage(page);
+
+  goToPage(0);
+
+  let rAF = 0;
+  window.addEventListener(
+    "resize",
+    () => {
+      cancelAnimationFrame(rAF);
+      rAF = requestAnimationFrame(() => goToPage(0));
+    },
+    { passive: true }
+  );
 }
 
 

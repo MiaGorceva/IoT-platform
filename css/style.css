@@ -554,15 +554,6 @@
       gap: 1.2rem;
     }
 
-    #pricingCarousel .pc-track{
-      transform: translate3d(0,0,0);
-      display:flex;
-      gap:18px;
-      padding: 6px 10px;
-      will-change: transform;
-      transition: transform .35s ease;
-    }
-
 
     .pricing-card {
       border-radius: var(--radius-lg);
@@ -2087,28 +2078,30 @@
   .uc-pill{ white-space: normal; }
 }
 
-/* viewport должен резать всё лишнее */
-#pricingCarousel .pc-viewport{
-  overflow:hidden;
+
+/* базово (mobile / narrow): карусель */
+#pricingCarousel .pc-viewport { overflow: hidden; }
+#pricingCarousel .pc-track {
+  display: flex;
+  gap: 18px;
+  will-change: transform;
+  transition: transform .35s ease;
 }
 
-/* карточки должны иметь предсказуемую ширину */
-#pricingCarousel .pc-card{
-  flex: 0 0 calc((100% - 18px*2) / 3); /* 3 cards on desktop */
+/* ширины карточек под 1-экранную карусель */
+#pricingCarousel .pc-card {
+  flex: 0 0 calc(100% - 0px);
 }
 
-/* 2 cards */
-@media (max-width: 959px){
-  #pricingCarousel .pc-card{
-    flex-basis: calc((100% - 18px) / 2);
+/* desktop: показываем 4 карточки сразу */
+@media (min-width: 1100px) {
+  #pricingCarousel .pc-viewport { overflow: visible; }
+  #pricingCarousel .pc-track { transform: none !important; }
+  #pricingCarousel .pc-card {
+    flex: 0 0 calc((100% - 18px*3) / 4); /* 4 карточки + 3 gap */
   }
+
+  /* можно спрятать управление, т.к. карусель не нужна */
+  #pricingCarousel .pc-nav,
+  #pricingCarousel .pc-dots { display: none; }
 }
-
-/* 1 card */
-@media (max-width: 719px){
-  #pricingCarousel .pc-card{
-    flex-basis: 100%;
-  }
-}
-
-
