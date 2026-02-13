@@ -30,23 +30,19 @@ const PAGE = {
     image: { src: "upload/miote.png", alt: "" },
   },
 
-  sections: [
-    {
-      id: "highlights",
-      eyebrow: "Highlights",
-      title: "Why teams choose MITE-ECO",
-      subtitle:
-        "Practical advantages for field deployments: flexible power and enclosures, real-time visibility, " +
-        "and the ability to scale without rebuilding operational logic.",
-      layout: "grid-3",
-      cards: [
-        { title: "Customizable enclosures", text: "Plastic or aluminum housings, including dust-proof options — matched to the site.", meta: "Multiple enclosure variants" },
-        { title: "Flexible power options", text: "Battery, built-in rechargeable, or mains adapter depending on maintenance and uptime model.", meta: "Battery / Rechargeable / Mains" },
-        { title: "Two-way control", text: "Adjust measurement/transmission intervals remotely to balance detail vs battery life.", meta: "Remote configuration" },
-        { title: "Wide measurement range", text: "Temperature monitoring designed for harsh conditions: −40…+80 °C.", meta: "Industrial-ready" },
-        { title: "Web cabinet", text: "Dashboards, history, charts, and exportable reporting — from a single interface.", meta: "Monitoring & reporting" },
-        { title: "Expandable sensors", text: "Optional pressure measurement and extensions for process-specific needs.", meta: "Temperature / Humidity / Pressure*" },
-      ],
+  {
+  id: "how",
+  eyebrow: "How it works with MITE",
+  title: "From monitoring to execution",
+  subtitle:
+    "MITE turns device signals into a governed operational loop — the same logic scales across sites without fragile rework.",
+  layout: "grid-3",
+  cards: [
+    { title: "Step 1 — Capture", text: "Sensors collect data reliably under real constraints.", meta: "Stable telemetry" },
+    { title: "Step 2 — Decide", text: "Rules, thresholds, workflows, approvals and roles define what should happen.", meta: "Controlled logic" },
+    { title: "Step 3 — Execute & prove", text: "Actions are triggered, evidence is stored, reports become automatic.", meta: "Audit-friendly history" },
+  ]
+},
     },
 
     {
@@ -72,32 +68,25 @@ const PAGE = {
     },
 
     {
-      id: "variants",
-      eyebrow: "Variants",
-      title: "Pick enclosure & power",
-      subtitle: "A modular device family — choose the configuration that fits the environment and maintenance model.",
-      layout: "grid-2",
-      cards: [
-        {
-          title: "Enclosure",
-          text:
-            "<strong>MITE-ECO/1</strong> — plastic enclosure<br/>" +
-            "<strong>MITE-ECO/1_s</strong> — plastic + screen<br/>" +
-            "<strong>MITE-ECO/2</strong> — aluminum enclosure<br/>" +
-            "<strong>MITE-ECO/3</strong> — aluminum dust-proof enclosure",
-          meta: "Choose by site conditions",
-        },
-        {
-          title: "Power",
-          text:
-            "<strong>//1</strong> — battery (type D)<br/>" +
-            "<strong>//2</strong> — built-in rechargeable<br/>" +
-            "<strong>//3</strong> — mains adapter<br/><br/>" +
-            "<em>Note:</em> for <strong>MITE-ECO/3</strong> — mains power only.",
-          meta: "Battery life depends on interval",
-        },
-      ],
+  id: "deployment",
+  eyebrow: "Deployment",
+  title: "Configured for your use case",
+  subtitle:
+    "Instead of forcing you into a fixed model, we configure MITE-ECO for your site: environment, power model, connectivity and sensing needs.",
+  layout: "grid-2",
+  cards: [
+    {
+      title: "Environment & durability",
+      text: "Indoor / outdoor · wet zones · dusty production · cold chain. We match the build to the reality of the site.",
+      meta: "Rugged options available"
     },
+    {
+      title: "Sensors & integration",
+      text: "Add sensors if needed and map data into MITE so you get alerts, workflows, reports and KPI impact — not raw telemetry.",
+      meta: "End-to-end value"
+    }
+  ]
+}
 
     {
       id: "specs",
