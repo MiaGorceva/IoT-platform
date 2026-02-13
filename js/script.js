@@ -295,32 +295,66 @@ const translations = {
 
     // Pricing clean version
 
-"pricing.common": "All plans include full platform access, API access, and unlimited workflows.",
+    "pricing.common": "All plans include full platform access, API access, and unlimited workflows.",
 
-// Starter
-"pricing.free.li1": "Devices: up to 10",
-"pricing.free.li2": "Support: community / as-is",
-"pricing.free.li3": "SLA: best effort",
-"pricing.free.li4": "Best for: early validation",
+    // STARTER — Free
+    "pricing.free.label": "Free",
+    "pricing.free.name": "Start-ups",
+    "pricing.free.tagline": "Validate your first operational loop.",
+    "pricing.free.price": "€0 / month",
+    "pricing.free.note": "Devices: up to 10 · Platform: full access · Support: best effort",
 
-// Start
-"pricing.plan1.li1": "Devices: 10–100",
-"pricing.plan1.li2": "Support: 8×5 business hours",
-"pricing.plan1.li3": "SLA: business-hours response",
-"pricing.plan1.li4": "Roadmap input: yes",
+    "pricing.free.li1": "Up to 10 connected devices",
+    "pricing.free.li2": "Full access to all platform features",
+    "pricing.free.li3": "Support: as-is (no SLA)",
+    "pricing.free.li4": "API & export access included",
 
-// Scale
-"pricing.plan2.li1": "Devices: 100–1000",
-"pricing.plan2.li2": "Support: 24×7",
-"pricing.plan2.li3": "SLA: priority response",
-"pricing.plan2.li4": "Escalation path: guaranteed",
+    "pricing.free.cta": "Request access",
+ 
 
-// Enterprise
-"pricing.plan3.li1": "Devices: unlimited",
-"pricing.plan3.li2": "Dedicated support team",
-"pricing.plan3.li3": "Custom SLA",
-"pricing.plan3.li4": "Governance & white-label options",
+    // START — Pilots
+    "pricing.plan1.label": "For pilots",
+    "pricing.plan1.name": "Start",
+    "pricing.plan1.tagline": "Run a pilot and validate measurable outcomes.",
+    "pricing.plan1.price": "€99 / month",
+    "pricing.plan1.note": "Devices: 10–100 · Platform: full access · Support: 8×5",
 
+    "pricing.plan1.li1": "10–100 connected devices",
+    "pricing.plan1.li2": "Full access to all platform features",
+    "pricing.plan1.li3": "Support: 8×5 business hours",
+    "pricing.plan1.li4": "Feature requests considered on roadmap",
+
+    "pricing.plan1.cta": "Start a pilot",
+
+    // SCALE — Rollouts
+    "pricing.plan2.label": "For rollouts",
+    "pricing.plan2.name": "Scale",
+    "pricing.plan2.tagline": "Roll out across sites with predictable support.",
+    "pricing.plan2.price": "From €99 / month",
+    "pricing.plan2.note": "Devices: 100–1000 · Platform: full access · Support: 24×7",
+
+    "pricing.plan2.li1": "100–1000 connected devices",
+    "pricing.plan2.li2": "Full access to all platform features",
+    "pricing.plan2.li3": "Support: 24×7",
+    "pricing.plan2.li4": "Priority response & escalation",
+
+    "pricing.plan2.cta": "Talk to us",
+   
+    // ENTERPRISE / OEM
+    "pricing.plan3.label": "Enterprise / OEM",
+    "pricing.plan3.name": "Enterprise",
+    "pricing.plan3.tagline": "When MITE becomes your operational core.",
+    "pricing.plan3.price": "Custom pricing",
+    "pricing.plan3.note": "Devices: unlimited · Platform: full + extensions · SLA: custom",
+
+    "pricing.plan3.li1": "Unlimited devices & multi-site deployments",
+    "pricing.plan3.li2": "Full platform access + extensions",
+    "pricing.plan3.li3": "Custom SLA & governance model",
+    "pricing.plan3.li4": "OEM / white-label options",
+    "pricing.plan3.li5": "Dedicated technical contact",
+    "pricing.plan3.li6": "Architecture & rollout workshops included",
+
+    "pricing.plan3.cta": "Book a session",
 
 
     // TESTIMONIALS
@@ -340,22 +374,34 @@ const translations = {
       "“Scaling became predictable: same data model, same mechanisms — different sites. No ‘integration snowflakes’.”",
     "testimonials.t4.meta": "Program Manager · Multi-site rollout",
 
-    // FAQ (живые, B2B)
+    // FAQ
     "faq.eyebrow": "FAQ",
-    "faq.title": "What ops and IT teams ask before внедрения",
-    "faq.subtitle": "Real questions, clear answers.",
+    "faq.title": "What ops and IT teams ask before going live",
+    "faq.subtitle": "Real operational questions. Clear, practical answers.",
+
     "faq.q1": "Do we need developers to change logic and workflows?",
     "faq.a1":
-      "No. In MITE you describe behavior as declarative logic (what to do). Operations teams can change rules, thresholds, routes, approvals, and KPIs without long development cycles.",
-    "faq.q2": "How does MITE integrate with our landscape?",
+      "No. In MITE, processes are described as declarative logic — you define what should happen, not how to code it. " +
+      "Operations teams can adjust thresholds, routing rules, approvals, escalation ladders, and KPIs in hours — without rebuilding systems or waiting in a development backlog. " +
+      "Logic evolves with operations, not with code debt.",
+
+    "faq.q2": "How does MITE integrate with our existing landscape?",
     "faq.a2":
-      "MITE supports industrial and web protocols (MQTT, LoRaWAN, Modbus/OPC UA, REST, webhooks) and exposes open APIs. We can push/pull data to ERP/MES/SCADA, data lakes, or your apps.",
-    "faq.q3": "Is it suitable for regulated industries (pharma, etc.)?",
+      "MITE supports industrial and web protocols (MQTT, LoRaWAN, Modbus, OPC UA, REST, webhooks) and exposes open APIs. " +
+      "We adapt to your environment — on-prem, cloud, or hybrid — and integrate with ERP, MES, SCADA, data lakes, or custom systems. " +
+      "There is no forced stack or architectural lock-in.",
+
+    "faq.q3": "Is MITE suitable for regulated and GDPR-controlled environments?",
     "faq.a3":
-      "Yes. You can run governed workflows with approvals, full audit trails, immutable evidence, and exportable reports. Compliance is built into execution, not assembled manually after the fact.",
+      "Yes. MITE includes role-based access control (RBAC), immutable audit trails, configurable data retention policies, and export logging. " +
+      "Every action (view, edit, approve, export) is traceable. Evidence packs are generated automatically from real workflows — not assembled manually after inspections. " +
+      "Compliance becomes governed system behavior, not spreadsheet coordination.",
+
     "faq.q4": "What if we need a new mechanism or capability?",
     "faq.a4":
-      "If it’s a platform-level improvement (not a very narrow local-only case), we usually generalize it and deliver it fast — so you don’t pay for one-off plumbing. The platform gets stronger with each real deployment.",
+      "If the requirement improves the platform at a systemic level (not a narrow one-off case), we typically generalize it and deliver it quickly. " +
+      "This means you don’t pay for isolated custom plumbing — and the platform becomes stronger with every real deployment. " +
+      "Your use case contributes to the evolution of the core, not to technical fragmentation.",
 
     // CONTACT
     "contact.eyebrow": "Contact",

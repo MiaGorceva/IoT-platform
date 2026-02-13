@@ -555,8 +555,12 @@
     }
 
     #pricingCarousel .pc-track{
-      will-change: transform;
       transform: translate3d(0,0,0);
+      display:flex;
+      gap:18px;
+      padding: 6px 10px;
+      will-change: transform;
+      transition: transform .35s ease;
     }
 
 
@@ -2081,4 +2085,29 @@
 @media (max-width: 720px){
   .uc-pill{ white-space: normal; }
 }
+
+/* viewport должен резать всё лишнее */
+#pricingCarousel .pc-viewport{
+  overflow:hidden;
+}
+
+/* карточки должны иметь предсказуемую ширину */
+#pricingCarousel .pc-card{
+  flex: 0 0 calc((100% - 18px*2) / 3); /* 3 cards on desktop */
+}
+
+/* 2 cards */
+@media (max-width: 959px){
+  #pricingCarousel .pc-card{
+    flex-basis: calc((100% - 18px) / 2);
+  }
+}
+
+/* 1 card */
+@media (max-width: 719px){
+  #pricingCarousel .pc-card{
+    flex-basis: 100%;
+  }
+}
+
 
