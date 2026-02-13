@@ -1332,6 +1332,54 @@ function setupYear() {
   if (y) y.textContent = new Date().getFullYear();
 }
 
+function setupQuickForm() {
+  const form = document.getElementById("quickForm");
+  const toast = document.getElementById("successToast");
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const btn = form.querySelector('button[type="submit"]');
+    btn?.setAttribute("disabled", "disabled");
+
+    try {
+      const fd = new FormData(form);
+
+      const res = await fetch(form.action, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json"
+        },
+        body: fd
+      });
+
+      if (!res.ok) throw new Error("Send failed");
+
+      form.reset();
+
+      // Закрыть drawer
+      document.getElementById("drawerOverlay")?.classList.remove("is-open");
+      document.getElementById("drawer")?.classList.remove("is-open");
+
+      // Показать toast
+      if (toast) {
+        toast.hidden = false;
+        setTimeout(() => {
+          toast.hidden = true;
+        }, 3500);
+      }
+
+    } catch (err) {
+      console.error(err);
+      alert("Could not send. Please try again.");
+    } finally {
+      btn?.removeAttribute("disabled");
+    }
+  });
+}
+
+
 /* -------------------------
    BOOT
 ------------------------- */
@@ -1343,6 +1391,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPricingCarousel();
   setupFaqAccordion();
   setupDrawer();
+  setupQuickForm();
 
   // language
   const initial = "en";

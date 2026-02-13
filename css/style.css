@@ -2159,3 +2159,14 @@
     grid-template-columns: 1fr;
   }
 }
+
+.toast {
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #48cfff, #54e54a);
+  color: #001018;
+  font-weight: 600;
+  font-size: 14px;
+}
+
