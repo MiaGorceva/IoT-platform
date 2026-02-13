@@ -645,6 +645,10 @@
       padding: 6px 10px; /* чуть больше внутренний отступ */
       will-change: transform;
       transition: transform .35s ease;
+
+       /* display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));*/
     }
 
     .pc-card{
@@ -2120,12 +2124,6 @@
 .pricing-wrap {
   display: grid;
   gap: 18px;
-}
-
-.pricing-grid {
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .pricing-enterprise {
