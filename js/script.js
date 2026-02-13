@@ -1175,6 +1175,13 @@ function setupPricingCarousel() {
   const root = document.getElementById("pricingCarousel");
   if (!root) return;
 
+  // ✅ На десктопе карусель не нужна — у нас grid + enterprise row
+  if (window.matchMedia("(min-width: 960px)").matches) {
+    const dots = document.getElementById("pricingDots");
+    if (dots) dots.innerHTML = ""; // чтобы не оставались точки
+    return;
+  }
+
   const viewport = root.querySelector(".pc-viewport");
   const track = root.querySelector(".pc-track");
   const prev = root.querySelector(".pc-prev");
