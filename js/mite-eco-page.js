@@ -5,21 +5,28 @@
 const PAGE = {
   hero: {
     kicker: "MITE-ECO",
-    title: 'Real-time microclimate monitoring — <span>built for real sites.</span>',
+    title: 'One device family for any site — <span>powered by MITE.</span>',
+
     subtitle:
+      "MITE-ECO is a flexible monitoring device family designed to adapt to real constraints: indoor/outdoor, " +
+      "wet/dusty zones, regulated environments, and custom sensing needs. " +
+      "With MITE platform, it becomes an end-to-end operational tool: monitoring → logic → actions → reporting → KPI.",
+
+    meta: [
+      "High-accuracy microclimate monitoring",
+      "End-to-end process visibility with MITE workflows & alerts",
+      "GDPR-ready approach (when required)",
+    ],
+   
+    outcome:
+      "<strong>Outcome focus:</strong> not just telemetry — a controlled operational loop with evidence, accountability and measurable KPI impact.",
+        subtitle:
       "MITE-ECO monitors temperature, humidity (and optional pressure) in industrial and residential environments. " +
       "Choose enclosure and power options, deploy fast, and access data in a web cabinet for dashboards, history and reporting.",
     ctas: [
       { label: "Request a demo", href: "/index.html#contact", kind: "primary" },
       { label: "Downloads", href: "#downloads", kind: "ghost" },
     ],
-    meta: [
-      "Temperature: −40…+80 °C (±0.5 °C)",
-      "Humidity: 0…100% RH (±3%)",
-      "Indoor protection: IP20 · Service life: ≥ 5 years",
-    ],
-    outcome:
-      "<strong>Outcome focus:</strong> stable conditions, early deviation detection, and audit-friendly history — without manual logs.",
     image: { src: "upload/miote.png", alt: "" },
   },
 
