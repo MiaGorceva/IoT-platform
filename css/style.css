@@ -1908,6 +1908,7 @@
 .uc-pill--ttv{
   border-color: rgba(72,207,255,.30);
   color: rgba(72,207,255,.92);
+  opacity: .95;
 }
 
 .uc-pill--kpi{
@@ -2080,5 +2081,4 @@
 @media (max-width: 720px){
   .uc-pill{ white-space: normal; }
 }
-
 
