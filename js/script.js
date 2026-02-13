@@ -351,7 +351,7 @@ const translations = {
     "pricing.plan3.li2": "Full platform access + extensions",
     "pricing.plan3.li3": "Custom SLA & governance model",
     "pricing.plan3.li4": "OEM / white-label options",
-    "pricing.plan3.li5": "Dedicated technical contact & architecture workshops included"
+    "pricing.plan3.li5": "Dedicated technical contact & architecture workshops included",
     
 
     "pricing.plan3.cta": "Book a session",
