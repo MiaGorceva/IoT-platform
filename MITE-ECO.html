@@ -4,18 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>MITE-ECO — Industrial IoT Devices</title>
-  <meta name="description" content="MITE-ECO is a family of industrial IoT devices designed to work with MITE: gateways, sensors, trackers and power monitoring for real deployments." />
-  <link rel="canonical" href="https://mite.club/mite-eco.html" />
+  <title>MITE-ECO — Microclimate Monitoring Device</title>
+  <meta name="description" content="MITE-ECO monitors temperature, humidity and optional pressure for industrial and residential environments. Flexible enclosure and power options, web dashboards and reporting." />
+  <link rel="canonical" href="https://mite.club/MITE-ECO.html" />
 
-  <meta property="og:title" content="MITE-ECO — Industrial IoT Devices" />
-  <meta property="og:description" content="Gateways, sensors and trackers designed for real industrial environments — integrated with MITE." />
+  <meta property="og:title" content="MITE-ECO — Microclimate Monitoring Device" />
+  <meta property="og:description" content="Industrial-ready temperature and humidity monitoring with flexible deployment and web-based reporting." />
   <meta property="og:type" content="website" />
 
   <link rel="icon" href="upload/favicon_mite.png" type="image/png" />
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Google Optimize: BEFORE gtag.js -->
+  <!-- Google Optimize -->
   <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-5R6SJ2X"></script>
 
   <!-- Google Analytics 4 -->
@@ -29,6 +29,8 @@
 </head>
 
 <body>
+
+  <!-- HEADER -->
   <header class="site-header">
     <div class="container nav-inner">
       <a href="/index.html#top" class="logo" aria-label="MITE home">
@@ -59,276 +61,14 @@
     </div>
   </header>
 
+
+  <!-- MAIN CONTENT (rendered via JS) -->
   <main class="page" id="top">
-    <!-- HERO -->
-    <section class="hero container">
-      <div class="hero-grid">
-        <div>
-          <div class="hero-kicker">
-            <span class="hero-kicker-dot" aria-hidden="true"></span>
-            <span>MITE-ECO</span>
-          </div>
-
-          <h1 class="hero-title">
-            Devices built for real sites — <span>not lab demos.</span>
-          </h1>
-
-          <p class="hero-subtitle">
-            Gateways, sensors, trackers, and power monitoring designed to work with MITE out of the box.
-            Industrial-ready enclosures, predictable integration, and a clean path from telemetry to actions and KPIs.
-          </p>
-
-          <div class="hero-cta-row">
-            <a href="/index.html#contact" class="btn btn-primary">Request device list</a>
-            <a href="#downloads" class="btn btn-ghost">Get specs</a>
-          </div>
-
-          <div class="hero-meta">
-            <div class="hero-meta-item"><span aria-hidden="true">●</span><span>Designed for mixed networks and real constraints</span></div>
-            <div class="hero-meta-item"><span aria-hidden="true">●</span><span>Works with MITE workflows, alerts, reports, audit trails</span></div>
-            <div class="hero-meta-item"><span aria-hidden="true">●</span><span>Easy scaling: add devices without rebuilding logic</span></div>
-          </div>
-
-          <div class="hero-card">
-            <span><strong>Outcome focus:</strong> devices are only valuable when they drive decisions and execution.</span>
-          </div>
-        </div>
-
-        <div class="hero-visual" aria-hidden="true">
-          <div class="orb-spider">
-            <!-- swap this image later for actual device collage / render -->
-            <img src="upload/miote.png" alt="" class="orb-spider-img" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LINEUP -->
-    <section class="section container" id="lineup">
-      <div class="section-header">
-        <div class="eyebrow">Devices lineup</div>
-        <h2 class="section-title">Pick the hardware that fits your reality</h2>
-        <p class="section-subtitle">
-          MITE-ECO covers typical industrial patterns: reliable data capture, secure transfer, and predictable operation.
-          If your site has unique constraints, we adapt the integration layer — without forcing compromises.
-        </p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span>Gateways</span></div>
-            <h3 class="card-title">Edge gateways & concentrators</h3>
-            <p class="card-text">
-              Bridge sensors and controllers to MITE. Designed for mixed protocols and constrained networks.
-              Supports buffering, secure transport, and predictable field operation.
-            </p>
-            <div class="card-meta">LoRaWAN · MQTT · REST · Modbus via gateways</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span>Sensors</span></div>
-            <h3 class="card-title">Industrial sensors</h3>
-            <p class="card-text">
-              Environmental, process and asset monitoring. Use them for cold chain, microclimate, utilities,
-              production conditions, and compliance evidence — without manual reconciliation.
-            </p>
-            <div class="card-meta">Temp/Humidity · Pressure · Vibration · Open/Close</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span>Trackers</span></div>
-            <h3 class="card-title">Mobile trackers for logistics</h3>
-            <p class="card-text">
-              Route-aware monitoring for shipments and field assets. Combine multiple sensors across warehouses,
-              trucks, and handovers — and generate the documentation automatically.
-            </p>
-            <div class="card-meta">Routes · Zones · Handovers · Exceptions</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span>Power</span></div>
-            <h3 class="card-title">Energy & battery monitoring</h3>
-            <p class="card-text">
-              Monitor power quality, battery health, and uptime risks. Trigger preventative actions before downtime
-              becomes expensive — and store evidence for audits and SLA reporting.
-            </p>
-            <div class="card-meta">Predictive maintenance · Uptime KPIs · Alerts</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span>Security</span></div>
-            <h3 class="card-title">Secure by default</h3>
-            <p class="card-text">
-              Role-based access, secure transport, and governance-compatible logging. Device telemetry becomes part
-              of a controlled operational process — not raw data scattered across tools.
-            </p>
-            <div class="card-meta">Role-based access · Audit trail support</div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span>Integration</span></div>
-            <h3 class="card-title">Fits your protocol stack</h3>
-            <p class="card-text">
-              There is no single “right” stack. Devices, networks and security constraints differ by site —
-              so MITE adapts the integration layer to your reality.
-            </p>
-            <div class="card-meta">On-prem · cloud · hybrid</div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- WHERE THEY FIT -->
-    <section class="section container" id="fit">
-      <div class="section-header">
-        <div class="eyebrow">Where it fits</div>
-        <h2 class="section-title">Real scenarios with clear outcomes</h2>
-        <p class="section-subtitle">
-          Devices are deployed as part of an operational loop: signal → logic → action → KPI.
-          The same approach scales across sites and scenarios without fragile rework.
-        </p>
-      </div>
-
-      <div class="grid grid-2">
-        <article class="card"><div class="card-inner">
-          <h3 class="card-title">Pharma cold chain & compliance reporting</h3>
-          <p class="card-text">
-            Multiple sensors across warehouses, trucks, borders and handovers — with different regimes per product.
-            MITE stores evidence, generates reports, and keeps history for audits without manual merging.
-          </p>
-          <div class="card-meta">Less manual work · faster audits · lower spoilage risk</div>
-        </div></article>
-
-        <article class="card"><div class="card-inner">
-          <h3 class="card-title">Manufacturing: downtime control loop</h3>
-          <p class="card-text">
-            Detect stop → classify reason → assign action → verify fix. Not just “alarms”, but governed execution and
-            KPI impact by line, shift, and root cause.
-          </p>
-          <div class="card-meta">Higher throughput · fewer repeated stops</div>
-        </div></article>
-
-        <article class="card"><div class="card-inner">
-          <h3 class="card-title">Utilities & metering</h3>
-          <p class="card-text">
-            Automated collection, validation, anomaly detection, and reporting. Reduce human factor and ensure data
-            integrity across distributed sites.
-          </p>
-          <div class="card-meta">Less loss · fewer disputes · predictable billing data</div>
-        </div></article>
-
-        <article class="card"><div class="card-inner">
-          <h3 class="card-title">Environment: air & water monitoring maps</h3>
-          <p class="card-text">
-            Distributed sensors + wind context + thresholds and reporting. Build a living map of conditions,
-            identify hotspots, and trigger operational actions.
-          </p>
-          <div class="card-meta">Transparency · faster response · compliance evidence</div>
-        </div></article>
-      </div>
-    </section>
-
-    <!-- HOW IT WORKS -->
-    <section class="section container" id="how">
-      <div class="section-header">
-        <div class="eyebrow">How it works with MITE</div>
-        <h2 class="section-title">Hardware becomes a controlled process</h2>
-        <p class="section-subtitle">
-          You don’t “collect telemetry”. You build an operational loop that produces outcomes — and stays auditable.
-        </p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card"><div class="card-inner">
-          <div class="card-tag"><span class="card-tag-dot"></span><span>Step 1</span></div>
-          <h3 class="card-title">Onboard devices</h3>
-          <p class="card-text">Connect gateways/sensors/trackers. Normalize data once into a clean operational structure.</p>
-        </div></article>
-
-        <article class="card"><div class="card-inner">
-          <div class="card-tag"><span class="card-tag-dot"></span><span>Step 2</span></div>
-          <h3 class="card-title">Describe logic</h3>
-          <p class="card-text">Define what should happen (rules, workflows, approvals, KPIs) — not how to code it.</p>
-        </div></article>
-
-        <article class="card"><div class="card-inner">
-          <div class="card-tag"><span class="card-tag-dot"></span><span>Step 3</span></div>
-          <h3 class="card-title">Run & improve</h3>
-          <p class="card-text">Deviations trigger action. Evidence is stored. Reports become automatic, not manual work.</p>
-        </div></article>
-      </div>
-    </section>
-
-    <!-- DOWNLOADS -->
-    <section class="section container" id="downloads">
-      <div class="section-header">
-        <div class="eyebrow">Downloads</div>
-        <h2 class="section-title">Specs, guides, certifications</h2>
-        <p class="section-subtitle">Replace these links with your real PDFs when ready.</p>
-      </div>
-
-      <div class="grid grid-3">
-        <article class="card"><div class="card-inner">
-          <h3 class="card-title">Device datasheet pack</h3>
-          <p class="card-text">Overview of models, interfaces, operating conditions.</p>
-          <div class="card-meta"><a href="#" aria-label="Download datasheets">Download →</a></div>
-        </div></article>
-
-        <article class="card"><div class="card-inner">
-          <h3 class="card-title">Integration guide</h3>
-          <p class="card-text">How devices map into MITE data model and logic tools.</p>
-          <div class="card-meta"><a href="#" aria-label="Download integration guide">Download →</a></div>
-        </div></article>
-
-        <article class="card"><div class="card-inner">
-          <h3 class="card-title">Compliance & certificates</h3>
-          <p class="card-text">Security notes, certifications, and deployment recommendations.</p>
-          <div class="card-meta"><a href="#" aria-label="Download compliance pack">Download →</a></div>
-        </div></article>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section container" id="faq">
-      <div class="section-header">
-        <div class="eyebrow">FAQ</div>
-        <h2 class="section-title">Device questions teams ask first</h2>
-        <p class="section-subtitle">Short, practical answers.</p>
-      </div>
-
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q">Do MITE-ECO devices work without MITE?</div>
-          <div class="faq-a">They can send telemetry via standard protocols, but MITE is where the value is: logic, workflows, reporting, audit trails, and outcomes.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Can we use our existing sensors or gateways?</div>
-          <div class="faq-a">Yes. MITE-ECO is optional. If you already have hardware, we adapt the integration layer and normalize data into the same operational model.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">How do you handle constrained networks?</div>
-          <div class="faq-a">We design for real conditions: buffering, predictable payload formats, and stable operation even when connectivity is limited.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-q">Can we customize what is monitored per product/site?</div>
-          <div class="faq-a">Yes — that’s the point. You can create as many rules and monitoring regimes as you need without rebuilding the system.</div>
-        </div>
-      </div>
-    </section>
-
+    <div id="app"></div>
   </main>
 
+
+  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>MITE — Industrial IoT platform for profit-driven industrial teams.</div>
@@ -345,10 +85,19 @@
         <a class="social-link" href="#" target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
       </div>
     </div>
+
     <div class="container footer-bottom">
       <span>© <span id="y"></span></span>
     </div>
   </footer>
+
+  <!-- PAGE CONTENT SCRIPT -->
+  <script src="js/mite-eco-page.js"></script>
+
+  <!-- Footer year -->
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
