@@ -351,8 +351,8 @@ const translations = {
     "pricing.plan3.li2": "Full platform access + extensions",
     "pricing.plan3.li3": "Custom SLA & governance model",
     "pricing.plan3.li4": "OEM / white-label options",
-    "pricing.plan3.li5": "Dedicated technical contact",
-    "pricing.plan3.li6": "Architecture & rollout workshops included",
+    "pricing.plan3.li5": "Dedicated technical contact & architecture workshops included"
+    
 
     "pricing.plan3.cta": "Book a session",
 
@@ -913,16 +913,46 @@ useCases.forEach((u, i) => { u.seq = i + 1; });
 
 function highlightNumbers(html) {
   if (!html) return "";
-  return String(html)
-    .replace(/(\b\d{1,3}(?:[.,]\d+)?)(\s?(?:%|x|X|k|K))\b/g, '<span class="uc-num">$1$2</span>')
-    .replace(
-      /(\b\d{1,3}(?:[.,]\d+)?\s?(?:min|mins|minutes|hour|hours|day|days|week|weeks|month|months|click|clicks|devices)\b)/gi,
-      '<span class="uc-num">$1</span>'
-    )
-    .replace(
-      /(\b\d{1,3}(?:[.,]\d+)?\s?–\s?\d{1,3}(?:[.,]\d+)?\s?(?:min|mins|minutes|hour|hours|day|days|week|weeks|month|months)\b)/gi,
-      '<span class="uc-num">$1</span>'
-    );
+
+  // не трогаем уже подсвеченные куски
+  const MARK = "data-ucnum='1'";
+  if (String(html).includes(MARK)) return html;
+
+  let s = String(html);
+
+  // Нормализуем dash/× (на всякий)
+  s = s.replace(/\u2013|\u2014/g, "–"); // – —
+  s = s.replace(/\u00D7/g, "×");        // ×
+
+  // Хелпер: оборачиваем, избегая повторов
+  const wrap = (m) => `<span class="uc-num" ${MARK}>${m}</span>`;
+
+  // 1) Диапазоны с единицами: 20–40%, 2–3 days, 4–8 hours, 5–10 years, 2–8°C
+  s = s.replace(
+    /(\b[<>]?\s?\d{1,4}(?:[.,]\d+)?\s?(?:–|-)\s?\d{1,4}(?:[.,]\d+)?)(\s?(?:%|°C|x|×|X|k|K|m|km|kg|g|l|L|ms|s|sec|secs|seconds|min|mins|minutes|h|hr|hrs|hour|hours|day|days|week|weeks|month|months|year|years|devices|device|click|clicks)\b)/gi,
+    (_, a, b) => wrap(a + b)
+  );
+
+  // 2) Одно значение + единица: 8×5, 24×7, 10 devices, 2 minutes, 4–8 уже поймали выше
+  s = s.replace(
+    /(\b[<>]?\s?\d{1,4}(?:[.,]\d+)?)(\s?(?:%|°C|x|×|X|k|K|ms|s|sec|secs|seconds|min|mins|minutes|h|hr|hrs|hour|hours|day|days|week|weeks|month|months|year|years|devices|device|click|clicks)\b)/gi,
+    (_, a, b) => wrap(a + b)
+  );
+
+  // 3) “время без единиц” типа "in 2–4 weeks" уже покрыто, но "2–4" отдельно тоже иногда нужно
+  s = s.replace(
+    /(\b\d{1,4}(?:[.,]\d+)?\s?(?:–|-)\s?\d{1,4}(?:[.,]\d+)?\b)/g,
+    (m) => wrap(m)
+  );
+
+  // 4) Просто числа (очень аккуратно, чтобы не подсвечивать 3PL и т.п.)
+  // Подсвечиваем только если рядом есть слова-маркеры типа "takes", "drops", "from", "to"
+  s = s.replace(
+    /(\b(?:from|to|drops|drop|takes|within|in|for|over|under)\s+)([<>]?\s?\d{1,4}(?:[.,]\d+)?\b)/gi,
+    (_, a, b) => a + wrap(b)
+  );
+
+  return s;
 }
 
 
@@ -1050,6 +1080,7 @@ function setupUseCases() {
     `)
     .join("");
 }
+
 
 
 function setFocusCard() {

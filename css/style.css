@@ -2041,11 +2041,12 @@
 
 /* number highlight inside text */
 .uc-num{
-  color: rgba(84,229,74,.95);
-  font-weight: 800;
-  text-shadow: 0 0 12px rgba(84,229,74,.12);
+  font-weight: 700;
+  color: #54e54a;
+  text-shadow: 0 0 10px rgba(84,229,74,.25);
   white-space: nowrap;
 }
+
 
 /* KPI + Time-to-value badges */
 .uc-kpi-badge{
