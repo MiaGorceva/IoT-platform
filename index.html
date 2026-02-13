@@ -647,27 +647,43 @@
     </div>
 
     <div class="drawer-body">
-      <form class="drawer-form" id="quickForm" action="https://forms.un-static.com/forms/c3ea8d26c1527f094f494fbc61b348a7ad9b9992" method="POST" data-redirect-url="#contact_us_success" data-custom-popup-id="contact_us_success">
-        <div>
-          <label data-i18n="quick.nameLabel"></label>
-          <input type="text" id="qName" data-i18n-placeholder="quick.namePh" />
-        </div>
-        <div>
-          <label data-i18n="quick.emailLabel"></label>
-          <input type="email" id="qEmail" data-i18n-placeholder="quick.emailPh" />
-        </div>
-        <div>
-          <label data-i18n="quick.msgLabel"></label>
-          <textarea id="qMsg" rows="3" data-i18n-placeholder="quick.msgPh"></textarea>
-        </div>
+      <form class="drawer-form"
+        id="quickForm"
+        action="https://formspree.io/f/mjkranro"
+        method="POST">
 
-        <div class="drawer-actions">
-          <button class="btn btn-ghost" type="button" id="drawerCancel" data-i18n="quick.cancel"></button>
-          <button class="btn btn-primary" type="submit" data-i18n="quick.send"></button>
-        </div>
+    <div>
+      <label for="qName" data-i18n="quick.nameLabel"></label>
+      <input type="text" id="qName" name="name" autocomplete="name" required
+            data-i18n-placeholder="quick.namePh" />
+    </div>
 
-        <div class="drawer-note" data-i18n="quick.note"></div>
-      </form>
+    <div>
+      <label for="qEmail" data-i18n="quick.emailLabel"></label>
+      <input type="email" id="qEmail" name="email" autocomplete="email" required
+            data-i18n-placeholder="quick.emailPh" />
+    </div>
+
+    <div>
+      <label for="qMsg" data-i18n="quick.msgLabel"></label>
+      <textarea id="qMsg" name="message" rows="3" required
+                data-i18n-placeholder="quick.msgPh"></textarea>
+    </div>
+
+    <!-- полезно добавить контекст -->
+    <input type="hidden" name="source" value="quick_drawer" />
+
+    <div class="drawer-actions">
+      <button class="btn btn-ghost" type="button" id="drawerCancel" data-i18n="quick.cancel"></button>
+      <button class="btn btn-primary" type="submit" data-i18n="quick.send"></button>
+    </div>
+
+    <div class="drawer-note" data-i18n="quick.note"></div>
+
+    <div id="successToast" class="toast" hidden>
+      Thanks! We’ll get back to you shortly.
+    </div>
+  </form>
     </div>
   </div>
 </body>
