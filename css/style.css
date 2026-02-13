@@ -2134,7 +2134,7 @@
 }
 
 /* Лёгкий glow-подсвет */
-.pc-card .enterprise::before {
+.enterprise::before {
   content: "";
   position: absolute;
   inset: -1px;
