@@ -1392,6 +1392,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFaqAccordion();
   setupDrawer();
   setupQuickForm();
+  setupQuickForm();
+  console.log("QuickForm initialized");
 
   // language
   const initial = "en";
