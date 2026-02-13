@@ -550,10 +550,6 @@
       background: rgba(15, 23, 42, 0.9);
     }
 
-    .pricing-grid {
-      gap: 1.2rem;
-    }
-
 
     .pricing-card {
       border-radius: var(--radius-lg);
@@ -947,10 +943,6 @@
 
       .grid-3,
       .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .pricing-grid {
         grid-template-columns: minmax(0, 1fr);
       }
 
@@ -2110,4 +2102,66 @@
   /* можно спрятать управление, т.к. карусель не нужна */
   #pricingCarousel .pc-nav,
   #pricingCarousel .pc-dots { display: none; }
+}
+
+.footer-social { display: flex; gap: 12px; align-items: center; }
+.social-link {
+  width: 34px; height: 34px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: rgba(200,220,255,.85);
+  background: rgba(10,16,28,.35);
+}
+.social-link svg { width: 18px; height: 18px; fill: currentColor; }
+.social-link:hover { transform: translateY(-1px); }
+
+.pricing-wrap {
+  display: grid;
+  gap: 18px;
+}
+
+.pricing-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pricing-enterprise {
+  display: grid;
+}
+
+/* Enterprise шире визуально + чуть “дороже” */
+.pc-card.enterprise {
+  position: relative;
+  border: 1px solid rgba(84, 229, 74, 0.35);
+  background: rgba(10, 20, 35, 0.92);
+}
+
+/* Лёгкий glow-подсвет */
+.pc-card.enterprise::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(72,207,255,.7), rgba(84,229,74,.7));
+  opacity: 0.12;
+  filter: blur(14px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Tablet: 2 колонки сверху */
+@media (max-width: 980px) {
+  .pricing-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: 1 колонка */
+@media (max-width: 640px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
 }
