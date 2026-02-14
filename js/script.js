@@ -1332,8 +1332,8 @@ function setupYear() {
   if (y) y.textContent = new Date().getFullYear();
 }
 
-function setupQuickForm() {
-  const form = document.getElementById("quickForm");
+function setupMiteForm() {
+  const form = document.getElementById("miteForm");
   const toast = document.getElementById("successToast");
   if (!form) return;
 
@@ -1393,7 +1393,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPricingCarousel();
   setupFaqAccordion();
   setupDrawer();
-  setupQuickForm();
+  setupMiteForm();
 
 
   const initial = (window.MITE?.page?.langDefault) || "en";
