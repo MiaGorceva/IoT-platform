@@ -1274,17 +1274,24 @@ function setupPricingCarousel() {
 ------------------------- */
 function setupFaqAccordion() {
   document.querySelectorAll(".faq-item").forEach((item) => {
-    const q = item.querySelector(".faq-q");
+    const q = item.querySelector(".faq-q-wrap");
     const a = item.querySelector(".faq-a");
+
     if (!q || !a) return;
 
-    // start collapsed
-    item.classList.remove("is-open");
-    a.style.display = "none";
+    a.style.height = "0px";
+    a.style.overflow = "hidden";
+    a.style.transition = "height 260ms ease";
 
     q.addEventListener("click", () => {
-      const open = item.classList.toggle("is-open");
-      a.style.display = open ? "block" : "none";
+      const isOpen = item.classList.toggle("is-open");
+
+      if (isOpen) {
+        const full = a.scrollHeight;
+        a.style.height = full + "px";
+      } else {
+        a.style.height = "0px";
+      }
     });
   });
 }

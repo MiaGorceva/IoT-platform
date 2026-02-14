@@ -2169,4 +2169,37 @@
   font-weight: 600;
   font-size: 14px;
 }
+.faq-q-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.faq-tag {
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+  opacity: .85;
+}
+
+.faq-tag--ops {
+  background: rgba(84,229,74,.12);
+  color: #54e54a;
+  border: 1px solid rgba(84,229,74,.3);
+}
+
+.faq-tag--it {
+  background: rgba(72,207,255,.12);
+  color: #48cfff;
+  border: 1px solid rgba(72,207,255,.3);
+}
+
+.faq-tag--compliance {
+  background: rgba(255,200,100,.12);
+  color: #ffc864;
+  border: 1px solid rgba(255,200,100,.3);
+}
 
