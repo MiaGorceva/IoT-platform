@@ -1335,49 +1335,113 @@ function setupYear() {
 function setupMiteForm() {
   const form = document.getElementById("miteForm");
   const toast = document.getElementById("successToast");
-  if (!form) return;
+
+  if (!form) {
+    console.warn("[MITE] miteForm not found");
+    return;
+  }
+
+  console.log("[MITE] setupMiteForm: initialized");
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    const btn = form.querySelector('button[type="submit"]');
-    btn?.setAttribute("disabled", "disabled");
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const oldBtnText = submitBtn ? submitBtn.textContent : "";
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+    }
+
+    // Спрячем/сбросим toast перед отправкой
+    if (toast) {
+      toast.hidden = true;
+      toast.textContent = "Thanks! We’ll get back to you shortly.";
+    }
 
     try {
-      const fd = new FormData(form);
+      // Важно: Formspree стабильнее принимает JSON, чем FormData через fetch
+      const payload = {
+        name: form.querySelector('[name="name"]')?.value || "",
+        email: form.querySelector('[name="email"]')?.value || "",
+        message: form.querySelector('[name="message"]')?.value || "",
+        source: form.querySelector('[name="source"]')?.value || "quick_drawer"
+      };
+
+      console.log("[MITE] Submitting to:", form.action, payload);
 
       const res = await fetch(form.action, {
         method: "POST",
+        mode: "cors",
         headers: {
-          "Accept": "application/json"
+          "Accept": "application/json",
+          "Content-Type": "application/json"
         },
-        body: fd
+        body: JSON.stringify(payload)
       });
 
-      if (!res.ok) throw new Error("Send failed");
+      console.log("[MITE] Response status:", res.status);
 
+      // Попробуем прочитать ответ (иногда приходит текст/HTML)
+      let data = null;
+      const ct = res.headers.get("content-type") || "";
+      if (ct.includes("application/json")) {
+        data = await res.json().catch(() => null);
+      } else {
+        const txt = await res.text().catch(() => "");
+        data = { raw: txt };
+      }
+
+      console.log("[MITE] Response body:", data);
+
+      if (!res.ok) {
+        // Formspree иногда возвращает ошибки с полями errors
+        const msg =
+          (data && data.errors && data.errors[0] && data.errors[0].message) ||
+          (data && data.error) ||
+          "Submission failed. Please try again.";
+
+        throw new Error(msg);
+      }
+
+      // SUCCESS ✅
       form.reset();
 
-      // Закрыть drawer
-      document.getElementById("drawerOverlay")?.classList.remove("is-open");
-      document.getElementById("drawer")?.classList.remove("is-open");
-
-      // Показать toast
       if (toast) {
         toast.hidden = false;
+        toast.textContent = "Thanks! We’ll get back to you shortly.";
+      }
+
+      if (submitBtn) {
+        submitBtn.textContent = "Sent ✓";
         setTimeout(() => {
-          toast.hidden = true;
-        }, 3500);
+          submitBtn.disabled = false;
+          submitBtn.textContent = oldBtnText || "Send";
+        }, 1600);
       }
 
     } catch (err) {
-      console.error(err);
-      alert("Could not send. Please try again.");
-    } finally {
-      btn?.removeAttribute("disabled");
+      console.error("[MITE] Fetch submit failed:", err);
+
+      if (toast) {
+        toast.hidden = false;
+        toast.textContent =
+          "Oops — couldn’t send right now. Please try again or use the Contact form below.";
+      }
+
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = oldBtnText || "Send";
+      }
+
+      // ⚠️ ВАЖНО:
+      // Если хочешь, чтобы при ошибке всё же отправлялось “обычно” (с редиректом),
+      // раскомментируй следующую строку:
+      // form.submit();
     }
   });
 }
+
 
 window.MITE = window.MITE || {};
 window.MITE.page = window.MITE.page || { id: "index" };
@@ -1393,7 +1457,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPricingCarousel();
   setupFaqAccordion();
   setupDrawer();
-  //setupMiteForm();
+  setupMiteForm();
 
 
   const initial = (window.MITE?.page?.langDefault) || "en";
