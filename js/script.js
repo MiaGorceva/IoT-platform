@@ -1403,5 +1403,6 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
       applyTranslations(code);
-  });
-});
+      });
+    });
+ });
