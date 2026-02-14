@@ -1379,6 +1379,8 @@ function setupQuickForm() {
   });
 }
 
+window.MITE = window.MITE || {};
+window.MITE.page = window.MITE.page || { id: "index" };
 
 /* -------------------------
    BOOT
@@ -1392,8 +1394,6 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFaqAccordion();
   setupDrawer();
   setupQuickForm();
-  setupQuickForm();
-  console.log("QuickForm initialized");
 
   // language
   const initial = "en";
