@@ -1395,15 +1395,13 @@ document.addEventListener("DOMContentLoaded", () => {
   setupDrawer();
   setupQuickForm();
 
-  // language
-  const initial = "en";
+
+  const initial = (window.MITE?.page?.langDefault) || "en";
   applyTranslations(initial);
 
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
-      // RU/UK fallback to EN for now
       applyTranslations(code);
-    });
   });
 });
