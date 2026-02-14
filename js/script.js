@@ -1393,7 +1393,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPricingCarousel();
   setupFaqAccordion();
   setupDrawer();
-  setupMiteForm();
+  //setupMiteForm();
 
 
   const initial = (window.MITE?.page?.langDefault) || "en";
