@@ -25,6 +25,25 @@ jobs:
             echo '{"down_since": null, "last_alert_min": null, "rebooted": false}' > state.json
           fi
 
+                - name: Test reboot webhook (manual)
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          REBOOT_WEBHOOK_URL: ${{ secrets.REBOOT_WEBHOOK_URL }}
+          REBOOT_SECRET: ${{ secrets.REBOOT_SECRET }}
+        run: |
+          python3 - << 'PY'
+          import os, urllib.request, urllib.parse
+          base = os.environ["REBOOT_WEBHOOK_URL"]
+          secret = os.environ["REBOOT_SECRET"]
+          sep = "&" if "?" in base else "?"
+          url = f"{base}{sep}key={urllib.parse.quote(secret)}"
+          req = urllib.request.Request(url, method="POST")
+          with urllib.request.urlopen(req, timeout=25) as r:
+              body = r.read(2000).decode("utf-8","ignore")
+              print("Webhook:", r.getcode(), body)
+          PY
+
+
       - name: Monitor + Telegram + Reboot
         env:
           SITE_URL: ${{ secrets.SITE_URL }}
