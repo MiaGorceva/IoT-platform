@@ -18,8 +18,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
-                - name: Test reboot webhook (manual)
         if: github.event_name == 'workflow_dispatch'
         env:
           REBOOT_WEBHOOK_URL: ${{ secrets.REBOOT_WEBHOOK_URL }}
