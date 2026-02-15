@@ -19,12 +19,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Ensure state file
-        run: |
-          if [ ! -f state.json ]; then
-            echo '{"down_since": null, "last_alert_min": null, "rebooted": false}' > state.json
-          fi
-
                 - name: Test reboot webhook (manual)
         if: github.event_name == 'workflow_dispatch'
         env:
