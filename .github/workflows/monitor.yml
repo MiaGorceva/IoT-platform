@@ -17,7 +17,8 @@ jobs:
           MUST_CONTAIN: ${{ secrets.MUST_CONTAIN }}
         run: |
           python3 - << 'PY'
-          import os, urllib.request, urllib.parse, urllib.error
+          import os
+          import urllib.request, urllib.parse, urllib.error
 
           SITE_URL = os.environ["SITE_URL"]
           TG_TOKEN = os.environ["TG_TOKEN"]
@@ -29,9 +30,18 @@ jobs:
           def tg_send(text):
               api = f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage"
               data = urllib.parse.urlencode({"chat_id": TG_CHAT_ID, "text": text}).encode()
-              with urllib.request.urlopen(api, data=data, timeout=20) as r:
-                  body = r.read().decode("utf-8","ignore")
-                  print("TG response:", body)
+              try:
+                  with urllib.request.urlopen(api, data=data, timeout=20) as r:
+                      body = r.read().decode("utf-8","ignore")
+                      print("TG OK:", body)
+                      return True
+              except urllib.error.HTTPError as e:
+                  body = e.read().decode("utf-8","ignore")
+                  print("TG HTTPError:", e.code, body)
+                  return False
+              except Exception as e:
+                  print("TG ERROR:", type(e).__name__, str(e))
+                  return False
 
           def http_ok(url, timeout=20):
               try:
