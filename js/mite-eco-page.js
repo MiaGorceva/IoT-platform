@@ -1,9 +1,9 @@
-// js/mite-eco-page.js
-// Content-driven page: all text lives in this script.
+// js/mite-eco.js
+window.translations = window.translations || {};
+window.translations.en = window.translations.en || {};
 
-window.MITE_PAGES = window.MITE_PAGES || {};
-
-window.MITE_PAGES["mite-eco"] = {
+// Добавляем/перезаписываем только eco-ключи
+Object.assign(window.translations.en, {
   hero: {
     kicker: "MITE-ECO",
     title: 'One device family for any site — <span>powered by MITE.</span>',
@@ -153,4 +153,4 @@ window.MITE_PAGES["mite-eco"] = {
       { q: "GDPR?", a: "When required, governance can be configured via access roles, audit trails, retention rules and export logging." },
     ],
   },
-};
+});
