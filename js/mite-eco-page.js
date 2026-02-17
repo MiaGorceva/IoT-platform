@@ -2,7 +2,6 @@
 window.translations = window.translations || {};
 window.translations.en = window.translations.en || {};
 
-// Добавляем/перезаписываем только eco-ключи
 Object.assign(window.translations.en, {
   hero: {
     kicker: "MITE-ECO",
