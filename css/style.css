@@ -2024,6 +2024,7 @@
 .uc-num {
   font-weight: 700;
   color: #6BFF7C;
+  opacity: 0.85;
   position: relative;
   white-space: nowrap;
   animation: ucGlow 2.8s ease-in-out infinite;
