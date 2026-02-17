@@ -1,15 +1,31 @@
-name: Manual Check URL -> TG -> Reboot -> TG
+name: MITE Watchdog
 
 on:
   schedule:
     - cron: "*/5 * * * *"
-    workflow_dispatch:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: mite-watchdog
+  cancel-in-progress: false
 
 jobs:
-  test:
+  monitor:
     runs-on: ubuntu-latest
     steps:
-      - name: Check URL + notify + reboot
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure state file
+        run: |
+          if [ ! -f state.json ]; then
+            echo '{"down_since": null, "last_alert_min": null, "rebooted": false}' > state.json
+          fi
+
+      - name: Monitor + Telegram + Reboot after 20 min
         env:
           SITE_URL: ${{ secrets.SITE_URL }}
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
@@ -19,7 +35,7 @@ jobs:
           MUST_CONTAIN: ${{ secrets.MUST_CONTAIN }}
         run: |
           python3 - << 'PY'
-          import os
+          import json, os, time
           import urllib.request, urllib.parse, urllib.error
 
           SITE_URL = os.environ["SITE_URL"]
@@ -29,21 +45,15 @@ jobs:
           REBOOT_SECRET = os.environ["REBOOT_SECRET"]
           MUST_CONTAIN = os.environ.get("MUST_CONTAIN") or ""
 
+          now = int(time.time())
+
           def tg_send(text):
               api = f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage"
               data = urllib.parse.urlencode({"chat_id": TG_CHAT_ID, "text": text}).encode()
               try:
-                  with urllib.request.urlopen(api, data=data, timeout=20) as r:
-                      body = r.read().decode("utf-8","ignore")
-                      print("TG OK:", body)
-                      return True
-              except urllib.error.HTTPError as e:
-                  body = e.read().decode("utf-8","ignore")
-                  print("TG HTTPError:", e.code, body)
-                  return False
+                  urllib.request.urlopen(api, data=data, timeout=20).read()
               except Exception as e:
-                  print("TG ERROR:", type(e).__name__, str(e))
-                  return False
+                  print("TG send failed:", e)
 
           def http_ok(url, timeout=20):
               try:
@@ -62,36 +72,70 @@ jobs:
               except Exception as e:
                   return False, f"Error {type(e).__name__}: {e}"
 
+          def minutes_since(ts):
+              return int((now - ts) / 60)
+
           def call_reboot_webhook():
-              # ВАЖНО: здесь используется ?key=...  (если у тебя другой параметр — поменяй key)
               sep = "&" if "?" in REBOOT_WEBHOOK_URL else "?"
               url = f"{REBOOT_WEBHOOK_URL}{sep}key={urllib.parse.quote(REBOOT_SECRET)}"
-
               try:
                   req = urllib.request.Request(url, method="POST", headers={"User-Agent":"mite-watchdog/1.0"})
                   with urllib.request.urlopen(req, timeout=25) as r:
                       body = r.read(2000).decode("utf-8","ignore")
-                      return True, f"{r.getcode()} {body}"
+                      print("Reboot webhook:", r.getcode(), body)
+                      return True
               except urllib.error.HTTPError as e:
                   body = e.read(2000).decode("utf-8","ignore")
-                  return False, f"HTTPError {e.code} {body}"
+                  print("Reboot webhook HTTPError:", e.code, body)
+                  return False
               except Exception as e:
-                  return False, f"Error {type(e).__name__}: {e}"
+                  print("Reboot webhook error:", e)
+                  return False
 
-          print("Checking:", SITE_URL)
+          # load state
+          with open("state.json", "r", encoding="utf-8") as f:
+              st = json.load(f)
+
           ok, info = http_ok(SITE_URL)
+          print("Checking:", SITE_URL, "=>", ok, info, "STATE:", st)
 
           if ok:
-              tg_send(f"✅ UP: {SITE_URL} ({info}). Reboot НЕ выполняю.")
-              raise SystemExit(0)
+              if st.get("down_since") is not None:
+                  down_min = minutes_since(st["down_since"])
+                  tg_send(f"✅ UP: {SITE_URL} восстановлен. Был DOWN ~{down_min} мин.")
+              st = {"down_since": None, "last_alert_min": None, "rebooted": False}
 
-          tg_send(f"❌ DOWN: {SITE_URL} ({info}). Запускаю reboot…")
-          reboot_ok, reboot_info = call_reboot_webhook()
-
-          if reboot_ok:
-              tg_send(f"🔁 REBOOT OK: {reboot_info}")
-              raise SystemExit(0)
           else:
-              tg_send(f"⚠️ REBOOT FAILED: {reboot_info}")
-              raise SystemExit(1)
+              if st.get("down_since") is None:
+                  st["down_since"] = now
+                  st["last_alert_min"] = 0
+                  st["rebooted"] = False
+                  tg_send(f"❌ DOWN: {SITE_URL} ({info}) (0 мин)")
+              else:
+                  down_min = minutes_since(st["down_since"])
+                  last = st.get("last_alert_min")
+
+                  # повторные уведомления каждые 5 минут
+                  if last is None or down_min >= last + 5:
+                      st["last_alert_min"] = down_min
+                      tg_send(f"❌ STILL DOWN: {SITE_URL} ({info}) (~{down_min} мин)")
+
+                  # reboot только после 20 минут DOWN и только один раз
+                  if (not st.get("rebooted")) and down_min >= 20:
+                      if call_reboot_webhook():
+                          st["rebooted"] = True
+                          tg_send(f"🚨 REBOOT triggered: {SITE_URL} DOWN ~{down_min} мин")
+                      else:
+                          tg_send(f"⚠️ REBOOT FAILED: {SITE_URL} DOWN ~{down_min} мин (см. logs)")
+
+          with open("state.json", "w", encoding="utf-8") as f:
+              json.dump(st, f, ensure_ascii=False, indent=2)
           PY
+
+      - name: Commit state
+        run: |
+          git config user.name "mite-watchdog"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json
+          git commit -m "Update watchdog state" || echo "No changes"
+          git push
