@@ -16,11 +16,11 @@
   <link rel="stylesheet" href="css/style.css" />
 
 
+<!-- потом подключаем тексты страницы -->
+<script src="js/mite-eco.js"></script>
   <!-- сначала подключаем движок (он создаст window.translations и функции) -->
 <script src="js/script.js"></script>
 
-<!-- потом подключаем тексты страницы -->
-<script src="js/mite-eco.js"></script>
 
 
 
@@ -71,10 +71,189 @@
   </header>
 
 
-  <!-- MAIN CONTENT (rendered via JS) -->
-  <main class="page" id="top">
-    <div id="app"></div>
-  </main>
+<main class="page" id="top">
+
+  <!-- HERO -->
+  <section class="hero container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-kicker">
+          <span class="hero-kicker-dot" aria-hidden="true"></span>
+          <span data-i18n="eco.hero.kicker"></span>
+        </div>
+
+        <h1 class="hero-title" data-i18n="eco.hero.title"></h1>
+
+        <p class="hero-subtitle" data-i18n="eco.hero.subtitle"></p>
+
+        <div class="hero-cta-row">
+          <a href="/index.html#contact"
+             class="btn btn-primary"
+             data-i18n="eco.hero.ctaPrimary"></a>
+
+          <a href="#downloads"
+             class="btn btn-ghost"
+             data-i18n="eco.hero.ctaSecondary"></a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span aria-hidden="true">●</span>
+            <span data-i18n="eco.hero.meta1"></span>
+          </div>
+          <div class="hero-meta-item">
+            <span aria-hidden="true">●</span>
+            <span data-i18n="eco.hero.meta2"></span>
+          </div>
+          <div class="hero-meta-item">
+            <span aria-hidden="true">●</span>
+            <span data-i18n="eco.hero.meta3"></span>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <span data-i18n="eco.hero.outcome"></span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb-spider">
+          <img src="upload/miote.png" alt="" class="orb-spider-img" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- HOW IT WORKS -->
+  <section class="section container" id="how">
+    <div class="section-header">
+      <div class="eyebrow" data-i18n="eco.how.eyebrow"></div>
+      <h2 class="section-title" data-i18n="eco.how.title"></h2>
+      <p class="section-subtitle" data-i18n="eco.how.subtitle"></p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>
+            <span data-i18n="eco.how.step1.tag"></span>
+          </div>
+          <h3 class="card-title" data-i18n="eco.how.step1.title"></h3>
+          <p class="card-text" data-i18n="eco.how.step1.text"></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>
+            <span data-i18n="eco.how.step2.tag"></span>
+          </div>
+          <h3 class="card-title" data-i18n="eco.how.step2.title"></h3>
+          <p class="card-text" data-i18n="eco.how.step2.text"></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-inner">
+          <div class="card-tag">
+            <span class="card-tag-dot"></span>
+            <span data-i18n="eco.how.step3.tag"></span>
+          </div>
+          <h3 class="card-title" data-i18n="eco.how.step3.title"></h3>
+          <p class="card-text" data-i18n="eco.how.step3.text"></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- FLEXIBILITY / DEPLOYMENT -->
+  <section class="section container" id="deployment">
+    <div class="section-header">
+      <div class="eyebrow" data-i18n="eco.deploy.eyebrow"></div>
+      <h2 class="section-title" data-i18n="eco.deploy.title"></h2>
+      <p class="section-subtitle" data-i18n="eco.deploy.subtitle"></p>
+    </div>
+
+    <div class="grid grid-2">
+      <article class="card">
+        <div class="card-inner">
+          <h3 class="card-title" data-i18n="eco.deploy.card1.title"></h3>
+          <p class="card-text" data-i18n="eco.deploy.card1.text"></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-inner">
+          <h3 class="card-title" data-i18n="eco.deploy.card2.title"></h3>
+          <p class="card-text" data-i18n="eco.deploy.card2.text"></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- SPECIFICATIONS -->
+  <section class="section container" id="specs">
+    <div class="section-header">
+      <div class="eyebrow" data-i18n="eco.specs.eyebrow"></div>
+      <h2 class="section-title" data-i18n="eco.specs.title"></h2>
+      <p class="section-subtitle" data-i18n="eco.specs.subtitle"></p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="card-inner">
+          <h3 class="card-title" data-i18n="eco.specs.temp.title"></h3>
+          <p class="card-text" data-i18n="eco.specs.temp.text"></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-inner">
+          <h3 class="card-title" data-i18n="eco.specs.humidity.title"></h3>
+          <p class="card-text" data-i18n="eco.specs.humidity.text"></p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-inner">
+          <h3 class="card-title" data-i18n="eco.specs.autonomy.title"></h3>
+          <p class="card-text" data-i18n="eco.specs.autonomy.text"></p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- DOWNLOADS -->
+  <section class="section container" id="downloads">
+    <div class="section-header">
+      <div class="eyebrow" data-i18n="eco.downloads.eyebrow"></div>
+      <h2 class="section-title" data-i18n="eco.downloads.title"></h2>
+      <p class="section-subtitle" data-i18n="eco.downloads.subtitle"></p>
+    </div>
+
+    <div class="grid grid-3">
+      <article class="card">
+        <div class="card-inner">
+          <h3 class="card-title" data-i18n="eco.downloads.manual.title"></h3>
+          <p class="card-text" data-i18n="eco.downloads.manual.text"></p>
+          <div class="card-meta">
+            <a href="assets/docs/MITE-ECO-manual.pdf"
+               data-i18n="eco.downloads.link"></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+
 
 
    <footer class="site-footer">
