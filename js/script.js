@@ -403,9 +403,9 @@ const translations = {
       "This means you don’t pay for isolated custom plumbing — and the platform becomes stronger with every real deployment. " +
       "Your use case contributes to the evolution of the core, not to technical fragmentation.",
 
-    "faq.trust": "Built for regulated industries.  
-          GDPR-ready. Role-based access. Immutable audit trail.  
-          No shadow spreadsheets. No hidden logic. No manual evidence assembly.",
+    "faq.trust": "Built for regulated industries. "+
+          "GDPR-ready. Role-based access. Immutable audit trail. "+ 
+          "No shadow spreadsheets. No hidden logic. No manual evidence assembly.",
 
     // CONTACT
     "contact.eyebrow": "Contact",
