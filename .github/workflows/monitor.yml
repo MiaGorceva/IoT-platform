@@ -1,7 +1,9 @@
 name: Manual Check URL -> TG -> Reboot -> TG
 
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: "*/5 * * * *"
+    workflow_dispatch:
 
 jobs:
   test:
