@@ -74,3 +74,83 @@ window.MITE_PAGES["mite-eco"] = {
       title: "Configured for your use case",
       subtitle:
         "Instead of forcing you into a fixed model, we configure MITE-ECO for your site: environment, power model, connectivity and sensing needs.",
+      layout: "grid-2",
+      cards: [
+        {
+          title: "Environment & durability",
+          text: "Indoor / outdoor · wet zones · dusty production · cold chain. We match the build to the reality of the site.",
+          meta: "Rugged options available",
+        },
+        {
+          title: "Sensors & integration",
+          text: "Add sensors if needed and map data into MITE so you get alerts, workflows, reports and KPI impact — not raw telemetry.",
+          meta: "End-to-end value",
+        },
+      ],
+    },
+
+    {
+      id: "specs",
+      eyebrow: "Specifications",
+      title: "Key technical specs",
+      subtitle: "Short list of the parameters teams ask first.",
+      layout: "grid-3",
+      cards: [
+        { title: "Temperature", text: "Range: −40…+80 °C<br/>Accuracy: ±0.5 °C", meta: "Microclimate monitoring" },
+        { title: "Humidity", text: "Range: 0…100% RH<br/>Accuracy: ±3%", meta: "Stability control" },
+        { title: "Autonomy", text: "Battery: ≥ 1 year (15 min)<br/>Rechargeable: ≥ 3 months (15 min)", meta: "Depends on interval & conditions" },
+        { title: "Protection", text: "IP20 (indoor use)", meta: "Follow deployment guidance" },
+        { title: "Weight", text: "≤ 500 g", meta: "Compact footprint" },
+        { title: "Service life", text: "≥ 5 years", meta: "Field-ready design" },
+      ],
+    },
+
+    {
+      id: "software",
+      eyebrow: "Software",
+      title: "Web cabinet: monitor, analyze, report",
+      subtitle:
+        "Access measurements via a web interface: device selection, dashboards and charts, history and reporting.",
+      layout: "grid-2",
+      cards: [
+        {
+          title: "Getting started",
+          text:
+            "If the device was stored below +5°C, keep it at room temperature for 3 hours before use. " +
+            "For restart — power off/on.",
+          meta: "Simple deployment checklist",
+        },
+        {
+          title: "Data access",
+          text: "Login/password access, device selection by ID, panels with indicators and charts, selectable time range.",
+          meta: "Dashboards · History · Reports",
+        },
+      ],
+    },
+
+    {
+      id: "downloads",
+      eyebrow: "Downloads",
+      title: "Manuals & documents",
+      subtitle: "Replace these links with your real PDFs when ready.",
+      layout: "grid-3",
+      cards: [
+        { title: "Operation manual (PDF)", text: "Variants, specs, handling, safety notes.", link: { href: "assets/docs/MITE-ECO-manual.pdf", label: "Download →" } },
+        { title: "Verification method", text: "Provided when applicable for regulated workflows.", link: { href: "assets/docs/MITE-ECO-verification.pdf", label: "Download →" } },
+        { title: "Datasheet", text: "Short technical summary for procurement and engineering teams.", link: { href: "assets/docs/MITE-ECO-datasheet.pdf", label: "Download →" } },
+      ],
+    },
+  ],
+
+  faq: {
+    eyebrow: "FAQ",
+    title: "Questions teams ask first",
+    subtitle: "Short, practical answers.",
+    items: [
+      { q: "Is MITE-ECO a single model or a family?", a: "It’s a family configured for different environments and sensor needs." },
+      { q: "Can it be waterproof / outdoor?", a: "Yes — the device family can be configured for harsh environments when required (enclosure + installation approach)." },
+      { q: "How does it work with MITE?", a: "MITE turns signals into execution: alerts, workflows, reporting, audit-friendly history and KPI impact." },
+      { q: "GDPR?", a: "When required, governance can be configured via access roles, audit trails, retention rules and export logging." },
+    ],
+  },
+};
