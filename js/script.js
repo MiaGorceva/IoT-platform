@@ -13,7 +13,8 @@
    Translations (EN)
    RU/UK fallback to EN for now
 ------------------------- */
-const translations = {
+
+window.translations = window.translations || {
   en: {
     // NAV
     "nav.about": "Why MITE",
@@ -445,11 +446,13 @@ const translations = {
     "quick.send": "Send",
     "quick.note": "We’ll respond with a practical first step and expected outcomes."
   },
-
-  // fallback now
-  ru: {},
-  uk: {}
 };
+
+const translations = window.translations; // оставляем твоё имя для удобства
+
+translations.en = translations.en || {};
+translations.ru = translations.ru || {};
+translations.uk = translations.uk || {};
 
 /* -------------------------
    i18n helpers
