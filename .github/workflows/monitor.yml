@@ -36,6 +36,9 @@ jobs:
           GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: |
           python3 - << 'PY'
+          import json, os, time
+          import urllib.request, urllib.parse, urllib.error
+
           print("EVENT:", os.environ.get("GITHUB_EVENT_NAME"))
 
           import json, os, time
