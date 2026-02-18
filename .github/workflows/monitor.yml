@@ -2,7 +2,7 @@ name: MITE Watchdog
 
 on:
   schedule:
-    - cron: "* * * * *"   # пытаемся каждую минуту
+    - cron: "*/5 * * * *"   
   workflow_dispatch:
 
 permissions:
