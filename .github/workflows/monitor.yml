@@ -37,7 +37,9 @@ jobs:
           import json, os, time
           import urllib.request, urllib.parse, urllib.error
 
+          EVENT = os.environ.get("GITHUB_EVENT_NAME", "")
           print("EVENT:", EVENT)
+
 
           SITE_URL = os.environ["SITE_URL"]
           TG_TOKEN = os.environ["TG_TOKEN"]
