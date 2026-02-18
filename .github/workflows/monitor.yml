@@ -55,16 +55,17 @@ jobs:
                   print("TG send failed:", e)
 
           def http_ok(url, timeout=15):
-              try:
-                  req = urllib.request.Request(url, method="GET", headers={"User-Agent":"mite-watchdog/1.0"})
-                  with urllib.request.urlopen(req, timeout=timeout) as r:
-                      code = r.getcode()
-                      if not (200 <= code < 400):
-                          return False, f"HTTP {code}"
-              except urllib.error.HTTPError as e:
-                  return False, f"HTTPError {e.code}"
-              except Exception as e:
-                  return False, f"Error {type(e).__name__}: {e}"
+            try:
+                req = urllib.request.Request(url, method="GET", headers={"User-Agent":"mite-watchdog/1.0"})
+                with urllib.request.urlopen(req, timeout=timeout) as r:
+                    code = r.getcode()
+                    if not (200 <= code < 400):
+                        return False, f"HTTP {code}"
+                    return True, f"HTTP {code}"
+            except urllib.error.HTTPError as e:
+                return False, f"HTTPError {e.code}"
+            except Exception as e:
+                return False, f"Error {type(e).__name__}: {e}"
 
 
           def minutes_since(ts):
