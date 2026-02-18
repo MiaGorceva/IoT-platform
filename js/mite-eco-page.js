@@ -5,114 +5,111 @@ window.translations.en = window.translations.en || {};
 Object.assign(window.translations.en, {
 
   /* ========================
-     SEO
-  ======================== */
-
-  "seo.title": "MITE-ECO — Flexible Monitoring Powered by MITE",
-  "seo.description":
-    "One device family for any environment. End-to-end monitoring with MITE workflows, reporting and governance (GDPR-ready when required).",
-
-  /* ========================
      HERO
   ======================== */
 
   "eco.hero.kicker": "MITE-ECO",
 
   "eco.hero.title":
-    'One device family for any site — <span>powered by MITE.</span>',
+    "Engineered sensing — built around your operational task.",
 
   "eco.hero.subtitle":
-    "MITE-ECO is a flexible monitoring device family designed to adapt to real constraints: indoor/outdoor, " +
-    "wet/dusty zones, regulated environments, and custom sensing needs. " +
-    "With MITE platform, it becomes an end-to-end operational tool: monitoring → logic → actions → reporting → KPI.",
+    "MITE-ECO is not a fixed device catalogue. We configure the sensing layer — enclosure, power model, measurement logic and data structure — around your specific operational objective. The hardware is a component. The value is in the structured data you receive.",
 
-  "eco.hero.meta1": "High-accuracy microclimate monitoring",
-  "eco.hero.meta2": "End-to-end process visibility with MITE workflows & alerts",
-  "eco.hero.meta3": "GDPR-ready approach (when required)",
+  "eco.hero.meta1":
+    "Sensing configured to your environment and constraints",
+
+  "eco.hero.meta2":
+    "Data structured by zones, regimes, assets or batches",
+
+  "eco.hero.meta3":
+    "Expandable architecture without redesigning the system",
 
   "eco.hero.ctaPrimary": "Request a demo",
   "eco.hero.ctaSecondary": "Downloads",
 
   "eco.hero.outcome":
-    "<strong>Outcome focus:</strong> not just telemetry — a controlled operational loop with evidence, accountability and measurable KPI impact.",
+    "<strong>Outcome focus:</strong> not raw telemetry, but reliable operational data in the dimensions your process actually uses.",
 
 
   /* ========================
      HOW IT WORKS
   ======================== */
 
-  "eco.how.eyebrow": "How it works with MITE",
-  "eco.how.title": "From monitoring to execution",
+  "eco.how.eyebrow": "Engineering approach",
+  "eco.how.title": "From requirement to structured data",
   "eco.how.subtitle":
-    "MITE turns device signals into a governed operational loop — the same logic scales across sites without fragile rework.",
+    "We start from the operational task, not from a predefined device model.",
 
   "eco.how.step1.tag": "Step 1",
-  "eco.how.step1.title": "Capture",
+  "eco.how.step1.title": "Define the objective",
   "eco.how.step1.text":
-    "Sensors collect data reliably under real constraints.",
+    "You define the operational requirement: stability control, compliance evidence, asset monitoring, environmental limits, or process thresholds.",
 
   "eco.how.step2.tag": "Step 2",
-  "eco.how.step2.title": "Decide",
+  "eco.how.step2.title": "Configure sensing layer",
   "eco.how.step2.text":
-    "Rules, thresholds, workflows, approvals and roles define what should happen.",
+    "We select enclosure, protection level, sensing combination and power model according to site constraints and risk profile.",
 
   "eco.how.step3.tag": "Step 3",
-  "eco.how.step3.title": "Execute & prove",
+  "eco.how.step3.title": "Structure the data",
   "eco.how.step3.text":
-    "Actions are triggered, evidence is stored, reports become automatic.",
+    "Measurements are structured into operational dimensions — zones, regimes, assets, shifts, batches — so they support decision-making instead of generating raw logs.",
 
 
   /* ========================
-     DEPLOYMENT / FLEXIBILITY
+     DEPLOYMENT
   ======================== */
 
-  "eco.deploy.eyebrow": "Deployment",
-  "eco.deploy.title": "Configured for your use case",
+  "eco.deploy.eyebrow": "Deployment model",
+  "eco.deploy.title": "Configured, not selected from a list",
   "eco.deploy.subtitle":
-    "Instead of forcing you into a fixed model, we configure MITE-ECO for your site: environment, power model, connectivity and sensing needs.",
+    "There is no single fixed SKU. The sensing configuration is defined by your constraints and operational KPIs.",
 
-  "eco.deploy.card1.title": "Environment & durability",
+  "eco.deploy.card1.title": "Environment & protection",
   "eco.deploy.card1.text":
-    "Indoor / outdoor · wet zones · dusty production · cold chain. We match the build to the reality of the site.",
+    "Indoor, outdoor, dusty, regulated or controlled zones — enclosure and protection level are defined according to site conditions and risk assessment.",
 
-  "eco.deploy.card2.title": "Sensors & integration",
+  "eco.deploy.card2.title": "Sensing architecture",
   "eco.deploy.card2.text":
-    "Add sensors if needed and map data into MITE so you get alerts, workflows, reports and KPI impact — not raw telemetry.",
+    "Temperature, humidity and optional parameters are selected based on your process requirements. Additional sensing can be integrated without rebuilding the overall architecture.",
 
 
   /* ========================
      SPECIFICATIONS
   ======================== */
 
-  "eco.specs.eyebrow": "Specifications",
-  "eco.specs.title": "Key technical specs",
-  "eco.specs.subtitle": "Short list of the parameters teams ask first.",
+  "eco.specs.eyebrow": "Core sensing capabilities",
+  "eco.specs.title": "Technical baseline",
+  "eco.specs.subtitle":
+    "Key measurement and deployment parameters. Final configuration depends on your operational context.",
 
-  "eco.specs.temp.title": "Temperature",
+  "eco.specs.temp.title": "Temperature monitoring",
   "eco.specs.temp.text":
-    "Range: −40…+80 °C<br/>Accuracy: ±0.5 °C",
+    "Range: −40…+80 °C<br/>Accuracy: ±0.5 °C<br/>Stable measurement under industrial conditions.",
 
-  "eco.specs.humidity.title": "Humidity",
+  "eco.specs.humidity.title": "Humidity monitoring",
   "eco.specs.humidity.text":
-    "Range: 0…100% RH<br/>Accuracy: ±3%",
+    "Range: 0…100% RH<br/>Accuracy: ±3%<br/>Suitable for storage and process control environments.",
 
-  "eco.specs.autonomy.title": "Autonomy",
+  "eco.specs.autonomy.title": "Power & autonomy",
   "eco.specs.autonomy.text":
-    "Battery: ≥ 1 year (15 min)<br/>Rechargeable: ≥ 3 months (15 min)",
+    "Battery or rechargeable configuration depending on interval and site access model. Autonomy defined by measurement frequency and deployment constraints.",
 
 
   /* ========================
      DOWNLOADS
   ======================== */
 
-  "eco.downloads.eyebrow": "Downloads",
-  "eco.downloads.title": "Manuals & documents",
+  "eco.downloads.eyebrow": "Documentation",
+  "eco.downloads.title": "Technical documents",
   "eco.downloads.subtitle":
-    "Replace these links with your real PDFs when ready.",
+    "Engineering and deployment documentation for integration and validation.",
 
   "eco.downloads.manual.title": "Operation manual (PDF)",
   "eco.downloads.manual.text":
-    "Variants, specs, handling, safety notes.",
+    "Deployment guidelines, handling notes and baseline technical parameters.",
+
   "eco.downloads.link": "Download →",
 
 
@@ -121,27 +118,27 @@ Object.assign(window.translations.en, {
   ======================== */
 
   "eco.faq.eyebrow": "FAQ",
-  "eco.faq.title": "Questions teams ask first",
-  "eco.faq.subtitle": "Short, practical answers.",
+  "eco.faq.title": "Technical questions",
+  "eco.faq.subtitle": "Short, engineering-focused answers.",
 
   "eco.faq.q1":
-    "Is MITE-ECO a single model or a family?",
+    "Is MITE-ECO a fixed hardware model?",
   "eco.faq.a1":
-    "It’s a family configured for different environments and sensor needs.",
+    "No. The sensing configuration is defined by operational requirements. The hardware layer is engineered around your task.",
 
   "eco.faq.q2":
-    "Can it be waterproof / outdoor?",
+    "Can the sensing configuration be expanded later?",
   "eco.faq.a2":
-    "Yes — it can be configured for harsh environments when required (enclosure + installation approach).",
+    "Yes. Additional parameters can be integrated without redesigning the overall data architecture.",
 
   "eco.faq.q3":
-    "How does it work with MITE?",
+    "What is the main value of MITE-ECO?",
   "eco.faq.a3":
-    "MITE turns signals into execution: alerts, workflows, reporting, audit-friendly history and KPI impact.",
+    "Reliable, structured operational data aligned with your process dimensions — not just device telemetry.",
 
   "eco.faq.q4":
-    "GDPR?",
+    "Does protection level depend on deployment?",
   "eco.faq.a4":
-    "When required, governance can be configured via access roles, audit trails, retention rules and export logging."
+    "Yes. Enclosure and protection are selected according to environmental constraints and risk profile."
 
 });
