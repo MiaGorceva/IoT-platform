@@ -37,6 +37,8 @@ jobs:
           import json, os, time
           import urllib.request, urllib.parse, urllib.error
 
+          print("EVENT:", EVENT)
+
           SITE_URL = os.environ["SITE_URL"]
           TG_TOKEN = os.environ["TG_TOKEN"]
           TG_CHAT_ID = os.environ["TG_CHAT_ID"]
