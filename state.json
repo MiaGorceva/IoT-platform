@@ -1,5 +1,7 @@
 {
   "down_since": null,
   "last_alert_min": null,
-  "rebooted": false
+  "rebooted": false,
+  "last_check_ts": 1771430385,
+  "last_alert_ts": null
 }
