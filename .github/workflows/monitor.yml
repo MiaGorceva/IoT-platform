@@ -2,7 +2,7 @@ name: MITE Watchdog
 
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "* * * * *"   # пытаемся каждую минуту
   workflow_dispatch:
 
 permissions:
@@ -10,50 +10,43 @@ permissions:
 
 concurrency:
   group: mite-watchdog
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Ensure state file
         run: |
           if [ ! -f state.json ]; then
-            echo '{"down_since": null, "last_alert_min": null, "rebooted": false}' > state.json
+            echo '{"down_since": null, "last_alert_ts": null, "rebooted": false, "last_check_ts": 0}' > state.json
           fi
 
-      - name: Monitor + Telegram + Reboot after 20 min
+      - name: Monitor + Telegram + Hetzner reboot after 20 min
         env:
           SITE_URL: ${{ secrets.SITE_URL }}
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
           TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
-          REBOOT_WEBHOOK_URL: ${{ secrets.REBOOT_WEBHOOK_URL }}
-          REBOOT_SECRET: ${{ secrets.REBOOT_SECRET }}
-          MUST_CONTAIN: ${{ secrets.MUST_CONTAIN }}
+          HETZNER_TOKEN: ${{ secrets.HETZNER_TOKEN }}
+          SERVER_ID: ${{ secrets.SERVER_ID }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
         run: |
           python3 - << 'PY'
           import json, os, time
           import urllib.request, urllib.parse, urllib.error
 
-          print("EVENT:", os.environ.get("GITHUB_EVENT_NAME"))
-
-          import json, os, time
-          import urllib.request, urllib.parse, urllib.error
-
           SITE_URL = os.environ["SITE_URL"]
           TG_TOKEN = os.environ["TG_TOKEN"]
           TG_CHAT_ID = os.environ["TG_CHAT_ID"]
-          REBOOT_WEBHOOK_URL = os.environ["REBOOT_WEBHOOK_URL"]
-          REBOOT_SECRET = os.environ["REBOOT_SECRET"]
-          MUST_CONTAIN = os.environ.get("MUST_CONTAIN") or ""
+          HETZNER_TOKEN = os.environ["HETZNER_TOKEN"]
+          SERVER_ID = os.environ["SERVER_ID"]
+          EVENT = os.environ.get("GITHUB_EVENT_NAME","")
 
           now = int(time.time())
 
-          def tg_send(text):
+          def tg_send(text: str):
               api = f"https://api.telegram.org/bot{TG_TOKEN}/sendMessage"
               data = urllib.parse.urlencode({"chat_id": TG_CHAT_ID, "text": text}).encode()
               try:
@@ -61,46 +54,56 @@ jobs:
               except Exception as e:
                   print("TG send failed:", e)
 
-          def http_ok(url, timeout=20):
+          def http_ok(url, timeout=15):
               try:
                   req = urllib.request.Request(url, method="GET", headers={"User-Agent":"mite-watchdog/1.0"})
                   with urllib.request.urlopen(req, timeout=timeout) as r:
                       code = r.getcode()
                       if not (200 <= code < 400):
                           return False, f"HTTP {code}"
-                      if MUST_CONTAIN:
-                          body = r.read(250_000).decode("utf-8", errors="ignore")
-                          if MUST_CONTAIN not in body:
-                              return False, f"keyword '{MUST_CONTAIN}' not found"
-                      return True, f"HTTP {code}"
               except urllib.error.HTTPError as e:
                   return False, f"HTTPError {e.code}"
               except Exception as e:
                   return False, f"Error {type(e).__name__}: {e}"
 
+
           def minutes_since(ts):
               return int((now - ts) / 60)
 
-          def call_reboot_webhook():
-              sep = "&" if "?" in REBOOT_WEBHOOK_URL else "?"
-              url = f"{REBOOT_WEBHOOK_URL}{sep}key={urllib.parse.quote(REBOOT_SECRET)}"
+          def hetzner_reboot():
+              url = f"https://api.hetzner.cloud/v1/servers/{SERVER_ID}/actions/reboot"
+              req = urllib.request.Request(
+                  url,
+                  method="POST",
+                  headers={
+                      "Authorization": f"Bearer {HETZNER_TOKEN}",
+                      "Content-Type": "application/json",
+                      "User-Agent": "mite-watchdog/1.0",
+                  },
+              )
               try:
-                  req = urllib.request.Request(url, method="POST", headers={"User-Agent":"mite-watchdog/1.0"})
-                  with urllib.request.urlopen(req, timeout=25) as r:
+                  with urllib.request.urlopen(req, timeout=20) as r:
                       body = r.read(2000).decode("utf-8","ignore")
-                      print("Reboot webhook:", r.getcode(), body)
-                      return True
+                      print("Hetzner reboot:", r.getcode(), body)
+                      return 200 <= r.getcode() < 300
               except urllib.error.HTTPError as e:
                   body = e.read(2000).decode("utf-8","ignore")
-                  print("Reboot webhook HTTPError:", e.code, body)
+                  print("Hetzner reboot HTTPError:", e.code, body)
                   return False
               except Exception as e:
-                  print("Reboot webhook error:", e)
+                  print("Hetzner reboot error:", e)
                   return False
 
           # load state
           with open("state.json", "r", encoding="utf-8") as f:
               st = json.load(f)
+
+          # throttle: реально проверяем раз в 5 минут (кроме ручного запуска)
+          last_check = int(st.get("last_check_ts") or 0)
+          if EVENT != "workflow_dispatch" and (now - last_check) < 300:
+              print("Skip check:", now - last_check, "sec since last check")
+              raise SystemExit(0)
+          st["last_check_ts"] = now
 
           ok, info = http_ok(SITE_URL)
           print("Checking:", SITE_URL, "=>", ok, info, "STATE:", st)
@@ -109,28 +112,30 @@ jobs:
               if st.get("down_since") is not None:
                   down_min = minutes_since(st["down_since"])
                   tg_send(f"✅ UP: {SITE_URL} восстановлен. Был DOWN ~{down_min} мин.")
-              st = {"down_since": None, "last_alert_min": None, "rebooted": False}
+              st["down_since"] = None
+              st["last_alert_ts"] = None
+              st["rebooted"] = False
 
           else:
               if st.get("down_since") is None:
                   st["down_since"] = now
-                  st["last_alert_min"] = 0
+                  st["last_alert_ts"] = now
                   st["rebooted"] = False
                   tg_send(f"❌ DOWN: {SITE_URL} ({info}) (0 мин)")
               else:
                   down_min = minutes_since(st["down_since"])
-                  last = st.get("last_alert_min")
 
-                  # повторные уведомления каждые 5 минут
-                  if last is None or down_min >= last + 5:
-                      st["last_alert_min"] = down_min
+                  # уведомления каждые 5 минут по таймеру (300 сек)
+                  last_alert_ts = int(st.get("last_alert_ts") or st["down_since"])
+                  if now - last_alert_ts >= 300:
+                      st["last_alert_ts"] = now
                       tg_send(f"❌ STILL DOWN: {SITE_URL} ({info}) (~{down_min} мин)")
 
-                  # reboot только после 20 минут DOWN и только один раз
+                  # reboot после 20 минут DOWN (один раз)
                   if (not st.get("rebooted")) and down_min >= 20:
-                      if call_reboot_webhook():
+                      if hetzner_reboot():
                           st["rebooted"] = True
-                          tg_send(f"🚨 REBOOT triggered: {SITE_URL} DOWN ~{down_min} мин")
+                          tg_send(f"🚨 REBOOT triggered: {SITE_URL} DOWN ~{down_min} мин (Hetzner)")
                       else:
                           tg_send(f"⚠️ REBOOT FAILED: {SITE_URL} DOWN ~{down_min} мин (см. logs)")
 
