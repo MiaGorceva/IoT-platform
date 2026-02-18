@@ -2087,6 +2087,7 @@
   gap: 18px;
   will-change: transform;
   transition: transform .35s ease;
+  align-items: stretch; /* ключ: все карточки равной высоты */
 }
 
 /* ширины карточек под 1-экранную карусель */
