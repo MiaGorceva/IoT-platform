@@ -2092,6 +2092,9 @@
 /* ширины карточек под 1-экранную карусель */
 #pricingCarousel .pc-card {
   flex: 0 0 calc(100% - 0px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* desktop: показываем 4 карточки сразу */
@@ -2223,4 +2226,16 @@
   line-height: 1.6;
   opacity: .9;
   box-shadow: 0 0 25px rgba(84,229,74,.08);
+}
+
+
+/* make list take remaining space so CTA goes down */
+#pricingCarousel .pc-card .pc-list{
+  flex: 1 1 auto;
+  margin-bottom: 18px; /* optional spacing above button */
+}
+
+/* push button to the bottom */
+#pricingCarousel .pc-card .btn{
+  margin-top: auto;
 }
