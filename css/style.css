@@ -484,7 +484,7 @@
       width: 100%;
       gap: .9rem;
       min-height: 170px;          /* подбери 160–220 по вкусу */
-      padding: 1.15rem 1.15rem;
+      padding: 1.15rem 0rem;
     }
 
     .card-tag {
