@@ -426,6 +426,7 @@ window.translations = window.translations || {
     "contact.submit": "Send request",
     "contact.legal":
       "By sending the form you agree that we may contact you about MITE and process your data according to our privacy policy.",
+    "thank-you.submit": "Thanks! We’ll get back to you shortly.",
 
     // FOOTER
     "footer.note": "MITE — Industrial IoT platform for profit-driven teams.",
@@ -1370,7 +1371,7 @@ function setupMiteForm() {
     // Спрячем/сбросим toast перед отправкой
     if (toast) {
       toast.hidden = true;
-      toast.textContent = "Thanks! We’ll get back to you shortly.";
+    //  toast.textContent = "Thanks! We’ll get back to you shortly.";
     }
 
     try {
