@@ -648,10 +648,8 @@
       padding: 6px 10px; /* чуть больше внутренний отступ */
       will-change: transform;
       transition: transform .35s ease;
-
-       /* display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));*/
+      transition: transform .35s ease;
+      align-items: stretch; /* ключ: все карточки равной высоты */
     }
 
     .pc-card{
@@ -663,6 +661,9 @@
       padding:22px 20px;
       box-shadow:0 18px 60px rgba(0,0,0,.35);
       backdrop-filter: blur(10px);
+      flex: 0 0 calc(100% - 0px);
+      display: flex;
+      flex-direction: column;
     }
 
     .pc-card.is-featured{
@@ -714,21 +715,6 @@
         flex: 1;                        /* растягиваем список, чтобы кнопка внизу */
     }
     .pc-list li{ margin:8px 0; }
-
-    .pc-cta{
-      display:inline-flex;
-      width:100%;
-      justify-content:center;
-      border-radius:999px;
-      margin-top: auto;
-    }
-
-    .pc-cta-note{
-      margin-top:10px;
-      font-size:12px;
-      color:rgba(255,255,255,.58);
-      text-align:center;
-    }
 
     .pc-nav{
       position:absolute;
@@ -2082,21 +2068,6 @@
 
 /* базово (mobile / narrow): карусель */
 #pricingCarousel .pc-viewport { overflow: hidden; }
-#pricingCarousel .pc-track {
-  display: flex;
-  gap: 18px;
-  will-change: transform;
-  transition: transform .35s ease;
-  align-items: stretch; /* ключ: все карточки равной высоты */
-}
-
-/* ширины карточек под 1-экранную карусель */
-#pricingCarousel .pc-card {
-  flex: 0 0 calc(100% - 0px);
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
 
 /* desktop: показываем 4 карточки сразу */
 @media (min-width: 1100px) {
@@ -2234,9 +2205,4 @@
 #pricingCarousel .pc-card .pc-list{
   flex: 1 1 auto;
   margin-bottom: 18px; /* optional spacing above button */
-}
-
-/* push button to the bottom */
-#pricingCarousel .pc-card .btn{
-  margin-top: auto;
 }
