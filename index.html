@@ -582,8 +582,11 @@
         </div>
 
         <div class="contact-card">
-          <form class="drawer-form" id="miteForm" action="https://formspree.io/f/mjkranro" autocomplete="on" method="POST">
-            <div class="form-grid form-row-2">
+          <form class="drawer-form js-mite-form"
+            data-toast=".js-success-toast"
+            action="https://formspree.io/f/mjkranro"
+            method="POST" autocomplete="on" >
+                <div class="form-grid form-row-2">
               <div>
                 <label for="name" data-i18n="contact.nameLabel"></label>
                 <input id="name" name="name" type="text" data-i18n-placeholder="contact.namePlaceholder" />
@@ -615,7 +618,7 @@
               <span class="form-footnote" data-i18n="contact.legal"></span>
             </div>
 
-            <div class="js-success-toast" data-i18n="thank-you.submit" hidden>
+            <div class="toast js-success-toast" data-i18n="thank-you.submit" hidden>
             </div>
           </form>
         </div>
@@ -669,9 +672,10 @@
       <button class="drawer-close" type="button" id="drawerClose" aria-label="Close">×</button>
     </div>
 
-   <form class="drawer-form js-mite-form"
-      action="https://formspree.io/f/mjkranro"
-      method="POST">
+      <form class="drawer-form js-mite-form"
+        data-toast=".js-success-toast"
+        action="https://formspree.io/f/mjkranro"
+        method="POST" autocomplete="on" >
 
         <div>
           <label for="qName" data-i18n="quick.nameLabel"></label>
@@ -693,15 +697,14 @@
 
         <input type="hidden" name="source" value="quick_drawer" />
 
-        <div class="pricing-cta-row">
-          <button class="successToast" type="button" id="drawerCancel" data-i18n="quick.cancel"></button>
+        <div class="drawer-actions">
+          <button class="btn btn-ghost" type="button" id="drawerCancel" data-i18n="quick.cancel"></button>
           <button class="btn btn-primary" type="submit" data-i18n="quick.send"></button>
         </div>
 
         <div class="drawer-note" data-i18n="quick.note"></div>
 
-        <div class="js-success-toast" data-i18n="thank-you.submit" hidden>
-        </div>
+        <div class="toast js-success-toast" data-i18n="thank-you.submit" hidden></div>
       </form>
 
       

@@ -1349,25 +1349,21 @@ function setupYear() {
 
 function setupMiteForms() {
   const forms = document.querySelectorAll("form.js-mite-form");
-  if (!forms.length) {
-    console.warn("[MITE] no forms found");
-    return;
-  }
-
   console.log("[MITE] setupMiteForms: found", forms.length);
 
   forms.forEach((form) => {
-    const toast = form.querySelector(".js-success-toast");
+    const toastSel = form.dataset.toast || ".js-success-toast";
+    const toast = form.querySelector(toastSel);
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
       const submitBtn = form.querySelector('button[type="submit"]');
-      const oldBtnText = submitBtn ? submitBtn.textContent : "";
+      const oldBtnHTML = submitBtn ? submitBtn.innerHTML : "";
 
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = "Sending…";
+        submitBtn.innerHTML = "Sending…";
       }
 
       if (toast) toast.hidden = true;
@@ -1377,7 +1373,7 @@ function setupMiteForms() {
           name: form.querySelector('[name="name"]')?.value || "",
           email: form.querySelector('[name="email"]')?.value || "",
           message: form.querySelector('[name="message"]')?.value || "",
-          source: form.querySelector('[name="source"]')?.value || ""
+          source: form.querySelector('[name="source"]')?.value || "unknown"
         };
 
         console.log("[MITE] Submitting to:", form.action, payload);
@@ -1392,9 +1388,16 @@ function setupMiteForms() {
           body: JSON.stringify(payload)
         });
 
+        console.log("[MITE] Response status:", res.status);
+
         let data = null;
         const ct = res.headers.get("content-type") || "";
-        if (ct.includes("application/json")) data = await res.json().catch(() => null);
+        if (ct.includes("application/json")) {
+          data = await res.json().catch(() => null);
+        } else {
+          const txt = await res.text().catch(() => "");
+          data = { raw: txt };
+        }
 
         if (!res.ok) {
           const msg =
@@ -1404,6 +1407,7 @@ function setupMiteForms() {
           throw new Error(msg);
         }
 
+        // SUCCESS ✅
         form.reset();
 
         if (toast) {
@@ -1412,10 +1416,10 @@ function setupMiteForms() {
         }
 
         if (submitBtn) {
-          submitBtn.textContent = "Sent ✓";
+          submitBtn.innerHTML = "Sent ✓";
           setTimeout(() => {
             submitBtn.disabled = false;
-            submitBtn.textContent = oldBtnText || "Send";
+            submitBtn.innerHTML = oldBtnHTML || "Send";
           }, 1600);
         }
       } catch (err) {
@@ -1429,12 +1433,14 @@ function setupMiteForms() {
 
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = oldBtnText || "Send";
+          submitBtn.innerHTML = oldBtnHTML || "Send";
         }
       }
     });
   });
 }
+
+document.addEventListener("DOMContentLoaded", setupMiteForms);
 
 
 window.MITE = window.MITE || {};
