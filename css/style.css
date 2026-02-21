@@ -1073,6 +1073,7 @@
   opacity:1;
   transform:translateY(0);
   pointer-events:auto;
+  padding: 15px;
 }
 
 .drawer-overlay.is-open{
