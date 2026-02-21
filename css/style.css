@@ -18,6 +18,16 @@
         "Segoe UI", sans-serif;
     }
 
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))){
+      .site-header,
+      .quick-contact,
+      .drawer-overlay{
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        background: rgba(3,7,18,0.92);
+      }
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -176,18 +186,14 @@
       white-space: nowrap;
     }
 
-     .btn-primary {
-      background: rgba(15,23,42,0.35);
-      border-color: rgba(72,207,255,0.22);
-      color: rgba(226,232,240,0.72);
+    /* OPTIONAL: if you WANT gradient on primary buttons again */
+    .btn-primary{
+      background: linear-gradient(90deg, var(--accent2), var(--accent));
+      color: #001018;
+      border-color: rgba(72,207,255,0.28);
     }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      background: rgba(15,23,42,0.62);
-      border-color: rgba(72,207,255,0.38);
-      color: rgba(226,232,240,0.92);
-      box-shadow: 0 0 0 1px rgba(72,207,255,0.15), 0 18px 40px rgba(0,0,0,0.55);
+    .btn-primary:hover{
+      background: linear-gradient(90deg, rgba(72,207,255,0.95), rgba(84,229,74,0.95));
     }
 
     .btn-outline {
@@ -634,7 +640,6 @@
       padding: 6px 10px; /* чуть больше внутренний отступ */
       will-change: transform;
       transition: transform .35s ease;
-      transition: transform .35s ease;
       align-items: stretch; /* ключ: все карточки равной высоты */
     }
 
@@ -647,7 +652,6 @@
       padding:22px 20px;
       box-shadow:0 18px 60px rgba(0,0,0,.35);
       backdrop-filter: blur(10px);
-      flex: 0 0 calc(100% - 0px);
       display: flex;
       flex-direction: column;
     }
@@ -748,11 +752,12 @@
     }
 
     /* на небольших — скрываем nav, оставляем свайп/дотсы */
-@media (max-width: 860px){
-  .pc-nav{ display:none; }
-  .pc-track{ padding: 6px; gap: 14px; }
-  .pc-card{ flex-basis: 86vw; max-width: 86vw; }
-}
+    @media (max-width: 860px){
+      .pc-nav{ display:none; }
+      .pc-track{ padding: 6px; gap: 14px; }
+      .pc-card{ flex-basis: 86vw; max-width: 86vw; }
+    }
+
 
     .two-column {
       display: grid;
@@ -986,9 +991,6 @@
 
 .about-side{ position:sticky; top:92px; } 
 
-
-.about-side-metric{ display:grid; gap:.25rem; padding:.2rem 0; margin-top: 1.2rem;}
-
 @media (max-width:960px){
   .about-grid{ grid-template-columns:minmax(0,1fr); }
   .about-side{ position:relative; top:auto; }
@@ -1135,10 +1137,13 @@
   margin: 0.85rem 0 0.7rem;
 }
 
-.about-side-metric {
+.about-side-metric{
+  display: grid;
+  gap: 0.35rem;
+  align-content: start;
   transition: opacity .22s ease, transform .22s ease;
 }
-.about-side-metric.is-fade {
+.about-side-metric.is-fade{
   opacity: 0;
   transform: translateY(4px);
 }
@@ -1168,14 +1173,14 @@
 }
 
 
-.outcome-bullets li::before {
+/*.outcome-bullets li::before {
   content: "—";
   position: absolute;
   left: 0;
   top: 0;
   color: var(--accent2);
   opacity: 0.75;
-}
+}*/
 
 .about-side-divider {
   height: 1px;
@@ -1218,13 +1223,6 @@
   letter-spacing: 0.18em;
   color: rgba(72, 207, 255, 0.9);
   margin-bottom: 0.9rem;
-}
-
-/* layout inside metric */
-.about-side-metric {
-  display: grid;
-  gap: 0.35rem;
-  align-content: start;
 }
 
 .platform-story {
@@ -1481,10 +1479,11 @@
   display:flex;
   gap:.75rem;
   border:1px solid var(--border);
-  border-radius: var(--radius);
+  border-radius: var(--radius-md);
   padding: .85rem .9rem;
   background: rgba(2, 6, 23, 0.35);
 }
+
 .uc-step-num{
   width: 2rem;
   height: 2rem;
@@ -2183,4 +2182,14 @@
 #pricingCarousel .pc-card .pc-list{
   flex: 1 1 auto;
   margin-bottom: 18px; /* optional spacing above button */
+}
+
+/* Drawer must keep its glass background regardless of other rules */
+.drawer{
+  background:
+    radial-gradient(circle at 15% 10%, rgba(72,207,255,.20), transparent 60%),
+    radial-gradient(circle at 85% 90%, rgba(84,229,74,.16), transparent 60%),
+    rgba(15,23,42,.92);
+  border: 1px solid rgba(31,41,55,.92);
+  box-shadow: 0 26px 70px rgba(0,0,0,.82);
 }
