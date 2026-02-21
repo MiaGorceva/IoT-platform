@@ -595,329 +595,317 @@ function setupOutcomes() {
 ------------------------- */
 
 const useCases = [
+
   // 1) Pharma — Cold chain
   {
     industry: "pharma",
     industryLabel: "Pharma",
-    title: "Cold chain: GDP-compliant multi-leg traceability + real-time deviation control",
-    kpiBadge: "↓ Spoilage 15–30% · ↓ Claims 20–40% · ↓ QA workload",
+    title: "Cold chain: excursions cost real money, not just QA time",
+    kpiBadge: "↓ Spoilage 15–30% · ↓ Claims 20–40%",
     ttvBadge: "Pilot in 2–4 weeks",
     pain:
-      "Temperature data is fragmented across warehouse loggers, truck telematics, and 3PL couriers. During cross-dock or border delays, pallets are reassigned and sensor IDs no longer match shipment IDs. " +
-      "A 2–8°C batch is occasionally shipped under the wrong regime template. QA receives only a postfactum temperature files after delivery. " +
-      "When an excursion happens, investigation requires 3–5 systems, email threads, and manual reconciliation — taking 4–8 hours per incident.",
-
+      "Temperature seems controlled — until one delayed shipment wipes out €50–200k of product. Data is fragmented, pallets get reassigned, deviations are discovered after delivery. Every excursion becomes a dispute, a write-off, or a reputational risk.",
     how:
-      "MITE builds a GDP-aligned chain-of-custody timeline per batch/shipment: sensor streams + geofences (warehouse, cross-dock, border) + door events + compressor duty cycle + SKU-specific regimes. " +
-      "If temperature drifts beyond 2–8°C for >10 minutes (configurable per product), an escalation ladder triggers automatically (driver → dispatcher → QA). " +
-      "Sensor ↔ pallet ↔ batch mismatches are flagged in real time. AI correlates deviation with door openings, dwell time, ambient spikes, or refrigeration anomalies — surfacing likely root cause within seconds.",
-
+      "MITE builds a continuous shipment timeline (sensor → pallet → route → warehouse). Deviations trigger escalation during transport, not after delivery. Root cause (door, dwell time, compressor pattern) is identified automatically.",
     result:
-      "Excursions are handled during transport, not after release review. " +
-      "On typical problematic lanes, spoilage risk drops by 15–30%. " +
-      "Claim disputes reduce by 20–40% because evidence packs (timeline + regime + actions + approvals + access log) are exportable in <2 minutes. " +
-      "Deviation investigation time shrinks from 4–8 hours to 20–40 minutes.",
+      "Spoilage reduced by 15–30%. Claims drop 20–40%. Incidents handled in minutes with exportable evidence.",
     icon: "pharma",
-    tags: ["cold chain", "GDP", "batch", "traceability", "transport", "QA"]
+    tags: ["cold chain", "gdp", "transport", "batch", "qa"]
   },
 
-  // 2) Pharma — Compliance / retention / GDPR / GxP
+  // 2) Pharma — Compliance
   {
     industry: "pharma",
     industryLabel: "Pharma",
-    title: "Compliance layer: GDP/GxP retention, controlled access, and GDPR-aligned audit exports",
-    kpiBadge: "↓ Audit prep 60–80% · ↓ Compliance risk · ↑ Traceability",
+    title: "Compliance: from manual audit scramble to governed evidence",
+    kpiBadge: "↓ Audit prep 60–80% · ↓ Compliance risk",
     ttvBadge: "Evidence in 1 click",
     pain:
-      "Operational data exists, but compliance is fragile. Retention differs by site, access rights are maintained informally, and audit trails are spread across SCADA, spreadsheets, and shared folders. " +
-      "During inspections, teams spend 2–3 days assembling sensor histories, approvals, and deviation logs. " +
-      "It is difficult to prove who accessed what data, when, and under which role — creating GDPR and GxP exposure.",
-
+      "During inspections, teams spend days collecting data from SCADA, spreadsheets, and email threads. No unified access log. No guaranteed retention. High exposure to GDP/GxP and GDPR findings.",
     how:
-      "MITE enforces retention and access at platform level: role-based access control (RBAC), immutable audit trail on every key action (view, edit, approve, export), and dataset-level retention policies (e.g., 5–10 years for regulated batches). " +
-      "Each deviation or workflow closure automatically attaches a structured evidence pack: timeline, sensor data, regime validation, decisions, electronic approvals, timestamps, and access history. " +
-      "GDPR requirements are addressed via controlled role scopes, export logging, and configurable data retention/deletion rules where legally applicable.",
-
+      "MITE enforces retention policies, role-based access, and immutable audit trails. Every deviation automatically generates a structured evidence pack.",
     result:
-      "Audit preparation time typically drops by 60–80% (from days to hours). " +
-      "Evidence exports take <2 minutes and are reproducible. " +
-      "Compliance risk shifts from manual coordination to governed system behavior — reducing dependency on individual experts and ad-hoc documentation.",
+      "Audit preparation reduced by 60–80%. Evidence export in under 2 minutes. Lower regulatory risk.",
     icon: "shield",
-    tags: ["GDP", "GxP", "GDPR", "retention", "audit", "RBAC"]
+    tags: ["gdp", "gxp", "gdpr", "audit", "retention"]
   },
-  // 3) Manufacturing — Downtime (your story: average hides truth + AI vibration)
+
+  // 3) Manufacturing — Downtime
   {
     industry: "manufacturing",
     industryLabel: "Manufacturing",
-    title: "Downtime: detect → classify → assign → verify (not just OEE charts)",
-    kpiBadge: "↓ Downtime · ↑ Throughput · ↓ Repeat stops",
+    title: "Downtime: averages hide where you lose money",
+    kpiBadge: "↓ Repeat stops 20–35% · ↑ Throughput",
     ttvBadge: "Pilot in days",
     pain:
-      "One KPI looks “fine” — overall downtime is 10%. But inside that average: Line A runs at 3% deviation while Line B quietly bleeds at 35%. Teams argue in chat, and the same stop repeats across shifts because there is no governed action loop.",
+      "Overall downtime looks acceptable at 10%, but one line runs at 30–35%. The same stops repeat across shifts. Losses accumulate silently every month.",
     how:
-      "MITE ingests PLC states + operator reason capture + shift context and shows deviations per line, not just the average. When Line B spikes, AI points to correlated signals: vibration is 2.4× higher 15 minutes before each stop, while motor current drifts. The engineer sees the pattern on the dashboard, confirms a технологическая просадка on the line (belt tension / bearing wear / misalignment), and MITE triggers the workflow: assign → SLA timers (30 min) → fix checklist → verification run.",
+      "MITE shows deviation per line, detects recurring patterns, links stops to technical signals, and enforces task closure with SLA and verification.",
     result:
-      "Repeat stops drop by 20–35% within 4–6 weeks. Teams stop firefighting and start closing measurable loops.",
+      "Repeat stops reduced 20–35%. Downtime becomes visible and controlled instead of averaged away.",
     icon: "factory",
-    tags: ["downtime", "oee", "routing", "sla", "verification"]
+    tags: ["downtime", "oee", "sla", "throughput"]
   },
 
-  // 4) Manufacturing — Quality drift
+  // 4) Manufacturing — Quality Drift
   {
     industry: "manufacturing",
     industryLabel: "Manufacturing",
-    title: "Quality drift: early detection + automatic containment workflow",
-    kpiBadge: "↓ Scrap · ↓ Rework · ↑ First-pass yield",
-    ttvBadge: "Evidence in 1 click",
+    title: "Quality drift: scrap grows before reports show it",
+    kpiBadge: "↓ Scrap 15–25% · ↑ First-pass yield",
+    ttvBadge: "Minutes, not shifts",
     pain:
-      "Quality is reported “per shift” and looks acceptable — but drift is local. One conveyor is at 3% deviation, another at 35%, and the average 10% hides the real problem until scrap piles up.",
+      "Average scrap looks stable, but one line runs at double-digit defect rate. Drift is detected only after the batch is complete.",
     how:
-      "MITE puts sensors + batch context + line identity into one model. Baselines are tracked per line/product. When drift crosses a threshold, containment triggers automatically: hold/stop workflow, approvals, and evidence pack. AI surfaces which parameter changed first (e.g., temperature ramp lag + vibration rise) and which equipment state correlates with the defect spike.",
+      "MITE tracks baseline per line and product. Early parameter drift triggers containment workflow before losses scale.",
     result:
-      "Scrap typically reduced by 15–25% and containment decisions happen in minutes, not after a full shift.",
+      "Scrap reduced 15–25%. Containment decisions happen in minutes, not after full-shift damage.",
     icon: "quality",
-    tags: ["quality", "scrap", "rework", "batch", "approvals"]
+    tags: ["quality", "scrap", "batch", "defects"]
   },
 
-  // 5) Manufacturing — Predictive maintenance lite
+  // 5) Manufacturing — Predictive maintenance
   {
     industry: "manufacturing",
     industryLabel: "Manufacturing",
-    title: "Condition monitoring → prioritized work orders with proof of closure",
-    kpiBadge: "↓ Unplanned stops · ↓ MTTR · ↑ Availability",
+    title: "Predictive maintenance: fewer emergency repairs",
+    kpiBadge: "↓ Unplanned stops · ↓ MTTR",
     ttvBadge: "Pilot in days",
     pain:
-      "Sensors exist, but maintenance stays reactive. Alerts are ignored because they don’t become owned tasks, and no one trusts “random warnings”.",
+      "Sensors exist, but maintenance stays reactive. Failures cause emergency repairs and expensive downtime.",
     how:
-      "MITE ties condition signals to asset criticality and workflows: rising vibration + temperature trend + alarm history → priority score → work order creation → SLA escalation → closure verification (before/after readings). AI suggests likely failure modes based on symptom patterns (bearing / imbalance / looseness).",
+      "MITE converts condition trends into prioritized work orders with SLA and before/after verification.",
     result:
-      "Fewer emergency repairs, shorter MTTR, and measurable ROI because every alert becomes a closed loop, not noise.",
+      "Fewer emergency stops. Shorter MTTR. Maintenance becomes predictable.",
     icon: "wrench",
-    tags: ["predictive", "maintenance", "mttr", "sla", "work orders"]
+    tags: ["predictive", "maintenance", "mttr"]
   },
 
-  // 6) Manufacturing — Energy spikes per line/shift
+  // 6) Manufacturing — Energy
   {
     industry: "manufacturing",
     industryLabel: "Manufacturing",
-    title: "Energy spikes: detect → explain → fix (per line, per shift)",
-    kpiBadge: "↓ Energy cost · ↓ Waste · ↑ Transparency",
-    ttvBadge: "Minutes, not weeks",
+    title: "Energy spikes: rising cost without visibility",
+    kpiBadge: "↓ Energy cost 5–12% · ↑ Transparency",
+    ttvBadge: "Pilot in days",
     pain:
-      "Energy cost rises, but teams see only monthly totals. A 12% spike appears, but no one can link it to equipment states, shift behavior, or changeovers.",
+      "Energy bills rise 10–15%, but no one can pinpoint where and why. Idle machines and inefficient changeovers stay hidden.",
     how:
-      "MITE merges meters + machine states + schedules. It shows where the spike happened: Line 2 during changeover window, with heaters idling 40 minutes. AI points to the sequence: operator pause + idle state + heaters stayed on. A workflow is created: adjust checklist / timers / responsibility. Next time, deviation triggers a real action, not an email.",
+      "MITE correlates meters with machine states and shifts, exposing where energy is wasted.",
     result:
-      "Documented savings of 5–12% on targeted lines, with repeatable reduction playbooks.",
+      "5–12% documented savings on targeted lines. Energy becomes measurable and controllable.",
     icon: "bolt",
-    tags: ["energy", "anomaly", "cost", "shift", "savings"]
+    tags: ["energy", "cost", "efficiency"]
   },
 
-  // 7) Manufacturing — Changeover governance
+  // 7) Manufacturing — Changeover
   {
     industry: "manufacturing",
     industryLabel: "Manufacturing",
-    title: "Changeover governance: reduce variance between shifts",
-    kpiBadge: "↓ Changeover time · ↓ Start-up defects · ↑ Consistency",
+    title: "Changeovers: tribal knowledge costs time",
+    kpiBadge: "↓ Changeover time · ↓ Start-up defects",
     ttvBadge: "Pilot in days",
     pain:
-      "Changeovers depend on tribal knowledge. One shift does it in 22 minutes, another in 55. Steps get skipped and defects appear at start-up.",
+      "One shift completes changeover in 20 minutes, another in 50. Variability causes lost production and start-up scrap.",
     how:
-      "MITE runs a governed changeover workflow: checklist + sensor confirmations (valves, temps, speeds) + approvals if required + timers + escalation if stuck. AI highlights which steps consistently cause delays and which confirmation is missing most often.",
+      "MITE enforces checklist-driven changeover with time tracking and escalation.",
     result:
-      "Changeover variance shrinks, start-up defects decrease, and best practice becomes system behavior.",
+      "Reduced variance and fewer start-up defects.",
     icon: "swap",
-    tags: ["changeover", "checklist", "shift", "quality"]
+    tags: ["changeover", "shift", "quality"]
   },
 
-  // 8) Manufacturing — EHS incidents / near-miss
+  // 8) Manufacturing — EHS
   {
     industry: "manufacturing",
     industryLabel: "Manufacturing",
-    title: "EHS near-miss → action → closure with evidence",
-    kpiBadge: "↓ Incidents · ↑ Compliance · ↓ Audit stress",
+    title: "EHS: incidents logged, but not closed",
+    kpiBadge: "↓ Incidents · ↓ Audit stress",
     ttvBadge: "Evidence in 1 click",
     pain:
-      "Near-misses are logged, but actions fade. Lessons don’t become enforced routines, and audits become a paperwork marathon.",
+      "Near-miss events are recorded, but follow-up actions fade. During audits, documentation is chaotic.",
     how:
-      "MITE routes EHS events by severity: capture → task assignment → deadlines → evidence attachments (photo, sensor history) → closure verification. AI clusters recurring near-miss patterns (same zone/time/tool) so prevention becomes targeted.",
+      "MITE routes incidents to responsible roles with deadlines and closure proof.",
     result:
-      "Lower incident rate and audit-ready evidence without manual chasing.",
+      "Lower incident rate and audit-ready documentation.",
     icon: "shield",
-    tags: ["ehs", "incident", "tasks", "evidence", "audit"]
+    tags: ["ehs", "incident", "compliance"]
   },
 
-  // 9) Manufacturing — Traceability / genealogy
+  // 9) Manufacturing — Traceability
   {
     industry: "manufacturing",
     industryLabel: "Manufacturing",
-    title: "Traceability: batch genealogy + instant evidence packs",
-    kpiBadge: "↓ Investigation time · ↓ Losses · ↑ Trust",
+    title: "Traceability: complaints should not take days",
+    kpiBadge: "↓ Investigation time · ↓ Losses",
     ttvBadge: "Evidence in 1 click",
     pain:
-      "When a complaint happens, traceability is a scramble: partial data, multiple systems, manual reconstruction across 2–5 teams.",
+      "Customer complaints require manual reconstruction across systems. Investigations last days.",
     how:
-      "MITE normalizes production, quality, and logistics events into one genealogy model. When an issue appears, AI suggests “suspect window” based on correlated parameter drift and downstream defects. Evidence pack export includes timeline, parameters, approvals, and actions.",
+      "MITE centralizes genealogy and provides structured evidence exports.",
     result:
-      "Investigations become hours, not days. Losses shrink because containment is faster and evidence is clean.",
+      "Investigation time reduced from days to hours.",
     icon: "trace",
-    tags: ["traceability", "genealogy", "evidence", "batch"]
+    tags: ["traceability", "genealogy"]
   },
 
-  // 10) Manufacturing — KPI governance
+  // 10) KPI Governance
   {
     industry: "manufacturing",
     industryLabel: "Manufacturing",
-    title: "KPI governance: KPIs drive actions, not dashboards",
-    kpiBadge: "↑ Execution discipline · ↓ “reporting theater”",
+    title: "KPIs: from reporting to execution",
+    kpiBadge: "↑ Execution discipline",
     ttvBadge: "Pilot in days",
     pain:
-      "KPIs exist, but don’t change behavior. Teams report numbers, but execution stays unmanaged and root causes repeat.",
+      "KPIs are reported monthly, but recurring problems remain unchanged.",
     how:
-      "In MITE, KPIs are tied to workflows: trigger → action → verification → KPI update. AI highlights which KPIs improve only temporarily and which actions correlate with durable improvement.",
+      "MITE ties KPIs to mandatory actions with verification.",
     result:
-      "KPIs become operational levers instead of monthly slides.",
+      "KPIs drive measurable improvement, not presentations.",
     icon: "kpi",
-    tags: ["kpi", "governance", "execution", "accountability"]
+    tags: ["kpi", "execution"]
   },
 
-  // 11) Agriculture — Barn microclimate
+  // 11) Agriculture — Barn
   {
     industry: "agriculture",
     industryLabel: "Agriculture",
-    title: "Barn microclimate: conditions → action workflow → loss reduction",
-    kpiBadge: "↓ Losses · ↑ Productivity · ↓ Human factor",
+    title: "Barn microclimate: averages hide local losses",
+    kpiBadge: "↓ Losses 10–25%",
     ttvBadge: "Pilot in days",
     pain:
-      "Teams react late to temperature/humidity/ammonia drift. One zone quietly goes out of regime for 40–60 minutes, and the impact appears later as stress and productivity loss.",
+      "Average conditions look stable, but local drift causes stress and productivity loss.",
     how:
-      "MITE models the barn as zones + regimes by age/season. Multi-sensor correlation triggers escalation when drift persists 10–15 minutes. AI suggests the likely cause (ventilation pattern + door events + heater duty cycle) so a human comes in only on alarm, not on constant monitoring.",
+      "MITE monitors zones individually and triggers escalation when deviation persists.",
     result:
-      "Lower losses and more stable conditions with measurable improvement (often 10–25%) and less supervision.",
+      "10–25% measurable improvement in stability and loss reduction.",
     icon: "cow",
-    tags: ["barn", "microclimate", "ammonia", "loss", "kpi"]
+    tags: ["barn", "microclimate"]
   },
 
-  // 12) Agriculture — Poultry ventilation failures
+  // 12) Poultry
   {
     industry: "agriculture",
     industryLabel: "Agriculture",
-    title: "Poultry house: early warning for ventilation failures",
-    kpiBadge: "↓ Mortality spikes · ↓ Critical events",
+    title: "Poultry ventilation: prevent mortality spikes",
+    kpiBadge: "↓ Mortality 10–20%",
     ttvBadge: "Minutes, not weeks",
     pain:
-      "Ventilation issues cascade fast. Operators see “average temp ok” while CO₂ rises in one segment. When it’s noticed, it’s already a critical event.",
+      "CO₂ rise in one zone goes unnoticed while averages look normal.",
     how:
-      "MITE correlates temp + CO₂ + fan state + power events. Dashboards show per-zone drift immediately (not averaged). AI flags “fan group 2 underperforming” from vibration/current signatures, and workflow routes to responsible staff with a clear checklist and closure proof.",
+      "MITE correlates ventilation, CO₂ and equipment state per zone.",
     result:
-      "Fewer critical events and measurable reduction in mortality spikes (often 10–20% on problem houses).",
+      "Reduced mortality spikes and fewer critical events.",
     icon: "chicken",
-    tags: ["poultry", "ventilation", "co2", "alerting"]
+    tags: ["poultry", "ventilation"]
   },
 
-  // 13) Agriculture — Irrigation efficiency
+  // 13) Irrigation
   {
     industry: "agriculture",
     industryLabel: "Agriculture",
-    title: "Irrigation: soil moisture → scheduling → water savings with proof",
-    kpiBadge: "↓ Water use · ↑ Yield stability",
+    title: "Irrigation: stop watering blindly",
+    kpiBadge: "↓ Water use 8–20%",
     ttvBadge: "Pilot in days",
     pain:
-      "Irrigation is schedule-driven, not condition-driven. Water is wasted, and savings are impossible to prove because data is fragmented.",
+      "Watering by schedule wastes resources and impacts yield consistency.",
     how:
-      "MITE unifies soil moisture + weather + zones. Rules trigger irrigation tasks, and dashboards show water usage vs moisture/yield. AI highlights zones where moisture recovers slower (soil issues / clogged lines) so maintenance becomes targeted.",
+      "MITE connects soil moisture, weather, and zones to drive condition-based irrigation.",
     result:
-      "Water savings of 8–20% on monitored zones with evidence, plus more stable yield.",
+      "8–20% water savings with measurable yield stability.",
     icon: "drop",
-    tags: ["irrigation", "moisture", "water", "yield"]
+    tags: ["irrigation", "water"]
   },
 
-  // 14) Agriculture — Cold storage produce
+  // 14) Cold storage
   {
     industry: "agriculture",
     industryLabel: "Agriculture",
-    title: "Cold storage for produce: regime control + compliance exports",
+    title: "Cold storage: spoilage detected too late",
     kpiBadge: "↓ Spoilage · ↓ Manual reporting",
     ttvBadge: "Evidence in 1 click",
     pain:
-      "Quality degrades silently. Different rooms and sensors make consistent control and reporting hard — teams discover issues when it’s too late.",
+      "Temperature drift is discovered after product quality degrades.",
     how:
-      "MITE models storage zones + product regimes. Deviations trigger containment workflow (quarantine/inspection) and generate exportable reports. AI flags recurring patterns (same door/shift/room) to eliminate root causes.",
+      "MITE enforces regime control and auto-generates compliance reports.",
     result:
-      "Less spoilage, faster quality decisions, and audit exports in minutes.",
+      "Less spoilage and faster quality decisions.",
     icon: "snow",
-    tags: ["storage", "quality", "compliance", "reports"]
+    tags: ["storage", "quality"]
   },
 
-  // 15) Energy — Battery health
+  // 15) Energy — Batteries
   {
     industry: "energy",
     industryLabel: "Energy",
-    title: "Battery fleets: health monitoring + predictive replacement planning",
-    kpiBadge: "↓ Outages · ↓ Replacement cost · ↑ Predictability",
+    title: "Battery fleets: unpredictable failures cost uptime",
+    kpiBadge: "↓ Outages · ↓ Replacement cost",
     ttvBadge: "Pilot in days",
     pain:
-      "Battery fleets fail unpredictably. Teams replace too early or too late. Downtime is costly and root causes are unclear.",
+      "Batteries fail unexpectedly or are replaced too early.",
     how:
-      "MITE tracks health indicators per site criticality. Rules produce prioritized alerts and replacement workflows. AI highlights degradation patterns (temperature exposure + deep discharge cycles) and suggests which sites are at highest risk in 2–4 weeks.",
+      "MITE predicts degradation trends and prioritizes replacement planning.",
     result:
-      "Fewer outages and predictable maintenance windows; replacement spend becomes planned, not reactive.",
+      "Predictable maintenance windows and optimized spend.",
     icon: "battery",
-    tags: ["battery", "predictive", "downtime", "maintenance"]
+    tags: ["battery", "predictive"]
   },
 
-  // 16) Environment — Air quality
+  // 16) Environment — Air
   {
     industry: "environment",
     industryLabel: "Environment",
-    title: "Air quality: sensor network → heatmaps → actionable interventions",
-    kpiBadge: "↑ Visibility · ↓ Response time · ↑ Compliance confidence",
+    title: "Air quality: data without decisions",
+    kpiBadge: "↓ Response time · ↑ Compliance confidence",
     ttvBadge: "Minutes, not weeks",
     pain:
-      "Raw readings don’t translate into decisions. Teams argue “where it’s worse” and “why” because sensors are not tied to context and wind patterns.",
+      "Raw sensor readings do not translate into clear action or accountability.",
     how:
-      "MITE unifies sensors + geo model + wind context. Dashboards show heatmaps, not tables. AI flags likely sources by correlating wind direction with spikes and time-of-day patterns, then routes actions for verification and reporting.",
+      "MITE provides geo heatmaps and correlates spikes with wind patterns.",
     result:
-      "Clear prioritization, faster interventions, and compliance reporting with evidence.",
+      "Faster intervention and defensible compliance reporting.",
     icon: "wind",
-    tags: ["air", "map", "heatmap", "wind", "compliance"]
+    tags: ["air", "compliance"]
   },
 
-  // 17) Smart cities — Street lighting
+  // 17) Smart Cities — Lighting
   {
     industry: "smartcities",
     industryLabel: "Smart cities",
-    title: "Street lighting: faults → routing → SLA closure (with proof)",
-    kpiBadge: "↓ Repair time · ↑ SLA compliance · ↓ Complaints",
+    title: "Street lighting: complaints mean SLA failure",
+    kpiBadge: "↓ Repair time · ↑ SLA compliance",
     ttvBadge: "Pilot in days",
     pain:
-      "Citizens complain, but repairs are slow: unclear ownership, no SLA control, and no proof of closure.",
+      "Faults remain unresolved due to unclear routing and no enforcement.",
     how:
-      "MITE ingests lamp telemetry + grid context. Rules classify faults and route to contractors. SLA timers escalate after 24–48 hours. AI clusters recurring faults by segment to identify feeder issues vs lamp issues.",
+      "MITE classifies issues, routes contractors, and tracks SLA deadlines.",
     result:
-      "Faster repairs, fewer repeated complaints, measurable SLA compliance.",
+      "Faster repairs and measurable SLA control.",
     icon: "lamp",
-    tags: ["lighting", "sla", "routing", "contractors"]
+    tags: ["lighting", "sla"]
   },
 
-  // 18) Logistics — Fleet cold transport
+  // 18) Logistics — Fleet Cold
   {
     industry: "logistics",
     industryLabel: "Logistics",
-    title: "Fleet cold transport: route context + exception handling + evidence packs",
-    kpiBadge: "↓ Claims · ↓ Disputes · ↑ Delivery quality",
+    title: "Cold transport: disputes destroy margin",
+    kpiBadge: "↓ Claims 20–40%",
     ttvBadge: "Evidence in 1 click",
     pain:
-      "Temperature exceptions are noticed after delivery. Data is fragmented, disputes are painful, and responsibility is unclear.",
+      "Temperature deviations are discovered after delivery, leading to disputes and write-offs.",
     how:
-      "MITE combines truck sensors + route milestones + regime rules. Exceptions trigger driver/dispatcher workflows with confirmations. AI flags the likely cause (door open duration + compressor pattern + ambient spike) so teams can act mid-route, not post-factum.",
+      "MITE builds a full route timeline and generates exportable evidence instantly.",
     result:
-      "Fewer claims, faster dispute resolution, higher delivery quality with evidence.",
+      "20–40% fewer claims and faster dispute resolution.",
     icon: "truck",
-    tags: ["fleet", "cold", "route", "evidence"]
+    tags: ["fleet", "cold", "transport"]
   }
+
 ];
+
 useCases.forEach((u, i) => { u.seq = i + 1; });
+
 
 function highlightNumbers(html) {
   if (!html) return "";
