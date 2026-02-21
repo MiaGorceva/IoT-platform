@@ -604,7 +604,7 @@ const useCases = [
     ttvBadge: "Pilot in 2–4 weeks",
     pain:
       "Temperature data is fragmented across warehouse loggers, truck telematics, and 3PL couriers. During cross-dock or border delays, pallets are reassigned and sensor IDs no longer match shipment IDs. " +
-      "A 2–8°C batch is occasionally shipped under the wrong regime template. QA receives only an average temperature PDF after delivery. " +
+      "A 2–8°C batch is occasionally shipped under the wrong regime template. QA receives only a postfactum temperature files after delivery. " +
       "When an excursion happens, investigation requires 3–5 systems, email threads, and manual reconciliation — taking 4–8 hours per incident.",
 
     how:
@@ -1347,113 +1347,92 @@ function setupYear() {
   if (y) y.textContent = new Date().getFullYear();
 }
 
-function setupMiteForm() {
-  const form = document.getElementById("miteForm");
-  const toast = document.getElementById("successToast");
-
-  if (!form) {
-    console.warn("[MITE] miteForm not found");
+function setupMiteForms() {
+  const forms = document.querySelectorAll("form.js-mite-form");
+  if (!forms.length) {
+    console.warn("[MITE] no forms found");
     return;
   }
 
-  console.log("[MITE] setupMiteForm: initialized");
+  console.log("[MITE] setupMiteForms: found", forms.length);
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  forms.forEach((form) => {
+    const toast = form.querySelector(".js-success-toast");
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const oldBtnText = submitBtn ? submitBtn.textContent : "";
-    if (submitBtn) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Sending…";
-    }
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
 
-    // Спрячем/сбросим toast перед отправкой
-    if (toast) {
-      toast.hidden = true;
-    //  toast.textContent = "Thanks! We’ll get back to you shortly.";
-    }
-
-    try {
-      // Важно: Formspree стабильнее принимает JSON, чем FormData через fetch
-      const payload = {
-        name: form.querySelector('[name="name"]')?.value || "",
-        email: form.querySelector('[name="email"]')?.value || "",
-        message: form.querySelector('[name="message"]')?.value || "",
-        source: form.querySelector('[name="source"]')?.value || "quick_drawer"
-      };
-
-      console.log("[MITE] Submitting to:", form.action, payload);
-
-      const res = await fetch(form.action, {
-        method: "POST",
-        mode: "cors",
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      });
-
-      console.log("[MITE] Response status:", res.status);
-
-      // Попробуем прочитать ответ (иногда приходит текст/HTML)
-      let data = null;
-      const ct = res.headers.get("content-type") || "";
-      if (ct.includes("application/json")) {
-        data = await res.json().catch(() => null);
-      } else {
-        const txt = await res.text().catch(() => "");
-        data = { raw: txt };
-      }
-
-      console.log("[MITE] Response body:", data);
-
-      if (!res.ok) {
-        // Formspree иногда возвращает ошибки с полями errors
-        const msg =
-          (data && data.errors && data.errors[0] && data.errors[0].message) ||
-          (data && data.error) ||
-          "Submission failed. Please try again.";
-
-        throw new Error(msg);
-      }
-
-      // SUCCESS ✅
-      form.reset();
-
-      if (toast) {
-        toast.hidden = false;
-        toast.textContent = "Thanks! We’ll get back to you shortly.";
-      }
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const oldBtnText = submitBtn ? submitBtn.textContent : "";
 
       if (submitBtn) {
-        submitBtn.textContent = "Sent ✓";
-        setTimeout(() => {
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Sending…";
+      }
+
+      if (toast) toast.hidden = true;
+
+      try {
+        const payload = {
+          name: form.querySelector('[name="name"]')?.value || "",
+          email: form.querySelector('[name="email"]')?.value || "",
+          message: form.querySelector('[name="message"]')?.value || "",
+          source: form.querySelector('[name="source"]')?.value || ""
+        };
+
+        console.log("[MITE] Submitting to:", form.action, payload);
+
+        const res = await fetch(form.action, {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        });
+
+        let data = null;
+        const ct = res.headers.get("content-type") || "";
+        if (ct.includes("application/json")) data = await res.json().catch(() => null);
+
+        if (!res.ok) {
+          const msg =
+            (data && data.errors && data.errors[0] && data.errors[0].message) ||
+            (data && data.error) ||
+            "Submission failed. Please try again.";
+          throw new Error(msg);
+        }
+
+        form.reset();
+
+        if (toast) {
+          toast.hidden = false;
+          toast.textContent = "Thanks! We’ll get back to you shortly.";
+        }
+
+        if (submitBtn) {
+          submitBtn.textContent = "Sent ✓";
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = oldBtnText || "Send";
+          }, 1600);
+        }
+      } catch (err) {
+        console.error("[MITE] Fetch submit failed:", err);
+
+        if (toast) {
+          toast.hidden = false;
+          toast.textContent =
+            "Oops — couldn’t send right now. Please try again or use the Contact form below.";
+        }
+
+        if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = oldBtnText || "Send";
-        }, 1600);
+        }
       }
-
-    } catch (err) {
-      console.error("[MITE] Fetch submit failed:", err);
-
-      if (toast) {
-        toast.hidden = false;
-        toast.textContent =
-          "Oops — couldn’t send right now. Please try again or use the Contact form below.";
-      }
-
-      if (submitBtn) {
-        submitBtn.disabled = false;
-        submitBtn.textContent = oldBtnText || "Send";
-      }
-
-      // ⚠️ ВАЖНО:
-      // Если хочешь, чтобы при ошибке всё же отправлялось “обычно” (с редиректом),
-      // раскомментируй следующую строку:
-      // form.submit();
-    }
+    });
   });
 }
 
@@ -1472,7 +1451,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPricingCarousel();
   setupFaqAccordion();
   setupDrawer();
-  setupMiteForm();
+  setupMiteForms();
 
 
   const initial = (window.MITE?.page?.langDefault) || "en";

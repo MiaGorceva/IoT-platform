@@ -80,7 +80,7 @@
 
           <div class="hero-cta-row">
             <a href="#contact" class="btn btn-primary" data-i18n="hero.primaryCta"></a>
-            <a href="#how" class="btn btn-ghost" data-i18n="hero.secondaryCta"></a>
+            <a href="#how" class="btn btn-primary" data-i18n="hero.secondaryCta"></a>
           </div>
 
           <div class="hero-meta">
@@ -615,7 +615,7 @@
               <span class="form-footnote" data-i18n="contact.legal"></span>
             </div>
 
-            <div id="successToast" class="toast" data-i18n="thank-you.submit" hidden>
+            <div class="js-success-toast" data-i18n="thank-you.submit" hidden>
             </div>
           </form>
         </div>
@@ -669,11 +669,9 @@
       <button class="drawer-close" type="button" id="drawerClose" aria-label="Close">×</button>
     </div>
 
-    <div class="drawer-body">
-      <form class="drawer-form"
-        id="miteForm"
-        action="https://formspree.io/f/mjkranro"
-        method="POST">
+   <form class="drawer-form js-mite-form"
+      action="https://formspree.io/f/mjkranro"
+      method="POST">
 
         <div>
           <label for="qName" data-i18n="quick.nameLabel"></label>
@@ -695,14 +693,14 @@
 
         <input type="hidden" name="source" value="quick_drawer" />
 
-        <div class="drawer-actions">
-          <button class="btn btn-ghost" type="button" id="drawerCancel" data-i18n="quick.cancel"></button>
+        <div class="pricing-cta-row">
+          <button class="successToast" type="button" id="drawerCancel" data-i18n="quick.cancel"></button>
           <button class="btn btn-primary" type="submit" data-i18n="quick.send"></button>
         </div>
 
         <div class="drawer-note" data-i18n="quick.note"></div>
 
-        <div id="successToast" class="toast" data-i18n="thank-you.submit" hidden>
+        <div class="js-success-toast" data-i18n="thank-you.submit" hidden>
         </div>
       </form>
 
