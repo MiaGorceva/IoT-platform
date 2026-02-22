@@ -1419,3 +1419,19 @@ textarea:focus {
   white-space: nowrap;
   border: 0;
 } 
+
+/* Use-cases icon size clamp */
+.uc-mini{
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.uc-mini svg{
+  width: 22px;
+  height: 22px;
+  display: block;
+}

@@ -959,7 +959,9 @@ function setupUseCases() {
 
   function iconSvg(kind) {
     const s = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
-    const wrap = (inner) => `<svg viewBox="0 0 24 24" ${s}>${inner}</svg>`;
+    const wrap = (inner) =>
+  `<svg class="uc-ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" ${s}>${inner}</svg>`;
+
 
     switch (kind) {
       case "pharma": return wrap(`<path d="M10 2v6l-4 8a4 4 0 0 0 3.6 6h4.8A4 4 0 0 0 18 16l-4-8V2"/><path d="M8 8h8"/>`);
