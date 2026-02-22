@@ -1489,3 +1489,34 @@ textarea:focus {
 }
 .uc-mini svg{ width: 22px; height: 22px; display:block; }
 
+/* --- Platform cards: make bottom meta = 2 lines everywhere --- */
+.platform-card .card-inner{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* push meta to bottom consistently */
+.platform-card .card-meta{
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,.08);
+
+  /* force 2-line layout */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;     /* <= exactly 2 lines */
+  overflow: hidden;
+
+  line-height: 1.25;
+  min-height: calc(1.25em * 2);  /* reserve space for 2 lines */
+}
+
+/* optional: keep the “blue meta” look but make it consistent */
+.platform-card .card-meta{
+  color: rgba(72,207,255,.95); /* your cyan */
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+

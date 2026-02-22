@@ -193,7 +193,7 @@ window.translations.en = {
   "highlights.items.5.title": "Profit-driven results",
   "highlights.items.5.text":
     "Every loop is measurable: fewer incidents, lower losses, cleaner compliance, faster rollouts — because actions are tied to results, not to “monitoring”.",
-  "highlights.items.5.meta": "IoT as an investment, not a cost.",
+  "highlights.items.5.meta": "IoT as a growth driver, not a cost center.",
 
   // USE CASES header + filters + search (already matching your HTML)
   "useReal.eyebrow": "Real use cases",
