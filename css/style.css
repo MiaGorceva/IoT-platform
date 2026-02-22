@@ -1433,6 +1433,11 @@ textarea:focus {
   white-space: nowrap;
 }
 
+.uc-pill--kpi{
+  color: var(--accent2);
+  font-size: .95rem;
+}
+
 .uc-pill--ttv .uc-num{
   background: rgba(72,207,255,.14); /* #48cfff */
   border-color: rgba(72,207,255,.35);
@@ -1465,7 +1470,7 @@ textarea:focus {
 .uc-badge--industry{
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(255,255,255,.06);
+  background: rgba(72,207,255,.35);
   border: 1px solid rgba(255,255,255,.12);
   white-space: nowrap;
 }
