@@ -151,7 +151,7 @@ window.translations.en = {
   "platform.story.text":
     "When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. " +
     "That’s why improvements arrive in hours or days — and why the platform gets " +
-    "<span class='highlighting'>stronger with every real deployment</span>.",
+    "<span class='highlighting'>stronger with every real deployment.</span>",
 
   // HIGHLIGHTS (mapped highlight.1..6 -> highlights.items.0..5)
   "highlights.eyebrow": "MITE Platform Highlights",
