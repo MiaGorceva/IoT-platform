@@ -1420,18 +1420,66 @@ textarea:focus {
   border: 0;
 } 
 
-/* Use-cases icon size clamp */
+/* key numbers highlight (use-cases) */
+.uc-num{
+  display: inline-block;
+  padding: 0.08em 0.45em;
+  border-radius: 999px;
+  background: rgba(84,229,74,.16);  /* #54e54a */
+  border: 1px solid rgba(84,229,74,.35);
+  color: #eaffea;
+  font-weight: 700;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+
+.uc-pill--ttv .uc-num{
+  background: rgba(72,207,255,.14); /* #48cfff */
+  border-color: rgba(72,207,255,.35);
+}
+
+.uc-toprow{
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "idx pills"
+    "meta meta";
+  gap: 8px 12px;
+}
+.uc-meta{
+  grid-area: meta;
+  justify-content: flex-start;
+}
+
+.uc-index{ grid-area: idx; }
+
+.uc-pills{
+  grid-area: pills;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+/* keep industry + icon not glued */
+.uc-badge--industry{
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  white-space: nowrap;
+}
+
+/* icon glow */
 .uc-mini{
   width: 22px;
   height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  color: rgba(84,229,74,.95);
+  filter: drop-shadow(0 0 10px rgba(84,229,74,.35));
   flex: 0 0 auto;
 }
+.uc-mini svg{ width: 22px; height: 22px; display:block; }
 
-.uc-mini svg{
-  width: 22px;
-  height: 22px;
-  display: block;
-}
