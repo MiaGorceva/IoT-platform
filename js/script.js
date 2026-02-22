@@ -1032,12 +1032,11 @@ function setupUseCases() {
 
             <div class="uc-pills">
               ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${highlightNumbers(u.ttvBadge)}</span>` : ""}
+              <div class="uc-meta">
+                <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
+                <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
+                </div>
               ${u.kpiBadge ? `<span class="uc-pill uc-pill--kpi">${highlightNumbers(u.kpiBadge)}</span>` : ""}
-            </div>
-
-            <div class="uc-meta">
-              <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
-              <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
             </div>
           </div>
 
