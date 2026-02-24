@@ -523,14 +523,6 @@ function setupOutcomes() {
 
 /* -------------------------
    Use-cases data (18 “meaty”)
-------------------------- */
-const useCases = [
-
-  // 1) Pharma — Cold chain
- // =====================
-// USE CASES (story cards with badges)
-// Pharma + Manufacturing
-// =====================
 
 const USE_CASES = [
   // 1) Pharma — Cold chain
