@@ -527,157 +527,178 @@ function setupOutcomes() {
 const useCases = [
 
   // 1) Pharma — Cold chain
-  {
-    industry: "pharma",
-    industryLabel: "Pharma",
-    title: "Cold chain: stop losing batches to ‘post-factum’ temperature control",
-    kpiBadge: "↓ Spoilage 15–30% · ↓ Claims 20–40% · ↓ QA workload",
-    ttvBadge: "Pilot in 2–4 weeks",
-    pain:
-      "On paper you have temperature loggers, truck telematics, and 3PL reports — in reality you have a blind spot in the most expensive moments: cross-dock, border delays, re-labeling, and pallet reassignment. " +
-      "Sensor IDs drift away from shipment/batch IDs, and QA receives files only after delivery. " +
-      "That means excursions are discovered when the money is already lost: a disputed lane, a blocked batch release, or a write-off risk. " +
-      "Each incident turns into 3–5 systems, emails, and manual reconciliation, consuming 4–8 hours while the business carries the risk.",
-    how:
-      "MITE builds a GDP-aligned chain-of-custody per batch/shipment: sensor streams + route milestones + geofences (warehouse/cross-dock/border) + door events + compressor duty cycle + SKU-specific regimes. " +
-      "When temperature drifts beyond the allowed window (e.g., 2–8°C) for a configurable duration, MITE triggers an escalation ladder (driver → dispatcher → QA) while the shipment is still in motion. " +
-      "Mismatches between sensor ↔ pallet ↔ batch are flagged in real time, not during investigation. " +
-      "AI correlates the deviation with the most likely drivers (door-open duration, dwell time, ambient spikes, compressor anomalies) to surface the probable root cause immediately.",
-    result:
-      "Excursions are handled during transport instead of becoming a release-time crisis. " +
-      "On problematic lanes, spoilage risk typically drops by 15–30%. " +
-      "Claim disputes reduce by 20–40% because evidence packs (timeline + regime + actions + approvals + access log) are exportable in <2 minutes. " +
-      "Deviation investigation time shrinks from 4–8 hours to 20–40 minutes.",
-    icon: "pharma",
-    tags: ["cold chain", "GDP", "batch", "traceability", "transport", "QA"]
-  },
+ // =====================
+// USE CASES (story cards with badges)
+// Pharma + Manufacturing
+// =====================
 
-  // 2) Pharma — Compliance / retention / GDPR / GxP
-  {
-    industry: "pharma",
-    industryLabel: "Pharma",
-    title: "Compliance layer: turn audits from a 3-day scramble into governed exports",
-    kpiBadge: "↓ Audit prep 60–80% · ↓ Compliance risk · ↑ Traceability",
-    ttvBadge: "Evidence in 1 click",
-    pain:
-      "Operational data exists, but compliance collapses under pressure. Retention differs by site, access rights are maintained informally, and audit trails are spread across SCADA, spreadsheets, and shared folders. " +
-      "During inspections, teams spend 2–3 days assembling sensor histories, approvals, and deviation logs — mostly manual work with high human-error risk. " +
-      "It’s hard to prove who accessed what data, when, and under which role. That’s direct GDPR/GxP exposure and an owner-level risk (fines, findings, and reputational impact).",
-    how:
-      "MITE enforces retention and access at platform level: RBAC, immutable audit trail for key actions (view, edit, approve, export), and dataset-level retention policies (e.g., 5–10 years for regulated batches). " +
-      "Each deviation/workflow closure automatically attaches a structured evidence pack: timeline, sensor data, regime validation, decisions, electronic approvals, timestamps, and access history. " +
-      "GDPR requirements are addressed via controlled role scopes, export logging, and configurable data retention/deletion rules where legally applicable.",
-    result:
-      "Audit preparation time typically drops by 60–80% (from days to hours). " +
-      "Evidence exports take <2 minutes and are reproducible. " +
-      "Compliance risk shifts from manual heroics to governed system behavior — reducing dependency on individual experts and ad-hoc documentation.",
-    icon: "shield",
-    tags: ["GDP", "GxP", "GDPR", "retention", "audit", "RBAC"]
-  },
+const USE_CASES = [
+  // 1) Pharma — Cold chain
+    {
+      industry: "pharma",
+      industryLabel: "Pharma",
+      title: "Cold chain: stop losing batches to ‘post-factum’ temperature control",
+      kpiBadge: "↓ Spoilage 15–30% · ↓ Claims 20–40% · ↓ QA workload",
+      ttvBadge: "Pilot in 2–4 weeks",
+      pain:
+        "On paper you have temperature loggers, truck telematics, and 3PL reports — in reality you have a blind spot in the most expensive moments: cross-dock, border delays, re-labeling, and pallet reassignment. " +
+        "Sensor IDs drift away from shipment/batch IDs, and QA receives files only after delivery. " +
+        "That means excursions are discovered when the money is already lost: a disputed lane, a blocked batch release, or a write-off risk. " +
+        "Each incident turns into 3–5 systems, emails, and manual reconciliation, consuming 4–8 hours while the business carries the risk.",
+      how:
+        "MITE builds a GDP-aligned chain-of-custody per batch/shipment: sensor streams + route milestones + geofences (warehouse/cross-dock/border) + door events + compressor duty cycle + SKU-specific regimes. " +
+        "When temperature drifts beyond the allowed window (e.g., 2–8°C) for a configurable duration, MITE triggers a response ladder (driver → dispatcher → QA) while the shipment is still in motion. " +
+        "Mismatches between sensor ↔ pallet ↔ batch are flagged in real time, not during investigation. " +
+        "AI correlates deviation drivers (door-open duration, dwell time, ambient spikes, compressor anomalies) to surface the likely root cause immediately. " +
+        "Evidence packs are GDPR-ready: access is RBAC-controlled, exports are logged, and data retention is configurable.",
+      result:
+        "Excursions are handled during transport instead of becoming a release-time crisis. " +
+        "On problematic lanes, spoilage risk typically drops by 15–30%. " +
+        "Claim disputes reduce by 20–40% because evidence packs (timeline + regime + actions + approvals + export log) are exportable in <2 minutes. " +
+        "Deviation investigation time shrinks from 4–8 hours to 20–40 minutes.",
+      icon: "pharma",
+      tags: ["cold chain", "GDP", "batch", "traceability", "transport", "QA", "GDPR"]
+    },
 
-  // 3) Manufacturing — Downtime
-  {
-    industry: "manufacturing",
-    industryLabel: "Manufacturing",
-    title: "Downtime: detect → classify → assign → verify (not just OEE charts)",
-    kpiBadge: "↓ Repeat stops 20–35% · ↑ Throughput · ↓ Firefighting",
-    ttvBadge: "Pilot in days",
-    pain:
-      "One KPI looks “fine” — total downtime is 10%. But inside that average: Line A runs at 3% deviation while Line B quietly bleeds at 35%. " +
-      "You pay for it twice: in lost output and in chaos — shift-to-shift arguments, endless chats, and repeated stops that never get closed at the root cause. " +
-      "Without an action loop, downtime becomes a recurring tax on margin, not a solvable operational problem.",
-    how:
-      "MITE ingests PLC states + operator reason capture + shift context and shows deviations per line, not just the average. " +
-      "When Line B spikes, AI points to correlated signals (e.g., vibration 2.4× higher 15 minutes before each stop, motor current drift). " +
-      "MITE triggers the governed workflow: assign owner → SLA timers → fix checklist → verification run with before/after readings. " +
-      "Recurring patterns are tracked so ‘same stop again’ becomes measurable and preventable.",
-    result:
-      "Repeat stops typically drop by 20–35% within 4–6 weeks. " +
-      "Engineering time shifts from arguing about symptoms to closing verified fixes. " +
-      "Downtime becomes transparent per line and controllable as a management lever.",
-    icon: "factory",
-    tags: ["downtime", "OEE", "routing", "SLA", "verification"]
-  },
+    // 2) Pharma — Environmental monitoring / cleanrooms
+    {
+      industry: "pharma",
+      industryLabel: "Pharma",
+      title: "Cleanroom monitoring: stop chasing deviations across PDFs and spreadsheets",
+      kpiBadge: "↓ Deviations 10–25% · ↓ Review time 50–70% · ↑ Audit readiness",
+      ttvBadge: "Pilot in 2–3 weeks",
+      pain:
+        "Environmental monitoring data exists, but it’s fragmented: BMS trends, standalone sensors, calibration records, access logs, and manual shift notes. " +
+        "When an excursion happens (temp/RH/DP/particles), the ‘investigation’ is mostly data hunting: who entered, what changed, which room, which batch exposure window. " +
+        "QA ends up assembling evidence after the fact, and root cause gets simplified to ‘operator error’ because the full timeline is too hard to reconstruct.",
+      how:
+        "MITE unifies EM signals with room states, door/access events, equipment cycles, and batch exposure windows into one audit-friendly timeline. " +
+        "Rules define excursion thresholds, duration windows, and contextual conditions (e.g., ‘DP drop + door-open > X sec + HVAC mode change’). " +
+        "AI highlights probable drivers and recurring patterns across rooms/shifts, so investigations start with a shortlist — not a blank page. " +
+        "GDPR controls are built-in: RBAC, minimal personal data, pseudonymous IDs where needed, export logging, and retention policies per site.",
+      result:
+        "Deviation reviews become repeatable and fast: evidence is generated from the system, not reconstructed manually. " +
+        "Typical sites reduce review time by 50–70% and lower recurring deviations by 10–25% through targeted fixes. " +
+        "Audit prep becomes ‘export the pack’ instead of ‘collect the proof’.",
+      icon: "pharma",
+      tags: ["cleanroom", "EM", "GMP", "deviations", "QA", "audit trail", "GDPR"]
+    },
 
-  // 4) Manufacturing — Quality drift
-  {
-    industry: "manufacturing",
-    industryLabel: "Manufacturing",
-    title: "Quality drift: early detection + automatic containment workflow",
-    kpiBadge: "↓ Scrap 15–25% · ↓ Rework · ↑ First-pass yield",
-    ttvBadge: "Minutes, not shifts",
-    pain:
-      "Quality is reported ‘per shift’ and looks acceptable — but drift is local. One conveyor is at 3% deviation, another at 35%, and the average hides the real problem until scrap piles up. " +
-      "By the time the report shows the issue, the cost is already sunk: scrap, rework, delayed shipments, and customer risk.",
-    how:
-      "MITE puts sensors + batch context + line identity into one model. Baselines are tracked per line/product, not as plant-wide averages. " +
-      "When drift crosses a threshold, containment triggers automatically: hold/stop workflow, approvals, and an evidence pack. " +
-      "AI surfaces which parameter changed first (e.g., temperature ramp lag + vibration rise) and which equipment state correlates with defect spikes.",
-    result:
-      "Scrap typically reduces by 15–25% and containment decisions happen in minutes, not after a full shift. " +
-      "Investigations become structured and fast, and ‘silent drift’ stops being a recurring loss driver.",
-    icon: "quality",
-    tags: ["quality", "scrap", "rework", "batch", "approvals"]
-  },
+    // 3) Manufacturing — Micro-stops / downtime
+    {
+      industry: "manufacturing",
+      industryLabel: "Manufacturing",
+      title: "Micro-stops: stop paying for downtime that never gets a root cause",
+      kpiBadge: "↓ Micro-stops 15–30% · ↑ OEE 2–6 pts · ↓ ‘blame ping-pong’",
+      ttvBadge: "Pilot in 2–4 weeks",
+      pain:
+        "The line ‘works’, but you lose money in 3–7 minute stops all day. Maintenance says ‘operators’, operators say ‘equipment’, management says ‘variability’. " +
+        "PLC signals sit in one place, shift notes in another, and maintenance tickets in a third. " +
+        "So each micro-stop gets explained differently — and nothing improves because the execution chain behind each stop is invisible.",
+      how:
+        "MITE aligns machine states, upstream flow, alarms, operator actions, and material context into one operational model and timeline. " +
+        "Rules detect repeating stop signatures (sequence + duration + preceding conditions). " +
+        "AI clusters similar events and highlights the most consistent precursors (feed instability, changeover drift, sensor noise vs real process). " +
+        "Access to shift/person data is GDPR-controlled (RBAC, export logging, configurable retention; use pseudonymous identifiers when needed).",
+      result:
+        "Micro-stops become explainable patterns instead of ‘random’. Plants typically cut micro-stops by 15–30% and gain 2–6 OEE points with the same hardware. " +
+        "Meetings shift from opinions to evidence — and fixes stick because the triggers are measurable.",
+      icon: "factory",
+      tags: ["downtime", "OEE", "PLC", "micro-stops", "patterns", "GDPR"]
+    },
 
-  // 5) Manufacturing — Predictive maintenance lite
-  {
-    industry: "manufacturing",
-    industryLabel: "Manufacturing",
-    title: "Condition monitoring → prioritized work orders with proof of closure",
-    kpiBadge: "↓ Unplanned stops · ↓ MTTR · ↑ Availability",
-    ttvBadge: "Pilot in days",
-    pain:
-      "Sensors exist, but maintenance stays reactive. Alerts get ignored because they don’t become owned tasks, and teams stop trusting ‘random warnings’. " +
-      "That ends with emergency stops, rushed repairs, and repeat failures — the most expensive type of maintenance.",
-    how:
-      "MITE ties condition signals to asset criticality and workflows: rising vibration + temperature trend + alarm history → priority score → work order creation → SLA escalation → closure verification (before/after readings). " +
-      "AI suggests likely failure modes (bearing / imbalance / looseness) based on symptom patterns, so the fix is targeted.",
-    result:
-      "Fewer emergency repairs, shorter MTTR, and measurable ROI because every alert becomes a closed loop — not noise. " +
-      "You can prove what was fixed, when, and with what effect.",
-    icon: "wrench",
-    tags: ["predictive", "maintenance", "mttr", "sla", "work orders"]
-  },
+    // 4) Manufacturing — Energy waste
+    {
+      industry: "manufacturing",
+      industryLabel: "Manufacturing",
+      title: "Energy waste: stop paying peak bills for machines doing nothing",
+      kpiBadge: "↓ Idle energy 10–20% · ↓ Peak penalties · ↑ Margin per unit",
+      ttvBadge: "Pilot in 2–3 weeks",
+      pain:
+        "Energy costs rise while output stays flat. Facilities track total kWh, production tracks units, finance tracks invoices — and nobody sees the leak. " +
+        "Some assets run in high-consumption states between batches, especially during changeovers and night shifts. " +
+        "Because the data is split, the business can’t prove where the money disappears — so it gets normalized as ‘cost of doing business’.",
+      how:
+        "MITE correlates runtime/load curves with production orders, schedules, and shift context. " +
+        "Rules detect ‘high draw + no valid production state’ and flag recurring idle patterns by asset/shift/time window. " +
+        "AI surfaces the biggest cost drivers and suggests the smallest operational changes (handover checklist triggers, cooldown profiles, auto-state transitions). " +
+        "GDPR-ready controls apply to operator/shift attribution: RBAC, audit logs, and configurable retention.",
+      result:
+        "Plants typically cut idle energy waste by 10–20% without new equipment. " +
+        "Peak penalties reduce because the biggest offenders are controlled, not guessed. " +
+        "Energy becomes an operational KPI you can execute on — not a monthly surprise.",
+      icon: "bolt",
+      tags: ["energy", "idle time", "changeover", "cost control", "AI", "GDPR"]
+    },
 
-  // 6) Manufacturing — Energy spikes per line/shift
-  {
-    industry: "manufacturing",
-    industryLabel: "Manufacturing",
-    title: "Energy spikes: detect → explain → fix (per line, per shift)",
-    kpiBadge: "↓ Energy cost 5–12% · ↓ Waste · ↑ Transparency",
-    ttvBadge: "Minutes, not weeks",
-    pain:
-      "Energy cost rises, but teams see only monthly totals. A 12% spike appears, but nobody can link it to equipment states, shift behavior, or changeovers. " +
-      "As an owner, you’re paying for hidden waste: heaters idling, compressed air leaks, bad shutdown discipline — all invisible in averaged reports.",
-    how:
-      "MITE merges meters + machine states + schedules. It shows where the spike happened (line/shift/changeover window) and which state caused it (idle with heaters on, extended warm-up, air consumption anomaly). " +
-      "AI points to the sequence and triggers a workflow: adjust checklist/timers/ownership. Next time, deviation triggers action, not a post-mortem.",
-    result:
-      "Documented savings of 5–12% on targeted lines, with repeatable reduction playbooks. " +
-      "Energy becomes an управляемая статья расходов — not a monthly surprise.",
-    icon: "bolt",
-    tags: ["energy", "anomaly", "cost", "shift", "savings"]
-  },
+    // 5) Manufacturing — Scrap / yield
+    {
+      industry: "manufacturing",
+      industryLabel: "Manufacturing",
+      title: "Scrap: stop discovering yield loss after you’ve already produced it",
+      kpiBadge: "↓ Scrap 10–25% · ↑ First-pass yield · ↓ Rework load",
+      ttvBadge: "Pilot in 3–5 weeks",
+      pain:
+        "Scrap looks ‘random’: one week fine, next week painful. Quality reports lag, operators tweak settings, engineers analyze weeks later. " +
+        "Process parameters, environment, and interventions live in different systems, so correlations are missed. " +
+        "Losses accumulate quietly until a bad month forces reactive firefighting.",
+      how:
+        "MITE unifies process parameters, environmental conditions, material lots, and operator interventions into one traceable model. " +
+        "Rules flag risky parameter combinations and drift beyond stable bands. " +
+        "AI finds repeatable interactions (e.g., humidity window + parameter set + ramp-up pattern) and proposes guardrails before defects happen. " +
+        "GDPR handling is controlled for personal data: role-based access, export logging, retention policies.",
+      result:
+        "Teams move from defect reaction to prevention. Typical deployments reduce scrap by 10–25% and improve first-pass yield. " +
+        "Root cause becomes faster because the system keeps the full context — not just the final defect code.",
+      icon: "wrench",
+      tags: ["scrap", "yield", "quality", "parameters", "prevention", "GDPR"]
+    },
 
-  // 7) Manufacturing — Changeover governance
-  {
-    industry: "manufacturing",
-    industryLabel: "Manufacturing",
-    title: "Changeover governance: reduce variance between shifts",
-    kpiBadge: "↓ Changeover time · ↓ Start-up defects · ↑ Consistency",
-    ttvBadge: "Pilot in days",
-    pain:
-      "Changeovers depend on tribal knowledge. One shift does it in 22 minutes, another in 55. Steps get skipped, settings drift, and defects appear at start-up. " +
-      "You lose output time and you pay again in scrap and customer risk.",
-    how:
-      "MITE runs a governed changeover workflow: checklist + sensor confirmations (valves, temps, speeds) + timers + escalation if stuck. " +
-      "Approvals are enforced when needed. AI highlights which steps consistently cause delays and which confirmations are missing most often.",
-    result:
-      "Changeover variance shrinks, start-up defects decrease, and best practice becomes system behavior instead of ‘who is on shift’.",
-    icon: "swap",
-    tags: ["changeover", "checklist", "shift", "quality"]
-  },
+    // 6) Manufacturing — Inventory drift / “invisible” losses
+    {
+      industry: "manufacturing",
+      industryLabel: "Manufacturing",
+      title: "Inventory drift: stop losing money in ‘small’ reconciliation gaps",
+      kpiBadge: "↑ Inventory accuracy >99% · ↓ Write-offs · ↓ Reconciliation time",
+      ttvBadge: "Pilot in 2–4 weeks",
+      pain:
+        "Monthly reconciliation shows shrinkage, but nobody can prove why. Warehouse blames counting, production blames timing, ERP blames process discipline. " +
+        "Consumption happens on the floor before confirmations appear in the system. " +
+        "Small gaps compound into write-offs, stockouts, expediting costs, and lost trust in planning.",
+      how:
+        "MITE aligns material movements, machine consumption triggers, and batch registrations in one execution timeline. " +
+        "Rules detect asynchronous events (consumed-before-confirmed, moved-without-context) and flag where the drift starts. " +
+        "AI highlights recurring mismatch scenarios by shift, station, or process step, so fixes are targeted. " +
+        "GDPR controls cover staff attribution and exports: RBAC, audit logs, and retention settings.",
+      result:
+        "Inventory accuracy typically improves to >99% and reconciliation becomes a report — not a hunt. " +
+        "Planning stabilizes, expediting drops, and working capital stops leaking through ‘tiny’ inconsistencies.",
+      icon: "boxes",
+      tags: ["inventory", "ERP", "material flow", "accuracy", "loss prevention", "GDPR"]
+    },
+
+    // 7) Manufacturing — “Profitable line” hiding unprofitable shifts
+    {
+      industry: "manufacturing",
+      industryLabel: "Manufacturing",
+      title: "Shift profitability: stop missing the hours where margin is leaking",
+      kpiBadge: "↑ Margin +5–12% · ↓ Changeover loss · ↑ Throughput stability",
+      ttvBadge: "Pilot in 3–5 weeks",
+      pain:
+        "At monthly level the product line looks profitable, but certain weeks are always worse. Finance sees product margin, ops sees shift performance, and they don’t connect. " +
+        "Changeovers run longer, ramp-ups are slower, and ‘minor’ delays stack up — but the cost is hidden inside aggregated reporting.",
+      how:
+        "MITE maps execution patterns (changeover time, ramp-up curves, stoppage signatures) to cost and margin contribution by shift/line/site. " +
+        "Rules detect ‘known bad sequences’ and enforce best-practice ramp-up steps. " +
+        "AI identifies which shift patterns and scheduling combinations reliably produce better outcomes. " +
+        "GDPR-ready governance applies to staff-linked data: RBAC, pseudonymous IDs where appropriate, export logging, and retention controls.",
+      result:
+        "Plants typically improve margin by 5–12% without changing product mix — by removing recurring execution loss. " +
+        "Scheduling becomes evidence-driven: you replicate high-performing patterns instead of hoping for them.",
+      icon: "chart",
+      tags: ["margin", "scheduling", "changeover", "ramp-up", "execution", "GDPR"]
+    }
+  ];
 
   // 8) Manufacturing — EHS incidents / near-miss
   {
