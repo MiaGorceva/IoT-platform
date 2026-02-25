@@ -1504,8 +1504,6 @@ textarea:focus {
 
   /* force 2-line layout */
   display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;     /* <= exactly 2 lines */
   overflow: hidden;
 
   line-height: 1.25;
