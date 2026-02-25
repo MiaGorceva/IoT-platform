@@ -695,8 +695,7 @@ const useCases = [
       "Scheduling becomes evidence-driven: you replicate high-performing patterns instead of hoping for them.",
     icon: "chart",
     tags: ["margin", "scheduling", "changeover", "ramp-up", "execution", "GDPR"]
-  }
-];
+  },
 
   // 8) Manufacturing — EHS incidents / near-miss
   {
