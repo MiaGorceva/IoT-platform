@@ -997,6 +997,8 @@ function setupUseCases() {
       default: return wrap(`<circle cx="12" cy="12" r="9"/>`);
     }
   }
+  }
+  
 
   function filtered() {
     return useCases.filter((u) => {
