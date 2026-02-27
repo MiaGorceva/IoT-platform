@@ -531,34 +531,33 @@ function setupOutcomes() {
 // =====================
 
 const useCases = [
-  // 1) Pharma — Cold chain
+  // 1) Pharma — Cold chain (no “sensor shopping” — unify what you already have)
   {
     industry: "pharma",
     industryLabel: "Pharma",
-    title: "Cold chain: stop losing batches to ‘post-factum’ temperature control",
+    title: "Cold chain: stop losing batches to post-factum temperature control",
     kpiBadge: "↓ Spoilage 15–30% · ↓ Claims 20–40% · ↓ QA workload",
     ttvBadge: "Pilot in 2–4 weeks",
     pain:
-      "On paper you have temperature loggers, truck telematics, and 3PL reports — in reality you have a blind spot in the most expensive moments: cross-dock, border delays, re-labeling, and pallet reassignment. " +
-      "Sensor IDs drift away from shipment/batch IDs, and QA receives files only after delivery. " +
-      "That means excursions are discovered when the money is already lost: a disputed lane, a blocked batch release, or a write-off risk. " +
-      "Each incident turns into 3–5 systems, emails, and manual reconciliation, consuming 4–8 hours while the business carries the risk.",
+      "You already have data: temperature loggers, truck telematics, 3PL PDFs, WMS/ERP milestones — but it lives in fragments. " +
+      "The blind spots are exactly where losses happen: cross-dock, border delays, re-labeling, pallet reassignment. " +
+      "IDs drift (sensor ↔ pallet ↔ shipment ↔ batch), and QA gets files only after delivery. " +
+      "So excursions are discovered when the money is gone, and each incident becomes 3–5 systems + emails + manual reconciliation (4–8 hours).",
     how:
-      "MITE builds a GDP-aligned chain-of-custody per batch/shipment: sensor streams + route milestones + geofences (warehouse/cross-dock/border) + door events + compressor duty cycle + SKU-specific regimes. " +
-      "When temperature drifts beyond the allowed window (e.g., 2–8°C) for a configurable duration, MITE triggers a response ladder (driver → dispatcher → QA) while the shipment is still in motion. " +
-      "Mismatches between sensor ↔ pallet ↔ batch are flagged in real time, not during investigation. " +
-      "AI correlates deviation drivers (door-open duration, dwell time, ambient spikes, compressor anomalies) to surface the likely root cause immediately. " +
-      "Evidence packs are GDPR-ready: access is RBAC-controlled, exports are logged, and data retention is configurable.",
+      "MITE doesn’t force you to ‘instrument everything’. We start by collecting what already exists and unifying it into one chain-of-custody model. " +
+      "Streams + milestones + geofences + door events + compressor duty cycle + SKU regimes become one timeline per shipment/batch. " +
+      "Rules trigger a response ladder while the load is still moving (driver → dispatcher → QA) when deviations persist beyond your window (e.g., 2–8°C). " +
+      "AI correlates signals and context to show where the problem likely started (dwell time, door-open duration, ambient spikes, compressor anomalies).",
     result:
-      "Excursions are handled during transport instead of becoming a release-time crisis. " +
-      "On problematic lanes, spoilage risk typically drops by 15–30%. " +
-      "Claim disputes reduce by 20–40% because evidence packs (timeline + regime + actions + approvals + export log) are exportable in <2 minutes. " +
-      "Deviation investigation time shrinks from 4–8 hours to 20–40 minutes.",
+      "Excursions are handled in-flight instead of becoming a release-time crisis. " +
+      "Problem lanes typically see 15–30% lower spoilage risk because deviations surface early with clear next actions. " +
+      "Claim disputes drop 20–40% with exportable evidence packs (timeline + regime + actions + approvals + export log) in <2 minutes. " +
+      "Investigation time shrinks from 4–8 hours to 20–40 minutes — because the system already unified the story.",
     icon: "pharma",
-    tags: ["cold chain", "GDP", "batch", "traceability", "transport", "QA", "GDPR"]
+    tags: ["cold chain", "GDP", "batch", "traceability", "transport", "QA", "unification", "AI", "GDPR"]
   },
 
-  // 2) Pharma — Environmental monitoring / cleanrooms
+  // 2) Pharma — Environmental monitoring / cleanrooms (use existing EM/BMS, unify + AI)
   {
     industry: "pharma",
     industryLabel: "Pharma",
@@ -566,20 +565,22 @@ const useCases = [
     kpiBadge: "↓ Deviations 10–25% · ↓ Review time 50–70% · ↑ Audit readiness",
     ttvBadge: "Pilot in 2–3 weeks",
     pain:
-      "Environmental monitoring data exists, but it’s fragmented: BMS trends, standalone sensors, calibration records, access logs, and manual shift notes. " +
-      "When an excursion happens (temp/RH/DP/particles), the ‘investigation’ is mostly data hunting: who entered, what changed, which room, which batch exposure window. " +
-      "QA ends up assembling evidence after the fact, and root cause gets simplified to ‘operator error’ because the full timeline is too hard to reconstruct.",
+      "EM data exists — but it’s scattered: BMS trends, standalone sensors, calibration records, access logs, manual shift notes. " +
+      "When an excursion happens (temp/RH/DP/particles), the ‘investigation’ is mostly data hunting: who entered, what changed, which room, which exposure window. " +
+      "QA assembles evidence after the fact, and root cause collapses to ‘operator error’ because reconstructing the full timeline is too hard. " +
+      "The result: slow reviews, repeat deviations, and audit prep as a paperwork marathon.",
     how:
-      "MITE unifies EM signals with room states, door/access events, equipment cycles, and batch exposure windows into one audit-friendly timeline. " +
-      "Rules define excursion thresholds, duration windows, and contextual conditions (e.g., ‘DP drop + door-open > X sec + HVAC mode change’). " +
-      "AI highlights probable drivers and recurring patterns across rooms/shifts, so investigations start with a shortlist — not a blank page. " +
-      "GDPR controls are built-in: RBAC, minimal personal data, pseudonymous IDs where needed, export logging, and retention policies per site.",
+      "MITE doesn’t push you to add more sensors first. We ingest what you already have (EM/BMS/access/equipment cycles) and unify it into one audit-friendly model. " +
+      "Signals + room states + door/access events + batch exposure windows become a single governed timeline. " +
+      "Rules define thresholds and contextual conditions (e.g., DP drop + door-open > X sec + HVAC mode change) so deviations are machine-explainable. " +
+      "AI highlights probable drivers and recurring patterns across rooms/shifts, so investigations start with a shortlist — not a blank page.",
     result:
-      "Deviation reviews become repeatable and fast: evidence is generated from the system, not reconstructed manually. " +
-      "Typical sites reduce review time by 50–70% and lower recurring deviations by 10–25% through targeted fixes. " +
-      "Audit prep becomes ‘export the pack’ instead of ‘collect the proof’.",
+      "Deviation reviews become repeatable and fast: evidence is generated from the system, not rebuilt manually. " +
+      "Sites typically cut review time by 50–70% and reduce recurring deviations by 10–25% through targeted fixes driven by patterns. " +
+      "Audit prep becomes ‘export the pack’ instead of ‘collect the proof’. " +
+      "And when you *do* decide to add new sensors later — they drop into the same unified model without redesign.",
     icon: "pharma",
-    tags: ["cleanroom", "EM", "GMP", "deviations", "QA", "audit trail", "GDPR"]
+    tags: ["cleanroom", "EM", "GMP", "deviations", "QA", "audit trail", "unification", "AI", "GDPR"]
   },
 
   // 3) Manufacturing — Micro-stops / downtime
