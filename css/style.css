@@ -1501,20 +1501,15 @@ textarea:focus {
   margin-top: auto;
   padding-top: 18px;
   border-top: 1px solid rgba(255,255,255,.08);
-
+ color: rgba(72,207,255,.95); /* your cyan */
   /* force 2-line layout */
   display: -webkit-box;
   overflow: hidden;
+   font-weight: 600;
+  letter-spacing: .01em;
 
   line-height: 1.25;
   min-height: calc(1.25em * 2);  /* reserve space for 2 lines */
-}
-
-/* optional: keep the “blue meta” look but make it consistent */
-.platform-card .card-meta{
-  color: rgba(72,207,255,.95); /* your cyan */
-  font-weight: 600;
-  letter-spacing: .01em;
 }
 
 
