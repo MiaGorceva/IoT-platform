@@ -698,45 +698,62 @@ const useCases = [
     tags: ["margin", "scheduling", "changeover", "ramp-up", "execution", "GDPR"]
   },
 
-  // 8) Manufacturing — EHS incidents / near-miss
-  {
-    industry: "manufacturing",
-    industryLabel: "Manufacturing",
-    title: "EHS near-miss → action → closure with evidence",
-    kpiBadge: "↓ Incidents · ↑ Compliance · ↓ Audit stress",
-    ttvBadge: "Evidence in 1 click",
-    pain:
-      "Near-misses are logged, but actions fade. Lessons don’t become enforced routines, and audits become a paperwork marathon. " +
-      "For an owner, that’s a ‘silent liability’: one unresolved near-miss today becomes an incident tomorrow.",
-    how:
-      "MITE routes EHS events by severity: capture → task assignment → deadlines → evidence attachments (photo, sensor history) → closure verification. " +
-      "AI clusters recurring patterns (same zone/time/tool) so prevention becomes targeted and measurable.",
-    result:
-      "Lower incident rate and audit-ready evidence without manual chasing. " +
-      "Accountability is built into the system — not into reminders.",
-    icon: "shield",
-    tags: ["ehs", "incident", "tasks", "evidence", "audit"]
-  },
+  //8 // Construction — Data-informed concrete curing & readiness (no guesswork, unify existing signals + AI forecasting)
+{
+  industry: "construction",
+  industryLabel: "Construction",
+  title: "Concrete readiness: stop planning crews and formwork by old “3-day rules”",
+  kpiBadge: "↑ On-time actions · ↓ Idle crew hours · ↓ Rework events",
+  ttvBadge: "Pilot in 2–4 weeks",
+  pain:
+    "Traditional concrete curing planning still relies on simple rules (“till Monday”, “3 days and check”) and crew intuition. " +
+    "But curing progress depends on many factors: mix design, ambient temperature, humidity, wind exposure, rain risk and placement conditions. " +
+    "These variables shift day-to-day and site-to-site, so schedules slip, workers wait, concrete waits longer than needed, and next trades delay. " +
+    "The result: costs hide in idle hours, crane and crew waiting, and occasional micro-defects that trigger rework because assumptions didn’t match reality.",
+  how:
+    "MITE does **not** start by telling you to install dozens of new sensors. We integrate what already exists — mix data from batch tickets, weather forecasts/APIs, placement timestamps, lab test results, and any embedded readings present. " +
+    "All these signals are unified into a **digital curing timeline per pour**. Rules model expected strength gain windows, adjusted for weather and context. " +
+    "An AI-assisted predictive layer correlates these inputs to infer readiness probabilities, showing **when concrete is likely strong enough for the next operation** rather than just assuming based on a fixed day count. " +
+    "This predictive insight turns a foggy plan (‘should be ok’) into a data-informed decision with thresholds and confidence levels — crew mobilization, formwork removal, and next phase triggers aligned with reality.",
+  result:
+    "Line plans and standups change from relying on “typical timelines” to **shared evidence-based readiness windows**. " +
+    "Idle crew time drops because mobilizations align with predicted strength, not assumptions. " +
+    "Premature actions with micro-defects and the rare overtime rush both become far less common. " +
+    "The team sees the combined picture — weather-adjusted forecasts + structural context — in one unified model instead of spreadsheets and memory. " +
+    "Planning meetings shift from debating arbitrary day counts to reviewing explicit readiness insight with clear decision points.",
+  icon: "wrench",
+  tags: ["construction", "concrete readiness", "weather forecasting", "data unification", "AI prediction", "scheduling", "planning"]
+},
 
-  // 9) Manufacturing — Traceability / genealogy
-  {
-    industry: "manufacturing",
-    industryLabel: "Manufacturing",
-    title: "Traceability: batch genealogy + instant evidence packs",
-    kpiBadge: "↓ Investigation time · ↓ Losses · ↑ Trust",
-    ttvBadge: "Evidence in 1 click",
-    pain:
-      "When a complaint happens, traceability is a scramble: partial data, multiple systems, manual reconstruction across 2–5 teams. " +
-      "While people search for facts, money leaks through: delayed shipments, over-containment, and reputational damage.",
-    how:
-      "MITE normalizes production, quality, and logistics events into one genealogy model. " +
-      "When an issue appears, AI suggests a ‘suspect window’ based on correlated parameter drift and downstream defects. " +
-      "Evidence export includes timeline, parameters, approvals, and actions — consistent and reproducible.",
-    result:
-      "Investigations become hours, not days. Losses shrink because containment is faster and evidence is clean.",
-    icon: "trace",
-    tags: ["traceability", "genealogy", "evidence", "batch"]
-  },
+  // 9 Manufacturing — Meat processing: theft, spoilage & weight drift control
+{
+  industry: "manufacturing",
+  industryLabel: "Manufacturing",
+  title: "Meat processing: control shrinkage, internal theft and silent cold-chain damage",
+  kpiBadge: "↑ Full lot traceability · ↓ Unexplained weight loss · ↑ Cold-room discipline",
+  ttvBadge: "Pilot in 2–4 weeks",
+  pain:
+    "In meat plants, losses rarely happen as one big incident. They accumulate in fragments. " +
+    "A few kilograms missing after deboning. A pallet re-labeled. A box underfilled by 200 grams. " +
+    "Night transfers between cold rooms without a matching production order. " +
+    "Short temperature deviations that never trigger an alarm but accelerate spoilage over days. " +
+    "ERP shows theoretical yield. Production shows operational yield. Accounting sees shrinkage at month-end. " +
+    "Nobody sees the full chain from intake weight → cutting → trimming → packing → storage → shipment in one consistent execution model.",
+  how:
+    "MITE ingests intake weights, batch IDs, scale transactions, trimming logs, packing data, cold-room temperature logs, access control events, shift schedules, and ERP shipment records. " +
+    "All events are normalized into one execution timeline per lot: weight in → transformation step → responsible zone → timestamp → resulting weight/state. " +
+    "Rules detect structural anomalies: yield outside historical band for the same cut type, repeated micro-deltas at packing stations, pallet movement without linked task, temperature deviation combined with door-open spikes. " +
+    "AI compares stable shifts vs problematic shifts and surfaces repeatable patterns: specific zone + time window + staff mix + sequence of operations where unexplained loss concentrates. " +
+    "Instead of isolated discrepancies, you see a chain of causality.",
+  result:
+    "Shrinkage is no longer a monthly accounting discussion — it becomes a traceable operational pattern. " +
+    "Problem zones and time windows are identified with evidence, not suspicion. " +
+    "Cold-room deviations are linked to product impact, not just alarm logs. " +
+    "Yield discussions move from averages to per-lot execution behavior. " +
+    "Management gains a governed, explainable flow of product from receiving dock to outbound truck.",
+  icon: "factory",
+  tags: ["meat processing", "yield control", "internal theft", "cold chain", "weight drift", "lot traceability", "AI", "execution model"]
+},
 
   // 10) Manufacturing — KPI governance
   {
@@ -815,23 +832,30 @@ const useCases = [
     tags: ["irrigation", "moisture", "water", "yield"]
   },
 
-  // 14) Agriculture — Cold storage produce
+  //14) Construction — Equipment theft / utilization (unify what exists, then AI shows the leak)
   {
-    industry: "agriculture",
-    industryLabel: "Agriculture",
-    title: "Cold storage for produce: regime control + compliance exports",
-    kpiBadge: "↓ Spoilage · ↓ Manual reporting · ↑ Decision speed",
-    ttvBadge: "Evidence in 1 click",
+    industry: "construction",
+    industryLabel: "Construction",
+    title: "Construction sites: stop losing equipment and hours in ‘invisible’ gaps",
+    kpiBadge: "↓ Losses · ↓ Idle hours 10–25% · ↑ Recovery speed · ↑ Utilization proof",
+    ttvBadge: "Pilot in 2–4 weeks",
     pain:
-      "Quality degrades silently. Different rooms, sensors, and teams make consistent control and reporting hard — issues are discovered when it’s already too late. " +
-      "Every late discovery becomes a write-off, a dispute, or a forced discount.",
+      "You already have partial signals: GPS trackers on some assets, telematics from rental fleets, gate logs, security reports, shift sheets, and invoices. " +
+      "But the picture is fragmented: assets move between sites, tags don’t match rental IDs, and ‘who had it last’ becomes a WhatsApp investigation. " +
+      "Theft and misuse happen in the same windows every time: nights, weekends, handovers, subcontractor swaps — when ownership is fuzzy. " +
+      "Even without theft, idle machines quietly burn money because utilization is guessed from schedules, not proven by reality.",
     how:
-      "MITE models storage zones + product regimes. Deviations trigger containment workflow (quarantine/inspection) and generate exportable reports. " +
-      "AI flags recurring patterns (same door/shift/room) so root causes get eliminated, not repeated.",
+      "MITE doesn’t force you to cover the site with new sensors. We start by collecting what already exists and unifying it into one operational model: " +
+      "asset registry (owner/rental), site map/zones, gate events, telematics/GPS streams, work orders, and shift responsibility. " +
+      "Rules detect risky patterns: asset leaves the geofence after hours, moves without an approved task, goes silent mid-shift, or appears on a new site without handover. " +
+      "AI correlates movement + access + task context to show where the leak starts (recurring zones, teams, time windows, subcontractor sequences) and suggests the shortest control loop: verify → assign → lock → recover.",
     result:
-      "Less spoilage, faster quality decisions, and audit exports in minutes — without manual chasing.",
-    icon: "snow",
-    tags: ["storage", "quality", "compliance", "reports"]
+      "Incidents stop being ‘mysteries’ and become traceable execution cases with owners, timelines, and proof. " +
+      "Losses drop because anomalies surface early (not when the asset is already gone), and recovery actions are triggered immediately. " +
+      "Utilization becomes measurable: you see which machines are truly working vs idling 10–25% of time in predictable patterns. " +
+      "You get audit-ready evidence for rentals/claims and a repeatable playbook for preventing the same scenario next week.",
+    icon: "wrench", // or add a new "crane" icon later
+    tags: ["construction", "equipment", "theft prevention", "utilization", "geofence", "handover", "unification", "AI", "workflows"]
   },
 
   // 15) Energy — Battery health
