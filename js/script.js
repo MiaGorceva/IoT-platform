@@ -388,7 +388,6 @@ translations.en = {
 };
 
 translations.ru = translations.ru || {
-  translations.ru = {
   // NAV
   "nav.about": "Почему MITE",
   "nav.platform": "Платформа",
@@ -1157,7 +1156,6 @@ translations.ru = translations.ru || {
       tags: ["fleet", "cold", "route", "evidence"]
     }
   ]
-};
 };
 translations.uk = translations.uk || {};
 
