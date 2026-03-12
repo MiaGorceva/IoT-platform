@@ -871,7 +871,7 @@ translations.ru = translations.ru || {
 
         icon: "factory",
 
-        tags: ["downtime", "OEE", "PLC", "micro-stops", "patterns"],
+        tags: ["downtime", "OEE", "PLC", "micro-stops", "patterns"]
     {
       industry: "manufacturing",
       industryLabel: "Производство",
