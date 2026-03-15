@@ -1,7 +1,7 @@
 {
-  "down_since": 1773575989,
+  "down_since": null,
   "last_alert_min": null,
   "rebooted": false,
-  "last_check_ts": 1773575989,
-  "last_alert_ts": 1773575989
+  "last_check_ts": 1773580391,
+  "last_alert_ts": null
 }
