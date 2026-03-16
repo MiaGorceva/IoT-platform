@@ -790,7 +790,7 @@ translations.ru = translations.ru || {
   //
   // Ниже — RU-версия тех же 18 кейсов (структура 1-в-1).
   // Можете использовать как dict.useCases и подключить.
-  useCases: [
+
 const useCases = [
   {
     industry: "pharma",
