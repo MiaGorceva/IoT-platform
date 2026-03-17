@@ -771,7 +771,7 @@ translations.ru = {
   "quick.note": "Мы ответим с практичным первым шагом и ожидаемыми результатами."
 };
 
-const useCases = [
+translations.ru.useCases = [
   {
     industry: "pharma",
     industryLabel: "Фарма",
@@ -1963,7 +1963,7 @@ function setupOutcomes() {
 // Pharma + Manufacturing
 // =====================
 
-const useCases = [
+translations.en.useCases = [
   // 1) Pharma — Cold chain (no “sensor shopping” — unify what you already have)
   {
   industry: "pharma",
