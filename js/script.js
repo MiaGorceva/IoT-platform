@@ -1295,7 +1295,7 @@ const useCases = [
     tags: ["warehouse", "dock", "loading", "queue", "fleet", "WMS"]
   }
 ];
-};
+
 translations.uk = translations.uk || {
   const useCases = [
   {
