@@ -1296,8 +1296,7 @@ translations.ru.useCases = [
   }
 ];
 
-translations.uk = translations.uk || {
-  const useCases = [
+translations.uk.useCases = [
   {
   industry: "pharma",
   industryLabel: "Pharmaceuticals",
@@ -1821,7 +1820,6 @@ translations.uk = translations.uk || {
   icon: "truck",
   tags: ["warehouse", "dock", "loading", "queue", "fleet", "WMS"]
 },]
-};
 
 /* -------------------------
    i18n helpers
