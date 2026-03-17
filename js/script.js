@@ -5,7 +5,7 @@ translations.en = {
   // NAV
   "nav.about": "Why MITE",
   "nav.platform": "Platform",
-  "nav.solutions": "Use cases",
+  "nav.solutions": "Use Cases",
   "nav.pricing": "Pricing",
   "nav.faq": "FAQ",
   "nav.contact": "Contact",
@@ -14,67 +14,66 @@ translations.en = {
   // SEO
   "seo.title": "MITE — Industrial IIoT Platform for Connected Infrastructure",
   "seo.description":
-    "MITE is an industrial IIoT platform that connects assets, models business logic, and turns operational data into decisions.",
+    "MITE is an industrial IIoT platform that connects assets, models business logic, and turns operational data into controlled execution and measurable outcomes.",
 
   // HERO
   "hero.kicker": "Industrial IoT, delivered",
   "hero.title": "Not just another IIoT platform. <span>MITE changes the game.</span>",
   "hero.subtitle":
-    "From raw telemetry to real execution: connect assets, describe logic, and let MITE run your operations. " +
-    "Every executed action becomes data — fueling the next decision, rule, and improvement.",
+    "From raw telemetry to governed execution: connect assets, describe logic, and let MITE run operational processes. " +
+    "Every action becomes data — feeding the next decision, rule, and improvement.",
   "hero.primaryCta": "Request a demo",
   "hero.secondaryCta": "Explore the platform",
-  "hero.meta1": "From pilots to production — ready deployments",
-  "hero.meta2": "Declarative logic — describe what to do, not how to code it",
-  "hero.meta3": "Any logic complexity • any industrial reality • fast iterations",
+  "hero.meta1": "From pilot to production — ready for real deployments",
+  "hero.meta2": "Declarative logic — describe what should happen, not how to code it",
+  "hero.meta3": "Any process complexity • any industrial reality • fast iterations",
   "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
 
   // ABOUT / POSITIONING
   "about.eyebrow": "Positioning",
   "about.title": "One system you control — from data to execution",
   "about.text":
-    "MITE turns operational data into a single, manageable system — not a set of disconnected signals and processes.\n\n" +
-    "We listen to your real environment: devices, gateways, PLCs, services, external systems, parse incoming events into a clean structure, and store them in a consistent data model.\n\n" +
-    "Then you build as much logic as you want on top: rules, workflows, approvals, KPIs. You describe what should happen — MITE takes care of how it happens.\n\n" +
-    "Dashboards show real execution and outcomes. You adapt processes in hours or days — without “waiting for developers” as the bottleneck.",
+    "MITE turns operational data into one manageable system — not a collection of disconnected signals, dashboards, and manual follow-up.\n\n" +
+    "We work with your real environment: devices, gateways, PLCs, services, and external systems. Incoming events are parsed into a clean structure and stored in a consistent data model.\n\n" +
+    "On top of that model, you can build as much logic as needed: rules, workflows, approvals, escalations, and KPIs. You define what should happen — MITE handles how it runs.\n\n" +
+    "Dashboards show real execution and outcomes. Processes can be adapted in hours or days — without waiting on a development backlog.",
 
   "about.point1.title": "A clean data sandbox — your reality, structured",
   "about.point1.text":
-    "All signals become one ordered operational model (tables + context), so you stop drowning in scattered integrations and inconsistent formats. " +
-    "You work with your reality — one structured, consistent foundation for logic, execution and analysis.",
+    "All signals become one ordered operational model (tables + context), so you stop dealing with fragmented integrations and inconsistent formats. " +
+    "You work with one structured foundation for logic, execution, and analysis.",
 
   "about.point2.title": "Logic grows with operations — not with code debt",
   "about.point2.text":
-    "Processes are defined declaratively: conditions, routes, approvals, escalations, KPIs.  Add new behavior fast — without rewriting systems, " +
+    "Processes are defined declaratively: conditions, routes, approvals, escalations, and KPIs. Add new behavior fast — without rewriting systems — " +
     "with any number of parallel mechanisms, flows, and decision models. " +
-    "There is no “single workflow” or “one mechanism” — logic grows organically with your operations.",
+    "There is no forced “single workflow” approach. Logic evolves with the business.",
 
   "about.point3.title": "Execution is governed — patterns are analyzed and visualized",
   "about.point3.text":
-    "MITE tracks what happens, when, and why  — across all processes and logic layers. Execution data is continuously analyzed: " +
-    "patterns, deviations, bottlenecks, and recurring behaviors are surfaced and visualized, not hidden in logs or spreadsheets. " +
-    "Responsibility, cause, and impact are always explicit.",
+    "MITE tracks what happened, when, and why — across processes and logic layers. Execution data is continuously analyzed: " +
+    "patterns, deviations, bottlenecks, and recurring behaviors are surfaced and visualized instead of being buried in logs and spreadsheets. " +
+    "Responsibility, cause, and impact stay visible.",
 
-  "about.point4.title": "Change is constant — processes must adapt without stopping",
+  "about.point4.title": "Change is constant — processes must adapt without disruption",
   "about.point4.text":
-    "Business never stands still: rules change, priorities shift, conditions evolve. " +
-    "With MITE, logic and processes are adapted in hours or days, " +
-    "while existing operations keep running and generate data — feeding the next iteration instead of breaking it.",
+    "Business conditions change constantly: rules shift, priorities move, constraints evolve. " +
+    "With MITE, logic and processes can be adapted in hours or days, " +
+    "while operations continue running and producing data for the next iteration.",
 
   "about.cta": "Ask a question",
   "about.side.label": "Typical outcomes",
 
-  // RIGHT SIDE — Typical outcomes (array is expected by your JS)
   aboutOutcomes: [
     {
       num: "One",
       title: "operational system",
-      text: "Decisions based on patterns, not gut feeling",
+      text: "Decisions based on patterns, not guesswork",
       bullets: [
-        "Single source of truth for execution — data becomes insight",
-        "Central control of rules & changes. Bottlenecks are explainable",
-        "Dashboards show outcomes, not noise. Patterns and trends are visible",
-        "Outcome: decisions rely on observed system behavior, not assumptions"
+        "Single source of truth for execution — data turns into insight",
+        "Central control of rules and changes with explainable bottlenecks",
+        "Dashboards show outcomes, not noise. Patterns and trends stay visible",
+        "Outcome: decisions are based on observed system behavior, not assumptions"
       ]
     },
     {
@@ -82,21 +81,21 @@ translations.en = {
       title: "to a working pilot",
       text: "Control exists from day one",
       bullets: [
-        "Your data normalized into one model. Clear visibility of what runs and why",
-        "Real execution, ownership, and system behavior visible immediately",
+        "Your data normalized into one model with clear visibility of what runs and why",
+        "Execution, ownership, and system behavior visible immediately",
         "First workflow running end-to-end with deviations surfaced",
-        "Outcome: controllable process with measurable KPIs — by design, not heroics"
+        "Outcome: a controllable process with measurable KPIs by design"
       ]
     },
     {
       num: "Stable",
       title: "scaling without chaos",
-      text: "Successful patterns are reused, not re-implemented. Scalable stability, not fragile growth",
+      text: "Successful patterns are reused, not rebuilt. Scale stays governed instead of fragile.",
       bullets: [
-        "Rollout playbooks instead of one-offs",
+        "Rollout playbooks instead of one-off implementations",
         "Many mechanisms, one governed execution model",
-        "Predictable behavior across sites and teams stay reliable at scale",
-        "Outcome: Scale remains predictable even as operational complexity grows"
+        "Predictable behavior across sites and teams",
+        "Outcome: scale remains reliable even as operational complexity grows"
       ]
     },
     {
@@ -105,63 +104,60 @@ translations.en = {
       text: "Operations change daily — your system keeps up.",
       bullets: [
         "Update rules and workflows in hours or days",
-        "Safe iteration with immediate feedback. Each change generates data for the next improvement",
-        "New rules coexist with existing ones",
+        "Safe iteration with immediate feedback",
+        "New logic can coexist with existing logic",
         "Outcome: smarter decisions driven by real metrics"
       ]
     }
   ],
 
-  // PLATFORM (mapped to your current HTML keys)
+  // PLATFORM
   "platform.eyebrow": "Platform",
   "platform.title": "Built for fast change — and serious scale",
   "platform.subtitle":
     "You describe logic as rules and processes. The platform executes them consistently — at scale.",
 
-  // HTML expects platform.cards.0/1/2.*
   "platform.cards.0.title": "Any process complexity — without code. And it actually runs.",
   "platform.cards.0.text":
-    "Model processes as logic: conditions, routes, approvals, escalations, KPIs. " +
+    "Model processes as logic: conditions, routes, approvals, escalations, and KPIs. " +
     "Describe what must happen — MITE takes care of execution, consistency, and traceability. " +
     "Complexity can grow without turning into custom-code chaos.",
-  "platform.cards.0.meta": "Less dev friction • faster iterations • clearer ownership",
+  "platform.cards.0.meta": "Less development friction • faster iterations • clearer ownership",
 
   "platform.cards.1.title": "Predictable scaling — even when complexity grows",
   "platform.cards.1.text":
-    "The same operational model and building blocks support many scenarios across sites, teams, and time. " +
-    "You scale outcomes, not technical complexity.",
+    "The same operational model and reusable building blocks support many scenarios across sites, teams, and deployment stages. " +
+    "You scale outcomes, not technical overhead.",
   "platform.cards.1.meta": "Scale outcomes, not technical debt",
 
-  "platform.cards.2.title": "Future-proof by design: open, flexible, AI-readable",
+  "platform.cards.2.title": "Future-ready by design: open, flexible, AI-readable",
   "platform.cards.2.text":
-    "Transparent logic and structured data make the system easy to evolve and explain. " +
-    "You avoid lock-in to legacy stacks and keep the platform adaptable to modern tooling and AI-assisted work.",
+    "Transparent logic and structured data make the system easier to evolve, explain, and extend. " +
+    "You avoid lock-in to brittle legacy stacks and keep the platform adaptable to modern tooling and AI-assisted workflows.",
   "platform.cards.2.meta": "Built for tomorrow’s operations",
 
-  // HTML expects platform.ci.*
   "platform.ci.tag": "Connectivity & Integration",
   "platform.ci.title": "Works with real industrial environments",
   "platform.ci.chip.onpremOrCloud": "On-prem / cloud / hybrid",
   "platform.ci.chip.rbac": "Role-based access",
   "platform.ci.note":
     "There is no single “right” protocol stack in the real world. Devices, networks, and constraints differ by site — " +
-    "so MITE adapts the integration layer to your reality instead of forcing architectural compromises.",
+    "so MITE adapts the integration layer to your environment instead of forcing architectural compromises.",
 
-  // HTML expects platform.story.title + platform.story.text
   "platform.story.title": "Why this matters in practice",
   "platform.story.text":
     "When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. " +
-    "That’s why improvements arrive in hours or days — and why the platform gets " +
+    "That is why improvements can arrive in hours or days — and why the platform gets " +
     "<span class='highlighting'>stronger with every real deployment.</span>",
 
-  // HIGHLIGHTS (mapped highlight.1..6 -> highlights.items.0..5)
+  // HIGHLIGHTS
   "highlights.eyebrow": "MITE Platform Highlights",
   "highlights.title": "An execution system for operations — not another dashboard layer",
   "highlights.subtitle":
-    "You get a structured data sandbox plus tools to build any control logic and operational experience — fast.",
+    "You get a structured data sandbox plus the tools to build control logic and operational experiences fast.",
 
   "highlights.items.0.tag": "BUSINESS LOGIC",
-  "highlights.items.0.title": "Any process complexity  — described as logic",
+  "highlights.items.0.title": "Any process complexity — described as logic",
   "highlights.items.0.text":
     "From simple alarms to multi-step execution with approvals, escalations, SLAs, and KPIs. Change the rules in hours when reality changes — without code rewrites.",
   "highlights.items.0.meta": "If you can describe the process, you can run it.",
@@ -170,37 +166,37 @@ translations.en = {
   "highlights.items.1.title": "Any protocols, any vendors — one clean model",
   "highlights.items.1.text":
     "Connect sensors, PLCs, gateways, third-party systems, and manual inputs. Normalize once, then reuse the same structured data everywhere.",
-  "highlights.items.1.meta": "No “one stack fits all” fantasies — we adapt to site reality.",
+  "highlights.items.1.meta": "No “one stack fits all” fantasy — we adapt to site reality.",
 
   "highlights.items.2.tag": "Scale",
   "highlights.items.2.title": "Production scale by design",
   "highlights.items.2.text":
-    "Billions of records, heavy telemetry, thousands of concurrent users, and analytics running continuously — this is normal mode, not a “later upgrade",
+    "Billions of records, heavy telemetry, thousands of concurrent users, and continuously running analytics are normal mode — not a future upgrade.",
   "highlights.items.2.meta": "Performance is a feature, not an afterthought.",
 
   "highlights.items.3.tag": "Insights",
-  "highlights.items.3.title": "AI-assisted patterns, not manual hunting",
+  "highlights.items.3.title": "AI-assisted patterns — not manual hunting",
   "highlights.items.3.text":
-    "Surface dependencies, risks, and anomalies without relying on “one expert who knows everything”. Bring insights straight into execution.",
+    "Surface dependencies, risks, and anomalies without relying on one expert who knows everything. Bring insights directly into execution.",
   "highlights.items.3.meta": "Less human factor • more repeatable outcomes.",
 
   "highlights.items.4.tag": "Experience",
   "highlights.items.4.title": "Built for real roles — not one UI for everyone",
   "highlights.items.4.text":
-    "Operations, engineering, and management need different views. MITE supports multiple UI patterns (tables, maps, cards, timelines, reports) on top of the same governed model.",
-  "highlights.items.4.meta": "Same data truth • unlimited operational experiences.",
+    "Operations, engineering, and management need different views. MITE supports multiple UI patterns — tables, maps, cards, timelines, and reports — on top of the same governed model.",
+  "highlights.items.4.meta": "Same data truth • multiple operational experiences.",
 
   "highlights.items.5.tag": "Value",
-  "highlights.items.5.title": "Profit-driven results",
+  "highlights.items.5.title": "Results tied to profit",
   "highlights.items.5.text":
-    "Every loop is measurable: fewer incidents, lower losses, cleaner compliance, faster rollouts — because actions are tied to results, not to “monitoring”.",
+    "Every loop is measurable: fewer incidents, lower losses, cleaner compliance, faster rollouts — because actions are tied to outcomes, not just monitoring.",
   "highlights.items.5.meta": "IoT as a growth driver, not a cost center.",
 
-  // USE CASES header + filters + search (already matching your HTML)
+  // USE CASES HEADER
   "useReal.eyebrow": "Real use cases",
-  "useReal.title": "18 scenarios with pain → execution → measurable outcome",
+  "useReal.title": "18 scenarios: pain → execution → measurable outcome",
   "useReal.subtitle":
-    "Short cards now (trust-building). Later we can expand each into a dedicated page with full mechanics, evidence, and screenshots.",
+    "Short cards today for trust and clarity. Later, each can expand into a dedicated page with full mechanics, evidence, and screenshots.",
 
   "uc.filter.all": "All",
   "uc.filter.pharma": "Pharma",
@@ -213,49 +209,53 @@ translations.en = {
   "uc.filter.construction": "Construction",
   "uc.search.placeholder": "Search use cases…",
 
-  // HOW (mapped how.step1..3 -> how.steps.0..2, and fixed output key)
+  "uc.label.pain": "Pain",
+  "uc.label.how": "How it works",
+  "uc.label.result": "Result",
+
+  // HOW
   "how.eyebrow": "How it works",
   "how.title": "Three steps from device to decision",
   "how.subtitle": "From raw signals to actions, evidence, and KPI outcomes — in days, not months.",
 
-  "how.steps.0.tag": "2-5 DAYS",
+  "how.steps.0.tag": "2–5 DAYS",
   "how.steps.0.title": "Data in. Clean model out.",
   "how.steps.0.text":
-    "Collect & normalize your reality (in days). Providers push telemetry to your endpoint — we ingest it and turn raw events into a clean, queryable operational model.",
+    "Collect and normalize your operational reality in days. Providers push telemetry to your endpoint — we ingest it and turn raw events into a clean, queryable operational model.",
   "how.steps.0.output":
-    "a normalized data “sandbox” (assets, sites, routes, context, timestamps) ready for logic and execution.",
+    "a normalized data sandbox (assets, sites, routes, context, timestamps) ready for logic and execution.",
   "how.steps.0.micro": "Raw → normalized → usable",
 
-  "how.steps.1.tag": "3-5 Days",
+  "how.steps.1.tag": "3–5 DAYS",
   "how.steps.1.title": "Turn data into logic.",
   "how.steps.1.text":
     "Define logic: triggers, workflows, KPIs. Configure what matters: thresholds, anomaly patterns, approvals, escalation paths, SLA timers, and KPI definitions — fast, with full traceability.",
   "how.steps.1.output":
-    "clear “if-this-then-that” operations, plus dashboards and audit-ready evidence.",
+    "clear if-this-then-that operations, plus dashboards and audit-ready evidence.",
   "how.steps.1.micro": "Events → decisions → actions",
 
   "how.steps.2.tag": "GO-LIVE",
   "how.steps.2.title": "Execute, measure, improve",
   "how.steps.2.text":
-    "Execute → measure → improve. MITE runs the loop continuously: triggers actions, stores evidence, tracks KPI impact, and helps you iterate safely — without breaking production.",
+    "MITE runs the loop continuously: triggers actions, stores evidence, tracks KPI impact, and helps you iterate safely — without breaking production.",
   "how.steps.2.output":
-    "stable process, measurable results, and a feedback process your team can trust.",
+    "a stable process, measurable results, and a feedback loop your team can trust.",
   "how.steps.2.micro": "Actions → evidence → KPI outcomes",
 
-  // PRICING (already matches your HTML)
+  // PRICING
   "pricing.eyebrow": "Pricing",
   "pricing.title": "Start free, scale predictably",
   "pricing.subtitle": "Validate one business process, then expand to sites, fleets, or full portfolios.",
 
   "pricing.free.label": "Free",
   "pricing.free.name": "Start-ups",
-  "pricing.free.tagline": "Validate your first operational business process.",
+  "pricing.free.tagline": "Validate your first operational process.",
   "pricing.free.price": "€0 / month",
   "pricing.free.note": "Devices: up to 10 · Platform: full access · Support: best effort",
   "pricing.free.li1": "Up to 10 connected devices",
   "pricing.free.li2": "Full access to all platform features",
   "pricing.free.li3": "Support: as-is (no SLA)",
-  "pricing.free.li4": "API & export access included",
+  "pricing.free.li4": "API and export access included",
   "pricing.free.cta": "Request access",
 
   "pricing.plan1.label": "For pilots",
@@ -277,7 +277,7 @@ translations.en = {
   "pricing.plan2.li1": "100–1000 connected devices",
   "pricing.plan2.li2": "Full access to all platform features",
   "pricing.plan2.li3": "Support: 24×7",
-  "pricing.plan2.li4": "Priority response & escalation",
+  "pricing.plan2.li4": "Priority response and escalation",
   "pricing.plan2.cta": "Talk to us",
 
   "pricing.plan3.label": "Enterprise / OEM",
@@ -285,16 +285,16 @@ translations.en = {
   "pricing.plan3.tagline": "When MITE becomes your operational core.",
   "pricing.plan3.price": "Custom pricing",
   "pricing.plan3.note": "Devices: unlimited · Platform: full + extensions · SLA: custom",
-  "pricing.plan3.li1": "Unlimited devices & multi-site deployments",
+  "pricing.plan3.li1": "Unlimited devices and multi-site deployments",
   "pricing.plan3.li2": "Full platform access + extensions",
-  "pricing.plan3.li3": "Custom SLA & governance model",
+  "pricing.plan3.li3": "Custom SLA and governance model",
   "pricing.plan3.li4": "OEM / white-label options",
-  "pricing.plan3.li5": "Dedicated technical contact & architecture workshops included",
+  "pricing.plan3.li5": "Dedicated technical contact and architecture workshops included",
   "pricing.plan3.cta": "Book a session",
 
-  // TESTIMONIALS (mapped testimonials.t1..t4 -> testimonials.items.0..3)
+  // TESTIMONIALS
   "testimonials.eyebrow": "Customer voice",
-  "testimonials.title": "Teams choose MITE when they need outcomes",
+  "testimonials.title": "Teams choose MITE when outcomes matter",
   "testimonials.subtitle": "A few examples of what customers value most.",
 
   "testimonials.items.0.text":
@@ -302,56 +302,55 @@ translations.en = {
   "testimonials.items.0.meta": "Quality & Compliance Lead · Pharma distribution",
 
   "testimonials.items.1.text":
-    "“We changed logic weekly during rollout — no tickets to devs. When operations changed, the system changed immediately.”",
+    "“We changed logic weekly during rollout — no tickets to developers. When operations changed, the system changed immediately.”",
   "testimonials.items.1.meta": "Head of Engineering · Distributed infrastructure",
 
   "testimonials.items.2.text":
-    "“Downtime is no longer ‘a dashboard problem’. Each stop creates an owned workflow, and KPIs show if we actually fixed it.”",
+    "“Downtime is no longer just a dashboard problem. Each stop creates an owned workflow, and KPIs show whether we actually fixed the cause.”",
   "testimonials.items.2.meta": "Operations Director · Manufacturing",
 
   "testimonials.items.3.text":
-    "“Scaling became predictable: same data model, same mechanisms — different sites. No ‘integration snowflakes’.”",
+    "“Scaling became predictable: same data model, same mechanisms — different sites. No integration snowflakes.”",
   "testimonials.items.3.meta": "Program Manager · Multi-site rollout",
 
-  // FAQ (mapped faq.q1..q4 -> faq.items.0..3)
+  // FAQ
   "faq.eyebrow": "FAQ",
-  "faq.title": "What ops and IT teams ask before going live",
+  "faq.title": "What operations and IT teams ask before go-live",
   "faq.subtitle": "Real operational questions. Clear, practical answers.",
 
   "faq.items.0.q": "Do we need developers to change logic and workflows?",
   "faq.items.0.a":
     "No. In MITE, processes are described as declarative logic — you define what should happen, not how to code it. " +
-    "Operations teams can change business logic, adjust thresholds, routing rules, approvals, escalation ladders, and KPIs in hours — without rebuilding systems or waiting in a development backlog. " +
+    "Operations teams can change business logic, thresholds, routing rules, approvals, escalation ladders, and KPIs in hours — without rebuilding systems or waiting in a development backlog. " +
     "Logic evolves with operations, not with code debt.",
 
   "faq.items.1.q": "How does MITE integrate with our existing landscape?",
   "faq.items.1.a":
-    "MITE supports industrial and web protocols (MQTT, LoRaWAN, Modbus, OPC UA, REST, webhooks) and exposes open APIs. " +
-    "We adapt to your environment — on-prem, cloud, or hybrid — and integrate with ERP, MES, SCADA, data lakes, or custom systems. " +
+    "MITE supports industrial and web protocols such as MQTT, LoRaWAN, Modbus, OPC UA, REST, and webhooks, and exposes open APIs. " +
+    "We adapt to your environment — on-prem, cloud, or hybrid — and integrate with ERP, MES, SCADA, data lakes, and custom systems. " +
     "There is no forced stack or architectural lock-in.",
 
   "faq.items.2.q": "Is MITE suitable for regulated and GDPR-controlled environments?",
   "faq.items.2.a":
-    "Yes. MITE includes role-based access control (RBAC), immutable audit trails, configurable data retention policies, and export logging. " +
-    "Every action (view, edit, approve, export) is traceable. Evidence packs are generated automatically from real workflows — not assembled manually after inspections. " +
+    "Yes. MITE includes role-based access control, immutable audit trails, configurable data retention policies, and export logging. " +
+    "Every action — view, edit, approve, export — is traceable. Evidence packs are generated from real workflows, not assembled manually before inspections. " +
     "Compliance becomes governed system behavior, not spreadsheet coordination.",
 
   "faq.items.3.q": "What if we need a new mechanism or capability?",
   "faq.items.3.a":
-    "If the requirement improves the platform at a systemic level (not a narrow one-off case), we typically generalize it and deliver it quickly. " +
-    "This means you don’t pay for isolated custom plumbing — and the platform becomes stronger with every real deployment. " +
+    "If the requirement strengthens the platform at a systemic level rather than as a narrow one-off, we typically generalize it and deliver it quickly. " +
+    "That means you do not pay for isolated custom plumbing, and the platform becomes stronger with every real deployment. " +
     "Your use case contributes to the evolution of the core, not to technical fragmentation.",
 
   "faq.trust":
-    "Built for regulated industries. " +
-    "GDPR-ready. Role-based access. Immutable audit trail. " +
+    "Built for regulated industries. GDPR-ready. Role-based access. Immutable audit trail. " +
     "No shadow spreadsheets. No hidden logic. No manual evidence assembly.",
 
   // CONTACT
   "contact.eyebrow": "Contact",
   "contact.title": "Tell us what you want to control — we’ll map the first win",
   "contact.subtitle":
-    "Share your infrastructure and the outcome you want. We’ll propose the first measurable profit and how it scales.",
+    "Share your infrastructure and the outcome you want. We’ll propose the first measurable gain and how it can scale.",
   "contact.nameLabel": "Full name",
   "contact.namePlaceholder": "Your name",
   "contact.emailLabel": "Work email",
@@ -387,81 +386,79 @@ translations.en = {
   "quick.note": "We’ll respond with a practical first step and expected outcomes."
 };
 
-translations.ru = translations.ru || {
+translations.ru = {
   // NAV
   "nav.about": "Почему MITE",
   "nav.platform": "Платформа",
-  "nav.solutions": "Кейсы",
-  "nav.pricing": "Цены",
+  "nav.solutions": "Сценарии применения",
+  "nav.pricing": "Тарифы",
   "nav.faq": "FAQ",
   "nav.contact": "Контакты",
   "nav.demoBtn": "Запросить демо",
 
   // SEO
-  "seo.title": "MITE — промышленная платформа управления операциями и данными",
+  "seo.title": "MITE — промышленная IIoT-платформа для подключённой инфраструктуры",
   "seo.description":
-    "MITE объединяет операционные данные, задаёт правила работы процессов и обеспечивает их исполнение. Платформа превращает разрозненные сигналы и события в управляемую систему действий.",
+    "MITE — промышленная IIoT-платформа, которая подключает активы, описывает бизнес-логику и превращает операционные данные в управляемое исполнение и измеримые результаты.",
 
   // HERO
-  "hero.kicker": "Промышленная IIoT платформа",
+  "hero.kicker": "Industrial IoT, delivered",
   "hero.title": "Не просто ещё одна IIoT-платформа. <span>MITE меняет правила игры.</span>",
   "hero.subtitle":
-  "Объедините данные с оборудования, систем и сервисов в единой модели. " +
-  "Задайте правила, процессы и сценарии реакции — MITE обеспечивает их исполнение и зафиксирует результат. " +
-  "Каждое событие и каждое действие сохраняются и используются для анализа, обучения и последующего улучшения процессов.",
+    "От сырой телеметрии — к управляемому исполнению: подключайте активы, описывайте логику, и MITE будет запускать операционные процессы. " +
+    "Каждое действие становится данными — для следующего решения, правила и улучшения.",
+  "hero.primaryCta": "Запросить демо",
   "hero.secondaryCta": "Посмотреть платформу",
-  "hero.meta1": "От пилотного проекта до промышленной эксплуатации — готово к внедрению",
-  "hero.meta2": "Декларативная логика — описываете что делать, а не как кодить",
-  "hero.meta3": "Любая сложность логики • любая промышленная реальность • быстрые изменения",
-  "hero.badge": "<strong>«Просто, понятно и надёжно — ровно то, чего ждут бизнес-команды»</strong>",
-
+  "hero.meta1": "От пилота до промышленной эксплуатации — готово к реальным внедрениям",
+  "hero.meta2": "Декларативная логика — описываете, что должно происходить, а не как писать код",
+  "hero.meta3": "Любая сложность процессов • любая промышленная реальность • быстрые итерации",
+  "hero.badge": "<strong>«Просто, понятно и надёжно — именно то, чего ожидают промышленные команды.»</strong>",
 
   // ABOUT / POSITIONING
   "about.eyebrow": "Позиционирование",
-  "about.title": "Одна система под вашим контролем: от данных — к управляемым процессам",
+  "about.title": "Одна система под вашим контролем — от данных до исполнения",
   "about.text":
-    "MITE превращает операционные данные в единую управляемую систему — а не набор разрозненных сигналов и процессов.\n\n" +
-    "Мы работаем с вашей реальностью: устройства, шлюзы, PLC, сервисы, внешние системы. Разбираем входящие события в чистую структуру и сохраняем их в согласованной модели данных.\n\n" +
-    "Дальше вы наращиваете логику сколько нужно: правила, процессы, согласования, KPI. Вы описываете, что должно происходить — MITE обеспечивает, как это исполняется.\n\n" +
-    "Дашборды показывают реальное исполнение и результат. Процессы адаптируются за часы или дни — без «ожидания разработчиков» как узкого места.",
+    "MITE превращает операционные данные в единую управляемую систему, а не в набор разрозненных сигналов, дашбордов и ручных действий.\n\n" +
+    "Мы работаем с вашей реальной средой: устройства, шлюзы, PLC, сервисы и внешние системы. Входящие события разбираются в чистую структуру и сохраняются в согласованной модели данных.\n\n" +
+    "Поверх этой модели вы можете выстраивать столько логики, сколько нужно: правила, процессы, согласования, эскалации и KPI. Вы определяете, что должно происходить — MITE обеспечивает, как это будет выполняться.\n\n" +
+    "Дашборды показывают реальное исполнение и реальные результаты. Процессы можно адаптировать за часы или дни — без ожидания очереди у разработчиков.",
 
-  "about.point1.title": "Чистая песочница данных — ваша реальность, но структурированная",
+  "about.point1.title": "Чистая песочница данных — ваша реальность в структурированном виде",
   "about.point1.text":
-    "Все сигналы становятся одной упорядоченной операционной моделью (таблицы + контекст), и вы перестаёте тонуть в разрозненных интеграциях и несовместимых форматах. " +
-    "Вы работаете с реальностью — единое, последовательное основание для логики, исполнения и анализа.",
+    "Все сигналы превращаются в единую упорядоченную операционную модель (таблицы + контекст), поэтому вы перестаёте работать с фрагментированными интеграциями и несовместимыми форматами. " +
+    "Вы получаете единое основание для логики, исполнения и анализа.",
 
-  "about.point2.title": "Логика растёт вместе с операциями — а не вместе с техдолгом",
+  "about.point2.title": "Логика растёт вместе с операциями — а не с техдолгом",
   "about.point2.text":
-    "Процессы задаются декларативно: условия, маршрутизация, согласования, эскалации, KPI. Добавляйте новое поведение быстро — без переписывания систем, " +
+    "Процессы задаются декларативно: условия, маршруты, согласования, эскалации и KPI. Добавляйте новое поведение быстро — без переписывания систем — " +
     "с любым количеством параллельных механизмов, потоков и моделей принятия решений. " +
-    "Нет «единственного workflow» или «одного механизма» — логика органично растёт вместе с вашими операциями.",
+    "Здесь нет навязанного подхода с «единственным workflow». Логика развивается вместе с бизнесом.",
 
-  "about.point3.title": "Исполнение управляемо — паттерны анализируются и визуализируются",
+  "about.point3.title": "Исполнение управляется — паттерны анализируются и визуализируются",
   "about.point3.text":
-    "MITE фиксирует что произошло, когда и почему — во всех процессах и слоях логики. Данные исполнения анализируются постоянно: " +
+    "MITE фиксирует, что произошло, когда и почему — во всех процессах и на всех слоях логики. Данные исполнения анализируются постоянно: " +
     "паттерны, отклонения, узкие места и повторяющееся поведение подсвечиваются и визуализируются, а не прячутся в логах и таблицах. " +
-    "Ответственность, причина и эффект всегда навиду.",
+    "Ответственность, причина и влияние остаются прозрачными.",
 
-  "about.point4.title": "Изменения — норма: процессы должны адаптироваться без остановки",
+  "about.point4.title": "Изменения постоянны — процессы должны адаптироваться без сбоев",
   "about.point4.text":
-    "Бизнес не стоит на месте: правила меняются, приоритеты сдвигаются, условия эволюционируют. " +
+    "Бизнес-условия постоянно меняются: правила смещаются, приоритеты пересматриваются, ограничения эволюционируют. " +
     "С MITE логика и процессы адаптируются за часы или дни, " +
-    "при этом текущие операции продолжают работать и генерировать данные — подпитывая следующую итерацию, а не ломая её.",
+    "при этом операции продолжают работать и генерировать данные для следующей итерации.",
 
   "about.cta": "Задать вопрос",
-  "about.side.label": "Типичный результат",
+  "about.side.label": "Типичные результаты",
 
-  // RIGHT SIDE — Typical outcomes
   aboutOutcomes: [
     {
       num: "Одна",
       title: "операционная система",
-      text: "Решения на основе паттернов, а не интуиции",
+      text: "Решения на основе паттернов, а не догадок",
       bullets: [
-        "Единый источник правды  — данные превращаются в инсайты",
-        "Центральное управление правилами и изменениями. Узкие места объяснимы",
-        "Дашборды показывают результат, а не шум. Видны паттерны и тренды",
-        "Итог: решения опираются на поведение системы, а не на предположения"
+        "Единый источник правды для исполнения — данные превращаются в инсайты",
+        "Централизованное управление правилами и изменениями с объяснимыми узкими местами",
+        "Дашборды показывают результаты, а не шум. Паттерны и тренды остаются видимыми",
+        "Результат: решения опираются на наблюдаемое поведение системы, а не на предположения"
       ]
     },
     {
@@ -469,125 +466,123 @@ translations.ru = translations.ru || {
       title: "до рабочего пилота",
       text: "Контроль появляется с первого дня",
       bullets: [
-        "Ваши данные нормализованы в одной модели. Прозрачно, что работает и почему",
-        "Реальное исполнение, ответственность и поведение системы видны сразу",
-        "Первый процесс работает end-to-end, отклонения подсвечены",
-        "Итог: управляемый процесс с измеримыми KPI — по дизайну, а не «на героизме» за часы/дни"
+        "Ваши данные нормализованы в одной модели с понятной видимостью того, что работает и почему",
+        "Исполнение, ответственность и поведение системы видны сразу",
+        "Первый workflow работает end-to-end, а отклонения уже подсвечены",
+        "Результат: управляемый процесс с измеримыми KPI по дизайну"
       ]
     },
     {
       num: "Стабильное",
       title: "масштабирование без хаоса",
-      text: "Успешные паттерны переиспользуются, а не внедряются заново. Нужна новая логика - она уже тут. Масштабируемая стабильность вместо хрупкого роста",
+      text: "Успешные паттерны переиспользуются, а не строятся заново. Масштаб остаётся управляемым, а не хрупким.",
       bullets: [
-        "Плейбуки внедрения вместо разовых «под каждый объект»",
+        "Плейбуки внедрения вместо разовых реализаций",
         "Много механизмов — одна управляемая модель исполнения",
-        "Предсказуемое поведение на объектах, процессы работают надёжно на масштабе",
-        "Итог: масштаб остаётся предсказуемым даже при росте операционной сложности и масштабах"
+        "Предсказуемое поведение на разных площадках и в разных командах",
+        "Результат: масштаб остаётся надёжным даже при росте операционной сложности"
       ]
     },
     {
       num: "Быстрая",
       title: "адаптация к изменениям",
-      text: "Операции меняются ежедневно — система успевает.",
+      text: "Операции меняются ежедневно — система успевает за ними.",
       bullets: [
         "Обновляйте правила и процессы за часы или дни",
-        "Безопасные итерации с мгновенной обратной связью. Каждое изменение генерирует данные для следующего улучшения",
-        "Новые правила сосуществуют со старыми или заменяют их без простоев",
-        "Итог: система меняется в месте с бизнесом, а не живет первым внедрением в прошлом"
+        "Безопасные итерации с мгновенной обратной связью",
+        "Новая логика может сосуществовать с существующей",
+        "Результат: более умные решения, основанные на реальных метриках"
       ]
     }
   ],
 
   // PLATFORM
   "platform.eyebrow": "Платформа",
-  "platform.title": "Создано для быстрых изменений. Рассчитано на промышленный масштаб.",
+  "platform.title": "Создано для быстрых изменений — и серьёзного масштаба",
   "platform.subtitle":
-    "Вы описываете логику как правила и процессы. Платформа обеспечивает исполнение и контроль.",
+    "Вы описываете логику как правила и процессы. Платформа стабильно исполняет их — в промышленном масштабе.",
 
-"platform.cards.0.title":
-  "Любая сложность процесса — без написания кода. И это работает в реальной эксплуатации.",
-
-"platform.cards.0.text":
-  "Моделируйте процессы как систему правил: условия, маршруты, согласования, эскалации, KPI. " +
-  "Вы определяете, что должно произойти — MITE гарантирует исполнение, согласованность и полную трассируемость. " +
-  "С ростом сложности система остаётся управляемой — без разрастания кастомных доработок.",
-
-"platform.cards.0.meta":
-  "Меньше зависимости от разработки • быстрее корректировки • изменения без хаоса",
+  "platform.cards.0.title": "Любая сложность процессов — без кода. И это действительно работает.",
+  "platform.cards.0.text":
+    "Моделируйте процессы как логику: условия, маршруты, согласования, эскалации и KPI. " +
+    "Опишите, что должно происходить — MITE обеспечит исполнение, согласованность и трассируемость. " +
+    "Сложность может расти, не превращаясь в хаос кастомной разработки.",
+  "platform.cards.0.meta": "Меньше трения с разработкой • быстрее итерации • понятнее зоны ответственности",
 
   "platform.cards.1.title": "Предсказуемое масштабирование — даже когда сложность растёт",
   "platform.cards.1.text":
-    "Одна и та же операционная модель и строительные блоки поддерживают множество сценариев на разных объектах, в разных командах, в разных интерфейсах, со своей уникальной логикой и задачами. " +
-    "Вы масштабируете результат, а не техническую сложность.",
-  "platform.cards.1.meta": "Масштабируйте результат, а не техдолг",
+    "Одна и та же операционная модель и переиспользуемые строительные блоки поддерживают множество сценариев на разных площадках, в разных командах и на разных этапах внедрения. " +
+    "Вы масштабируете результаты, а не технический overhead.",
+  "platform.cards.1.meta": "Масштабируйте результаты, а не техдолг",
 
-  "platform.cards.2.title": "Будущее-устойчиво по дизайну: открыто, гибко, читаемо для AI",
+  "platform.cards.2.title": "Готова к будущему по дизайну: открытая, гибкая, читаемая для AI",
   "platform.cards.2.text":
-    "Прозрачная логика и структурированные данные упрощают развитие и объяснимость системы. " +
-    "Вы избегаете привязки к устаревшим стекам и сохраняете платформу адаптивной к современным инструментам и AI-помощникам.",
-  "platform.cards.2.meta": "Платформа для завтрашних операций",
+    "Прозрачная логика и структурированные данные упрощают развитие, объяснимость и расширение системы. " +
+    "Вы избегаете привязки к хрупким legacy-стекам и сохраняете платформу адаптивной к современным инструментам и AI-assisted workflows.",
+  "platform.cards.2.meta": "Платформа для операций завтрашнего дня",
 
   "platform.ci.tag": "Связность и интеграции",
   "platform.ci.title": "Работает в реальной промышленной среде",
   "platform.ci.chip.onpremOrCloud": "On-prem / cloud / hybrid",
   "platform.ci.chip.rbac": "Ролевой доступ",
   "platform.ci.note":
-    "В реальном мире нет единственно «правильного» стека протоколов. Устройства, сети и ограничения различаются по объектам — " +
-    "поэтому MITE подстраивает слой интеграций под вашу реальность, а не заставляет вас идти на архитектурные компромиссы.",
+    "В реальном мире нет одного «правильного» стека протоколов. Устройства, сети и ограничения отличаются от площадки к площадке — " +
+    "поэтому MITE подстраивает интеграционный слой под вашу среду, а не заставляет вас идти на архитектурные компромиссы.",
 
   "platform.story.title": "Почему это важно на практике",
   "platform.story.text":
-    "Когда заказчику нужен новый механизм, мы обычно обобщаем его на уровне платформы, а не делаем разовый «костыль». " +
-    "Поэтому улучшения внедряются за часы или дни — и платформа " +
+    "Когда клиенту нужен новый механизм, мы обычно обобщаем его на уровне платформы, а не делаем разовую функцию под один случай. " +
+    "Именно поэтому улучшения могут появляться за часы или дни — и платформа " +
     "<span class='highlighting'>становится сильнее с каждым реальным внедрением.</span>",
 
   // HIGHLIGHTS
-  "highlights.eyebrow": "MITE Platform Highlights",
-  "highlights.title": " Не ещё один дашборд — система управления бизнесом",
+  "highlights.eyebrow": "Ключевые возможности MITE",
+  "highlights.title": "Система исполнения для операций — а не ещё один слой дашбордов",
   "highlights.subtitle":
-    "Единая модель данных и инструменты, чтобы быстро задавать правила, автоматизировать действия и управлять операциями.",
+    "Вы получаете структурированную песочницу данных и инструменты, чтобы быстро строить логику управления и операционные интерфейсы.",
 
   "highlights.items.0.tag": "БИЗНЕС-ЛОГИКА",
-  "highlights.items.0.title": "Любая сложность процесса — описывается как логика",
+  "highlights.items.0.title": "Любая сложность процессов — описывается как логика",
   "highlights.items.0.text":
     "От простых тревог до многошагового исполнения с согласованиями, эскалациями, SLA и KPI. Меняйте правила за часы, когда меняется реальность — без переписывания кода.",
-  "highlights.items.0.meta": "Если вы можете описать процесс — вы можете его внедрить в MITE.",
+  "highlights.items.0.meta": "Если процесс можно описать — его можно запускать.",
 
   "highlights.items.1.tag": "Связность",
   "highlights.items.1.title": "Любые протоколы, любые вендоры — одна чистая модель",
   "highlights.items.1.text":
-    "Подключайте датчики, PLC, шлюзы, сторонние системы и ручные вводы. Нормализуйте один раз — и переиспользуйте те же структурированные данные везде.",
-  "highlights.items.1.meta": "Без фантазий «один стек для всего» — адаптируемся к реальности объекта.",
+    "Подключайте датчики, PLC, шлюзы, сторонние системы и ручной ввод. Нормализуйте один раз — и переиспользуйте те же структурированные данные везде.",
+  "highlights.items.1.meta": "Никакой фантазии про «один стек для всех» — мы адаптируемся к реальности площадки.",
 
   "highlights.items.2.tag": "Масштаб",
-  "highlights.items.2.title": "Продакшн-масштаб по дизайну",
+  "highlights.items.2.title": "Промышленный масштаб по дизайну",
   "highlights.items.2.text":
-    "Миллиарды записей, тяжёлая телеметрия, тысячи одновременных пользователей и непрерывная аналитика — это нормальный режим, а не «апгрейд потом».",
-  "highlights.items.2.meta": "Производительность — это фича, а не «потом разберёмся».",
+    "Миллиарды записей, тяжёлая телеметрия, тысячи одновременных пользователей и непрерывная аналитика — это нормальный режим, а не будущий апгрейд.",
+  "highlights.items.2.meta": "Производительность — это фича, а не то, о чём вспоминают потом.",
 
   "highlights.items.3.tag": "Инсайты",
-  "highlights.items.3.title": "AI-подсказки по паттернам — вместо ручного «поиска иголок»",
+  "highlights.items.3.title": "AI-assisted паттерны — вместо ручного поиска",
   "highlights.items.3.text":
-    "Подсвечивайте зависимости, риски и аномалии без опоры на «одного эксперта, который всё помнит». Встраивайте инсайты прямо в исполнение.",
+    "Выявляйте зависимости, риски и аномалии без опоры на одного эксперта, который всё держит в голове. Переносите инсайты прямо в исполнение.",
   "highlights.items.3.meta": "Меньше человеческого фактора • больше повторяемых результатов.",
 
   "highlights.items.4.tag": "Опыт",
-  "highlights.items.4.title": "Под реальные роли — не один интерфейс для всех",
+  "highlights.items.4.title": "Под реальные роли — а не один UI для всех",
   "highlights.items.4.text":
-    "Операции, инженерия и менеджмент требуют разных представлений. MITE поддерживает разные UI-паттерны (таблицы, карты, карточки, таймлайны, отчёты) поверх одной управляемой модели.",
-  "highlights.items.4.meta": "Одна правда данных • неограниченные операционные интерфейсы.",
+    "Операции, инженерия и менеджмент требуют разных представлений. MITE поддерживает разные UI-паттерны — таблицы, карты, карточки, таймлайны и отчёты — поверх одной управляемой модели.",
+  "highlights.items.4.meta": "Одна истина данных • несколько операционных интерфейсов.",
 
   "highlights.items.5.tag": "Ценность",
-  "highlights.items.5.title": "Результаты, которые дают прибыль",
+  "highlights.items.5.title": "Результаты, связанные с прибылью",
   "highlights.items.5.text":
-    "Каждый цикл измерим: меньше инцидентов, меньше потерь, чище комплаенс, быстрее внедрения — потому что действия связаны с результатом, а не с «мониторингом».",
+    "Каждый цикл измерим: меньше инцидентов, ниже потери, чище комплаенс, быстрее внедрения — потому что действия связаны с результатами, а не только с мониторингом.",
   "highlights.items.5.meta": "IoT как драйвер роста, а не центр затрат.",
 
-  // USE CASES header + filters + search
-  "useReal.eyebrow": "Реальные кейсы",
-  "useReal.title": "18 сценариев: боль → исполнение → измеримый результат",
-  "useReal.subtitle": "Внедренные истории успеха, где мы рассказываем как платформа работает в реальных задачах. Как помогает сократить брак и учеличить производительность, найти точки роста или понять причины убытков. Читайте ниже наши истории успеха. ",
+  // USE CASES HEADER
+  "useReal.eyebrow": "Реальные сценарии",
+  "useReal.title": "18 сценариев: проблема → исполнение → измеримый результат",
+  "useReal.subtitle":
+    "Сейчас — короткие карточки для доверия и понятности. Дальше каждую можно развернуть в отдельную страницу с полной механикой, доказательной базой и скриншотами.",
+
   "uc.filter.all": "Все",
   "uc.filter.pharma": "Фарма",
   "uc.filter.manufacturing": "Производство",
@@ -597,148 +592,151 @@ translations.ru = translations.ru || {
   "uc.filter.smartcities": "Умные города",
   "uc.filter.logistics": "Логистика",
   "uc.filter.construction": "Строительство",
-  "uc.search.placeholder": "Поиск по кейсам…",
+  "uc.search.placeholder": "Поиск по сценариям…",
+
+  "uc.label.pain": "Проблема",
+  "uc.label.how": "Как это работает",
+  "uc.label.result": "Результат",
 
   // HOW
   "how.eyebrow": "Как это работает",
   "how.title": "Три шага от устройства до решения",
-  "how.subtitle": "От сырых сигналов к действиям, доказательствам и KPI — за дни, а не за месяцы.",
+  "how.subtitle": "От сырых сигналов к действиям, доказательной базе и KPI-результатам — за дни, а не за месяцы.",
 
   "how.steps.0.tag": "2–5 ДНЕЙ",
-  "how.steps.0.title": "Данные вход → чистая модель выход.",
+  "how.steps.0.title": "Данные на входе. Чистая модель на выходе.",
   "how.steps.0.text":
-    "Собираем и нормализуем вашу реальность (за дни). Поставщики отправляют телеметрию на наш endpoint — мы принимаем её и превращаем сырые события в чистую, доступную для запросов операционную модель.",
+    "Соберите и нормализуйте свою операционную реальность за несколько дней. Провайдеры отправляют телеметрию на ваш endpoint — мы принимаем её и превращаем сырые события в чистую, пригодную для запросов операционную модель.",
   "how.steps.0.output":
-    "нормализованная «песочница данных» (активы, площадки, маршруты, контекст, метки времени), готовая для логики и исполнения.",
-  "how.steps.0.micro": "Сигналы → структура → рабочие данные",
+    "нормализованная песочница данных (активы, площадки, маршруты, контекст, временные метки), готовая для логики и исполнения.",
+  "how.steps.0.micro": "Сырые данные → нормализация → рабочая модель",
 
   "how.steps.1.tag": "3–5 ДНЕЙ",
   "how.steps.1.title": "Превратите данные в логику.",
   "how.steps.1.text":
-    "Определяйте логику: триггеры, процессы, KPI. Настройте важное: пороги, паттерны аномалий, согласования, пути эскалации, таймеры SLA и определения KPI — быстро и с полной трассируемостью.",
+    "Определите логику: триггеры, процессы, KPI. Настройте то, что важно: пороги, паттерны аномалий, согласования, пути эскалации, SLA-таймеры и определения KPI — быстро и с полной трассируемостью.",
   "how.steps.1.output":
-    "понятные операции «если-то» плюс дашборды и доказательная база, готовая для аудита.",
-  "how.steps.1.micro": "Событие → решение → действие",
+    "понятные операции по принципу «если — то», плюс дашборды и доказательная база, готовая к аудиту.",
+  "how.steps.1.micro": "События → решения → действия",
 
   "how.steps.2.tag": "GO-LIVE",
-  "how.steps.2.title": "Исполнение → измерение → улучшение",
+  "how.steps.2.title": "Исполняйте, измеряйте, улучшайте",
   "how.steps.2.text":
-    "MITE поддерживает непрерывный цикл работы процессов: система запускает действия, фиксирует результат, отслеживает влияние на KPI и позволяет безопасно корректировать логику без остановки эксплуатации.",
+    "MITE непрерывно ведёт цикл: запускает действия, сохраняет доказательства, отслеживает влияние на KPI и помогает безопасно улучшать процессы — без остановки production.",
   "how.steps.2.output":
-    "стабильный процесс, измеримые результаты и контур обратной связи, которому команда может доверять.",
-  "how.steps.2.micro": "Действия → результат → улучшение KPI",
+    "стабильный процесс, измеримые результаты и контур обратной связи, которому может доверять команда.",
+  "how.steps.2.micro": "Действия → доказательства → KPI-результаты",
 
   // PRICING
-  "pricing.eyebrow": "Цены",
+  "pricing.eyebrow": "Тарифы",
   "pricing.title": "Начните бесплатно — масштабируйтесь предсказуемо",
-  "pricing.subtitle": "Проверьте один бизнес-процесс, затем расширяйте на площадки, парки или целые портфели.",
+  "pricing.subtitle": "Проверьте один бизнес-процесс, затем расширяйтесь на площадки, парки или целые портфели.",
 
   "pricing.free.label": "Бесплатно",
   "pricing.free.name": "Start-ups",
-  "pricing.free.tagline": "Проверьте первый операционный бизнес-процесс.",
+  "pricing.free.tagline": "Проверьте свой первый операционный процесс.",
   "pricing.free.price": "€0 / месяц",
   "pricing.free.note": "Устройства: до 10 · Платформа: полный доступ · Поддержка: best effort",
   "pricing.free.li1": "До 10 подключённых устройств",
   "pricing.free.li2": "Полный доступ ко всем функциям платформы",
-  "pricing.free.li3": "Поддержка: как есть (без SLA)",
+  "pricing.free.li3": "Поддержка as-is (без SLA)",
   "pricing.free.li4": "API и экспорт включены",
   "pricing.free.cta": "Запросить доступ",
 
   "pricing.plan1.label": "Для пилотов",
   "pricing.plan1.name": "Start",
-  "pricing.plan1.tagline": "Запустите пилот и подтвердите измеримый эффект.",
+  "pricing.plan1.tagline": "Запустите пилот и подтвердите измеримый результат.",
   "pricing.plan1.price": "€99 / месяц",
   "pricing.plan1.note": "Устройства: 10–100 · Платформа: полный доступ · Поддержка: 8×5",
   "pricing.plan1.li1": "10–100 подключённых устройств",
   "pricing.plan1.li2": "Полный доступ ко всем функциям платформы",
-  "pricing.plan1.li3": "Поддержка: 8×5 в рабочие часы",
-  "pricing.plan1.li4": "Запросы фич учитываются в roadmap",
+  "pricing.plan1.li3": "Поддержка 8×5 в рабочие часы",
+  "pricing.plan1.li4": "Запросы на функции рассматриваются в roadmap",
   "pricing.plan1.cta": "Начать пилот",
 
   "pricing.plan2.label": "Для внедрений",
   "pricing.plan2.name": "Scale",
-  "pricing.plan2.tagline": "Масштабирование с предсказуемой поддержкой.",
+  "pricing.plan2.tagline": "Масштабируйтесь на разные площадки с предсказуемой поддержкой.",
   "pricing.plan2.price": "От €99 / месяц",
   "pricing.plan2.note": "Устройства: 100–1000 · Платформа: полный доступ · Поддержка: 24×7",
   "pricing.plan2.li1": "100–1000 подключённых устройств",
   "pricing.plan2.li2": "Полный доступ ко всем функциям платформы",
-  "pricing.plan2.li3": "Поддержка: 24×7",
-  "pricing.plan2.li4": "Приоритетная реакция и эскалации",
-  "pricing.plan2.cta": "Связаться",
+  "pricing.plan2.li3": "Поддержка 24×7",
+  "pricing.plan2.li4": "Приоритетная реакция и эскалация",
+  "pricing.plan2.cta": "Связаться с нами",
 
   "pricing.plan3.label": "Enterprise / OEM",
   "pricing.plan3.name": "Enterprise",
   "pricing.plan3.tagline": "Когда MITE становится операционным ядром.",
   "pricing.plan3.price": "Индивидуально",
-  "pricing.plan3.note": "Устройства: без ограничений · Платформа: полный + расширения · SLA: индивидуально",
-  "pricing.plan3.li1": "Неограниченно устройств и мультисайт-внедрения",
-  "pricing.plan3.li2": "Полный доступ + расширения",
+  "pricing.plan3.note": "Устройства: без ограничений · Платформа: полный доступ + расширения · SLA: индивидуально",
+  "pricing.plan3.li1": "Неограниченное количество устройств и multi-site внедрения",
+  "pricing.plan3.li2": "Полный доступ к платформе + расширения",
   "pricing.plan3.li3": "Индивидуальный SLA и модель управления",
-  "pricing.plan3.li4": "OEM / white-label опции",
-  "pricing.plan3.li5": "Выделенный техконтакт и архитектурные воркшопы включены",
-  "pricing.plan3.cta": "Запланировать встречу",
+  "pricing.plan3.li4": "OEM / white-label варианты",
+  "pricing.plan3.li5": "Выделенный технический контакт и архитектурные воркшопы включены",
+  "pricing.plan3.cta": "Запланировать сессию",
 
   // TESTIMONIALS
   "testimonials.eyebrow": "Голос клиентов",
-  "testimonials.title": "MITE выбирают, когда нужны результаты",
+  "testimonials.title": "Команды выбирают MITE, когда важен результат",
   "testimonials.subtitle": "Несколько примеров того, что клиенты ценят больше всего.",
 
   "testimonials.items.0.text":
-    "«Отчёты по холодовой цепи перестали быть ежемесячным кошмаром. Один таймлайн, один audit trail, отчёты за минуты — не за дни.»",
-  "testimonials.items.0.meta": "Руководитель QA/Compliance · Фарма-дистрибуция",
+    "«Отчётность по холодовой цепи перестала быть ежемесячным кошмаром. У нас один таймлайн, один audit trail и отчёты за минуты, а не за дни.»",
+  "testimonials.items.0.meta": "Руководитель по качеству и compliance · Фарма-дистрибуция",
 
   "testimonials.items.1.text":
-    "«Когда нам надо поменять логику каждую - мы ее меняем — без тикетов разработчикам. Поменялись операции — сразу поменялась система.»",
+    "«Во время rollout мы меняли логику каждую неделю — без тикетов разработчикам. Когда менялись операции, система менялась сразу.»",
   "testimonials.items.1.meta": "Head of Engineering · Распределённая инфраструктура",
 
   "testimonials.items.2.text":
-    "«Простой больше не ‘проблема дашборда’. Каждая остановка запускает управляемый workflow, а KPI показывает, исправили мы причину или нет.»",
+    "«Простои больше не просто проблема дашборда. Каждая остановка запускает управляемый workflow, а KPI показывает, устранили мы причину или нет.»",
   "testimonials.items.2.meta": "Директор по операциям · Производство",
 
   "testimonials.items.3.text":
-    "«Масштабирование стало предсказуемым: одна модель данных, одни механизмы — разные площадки. Без накопления индивидуальных интеграций под каждый объект.»",
-  "testimonials.items.3.meta": "Program Manager · Мультисайт-внедрение",
+    "«Масштабирование стало предсказуемым: одна модель данных, одни механизмы — разные площадки. Никаких integration snowflakes.»",
+  "testimonials.items.3.meta": "Program Manager · Multi-site rollout",
 
   // FAQ
   "faq.eyebrow": "FAQ",
-  "faq.title": "Что ops и IT спрашивают перед go-live",
-  "faq.subtitle": "Реальные операционные вопросы. Чёткие практичные ответы.",
+  "faq.title": "Что операционные и IT-команды спрашивают перед go-live",
+  "faq.subtitle": "Реальные операционные вопросы. Чёткие и практичные ответы.",
 
   "faq.items.0.q": "Нужны ли разработчики, чтобы менять логику и процессы?",
   "faq.items.0.a":
     "Нет. В MITE процессы описываются декларативной логикой — вы задаёте, что должно происходить, а не как это кодить. " +
-    "Операционные команды могут менять бизнес-логику, пороги, правила маршрутизации, согласования, лестницы эскалаций и KPI за часы — без перестройки систем и без ожидания очереди у разработчиков. " +
-    "Логика эволюционирует вместе с операциями, а не вместе с техдолгом.",
+    "Операционные команды могут менять бизнес-логику, пороги, правила маршрутизации, согласования, лестницы эскалаций и KPI за часы — без перестройки систем и без ожидания в очереди к разработчикам. " +
+    "Логика развивается вместе с операциями, а не вместе с техдолгом.",
 
   "faq.items.1.q": "Как MITE интегрируется с нашей текущей инфраструктурой?",
   "faq.items.1.a":
-    "MITE поддерживает промышленные и веб-протоколы (MQTT, LoRaWAN, Modbus, OPC UA, REST, webhooks) и предоставляет открытые API. " +
-    "Мы адаптируемся к вашей среде — on-prem, cloud или hybrid — и интегрируемся с ERP, MES, SCADA, data lake или кастомными системами. " +
-    "Нет навязанного стека и архитектурной привязки.",
+    "MITE поддерживает промышленные и веб-протоколы, включая MQTT, LoRaWAN, Modbus, OPC UA, REST и webhooks, а также предоставляет открытые API. " +
+    "Мы адаптируемся к вашей среде — on-prem, cloud или hybrid — и интегрируемся с ERP, MES, SCADA, data lakes и кастомными системами. " +
+    "Здесь нет навязанного стека или архитектурной привязки.",
 
   "faq.items.2.q": "Подходит ли MITE для регулируемых сред и контуров с GDPR?",
   "faq.items.2.a":
-    "Да. В MITE есть ролевой доступ (RBAC), неизменяемые audit trail, настраиваемые политики хранения данных и логирование экспорта. " +
-    "Любое действие (просмотр, изменение, согласование, экспорт) трассируется. Evidence-пакеты генерируются автоматически из реальных workflow — а не собираются вручную перед проверкой. " +
-    "Комплаенс становится управляемым поведением системы, а не координацией через Excel.",
+    "Да. В MITE есть ролевой доступ, неизменяемые audit trails, настраиваемые политики хранения данных и логирование экспорта. " +
+    "Любое действие — просмотр, изменение, согласование, экспорт — трассируется. Evidence packs формируются из реальных workflow, а не собираются вручную перед проверками. " +
+    "Комплаенс становится управляемым поведением системы, а не координацией через таблицы.",
 
-  "faq.items.3.q": "Что если нам нужен новый механизм или возможность?",
+  "faq.items.3.q": "Что если нам нужен новый механизм или новая возможность?",
   "faq.items.3.a":
-    "Если требование улучшает платформу системно (а не является узким разовым случаем), мы обычно обобщаем его и быстро дорабатываем. " +
-    "Это значит: вы не платите за изолированную кастомную доработку — а платформа становится сильнее с каждым реальным внедрением. " +
+    "Если требование усиливает платформу на системном уровне, а не как узкий разовый случай, мы обычно обобщаем его и быстро доставляем. " +
+    "Это значит, что вы не платите за изолированную кастомную обвязку, а платформа становится сильнее с каждым реальным внедрением. " +
     "Ваш кейс работает на эволюцию ядра, а не на техническую фрагментацию.",
 
   "faq.trust":
-    "Создано для регулируемых отраслей. " +
-    "GDPR-готово. Ролевой доступ. Неизменяемый audit trail. " +
-    "Никаких теневых таблиц. Никакой скрытой логики. Никакой ручной сборки доказательств.",
+    "Создано для регулируемых отраслей. GDPR-ready. Ролевой доступ. Неизменяемый audit trail. " +
+    "Никаких теневых таблиц. Никакой скрытой логики. Никакой ручной сборки доказательной базы.",
 
   // CONTACT
   "contact.eyebrow": "Контакты",
-  "contact.title": "Скажите, что вы хотите контролировать — мы предложим первый быстрый win",
+  "contact.title": "Расскажите, что вы хотите контролировать — мы покажем первый win",
   "contact.subtitle":
-    "Опишите инфраструктуру и желаемый результат. Мы предложим первый измеримый эффект и покажем, как он масштабируется.",
-  "contact.nameLabel": "ФИО",
+    "Опишите вашу инфраструктуру и желаемый результат. Мы предложим первый измеримый эффект и покажем, как его масштабировать.",
+  "contact.nameLabel": "Полное имя",
   "contact.namePlaceholder": "Ваше имя",
   "contact.emailLabel": "Рабочий email",
   "contact.emailPlaceholder": "you@company.com",
@@ -750,11 +748,11 @@ translations.ru = translations.ru || {
   "contact.messagePlaceholder": "Опишите текущую ситуацию и желаемый результат.",
   "contact.submit": "Отправить запрос",
   "contact.legal":
-    "Отправляя форму, вы соглашаетесь, что мы можем связаться с вами по MITE и обработать данные согласно нашей политике конфиденциальности.",
+    "Отправляя форму, вы соглашаетесь, что мы можем связаться с вами по вопросам MITE и обработать ваши данные в соответствии с нашей политикой конфиденциальности.",
   "thank-you.submit": "Спасибо! Мы скоро свяжемся с вами.",
 
   // FOOTER
-  "footer.note": "MITE — промышленная IoT-платформа для команд, которые считают прибыль.",
+  "footer.note": "MITE — промышленная IoT-платформа для команд, которые управляют через результат.",
   "footer.privacy": "Политика конфиденциальности",
   "footer.devices": "Устройства MITE-ECO",
   "footer.backToTop": "Наверх",
@@ -770,26 +768,8 @@ translations.ru = translations.ru || {
   "quick.msgPh": "Что вы хотите контролировать или автоматизировать?",
   "quick.cancel": "Отмена",
   "quick.send": "Отправить",
-  "quick.note": "Ответим с практичным первым шагом и ожидаемыми результатами.",
-
-  // ---------
-  // Use cases (labels inside cards)
-  // ВАЖНО: в вашем HTML сейчас эти слова захардкожены: Pain / How / Result.
-  // Если вы хотите локализацию этих ярлыков — добавьте data-i18n ключи в HTML.
-  // Я всё равно даю ключи на будущее:
-  "uc.label.pain": "Боль",
-  "uc.label.how": "Как решаем",
-  "uc.label.result": "Результат",
-
-  // ---------
-  // Use-cases data (optional): локализуем industryLabel + тексты карточек.
-  // ВНИМАНИЕ: В вашем текущем JS useCases объявлены как const на английском.
-  // Чтобы реально включить RU, нужно либо:
-  // 1) переносить useCases в translations (dict.useCases) и брать их из getDict(lang),
-  // 2) либо в setupUseCases() подменять поля из dict по seq/ключу.
-  //
-  // Ниже — RU-версия тех же 18 кейсов (структура 1-в-1).
-  // Можете использовать как dict.useCases и подключить.
+  "quick.note": "Мы ответим с практичным первым шагом и ожидаемыми результатами."
+};
 
 const useCases = [
   {
