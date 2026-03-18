@@ -37,6 +37,17 @@
       <script defer src="js/data/usecases.uk.js"></script>
 
         <script defer src="js/script.js"></script>
+
+        <link 
+          rel="preload"
+          as="image"
+          href="upload/the-most-flexible-platform-ever.avif"
+          type="image/avif">
+           <link 
+          rel="preload"
+          as="image"
+          href="upload/the-most-flexible-platform-ever.webp"
+          type="image/avif">
 </head>
 
 <body>
@@ -47,6 +58,8 @@
           src="upload/mite-logo-green-w_o-background.webp"
           alt="MITE — make IoT easy"
           class="logo-img"
+          loading="eager"
+              decoding="async"
         />
       </a>
 
