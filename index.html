@@ -5,15 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>MITE — Industrial IIoT Platform for Connected Infrastructure</title>
-  <meta name="description" content="MITE is an industrial IIoT platform that connects assets, models business logic, and turns operational data into decisions. Built for operations, engineering, and IT." />
+  <meta
+    name="description"
+    content="MITE is an industrial IIoT platform that connects assets, models business logic, and turns operational data into decisions. Built for operations, engineering, and IT."
+  />
   <link rel="canonical" href="https://mite.club/" />
 
   <meta property="og:title" content="MITE — Industrial IIoT Platform" />
-  <meta property="og:description" content="Connect industrial assets, define business logic, and turn operational data into decisions — in one platform." />
+  <meta
+    property="og:description"
+    content="Connect industrial assets, define business logic, and turn operational data into decisions — in one platform."
+  />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mite.club/" />
 
   <link rel="icon" href="upload/favicon_mite.png" type="image/png" />
   <link rel="stylesheet" href="css/style.css" />
+
+  <link
+    rel="preload"
+    as="image"
+    href="upload/the-most-flexible-platform-ever.avif"
+    type="image/avif"
+  />
+  <link
+    rel="preload"
+    as="image"
+    href="upload/the-most-flexible-platform-ever.webp"
+    type="image/webp"
+  />
 
   <!-- Google Optimize: BEFORE gtag.js -->
   <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-5R6SJ2X"></script>
@@ -24,30 +44,19 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-WNZ8GSS8XE', { 'optimize_id': 'OPT-5R6SJ2X' });
+    gtag('config', 'G-WNZ8GSS8XE', { optimize_id: 'OPT-5R6SJ2X' });
   </script>
 
-  <!-- Main script + translations -->
-    <script defer src="js/en.js"></script>
-    <script defer src="js/ru.js"></script>
-    <script defer src="js/uk.js"></script>
+  <!-- Translations + data + app -->
+  <script defer src="js/en.js"></script>
+  <script defer src="js/ru.js"></script>
+  <script defer src="js/uk.js"></script>
 
-      <script defer src="js/data/usecases.en.js"></script>
-      <script defer src="js/data/usecases.ru.js"></script>
-      <script defer src="js/data/usecases.uk.js"></script>
+  <script defer src="js/data/usecases.en.js"></script>
+  <script defer src="js/data/usecases.ru.js"></script>
+  <script defer src="js/data/usecases.uk.js"></script>
 
-        <script defer src="js/script.js"></script>
-
-        <link 
-          rel="preload"
-          as="image"
-          href="upload/the-most-flexible-platform-ever.avif"
-          type="image/avif">
-           <link 
-          rel="preload"
-          as="image"
-          href="upload/the-most-flexible-platform-ever.webp"
-          type="image/avif">
+  <script defer src="js/script.js"></script>
 </head>
 
 <body>
@@ -58,7 +67,8 @@
           src="upload/mite-logo-green-w_o-background.webp"
           alt="MITE — make IoT easy"
           class="logo-img"
-          loading="lazy"
+          width="220"
+          height="68"
           decoding="async"
         />
       </a>
@@ -86,8 +96,8 @@
   <main class="page" id="top">
     <!-- HERO -->
     <section class="hero container" data-section="hero">
-      <div class="hero-grid">
-        <div>
+      <div class="hero-grid hero-grid--stable">
+        <div class="hero-copy">
           <div class="hero-kicker">
             <span class="hero-kicker-dot" aria-hidden="true"></span>
             <span data-i18n="hero.kicker"></span>
@@ -112,23 +122,25 @@
           </div>
         </div>
 
-        <div class="hero-visual" aria-hidden="true">
+        <div class="hero-visual hero-visual--stable" aria-hidden="true">
           <picture>
-            <source 
-              srcset="upload/the-most-flexible-platform-ever.avif" 
+            <source
+              srcset="upload/the-most-flexible-platform-ever.avif"
               type="image/avif"
-            >
-            <source 
-              srcset="upload/the-most-flexible-platform-ever.webp" 
+            />
+            <source
+              srcset="upload/the-most-flexible-platform-ever.webp"
               type="image/webp"
-            >
+            />
             <img
               class="orb-spider-img"
               src="upload/the-most-flexible-platform-ever.webp"
               alt="MITE IIoT platform visualization"
-              loading="lazy"
+              width="1600"
+              height="1200"
+              fetchpriority="high"
               decoding="async"
-            >
+            />
           </picture>
         </div>
       </div>
@@ -148,7 +160,6 @@
 
       <div class="section-body">
         <div class="about-grid">
-          <!-- LEFT -->
           <div>
             <div class="about-points">
               <div class="about-point" data-outcome="0">
@@ -189,7 +200,6 @@
             </div>
           </div>
 
-          <!-- RIGHT -->
           <aside class="about-side-card" aria-label="Outcomes">
             <div class="about-side-label" data-i18n="about.side.label"></div>
 
@@ -247,7 +257,6 @@
           </article>
         </div>
 
-        <!-- Connectivity card -->
         <article class="card ci-card">
           <div class="card-inner">
             <div class="card-tag">
@@ -291,59 +300,12 @@
 
       <div class="section-body">
         <div class="grid grid-3" role="list">
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.0.tag"></span></div>
-              <h3 class="card-title" data-i18n="highlights.items.0.title"></h3>
-              <p class="card-text" data-i18n="highlights.items.0.text"></p>
-              <div class="card-meta" data-i18n="highlights.items.0.meta"></div>
-            </div>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.1.tag"></span></div>
-              <h3 class="card-title" data-i18n="highlights.items.1.title"></h3>
-              <p class="card-text" data-i18n="highlights.items.1.text"></p>
-              <div class="card-meta" data-i18n="highlights.items.1.meta"></div>
-            </div>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.2.tag"></span></div>
-              <h3 class="card-title" data-i18n="highlights.items.2.title"></h3>
-              <p class="card-text" data-i18n="highlights.items.2.text"></p>
-              <div class="card-meta" data-i18n="highlights.items.2.meta"></div>
-            </div>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.3.tag"></span></div>
-              <h3 class="card-title" data-i18n="highlights.items.3.title"></h3>
-              <p class="card-text" data-i18n="highlights.items.3.text"></p>
-              <div class="card-meta" data-i18n="highlights.items.3.meta"></div>
-            </div>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.4.tag"></span></div>
-              <h3 class="card-title" data-i18n="highlights.items.4.title"></h3>
-              <p class="card-text" data-i18n="highlights.items.4.text"></p>
-              <div class="card-meta" data-i18n="highlights.items.4.meta"></div>
-            </div>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.5.tag"></span></div>
-              <h3 class="card-title" data-i18n="highlights.items.5.title"></h3>
-              <p class="card-text" data-i18n="highlights.items.5.text"></p>
-              <div class="card-meta" data-i18n="highlights.items.5.meta"></div>
-            </div>
-          </article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.0.tag"></span></div><h3 class="card-title" data-i18n="highlights.items.0.title"></h3><p class="card-text" data-i18n="highlights.items.0.text"></p><div class="card-meta" data-i18n="highlights.items.0.meta"></div></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.1.tag"></span></div><h3 class="card-title" data-i18n="highlights.items.1.title"></h3><p class="card-text" data-i18n="highlights.items.1.text"></p><div class="card-meta" data-i18n="highlights.items.1.meta"></div></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.2.tag"></span></div><h3 class="card-title" data-i18n="highlights.items.2.title"></h3><p class="card-text" data-i18n="highlights.items.2.text"></p><div class="card-meta" data-i18n="highlights.items.2.meta"></div></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.3.tag"></span></div><h3 class="card-title" data-i18n="highlights.items.3.title"></h3><p class="card-text" data-i18n="highlights.items.3.text"></p><div class="card-meta" data-i18n="highlights.items.3.meta"></div></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.4.tag"></span></div><h3 class="card-title" data-i18n="highlights.items.4.title"></h3><p class="card-text" data-i18n="highlights.items.4.text"></p><div class="card-meta" data-i18n="highlights.items.4.meta"></div></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.5.tag"></span></div><h3 class="card-title" data-i18n="highlights.items.5.title"></h3><p class="card-text" data-i18n="highlights.items.5.text"></p><div class="card-meta" data-i18n="highlights.items.5.meta"></div></div></article>
         </div>
       </div>
     </section>
@@ -378,7 +340,7 @@
 
           <button class="pc-nav pc-prev" type="button" aria-label="Previous use case" id="ucPrev">‹</button>
 
-          <div class="pc-viewport">
+          <div class="pc-viewport pc-viewport--stable">
             <div class="pc-track" id="ucTrack"></div>
           </div>
 
@@ -399,35 +361,9 @@
 
       <div class="section-body">
         <div class="grid grid-3" role="list">
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.0.tag"></span></div>
-              <h3 class="card-title" data-i18n="how.steps.0.title"></h3>
-              <p class="card-text" data-i18n="how.steps.0.text"></p>
-              <p class="card-outcome" data-i18n="how.steps.0.output"></p>
-              <p class="card-micro" data-i18n="how.steps.0.micro"></p>
-            </div>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.1.tag"></span></div>
-              <h3 class="card-title" data-i18n="how.steps.1.title"></h3>
-              <p class="card-text" data-i18n="how.steps.1.text"></p>
-              <p class="card-outcome" data-i18n="how.steps.1.output"></p>
-              <p class="card-micro" data-i18n="how.steps.1.micro"></p>
-            </div>
-          </article>
-
-          <article class="card" role="listitem">
-            <div class="card-inner">
-              <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.2.tag"></span></div>
-              <h3 class="card-title" data-i18n="how.steps.2.title"></h3>
-              <p class="card-text" data-i18n="how.steps.2.text"></p>
-              <p class="card-outcome" data-i18n="how.steps.2.output"></p>
-              <p class="card-micro" data-i18n="how.steps.2.micro"></p>
-            </div>
-          </article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.0.tag"></span></div><h3 class="card-title" data-i18n="how.steps.0.title"></h3><p class="card-text" data-i18n="how.steps.0.text"></p><p class="card-outcome" data-i18n="how.steps.0.output"></p><p class="card-micro" data-i18n="how.steps.0.micro"></p></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.1.tag"></span></div><h3 class="card-title" data-i18n="how.steps.1.title"></h3><p class="card-text" data-i18n="how.steps.1.text"></p><p class="card-outcome" data-i18n="how.steps.1.output"></p><p class="card-micro" data-i18n="how.steps.1.micro"></p></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.2.tag"></span></div><h3 class="card-title" data-i18n="how.steps.2.title"></h3><p class="card-text" data-i18n="how.steps.2.text"></p><p class="card-outcome" data-i18n="how.steps.2.output"></p><p class="card-micro" data-i18n="how.steps.2.micro"></p></div></article>
         </div>
       </div>
     </section>
@@ -533,25 +469,10 @@
 
       <div class="section-body">
         <div class="grid grid-2" role="list">
-          <article class="card" role="listitem"><div class="card-inner">
-            <p class="card-text" data-i18n="testimonials.items.0.text"></p>
-            <div class="card-meta" data-i18n="testimonials.items.0.meta"></div>
-          </div></article>
-
-          <article class="card" role="listitem"><div class="card-inner">
-            <p class="card-text" data-i18n="testimonials.items.1.text"></p>
-            <div class="card-meta" data-i18n="testimonials.items.1.meta"></div>
-          </div></article>
-
-          <article class="card" role="listitem"><div class="card-inner">
-            <p class="card-text" data-i18n="testimonials.items.2.text"></p>
-            <div class="card-meta" data-i18n="testimonials.items.2.meta"></div>
-          </div></article>
-
-          <article class="card" role="listitem"><div class="card-inner">
-            <p class="card-text" data-i18n="testimonials.items.3.text"></p>
-            <div class="card-meta" data-i18n="testimonials.items.3.meta"></div>
-          </div></article>
+          <article class="card" role="listitem"><div class="card-inner"><p class="card-text" data-i18n="testimonials.items.0.text"></p><div class="card-meta" data-i18n="testimonials.items.0.meta"></div></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><p class="card-text" data-i18n="testimonials.items.1.text"></p><div class="card-meta" data-i18n="testimonials.items.1.meta"></div></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><p class="card-text" data-i18n="testimonials.items.2.text"></p><div class="card-meta" data-i18n="testimonials.items.2.meta"></div></div></article>
+          <article class="card" role="listitem"><div class="card-inner"><p class="card-text" data-i18n="testimonials.items.3.text"></p><div class="card-meta" data-i18n="testimonials.items.3.meta"></div></div></article>
         </div>
       </div>
     </section>
@@ -609,12 +530,13 @@
         </header>
 
         <div class="contact-card">
-          <form class="form form--contact js-mite-form"
-                data-toast=".js-success-toast"
-                action="https://formspree.io/f/mjkranro"
-                method="POST"
-                autocomplete="on">
-
+          <form
+            class="form form--contact js-mite-form"
+            data-toast=".js-success-toast"
+            action="https://formspree.io/f/mjkranro"
+            method="POST"
+            autocomplete="on"
+          >
             <input type="hidden" name="source" value="main_contact" />
 
             <div class="form-grid form-row-2">
@@ -662,7 +584,6 @@
 
       <div class="footer-links">
         <a href="privacy-policy.html" data-i18n="footer.privacy"></a>
-       <!-- <a href="MITE-ECO.html" data-i18n="footer.devices"></a>-->
         <a href="#top" data-i18n="footer.backToTop"></a>
       </div>
 
@@ -686,16 +607,13 @@
     </div>
   </footer>
 
-  <!-- Quick contact sticky button -->
   <button class="quick-contact" type="button" id="quickBtn">
     <span class="quick-dot" aria-hidden="true"></span>
     <span class="quick-label" id="quickLabel" data-i18n="quick.label"></span>
   </button>
 
-  <!-- Drawer overlay -->
   <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
 
-  <!-- Drawer -->
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
     <div class="drawer-head">
       <div class="drawer-title" id="drawerTitle" data-i18n="quick.title"></div>
@@ -703,30 +621,28 @@
     </div>
 
     <div class="drawer-body">
-      <form class="form form--drawer js-mite-form"
-            data-toast=".js-success-toast"
-            action="https://formspree.io/f/mjkranro"
-            method="POST"
-            autocomplete="on">
-
+      <form
+        class="form form--drawer js-mite-form"
+        data-toast=".js-success-toast"
+        action="https://formspree.io/f/mjkranro"
+        method="POST"
+        autocomplete="on"
+      >
         <input type="hidden" name="source" value="quick_drawer" />
 
         <div>
           <label for="qName" data-i18n="quick.nameLabel"></label>
-          <input type="text" id="qName" name="name" autocomplete="name" required
-                 data-i18n-placeholder="quick.namePh" />
+          <input type="text" id="qName" name="name" autocomplete="name" required data-i18n-placeholder="quick.namePh" />
         </div>
 
         <div>
           <label for="qEmail" data-i18n="quick.emailLabel"></label>
-          <input type="email" id="qEmail" name="email" autocomplete="email" required
-                 data-i18n-placeholder="quick.emailPh" />
+          <input type="email" id="qEmail" name="email" autocomplete="email" required data-i18n-placeholder="quick.emailPh" />
         </div>
 
         <div>
           <label for="qMsg" data-i18n="quick.msgLabel"></label>
-          <textarea id="qMsg" name="message" rows="3" required
-                    data-i18n-placeholder="quick.msgPh"></textarea>
+          <textarea id="qMsg" name="message" rows="3" required data-i18n-placeholder="quick.msgPh"></textarea>
         </div>
 
         <div class="drawer-actions">
@@ -735,7 +651,6 @@
         </div>
 
         <div class="drawer-note" data-i18n="quick.note"></div>
-
         <div class="toast js-success-toast" data-i18n="thank-you.submit" hidden></div>
       </form>
     </div>
