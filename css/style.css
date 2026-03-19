@@ -1,10 +1,10 @@
 :root {
-  --bg: #020617;
-  --bg-alt: #030712;
+  --bg: #0b1220;          /* было #070b14 → чуть светлее */
+  --bg-alt: #111a2e;
   --bg-soft: #020617;
   --accent: #54e54a;
   --accent-soft: rgba(84, 229, 74, 0.18);
-  --accent2: #48cfff;
+  --accent2: #48ffd1; 
   --accent2-soft: rgba(72, 207, 255, 0.14);
   --text: #e5e7eb;
   --muted: #9ca3af;
@@ -13,10 +13,12 @@
   --radius-lg: 1.25rem;
   --radius-md: 0.875rem;
   --radius-pill: 999px;
-  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
+ /* --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);*/
+  --shadow-soft: 0 12px 28px rgba(0,0,0,0.7);
   --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
     "Segoe UI", sans-serif;
 }
+
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .site-header,
@@ -43,7 +45,7 @@ body {
   font-family: var(--font-sans);
   color: var(--text);
   background:
-    radial-gradient(circle at top left, var(--accent2-soft), transparent 55%),
+    radial-gradient(circle at top left, var(--accent2-soft), transparent 55%),   
     radial-gradient(circle at bottom right, var(--accent-soft), transparent 55%),
     linear-gradient(135deg, #000000, var(--bg));
 }

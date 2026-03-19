@@ -1,6 +1,50 @@
 window.translations = window.translations || {};
 const translations = window.translations;
 
+/* =========================
+   Dynamic script loader
+========================= */
+
+function loadScript(src) {
+  return new Promise((resolve, reject) => {
+    const existing = document.querySelector(`script[data-src="${src}"]`);
+    if (existing) {
+      if (existing.dataset.loaded === "true") return resolve();
+      existing.addEventListener("load", resolve, { once: true });
+      existing.addEventListener("error", reject, { once: true });
+      return;
+    }
+
+    const s = document.createElement("script");
+    s.src = src;
+    s.defer = true;
+    s.dataset.src = src;
+
+    s.onload = () => {
+      s.dataset.loaded = "true";
+      resolve();
+    };
+
+    s.onerror = reject;
+
+    document.head.appendChild(s);
+  });
+}
+
+async function ensureLangAssets(lang) {
+  if (lang === "en") return;
+
+  const needBase = !window.translations?.[lang];
+  const needCases = !window.translations?.[lang]?.useCases;
+
+  const tasks = [];
+
+  if (needBase) tasks.push(loadScript(`js/${lang}.js`));
+  if (needCases) tasks.push(loadScript(`js/data/usecases.${lang}.js`));
+
+  await Promise.all(tasks);
+}
+
 /* -------------------------
    i18n helpers
 ------------------------- */
@@ -37,9 +81,17 @@ function applyTranslations(lang = "en") {
   });
 
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
-    const code = btn.getAttribute("data-lang-btn");
-    btn.classList.toggle("is-active", code === lang);
+  btn.addEventListener("click", async () => {
+    const code = btn.getAttribute("data-lang-btn") || "en";
+
+    try {
+      await ensureLangAssets(code);
+      applyTranslations(code);
+    } catch (e) {
+      console.error("Language load failed:", code, e);
+    }
   });
+});
 
   window.__updateOutcomes?.();
   window.__updateUseCases?.();
@@ -664,31 +716,98 @@ function setupMiteForms() {
 }
 
 /* -------------------------
+   Lazy init helpers
+------------------------- */
+function once(fn) {
+  let done = false;
+  return (...args) => {
+    if (done) return;
+    done = true;
+    return fn(...args);
+  };
+}
+
+function lazyInitOnVisible(selector, init, options = {}) {
+  const el = document.querySelector(selector);
+  if (!el) return;
+
+  const run = once(init);
+
+  if (!("IntersectionObserver" in window)) {
+    run();
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          run();
+          observer.disconnect();
+        }
+      });
+    },
+    {
+      rootMargin: options.rootMargin || "200px 0px",
+      threshold: options.threshold || 0.01
+    }
+  );
+
+  observer.observe(el);
+}
+
+function lazyInitOnFirstInteraction(init) {
+  const run = once(init);
+
+  const handler = () => {
+    run();
+    window.removeEventListener("pointerdown", handler);
+    window.removeEventListener("keydown", handler);
+    window.removeEventListener("touchstart", handler);
+  };
+
+  window.addEventListener("pointerdown", handler, { passive: true, once: true });
+  window.addEventListener("keydown", handler, { once: true });
+  window.addEventListener("touchstart", handler, { passive: true, once: true });
+}
+
+/* -------------------------
    Boot
 ------------------------- */
 window.MITE = window.MITE || {};
 window.MITE.page = window.MITE.page || { id: "index" };
 
+const initOutcomes = once(setupOutcomes);
+const initUseCases = once(setupUseCases);
+const initPricing = once(setupPricingCarousel);
+const initFaq = once(setupFaqAccordion);
+const initDrawer = once(setupDrawer);
+const initForms = once(setupMiteForms);
+
 document.addEventListener("DOMContentLoaded", () => {
   setupYear();
-  setupOutcomes();
-  setupUseCases();
-  setupPricingCarousel();
-  setupFaqAccordion();
-  setupDrawer();
-  setupMiteForms();
 
-  let initial = (window.MITE?.page?.langDefault) || "en";
-  try {
-    initial = localStorage.getItem("mite-lang") || initial;
-  } catch (_) {}
-
+  const initial = (window.MITE?.page?.langDefault) || "en";
   applyTranslations(initial);
 
+  lazyInitOnVisible("#about", initOutcomes);
+  lazyInitOnVisible("#usecases", initUseCases);
+  lazyInitOnVisible("#pricing", initPricing);
+  lazyInitOnVisible("#faq", initFaq);
+  lazyInitOnVisible("#contact", initForms);
+
+  lazyInitOnFirstInteraction(initDrawer);
+
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", async () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
-      applyTranslations(code);
+
+      try {
+        await ensureLangAssets(code);
+        applyTranslations(code);
+      } catch (e) {
+        console.error("Language load failed:", code, e);
+      }
     });
   });
 });
