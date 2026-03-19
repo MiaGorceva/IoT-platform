@@ -394,10 +394,16 @@ img {
   color: transparent;}
 
 .hero-title span {
-  background: linear-gradient(120deg, rgba(84, 229, 74, 0.92), rgba(72, 207, 255, 0.92));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+   animation: metalShift 6s linear infinite;
+}
+
+@keyframes metalShift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 .hero-subtitle {
@@ -1383,7 +1389,7 @@ textarea:focus {
   margin-top: 12px;
   padding: 10px 14px;
   border-radius: 8px;
-  background: linear-gradient(90deg, #48cfff, #54e54a);
+  background: linear-gradient(90deg, #5fe3ff, #54e54a);
   color: #001018;
   font-weight: 600;
   font-size: 14px;
@@ -1452,7 +1458,7 @@ textarea:focus {
 
 .faq-tag--it {
   background: rgba(72, 207, 255, 0.12);
-  color: #48cfff;
+  color: #5fe3ff;
   border: 1px solid rgba(72, 207, 255, 0.3);
 }
 
@@ -1849,7 +1855,7 @@ textarea:focus {
 }
 
 .site-nav__link {
-  color: #48cfff;
+  color: #5fe3ff;
   text-decoration: none;
 }
 
@@ -1886,7 +1892,7 @@ textarea:focus {
 }
 
 .site-footer__back {
-  color: #48cfff;
+  color: #5fe3ff;
   text-decoration: none;
   font-weight: 600;
 }
