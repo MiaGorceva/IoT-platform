@@ -440,7 +440,7 @@ img {
 }
 
 .hero-visual {
-  padding: 1.25rem;
+  padding: 1.7rem;
   border-radius: 1.4rem;
   border: 1px solid rgba(148, 163, 184, 0.1);
   background:
@@ -453,11 +453,11 @@ img {
 }
 
 .hero-visual {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 2 / 1;
 }
 
 .orb-spider-img {
-  width: 100%;
+  width: 91%;
   height: auto;
   display: block;
   object-fit: contain;
