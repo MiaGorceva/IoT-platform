@@ -382,15 +382,18 @@ img {
   line-height: 1.06;
   letter-spacing: -0.04em;
   text-wrap: balance;
-  color: linear-gradient(
-  135deg,
-  #f2f4f7 0%,
-  #c9ced6 20%,
-  #8b949e 40%,
-  #e5e9ef 60%,
-  #6f7782 80%,
-  #d8dde5 100%);
-}
+   background: linear-gradient(
+    135deg,
+    #f2f4f7 0%,
+    #c9ced6 20%,
+    #8b949e 40%,
+    #e5e9ef 60%,
+    #6f7782 80%,
+    #d8dde5 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;}
 
 .hero-title span {
   background: linear-gradient(120deg, rgba(84, 229, 74, 0.92), rgba(72, 207, 255, 0.92));
