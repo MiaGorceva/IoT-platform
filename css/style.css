@@ -1,14 +1,19 @@
 :root {
-  --bg: #0b1220;          /* было #070b14 → чуть светлее */
+  --bg: #0b1220;
   --bg-alt: #111a2e;
   --bg-soft: #020617;
-  --accent: #54e54a;
+
+  --accent: #54e54a;  
   --accent-soft: rgba(84, 229, 74, 0.18);
-  --accent2: #48ffd1; 
-  --accent2-soft: rgba(72, 207, 255, 0.14);
+
+  /* ВАЖНО: вместо бирюзы — холодный синий */
+  --accent2: #4c7dff;
+  --accent2-soft: rgba(76, 125, 255, 0.12);
+
   --text: #e5e7eb;
   --muted: #9ca3af;
   --border: #1f2937;
+
   --danger: #f97373;
   --radius-lg: 1.25rem;
   --radius-md: 0.875rem;
@@ -45,9 +50,9 @@ body {
   font-family: var(--font-sans);
   color: var(--text);
   background:
-    radial-gradient(circle at top left, var(--accent2-soft), transparent 55%),   
-    radial-gradient(circle at bottom right, var(--accent-soft), transparent 55%),
-    linear-gradient(135deg, #000000, var(--bg));
+    radial-gradient(circle at top left, rgba(76,125,255,0.12), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(84,229,74,0.10), transparent 55%),
+    linear-gradient(135deg, #020617, #0b1220);
 }
 
 a {
