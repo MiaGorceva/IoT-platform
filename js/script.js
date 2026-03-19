@@ -864,6 +864,7 @@ const initDrawer = once(setupDrawer);
 const initForms = once(setupMiteForms);
 
 document.addEventListener("DOMContentLoaded", async () => {
+  initOutcomes();
   setupYear();
 
   let initial = "en";
@@ -885,7 +886,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   applyTranslations(initial);
 
-  lazyInitOnVisible("#about", initOutcomes);
+  /*lazyInitOnVisible("#about", initOutcomes);*/
   lazyInitOnVisible("#usecases", initUseCases);
   lazyInitOnVisible("#pricing", initPricing);
   lazyInitOnVisible("#faq", initFaq);
