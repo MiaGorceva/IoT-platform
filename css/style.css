@@ -395,32 +395,38 @@ img {
 
 .hero-title span {
   background: linear-gradient(
-    135deg,
-    #54e54a 0%,
-    rgba(84, 229, 74, 0.16) 18%,
-    #c9d1da 50%,
-    #9fe6ff 85%,
-    #48cfff 100%
-  
+    120deg,
+    #7dff9a 0%,     /* мягкий green glow */
+    #54e54a 15%,    /* основной бренд */
+    #48ffd1 35%,    /* переход (бирюза) */
+    #48cfff 60%,    /* cyan (орбита) */
+    #2ea8ff 80%,    /* глубже синий */
+    #9fe6ff 100%    /* светлый отблеск */
   );
 
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 
-  text-shadow:
-    0 0 6px rgba(72, 207, 255, 0.15),
-    0 0 12px rgba(72, 207, 255, 0.08);
-   animation: metalShift 6s linear infinite;
-}
+  background-size: 220% auto;
 
-@keyframes metalShift {
+  animation: neonFlow 5s ease-in-out infinite;
+
+  text-shadow:
+    0 0 6px rgba(84, 229, 74, 0.15),
+    0 0 10px rgba(72, 207, 255, 0.15);
+
+    @keyframes neonFlow {
   0% {
     background-position: 0% center;
   }
-  100% {
-    background-position: 200% center;
+  50% {
+    background-position: 100% center;
   }
+  100% {
+    background-position: 0% center;
+  }
+}
 }
 
 .hero-subtitle {
