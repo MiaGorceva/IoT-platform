@@ -1761,13 +1761,6 @@ textarea:focus {
   .hero-title {
     font-size: 2.02rem;
     line-height: 1.08;
-    color: linear-gradient(135deg,
-  #f2f4f7 0%,
-  #c9ced6 20%,
-  #8b949e 40%,
-  #e5e9ef 60%,
-  #6f7782 80%,
-  #d8dde5 100%);
   }
 
   .grid-3,
