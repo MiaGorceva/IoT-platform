@@ -469,6 +469,7 @@ img {
 
 .hero-card strong {
   color: var(--accent);
+  text-shadow: var(--accent2);
   font-weight: 500;
 }
 
