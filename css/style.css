@@ -1,28 +1,27 @@
 :root {
-   --bg: #101722;                 /* чуть светлее, но всё ещё deep */
-    --bg-alt: #161f2d;
-    --bg-soft: #0b111a;
+     --bg: #101722;                 /* чуть светлее, но всё ещё deep */
+  --bg-alt: #161f2d;
+  --bg-soft: #0b111a;
 
-    --accent: #54e54a;
-    --accent-soft: rgba(84, 229, 74, 0.16);
+  --accent: #54e54a;
+  --accent-soft: rgba(84, 229, 74, 0.16);
 
-    /* вместо бирюзы — холодный стальной серый */
-    --accent2: #93a4b8;
-    --accent2-soft: rgba(147, 164, 184, 0.10);
+  /* вместо бирюзы — холодный стальной серый */
+  --accent2: #93a4b8;
+  --accent2-soft: rgba(147, 164, 184, 0.10);
 
-    --text: #edf2f7;
-    --muted: #a7b0bf;
-    --border: rgba(255, 255, 255, 0.08);
+  --text: #edf2f7;
+  --muted: #a7b0bf;
+  --border: rgba(255, 255, 255, 0.08);
 
-    --danger: #f97373;
-    --radius-lg: 1.25rem;
-    --radius-md: 0.875rem;
-    --radius-pill: 999px;
-    --shadow-soft: 0 12px 28px rgba(0, 0, 0, 0.65);
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-      "Segoe UI", sans-serif;
-  }
-
+  --danger: #f97373;
+  --radius-lg: 1.25rem;
+  --radius-md: 0.875rem;
+  --radius-pill: 999px;
+  --shadow-soft: 0 12px 28px rgba(0, 0, 0, 0.65);
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+    "Segoe UI", sans-serif;
+}
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .site-header,
@@ -49,9 +48,9 @@ body {
   font-family: var(--font-sans);
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(180,190,200,0.10), transparent 50%),
-    radial-gradient(circle at bottom right, rgba(84,229,74,0.10), transparent 50%),
-    linear-gradient(135deg, #020617, #0b1220);
+    radial-gradient(circle at top left, rgba(147, 164, 184, 0.08), transparent 52%),
+    radial-gradient(circle at bottom right, rgba(84, 229, 74, 0.10), transparent 50%),
+    linear-gradient(135deg, #06090f, var(--bg));
 }
 
 body::before {
