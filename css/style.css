@@ -1240,7 +1240,6 @@ img {
 .pc-card {
   flex: 0 0 min(360px, calc(100vw - 72px));
   max-width: min(360px, calc(100vw - 72px));
-  background: rgba(10, 18, 35, 0.72);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 22px;
   padding: 22px 20px;
@@ -1419,7 +1418,7 @@ textarea:focus {
 .faq-list {
   border-radius: var(--radius-lg);
   border: 1px solid rgba(31, 41, 55, 0.9);
-  background: rgba(15, 23, 42, 0.96);
+  background: rgba(10, 20, 35, 0.92);
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
   padding: 0.85rem 1rem;
 }
