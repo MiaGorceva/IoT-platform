@@ -429,8 +429,11 @@ img {
   margin-top: 1rem;
   padding: 0.7rem 0.95rem;
   border-radius: 1rem;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.86), rgba(15, 23, 42, 0.72));
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  background:
+    radial-gradient(circle at top left, rgba(72, 207, 255, 0.14), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(84, 229, 74, 0.12), transparent 55%),
+    rgba(5, 10, 25, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55);
 }
 
