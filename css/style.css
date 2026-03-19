@@ -394,6 +394,24 @@ img {
   color: transparent;}
 
 .hero-title span {
+  background: linear-gradient(
+    135deg,
+    #d8dde5 0%,
+    #aeb6c2 18%,
+    #6f7b88 35%,
+    #c9d1da 50%,
+    #7f8b98 65%,
+    #48cfff 85%,
+    #9fe6ff 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow:
+    0 0 6px rgba(72, 207, 255, 0.15),
+    0 0 12px rgba(72, 207, 255, 0.08);
    animation: metalShift 6s linear infinite;
 }
 
@@ -602,10 +620,10 @@ img {
 }
 
 .about-point-icon {
-  color: var(--accent2);
+  color: #5fe3ff;
   line-height: 1;
   margin-top: 0.2rem;
-  text-shadow: 0 0 12px rgba(72, 207, 255, 0.75);
+  text-shadow: var(--accent-2);
 }
 
 .about-point-title {
