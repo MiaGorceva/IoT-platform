@@ -121,7 +121,7 @@ window.translations.en = {
     "Model processes as logic: conditions, routes, approvals, escalations, and KPIs. " +
     "Describe what must happen — MITE takes care of execution, consistency, and traceability. " +
     "Complexity can grow without turning into custom-code chaos.",
-  "platform.cards.0.meta": "Less development friction • faster iterations • clearer ownership",
+  "platform.cards.0.meta": "Without IT team • faster iterations • clearer ownership",
 
   "platform.cards.1.title": "Predictable scaling — even when complexity grows",
   "platform.cards.1.text":
