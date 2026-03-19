@@ -80,19 +80,6 @@ function applyTranslations(lang = "en") {
     el.setAttribute("placeholder", value);
   });
 
-  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
-  btn.addEventListener("click", async () => {
-    const code = btn.getAttribute("data-lang-btn") || "en";
-
-    try {
-      await ensureLangAssets(code);
-      applyTranslations(code);
-    } catch (e) {
-      console.error("Language load failed:", code, e);
-    }
-  });
-});
-
   window.__updateOutcomes?.();
   window.__updateUseCases?.();
   window.__updatePricing?.();
@@ -305,7 +292,7 @@ function setupUseCases() {
 }
 
   function perView() {
-    const w = carousel.getBoundingClientRect().width;
+    const w = carousel.clientWidth;
     if (w < 640) return 1;
     if (w < 980) return 2;
     return 3;
@@ -318,18 +305,25 @@ function setupUseCases() {
 
   function renderDots(maxPages) {
     if (!dots) return;
-    dots.innerHTML = "";
-    for (let i = 0; i < maxPages; i++) {
-      const d = document.createElement("button");
-      d.type = "button";
-      d.className = "dot" + (i === page ? " is-active" : "");
-      d.addEventListener("click", () => {
-        page = i;
-        updateCarousel();
-      });
-      dots.appendChild(d);
+
+    if (dots.children.length !== maxPages) {
+      dots.innerHTML = "";
+      for (let i = 0; i < maxPages; i++) {
+        const d = document.createElement("button");
+        d.type = "button";
+        d.className = "dot";
+        d.addEventListener("click", () => {
+          page = i;
+          updateCarousel();
+        });
+        dots.appendChild(d);
+      }
     }
-  }
+
+  [...dots.children].forEach((d, i) => {
+    d.classList.toggle("is-active", i === page);
+  });
+}
 
   function renderCards(list) {
     const lang = document.documentElement.lang || "en";
@@ -784,10 +778,23 @@ const initFaq = once(setupFaqAccordion);
 const initDrawer = once(setupDrawer);
 const initForms = once(setupMiteForms);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   setupYear();
 
-  const initial = (window.MITE?.page?.langDefault) || "en";
+  let initial = "en";
+  try {
+    initial =
+      localStorage.getItem("mite-lang") ||
+      window.MITE?.page?.langDefault ||
+      "en";
+  } catch (_) {
+    initial = window.MITE?.page?.langDefault || "en";
+  }
+
+  try {
+    await ensureLangAssets(initial);
+  } catch (_) {}
+
   applyTranslations(initial);
 
   lazyInitOnVisible("#about", initOutcomes);
@@ -801,7 +808,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
-
       try {
         await ensureLangAssets(code);
         applyTranslations(code);
