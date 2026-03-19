@@ -383,9 +383,7 @@ img {
   letter-spacing: -0.04em;
   text-wrap: balance;
    background: linear-gradient(
-    135deg,
-    #f2f4f7 0%,
-    #c9ced6 20%,
+    150deg, #c9ced6 5%, 
     #8b949e 40%,
     #e5e9ef 60%,
     #6f7782 80%,
@@ -471,9 +469,10 @@ img {
 
 .orb-spider-img {
   width: 91%;
-  height: auto;
   display: block;
-  object-fit: contain;
+  height: auto;
+  max-width: 80%;
+  filter: drop-shadow(0 18px 32px rgba(0,0,0,0.55));
 }
 
 /* =========================
