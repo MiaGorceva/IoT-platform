@@ -285,9 +285,9 @@ img {
 }
 
 .btn-primary {
-  background: linear-gradient(90deg, #7f8d9d, var(--accent));
-  color: #071018;
-  border-color: rgba(147, 164, 184, 0.22);
+  background: linear-gradient(90deg, var(--accent2), var(--accent));
+  color: #001018;
+  border-color: rgba(72, 207, 255, 0.28);
   box-shadow: var(--shadow-soft);
 }
 
@@ -386,7 +386,7 @@ img {
 }
 
 .hero-title span {
-  background: linear-gradient(120deg, rgba(84, 229, 74, 0.96), rgba(210, 216, 224, 0.92));
+  background: linear-gradient(120deg, rgba(84, 229, 74, 0.92), rgba(72, 207, 255, 0.92));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
