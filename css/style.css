@@ -358,7 +358,7 @@ img {
   padding: 0.25rem 0.85rem;
   border-radius: var(--radius-pill);
   background: rgba(15, 23, 42, 0.86);
-  border: 1px solid rgba(37, 99, 235, 0.7);
+  border: 1px solid rgba(72, 207, 255, 0.85);
   box-shadow:
     0 0 18px rgba(37, 99, 235, 0.55),
     0 0 0 1px rgba(15, 23, 42, 0.9);
