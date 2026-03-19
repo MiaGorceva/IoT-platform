@@ -397,11 +397,11 @@ img {
   background: linear-gradient(
     135deg,
     #54e54a 0%,
-    #aeb6c2 18%,
+    rgba(84, 229, 74, 0.16) 18%,
     #c9d1da 50%,
-    #7f8b98 65%,
-    #48cfff 85%,
-    #9fe6ff 100%
+    #9fe6ff 85%,
+    #48cfff 100%
+  
   );
 
   -webkit-background-clip: text;
