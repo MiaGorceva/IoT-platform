@@ -22,19 +22,16 @@
   <link rel="icon" href="upload/favicon_mite.png" type="image/png" />
   <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Preload hero image -->
   <link
-  rel="preload"
-  as="image"
-  href="upload/the-most-flexible-platform-ever.avif"
-  type="image/avif"
-  fetchpriority="high"
-/>
+    rel="preload"
+    as="image"
+    href="upload/the-most-flexible-platform-ever.avif"
+    type="image/avif"
+    fetchpriority="high"
+  />
 
-  <!-- Google Optimize: BEFORE gtag.js -->
   <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-5R6SJ2X"></script>
 
-  <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WNZ8GSS8XE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -43,32 +40,30 @@
     gtag("config", "G-WNZ8GSS8XE", { optimize_id: "OPT-5R6SJ2X" });
   </script>
 
-  <!-- i18n + data -->
   <script defer src="js/en.js"></script>
- <!-- <script defer src="js/ru.js"></script>
+  <!-- <script defer src="js/ru.js"></script>
   <script defer src="js/uk.js"></script>
-   <script defer src="js/data/usecases.ru.js"></script>
-  <script defer src="js/data/usecases.uk.js"></script>-->
-
+  <script defer src="js/data/usecases.ru.js"></script>
+  <script defer src="js/data/usecases.uk.js"></script> -->
   <script defer src="js/data/usecases.en.js"></script>
   <script defer src="js/script.js"></script>
 </head>
 
 <body>
   <header class="site-header">
-    <div class="container nav-inner">
-      <a href="#top" class="logo" aria-label="MITE home">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="MITE home">
         <img
           src="upload/mite-logo-green-w_o-background.webp"
           alt="MITE logo"
-          class="logo-img"
+          class="brand-mark"
           width="220"
           height="52"
           decoding="async"
         />
       </a>
 
-      <nav class="main-nav" aria-label="Primary navigation">
+      <nav class="link-set" aria-label="Primary navigation">
         <a href="#about" data-i18n="nav.about"></a>
         <a href="#platform" data-i18n="nav.platform"></a>
         <a href="#usecases" data-i18n="nav.solutions"></a>
@@ -77,8 +72,8 @@
         <a href="#contact" data-i18n="nav.contact"></a>
       </nav>
 
-      <div class="nav-actions">
-        <div class="lang-switch" aria-label="Language switcher">
+      <div class="action-set">
+        <div class="toggle" aria-label="Language switcher">
           <button type="button" data-lang-btn="en" class="is-active">EN</button>
           <button type="button" data-lang-btn="ru">RU</button>
           <button type="button" data-lang-btn="uk">UK</button>
@@ -90,59 +85,59 @@
   </header>
 
   <main class="page" id="top">
-    <!-- HERO -->
     <section class="hero container" data-section="hero">
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <div class="hero-kicker">
-            <span class="hero-kicker-dot" aria-hidden="true"></span>
+      <div class="split-layout">
+        <div>
+          <div class="pill">
+            <span class="pill-dot" aria-hidden="true"></span>
             <span data-i18n="hero.kicker"></span>
           </div>
 
-          <h1 class="hero-title" data-i18n="hero.title"></h1>
-          <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
+          <h1 class="title-hero" data-i18n="hero.title"></h1>
+          <p class="text-lead" data-i18n="hero.subtitle"></p>
 
-          <div class="hero-cta-row">
+          <div class="action-row">
             <a href="#contact" class="btn btn-primary" data-i18n="hero.primaryCta"></a>
             <a href="#how" class="btn btn-outline" data-i18n="hero.secondaryCta"></a>
           </div>
 
-          <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span class="about-point-icon" aria-hidden="true">●</span>
+          <div class="info-list">
+            <div class="info-list-item">
+              <span class="pill-dot" aria-hidden="true"></span>
               <span data-i18n="hero.meta1"></span>
             </div>
-            <div class="hero-meta-item">
-              <span class="about-point-icon" aria-hidden="true">●</span>
+            <div class="info-list-item">
+              <span class="pill-dot" aria-hidden="true"></span>
               <span data-i18n="hero.meta2"></span>
             </div>
-            <div class="hero-meta-item">
-              <span class="about-point-icon" aria-hidden="true">●</span>
+            <div class="info-list-item">
+              <span class="pill-dot" aria-hidden="true"></span>
               <span data-i18n="hero.meta3"></span>
             </div>
           </div>
 
-          <div class="hero-card">
-            <span data-i18n="hero.badge"></span>
+          <div class="surface surface-soft quote-box">
+            <div class="surface-body">
+              <span data-i18n="hero.badge"></span>
+            </div>
           </div>
         </div>
 
-      <div class="hero-visual">
-        <picture>
-          <source srcset="upload/the-most-flexible-platform-ever.avif" type="image/avif" />
-          <source srcset="upload/the-most-flexible-platform-ever.webp" type="image/webp" />
-          <img
-            class="orb-spider-img"
-            src="upload/the-most-flexible-platform-ever.webp"
-            alt="MITE IIoT platform visualization"
-            width="1200"
-            height="799"
-            fetchpriority="high"
-            loading="eager"
-            decoding="async"
-          />
-        </picture>
-      </div>
+        <div class="media-frame">
+          <picture>
+            <source srcset="upload/the-most-flexible-platform-ever.avif" type="image/avif" />
+            <source srcset="upload/the-most-flexible-platform-ever.webp" type="image/webp" />
+            <img
+              src="upload/the-most-flexible-platform-ever.webp"
+              alt="MITE IIoT platform visualization"
+              width="1200"
+              height="799"
+              fetchpriority="high"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
+        </div>
       </div>
     </section>
 
@@ -151,232 +146,184 @@
       gateways, sensors, PLC integration, workflows, dashboards, and operational analytics.
     </p>
 
-    <!-- ABOUT -->
     <section id="about" class="section container" data-section="about">
-      <header class="section-header">
+      <header class="section-head">
         <div class="eyebrow" data-i18n="about.eyebrow"></div>
-        <h2 class="section-title" data-i18n="about.title"></h2>
-        <p class="section-subtitle about-text" data-i18n="about.text"></p>
+        <h2 class="title-section" data-i18n="about.title"></h2>
+        <p class="text-section" data-i18n="about.text"></p>
       </header>
 
-      <div class="about-grid">
+      <div class="split-layout">
         <div>
-          <div class="about-points">
-            <div class="about-point" data-outcome="0">
-              <div class="about-point-icon" aria-hidden="true">●</div>
-              <div>
-                <div class="about-point-title" data-i18n="about.point1.title"></div>
-                <div class="about-point-text" data-i18n="about.point1.text"></div>
+          <div class="item-list">
+            <div class="item-row" data-outcome="0">
+              <div class="item-mark" aria-hidden="true"></div>
+              <div class="item-body">
+                <div class="title-sm" data-i18n="about.point1.title"></div>
+                <div class="text-sm" data-i18n="about.point1.text"></div>
               </div>
             </div>
 
-            <div class="about-point" data-outcome="1">
-              <div class="about-point-icon" aria-hidden="true">●</div>
-              <div>
-                <div class="about-point-title" data-i18n="about.point2.title"></div>
-                <div class="about-point-text" data-i18n="about.point2.text"></div>
+            <div class="item-row" data-outcome="1">
+              <div class="item-mark" aria-hidden="true"></div>
+              <div class="item-body">
+                <div class="title-sm" data-i18n="about.point2.title"></div>
+                <div class="text-sm" data-i18n="about.point2.text"></div>
               </div>
             </div>
 
-            <div class="about-point" data-outcome="2">
-              <div class="about-point-icon" aria-hidden="true">●</div>
-              <div>
-                <div class="about-point-title" data-i18n="about.point3.title"></div>
-                <div class="about-point-text" data-i18n="about.point3.text"></div>
+            <div class="item-row" data-outcome="2">
+              <div class="item-mark" aria-hidden="true"></div>
+              <div class="item-body">
+                <div class="title-sm" data-i18n="about.point3.title"></div>
+                <div class="text-sm" data-i18n="about.point3.text"></div>
               </div>
             </div>
 
-            <div class="about-point" data-outcome="3">
-              <div class="about-point-icon" aria-hidden="true">●</div>
-              <div>
-                <div class="about-point-title" data-i18n="about.point4.title"></div>
-                <div class="about-point-text" data-i18n="about.point4.text"></div>
+            <div class="item-row" data-outcome="3">
+              <div class="item-mark" aria-hidden="true"></div>
+              <div class="item-body">
+                <div class="title-sm" data-i18n="about.point4.title"></div>
+                <div class="text-sm" data-i18n="about.point4.text"></div>
               </div>
             </div>
           </div>
 
-          <div class="about-cta-row">
+          <div class="action-row" style="margin-top: 1.15rem;">
             <a class="btn btn-primary" href="#contact" data-i18n="about.cta"></a>
           </div>
         </div>
 
-        <aside class="about-side-card" aria-label="Typical outcomes">
-          <div class="about-side-label" data-i18n="about.side.label"></div>
+        <aside class="stat-card" aria-label="Typical outcomes">
+          <div class="label" data-i18n="about.side.label"></div>
 
-          <div class="about-side-metric">
-            <div id="outcomeNum" class="about-side-num"></div>
-            <div id="outcomeTitle" class="about-side-title"></div>
-            <div id="outcomeText" class="about-side-text"></div>
-            <ul id="outcomeBullets" class="outcome-bullets"></ul>
+          <div class="stat-stack">
+            <div id="outcomeNum" class="stat-value"></div>
+            <div id="outcomeTitle" class="title-md"></div>
+            <div id="outcomeText" class="text-md"></div>
+            <ul id="outcomeBullets" class="text-sm"></ul>
           </div>
 
-          <div class="about-side-divider"></div>
+          <hr style="border:0;height:1px;background:rgba(148,163,184,0.12);margin:1rem 0 0.85rem;">
 
-          <div class="outcomes-nav">
-            <div class="outcomes-dots" id="outcomesDots" aria-hidden="true"></div>
-            <button class="outcomes-btn" id="outcomesPrev" type="button" aria-label="Previous">‹</button>
-            <button class="outcomes-btn" id="outcomesNext" type="button" aria-label="Next">›</button>
+          <div class="action-row" style="justify-content: space-between; margin-bottom: 0;">
+            <div class="carousel-dots" id="outcomesDots" aria-hidden="true"></div>
+            <div class="action-set">
+              <button class="btn btn-ghost" id="outcomesPrev" type="button" aria-label="Previous">‹</button>
+              <button class="btn btn-ghost" id="outcomesNext" type="button" aria-label="Next">›</button>
+            </div>
           </div>
         </aside>
       </div>
     </section>
 
-    <!-- PLATFORM -->
     <section id="platform" class="section container" data-section="platform">
-      <header class="section-header">
+      <header class="section-head">
         <div class="eyebrow" data-i18n="platform.eyebrow"></div>
-        <h2 class="section-title" data-i18n="platform.title"></h2>
-        <p class="section-subtitle" data-i18n="platform.subtitle"></p>
+        <h2 class="title-section" data-i18n="platform.title"></h2>
+        <p class="text-section" data-i18n="platform.subtitle"></p>
       </header>
 
-      <div class="grid grid-3" role="list">
-        <article class="card platform-card platform-card-main" role="listitem">
-          <div class="card-inner">
-            <h3 class="card-title" data-i18n="platform.cards.0.title"></h3>
-            <p class="card-text" data-i18n="platform.cards.0.text"></p>
-            <div class="card-meta" data-i18n="platform.cards.0.meta"></div>
+      <div class="grid grid-cols-3" role="list">
+        <article class="surface surface-featured surface-glow" role="listitem">
+          <div class="surface-body stack">
+            <h3 class="title-sm" data-i18n="platform.cards.0.title"></h3>
+            <p class="text-sm" data-i18n="platform.cards.0.text"></p>
+            <div class="text-md" data-i18n="platform.cards.0.meta"></div>
           </div>
         </article>
 
-        <article class="card platform-card" role="listitem">
-          <div class="card-inner">
-            <h3 class="card-title" data-i18n="platform.cards.1.title"></h3>
-            <p class="card-text" data-i18n="platform.cards.1.text"></p>
-            <div class="card-meta" data-i18n="platform.cards.1.meta"></div>
+        <article class="surface surface-glow" role="listitem">
+          <div class="surface-body stack">
+            <h3 class="title-sm" data-i18n="platform.cards.1.title"></h3>
+            <p class="text-sm" data-i18n="platform.cards.1.text"></p>
+            <div class="text-md" data-i18n="platform.cards.1.meta"></div>
           </div>
         </article>
 
-        <article class="card platform-card" role="listitem">
-          <div class="card-inner">
-            <h3 class="card-title" data-i18n="platform.cards.2.title"></h3>
-            <p class="card-text" data-i18n="platform.cards.2.text"></p>
-            <div class="card-meta" data-i18n="platform.cards.2.meta"></div>
+        <article class="surface surface-glow" role="listitem">
+          <div class="surface-body stack">
+            <h3 class="title-sm" data-i18n="platform.cards.2.title"></h3>
+            <p class="text-sm" data-i18n="platform.cards.2.text"></p>
+            <div class="text-md" data-i18n="platform.cards.2.meta"></div>
           </div>
         </article>
       </div>
 
-      <article class="card ci-card">
-        <div class="card-inner">
-          <div class="card-tag">
-            <span class="card-tag-dot"></span>
+      <article class="surface surface-glow" style="margin-top: 1.1rem;">
+        <div class="surface-body stack">
+          <div class="pill">
+            <span class="pill-dot"></span>
             <span data-i18n="platform.ci.tag"></span>
           </div>
 
-          <h3 class="ci-title" data-i18n="platform.ci.title"></h3>
+          <h3 class="title-lg" data-i18n="platform.ci.title"></h3>
 
-          <div class="ci-chips">
-            <span class="ci-chip">REST API</span>
-            <span class="ci-chip">Webhooks</span>
-            <span class="ci-chip">MQTT</span>
-            <span class="ci-chip">LoRaWAN</span>
-            <span class="ci-chip">Modbus</span>
-            <span class="ci-chip">OPC UA</span>
-            <span class="ci-chip" data-i18n="platform.ci.chip.onpremOrCloud"></span>
-            <span class="ci-chip" data-i18n="platform.ci.chip.rbac"></span>
+          <div class="chip-row">
+            <span class="chip">REST API</span>
+            <span class="chip">Webhooks</span>
+            <span class="chip">MQTT</span>
+            <span class="chip">LoRaWAN</span>
+            <span class="chip">Modbus</span>
+            <span class="chip">OPC UA</span>
+            <span class="chip" data-i18n="platform.ci.chip.onpremOrCloud"></span>
+            <span class="chip" data-i18n="platform.ci.chip.rbac"></span>
           </div>
 
-          <p class="ci-note" data-i18n="platform.ci.note"></p>
+          <p class="text-md" data-i18n="platform.ci.note"></p>
         </div>
       </article>
 
-      <article class="card platform-story">
-        <div class="card-inner">
-          <h3 class="card-title" data-i18n="platform.story.title"></h3>
-          <p class="card-text" data-i18n="platform.story.text"></p>
+      <article class="story-panel">
+        <div class="stack">
+          <h3 class="title-sm" data-i18n="platform.story.title"></h3>
+          <p class="text-sm" data-i18n="platform.story.text"></p>
         </div>
       </article>
     </section>
 
-    <!-- HIGHLIGHTS -->
     <section id="highlights" class="section container" data-section="highlights">
-      <header class="section-header">
+      <header class="section-head">
         <div class="eyebrow" data-i18n="highlights.eyebrow"></div>
-        <h2 class="section-title" data-i18n="highlights.title"></h2>
-        <p class="section-subtitle" data-i18n="highlights.subtitle"></p>
+        <h2 class="title-section" data-i18n="highlights.title"></h2>
+        <p class="text-section" data-i18n="highlights.subtitle"></p>
       </header>
 
-      <div class="grid grid-3" role="list">
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.0.tag"></span></div>
-            <h3 class="card-title" data-i18n="highlights.items.0.title"></h3>
-            <p class="card-text" data-i18n="highlights.items.0.text"></p>
-            <div class="card-meta" data-i18n="highlights.items.0.meta"></div>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.1.tag"></span></div>
-            <h3 class="card-title" data-i18n="highlights.items.1.title"></h3>
-            <p class="card-text" data-i18n="highlights.items.1.text"></p>
-            <div class="card-meta" data-i18n="highlights.items.1.meta"></div>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.2.tag"></span></div>
-            <h3 class="card-title" data-i18n="highlights.items.2.title"></h3>
-            <p class="card-text" data-i18n="highlights.items.2.text"></p>
-            <div class="card-meta" data-i18n="highlights.items.2.meta"></div>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.3.tag"></span></div>
-            <h3 class="card-title" data-i18n="highlights.items.3.title"></h3>
-            <p class="card-text" data-i18n="highlights.items.3.text"></p>
-            <div class="card-meta" data-i18n="highlights.items.3.meta"></div>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.4.tag"></span></div>
-            <h3 class="card-title" data-i18n="highlights.items.4.title"></h3>
-            <p class="card-text" data-i18n="highlights.items.4.text"></p>
-            <div class="card-meta" data-i18n="highlights.items.4.meta"></div>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="highlights.items.5.tag"></span></div>
-            <h3 class="card-title" data-i18n="highlights.items.5.title"></h3>
-            <p class="card-text" data-i18n="highlights.items.5.text"></p>
-            <div class="card-meta" data-i18n="highlights.items.5.meta"></div>
-          </div>
-        </article>
+      <div class="grid grid-cols-3" role="list">
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.0.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.0.title"></h3><p class="text-sm" data-i18n="highlights.items.0.text"></p><div class="text-md" data-i18n="highlights.items.0.meta"></div></div></article>
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.1.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.1.title"></h3><p class="text-sm" data-i18n="highlights.items.1.text"></p><div class="text-md" data-i18n="highlights.items.1.meta"></div></div></article>
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.2.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.2.title"></h3><p class="text-sm" data-i18n="highlights.items.2.text"></p><div class="text-md" data-i18n="highlights.items.2.meta"></div></div></article>
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.3.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.3.title"></h3><p class="text-sm" data-i18n="highlights.items.3.text"></p><div class="text-md" data-i18n="highlights.items.3.meta"></div></div></article>
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.4.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.4.title"></h3><p class="text-sm" data-i18n="highlights.items.4.text"></p><div class="text-md" data-i18n="highlights.items.4.meta"></div></div></article>
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.5.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.5.title"></h3><p class="text-sm" data-i18n="highlights.items.5.text"></p><div class="text-md" data-i18n="highlights.items.5.meta"></div></div></article>
       </div>
     </section>
 
-    <!-- USE CASES -->
     <section id="usecases" class="section container" data-section="usecases">
-      <header class="section-header">
+      <header class="section-head">
         <div class="eyebrow" data-i18n="useReal.eyebrow"></div>
-        <h2 class="section-title" data-i18n="useReal.title"></h2>
-        <p class="section-subtitle" data-i18n="useReal.subtitle"></p>
+        <h2 class="title-section" data-i18n="useReal.title"></h2>
+        <p class="text-section" data-i18n="useReal.subtitle"></p>
       </header>
 
-      <div class="pricing-carousel" id="ucCarousel">
-        <div class="uc-toolbar">
-          <div class="uc-filters" id="ucFilters" aria-label="Industry filters">
-            <button class="uc-chip is-active" type="button" data-uc-filter="all" data-i18n="uc.filter.all"></button>
-            <button class="uc-chip" type="button" data-uc-filter="pharma" data-i18n="uc.filter.pharma"></button>
-            <button class="uc-chip" type="button" data-uc-filter="manufacturing" data-i18n="uc.filter.manufacturing"></button>
-            <button class="uc-chip" type="button" data-uc-filter="agriculture" data-i18n="uc.filter.agriculture"></button>
-            <button class="uc-chip" type="button" data-uc-filter="energy" data-i18n="uc.filter.energy"></button>
-            <button class="uc-chip" type="button" data-uc-filter="environment" data-i18n="uc.filter.environment"></button>
-            <button class="uc-chip" type="button" data-uc-filter="smartcities" data-i18n="uc.filter.smartcities"></button>
-            <button class="uc-chip" type="button" data-uc-filter="logistics" data-i18n="uc.filter.logistics"></button>
-            <button class="uc-chip" type="button" data-uc-filter="construction" data-i18n="uc.filter.construction"></button>
+      <div class="carousel" id="ucCarousel">
+        <div class="action-row" style="justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap;">
+          <div class="action-set" id="ucFilters" aria-label="Industry filters" style="flex-wrap: wrap;">
+            <button class="btn btn-ghost is-active" type="button" data-uc-filter="all" data-i18n="uc.filter.all"></button>
+            <button class="btn btn-ghost" type="button" data-uc-filter="pharma" data-i18n="uc.filter.pharma"></button>
+            <button class="btn btn-ghost" type="button" data-uc-filter="manufacturing" data-i18n="uc.filter.manufacturing"></button>
+            <button class="btn btn-ghost" type="button" data-uc-filter="agriculture" data-i18n="uc.filter.agriculture"></button>
+            <button class="btn btn-ghost" type="button" data-uc-filter="energy" data-i18n="uc.filter.energy"></button>
+            <button class="btn btn-ghost" type="button" data-uc-filter="environment" data-i18n="uc.filter.environment"></button>
+            <button class="btn btn-ghost" type="button" data-uc-filter="smartcities" data-i18n="uc.filter.smartcities"></button>
+            <button class="btn btn-ghost" type="button" data-uc-filter="logistics" data-i18n="uc.filter.logistics"></button>
+            <button class="btn btn-ghost" type="button" data-uc-filter="construction" data-i18n="uc.filter.construction"></button>
           </div>
 
-          <div class="uc-search">
+          <div>
             <input
               id="ucSearch"
+              class="field-input"
               type="search"
               aria-label="Search use cases"
               data-i18n-placeholder="uc.search.placeholder"
@@ -384,345 +331,301 @@
           </div>
         </div>
 
-        <button class="pc-nav pc-prev" type="button" aria-label="Previous use case" id="ucPrev">‹</button>
+        <button class="carousel-nav carousel-nav-prev" type="button" aria-label="Previous use case" id="ucPrev">‹</button>
 
-        <div class="pc-viewport">
-          <div class="pc-track" id="ucTrack"></div>
+        <div class="carousel-viewport">
+          <div class="carousel-track" id="ucTrack"></div>
         </div>
 
-        <button class="pc-nav pc-next" type="button" aria-label="Next use case" id="ucNext">›</button>
+        <button class="carousel-nav carousel-nav-next" type="button" aria-label="Next use case" id="ucNext">›</button>
 
-        <div class="pc-dots" id="ucDots" aria-label="Use cases carousel pagination"></div>
+        <div class="carousel-dots" id="ucDots" aria-label="Use cases carousel pagination"></div>
       </div>
     </section>
 
-    <!-- HOW -->
     <section id="how" class="section container" data-section="how">
-      <header class="section-header">
+      <header class="section-head">
         <div class="eyebrow" data-i18n="how.eyebrow"></div>
-        <h2 class="section-title" data-i18n="how.title"></h2>
-        <p class="section-subtitle" data-i18n="how.subtitle"></p>
+        <h2 class="title-section" data-i18n="how.title"></h2>
+        <p class="text-section" data-i18n="how.subtitle"></p>
       </header>
 
-      <div class="grid grid-3" role="list">
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.0.tag"></span></div>
-            <h3 class="card-title" data-i18n="how.steps.0.title"></h3>
-            <p class="card-text" data-i18n="how.steps.0.text"></p>
-            <p class="card-outcome" data-i18n="how.steps.0.output"></p>
-            <p class="card-micro" data-i18n="how.steps.0.micro"></p>
+      <div class="grid grid-cols-3" role="list">
+        <article class="surface surface-glow" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="pill-dot"></span><span data-i18n="how.steps.0.tag"></span></div>
+            <h3 class="title-sm" data-i18n="how.steps.0.title"></h3>
+            <p class="text-sm" data-i18n="how.steps.0.text"></p>
+            <p class="note-output" data-i18n="how.steps.0.output"></p>
+            <p class="note-inline" data-i18n="how.steps.0.micro"></p>
           </div>
         </article>
 
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.1.tag"></span></div>
-            <h3 class="card-title" data-i18n="how.steps.1.title"></h3>
-            <p class="card-text" data-i18n="how.steps.1.text"></p>
-            <p class="card-outcome" data-i18n="how.steps.1.output"></p>
-            <p class="card-micro" data-i18n="how.steps.1.micro"></p>
+        <article class="surface surface-glow" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="pill-dot"></span><span data-i18n="how.steps.1.tag"></span></div>
+            <h3 class="title-sm" data-i18n="how.steps.1.title"></h3>
+            <p class="text-sm" data-i18n="how.steps.1.text"></p>
+            <p class="note-output" data-i18n="how.steps.1.output"></p>
+            <p class="note-inline" data-i18n="how.steps.1.micro"></p>
           </div>
         </article>
 
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <div class="card-tag"><span class="card-tag-dot"></span><span data-i18n="how.steps.2.tag"></span></div>
-            <h3 class="card-title" data-i18n="how.steps.2.title"></h3>
-            <p class="card-text" data-i18n="how.steps.2.text"></p>
-            <p class="card-outcome" data-i18n="how.steps.2.output"></p>
-            <p class="card-micro" data-i18n="how.steps.2.micro"></p>
+        <article class="surface surface-glow" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="pill-dot"></span><span data-i18n="how.steps.2.tag"></span></div>
+            <h3 class="title-sm" data-i18n="how.steps.2.title"></h3>
+            <p class="text-sm" data-i18n="how.steps.2.text"></p>
+            <p class="note-output" data-i18n="how.steps.2.output"></p>
+            <p class="note-inline" data-i18n="how.steps.2.micro"></p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- PRICING -->
     <section id="pricing" class="section container" data-section="pricing">
-      <header class="section-header">
+      <header class="section-head">
         <div class="eyebrow" data-i18n="pricing.eyebrow"></div>
-        <h2 class="section-title" data-i18n="pricing.title"></h2>
-        <p class="section-subtitle" data-i18n="pricing.subtitle"></p>
+        <h2 class="title-section" data-i18n="pricing.title"></h2>
+        <p class="text-section" data-i18n="pricing.subtitle"></p>
       </header>
 
-      <div class="pricing-carousel" id="pricingCarousel">
-        <button class="pc-nav pc-prev" type="button" aria-label="Previous plan">‹</button>
+      <div class="carousel" id="pricingCarousel">
+        <button class="carousel-nav carousel-nav-prev" type="button" aria-label="Previous plan">‹</button>
 
-        <div class="pc-viewport">
-          <div class="pc-track">
-            <article class="pc-card" data-plan="free">
-              <div class="pc-top">
-                <div class="pc-label" data-i18n="pricing.free.label"></div>
-                <h3 class="pc-name" data-i18n="pricing.free.name"></h3>
-                <p class="pc-tagline" data-i18n="pricing.free.tagline"></p>
+        <div class="carousel-viewport is-wide">
+          <div class="carousel-track is-card is-static">
+            <article class="surface surface-strong carousel-slide-card is-quarter">
+              <div class="surface-body stack">
+                <div class="label" data-i18n="pricing.free.label"></div>
+                <h3 class="title-md" data-i18n="pricing.free.name"></h3>
+                <p class="text-sm" data-i18n="pricing.free.tagline"></p>
+                <div class="title-sm" data-i18n="pricing.free.price"></div>
+                <div class="text-sm" data-i18n="pricing.free.note"></div>
+                <ul class="text-sm">
+                  <li data-i18n="pricing.free.li1"></li>
+                  <li data-i18n="pricing.free.li2"></li>
+                  <li data-i18n="pricing.free.li3"></li>
+                  <li data-i18n="pricing.free.li4"></li>
+                </ul>
+                <a class="btn btn-primary" href="#contact" data-i18n="pricing.free.cta"></a>
               </div>
-              <div class="pc-price" data-i18n="pricing.free.price"></div>
-              <div class="pc-note" data-i18n="pricing.free.note"></div>
-              <ul class="pc-list">
-                <li data-i18n="pricing.free.li1"></li>
-                <li data-i18n="pricing.free.li2"></li>
-                <li data-i18n="pricing.free.li3"></li>
-                <li data-i18n="pricing.free.li4"></li>
-              </ul>
-              <a class="btn btn-primary" href="#contact" data-i18n="pricing.free.cta"></a>
             </article>
 
-            <article class="pc-card" data-plan="start">
-              <div class="pc-top">
-                <div class="pc-label" data-i18n="pricing.plan1.label"></div>
-                <h3 class="pc-name" data-i18n="pricing.plan1.name"></h3>
-                <p class="pc-tagline" data-i18n="pricing.plan1.tagline"></p>
+            <article class="surface surface-strong carousel-slide-card is-quarter">
+              <div class="surface-body stack">
+                <div class="label" data-i18n="pricing.plan1.label"></div>
+                <h3 class="title-md" data-i18n="pricing.plan1.name"></h3>
+                <p class="text-sm" data-i18n="pricing.plan1.tagline"></p>
+                <div class="title-sm" data-i18n="pricing.plan1.price"></div>
+                <div class="text-sm" data-i18n="pricing.plan1.note"></div>
+                <ul class="text-sm">
+                  <li data-i18n="pricing.plan1.li1"></li>
+                  <li data-i18n="pricing.plan1.li2"></li>
+                  <li data-i18n="pricing.plan1.li3"></li>
+                  <li data-i18n="pricing.plan1.li4"></li>
+                </ul>
+                <a class="btn btn-primary" href="#contact" data-i18n="pricing.plan1.cta"></a>
               </div>
-              <div class="pc-price" data-i18n="pricing.plan1.price"></div>
-              <div class="pc-note" data-i18n="pricing.plan1.note"></div>
-              <ul class="pc-list">
-                <li data-i18n="pricing.plan1.li1"></li>
-                <li data-i18n="pricing.plan1.li2"></li>
-                <li data-i18n="pricing.plan1.li3"></li>
-                <li data-i18n="pricing.plan1.li4"></li>
-              </ul>
-              <a class="btn btn-primary" href="#contact" data-i18n="pricing.plan1.cta"></a>
             </article>
 
-            <article class="pc-card is-featured" data-plan="scale">
-              <div class="pc-top">
-                <div class="pc-label" data-i18n="pricing.plan2.label"></div>
-                <h3 class="pc-name" data-i18n="pricing.plan2.name"></h3>
-                <p class="pc-tagline" data-i18n="pricing.plan2.tagline"></p>
+            <article class="surface surface-featured carousel-slide-card is-quarter">
+              <div class="surface-body stack">
+                <div class="label" data-i18n="pricing.plan2.label"></div>
+                <h3 class="title-md" data-i18n="pricing.plan2.name"></h3>
+                <p class="text-sm" data-i18n="pricing.plan2.tagline"></p>
+                <div class="title-sm" data-i18n="pricing.plan2.price"></div>
+                <div class="text-sm" data-i18n="pricing.plan2.note"></div>
+                <ul class="text-sm">
+                  <li data-i18n="pricing.plan2.li1"></li>
+                  <li data-i18n="pricing.plan2.li2"></li>
+                  <li data-i18n="pricing.plan2.li3"></li>
+                  <li data-i18n="pricing.plan2.li4"></li>
+                </ul>
+                <a class="btn btn-primary" href="#contact" data-i18n="pricing.plan2.cta"></a>
               </div>
-              <div class="pc-price" data-i18n="pricing.plan2.price"></div>
-              <div class="pc-note" data-i18n="pricing.plan2.note"></div>
-              <ul class="pc-list">
-                <li data-i18n="pricing.plan2.li1"></li>
-                <li data-i18n="pricing.plan2.li2"></li>
-                <li data-i18n="pricing.plan2.li3"></li>
-                <li data-i18n="pricing.plan2.li4"></li>
-              </ul>
-              <a class="btn btn-primary" href="#contact" data-i18n="pricing.plan2.cta"></a>
             </article>
 
-            <article class="pc-card enterprise" data-plan="enterprise">
-              <div class="pc-top">
-                <div class="pc-label" data-i18n="pricing.plan3.label"></div>
-                <h3 class="pc-name" data-i18n="pricing.plan3.name"></h3>
-                <p class="pc-tagline" data-i18n="pricing.plan3.tagline"></p>
+            <article class="surface surface-strong surface-featured carousel-slide-card is-quarter">
+              <div class="surface-body stack">
+                <div class="label" data-i18n="pricing.plan3.label"></div>
+                <h3 class="title-md" data-i18n="pricing.plan3.name"></h3>
+                <p class="text-sm" data-i18n="pricing.plan3.tagline"></p>
+                <div class="title-sm" data-i18n="pricing.plan3.price"></div>
+                <div class="text-sm" data-i18n="pricing.plan3.note"></div>
+                <ul class="text-sm">
+                  <li data-i18n="pricing.plan3.li1"></li>
+                  <li data-i18n="pricing.plan3.li2"></li>
+                  <li data-i18n="pricing.plan3.li3"></li>
+                  <li data-i18n="pricing.plan3.li4"></li>
+                  <li data-i18n="pricing.plan3.li5"></li>
+                </ul>
+                <a class="btn btn-primary" href="#contact" data-i18n="pricing.plan3.cta"></a>
               </div>
-              <div class="pc-price" data-i18n="pricing.plan3.price"></div>
-              <div class="pc-note" data-i18n="pricing.plan3.note"></div>
-              <ul class="pc-list">
-                <li data-i18n="pricing.plan3.li1"></li>
-                <li data-i18n="pricing.plan3.li2"></li>
-                <li data-i18n="pricing.plan3.li3"></li>
-                <li data-i18n="pricing.plan3.li4"></li>
-                <li data-i18n="pricing.plan3.li5"></li>
-              </ul>
-              <a class="btn btn-primary" href="#contact" data-i18n="pricing.plan3.cta"></a>
             </article>
           </div>
         </div>
 
-        <button class="pc-nav pc-next" type="button" aria-label="Next plan">›</button>
-        <div class="pc-dots" id="pricingDots" aria-label="Pricing carousel pagination"></div>
+        <button class="carousel-nav carousel-nav-next" type="button" aria-label="Next plan">›</button>
+        <div class="carousel-dots is-hidden-wide" id="pricingDots" aria-label="Pricing carousel pagination"></div>
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section id="testimonials" class="section container" data-section="testimonials">
-      <header class="section-header">
+      <header class="section-head">
         <div class="eyebrow" data-i18n="testimonials.eyebrow"></div>
-        <h2 class="section-title" data-i18n="testimonials.title"></h2>
-        <p class="section-subtitle" data-i18n="testimonials.subtitle"></p>
+        <h2 class="title-section" data-i18n="testimonials.title"></h2>
+        <p class="text-section" data-i18n="testimonials.subtitle"></p>
       </header>
 
-      <div class="grid grid-2" role="list">
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <p class="card-text" data-i18n="testimonials.items.0.text"></p>
-            <div class="card-meta" data-i18n="testimonials.items.0.meta"></div>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <p class="card-text" data-i18n="testimonials.items.1.text"></p>
-            <div class="card-meta" data-i18n="testimonials.items.1.meta"></div>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <p class="card-text" data-i18n="testimonials.items.2.text"></p>
-            <div class="card-meta" data-i18n="testimonials.items.2.meta"></div>
-          </div>
-        </article>
-
-        <article class="card" role="listitem">
-          <div class="card-inner">
-            <p class="card-text" data-i18n="testimonials.items.3.text"></p>
-            <div class="card-meta" data-i18n="testimonials.items.3.meta"></div>
-          </div>
-        </article>
+      <div class="grid grid-cols-2" role="list">
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><p class="text-sm" data-i18n="testimonials.items.0.text"></p><div class="text-md" data-i18n="testimonials.items.0.meta"></div></div></article>
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><p class="text-sm" data-i18n="testimonials.items.1.text"></p><div class="text-md" data-i18n="testimonials.items.1.meta"></div></div></article>
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><p class="text-sm" data-i18n="testimonials.items.2.text"></p><div class="text-md" data-i18n="testimonials.items.2.meta"></div></div></article>
+        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><p class="text-sm" data-i18n="testimonials.items.3.text"></p><div class="text-md" data-i18n="testimonials.items.3.meta"></div></div></article>
       </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq" class="section container" data-section="faq">
-      <div class="faq-list">
-        <div class="faq-item">
-          <div class="faq-q-wrap">
-            <span class="faq-tag faq-tag--ops">Ops</span>
-            <div class="faq-q" data-i18n="faq.items.0.q"></div>
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="pill pill-accent">Ops</span>
+            <div class="accordion-title" data-i18n="faq.items.0.q"></div>
           </div>
-          <div class="faq-a" data-i18n="faq.items.0.a"></div>
+          <div class="accordion-content" data-i18n="faq.items.0.a"></div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-q-wrap">
-            <span class="faq-tag faq-tag--it">IT</span>
-            <div class="faq-q" data-i18n="faq.items.1.q"></div>
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="pill pill-cyan">IT</span>
+            <div class="accordion-title" data-i18n="faq.items.1.q"></div>
           </div>
-          <div class="faq-a" data-i18n="faq.items.1.a"></div>
+          <div class="accordion-content" data-i18n="faq.items.1.a"></div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-q-wrap">
-            <span class="faq-tag faq-tag--compliance">Compliance</span>
-            <div class="faq-q" data-i18n="faq.items.2.q"></div>
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="pill">Compliance</span>
+            <div class="accordion-title" data-i18n="faq.items.2.q"></div>
           </div>
-          <div class="faq-a" data-i18n="faq.items.2.a"></div>
+          <div class="accordion-content" data-i18n="faq.items.2.a"></div>
         </div>
 
-        <div class="faq-item">
-          <div class="faq-q-wrap">
-            <span class="faq-tag faq-tag--it">Platform</span>
-            <div class="faq-q" data-i18n="faq.items.3.q"></div>
+        <div class="accordion-item">
+          <div class="accordion-trigger">
+            <span class="pill pill-cyan">Platform</span>
+            <div class="accordion-title" data-i18n="faq.items.3.q"></div>
           </div>
-          <div class="faq-a" data-i18n="faq.items.3.a"></div>
+          <div class="accordion-content" data-i18n="faq.items.3.a"></div>
         </div>
       </div>
 
-      <div class="faq-trust">
-        <div class="faq-trust-text" data-i18n="faq.trust"></div>
+      <div class="surface" style="margin-top:1rem;">
+        <div class="surface-body text-md" data-i18n="faq.trust"></div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section container" data-section="contact">
-      <div class="two-column">
-        <header class="section-header">
+      <div class="split-layout-wide">
+        <header class="section-head">
           <div class="eyebrow" data-i18n="contact.eyebrow"></div>
-          <h2 class="section-title" data-i18n="contact.title"></h2>
-          <p class="section-subtitle" data-i18n="contact.subtitle"></p>
+          <h2 class="title-section" data-i18n="contact.title"></h2>
+          <p class="text-section" data-i18n="contact.subtitle"></p>
         </header>
 
-        <div class="contact-card">
-          <form
-            class="form js-mite-form"
-            data-toast=".js-success-toast"
-            action="https://formspree.io/f/mjkranro"
-            method="POST"
-            autocomplete="on"
-          >
-            <input type="hidden" name="source" value="main_contact" />
+        <div class="surface surface-strong">
+          <div class="surface-body">
+            <form
+              class="form js-mite-form"
+              data-toast=".js-success-toast"
+              action="https://formspree.io/f/mjkranro"
+              method="POST"
+              autocomplete="on"
+            >
+              <input type="hidden" name="source" value="main_contact" />
 
-            <div class="form-grid form-row-2">
-              <div>
-                <label for="cName" data-i18n="contact.nameLabel"></label>
-                <input id="cName" name="name" type="text" data-i18n-placeholder="contact.namePlaceholder" />
+              <div class="form form-cols-2">
+                <div>
+                  <label class="field-label" for="cName" data-i18n="contact.nameLabel"></label>
+                  <input class="field-input" id="cName" name="name" type="text" data-i18n-placeholder="contact.namePlaceholder" />
+                </div>
+                <div>
+                  <label class="field-label" for="cEmail" data-i18n="contact.emailLabel"></label>
+                  <input class="field-input" id="cEmail" name="email" type="email" data-i18n-placeholder="contact.emailPlaceholder" />
+                </div>
               </div>
-              <div>
-                <label for="cEmail" data-i18n="contact.emailLabel"></label>
-                <input id="cEmail" name="email" type="email" data-i18n-placeholder="contact.emailPlaceholder" />
+
+              <div class="form form-cols-2">
+                <div>
+                  <label class="field-label" for="cCompany" data-i18n="contact.companyLabel"></label>
+                  <input class="field-input" id="cCompany" name="company" type="text" data-i18n-placeholder="contact.companyPlaceholder" />
+                </div>
+                <div>
+                  <label class="field-label" for="cSize" data-i18n="contact.sizeLabel"></label>
+                  <input class="field-input" id="cSize" name="size" type="text" data-i18n-placeholder="contact.sizePlaceholder" />
+                </div>
               </div>
-            </div>
 
-            <div class="form-grid form-row-2">
               <div>
-                <label for="cCompany" data-i18n="contact.companyLabel"></label>
-                <input id="cCompany" name="company" type="text" data-i18n-placeholder="contact.companyPlaceholder" />
+                <label class="field-label" for="cMessage" data-i18n="contact.messageLabel"></label>
+                <textarea
+                  class="field-textarea"
+                  id="cMessage"
+                  name="message"
+                  rows="4"
+                  data-i18n-placeholder="contact.messagePlaceholder"
+                ></textarea>
               </div>
-              <div>
-                <label for="cSize" data-i18n="contact.sizeLabel"></label>
-                <input id="cSize" name="size" type="text" data-i18n-placeholder="contact.sizePlaceholder" />
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-i18n="contact.submit"></button>
+                <span class="form-note" data-i18n="contact.legal"></span>
               </div>
-            </div>
 
-            <div>
-              <label for="cMessage" data-i18n="contact.messageLabel"></label>
-              <textarea
-                id="cMessage"
-                name="message"
-                rows="4"
-                data-i18n-placeholder="contact.messagePlaceholder"
-              ></textarea>
-            </div>
-
-            <div class="pricing-cta-row">
-              <button type="submit" class="btn btn-primary" data-i18n="contact.submit"></button>
-              <span class="form-footnote" data-i18n="contact.legal"></span>
-            </div>
-
-            <div class="toast js-success-toast" data-i18n="thank-you.submit" hidden></div>
-          </form>
+              <div class="toast js-success-toast" data-i18n="thank-you.submit" hidden></div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
+    <div class="container footer-bar">
       <div data-i18n="footer.note"></div>
 
-      <div class="footer-links">
+      <div class="link-row">
         <a href="privacy-policy.html" data-i18n="footer.privacy"></a>
         <a href="#top" data-i18n="footer.backToTop"></a>
       </div>
 
-      <div class="footer-social" aria-label="Social links">
-        <a
-          class="social-link"
-          href="https://www.linkedin.com/company/mitemonitoring"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-        >
+      <div class="icon-row" aria-label="Social links">
+        <a class="icon-link" href="https://www.linkedin.com/company/mitemonitoring" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h4v16H4zM6 2.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM10 8h4v2.2c.6-1.2 2-2.4 4.2-2.4 4.4 0 5.3 2.7 5.3 6.3V20h-4v-5.2c0-2.1 0-4-2.5-4s-2.9 1.9-2.9 3.9V20h-4z"/></svg>
         </a>
 
-        <a
-          class="social-link"
-          href="https://www.youtube.com/@makeioteasy257"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="YouTube"
-        >
+        <a class="icon-link" href="https://www.youtube.com/@makeioteasy257" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.7 4.6 12 4.6 12 4.6s-5.7 0-7.5.5A3 3 0 0 0 2.4 7.2 31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.5.5 7.5.5s5.7 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8zM10 15.5v-7l6 3.5z"/></svg>
         </a>
 
-        <a
-          class="social-link"
-          href="https://github.com/AlexKirkouski/iot"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-        >
+        <a class="icon-link" href="https://github.com/AlexKirkouski/iot" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.2-3.4-1.2-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.4 1.1 3 .9.1-.7.4-1.1.7-1.4-2.2-.3-4.5-1.1-4.5-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.7 1a9.3 9.3 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1a3.6 3.6 0 0 1 .1 2.7 3.9 3 0 0 1 1 2.7c0 3.9-2.3 4.7-4.5 5 .4.3.7.9.7 1.8V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>
         </a>
       </div>
     </div>
 
-    <div class="container footer-bottom">
+    <div class="container" style="margin-top: 0.75rem;">
       <span>© <span id="y"></span></span>
     </div>
   </footer>
 
-  <!-- Quick contact -->
-  <button class="quick-contact" type="button" id="quickBtn">
-    <span class="quick-dot" aria-hidden="true"></span>
-    <span class="quick-label" data-i18n="quick.label"></span>
+  <button class="floating-cta" type="button" id="quickBtn">
+    <span class="floating-cta-dot" aria-hidden="true"></span>
+    <span class="floating-cta-label" data-i18n="quick.label"></span>
   </button>
 
-  <div class="drawer-overlay" id="drawerOverlay" aria-hidden="true"></div>
+  <div class="overlay" id="drawerOverlay" aria-hidden="true"></div>
 
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
     <div class="drawer-head">
@@ -741,8 +644,9 @@
         <input type="hidden" name="source" value="quick_drawer" />
 
         <div>
-          <label for="qName" data-i18n="quick.nameLabel"></label>
+          <label class="field-label" for="qName" data-i18n="quick.nameLabel"></label>
           <input
+            class="field-input"
             type="text"
             id="qName"
             name="name"
@@ -753,8 +657,9 @@
         </div>
 
         <div>
-          <label for="qEmail" data-i18n="quick.emailLabel"></label>
+          <label class="field-label" for="qEmail" data-i18n="quick.emailLabel"></label>
           <input
+            class="field-input"
             type="email"
             id="qEmail"
             name="email"
@@ -765,8 +670,9 @@
         </div>
 
         <div>
-          <label for="qMsg" data-i18n="quick.msgLabel"></label>
+          <label class="field-label" for="qMsg" data-i18n="quick.msgLabel"></label>
           <textarea
+            class="field-textarea"
             id="qMsg"
             name="message"
             rows="3"
@@ -775,12 +681,12 @@
           ></textarea>
         </div>
 
-        <div class="drawer-actions">
+        <div class="form-actions">
           <button class="btn btn-ghost" type="button" id="drawerCancel" data-i18n="quick.cancel"></button>
           <button class="btn btn-primary" type="submit" data-i18n="quick.send"></button>
         </div>
 
-        <div class="drawer-note" data-i18n="quick.note"></div>
+        <div class="text-sm" data-i18n="quick.note"></div>
         <div class="toast js-success-toast" data-i18n="thank-you.submit" hidden></div>
       </form>
     </div>
