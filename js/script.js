@@ -41,7 +41,7 @@ function loadScript(src) {
   return promise;
 }
 
-async function ensureLangAssets(lang) {
+/*async function ensureLangAssets(lang) {
   if (!lang || lang === "en") return;
 
   const needBase = !window.translations?.[lang];
@@ -54,7 +54,7 @@ async function ensureLangAssets(lang) {
   if (tasks.length) {
     await Promise.all(tasks);
   }
-}
+}*/
 
 /* =========================
    DOM helpers
@@ -801,26 +801,14 @@ const initFaq = once(setupFaqAccordion);
 const initDrawer = once(setupDrawer);
 const initForms = once(setupMiteForms);
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   initOutcomes();
   setupYear();
 
-  let initial = "en";
-
-  try {
-    initial =
-      localStorage.getItem("mite-lang") ||
-      window.MITE?.page?.langDefault ||
-      "en";
-  } catch (_) {
-    initial = window.MITE?.page?.langDefault || "en";
-  }
-
-  try {
-    await ensureLangAssets(initial);
-  } catch (e) {
-    console.error("Initial language load failed:", e);
-  }
+  const initial =
+    window.MITE?.currentLang ||
+    window.MITE?.page?.langDefault ||
+    "en";
 
   applyTranslations(initial);
 
@@ -832,15 +820,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   lazyInitOnFirstInteraction(initDrawer);
 
   $all("[data-lang-btn]").forEach((btn) => {
-    btn.addEventListener("click", async () => {
+    btn.addEventListener("click", () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
 
       try {
-        await ensureLangAssets(code);
-        applyTranslations(code);
-      } catch (e) {
-        console.error("Language load failed:", code, e);
-      }
+        localStorage.setItem("mite-lang", code);
+      } catch (_) {}
+
+      location.reload();
     });
   });
 });
