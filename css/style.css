@@ -616,7 +616,7 @@ p {
   color: transparent;
 }
 
-.hero-title .title-accent {
+.hero-title .span {
   display: inline-block;
   background: linear-gradient(
     120deg,
