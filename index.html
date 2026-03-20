@@ -30,7 +30,7 @@
     fetchpriority="high"
   />
 
-   <script defer src="js/en.js"></script>
+  <script defer src="js/en.js"></script>
   <!-- <script defer src="js/ru.js"></script>
   <script defer src="js/uk.js"></script>
   <script defer src="js/data/usecases.ru.js"></script>
@@ -47,7 +47,6 @@
     gtag("js", new Date());
     gtag("config", "G-WNZ8GSS8XE", { optimize_id: "OPT-5R6SJ2X" });
   </script>
-
 </head>
 
 <body>
@@ -73,7 +72,7 @@
         <a href="#contact" data-i18n="nav.contact"></a>
       </nav>
 
-      <div class="action-set">
+      <div class="row">
         <div class="toggle" aria-label="Language switcher">
           <button type="button" data-lang-btn="en" class="is-active">EN</button>
           <button type="button" data-lang-btn="ru">RU</button>
@@ -87,48 +86,47 @@
 
   <main class="page" id="top">
     <section class="hero container" data-section="hero">
-      <div class="split-layout">
-        <div>
-          <div class="pill">
-            <span class="pill-dot" aria-hidden="true"></span>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="pill hero-kicker">
+            <span class="dot" aria-hidden="true"></span>
             <span data-i18n="hero.kicker"></span>
           </div>
 
-          <h1 class="title-hero" data-i18n="hero.title"></h1>
-          <p class="text-lead" data-i18n="hero.subtitle"></p>
+          <h1 class="hero-title" data-i18n="hero.title"></h1>
+          <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
 
-          <div class="action-row">
+          <div class="hero-cta-row">
             <a href="#contact" class="btn btn-primary" data-i18n="hero.primaryCta"></a>
             <a href="#how" class="btn btn-outline" data-i18n="hero.secondaryCta"></a>
           </div>
 
-          <div class="info-list">
-            <div class="info-list-item">
-              <span class="pill-dot" aria-hidden="true"></span>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span class="dot" aria-hidden="true"></span>
               <span data-i18n="hero.meta1"></span>
             </div>
-            <div class="info-list-item">
-              <span class="pill-dot" aria-hidden="true"></span>
+            <div class="hero-meta-item">
+              <span class="dot" aria-hidden="true"></span>
               <span data-i18n="hero.meta2"></span>
             </div>
-            <div class="info-list-item">
-              <span class="pill-dot" aria-hidden="true"></span>
+            <div class="hero-meta-item">
+              <span class="dot" aria-hidden="true"></span>
               <span data-i18n="hero.meta3"></span>
             </div>
           </div>
 
-          <div class="surface surface-soft quote-box">
-            <div class="surface-body">
-              <span data-i18n="hero.badge"></span>
-            </div>
+          <div class="hero-card">
+            <span data-i18n="hero.badge"></span>
           </div>
         </div>
 
-        <div class="media-frame">
+        <div class="hero-visual">
           <picture>
             <source srcset="upload/the-most-flexible-platform-ever.avif" type="image/avif" />
             <source srcset="upload/the-most-flexible-platform-ever.webp" type="image/webp" />
             <img
+              class="orb-spider-img"
               src="upload/the-most-flexible-platform-ever.webp"
               alt="MITE IIoT platform visualization"
               width="1200"
@@ -150,68 +148,70 @@
     <section id="about" class="section container" data-section="about">
       <header class="section-head">
         <div class="eyebrow" data-i18n="about.eyebrow"></div>
-        <h2 class="title-section" data-i18n="about.title"></h2>
-        <p class="text-section" data-i18n="about.text"></p>
+        <h2 class="section-title" data-i18n="about.title"></h2>
+        <p class="section-text" data-i18n="about.text"></p>
       </header>
 
-      <div class="split-layout">
+      <div class="split">
         <div>
-          <div class="item-list">
-            <div class="item-row" data-outcome="0">
-              <div class="item-mark" aria-hidden="true"></div>
+          <div class="stack">
+            <div class="item" data-outcome="0">
+              <span class="dot" aria-hidden="true"></span>
               <div class="item-body">
-                <div class="title-sm" data-i18n="about.point1.title"></div>
+                <div class="title-md" data-i18n="about.point1.title"></div>
                 <div class="text-sm" data-i18n="about.point1.text"></div>
               </div>
             </div>
 
-            <div class="item-row" data-outcome="1">
-              <div class="item-mark" aria-hidden="true"></div>
+            <div class="item" data-outcome="1">
+              <span class="dot" aria-hidden="true"></span>
               <div class="item-body">
-                <div class="title-sm" data-i18n="about.point2.title"></div>
+                <div class="title-md" data-i18n="about.point2.title"></div>
                 <div class="text-sm" data-i18n="about.point2.text"></div>
               </div>
             </div>
 
-            <div class="item-row" data-outcome="2">
-              <div class="item-mark" aria-hidden="true"></div>
+            <div class="item" data-outcome="2">
+              <span class="dot" aria-hidden="true"></span>
               <div class="item-body">
-                <div class="title-sm" data-i18n="about.point3.title"></div>
+                <div class="title-md" data-i18n="about.point3.title"></div>
                 <div class="text-sm" data-i18n="about.point3.text"></div>
               </div>
             </div>
 
-            <div class="item-row" data-outcome="3">
-              <div class="item-mark" aria-hidden="true"></div>
+            <div class="item" data-outcome="3">
+              <span class="dot" aria-hidden="true"></span>
               <div class="item-body">
-                <div class="title-sm" data-i18n="about.point4.title"></div>
+                <div class="title-md" data-i18n="about.point4.title"></div>
                 <div class="text-sm" data-i18n="about.point4.text"></div>
               </div>
             </div>
           </div>
 
-          <div class="action-row" style="margin-top: 1.15rem;">
+          <div class="row" style="margin-top: 1.15rem;">
             <a class="btn btn-primary" href="#contact" data-i18n="about.cta"></a>
           </div>
         </div>
 
-        <aside class="stat-card" aria-label="Typical outcomes">
-          <div class="label" data-i18n="about.side.label"></div>
+        <aside class="surface surface-strong surface-featured" aria-label="Typical outcomes">
+          <div class="surface-body">
+            <div class="label" data-i18n="about.side.label"></div>
 
-          <div class="stat-stack">
-            <div id="outcomeNum" class="stat-value"></div>
-            <div id="outcomeTitle" class="title-md"></div>
-            <div id="outcomeText" class="text-md"></div>
-            <ul id="outcomeBullets" class="text-sm"></ul>
-          </div>
+            <div class="stat-stack">
+              <div id="outcomeNum" class="stat-value"></div>
+              <div id="outcomeTitle" class="title-lg"></div>
+              <div id="outcomeText" class="text-md"></div>
+              <ul id="outcomeBullets" class="text-sm"></ul>
+            </div>
 
-          <hr style="border:0;height:1px;background:rgba(148,163,184,0.12);margin:1rem 0 0.85rem;">
+            <hr style="border:0;height:1px;background:rgba(148,163,184,0.12);margin:1rem 0 0.85rem;">
 
-          <div class="action-row" style="justify-content: space-between; margin-bottom: 0;">
-            <div class="carousel-dots" id="outcomesDots" aria-hidden="true"></div>
-            <div class="action-set">
-              <button class="btn btn-ghost" id="outcomesPrev" type="button" aria-label="Previous">‹</button>
-              <button class="btn btn-ghost" id="outcomesNext" type="button" aria-label="Next">›</button>
+            <div class="row" style="justify-content: space-between; margin-bottom: 0;">
+              <div class="carousel-dots" id="outcomesDots" aria-hidden="true"></div>
+              <div class="row">
+                <button class="btn btn-ghost" id="outcomesPrev" type="button" aria-label="Previous">‹</button>
+                <button class="btn btn-ghost" id="outcomesNext" type="button" aria-label="Next">›</button>
+              </div>
             </div>
           </div>
         </aside>
@@ -221,46 +221,46 @@
     <section id="platform" class="section container" data-section="platform">
       <header class="section-head">
         <div class="eyebrow" data-i18n="platform.eyebrow"></div>
-        <h2 class="title-section" data-i18n="platform.title"></h2>
-        <p class="text-section" data-i18n="platform.subtitle"></p>
+        <h2 class="section-title" data-i18n="platform.title"></h2>
+        <p class="section-text" data-i18n="platform.subtitle"></p>
       </header>
 
-      <div class="grid grid-cols-3" role="list">
-        <article class="surface surface-featured surface-glow" role="listitem">
+      <div class="grid grid-3" role="list">
+        <article class="surface surface-featured" role="listitem">
           <div class="surface-body stack">
-            <h3 class="title-sm" data-i18n="platform.cards.0.title"></h3>
+            <h3 class="title-md" data-i18n="platform.cards.0.title"></h3>
             <p class="text-sm" data-i18n="platform.cards.0.text"></p>
             <div class="text-md" data-i18n="platform.cards.0.meta"></div>
           </div>
         </article>
 
-        <article class="surface surface-glow" role="listitem">
+        <article class="surface" role="listitem">
           <div class="surface-body stack">
-            <h3 class="title-sm" data-i18n="platform.cards.1.title"></h3>
+            <h3 class="title-md" data-i18n="platform.cards.1.title"></h3>
             <p class="text-sm" data-i18n="platform.cards.1.text"></p>
             <div class="text-md" data-i18n="platform.cards.1.meta"></div>
           </div>
         </article>
 
-        <article class="surface surface-glow" role="listitem">
+        <article class="surface" role="listitem">
           <div class="surface-body stack">
-            <h3 class="title-sm" data-i18n="platform.cards.2.title"></h3>
+            <h3 class="title-md" data-i18n="platform.cards.2.title"></h3>
             <p class="text-sm" data-i18n="platform.cards.2.text"></p>
             <div class="text-md" data-i18n="platform.cards.2.meta"></div>
           </div>
         </article>
       </div>
 
-      <article class="surface surface-glow" style="margin-top: 1.1rem;">
+      <article class="surface" style="margin-top: 1.1rem;">
         <div class="surface-body stack">
           <div class="pill">
-            <span class="pill-dot"></span>
+            <span class="dot"></span>
             <span data-i18n="platform.ci.tag"></span>
           </div>
 
           <h3 class="title-lg" data-i18n="platform.ci.title"></h3>
 
-          <div class="chip-row">
+          <div class="row" style="flex-wrap: wrap;">
             <span class="chip">REST API</span>
             <span class="chip">Webhooks</span>
             <span class="chip">MQTT</span>
@@ -275,9 +275,9 @@
         </div>
       </article>
 
-      <article class="story-panel">
-        <div class="stack">
-          <h3 class="title-sm" data-i18n="platform.story.title"></h3>
+      <article class="surface surface-soft" style="margin-top: 1.1rem;">
+        <div class="surface-body stack">
+          <h3 class="title-md" data-i18n="platform.story.title"></h3>
           <p class="text-sm" data-i18n="platform.story.text"></p>
         </div>
       </article>
@@ -286,30 +286,77 @@
     <section id="highlights" class="section container" data-section="highlights">
       <header class="section-head">
         <div class="eyebrow" data-i18n="highlights.eyebrow"></div>
-        <h2 class="title-section" data-i18n="highlights.title"></h2>
-        <p class="text-section" data-i18n="highlights.subtitle"></p>
+        <h2 class="section-title" data-i18n="highlights.title"></h2>
+        <p class="section-text" data-i18n="highlights.subtitle"></p>
       </header>
 
-      <div class="grid grid-cols-3" role="list">
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.0.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.0.title"></h3><p class="text-sm" data-i18n="highlights.items.0.text"></p><div class="text-md" data-i18n="highlights.items.0.meta"></div></div></article>
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.1.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.1.title"></h3><p class="text-sm" data-i18n="highlights.items.1.text"></p><div class="text-md" data-i18n="highlights.items.1.meta"></div></div></article>
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.2.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.2.title"></h3><p class="text-sm" data-i18n="highlights.items.2.text"></p><div class="text-md" data-i18n="highlights.items.2.meta"></div></div></article>
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.3.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.3.title"></h3><p class="text-sm" data-i18n="highlights.items.3.text"></p><div class="text-md" data-i18n="highlights.items.3.meta"></div></div></article>
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.4.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.4.title"></h3><p class="text-sm" data-i18n="highlights.items.4.text"></p><div class="text-md" data-i18n="highlights.items.4.meta"></div></div></article>
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><div class="pill"><span class="pill-dot"></span><span data-i18n="highlights.items.5.tag"></span></div><h3 class="title-sm" data-i18n="highlights.items.5.title"></h3><p class="text-sm" data-i18n="highlights.items.5.text"></p><div class="text-md" data-i18n="highlights.items.5.meta"></div></div></article>
+      <div class="grid grid-3" role="list">
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="dot"></span><span data-i18n="highlights.items.0.tag"></span></div>
+            <h3 class="title-md" data-i18n="highlights.items.0.title"></h3>
+            <p class="text-sm" data-i18n="highlights.items.0.text"></p>
+            <div class="text-md" data-i18n="highlights.items.0.meta"></div>
+          </div>
+        </article>
+
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="dot"></span><span data-i18n="highlights.items.1.tag"></span></div>
+            <h3 class="title-md" data-i18n="highlights.items.1.title"></h3>
+            <p class="text-sm" data-i18n="highlights.items.1.text"></p>
+            <div class="text-md" data-i18n="highlights.items.1.meta"></div>
+          </div>
+        </article>
+
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="dot"></span><span data-i18n="highlights.items.2.tag"></span></div>
+            <h3 class="title-md" data-i18n="highlights.items.2.title"></h3>
+            <p class="text-sm" data-i18n="highlights.items.2.text"></p>
+            <div class="text-md" data-i18n="highlights.items.2.meta"></div>
+          </div>
+        </article>
+
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="dot"></span><span data-i18n="highlights.items.3.tag"></span></div>
+            <h3 class="title-md" data-i18n="highlights.items.3.title"></h3>
+            <p class="text-sm" data-i18n="highlights.items.3.text"></p>
+            <div class="text-md" data-i18n="highlights.items.3.meta"></div>
+          </div>
+        </article>
+
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="dot"></span><span data-i18n="highlights.items.4.tag"></span></div>
+            <h3 class="title-md" data-i18n="highlights.items.4.title"></h3>
+            <p class="text-sm" data-i18n="highlights.items.4.text"></p>
+            <div class="text-md" data-i18n="highlights.items.4.meta"></div>
+          </div>
+        </article>
+
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <div class="pill"><span class="dot"></span><span data-i18n="highlights.items.5.tag"></span></div>
+            <h3 class="title-md" data-i18n="highlights.items.5.title"></h3>
+            <p class="text-sm" data-i18n="highlights.items.5.text"></p>
+            <div class="text-md" data-i18n="highlights.items.5.meta"></div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section id="usecases" class="section container" data-section="usecases">
       <header class="section-head">
         <div class="eyebrow" data-i18n="useReal.eyebrow"></div>
-        <h2 class="title-section" data-i18n="useReal.title"></h2>
-        <p class="text-section" data-i18n="useReal.subtitle"></p>
+        <h2 class="section-title" data-i18n="useReal.title"></h2>
+        <p class="section-text" data-i18n="useReal.subtitle"></p>
       </header>
 
       <div class="carousel" id="ucCarousel">
-        <div class="action-row" style="justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap;">
-          <div class="action-set" id="ucFilters" aria-label="Industry filters" style="flex-wrap: wrap;">
+        <div class="row" style="justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap;">
+          <div class="row" id="ucFilters" aria-label="Industry filters" style="flex-wrap: wrap;">
             <button class="btn btn-ghost is-active" type="button" data-uc-filter="all" data-i18n="uc.filter.all"></button>
             <button class="btn btn-ghost" type="button" data-uc-filter="pharma" data-i18n="uc.filter.pharma"></button>
             <button class="btn btn-ghost" type="button" data-uc-filter="manufacturing" data-i18n="uc.filter.manufacturing"></button>
@@ -347,35 +394,35 @@
     <section id="how" class="section container" data-section="how">
       <header class="section-head">
         <div class="eyebrow" data-i18n="how.eyebrow"></div>
-        <h2 class="title-section" data-i18n="how.title"></h2>
-        <p class="text-section" data-i18n="how.subtitle"></p>
+        <h2 class="section-title" data-i18n="how.title"></h2>
+        <p class="section-text" data-i18n="how.subtitle"></p>
       </header>
 
-      <div class="grid grid-cols-3" role="list">
-        <article class="surface surface-glow" role="listitem">
+      <div class="grid grid-3" role="list">
+        <article class="surface" role="listitem">
           <div class="surface-body stack">
-            <div class="pill"><span class="pill-dot"></span><span data-i18n="how.steps.0.tag"></span></div>
-            <h3 class="title-sm" data-i18n="how.steps.0.title"></h3>
+            <div class="pill"><span class="dot"></span><span data-i18n="how.steps.0.tag"></span></div>
+            <h3 class="title-md" data-i18n="how.steps.0.title"></h3>
             <p class="text-sm" data-i18n="how.steps.0.text"></p>
             <p class="note-output" data-i18n="how.steps.0.output"></p>
             <p class="note-inline" data-i18n="how.steps.0.micro"></p>
           </div>
         </article>
 
-        <article class="surface surface-glow" role="listitem">
+        <article class="surface" role="listitem">
           <div class="surface-body stack">
-            <div class="pill"><span class="pill-dot"></span><span data-i18n="how.steps.1.tag"></span></div>
-            <h3 class="title-sm" data-i18n="how.steps.1.title"></h3>
+            <div class="pill"><span class="dot"></span><span data-i18n="how.steps.1.tag"></span></div>
+            <h3 class="title-md" data-i18n="how.steps.1.title"></h3>
             <p class="text-sm" data-i18n="how.steps.1.text"></p>
             <p class="note-output" data-i18n="how.steps.1.output"></p>
             <p class="note-inline" data-i18n="how.steps.1.micro"></p>
           </div>
         </article>
 
-        <article class="surface surface-glow" role="listitem">
+        <article class="surface" role="listitem">
           <div class="surface-body stack">
-            <div class="pill"><span class="pill-dot"></span><span data-i18n="how.steps.2.tag"></span></div>
-            <h3 class="title-sm" data-i18n="how.steps.2.title"></h3>
+            <div class="pill"><span class="dot"></span><span data-i18n="how.steps.2.tag"></span></div>
+            <h3 class="title-md" data-i18n="how.steps.2.title"></h3>
             <p class="text-sm" data-i18n="how.steps.2.text"></p>
             <p class="note-output" data-i18n="how.steps.2.output"></p>
             <p class="note-inline" data-i18n="how.steps.2.micro"></p>
@@ -387,8 +434,8 @@
     <section id="pricing" class="section container" data-section="pricing">
       <header class="section-head">
         <div class="eyebrow" data-i18n="pricing.eyebrow"></div>
-        <h2 class="title-section" data-i18n="pricing.title"></h2>
-        <p class="text-section" data-i18n="pricing.subtitle"></p>
+        <h2 class="section-title" data-i18n="pricing.title"></h2>
+        <p class="section-text" data-i18n="pricing.subtitle"></p>
       </header>
 
       <div class="carousel" id="pricingCarousel">
@@ -401,7 +448,7 @@
                 <div class="label" data-i18n="pricing.free.label"></div>
                 <h3 class="title-md" data-i18n="pricing.free.name"></h3>
                 <p class="text-sm" data-i18n="pricing.free.tagline"></p>
-                <div class="title-sm" data-i18n="pricing.free.price"></div>
+                <div class="title-md" data-i18n="pricing.free.price"></div>
                 <div class="text-sm" data-i18n="pricing.free.note"></div>
                 <ul class="text-sm">
                   <li data-i18n="pricing.free.li1"></li>
@@ -418,7 +465,7 @@
                 <div class="label" data-i18n="pricing.plan1.label"></div>
                 <h3 class="title-md" data-i18n="pricing.plan1.name"></h3>
                 <p class="text-sm" data-i18n="pricing.plan1.tagline"></p>
-                <div class="title-sm" data-i18n="pricing.plan1.price"></div>
+                <div class="title-md" data-i18n="pricing.plan1.price"></div>
                 <div class="text-sm" data-i18n="pricing.plan1.note"></div>
                 <ul class="text-sm">
                   <li data-i18n="pricing.plan1.li1"></li>
@@ -435,7 +482,7 @@
                 <div class="label" data-i18n="pricing.plan2.label"></div>
                 <h3 class="title-md" data-i18n="pricing.plan2.name"></h3>
                 <p class="text-sm" data-i18n="pricing.plan2.tagline"></p>
-                <div class="title-sm" data-i18n="pricing.plan2.price"></div>
+                <div class="title-md" data-i18n="pricing.plan2.price"></div>
                 <div class="text-sm" data-i18n="pricing.plan2.note"></div>
                 <ul class="text-sm">
                   <li data-i18n="pricing.plan2.li1"></li>
@@ -452,7 +499,7 @@
                 <div class="label" data-i18n="pricing.plan3.label"></div>
                 <h3 class="title-md" data-i18n="pricing.plan3.name"></h3>
                 <p class="text-sm" data-i18n="pricing.plan3.tagline"></p>
-                <div class="title-sm" data-i18n="pricing.plan3.price"></div>
+                <div class="title-md" data-i18n="pricing.plan3.price"></div>
                 <div class="text-sm" data-i18n="pricing.plan3.note"></div>
                 <ul class="text-sm">
                   <li data-i18n="pricing.plan3.li1"></li>
@@ -475,15 +522,38 @@
     <section id="testimonials" class="section container" data-section="testimonials">
       <header class="section-head">
         <div class="eyebrow" data-i18n="testimonials.eyebrow"></div>
-        <h2 class="title-section" data-i18n="testimonials.title"></h2>
-        <p class="text-section" data-i18n="testimonials.subtitle"></p>
+        <h2 class="section-title" data-i18n="testimonials.title"></h2>
+        <p class="section-text" data-i18n="testimonials.subtitle"></p>
       </header>
 
-      <div class="grid grid-cols-2" role="list">
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><p class="text-sm" data-i18n="testimonials.items.0.text"></p><div class="text-md" data-i18n="testimonials.items.0.meta"></div></div></article>
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><p class="text-sm" data-i18n="testimonials.items.1.text"></p><div class="text-md" data-i18n="testimonials.items.1.meta"></div></div></article>
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><p class="text-sm" data-i18n="testimonials.items.2.text"></p><div class="text-md" data-i18n="testimonials.items.2.meta"></div></div></article>
-        <article class="surface surface-glow" role="listitem"><div class="surface-body stack"><p class="text-sm" data-i18n="testimonials.items.3.text"></p><div class="text-md" data-i18n="testimonials.items.3.meta"></div></div></article>
+      <div class="grid grid-2" role="list">
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <p class="text-sm" data-i18n="testimonials.items.0.text"></p>
+            <div class="text-md" data-i18n="testimonials.items.0.meta"></div>
+          </div>
+        </article>
+
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <p class="text-sm" data-i18n="testimonials.items.1.text"></p>
+            <div class="text-md" data-i18n="testimonials.items.1.meta"></div>
+          </div>
+        </article>
+
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <p class="text-sm" data-i18n="testimonials.items.2.text"></p>
+            <div class="text-md" data-i18n="testimonials.items.2.meta"></div>
+          </div>
+        </article>
+
+        <article class="surface" role="listitem">
+          <div class="surface-body stack">
+            <p class="text-sm" data-i18n="testimonials.items.3.text"></p>
+            <div class="text-md" data-i18n="testimonials.items.3.meta"></div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -491,7 +561,7 @@
       <div class="accordion">
         <div class="accordion-item">
           <div class="accordion-trigger">
-            <span class="pill pill-accent">Ops</span>
+            <span class="pill">Ops</span>
             <div class="accordion-title" data-i18n="faq.items.0.q"></div>
           </div>
           <div class="accordion-content" data-i18n="faq.items.0.a"></div>
@@ -499,7 +569,7 @@
 
         <div class="accordion-item">
           <div class="accordion-trigger">
-            <span class="pill pill-cyan">IT</span>
+            <span class="pill">IT</span>
             <div class="accordion-title" data-i18n="faq.items.1.q"></div>
           </div>
           <div class="accordion-content" data-i18n="faq.items.1.a"></div>
@@ -515,7 +585,7 @@
 
         <div class="accordion-item">
           <div class="accordion-trigger">
-            <span class="pill pill-cyan">Platform</span>
+            <span class="pill">Platform</span>
             <div class="accordion-title" data-i18n="faq.items.3.q"></div>
           </div>
           <div class="accordion-content" data-i18n="faq.items.3.a"></div>
@@ -528,11 +598,11 @@
     </section>
 
     <section id="contact" class="section container" data-section="contact">
-      <div class="split-layout-wide">
+      <div class="split-wide">
         <header class="section-head">
           <div class="eyebrow" data-i18n="contact.eyebrow"></div>
-          <h2 class="title-section" data-i18n="contact.title"></h2>
-          <p class="text-section" data-i18n="contact.subtitle"></p>
+          <h2 class="section-title" data-i18n="contact.title"></h2>
+          <p class="section-text" data-i18n="contact.subtitle"></p>
         </header>
 
         <div class="surface surface-strong">
@@ -622,7 +692,7 @@
   </footer>
 
   <button class="floating-cta" type="button" id="quickBtn">
-    <span class="floating-cta-dot" aria-hidden="true"></span>
+    <span class="dot" aria-hidden="true"></span>
     <span class="floating-cta-label" data-i18n="quick.label"></span>
   </button>
 
