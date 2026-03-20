@@ -382,8 +382,10 @@ img {
   line-height: 1.06;
   letter-spacing: -0.04em;
   text-wrap: balance;
-   background: linear-gradient(
-    150deg, #c9ced6 5%, 
+
+  background: linear-gradient(
+    150deg,
+    #c9ced6 5%,
     #8b949e 40%,
     #e5e9ef 60%,
     #6f7782 80%,
@@ -391,32 +393,37 @@ img {
   );
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;}
+  color: transparent;
+}
 
 .hero-title span {
+  display: inline-block;
+
   background: linear-gradient(
     120deg,
-    #7dff9a 0%,     /* мягкий green glow */
-    #54e54a 15%,    /* основной бренд */
-    #48ffd1 35%,    /* переход (бирюза) */
-    #48cfff 60%,    /* cyan (орбита) */
-    #2ea8ff 80%,    /* глубже синий */
-    #9fe6ff 100%    /* светлый отблеск */
+    #54e54a 0%,
+    #72f27e 18%,
+    #9dc3d2 42%,
+    #48cfff 68%,
+    #2ea8ff 88%,
+    #b8eaff 100%
   );
+
+  background-size: 200% auto;
+  background-position: 0% center;
 
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 
-  background-size: 220% auto;
-
   animation: neonFlow 5s ease-in-out infinite;
 
   text-shadow:
-    0 0 6px rgba(84, 229, 74, 0.15),
-    0 0 10px rgba(72, 207, 255, 0.15);
+    0 0 6px rgba(84, 229, 74, 0.10),
+    0 0 10px rgba(72, 207, 255, 0.12);
+}
 
-    @keyframes neonFlow {
+@keyframes neonFlow {
   0% {
     background-position: 0% center;
   }
@@ -426,7 +433,6 @@ img {
   100% {
     background-position: 0% center;
   }
-}
 }
 
 .hero-subtitle {
