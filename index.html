@@ -29,67 +29,14 @@
     type="image/avif"
     fetchpriority="high"
   />
-   |<!-- <style>
-  html.i18n-loading body {
-    visibility: hidden;
-  }
-</style>-->
 
-<script>
-  (function () {
-    document.documentElement.classList.add("i18n-loading");
-
-    const supported = ["en", "ru", "uk"];
-
-    let saved = null;
-    try {
-      saved = localStorage.getItem("mite-lang");
-    } catch (_) {}
-
-    const browserLang = (navigator.language || "en").slice(0, 2);
-
-    const lang = supported.includes(saved)
-      ? saved
-      : (supported.includes(browserLang) ? browserLang : "en");
-
-    document.documentElement.lang = lang;
-
-    window.MITE = window.MITE || {};
-    window.MITE.page = window.MITE.page || {};
-    window.MITE.page.langDefault = lang;
-    window.MITE.currentLang = lang;
-
-    function loadScript(src, onDone) {
-      const s = document.createElement("script");
-      s.src = src;
-      s.async = false;
-      s.onload = onDone;
-      s.onerror = function () {
-        console.error("Failed to load script:", src);
-        onDone();
-      };
-      document.head.appendChild(s);
-    }
-
-    loadScript("js/en.js", function () {
-      function finish() {
-        loadScript("js/data/usecases." + lang + ".js", function () {
-          loadScript("js/script.js", function () {
-            document.documentElement.classList.remove("i18n-loading");
-          });
-        });
-      }
-
-      if (lang === "en") {
-        finish();
-      } else {
-        loadScript("js/" + lang + ".js", finish);
-      }
-    });
-  })();
-</script>
-
-
+   <script defer src="js/en.js"></script>
+  <!-- <script defer src="js/ru.js"></script>
+  <script defer src="js/uk.js"></script>
+  <script defer src="js/data/usecases.ru.js"></script>
+  <script defer src="js/data/usecases.uk.js"></script> -->
+  <script defer src="js/data/usecases.en.js"></script>
+  <script defer src="js/script.js"></script>
 
   <script async src="https://www.googleoptimize.com/optimize.js?id=OPT-5R6SJ2X"></script>
 
@@ -101,13 +48,6 @@
     gtag("config", "G-WNZ8GSS8XE", { optimize_id: "OPT-5R6SJ2X" });
   </script>
 
-  <!--  <script defer src="js/en.js"></script>
- <script defer src="js/ru.js"></script>
-  <script defer src="js/uk.js"></script>
-  <script defer src="js/data/usecases.ru.js"></script>
-  <script defer src="js/data/usecases.uk.js"></script> 
-  <script defer src="js/data/usecases.en.js"></script>
-  <script defer src="js/script.js"></script>-->
 </head>
 
 <body>

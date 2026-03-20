@@ -809,10 +809,19 @@ document.addEventListener("DOMContentLoaded", () => {
   initOutcomes();
   setupYear();
 
-  const initial =
-    window.MITE?.currentLang ||
-    window.MITE?.page?.langDefault ||
-    "en";
+  let initial = "en";
+
+  try {
+    const saved = localStorage.getItem("mite-lang");
+    const browserLang = (navigator.language || "en").slice(0, 2);
+    const supported = ["en", "ru", "uk"];
+
+    initial = supported.includes(saved)
+      ? saved
+      : (supported.includes(browserLang) ? browserLang : "en");
+  } catch (_) {
+    initial = "en";
+  }
 
   applyTranslations(initial);
 
@@ -824,6 +833,9 @@ document.addEventListener("DOMContentLoaded", () => {
   lazyInitOnFirstInteraction(initDrawer);
 
   $all("[data-lang-btn]").forEach((btn) => {
+    if (btn.__langBound) return;
+    btn.__langBound = true;
+
     btn.addEventListener("click", () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
 
