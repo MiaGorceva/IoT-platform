@@ -71,12 +71,20 @@
       document.head.appendChild(s);
     }
 
-    loadScript("js/" + lang + ".js", function () {
-      loadScript("js/data/usecases." + lang + ".js", function () {
-        loadScript("js/script.js", function () {
-          document.documentElement.classList.remove("i18n-loading");
+    loadScript("js/en.js", function () {
+      function finish() {
+        loadScript("js/data/usecases." + lang + ".js", function () {
+          loadScript("js/script.js", function () {
+            document.documentElement.classList.remove("i18n-loading");
+          });
         });
-      });
+      }
+
+      if (lang === "en") {
+        finish();
+      } else {
+        loadScript("js/" + lang + ".js", finish);
+      }
     });
   })();
 </script>
