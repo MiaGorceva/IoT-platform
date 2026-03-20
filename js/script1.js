@@ -8,7 +8,9 @@ const translations = window.translations;
 const __scriptPromises = new Map();
 
 function loadScript(src) {
-  if (__scriptPromises.has(src)) return __scriptPromises.get(src);
+  if (__scriptPromises.has(src)) {
+    return __scriptPromises.get(src);
+  }
 
   const promise = new Promise((resolve, reject) => {
     const existing = document.querySelector(`script[data-src="${src}"]`);
@@ -18,6 +20,7 @@ function loadScript(src) {
         resolve();
         return;
       }
+
       existing.addEventListener("load", () => resolve(), { once: true });
       existing.addEventListener("error", reject, { once: true });
       return;
@@ -34,6 +37,7 @@ function loadScript(src) {
     };
 
     s.onerror = reject;
+
     document.head.appendChild(s);
   });
 
@@ -48,37 +52,17 @@ async function ensureLangAssets(lang) {
   const needCases = !window.translations?.[lang]?.useCases;
 
   const tasks = [];
+
   if (needBase) tasks.push(loadScript(`js/${lang}.js`));
   if (needCases) tasks.push(loadScript(`js/data/usecases.${lang}.js`));
 
-  if (tasks.length) {
-    await Promise.all(tasks);
-  }
+  if (!tasks.length) return;
+  await Promise.all(tasks);
 }
 
-/* =========================
-   DOM helpers
-========================= */
-
-function $(sel, root = document) {
-  return root.querySelector(sel);
-}
-
-function $all(sel, root = document) {
-  return Array.from(root.querySelectorAll(sel));
-}
-
-function firstOf(...selectors) {
-  for (const sel of selectors) {
-    const el = $(sel);
-    if (el) return el;
-  }
-  return null;
-}
-
-/* =========================
+/* -------------------------
    i18n helpers
-========================= */
+------------------------- */
 
 const HTML_I18N_KEYS = new Set([
   "hero.title",
@@ -105,12 +89,12 @@ function applyTranslations(lang = "en") {
     document.title = dict["seo.title"];
   }
 
-  const meta = $('meta[name="description"]');
+  const meta = document.querySelector('meta[name="description"]');
   if (meta && dict["seo.description"]) {
     meta.setAttribute("content", dict["seo.description"]);
   }
 
-  $all("[data-i18n]").forEach((el) => {
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const value = dict[key];
     if (value === undefined || value === null) return;
@@ -124,14 +108,14 @@ function applyTranslations(lang = "en") {
     }
   });
 
-  $all("[data-i18n-placeholder]").forEach((el) => {
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     const value = dict[key];
     if (!value) return;
     el.setAttribute("placeholder", value);
   });
 
-  $all("[data-lang-btn]").forEach((btn) => {
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     const code = btn.getAttribute("data-lang-btn");
     btn.classList.toggle("is-active", code === lang);
   });
@@ -141,9 +125,9 @@ function applyTranslations(lang = "en") {
   window.__updatePricing?.();
 }
 
-/* =========================
-   Typical outcomes
-========================= */
+/* -------------------------
+   Typical outcomes (hover + dots + arrows)
+------------------------- */
 
 function setupOutcomes() {
   const numEl = document.getElementById("outcomeNum");
@@ -153,12 +137,8 @@ function setupOutcomes() {
   const dotsWrap = document.getElementById("outcomesDots");
   const prevBtn = document.getElementById("outcomesPrev");
   const nextBtn = document.getElementById("outcomesNext");
-
-  const metricWrap = firstOf(".stat-stack", ".about-side-metric");
-  const leftPoints = [
-    ...$all(".item-row[data-outcome]"),
-    ...$all(".about-point[data-outcome]")
-  ];
+  const metricWrap = document.querySelector(".about-side-metric");
+  const leftPoints = Array.from(document.querySelectorAll(".about-point[data-outcome]"));
 
   if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return;
 
@@ -203,8 +183,8 @@ function setupOutcomes() {
       metricWrap.classList.add("is-fade");
     }
 
-    clearTimeout(render.__t);
-    render.__t = setTimeout(() => {
+    window.clearTimeout(render.__t);
+    render.__t = window.setTimeout(() => {
       numEl.textContent = it.num || "";
       titleEl.textContent = it.title || "";
       textEl.textContent = it.text || "";
@@ -256,9 +236,9 @@ function setupOutcomes() {
   render(false);
 }
 
-/* =========================
+/* -------------------------
    Numbers highlighter
-========================= */
+------------------------- */
 
 function highlightNumbers(html) {
   if (!html) return "";
@@ -286,7 +266,10 @@ function highlightNumbers(html) {
     (_, a, b) => wrap(a + b)
   );
 
-  s = s.replace(/\b[+\-]\d{1,4}(?:[.,]\d+)?\b/g, (m) => wrap(m));
+  s = s.replace(
+    /\b[+\-]\d{1,4}(?:[.,]\d+)?\b/g,
+    (m) => wrap(m)
+  );
 
   s = s.replace(
     /(\b(?:from|to|drops|drop|takes|within|in|for|over|under)\s+)([<>]?\d{1,4}(?:[.,]\d+)?)/gi,
@@ -296,9 +279,9 @@ function highlightNumbers(html) {
   return s;
 }
 
-/* =========================
+/* -------------------------
    Use-cases carousel
-========================= */
+------------------------- */
 
 function setupUseCases() {
   const carousel = document.getElementById("ucCarousel");
@@ -311,13 +294,7 @@ function setupUseCases() {
 
   if (!carousel || !track) return;
 
-  const chips = filters
-    ? [
-        ...filters.querySelectorAll(".uc-chip"),
-        ...filters.querySelectorAll(".btn")
-      ]
-    : [];
-
+  const chips = filters ? Array.from(filters.querySelectorAll(".uc-chip")) : [];
   let active = "all";
   let query = "";
   let page = 0;
@@ -411,9 +388,9 @@ function setupUseCases() {
     const lang = document.documentElement.lang || "en";
     const dict = getDict(lang);
 
-    track.innerHTML = list.map((u) => `
-      <article class="pc-card uc-card surface surface-strong carousel-slide-half" data-industry="${u.industry}">
-        <div class="surface-body">
+    track.innerHTML = list
+      .map((u) => `
+        <article class="pc-card uc-card" data-industry="${u.industry}">
           <div class="uc-card-strip" aria-hidden="true"></div>
 
           <div class="uc-toprow">
@@ -447,16 +424,16 @@ function setupUseCases() {
               <span class="uc-outcome-text">${highlightNumbers(u.result)}</span>
             </div>
           </div>
-        </div>
-      </article>
-    `).join("");
+        </article>
+      `)
+      .join("");
   }
 
   function setFocusCard() {
     const cards = [...track.querySelectorAll(".uc-card")];
     if (!cards.length) return;
 
-    const vp = firstOf("#ucCarousel .carousel-viewport", "#ucCarousel .pc-viewport");
+    const vp = document.querySelector("#ucCarousel .pc-viewport");
     if (!vp) return;
 
     const vpRect = vp.getBoundingClientRect();
@@ -515,7 +492,7 @@ function setupUseCases() {
 
   search?.addEventListener("input", () => {
     clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => {
+    searchTimer = window.setTimeout(() => {
       query = (search.value || "").trim().toLowerCase();
       page = 0;
       updateCarousel();
@@ -546,9 +523,9 @@ function setupUseCases() {
   updateCarousel();
 }
 
-/* =========================
+/* -------------------------
    Pricing carousel
-========================= */
+------------------------- */
 
 function setupPricingCarousel() {
   const root = document.getElementById("pricingCarousel");
@@ -561,9 +538,9 @@ function setupPricingCarousel() {
     return;
   }
 
-  const track = firstOf("#pricingCarousel .carousel-track", "#pricingCarousel .pc-track");
-  const prev = firstOf("#pricingCarousel .carousel-nav-prev", "#pricingCarousel .pc-prev");
-  const next = firstOf("#pricingCarousel .carousel-nav-next", "#pricingCarousel .pc-next");
+  const track = root.querySelector(".pc-track");
+  const prev = root.querySelector(".pc-prev");
+  const next = root.querySelector(".pc-next");
   const dots = document.getElementById("pricingDots");
 
   if (!track) return;
@@ -648,23 +625,14 @@ function setupPricingCarousel() {
   );
 }
 
-/* =========================
+/* -------------------------
    FAQ accordion
-========================= */
+------------------------- */
 
 function setupFaqAccordion() {
-  const items = [
-    ...$all(".accordion-item"),
-    ...$all(".faq-item")
-  ];
-
-  items.forEach((item) => {
-    const q = firstOf(
-      ".accordion-trigger",
-      ".faq-q-wrap"
-    ) && item.querySelector(".accordion-trigger, .faq-q-wrap");
-
-    const a = item.querySelector(".accordion-content, .faq-a");
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    const q = item.querySelector(".faq-q-wrap");
+    const a = item.querySelector(".faq-a");
 
     if (!q || !a) return;
 
@@ -684,9 +652,9 @@ function setupFaqAccordion() {
   });
 }
 
-/* =========================
+/* -------------------------
    Quick drawer
-========================= */
+------------------------- */
 
 function setupDrawer() {
   const btn = document.getElementById("quickBtn");
@@ -719,18 +687,18 @@ function setupDrawer() {
   });
 }
 
-/* =========================
+/* -------------------------
    Footer year
-========================= */
+------------------------- */
 
 function setupYear() {
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 }
 
-/* =========================
+/* -------------------------
    Forms
-========================= */
+------------------------- */
 
 function setupMiteForms() {
   const forms = document.querySelectorAll("form.js-mite-form");
@@ -824,9 +792,9 @@ function setupMiteForms() {
   });
 }
 
-/* =========================
+/* -------------------------
    Lazy init helpers
-========================= */
+------------------------- */
 
 function once(fn) {
   let done = false;
@@ -881,9 +849,9 @@ function lazyInitOnFirstInteraction(init) {
   window.addEventListener("touchstart", handler, { passive: true, once: true });
 }
 
-/* =========================
+/* -------------------------
    Boot
-========================= */
+------------------------- */
 
 window.MITE = window.MITE || {};
 window.MITE.page = window.MITE.page || { id: "index" };
@@ -918,6 +886,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   applyTranslations(initial);
 
+  /*lazyInitOnVisible("#about", initOutcomes);*/
   lazyInitOnVisible("#usecases", initUseCases);
   lazyInitOnVisible("#pricing", initPricing);
   lazyInitOnVisible("#faq", initFaq);
@@ -925,7 +894,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   lazyInitOnFirstInteraction(initDrawer);
 
-  $all("[data-lang-btn]").forEach((btn) => {
+  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
 
