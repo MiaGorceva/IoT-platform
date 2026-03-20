@@ -25,7 +25,7 @@ function loadScript(src) {
 
     const s = document.createElement("script");
     s.src = src;
-    s.defer = true;
+    s.async = true;
     s.dataset.src = src;
 
     s.onload = () => {
@@ -41,7 +41,7 @@ function loadScript(src) {
   return promise;
 }
 
-/*async function ensureLangAssets(lang) {
+async function ensureLangAssets(lang) {
   if (!lang || lang === "en") return;
 
   const needBase = !window.translations?.[lang];
@@ -54,7 +54,7 @@ function loadScript(src) {
   if (tasks.length) {
     await Promise.all(tasks);
   }
-}*/
+}
 
 /* =========================
    DOM helpers
@@ -805,22 +805,25 @@ const initFaq = once(setupFaqAccordion);
 const initDrawer = once(setupDrawer);
 const initForms = once(setupMiteForms);
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   initOutcomes();
   setupYear();
 
   let initial = "en";
 
   try {
-    const saved = localStorage.getItem("mite-lang");
-    const browserLang = (navigator.language || "en").slice(0, 2);
-    const supported = ["en", "ru", "uk"];
-
-    initial = supported.includes(saved)
-      ? saved
-      : (supported.includes(browserLang) ? browserLang : "en");
+    initial =
+      localStorage.getItem("mite-lang") ||
+      window.MITE?.page?.langDefault ||
+      "en";
   } catch (_) {
-    initial = "en";
+    initial = window.MITE?.page?.langDefault || "en";
+  }
+
+  try {
+    await ensureLangAssets(initial);
+  } catch (e) {
+    console.error("Initial language load failed:", e);
   }
 
   applyTranslations(initial);
@@ -833,17 +836,15 @@ document.addEventListener("DOMContentLoaded", () => {
   lazyInitOnFirstInteraction(initDrawer);
 
   $all("[data-lang-btn]").forEach((btn) => {
-    if (btn.__langBound) return;
-    btn.__langBound = true;
-
-    btn.addEventListener("click", () => {
+    btn.addEventListener("click", async () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
 
       try {
-        localStorage.setItem("mite-lang", code);
-      } catch (_) {}
-
-      location.reload();
+        await ensureLangAssets(code);
+        applyTranslations(code);
+      } catch (e) {
+        console.error("Language load failed:", code, e);
+      }
     });
   });
 });
