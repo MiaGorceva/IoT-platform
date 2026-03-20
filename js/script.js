@@ -68,14 +68,6 @@ function $all(sel, root = document) {
   return Array.from(root.querySelectorAll(sel));
 }
 
-function firstOf(...selectors) {
-  for (const sel of selectors) {
-    const el = $(sel);
-    if (el) return el;
-  }
-  return null;
-}
-
 /* =========================
    i18n helpers
 ========================= */
@@ -142,7 +134,7 @@ function applyTranslations(lang = "en") {
 }
 
 /* =========================
-   Typical outcomes
+   Outcomes
 ========================= */
 
 function setupOutcomes() {
@@ -154,11 +146,8 @@ function setupOutcomes() {
   const prevBtn = document.getElementById("outcomesPrev");
   const nextBtn = document.getElementById("outcomesNext");
 
-  const metricWrap = firstOf(".stat-stack", ".about-side-metric");
-  const leftPoints = [
-    ...$all(".item-row[data-outcome]"),
-    ...$all(".about-point[data-outcome]")
-  ];
+  const metricWrap = $(".stat-stack");
+  const leftPoints = $all(".item-row[data-outcome]");
 
   if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return;
 
@@ -297,7 +286,7 @@ function highlightNumbers(html) {
 }
 
 /* =========================
-   Use-cases carousel
+   Use cases
 ========================= */
 
 function setupUseCases() {
@@ -311,13 +300,7 @@ function setupUseCases() {
 
   if (!carousel || !track) return;
 
-  const chips = filters
-    ? [
-        ...filters.querySelectorAll(".uc-chip"),
-        ...filters.querySelectorAll(".btn")
-      ]
-    : [];
-
+  const filterButtons = filters ? $all("[data-uc-filter]", filters) : [];
   let active = "all";
   let query = "";
   let page = 0;
@@ -335,33 +318,6 @@ function setupUseCases() {
     return arr.map((u, i) => ({ ...u, seq: i + 1 }));
   }
 
-  function iconSvg(kind) {
-    const s = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
-    const wrap = (inner) =>
-      `<svg class="uc-ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" ${s}>${inner}</svg>`;
-
-    switch (kind) {
-      case "pharma": return wrap(`<path d="M10 2v6l-4 8a4 4 0 0 0 3.6 6h4.8A4 4 0 0 0 18 16l-4-8V2"/><path d="M8 8h8"/>`);
-      case "factory": return wrap(`<path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/>`);
-      case "quality": return wrap(`<path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"/><path d="M9 12l2 2 4-4"/>`);
-      case "wrench": return wrap(`<path d="M21 7l-5 5"/><path d="M16 7l1 1"/><path d="M2 22l7-7"/><path d="M7 17l2 2"/>`);
-      case "bolt": return wrap(`<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>`);
-      case "swap": return wrap(`<path d="M7 7h11l-2-2"/><path d="M18 7l-2 2"/><path d="M17 17H6l2 2"/><path d="M6 17l2-2"/>`);
-      case "shield": return wrap(`<path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"/>`);
-      case "trace": return wrap(`<circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="M9 7h6"/><path d="M8 9l3 6"/><path d="M16 9l-3 6"/>`);
-      case "kpi": return wrap(`<path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 14l3-3 3 2 4-5"/>`);
-      case "cow": return wrap(`<path d="M7 14c0 3 2 6 5 6s5-3 5-6"/><path d="M6 10h12"/><path d="M8 10V7"/><path d="M16 10V7"/>`);
-      case "chicken": return wrap(`<path d="M9 14c0 3 2 6 6 6"/><path d="M9 14c0-4 2-7 6-7"/><path d="M15 7l2 1"/><path d="M12 12h6"/>`);
-      case "drop": return wrap(`<path d="M12 2s7 8 7 13a7 7 0 0 1-14 0C5 10 12 2 12 2z"/>`);
-      case "snow": return wrap(`<path d="M12 2v20"/><path d="M4 6l16 12"/><path d="M20 6L4 18"/><path d="M6 20l12-16"/>`);
-      case "battery": return wrap(`<path d="M7 7h12v10H7z"/><path d="M5 10v4"/><path d="M21 10v4"/>`);
-      case "wind": return wrap(`<path d="M3 8h10a3 3 0 1 0-3-3"/><path d="M3 12h14a3 3 0 1 1-3 3"/><path d="M3 16h8"/>`);
-      case "lamp": return wrap(`<path d="M9 21h6"/><path d="M12 21v-3"/><path d="M7 10a5 5 0 1 1 10 0c0 2-1 3-2 4s-1 2-1 4h-4c0-2 0-3-1-4s-2-2-2-4z"/>`);
-      case "truck": return wrap(`<path d="M3 17V7h11v10z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>`);
-      default: return wrap(`<circle cx="12" cy="12" r="9"/>`);
-    }
-  }
-
   function filtered() {
     const data = getUseCasesData();
 
@@ -377,7 +333,7 @@ function setupUseCases() {
     const w = carousel.clientWidth;
     if (w < 640) return 1;
     if (w < 980) return 2;
-    return 3;
+    return 2;
   }
 
   function clampPage(maxPages) {
@@ -412,70 +368,38 @@ function setupUseCases() {
     const dict = getDict(lang);
 
     track.innerHTML = list.map((u) => `
-      <article class="pc-card uc-card surface surface-strong carousel-slide-half" data-industry="${u.industry}">
-        <div class="surface-body">
-          <div class="uc-card-strip" aria-hidden="true"></div>
-
-          <div class="uc-toprow">
-            <div class="uc-index">#${String(u.seq).padStart(2, "0")}</div>
-
-            <div class="uc-pills">
-              ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${highlightNumbers(u.ttvBadge)}</span>` : ""}
-              <div class="uc-meta">
-                <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
-                <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
-              </div>
-              ${u.kpiBadge ? `<span class="uc-pill uc-pill--kpi">${highlightNumbers(u.kpiBadge)}</span>` : ""}
-            </div>
+      <article class="surface surface-strong carousel-slide-half" data-industry="${u.industry}">
+        <div class="surface-body stack">
+          <div class="action-row" style="justify-content: space-between; align-items: flex-start; margin-bottom: 0;">
+            <span class="pill">${u.industryLabel || u.industry}</span>
+            ${u.kpiBadge ? `<span class="pill pill-cyan">${highlightNumbers(u.kpiBadge)}</span>` : ""}
           </div>
 
-          <h3 class="uc-title">${u.title}</h3>
+          <h3 class="title-md">${u.title}</h3>
 
-          <div class="uc-body">
-            <div class="uc-row">
-              <div class="uc-k">${dict["uc.label.pain"] || "Pain"}</div>
-              <div class="uc-v">${highlightNumbers(u.pain)}</div>
+          ${u.ttvBadge ? `<div class="text-sm">${highlightNumbers(u.ttvBadge)}</div>` : ""}
+
+          <div class="stack" style="gap: 0.85rem;">
+            <div class="story-panel" style="margin: 0; padding: 0.85rem 0.95rem;">
+              <div class="label">${dict["uc.label.pain"] || "Pain"}</div>
+              <p class="text-sm">${highlightNumbers(u.pain)}</p>
             </div>
 
-            <div class="uc-row">
-              <div class="uc-k">${dict["uc.label.how"] || "How"}</div>
-              <div class="uc-v">${highlightNumbers(u.how)}</div>
+            <div class="story-panel" style="margin: 0; padding: 0.85rem 0.95rem;">
+              <div class="label">${dict["uc.label.how"] || "How it works"}</div>
+              <p class="text-sm">${highlightNumbers(u.how)}</p>
             </div>
 
-            <div class="uc-outcome">
-              <span class="uc-outcome-label">${dict["uc.label.result"] || "Result"}:</span>
-              <span class="uc-outcome-text">${highlightNumbers(u.result)}</span>
+            <div class="surface surface-soft">
+              <div class="surface-body">
+                <div class="label">${dict["uc.label.result"] || "Result"}</div>
+                <p class="text-sm">${highlightNumbers(u.result)}</p>
+              </div>
             </div>
           </div>
         </div>
       </article>
     `).join("");
-  }
-
-  function setFocusCard() {
-    const cards = [...track.querySelectorAll(".uc-card")];
-    if (!cards.length) return;
-
-    const vp = firstOf("#ucCarousel .carousel-viewport", "#ucCarousel .pc-viewport");
-    if (!vp) return;
-
-    const vpRect = vp.getBoundingClientRect();
-    const centerX = vpRect.left + vpRect.width / 2;
-
-    let best = null;
-    let bestDist = Infinity;
-
-    cards.forEach((c) => {
-      const r = c.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const d = Math.abs(cx - centerX);
-      if (d < bestDist) {
-        bestDist = d;
-        best = c;
-      }
-    });
-
-    cards.forEach((c) => c.classList.toggle("is-focus", c === best));
   }
 
   function updateCarousel() {
@@ -486,7 +410,7 @@ function setupUseCases() {
     const maxPages = Math.ceil(list.length / pv) || 1;
     clampPage(maxPages);
 
-    const first = track.querySelector(".uc-card");
+    const first = track.firstElementChild;
     const cardW = first ? first.clientWidth : 0;
     const gap = 16;
     const step = pv > 1 ? (cardW + gap) * pv : (cardW + gap);
@@ -495,19 +419,15 @@ function setupUseCases() {
 
     renderDots(maxPages);
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(setFocusCard);
-    });
-
     if (prev) prev.classList.toggle("is-disabled", page === 0);
     if (next) next.classList.toggle("is-disabled", page >= maxPages - 1);
   }
 
-  chips.forEach((ch) => {
-    ch.addEventListener("click", () => {
-      chips.forEach((x) => x.classList.remove("is-active"));
-      ch.classList.add("is-active");
-      active = ch.dataset.ucFilter || "all";
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      filterButtons.forEach((x) => x.classList.remove("is-active"));
+      btn.classList.add("is-active");
+      active = btn.dataset.ucFilter || "all";
       page = 0;
       updateCarousel();
     });
@@ -561,9 +481,9 @@ function setupPricingCarousel() {
     return;
   }
 
-  const track = firstOf("#pricingCarousel .carousel-track", "#pricingCarousel .pc-track");
-  const prev = firstOf("#pricingCarousel .carousel-nav-prev", "#pricingCarousel .pc-prev");
-  const next = firstOf("#pricingCarousel .carousel-nav-next", "#pricingCarousel .pc-next");
+  const track = $(".carousel-track", root);
+  const prev = $(".carousel-nav-prev", root);
+  const next = $(".carousel-nav-next", root);
   const dots = document.getElementById("pricingDots");
 
   if (!track) return;
@@ -623,11 +543,10 @@ function setupPricingCarousel() {
     const x = firstCard ? firstCard.offsetLeft : 0;
 
     track.style.transform = `translate3d(${-x}px, 0, 0)`;
+    renderDots(pages);
 
     if (prev) prev.disabled = false;
     if (next) next.disabled = false;
-
-    renderDots(pages);
   }
 
   prev?.addEventListener("click", () => goToPage(page - 1));
@@ -638,14 +557,10 @@ function setupPricingCarousel() {
   goToPage(0);
 
   let rAF = 0;
-  window.addEventListener(
-    "resize",
-    () => {
-      cancelAnimationFrame(rAF);
-      rAF = requestAnimationFrame(() => goToPage(0));
-    },
-    { passive: true }
-  );
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(rAF);
+    rAF = requestAnimationFrame(() => goToPage(0));
+  }, { passive: true });
 }
 
 /* =========================
@@ -653,18 +568,9 @@ function setupPricingCarousel() {
 ========================= */
 
 function setupFaqAccordion() {
-  const items = [
-    ...$all(".accordion-item"),
-    ...$all(".faq-item")
-  ];
-
-  items.forEach((item) => {
-    const q = firstOf(
-      ".accordion-trigger",
-      ".faq-q-wrap"
-    ) && item.querySelector(".accordion-trigger, .faq-q-wrap");
-
-    const a = item.querySelector(".accordion-content, .faq-a");
+  $all(".accordion-item").forEach((item) => {
+    const q = $(".accordion-trigger", item);
+    const a = $(".accordion-content", item);
 
     if (!q || !a) return;
 
@@ -733,7 +639,7 @@ function setupYear() {
 ========================= */
 
 function setupMiteForms() {
-  const forms = document.querySelectorAll("form.js-mite-form");
+  const forms = $all("form.js-mite-form");
   if (!forms.length) return;
 
   forms.forEach((form) => {
@@ -741,7 +647,7 @@ function setupMiteForms() {
     form.__miteBound = true;
 
     const toastSel = form.dataset.toast || ".js-success-toast";
-    const toast = form.querySelector(toastSel);
+    const toast = $(toastSel, form);
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -838,7 +744,7 @@ function once(fn) {
 }
 
 function lazyInitOnVisible(selector, init, options = {}) {
-  const el = document.querySelector(selector);
+  const el = $(selector);
   if (!el) return;
 
   const run = once(init);
