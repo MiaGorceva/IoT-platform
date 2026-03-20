@@ -88,9 +88,13 @@ function getDict(lang) {
 function applyTranslations(lang = "en") {
   const dict = getDict(lang);
   document.documentElement.lang = lang;
+  window.MITE = window.MITE || {};
+  window.MITE.currentLang = lang;
 
   try {
-    localStorage.setItem("mite-lang", lang);
+    if (localStorage.getItem("mite-lang") !== lang) {
+      localStorage.setItem("mite-lang", lang);
+    }
   } catch (_) {}
 
   if (dict["seo.title"]) {
