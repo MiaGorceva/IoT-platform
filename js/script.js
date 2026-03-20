@@ -791,20 +791,6 @@ function lazyInitOnFirstInteraction(init) {
   window.addEventListener("touchstart", handler, { passive: true, once: true });
 }
 
-/* =========================
-   Boot
-========================= */
-
-window.MITE = window.MITE || {};
-window.MITE.page = window.MITE.page || { id: "index" };
-
-const initOutcomes = once(setupOutcomes);
-const initUseCases = once(setupUseCases);
-const initPricing = once(setupPricingCarousel);
-const initFaq = once(setupFaqAccordion);
-const initDrawer = once(setupDrawer);
-const initForms = once(setupMiteForms);
-
 document.addEventListener("DOMContentLoaded", () => {
   initOutcomes();
   setupYear();
