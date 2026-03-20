@@ -40,7 +40,12 @@
     document.documentElement.classList.add("i18n-loading");
 
     const supported = ["en", "ru", "uk"];
-    const saved = localStorage.getItem("mite-lang");
+
+    let saved = null;
+    try {
+      saved = localStorage.getItem("mite-lang");
+    } catch (_) {}
+
     const browserLang = (navigator.language || "en").slice(0, 2);
 
     const lang = supported.includes(saved)
