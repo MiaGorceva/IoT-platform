@@ -400,14 +400,14 @@ img {
   display: inline-block;
 
   background: linear-gradient(
-    120deg,
-    #54e54a 0%,
-    #72f27e 18%,
-    #9dc3d2 42%,
-    #48cfff 68%,
-    #2ea8ff 88%,
-    #b8eaff 100%
-  );
+      120deg,
+      #6eea74 0%,
+      #54e54a 12%,
+      #8ac9b9 36%,
+      #48cfff 62%,
+      #2ea8ff 84%,
+      #c2efff 100%
+    );
 
   background-size: 200% auto;
   background-position: 0% center;
