@@ -198,13 +198,6 @@ ul {
    4. TYPOGRAPHY
    ========================================================= */
 
-.eyebrow {
-  font-size: 0.78rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--secondary);
-}
-
 .section-title {
   font-size: 1.3rem;
   letter-spacing: -0.02em;
@@ -252,8 +245,6 @@ ul {
 /* =========================================================
    5. GLOBAL ELEMENT SYSTEM
    ========================================================= */
-
-/* one dot style everywhere */
 .dot {
   width: 10px;
   height: 10px;
@@ -265,20 +256,37 @@ ul {
     0 0 14px rgba(95, 227, 255, 0.18);
 }
 
-/* one pill style everywhere */
 .pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.48rem;
   width: fit-content;
-  padding: 0.3rem 0.82rem;
+  padding: 0.34rem 0.88rem;
   border-radius: var(--radius-pill);
-  border: 1px solid rgba(84, 229, 74, 0.22);
-  background: rgba(84, 229, 74, 0.08);
-  color: var(--accent);
+
+  border: 1px solid rgba(120, 145, 170, 0.24);
+  background:
+    linear-gradient(180deg, rgba(20, 28, 42, 0.88), rgba(12, 18, 30, 0.82));
+  color: #aeb8c9;
+
   font-size: 0.76rem;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 0 1px rgba(95, 227, 255, 0.04),
+    0 0 18px rgba(95, 227, 255, 0.08),
+    0 10px 24px rgba(0,0,0,0.22);
+}
+
+.hero-kicker {
+  border-color: rgba(124, 152, 181, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.04),
+    0 0 0 1px rgba(95, 227, 255, 0.05),
+    0 0 22px rgba(95, 227, 255, 0.10),
+    0 12px 28px rgba(0,0,0,0.22);
 }
 
 /* one chip style everywhere */
@@ -399,19 +407,34 @@ ul {
   color: #04111a;
   border-color: rgba(95, 227, 255, 0.16);
   box-shadow:
-    0 10px 24px rgba(0, 0, 0, 0.32),
-    0 0 16px rgba(84, 229, 74, 0.10);
+    0 12px 26px rgba(0, 0, 0, 0.28),
+    0 0 18px rgba(84, 229, 74, 0.12),
+    inset 0 1px 0 rgba(255,255,255,0.10);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 16px 30px rgba(0, 0, 0, 0.34),
+    0 0 22px rgba(84, 229, 74, 0.16),
+    inset 0 1px 0 rgba(255,255,255,0.12);
 }
 
 .btn-outline {
   border-color: rgba(147, 164, 184, 0.22);
-  color: #aeb8c9;
-  background: rgba(15, 23, 42, 0.32);
+  color: #b7c1d0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.38), rgba(12, 18, 30, 0.30));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.03),
+    0 0 0 1px rgba(95,227,255,0.03);
 }
 
 .btn-outline:hover {
-  background: rgba(15, 23, 42, 0.55);
-  box-shadow: 0 0 10px rgba(147, 164, 184, 0.08);
+  background: linear-gradient(180deg, rgba(18, 28, 48, 0.56), rgba(12, 20, 36, 0.42));
+  border-color: rgba(95, 227, 255, 0.22);
+  box-shadow:
+    0 0 14px rgba(95, 227, 255, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04);
 }
 
 .btn-ghost {
@@ -534,13 +557,6 @@ ul {
   min-width: 0;
 }
 
-.hero-kicker {
-  margin-bottom: 1.15rem;
-  box-shadow:
-    0 0 18px rgba(72, 207, 255, 0.14),
-    inset 0 0 0 1px rgba(255,255,255,0.03);
-}
-
 .hero-title {
   margin: 0 0 1rem;
   max-width: 12ch;
@@ -549,39 +565,54 @@ ul {
   letter-spacing: -0.05em;
   font-weight: 750;
   text-wrap: balance;
+
   background: linear-gradient(
-    150deg,
-    #eef2f7 0%,
-    #cfd5de 24%,
-    #9ea8b5 52%,
-    #eef3f8 76%,
-    #bac3cf 100%
+    155deg,
+    #f3f5f8 0%,
+    #d7dce3 16%,
+    #9ba4b1 36%,
+    #eef2f6 58%,
+    #7f8895 78%,
+    #d6dbe3 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.06),
+    0 0 18px rgba(147, 164, 184, 0.06);
 }
 
 .hero-title span {
   display: inline-block;
+
   background: linear-gradient(
     120deg,
-    #6ff07a 0%,
-    #54e54a 18%,
-    #78f1c5 42%,
-    #48cfff 68%,
-    #2ea8ff 86%,
-    #c8f3ff 100%
+    #eef2f6 0%,
+    #b9c3cf 14%,
+    #7f8b98 26%,
+    #dce3ea 38%,
+    #70ef82 52%,
+    #54e54a 62%,
+    #7fe9d8 76%,
+    #48cfff 88%,
+    #d5f6ff 100%
   );
+
   background-size: 220% auto;
   background-position: 0% center;
+
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: heroNeonShift 5.2s ease-in-out infinite;
+
+  animation: heroNeonShift 6s ease-in-out infinite;
+
   text-shadow:
-    0 0 10px rgba(84,229,74,0.10),
-    0 0 18px rgba(72,207,255,0.14);
+    0 0 8px rgba(147, 164, 184, 0.08),
+    0 0 12px rgba(84, 229, 74, 0.08),
+    0 0 18px rgba(72, 207, 255, 0.10);
 }
 
 @keyframes heroNeonShift {
@@ -590,12 +621,22 @@ ul {
   100% { background-position: 0% center; }
 }
 
-.hero-subtitle {
+ .hero-subtitle {
   margin: 0 0 1.45rem;
   max-width: 40rem;
   font-size: 1.02rem;
   line-height: 1.72;
-  color: var(--soft-text);
+  color: rgba(214, 221, 231, 0.76);
+}
+
+.hero-meta-item {
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: 0.8rem;
+  align-items: start;
+  color: #adb7c6;
+  font-size: 0.98rem;
+  line-height: 1.45;
 }
 
 .hero-cta-row {
@@ -610,16 +651,6 @@ ul {
   display: grid;
   gap: 0.65rem;
   margin-top: 0.1rem;
-}
-
-.hero-meta-item {
-  display: grid;
-  grid-template-columns: 12px 1fr;
-  gap: 0.75rem;
-  align-items: start;
-  color: #aab4c4;
-  font-size: 0.98rem;
-  line-height: 1.45;
 }
 
 .hero-card {
@@ -642,16 +673,22 @@ ul {
 
 .hero-visual {
   position: relative;
-  padding: 1.85rem;
-  border-radius: 1.8rem;
+  display: grid;
+  place-items: center;
+  padding: 2.1rem;
+  border-radius: 1.9rem;
+
   background:
-    radial-gradient(circle at 10% 0%, rgba(72, 207, 255, 0.18), transparent 58%),
-    radial-gradient(circle at 90% 100%, rgba(84, 229, 74, 0.18), transparent 58%),
+    radial-gradient(circle at 10% 0%, rgba(72, 207, 255, 0.16), transparent 58%),
+    radial-gradient(circle at 90% 100%, rgba(84, 229, 74, 0.14), transparent 58%),
     linear-gradient(145deg, rgba(2, 6, 23, 0.94), rgba(2, 6, 23, 0.88));
+
   border: 1px solid rgba(72, 207, 255, 0.14);
+
   box-shadow:
     0 28px 70px rgba(0, 0, 0, 0.72),
     inset 0 0 0 1px rgba(255,255,255,0.03);
+
   aspect-ratio: 1.08 / 1;
   overflow: hidden;
 }
@@ -662,18 +699,25 @@ ul {
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(135deg, rgba(95,227,255,0.06), transparent 30%, transparent 70%, rgba(84,229,74,0.08));
+    linear-gradient(
+      135deg,
+      rgba(95,227,255,0.05),
+      transparent 28%,
+      transparent 72%,
+      rgba(84,229,74,0.06)
+    );
 }
 
 .orb-spider-img {
-  width: 100%;
-  height: 100%;
+  width: min(88%, 680px);
+  height: auto;
   object-fit: contain;
-  filter:
-    drop-shadow(0 24px 34px rgba(0,0,0,0.45))
-    drop-shadow(0 0 26px rgba(72,207,255,0.10));
-}
+  margin: 0 auto;
 
+  filter:
+    drop-shadow(0 24px 34px rgba(0,0,0,0.44))
+    drop-shadow(0 0 24px rgba(72,207,255,0.08));
+}
 /* =========================================================
    9. CAROUSEL
    ========================================================= */
@@ -928,23 +972,37 @@ ul {
    13. FLOATING CTA / DRAWER
    ========================================================= */
 
-.floating-cta {
+..floating-cta {
   position: fixed;
   right: 16px;
   bottom: 16px;
   z-index: 70;
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  padding: 0.55rem 0.95rem;
+  gap: 0.6rem;
+  padding: 0.62rem 1rem;
   border-radius: 999px;
-  border: 1px solid rgba(95, 227, 255, 0.22);
-  background: rgba(15, 23, 42, 0.78);
+
+  border: 1px solid rgba(95, 227, 255, 0.18);
+  background:
+    linear-gradient(180deg, rgba(15, 23, 42, 0.82), rgba(10, 18, 30, 0.78));
+
   backdrop-filter: blur(14px);
+
   box-shadow:
-    var(--shadow-deep),
-    0 0 18px rgba(95, 227, 255, 0.18);
+    0 18px 44px rgba(0, 0, 0, 0.38),
+    0 0 18px rgba(95, 227, 255, 0.08),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+
   cursor: pointer;
+}
+
+.floating-cta:hover {
+  border-color: rgba(95, 227, 255, 0.28);
+  box-shadow:
+    0 22px 48px rgba(0, 0, 0, 0.42),
+    0 0 24px rgba(95, 227, 255, 0.12),
+    inset 0 1px 0 rgba(255,255,255,0.05);
 }
 
 .overlay {
@@ -1066,11 +1124,6 @@ ul {
     max-width: 100%;
     font-size: clamp(2.15rem, 10vw, 3rem);
     line-height: 1.02;
-  }
-
-  .hero-subtitle {
-    font-size: 0.98rem;
-    line-height: 1.65;
   }
 
   .hero-cta-row {
