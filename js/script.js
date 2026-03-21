@@ -25,7 +25,7 @@ function loadScript(src) {
 
     const s = document.createElement("script");
     s.src = src;
-    s.async = true;
+    s.defer = true;
     s.dataset.src = src;
 
     s.onload = () => {
@@ -69,7 +69,7 @@ function $all(sel, root = document) {
 }
 
 /* =========================
-   i18n helpers
+   i18n
 ========================= */
 
 const HTML_I18N_KEYS = new Set([
@@ -88,13 +88,9 @@ function getDict(lang) {
 function applyTranslations(lang = "en") {
   const dict = getDict(lang);
   document.documentElement.lang = lang;
-  window.MITE = window.MITE || {};
-  window.MITE.currentLang = lang;
 
   try {
-    if (localStorage.getItem("mite-lang") !== lang) {
-      localStorage.setItem("mite-lang", lang);
-    }
+    localStorage.setItem("mite-lang", lang);
   } catch (_) {}
 
   if (dict["seo.title"]) {
@@ -138,7 +134,7 @@ function applyTranslations(lang = "en") {
 }
 
 /* =========================
-   Outcomes
+   About outcomes
 ========================= */
 
 function setupOutcomes() {
@@ -151,7 +147,7 @@ function setupOutcomes() {
   const nextBtn = document.getElementById("outcomesNext");
 
   const metricWrap = $(".stat-stack");
-  const leftPoints = $all(".item-row[data-outcome]");
+  const leftPoints = $all(".item[data-outcome]");
 
   if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return;
 
@@ -239,6 +235,13 @@ function setupOutcomes() {
       index = i;
       render(true);
     });
+
+    p.addEventListener("click", () => {
+      const i = Number(p.getAttribute("data-outcome"));
+      if (!Number.isFinite(i)) return;
+      index = i;
+      render(true);
+    });
   });
 
   window.__updateOutcomes = (reset = false) => {
@@ -250,7 +253,7 @@ function setupOutcomes() {
 }
 
 /* =========================
-   Numbers highlighter
+   Number highlighting for use cases
 ========================= */
 
 function highlightNumbers(html) {
@@ -290,7 +293,7 @@ function highlightNumbers(html) {
 }
 
 /* =========================
-   Use cases
+   Use cases carousel
 ========================= */
 
 function setupUseCases() {
@@ -374,27 +377,31 @@ function setupUseCases() {
     track.innerHTML = list.map((u) => `
       <article class="surface surface-strong carousel-slide-half" data-industry="${u.industry}">
         <div class="surface-body stack">
-          <div class="action-row" style="justify-content: space-between; align-items: flex-start; margin-bottom: 0;">
+          <div class="row" style="justify-content: space-between; align-items: flex-start; margin-bottom: 0;">
             <span class="pill">${u.industryLabel || u.industry}</span>
-            ${u.kpiBadge ? `<span class="pill pill-cyan">${highlightNumbers(u.kpiBadge)}</span>` : ""}
+            ${u.kpiBadge ? `<span class="pill">${highlightNumbers(u.kpiBadge)}</span>` : ""}
           </div>
 
-          <h3 class="title-md">${u.title}</h3>
+          <h3 class="title-lg">${u.title}</h3>
 
           ${u.ttvBadge ? `<div class="text-sm">${highlightNumbers(u.ttvBadge)}</div>` : ""}
 
           <div class="stack" style="gap: 0.85rem;">
-            <div class="story-panel" style="margin: 0; padding: 0.85rem 0.95rem;">
-              <div class="label">${dict["uc.label.pain"] || "Pain"}</div>
-              <p class="text-sm">${highlightNumbers(u.pain)}</p>
-            </div>
-
-            <div class="story-panel" style="margin: 0; padding: 0.85rem 0.95rem;">
-              <div class="label">${dict["uc.label.how"] || "How it works"}</div>
-              <p class="text-sm">${highlightNumbers(u.how)}</p>
+            <div class="surface surface-soft">
+              <div class="surface-body">
+                <div class="label">${dict["uc.label.pain"] || "Pain"}</div>
+                <p class="text-sm">${highlightNumbers(u.pain)}</p>
+              </div>
             </div>
 
             <div class="surface surface-soft">
+              <div class="surface-body">
+                <div class="label">${dict["uc.label.how"] || "How it works"}</div>
+                <p class="text-sm">${highlightNumbers(u.how)}</p>
+              </div>
+            </div>
+
+            <div class="surface surface-featured">
               <div class="surface-body">
                 <div class="label">${dict["uc.label.result"] || "Result"}</div>
                 <p class="text-sm">${highlightNumbers(u.result)}</p>
@@ -477,13 +484,6 @@ function setupUseCases() {
 function setupPricingCarousel() {
   const root = document.getElementById("pricingCarousel");
   if (!root) return;
-
-  if (window.innerWidth >= 960) {
-    const dots = document.getElementById("pricingDots");
-    if (dots) dots.innerHTML = "";
-    window.__updatePricing = () => {};
-    return;
-  }
 
   const track = $(".carousel-track", root);
   const prev = $(".carousel-nav-prev", root);
@@ -573,29 +573,29 @@ function setupPricingCarousel() {
 
 function setupFaqAccordion() {
   $all(".accordion-item").forEach((item) => {
-    const q = $(".accordion-trigger", item);
-    const a = $(".accordion-content", item);
+    const trigger = $(".accordion-trigger", item);
+    const content = $(".accordion-content", item);
 
-    if (!q || !a) return;
+    if (!trigger || !content) return;
 
-    a.style.height = "0px";
-    a.style.overflow = "hidden";
-    a.style.transition = "height 260ms ease";
+    content.style.height = "0px";
+    content.style.overflow = "hidden";
+    content.style.transition = "height 260ms ease";
 
-    q.addEventListener("click", () => {
+    trigger.addEventListener("click", () => {
       const isOpen = item.classList.toggle("is-open");
 
       if (isOpen) {
-        a.style.height = `${a.scrollHeight}px`;
+        content.style.height = `${content.scrollHeight}px`;
       } else {
-        a.style.height = "0px";
+        content.style.height = "0px";
       }
     });
   });
 }
 
 /* =========================
-   Quick drawer
+   Drawer
 ========================= */
 
 function setupDrawer() {
@@ -678,7 +678,7 @@ function setupMiteForms() {
           method: "POST",
           mode: "cors",
           headers: {
-            "Accept": "application/json",
+            Accept: "application/json",
             "Content-Type": "application/json"
           },
           body: JSON.stringify(payload)
