@@ -412,6 +412,7 @@ textarea {
   text-transform: uppercase;
   border: 1px solid rgba(72, 207, 255, 0.22);
   background: rgba(10, 18, 35, 0.55);
+  margin-bottom: 1.15rem;
   color: #aeb8c9;
   box-shadow:
     0 0 12px rgba(72, 207, 255, 0.08),
@@ -520,10 +521,6 @@ textarea {
   min-width: 0;
 }
 
-.hero-kicker {
-  margin-bottom: 1.15rem;
-}
-
 .hero-title {
   margin: 0 0 1rem;
   max-width: 12ch;
@@ -601,6 +598,7 @@ textarea {
   border: 1px solid var(--c-border);
   background: var(--bg-surface);
   box-shadow: var(--shadow-soft);
+  color: var(--c-blue);
 }
 
 .hero-visual {
