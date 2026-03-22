@@ -575,6 +575,7 @@ ul {
     #7f8895 78%,
     #d6dbe3 100%
   );
+
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -587,38 +588,43 @@ ul {
 .hero-title span {
   display: inline-block;
 
+  /* MITE green -> metallic middle -> blue game */
   background: linear-gradient(
-    120deg,
-    #eef2f6 0%,
-    #b9c3cf 14%,
-    #7f8b98 26%,
-    #dce3ea 38%,
-    #70ef82 52%,
-    #54e54a 62%,
-    #7fe9d8 76%,
-    #48cfff 88%,
-    #d5f6ff 100%
+    90deg,
+    #69f07a 0%,
+    #54e54a 18%,
+    #9fd6c2 34%,
+    #d9e0e8 48%,
+    #99a3af 60%,
+    #b6c3d0 72%,
+    #6fd8ff 86%,
+    #48cfff 100%
   );
 
-  background-size: 220% auto;
+  background-size: 170% auto;
   background-position: 0% center;
 
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 
-  animation: heroNeonShift 6s ease-in-out infinite;
+  animation: heroSpanFlow 26s ease-in-out infinite;
 
   text-shadow:
-    0 0 8px rgba(147, 164, 184, 0.08),
-    0 0 12px rgba(84, 229, 74, 0.08),
-    0 0 18px rgba(72, 207, 255, 0.10);
+    0 0 6px rgba(84, 229, 74, 0.06),
+    0 0 8px rgba(72, 207, 255, 0.08);
 }
 
-@keyframes heroNeonShift {
-  0% { background-position: 0% center; }
-  50% { background-position: 100% center; }
-  100% { background-position: 0% center; }
+@keyframes heroSpanFlow {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
 }
 
  .hero-subtitle {
