@@ -387,21 +387,21 @@ function setupUseCases() {
           ${u.ttvBadge ? `<div class="text-sm">${highlightNumbers(u.ttvBadge)}</div>` : ""}
 
           <div class="stack" style="gap: 0.85rem;">
-            <div class="surface">
+            <div class="surface surface-soft">
               <div class="surface-body">
                 <div class="label">${dict["uc.label.pain"] || "Pain"}</div>
                 <p class="text-sm">${highlightNumbers(u.pain)}</p>
               </div>
             </div>
 
-            <div class="surface">
+            <div class="surface surface-soft">
               <div class="surface-body">
                 <div class="label">${dict["uc.label.how"] || "How it works"}</div>
                 <p class="text-sm">${highlightNumbers(u.how)}</p>
               </div>
             </div>
 
-            <div class="surface surface-rich">
+            <div class="surface surface-featured">
               <div class="surface-body">
                 <div class="label">${dict["uc.label.result"] || "Result"}</div>
                 <p class="text-sm">${highlightNumbers(u.result)}</p>

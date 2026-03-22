@@ -121,7 +121,7 @@
           </div>
         </div>
 
-        <div class="hero-visual frame">
+        <div class="hero-visual">
           <picture>
             <source srcset="upload/the-most-flexible-platform-ever.avif" type="image/avif" />
             <source srcset="upload/the-most-flexible-platform-ever.webp" type="image/webp" />
@@ -147,7 +147,7 @@
 
     <section id="about" class="section container" data-section="about">
       <header class="section-head">
-        <div class="eyebrow" data-i18n="about.eyebrow"></div>
+        <div class="pill hero-kicker" data-i18n="about.eyebrow"></div>
         <h2 class="section-title" data-i18n="about.title"></h2>
         <p class="section-text" data-i18n="about.text"></p>
       </header>
@@ -193,20 +193,25 @@
           </div>
         </div>
 
-        <aside class="surface surface-rich">
-          <div class="surface-body stat-stack">
+        <aside class="surface surface-strong surface-featured" aria-label="Typical outcomes">
+          <div class="surface-body">
             <div class="label" data-i18n="about.side.label"></div>
-            <div id="outcomeNum" class="stat-value"></div>
-            <div id="outcomeTitle" class="title-lg"></div>
-            <div id="outcomeText" class="text-md"></div>
-            <ul id="outcomeBullets" class="text-sm"></ul>
-          </div>
 
-          <div class="surface-body row" style="justify-content: space-between; padding-top: 0;">
-            <div class="carousel-dots" id="outcomesDots" aria-hidden="true"></div>
-            <div class="row">
-              <button class="btn btn-ghost" id="outcomesPrev" type="button" aria-label="Previous">‹</button>
-              <button class="btn btn-ghost" id="outcomesNext" type="button" aria-label="Next">›</button>
+            <div class="stat-stack">
+              <div id="outcomeNum" class="stat-value"></div>
+              <div id="outcomeTitle" class="title-lg"></div>
+              <div id="outcomeText" class="text-md"></div>
+              <ul id="outcomeBullets" class="text-sm"></ul>
+            </div>
+
+            <hr style="border:0;height:1px;background:rgba(148,163,184,0.12);margin:1rem 0 0.85rem;">
+
+            <div class="row" style="justify-content: space-between; margin-bottom: 0;">
+              <div class="carousel-dots" id="outcomesDots" aria-hidden="true"></div>
+              <div class="row">
+                <button class="btn btn-ghost" id="outcomesPrev" type="button" aria-label="Previous">‹</button>
+                <button class="btn btn-ghost" id="outcomesNext" type="button" aria-label="Next">›</button>
+              </div>
             </div>
           </div>
         </aside>
@@ -215,13 +220,13 @@
 
     <section id="platform" class="section container" data-section="platform">
       <header class="section-head">
-        <div class="eyebrow" data-i18n="platform.eyebrow"></div>
+        <div class="pill hero-kicker" data-i18n="platform.eyebrow"></div>
         <h2 class="section-title" data-i18n="platform.title"></h2>
         <p class="section-text" data-i18n="platform.subtitle"></p>
       </header>
 
       <div class="grid grid-3" role="list">
-        <article class="surface surface-rich" role="listitem">
+        <article class="surface surface-featured" role="listitem">
           <div class="surface-body stack">
             <h3 class="title-md" data-i18n="platform.cards.0.title"></h3>
             <p class="text-sm" data-i18n="platform.cards.0.text"></p>
@@ -246,16 +251,16 @@
         </article>
       </div>
 
-      <article class="surface surface-rich" style="margin-top: 1.1rem;">
+      <article class="surface" style="margin-top: 1.1rem;">
         <div class="surface-body stack">
           <div class="pill">
-            <span class="dot" aria-hidden="true"></span>
+            <span class="dot"></span>
             <span data-i18n="platform.ci.tag"></span>
           </div>
 
           <h3 class="title-lg" data-i18n="platform.ci.title"></h3>
 
-          <div class="row">
+          <div class="row" style="flex-wrap: wrap;">
             <span class="chip">REST API</span>
             <span class="chip">Webhooks</span>
             <span class="chip">MQTT</span>
@@ -270,7 +275,7 @@
         </div>
       </article>
 
-      <article class="surface" style="margin-top: 1.1rem;">
+      <article class="surface surface-soft" style="margin-top: 1.1rem;">
         <div class="surface-body stack">
           <h3 class="title-md" data-i18n="platform.story.title"></h3>
           <p class="text-sm" data-i18n="platform.story.text"></p>
@@ -280,7 +285,7 @@
 
     <section id="highlights" class="section container" data-section="highlights">
       <header class="section-head">
-        <div class="eyebrow" data-i18n="highlights.eyebrow"></div>
+        <div class="pill hero-kicker" data-i18n="highlights.eyebrow"></div>
         <h2 class="section-title" data-i18n="highlights.title"></h2>
         <p class="section-text" data-i18n="highlights.subtitle"></p>
       </header>
@@ -344,14 +349,14 @@
 
     <section id="usecases" class="section container" data-section="usecases">
       <header class="section-head">
-        <div class="eyebrow" data-i18n="useReal.eyebrow"></div>
+        <div class="pill hero-kicker" data-i18n="useReal.eyebrow"></div>
         <h2 class="section-title" data-i18n="useReal.title"></h2>
         <p class="section-text" data-i18n="useReal.subtitle"></p>
       </header>
 
       <div class="carousel" id="ucCarousel">
-        <div class="row" style="justify-content: space-between; margin-bottom: 18px;">
-          <div class="row" id="ucFilters" aria-label="Industry filters">
+        <div class="row" style="justify-content: space-between; margin-bottom: 18px; flex-wrap: wrap;">
+          <div class="row" id="ucFilters" aria-label="Industry filters" style="flex-wrap: wrap;">
             <button class="btn btn-ghost is-active" type="button" data-uc-filter="all" data-i18n="uc.filter.all"></button>
             <button class="btn btn-ghost" type="button" data-uc-filter="pharma" data-i18n="uc.filter.pharma"></button>
             <button class="btn btn-ghost" type="button" data-uc-filter="manufacturing" data-i18n="uc.filter.manufacturing"></button>
@@ -388,7 +393,7 @@
 
     <section id="how" class="section container" data-section="how">
       <header class="section-head">
-        <div class="eyebrow" data-i18n="how.eyebrow"></div>
+        <div class="pill hero-kicker" data-i18n="how.eyebrow"></div>
         <h2 class="section-title" data-i18n="how.title"></h2>
         <p class="section-text" data-i18n="how.subtitle"></p>
       </header>
@@ -428,7 +433,7 @@
 
     <section id="pricing" class="section container" data-section="pricing">
       <header class="section-head">
-        <div class="eyebrow" data-i18n="pricing.eyebrow"></div>
+        <div class="pill hero-kicker" data-i18n="pricing.eyebrow"></div>
         <h2 class="section-title" data-i18n="pricing.title"></h2>
         <p class="section-text" data-i18n="pricing.subtitle"></p>
       </header>
@@ -437,11 +442,11 @@
         <button class="carousel-nav carousel-nav-prev" type="button" aria-label="Previous plan">‹</button>
 
         <div class="carousel-viewport is-wide">
-          <div class="carousel-track is-static">
+          <div class="carousel-track is-card is-static">
             <article class="surface surface-strong carousel-slide-card is-quarter">
               <div class="surface-body stack">
                 <div class="label" data-i18n="pricing.free.label"></div>
-                <h3 class="title-lg" data-i18n="pricing.free.name"></h3>
+                <h3 class="title-md" data-i18n="pricing.free.name"></h3>
                 <p class="text-sm" data-i18n="pricing.free.tagline"></p>
                 <div class="title-md" data-i18n="pricing.free.price"></div>
                 <div class="text-sm" data-i18n="pricing.free.note"></div>
@@ -458,7 +463,7 @@
             <article class="surface surface-strong carousel-slide-card is-quarter">
               <div class="surface-body stack">
                 <div class="label" data-i18n="pricing.plan1.label"></div>
-                <h3 class="title-lg" data-i18n="pricing.plan1.name"></h3>
+                <h3 class="title-md" data-i18n="pricing.plan1.name"></h3>
                 <p class="text-sm" data-i18n="pricing.plan1.tagline"></p>
                 <div class="title-md" data-i18n="pricing.plan1.price"></div>
                 <div class="text-sm" data-i18n="pricing.plan1.note"></div>
@@ -472,10 +477,10 @@
               </div>
             </article>
 
-            <article class="surface surface-rich carousel-slide-card is-quarter">
+            <article class="surface surface-featured carousel-slide-card is-quarter">
               <div class="surface-body stack">
                 <div class="label" data-i18n="pricing.plan2.label"></div>
-                <h3 class="title-lg" data-i18n="pricing.plan2.name"></h3>
+                <h3 class="title-md" data-i18n="pricing.plan2.name"></h3>
                 <p class="text-sm" data-i18n="pricing.plan2.tagline"></p>
                 <div class="title-md" data-i18n="pricing.plan2.price"></div>
                 <div class="text-sm" data-i18n="pricing.plan2.note"></div>
@@ -489,10 +494,10 @@
               </div>
             </article>
 
-            <article class="surface surface-rich carousel-slide-card is-quarter">
+            <article class="surface surface-strong surface-featured carousel-slide-card is-quarter">
               <div class="surface-body stack">
                 <div class="label" data-i18n="pricing.plan3.label"></div>
-                <h3 class="title-lg" data-i18n="pricing.plan3.name"></h3>
+                <h3 class="title-md" data-i18n="pricing.plan3.name"></h3>
                 <p class="text-sm" data-i18n="pricing.plan3.tagline"></p>
                 <div class="title-md" data-i18n="pricing.plan3.price"></div>
                 <div class="text-sm" data-i18n="pricing.plan3.note"></div>
@@ -516,7 +521,7 @@
 
     <section id="testimonials" class="section container" data-section="testimonials">
       <header class="section-head">
-        <div class="eyebrow" data-i18n="testimonials.eyebrow"></div>
+        <div class="pill hero-kicker" data-i18n="testimonials.eyebrow"></div>
         <h2 class="section-title" data-i18n="testimonials.title"></h2>
         <p class="section-text" data-i18n="testimonials.subtitle"></p>
       </header>
@@ -587,7 +592,7 @@
         </div>
       </div>
 
-      <div class="surface" style="margin-top: 1rem;">
+      <div class="surface" style="margin-top:1rem;">
         <div class="surface-body text-md" data-i18n="faq.trust"></div>
       </div>
     </section>
@@ -595,7 +600,7 @@
     <section id="contact" class="section container" data-section="contact">
       <div class="split-wide">
         <header class="section-head">
-          <div class="eyebrow" data-i18n="contact.eyebrow"></div>
+          <div class="pill hero-kicker" data-i18n="contact.eyebrow"></div>
           <h2 class="section-title" data-i18n="contact.title"></h2>
           <p class="section-text" data-i18n="contact.subtitle"></p>
         </header>
