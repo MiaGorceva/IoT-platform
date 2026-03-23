@@ -13,7 +13,7 @@
   --c-blue-soft: rgba(72, 207, 255, 0.12);
 
   --c-border: rgba(255, 255, 255, 0.08);
-  --c-border-strong: rgba(72, 207, 255, 0.14);
+  --c-border-strong: 1px solid rgba(84, 229, 74, 0.28);/
 
   /* ===== BACKGROUNDS ===== */
   --bg-base: linear-gradient(135deg, #06090f, #0b1220);
@@ -843,8 +843,7 @@ textarea {
   border-radius: 14px;
   border: 1px solid rgba(84, 229, 74, 0.28);
   background:
-    radial-gradient(circle at 10% 0%, rgba(84, 229, 74, 0.14), transparent 55%),
-    rgba(2, 6, 23, 0.25);
+    var(--bg-rich);
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.86rem;
   line-height: 1.45;
