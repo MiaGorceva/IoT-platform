@@ -116,7 +116,7 @@ window.translations.en = {
   "platform.subtitle":
     "You describe logic as rules and processes. The platform executes them consistently — at scale.",
 
-  "platform.cards.0.title": "Any process complexity — without code. And it actually runs.",
+  "platform.cards.0.title": "Any process complexity — without code. And it actually runs",
   "platform.cards.0.text":
     "Model processes as logic: conditions, routes, approvals, escalations, and KPIs. " +
     "Describe what must happen — MITE takes care of execution, consistency, and traceability. " +
