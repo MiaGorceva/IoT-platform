@@ -164,7 +164,9 @@ textarea {
 }
 
 .stack {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   gap: 0.9rem;
 }
 
