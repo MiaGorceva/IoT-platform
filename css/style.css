@@ -1385,3 +1385,142 @@ button {
     padding: 1rem;
   }
 }
+
+/* =========================
+   USE CASES — restore accents
+   ========================= */
+
+.uc-num {
+  display: inline-block;
+  padding: 0.08em 0.45em;
+  border-radius: 999px;
+  background: rgba(84, 229, 74, 0.16);
+  border: 1px solid rgba(84, 229, 74, 0.35);
+  color: #eaffea;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.uc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.uc-mini {
+  width: 22px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-blue);
+  filter: drop-shadow(0 0 8px rgba(72, 207, 255, 0.22));
+  flex: 0 0 auto;
+}
+
+.uc-mini svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.uc-kpi,
+.uc-ttv {
+  font-size: 0.82rem;
+}
+
+.uc-kpi .pill,
+.uc-ttv .pill {
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+
+.uc-section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.uc-panel {
+  border-radius: 1rem;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(10, 18, 35, 0.42);
+}
+
+.uc-panel .surface-body {
+  padding: 0.95rem 1rem;
+}
+
+.uc-label {
+  margin-bottom: 0.35rem;
+}
+
+.uc-result {
+  border-color: rgba(84, 229, 74, 0.22);
+  background:
+    radial-gradient(circle at 85% 100%, rgba(84, 229, 74, 0.10), transparent 45%),
+    rgba(10, 18, 35, 0.48);
+}
+
+.uc-card-title {
+  margin-top: 0.2rem;
+}
+
+.uc-card-sub {
+  margin-top: -0.1rem;
+}
+
+/* =========================
+   ACCORDION — tighten spacing
+   ========================= */
+
+.accordion {
+  padding: 0.75rem 1rem;
+}
+
+.accordion-item {
+  padding: 14px 0;
+}
+
+.accordion-trigger {
+  display: grid;
+  gap: 0.35rem;
+  align-items: start;
+}
+
+.accordion-trigger .pill {
+  margin-bottom: 0.1rem;
+}
+
+.accordion-title {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.accordion-content {
+  margin-top: 0.45rem;
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+/* =========================
+   About fade / active state
+   ========================= */
+
+.stat-stack {
+  transition: opacity 0.22s ease, transform 0.22s ease;
+}
+
+.stat-stack.is-fade {
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+.item.is-active {
+  border-color: rgba(72, 207, 255, 0.24);
+  box-shadow:
+    0 0 0 1px rgba(72, 207, 255, 0.08),
+    0 16px 30px rgba(0, 0, 0, 0.32);
+}

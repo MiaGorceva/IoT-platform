@@ -253,7 +253,7 @@ function setupOutcomes() {
 }
 
 /* =========================
-   Number highlighting for use cases
+   Number lighting for use cases
 ========================= */
 
 function highlightNumbers(html) {
@@ -325,6 +325,33 @@ function setupUseCases() {
     return arr.map((u, i) => ({ ...u, seq: i + 1 }));
   }
 
+  function iconSvg(kind) {
+    const s = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+    const wrap = (inner) =>
+      `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" ${s}>${inner}</svg>`;
+
+    switch (kind) {
+      case "pharma": return wrap(`<path d="M10 2v6l-4 8a4 4 0 0 0 3.6 6h4.8A4 4 0 0 0 18 16l-4-8V2"/><path d="M8 8h8"/>`);
+      case "factory": return wrap(`<path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/>`);
+      case "quality": return wrap(`<path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"/><path d="M9 12l2 2 4-4"/>`);
+      case "wrench": return wrap(`<path d="M21 7l-5 5"/><path d="M16 7l1 1"/><path d="M2 22l7-7"/><path d="M7 17l2 2"/>`);
+      case "bolt": return wrap(`<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>`);
+      case "swap": return wrap(`<path d="M7 7h11l-2-2"/><path d="M18 7l-2 2"/><path d="M17 17H6l2 2"/><path d="M6 17l2-2"/>`);
+      case "shield": return wrap(`<path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"/>`);
+      case "trace": return wrap(`<circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="M9 7h6"/><path d="M8 9l3 6"/><path d="M16 9l-3 6"/>`);
+      case "kpi": return wrap(`<path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 14l3-3 3 2 4-5"/>`);
+      case "cow": return wrap(`<path d="M7 14c0 3 2 6 5 6s5-3 5-6"/><path d="M6 10h12"/><path d="M8 10V7"/><path d="M16 10V7"/>`);
+      case "chicken": return wrap(`<path d="M9 14c0 3 2 6 6 6"/><path d="M9 14c0-4 2-7 6-7"/><path d="M15 7l2 1"/><path d="M12 12h6"/>`);
+      case "drop": return wrap(`<path d="M12 2s7 8 7 13a7 7 0 0 1-14 0C5 10 12 2 12 2z"/>`);
+      case "snow": return wrap(`<path d="M12 2v20"/><path d="M4 6l16 12"/><path d="M20 6L4 18"/><path d="M6 20l12-16"/>`);
+      case "battery": return wrap(`<path d="M7 7h12v10H7z"/><path d="M5 10v4"/><path d="M21 10v4"/>`);
+      case "wind": return wrap(`<path d="M3 8h10a3 3 0 1 0-3-3"/><path d="M3 12h14a3 3 0 1 1-3 3"/><path d="M3 16h8"/>`);
+      case "lamp": return wrap(`<path d="M9 21h6"/><path d="M12 21v-3"/><path d="M7 10a5 5 0 1 1 10 0c0 2-1 3-2 4s-1 2-1 4h-4c0-2 0-3-1-4s-2-2-2-4z"/>`);
+      case "truck": return wrap(`<path d="M3 17V7h11v10z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>`);
+      default: return wrap(`<circle cx="12" cy="12" r="9"/>`);
+    }
+  }
+
   function filtered() {
     const data = getUseCasesData();
 
@@ -378,32 +405,36 @@ function setupUseCases() {
       <article class="surface surface-strong carousel-slide-half" data-industry="${u.industry}">
         <div class="surface-body stack">
           <div class="row" style="justify-content: space-between; align-items: flex-start; margin-bottom: 0;">
-            <span class="pill">${u.industryLabel || u.industry}</span>
-            ${u.kpiBadge ? `<span class="pill">${highlightNumbers(u.kpiBadge)}</span>` : ""}
+            <div class="uc-meta">
+              <span class="pill">${u.industryLabel || u.industry}</span>
+              <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
+            </div>
+            ${u.kpiBadge ? `<div class="uc-kpi"><span class="pill">${highlightNumbers(u.kpiBadge)}</span></div>` : ""}
           </div>
 
-          <h3 class="title-lg">${u.title}</h3>
+          ${u.ttvBadge ? `<div class="uc-ttv"><span class="pill">${highlightNumbers(u.ttvBadge)}</span></div>` : ""}
 
-          ${u.ttvBadge ? `<div class="text-sm">${highlightNumbers(u.ttvBadge)}</div>` : ""}
+          <h3 class="title-lg uc-card-title">${u.title}</h3>
+          ${u.sub ? `<p class="text-sm uc-card-sub">${u.sub}</p>` : ""}
 
-          <div class="stack" style="gap: 0.85rem;">
-            <div class="surface">
+          <div class="uc-section">
+            <div class="uc-panel">
               <div class="surface-body">
-                <div class="label">${dict["uc.label.pain"] || "Pain"}</div>
+                <div class="label uc-label">${dict["uc.label.pain"] || "Pain"}</div>
                 <p class="text-sm">${highlightNumbers(u.pain)}</p>
               </div>
             </div>
 
-            <div class="surface">
+            <div class="uc-panel">
               <div class="surface-body">
-                <div class="label">${dict["uc.label.how"] || "How it works"}</div>
+                <div class="label uc-label">${dict["uc.label.how"] || "How it works"}</div>
                 <p class="text-sm">${highlightNumbers(u.how)}</p>
               </div>
             </div>
 
-            <div class="surface surface-rich">
+            <div class="uc-panel uc-result">
               <div class="surface-body">
-                <div class="label">${dict["uc.label.result"] || "Result"}</div>
+                <div class="label uc-label">${dict["uc.label.result"] || "Result"}</div>
                 <p class="text-sm">${highlightNumbers(u.result)}</p>
               </div>
             </div>
@@ -547,6 +578,7 @@ function setupPricingCarousel() {
     const x = firstCard ? firstCard.offsetLeft : 0;
 
     track.style.transform = `translate3d(${-x}px, 0, 0)`;
+
     renderDots(pages);
 
     if (prev) prev.disabled = false;
