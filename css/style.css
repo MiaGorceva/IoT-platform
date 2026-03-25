@@ -57,9 +57,6 @@
   --bg-surface:
     linear-gradient(180deg, rgba(24, 30, 40, 0.82), rgba(14, 18, 26, 0.90));
 
-  --bg-surface-strong:
-    linear-gradient(180deg, rgba(20, 26, 36, 0.92), rgba(10, 14, 22, 0.96));
-
   --bg-rich:
     radial-gradient(circle at top left, rgba(216, 223, 231, 0.06), transparent 58%),
     radial-gradient(circle at bottom right, rgba(84, 229, 74, 0.08), transparent 58%),
@@ -161,14 +158,9 @@ img {
   height: auto;
 }
 
-button,
 input,
 textarea {
   font: inherit;
-}
-
-button {
-  color: inherit;
 }
 
 .sr-only {
@@ -443,7 +435,7 @@ button {
   box-shadow: var(--shadow-glass);
 }
 
-.toggle button {
+.toggle btn-primary {
   border: 0;
   outline: 0;
   cursor: pointer;
@@ -456,7 +448,7 @@ button {
   transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
 }
 
-.toggle button.is-active {
+.toggle btn-primary.is-active {
   color: #071008;
   background: linear-gradient(135deg, var(--c-blue-strong) 0%, var(--c-green) 100%);
   box-shadow:
@@ -469,8 +461,7 @@ button {
    ========================= */
 
 .surface,
-.surface-rich,
-.surface-strong {
+.surface-rich{
   position: relative;
   overflow: hidden;
   border-radius: var(--r-md);
@@ -489,14 +480,8 @@ button {
   box-shadow: var(--shadow-deep);
 }
 
-.surface-strong {
-  background: var(--bg-surface-strong);
-  box-shadow: var(--shadow-deep);
-}
-
 .surface::before,
-.surface-rich::before,
-.surface-strong::before {
+.surface-rich::before::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -512,8 +497,7 @@ button {
     );
 }
 
-.surface-rich::after,
-.surface-strong::after {
+.surface-rich::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -1054,7 +1038,7 @@ button {
   padding: 0.72rem 1rem;
   border-radius: var(--r-md);
   border: 1px solid var(--c-border);
-  background: var(--bg-surface-strong);
+  background: var(--bg-rich);
   box-shadow: var(--shadow-soft);
 }
 
@@ -1221,8 +1205,7 @@ button {
    ========================= */
 
 .surface blockquote,
-.surface-rich blockquote,
-.surface-strong blockquote {
+.surface-rich blockquote {
   margin: 0;
   color: rgba(226, 232, 240, 0.86);
   line-height: 1.62;
