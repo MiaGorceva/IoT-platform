@@ -541,7 +541,6 @@ button {
 .frame {
   position: relative;
   overflow: hidden;
-  padding: clamp(12px, 1.7vw, 18px);
   border-radius: var(--r-lg);
   border: 1px solid rgba(72, 207, 255, 0.16);
   background:
@@ -800,9 +799,10 @@ button {
 
 .hero-visual {
   min-width: 0;
-}
+  padding: clamp(12px, 1.7vw, 18px);
+/*}
 
-.hero-visual.frame {
+.hero-visual.frame {*/
   width: 100%;
   max-width: 760px;
   aspect-ratio: 1.08 / 1;
