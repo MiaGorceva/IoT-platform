@@ -599,7 +599,6 @@ button {
 .pill > .dot {
   width: 9px;
   height: 9px;
-  background: var(--c-green);
   box-shadow:
     0 0 0 4px rgba(84, 229, 74, 0.10),
     0 0 12px rgba(84, 229, 74, 0.18);
