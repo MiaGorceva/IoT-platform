@@ -659,6 +659,10 @@ button {
   background: var(--c-blue);
 }
 
+.row .pillP{
+    box-shadow: var(--shadow-green-btn);
+}
+
 .pill .dot,
 .pill > .dot,
 .carousel-dots .dot {
