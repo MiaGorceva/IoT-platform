@@ -668,8 +668,9 @@ box-shadow: var(--btn-secondary-hover-color);
     box-shadow var(--ease-fast);
       background: var(--btn-secondary-bg);
   color: var(--btn-secondary-color);
-  border-color: var(--btn-secondary-border);
+ /* border-color: var(--btn-secondary-border);*/
   box-shadow: var(--shadow-blue-ui);
+  border-color: rgba(0, 0, 0, 0.46);
 }
 
 .btn:hover {
