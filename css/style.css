@@ -402,14 +402,18 @@ button {
   position: sticky;
   top: 0;
   z-index: 40;
-
+  border-bottom: 1px solid var(--border-base);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-
-  background: var(--bg-glass);
-  border-bottom: 1px solid var(--border-soft);
-
-  box-shadow: var(--shadow-deep);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8, 13, 22, 0.88) 0%,
+      rgba(8, 13, 22, 0.72) 100%
+    );
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
 }
 
 .nav {
@@ -678,6 +682,7 @@ box-shadow: var(--btn-secondary-hover-color);
 }
 
 .btn-primary {
+  position: relative;
   color: var(--c-text-invert);
   background: var(--btn-primary-bg);
   border-color: var(--btn-primary-border);
@@ -689,31 +694,23 @@ box-shadow: var(--btn-secondary-hover-color);
   content: "";
   position: absolute;
   left: 50%;
-  width: 46%;
-  height: 2px;
+  width: 30%;
+  height: 1px;
   transform: translateX(-50%);
   border-radius: var(--r-pill);
   pointer-events: none;
-  z-index: 2;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--c-blue) 18%,
-    var(--c-blue-strong) 50%,
-    var(--c-blue) 82%,
-    transparent 100%
-  );
-  opacity: 0.95;
+  background: var(--c-green);
+  opacity: 0.88;
 }
 
 .btn-primary::before {
   top: -1px;
-  box-shadow: 0 0 10px rgba(72, 207, 255, 0.45);
+  box-shadow: 0 0 6px rgba(84, 229, 74, 0.26);
 }
 
 .btn-primary::after {
   bottom: -1px;
-  box-shadow: 0 0 10px rgba(72, 207, 255, 0.35);
+  box-shadow: 0 0 6px rgba(84, 229, 74, 0.2);
 }
 
 .btn::before,
@@ -721,30 +718,24 @@ box-shadow: var(--btn-secondary-hover-color);
   content: "";
   position: absolute;
   left: 50%;
-  width: 40%;
-  height: 2px;
+  width: 28%;
+  height: 1px;
   transform: translateX(-50%);
   border-radius: var(--r-pill);
   pointer-events: none;
-  z-index: 2;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--c-blue) 18%,
-    var(--c-blue-strong) 50%,
-    var(--c-blue) 82%,
-    transparent 100%
-  );
+  background: var(--c-blue);
+  opacity: 0.85;
 }
 
-.btn::before {
+.site-header .btn-outline::before {
   top: -1px;
   box-shadow: 0 0 10px rgba(72, 207, 255, 0.38);
 }
 
+
 .btn::after {
   bottom: -1px;
-  box-shadow: 0 0 10px rgba(72, 207, 255, 0.26);
+  box-shadow: 0 0 6px rgba(72, 207, 255, 0.22);
 }
 
 
