@@ -18,9 +18,23 @@
   --bg-surface:
     linear-gradient(180deg, rgba(24, 30, 40, 0.82), rgba(14, 18, 26, 0.9));
   --bg-surface-rich:
-    radial-gradient(circle at top left, rgba(216, 223, 231, 0.06), transparent 58%),
-    radial-gradient(circle at bottom right, rgba(84, 229, 74, 0.08), transparent 58%),
-    linear-gradient(180deg, rgba(26, 32, 42, 0.92), rgba(12, 17, 25, 0.96));
+  radial-gradient(
+    120% 85% at 82% 100%,
+    rgba(84, 229, 74, 0.22) 0%,
+    rgba(84, 229, 74, 0.12) 25%,
+    rgba(84, 229, 74, 0.05) 45%,
+    transparent 70%
+  ),
+  radial-gradient(
+    60% 50% at 85% 95%,
+    rgba(84, 229, 74, 0.35),
+    transparent 60%
+  ),
+  linear-gradient(
+    180deg,
+    rgba(26, 32, 42, 0.92),
+    rgba(12, 17, 25, 0.96)
+  );
   --bg-glass: rgba(16, 22, 32, 0.66);
   --bg-overlay: rgba(4, 8, 14, 0.62);
 
@@ -763,11 +777,8 @@ button {
 }
 
 .hero-visual {
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 1.02 / 1;
-  margin-left: auto;
-  padding: 0.6rem;
+  min-height: 0; height: auto;
+  padding: 1.6rem 6.4rem 4.8rem 1.6rem;
   border-radius: var(--r-lg);
 }
 
