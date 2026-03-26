@@ -701,6 +701,38 @@ box-shadow: var(--btn-secondary-hover-color);
   box-shadow: var(--shadow-blue-ui);
 }
 
+.btn-outline::before,
+.btn-outline::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 40%;
+  height: 2px;
+  transform: translateX(-50%);
+  border-radius: var(--r-pill);
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--c-blue) 18%,
+    var(--c-blue-strong) 50%,
+    var(--c-blue) 82%,
+    transparent 100%
+  );
+}
+
+.btn-outline::before {
+  top: -1px;
+  box-shadow: 0 0 10px rgba(72, 207, 255, 0.38);
+}
+
+.btn-outline::after {
+  bottom: -1px;
+  box-shadow: 0 0 10px rgba(72, 207, 255, 0.26);
+}
+
+
 .btn-outline:hover {
   background: var(--btn-secondary-hover-bg);
   color: var(--btn-secondary-hover-color);
