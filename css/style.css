@@ -460,7 +460,7 @@ button {
   border-radius: var(--r-pill);
   background: var(--bg-glass);
   border: 1px solid var(--border-blue);
-  box-shadow: var(--shadow-blue-ui);
+box-shadow: var(--btn-secondary-hover-color);
 }
 
 .site-header .btn {
