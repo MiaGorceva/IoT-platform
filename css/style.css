@@ -713,7 +713,7 @@ box-shadow: var(--btn-secondary-hover-color);
   box-shadow: 0 0 6px rgba(84, 229, 74, 0.2);
 }
 
-.btn::before,
+/*.btn::before,
 .btn::after {
   content: "";
   position: absolute;
@@ -736,7 +736,7 @@ box-shadow: var(--btn-secondary-hover-color);
 .btn::after {
   bottom: -1px;
   box-shadow: 0 0 6px rgba(72, 207, 255, 0.22);
-}
+}*/
 
 
 .btn:hover {
