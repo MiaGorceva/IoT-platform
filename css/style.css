@@ -592,7 +592,7 @@ box-shadow: var(--btn-secondary-hover-color);
 }
 
 /* =========================
-   PILL / CHIP / DOT
+   PILL / DOT
    ========================= */
 
 .pill {
@@ -605,7 +605,7 @@ box-shadow: var(--btn-secondary-hover-color);
   border: 1px solid var(--border-blue);
   background: var(--bg-glass);
   color: var(--c-text-soft);
-  box-shadow: var(--shadow-blue-ui);
+  box-shadow: var(--shadow-soft);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -626,20 +626,6 @@ box-shadow: var(--btn-secondary-hover-color);
 .carousel-dots .dot {
   margin-top: 0;
   align-self: center;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.32rem 0.72rem;
-  border-radius: var(--r-pill);
-  font-size: 0.82rem;
-  line-height: 1;
-  color: var(--c-text-soft);
-  background: var(--bg-glass);
-  border: 1px solid var(--border-strong);
-  box-shadow: var(--shadow-blue-ui);
 }
 
 /* =========================
@@ -869,6 +855,7 @@ box-shadow: var(--btn-secondary-hover-color);
   margin-top: 1rem;
   padding: 0.82rem 0.95rem;
   color: var(--c-blue);
+  box-shadow: var(--shadow-green-btn);
 }
 
 .hero-visual {
