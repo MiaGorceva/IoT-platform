@@ -712,43 +712,6 @@ box-shadow: var(--btn-secondary-hover-color);
   box-shadow: 0 0 6px rgba(84, 229, 74, 0.2);
 }
 
-.btn::before {
-  content: "";
-  position: absolute;
-  left: 75%;
-  width: 15%;
-  height: 1px;
-  transform: translateX(-50%);
-  border-radius: var(--r-pill);
-  pointer-events: none;
-  background: var(--c-blue);
-  opacity: 0.85;
-}
-
-.btn::after {
-  content: "";
-  position: absolute;
-  left: 25%;
-  width: 15%;
-  height: 1px;
-  transform: translateX(-50%);
-  border-radius: var(--r-pill);
-  pointer-events: none;
-  background: var(--c-blue);
-  opacity: 0.85;
-}
-
-.btn::before {
-  top: -1px;
-  box-shadow: 0 0 10px rgba(72, 207, 255, 0.38);
-}
-
-
-.btn::after {
-  bottom: -1px;
-  box-shadow: 0 0 6px rgba(72, 207, 255, 0.22);
-}
-
 
 .btn:hover {
   background: var(--btn-secondary-hover-bg);
