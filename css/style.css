@@ -618,7 +618,12 @@ button {
   background: var(--c-blue);
 }
 
-.row .pillP{
+.row .pill{
+    box-shadow: var(--shadow-green-btn);
+}
+
+.row .btn {
+    height: 0.8rem;
     box-shadow: var(--shadow-green-btn);
 }
 
@@ -993,7 +998,7 @@ button {
   padding: 0.08em 0.45em;
   border-radius: var(--r-pill);
   background: var(--bg-glass);
-  border: 1px solid var(--border-blue);
+  border: 1px solid var(--c-green);
   color: var(--c-text-strong);
   font-weight: 700;
   letter-spacing: 0.01em;
