@@ -406,24 +406,10 @@ button {
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
 
-  background: var(--bg-header-main);
+  background: var(--bg-glass);
   border-bottom: 1px solid var(--border-soft);
 
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.35),
-    inset 0 -1px 0 rgba(255,255,255,0.04);
-}
-
-.site-header::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-
-  background: var(--bg-header);
-  opacity: 0.6;
+  box-shadow: var(--shadow-deep);
 }
 
 .nav {
