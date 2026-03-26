@@ -693,7 +693,7 @@ box-shadow: var(--btn-secondary-hover-color);
 .btn-primary::after {
   content: "";
   position: absolute;
-  left: 50%;
+  left: 25%;
   width: 30%;
   height: 1px;
   transform: translateX(-50%);
