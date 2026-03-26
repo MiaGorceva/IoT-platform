@@ -35,6 +35,21 @@
     rgba(26, 32, 42, 0.92),
     rgba(12, 17, 25, 0.96)
   );
+
+  --bg-header: linear-gradient(
+    90deg,
+    transparent,
+    rgba(72, 207, 255, 0.35),
+    transparent
+  );
+
+  --bg-header-main: linear-gradient(
+      180deg,
+      rgba(10, 16, 28, 0.85),
+      rgba(10, 16, 28, 0.65)
+    );
+
+
   --bg-glass: rgba(16, 22, 32, 0.66);
   --bg-overlay: rgba(4, 8, 14, 0.62);
 
@@ -387,10 +402,28 @@ button {
   position: sticky;
   top: 0;
   z-index: 40;
-  border-bottom: 1px solid var(--border-base);
+
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
-  background: var(--bg-glass);
+
+  background: var(--bg-header-main);
+  border-bottom: 1px solid var(--border-soft);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 -1px 0 rgba(255,255,255,0.04);
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+
+  background: var(--bg-header);
+  opacity: 0.6;
 }
 
 .nav {
