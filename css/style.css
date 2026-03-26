@@ -463,17 +463,13 @@ button {
   box-shadow: var(--shadow-blue-ui);
 }
 
-.lang-switch .btn {
+.site-header .btn {
   min-width: 2.9rem;
   min-height: 1rem;
   padding: 0.42rem 0.82rem;
   font-size: 0.64rem;
   font-weight: 500;
   line-height: 1;
-}
-
-.site-header .btn-outline {
-  min-height: 0.8rem;
 }
 
 .lang-switch .btn:hover {
