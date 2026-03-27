@@ -66,8 +66,8 @@
     0 8px 18px rgba(0, 0, 0, 0.18),
     0 0 16px var(--c-blue-strong);
   --shadow-green-btn:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 8px 18px rgba(0, 0, 0, 0.28);
+      0 8px 18px rgba(0, 0, 0, 0.28),
+  0 -1px 6px rgba(84, 229, 74, 0.12);
     transition: all 0.25s ease;
 
   /* ===== EFFECTS: only 4 ===== */
