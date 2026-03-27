@@ -67,8 +67,8 @@
     0 0 16px var(--c-blue-strong);
   --shadow-green-btn:
     inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 8px 18px rgba(0, 0, 0, 0.28),
-    0 0 8px rgba(84, 229, 74, 0.05);
+    0 8px 18px rgba(0, 0, 0, 0.28);
+    transition: all 0.25s ease;
 
   /* ===== EFFECTS: only 4 ===== */
   --fx-page-sheen:
@@ -320,14 +320,6 @@ button {
    TYPOGRAPHY
    ========================= */
 
-.eyebrow,
-.label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
- /* color: var(--c-text-muted);*/
-}
-
 .section-title {
   margin: 0;
   font-size: 1.24rem;
@@ -355,7 +347,7 @@ button {
   font-size: 0.95rem;
   line-height: 1.32;
   font-weight: 600;
-  color: var(--c-text);
+  color: var(--c-blue);
 }
 
 .text-md {
