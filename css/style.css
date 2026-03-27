@@ -66,9 +66,9 @@
     0 8px 18px rgba(0, 0, 0, 0.18),
     0 0 16px var(--c-blue-strong);
   --shadow-green-btn:
-      0 8px 18px rgba(0, 0, 0, 0.28),
-  0 -1px 6px rgba(84, 229, 74, 0.12);
-    transition: all 0.25s ease;
+      0 10px 24px rgba(0, 0, 0, 0.38),
+  0 4px 10px rgba(0, 0, 0, 0.28),
+  0 -2px 8px rgba(84, 229, 74, 0.14);
 
   /* ===== EFFECTS: only 4 ===== */
   --fx-page-sheen:
