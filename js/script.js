@@ -404,7 +404,7 @@ function setupUseCases() {
     track.innerHTML = list.map((u) => `
       <article class="surface surface-strong carousel-slide-half" data-industry="${u.industry}">
         <div class="surface-body stack">
-          <div class="row" style="justify-content: space-between; align-items: flex-start; margin-bottom: 0;">
+          <div class="row" >
             <div class="uc-meta">
               <span class="pill">${u.industryLabel || u.industry}</span>
               <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
