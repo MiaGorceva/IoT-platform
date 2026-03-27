@@ -433,7 +433,7 @@ function setupUseCases() {
             </div>
 
             <div class="uc-panel uc-result">
-              <div class="surface-body">
+              <div class="surface-body surface-rich">
                 <div class="label uc-label">${dict["uc.label.result"] || "Result"}</div>
                 <p class="text-sm">${highlightNumbers(u.result)}</p>
               </div>

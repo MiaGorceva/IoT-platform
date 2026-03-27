@@ -273,12 +273,6 @@ button {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.grid.grid-3 > .surface .surface-body,
-.grid.grid-3 > .surface-rich .surface-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
 .grid.grid-3 .title-md {
   min-height: 2.6em;
 }
@@ -565,27 +559,12 @@ button {
   background: var(--fx-surface-rich-accent);
 }
 
-.surface,
-.surface-rich,
-.hero-card,
-.item,
-.uc-panel,
-.carousel-slide-card,
-.carousel-slide-half {
-  display: flex;
-  flex-direction: column;
-  /*height: 100%;*/
-}
-
 .surface-body {
   position: relative;
   z-index: 1;
   width: 100%;
   padding: 0.95rem 1rem;
-  display: flex;
-  flex-direction: column;
   flex: 1 1 auto;
-  min-height: 100%;
 }
 
 /* =========================
@@ -1003,6 +982,7 @@ button {
   font-weight: 700;
   letter-spacing: 0.01em;
   white-space: nowrap;
+  box-shadow: var(--shadow-blue-ui);
 }
 
 .uc-meta {
