@@ -628,12 +628,12 @@ button {
 }
 
 .btn:hover,
-.surface-body pill {
+.surface-body .pill {
   transform: translateY(-1px);
 }
 
 .btn:focus-visible,
-.surface-body pill {
+.surface-body .pill {
   outline: 2px solid var(--border-blue);
   outline-offset: 2px;
 }
