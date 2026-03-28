@@ -601,6 +601,8 @@ button {
 .btn {
   display: inline-flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
   justify-content: center;
   gap: 0.42rem;
   white-space: nowrap;
@@ -640,19 +642,13 @@ button {
 .btn::after {
   content: "";
   position: absolute;
-  left: 50%;
-  width: 42%;
+  width: 75%;
   height: 2px;
   transform: translateX(-50%);
   border-radius: 999px;
   pointer-events: none;
   opacity: 0.85;
-}
-
-/* верхняя линия */
-.btn::before {
-  top: -1px;
-  background: linear-gradient(
+   background: linear-gradient(
     90deg,
     transparent 0%,
     rgba(72, 207, 255, 0.9) 50%,
@@ -660,15 +656,16 @@ button {
   );
 }
 
+/* верхняя линия */
+.btn::before {
+  top: -1px;
+  left: 75%;
+}
+
 /* нижняя линия */
 .btn::after {
   bottom: -1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(72, 207, 255, 0.6) 50%,
-    transparent 100%
-  );
+  left: 25%;
 }
 
 .btn-primary {
@@ -703,18 +700,12 @@ button {
 .btn-primary::after {
   content: "";
   position: absolute;
-  left: 50%;
-  width: 42%;
+  width: 75%;
   height: 2px;
   transform: translateX(-50%);
   border-radius: 999px;
   pointer-events: none;
   opacity: 0.9;
-}
-
-/* верх */
-.btn-primary::before {
-  top: -1px;
   background: linear-gradient(
     90deg,
     transparent 0%,
@@ -723,15 +714,15 @@ button {
   );
 }
 
+/* верх */
+.btn-primary::before {
+  top: -1px;
+  left: 25%;
+}
+
 /* низ */
 .btn-primary::after {
   bottom: -1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(84, 229, 74, 0.7) 50%,
-    transparent 100%
-  );
 }
 
 .btn:hover::before,
