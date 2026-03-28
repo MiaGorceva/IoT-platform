@@ -481,6 +481,7 @@ button {
   gap: 3px;
   padding: 5px;
   border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* =========================
@@ -626,11 +627,13 @@ button {
   border-color: #3e4248;
 }
 
-.btn:hover {
+.btn:hover,
+.surface-body pill {
   transform: translateY(-1px);
 }
 
-.btn:focus-visible {
+.btn:focus-visible,
+.surface-body pill {
   outline: 2px solid var(--border-blue);
   outline-offset: 2px;
 }
