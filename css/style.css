@@ -651,7 +651,7 @@ button {
    background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(72, 207, 255, 0.9) 50%,
+   var(--c-blue),
     transparent 100%
   );
 }
@@ -673,15 +673,7 @@ button {
   overflow: hidden;
 
   color: #071008;
-  background: linear-gradient(
-    135deg,
-    #d7dde3 0%,
-    #b8c2cb 24%,
-    #98a6b2 46%,
-    #7f8b96 58%,
-    #8fdc7a 76%,
-    #54e54a 100%
-  );
+  background: var( --btn-primary-bg);
 
   border: 1px solid rgba(255, 255, 255, 0.08);
 
@@ -709,7 +701,7 @@ button {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(84, 229, 74, 1) 50%,
+    var(--c-green),
     transparent 100%
   );
 }
