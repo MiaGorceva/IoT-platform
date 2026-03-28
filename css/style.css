@@ -410,10 +410,10 @@ button {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
 }
 
-.site-header .btn-primary {
+.site-header .btn {
   min-height: 2.2rem;
   padding: 0.46rem 0.96rem;
-  font-size: 0.84rem;
+  font-size: 0.64rem;
 }
 
 .nav {
