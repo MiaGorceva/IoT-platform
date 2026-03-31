@@ -627,15 +627,17 @@ button {
   border-color: #3e4248;
 }
 
-.btn:hover,
-.surface-body .pill {
+.btn:hover{
+    /*,
+.surface-body .pill {*/
   transform: translateY(-1px);
 }
 
 .btn:focus-visible {
-  /*outline: 2px solid var(--border-blue);
-  outline-offset: 2px;*/
+ outline: 2px solid var(--border-blue);
+  /* outline-offset: 2px;*/
 }
+
 
 .row .btn{
     margin-top: 1rem;
@@ -944,7 +946,7 @@ button {
 .carousel-nav {
   position: absolute;
   top: 50%;
-  z-index: 2;
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -967,11 +969,11 @@ button {
 }
 
 .carousel-nav-prev {
-  left: 8px;
+  left: -22px;
 }
 
 .carousel-nav-next {
-  right: 8px;
+  right: -22px;
 }
 
 .carousel-dots {
@@ -1056,6 +1058,7 @@ button {
   display: grid;
   gap: 0.75rem;
   height: 100%;
+  position: relative;
 }
 
 .uc-panel .surface-body {
@@ -1607,6 +1610,26 @@ button {
     padding: 0.38rem 0.88rem;
     font-size: 0.78rem;
   }
+
+  #ucFilters .pill {
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+    will-change: transform;
+}
+
+
+#ucFilters .pill:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.28),
+    0 0 10px rgba(72, 207, 255, 0.08),
+    0 -1px 6px rgba(84, 229, 74, 0.12);
+
+  border-color: rgba(72, 207, 255, 0.3);
+}
 
   .pill {
     padding: 0.24rem 0.62rem;
