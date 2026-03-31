@@ -216,6 +216,7 @@ window.translations.en = {
   "how.eyebrow": "How it works",
   "how.title": "Three steps from device to decision",
   "how.subtitle": "From raw signals to actions, evidence, and KPI outcomes — in days, not months.",
+  "how.outputLabel": "Output",
 
   "how.steps.0.tag": "2–5 DAYS",
   "how.steps.0.title": "Data in. Clean model out.",

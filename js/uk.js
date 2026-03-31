@@ -216,6 +216,7 @@ window.translations.uk = {
   "how.eyebrow": "Як це працює",
   "how.title": "Три кроки від пристрою до рішення",
   "how.subtitle": "Від сирих сигналів до дій, доказової бази й KPI-результатів — за дні, а не місяці.",
+  "how.outputLabel": "Output",
 
   "how.steps.0.tag": "2–5 ДНІВ",
   "how.steps.0.title": "Дані на вході. Чиста модель на виході.",
