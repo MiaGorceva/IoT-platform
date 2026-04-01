@@ -8,9 +8,7 @@ const translations = window.translations;
 const __scriptPromises = new Map();
 
 function loadScript(src) {
-  if (__scriptPromises.has(src)) {
-    return __scriptPromises.get(src);
-  }
+  if (__scriptPromises.has(src)) return __scriptPromises.get(src);
 
   const promise = new Promise((resolve, reject) => {
     const existing = document.querySelector(`script[data-src="${src}"]`);
@@ -20,7 +18,6 @@ function loadScript(src) {
         resolve();
         return;
       }
-
       existing.addEventListener("load", () => resolve(), { once: true });
       existing.addEventListener("error", reject, { once: true });
       return;
@@ -37,7 +34,6 @@ function loadScript(src) {
     };
 
     s.onerror = reject;
-
     document.head.appendChild(s);
   });
 
@@ -52,17 +48,39 @@ async function ensureLangAssets(lang) {
   const needCases = !window.translations?.[lang]?.useCases;
 
   const tasks = [];
-
   if (needBase) tasks.push(loadScript(`js/${lang}.js`));
   if (needCases) tasks.push(loadScript(`js/data/usecases.${lang}.js`));
 
-  if (!tasks.length) return;
-  await Promise.all(tasks);
+  if (tasks.length) {
+    await Promise.all(tasks);
+  }
 }
 
-/* -------------------------
-   i18n helpers
-------------------------- */
+/* =========================
+   DOM helpers
+========================= */
+
+function $(sel, root = document) {
+  return root.querySelector(sel);
+}
+
+function $all(sel, root = document) {
+  return Array.from(root.querySelectorAll(sel));
+}
+
+/* =========================
+   App state
+========================= */
+
+const state = {
+  lang: "en",
+  dict: {},
+  useCasesCache: new Map()
+};
+
+/* =========================
+   i18n
+========================= */
 
 const HTML_I18N_KEYS = new Set([
   "hero.title",
@@ -77,24 +95,30 @@ function getDict(lang) {
   return { ...base, ...local };
 }
 
-function applyTranslations(lang = "en") {
-  const dict = getDict(lang);
-  document.documentElement.lang = lang;
+function setCurrentLanguage(lang) {
+  state.lang = lang || "en";
+  state.dict = getDict(state.lang);
+  document.documentElement.lang = state.lang;
 
   try {
-    localStorage.setItem("mite-lang", lang);
+    localStorage.setItem("mite-lang", state.lang);
   } catch (_) {}
+}
+
+function applyTranslations(lang = "en") {
+  setCurrentLanguage(lang);
+  const dict = state.dict;
 
   if (dict["seo.title"]) {
     document.title = dict["seo.title"];
   }
 
-  const meta = document.querySelector('meta[name="description"]');
+  const meta = $('meta[name="description"]');
   if (meta && dict["seo.description"]) {
     meta.setAttribute("content", dict["seo.description"]);
   }
 
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
+  $all("[data-i18n]").forEach((el) => {
     const key = el.getAttribute("data-i18n");
     const value = dict[key];
     if (value === undefined || value === null) return;
@@ -108,26 +132,35 @@ function applyTranslations(lang = "en") {
     }
   });
 
-  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+  $all("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     const value = dict[key];
-    if (!value) return;
-    el.setAttribute("placeholder", value);
+    if (value === undefined || value === null) return;
+    el.setAttribute("placeholder", String(value));
   });
 
-  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+  $all("[data-i18n-label]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-label");
+    const value = dict[key];
+    if (value === undefined || value === null) return;
+    el.setAttribute("data-label", String(value));
+  });
+
+  $all("[data-lang-btn]").forEach((btn) => {
     const code = btn.getAttribute("data-lang-btn");
-    btn.classList.toggle("is-active", code === lang);
+    const active = code === state.lang;
+    btn.classList.toggle("is-active", active);
+    btn.classList.toggle("btn-primary", active);
   });
 
-  window.__updateOutcomes?.();
-  window.__updateUseCases?.();
+  window.__updateOutcomes?.(false);
+  window.__updateUseCases?.({ rerender: true, resetPage: true });
   window.__updatePricing?.();
 }
 
-/* -------------------------
-   Typical outcomes (hover + dots + arrows)
-------------------------- */
+/* =========================
+   About outcomes
+========================= */
 
 function setupOutcomes() {
   const numEl = document.getElementById("outcomeNum");
@@ -137,17 +170,16 @@ function setupOutcomes() {
   const dotsWrap = document.getElementById("outcomesDots");
   const prevBtn = document.getElementById("outcomesPrev");
   const nextBtn = document.getElementById("outcomesNext");
-  const metricWrap = document.querySelector(".about-side-metric");
-  const leftPoints = Array.from(document.querySelectorAll(".about-point[data-outcome]"));
+  const metricWrap = $(".stat-stack");
+  const leftPoints = $all(".item[data-outcome]");
 
   if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return;
 
   let index = 0;
+  let fadeTimer = 0;
 
-  function items() {
-    const lang = document.documentElement.lang || "en";
-    const dict = getDict(lang);
-    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
+  function getItems() {
+    return state.dict.aboutOutcomes || translations.en.aboutOutcomes || [];
   }
 
   function renderDots(arr) {
@@ -171,26 +203,26 @@ function setupOutcomes() {
   }
 
   function render(withFade = false) {
-    const arr = items();
+    const arr = getItems();
     if (!arr.length) return;
 
     if (index < 0) index = arr.length - 1;
     if (index >= arr.length) index = 0;
 
-    const it = arr[index];
+    const item = arr[index];
 
     if (withFade && metricWrap) {
       metricWrap.classList.add("is-fade");
     }
 
-    window.clearTimeout(render.__t);
-    render.__t = window.setTimeout(() => {
-      numEl.textContent = it.num || "";
-      titleEl.textContent = it.title || "";
-      textEl.textContent = it.text || "";
+    clearTimeout(fadeTimer);
+    fadeTimer = window.setTimeout(() => {
+      numEl.textContent = item.num || "";
+      titleEl.textContent = item.title || "";
+      textEl.textContent = item.text || "";
 
       bulletsEl.innerHTML = "";
-      (it.bullets || []).forEach((b) => {
+      (item.bullets || []).forEach((b) => {
         const li = document.createElement("li");
         li.textContent = b;
         bulletsEl.appendChild(li);
@@ -201,7 +233,7 @@ function setupOutcomes() {
       if (metricWrap) {
         metricWrap.classList.remove("is-fade");
       }
-    }, withFade ? 140 : 0);
+    }, withFade ? 120 : 0);
 
     leftPoints.forEach((p) => {
       const i = Number(p.getAttribute("data-outcome"));
@@ -220,12 +252,15 @@ function setupOutcomes() {
   });
 
   leftPoints.forEach((p) => {
-    p.addEventListener("mouseenter", () => {
+    const activate = () => {
       const i = Number(p.getAttribute("data-outcome"));
       if (!Number.isFinite(i)) return;
       index = i;
       render(true);
-    });
+    };
+
+    p.addEventListener("mouseenter", activate);
+    p.addEventListener("click", activate);
   });
 
   window.__updateOutcomes = (reset = false) => {
@@ -236,9 +271,9 @@ function setupOutcomes() {
   render(false);
 }
 
-/* -------------------------
-   Numbers highlighter
-------------------------- */
+/* =========================
+   Number highlighting
+========================= */
 
 function highlightNumbers(html) {
   if (!html) return "";
@@ -246,10 +281,9 @@ function highlightNumbers(html) {
   const MARK = "data-ucnum='1'";
   if (String(html).includes(MARK)) return html;
 
-  let s = String(html);
-
-  s = s.replace(/\u2013|\u2014/g, "–");
-  s = s.replace(/\u00D7/g, "×");
+  let s = String(html)
+    .replace(/\u2013|\u2014/g, "–")
+    .replace(/\u00D7/g, "×");
 
   const wrap = (m) => `<span class="uc-num" ${MARK}>${m}</span>`;
 
@@ -266,10 +300,7 @@ function highlightNumbers(html) {
     (_, a, b) => wrap(a + b)
   );
 
-  s = s.replace(
-    /\b[+\-]\d{1,4}(?:[.,]\d+)?\b/g,
-    (m) => wrap(m)
-  );
+  s = s.replace(/\b[+\-]\d{1,4}(?:[.,]\d+)?\b/g, (m) => wrap(m));
 
   s = s.replace(
     /(\b(?:from|to|drops|drop|takes|within|in|for|over|under)\s+)([<>]?\d{1,4}(?:[.,]\d+)?)/gi,
@@ -279,9 +310,9 @@ function highlightNumbers(html) {
   return s;
 }
 
-/* -------------------------
-   Use-cases carousel
-------------------------- */
+/* =========================
+   Use cases carousel
+========================= */
 
 function setupUseCases() {
   const carousel = document.getElementById("ucCarousel");
@@ -294,28 +325,16 @@ function setupUseCases() {
 
   if (!carousel || !track) return;
 
-  const chips = filters ? Array.from(filters.querySelectorAll(".uc-chip")) : [];
   let active = "all";
   let query = "";
   let page = 0;
   let searchTimer = 0;
-
-  function getUseCasesData() {
-    const lang = document.documentElement.lang || "en";
-    const dict = getDict(lang);
-
-    const arr =
-      dict && Array.isArray(dict.useCases) && dict.useCases.length
-        ? dict.useCases
-        : (translations.en.useCases || []);
-
-    return arr.map((u, i) => ({ ...u, seq: i + 1 }));
-  }
+  let lastRenderedSignature = "";
 
   function iconSvg(kind) {
     const s = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
     const wrap = (inner) =>
-      `<svg class="uc-ico" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" ${s}>${inner}</svg>`;
+      `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" ${s}>${inner}</svg>`;
 
     switch (kind) {
       case "pharma": return wrap(`<path d="M10 2v6l-4 8a4 4 0 0 0 3.6 6h4.8A4 4 0 0 0 18 16l-4-8V2"/><path d="M8 8h8"/>`);
@@ -339,13 +358,34 @@ function setupUseCases() {
     }
   }
 
+  function getUseCasesData() {
+    const cacheKey = state.lang;
+    if (state.useCasesCache.has(cacheKey)) {
+      return state.useCasesCache.get(cacheKey);
+    }
+
+    const dict = state.dict;
+    const arr =
+      dict && Array.isArray(dict.useCases) && dict.useCases.length
+        ? dict.useCases
+        : (translations.en.useCases || []);
+
+    const normalized = arr.map((u, i) => ({
+      ...u,
+      seq: i + 1,
+      __searchBlob: `${u.title} ${u.pain} ${u.how} ${u.result} ${(u.tags || []).join(" ")}`.toLowerCase()
+    }));
+
+    state.useCasesCache.set(cacheKey, normalized);
+    return normalized;
+  }
+
   function filtered() {
     const data = getUseCasesData();
 
     return data.filter((u) => {
       const okIndustry = active === "all" ? true : u.industry === active;
-      const blob = `${u.title} ${u.pain} ${u.how} ${u.result} ${(u.tags || []).join(" ")}`.toLowerCase();
-      const okQuery = query ? blob.includes(query) : true;
+      const okQuery = query ? u.__searchBlob.includes(query) : true;
       return okIndustry && okQuery;
     });
   }
@@ -353,8 +393,7 @@ function setupUseCases() {
   function perView() {
     const w = carousel.clientWidth;
     if (w < 640) return 1;
-    if (w < 980) return 2;
-    return 3;
+    return 2;
   }
 
   function clampPage(maxPages) {
@@ -373,7 +412,7 @@ function setupUseCases() {
         d.className = "dot";
         d.addEventListener("click", () => {
           page = i;
-          updateCarousel();
+          updateTrackOnly(filtered());
         });
         dots.appendChild(d);
       }
@@ -385,109 +424,90 @@ function setupUseCases() {
   }
 
   function renderCards(list) {
-    const lang = document.documentElement.lang || "en";
-    const dict = getDict(lang);
+    const dict = state.dict;
 
-    track.innerHTML = list
-      .map((u) => `
-        <article class="pc-card uc-card" data-industry="${u.industry}">
-          <div class="uc-card-strip" aria-hidden="true"></div>
+    track.innerHTML = list.map((u) => `
+      <article class="surface surface-strong carousel-slide-half" data-industry="${u.industry}">
+        <div class="surface-body stack">
+          <div class="row">
+            <div class="uc-meta">
+              <span class="pill">${u.industryLabel || u.industry}</span>
+              <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
+            </div>
+            ${u.kpiBadge ? `<div class="uc-kpi"><span class="pill">${highlightNumbers(u.kpiBadge)}</span></div>` : ""}
+          </div>
 
-          <div class="uc-toprow">
-            <div class="uc-index">#${String(u.seq).padStart(2, "0")}</div>
+          ${u.ttvBadge ? `<div class="uc-ttv"><span class="pill">${highlightNumbers(u.ttvBadge)}</span></div>` : ""}
 
-            <div class="uc-pills">
-              ${u.ttvBadge ? `<span class="uc-pill uc-pill--ttv">${highlightNumbers(u.ttvBadge)}</span>` : ""}
-              <div class="uc-meta">
-                <span class="uc-badge uc-badge--industry">${u.industryLabel || u.industry}</span>
-                <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
+          <h3 class="title-lg uc-card-title">${u.title}</h3>
+          ${u.sub ? `<p class="text-sm uc-card-sub">${u.sub}</p>` : ""}
+
+          <div class="uc-section">
+            <div class="uc-panel">
+              <div class="surface-body">
+                <div class="label uc-label">${dict["uc.label.pain"] || "Pain"}</div>
+                <p class="text-sm">${highlightNumbers(u.pain)}</p>
               </div>
-              ${u.kpiBadge ? `<span class="uc-pill uc-pill--kpi">${highlightNumbers(u.kpiBadge)}</span>` : ""}
+            </div>
+
+            <div class="uc-panel">
+              <div class="surface-body">
+                <div class="label uc-label">${dict["uc.label.how"] || "How it works"}</div>
+                <p class="text-sm">${highlightNumbers(u.how)}</p>
+              </div>
+            </div>
+
+            <div class="uc-panel uc-result surface-rich">
+              <div class="surface-body">
+                <div class="label uc-label">${dict["uc.label.result"] || "Result"}</div>
+                <p class="text-sm">${highlightNumbers(u.result)}</p>
+              </div>
             </div>
           </div>
-
-          <h3 class="uc-title">${u.title}</h3>
-
-          <div class="uc-body">
-            <div class="uc-row">
-              <div class="uc-k">${dict["uc.label.pain"] || "Pain"}</div>
-              <div class="uc-v">${highlightNumbers(u.pain)}</div>
-            </div>
-
-            <div class="uc-row">
-              <div class="uc-k">${dict["uc.label.how"] || "How"}</div>
-              <div class="uc-v">${highlightNumbers(u.how)}</div>
-            </div>
-
-            <div class="uc-outcome">
-              <span class="uc-outcome-label">${dict["uc.label.result"] || "Result"}:</span>
-              <span class="uc-outcome-text">${highlightNumbers(u.result)}</span>
-            </div>
-          </div>
-        </article>
-      `)
-      .join("");
+        </div>
+      </article>
+    `).join("");
   }
 
-  function setFocusCard() {
-    const cards = [...track.querySelectorAll(".uc-card")];
-    if (!cards.length) return;
-
-    const vp = document.querySelector("#ucCarousel .pc-viewport");
-    if (!vp) return;
-
-    const vpRect = vp.getBoundingClientRect();
-    const centerX = vpRect.left + vpRect.width / 2;
-
-    let best = null;
-    let bestDist = Infinity;
-
-    cards.forEach((c) => {
-      const r = c.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const d = Math.abs(cx - centerX);
-      if (d < bestDist) {
-        bestDist = d;
-        best = c;
-      }
-    });
-
-    cards.forEach((c) => c.classList.toggle("is-focus", c === best));
-  }
-
-  function updateCarousel() {
-    const list = filtered();
-    renderCards(list);
-
+  function updateTrackOnly(list) {
     const pv = perView();
     const maxPages = Math.ceil(list.length / pv) || 1;
     clampPage(maxPages);
 
-    const first = track.querySelector(".uc-card");
+    const first = track.firstElementChild;
     const cardW = first ? first.clientWidth : 0;
     const gap = 16;
-    const step = pv > 1 ? (cardW + gap) * pv : (cardW + gap);
+    const step = (cardW + gap) * pv;
 
     track.style.transform = `translate3d(${-page * step}px, 0, 0)`;
 
     renderDots(maxPages);
 
-    requestAnimationFrame(() => {
-      requestAnimationFrame(setFocusCard);
-    });
-
     if (prev) prev.classList.toggle("is-disabled", page === 0);
     if (next) next.classList.toggle("is-disabled", page >= maxPages - 1);
   }
 
-  chips.forEach((ch) => {
-    ch.addEventListener("click", () => {
-      chips.forEach((x) => x.classList.remove("is-active"));
-      ch.classList.add("is-active");
-      active = ch.dataset.ucFilter || "all";
-      page = 0;
-      updateCarousel();
-    });
+  function rerenderCarousel() {
+    const list = filtered();
+    const signature = `${state.lang}|${active}|${query}|${list.length}`;
+
+    if (signature !== lastRenderedSignature) {
+      renderCards(list);
+      lastRenderedSignature = signature;
+    }
+
+    updateTrackOnly(list);
+  }
+
+  filters?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-uc-filter]");
+    if (!btn) return;
+
+    $all("[data-uc-filter]", filters).forEach((x) => x.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    active = btn.dataset.ucFilter || "all";
+    page = 0;
+    rerenderCarousel();
   });
 
   search?.addEventListener("input", () => {
@@ -495,52 +515,50 @@ function setupUseCases() {
     searchTimer = window.setTimeout(() => {
       query = (search.value || "").trim().toLowerCase();
       page = 0;
-      updateCarousel();
-    }, 120);
+      rerenderCarousel();
+    }, 180);
   });
 
   prev?.addEventListener("click", () => {
     page--;
-    updateCarousel();
+    updateTrackOnly(filtered());
   });
 
   next?.addEventListener("click", () => {
     page++;
-    updateCarousel();
+    updateTrackOnly(filtered());
   });
 
   let rAF = 0;
   window.addEventListener("resize", () => {
     cancelAnimationFrame(rAF);
-    rAF = requestAnimationFrame(updateCarousel);
-  });
+    rAF = requestAnimationFrame(() => updateTrackOnly(filtered()));
+  }, { passive: true });
 
-  window.__updateUseCases = () => {
-    page = 0;
-    updateCarousel();
+  window.__updateUseCases = ({ rerender = false, resetPage = false } = {}) => {
+    if (resetPage) page = 0;
+    if (rerender) {
+      lastRenderedSignature = "";
+      rerenderCarousel();
+      return;
+    }
+    updateTrackOnly(filtered());
   };
 
-  updateCarousel();
+  rerenderCarousel();
 }
 
-/* -------------------------
+/* =========================
    Pricing carousel
-------------------------- */
+========================= */
 
 function setupPricingCarousel() {
   const root = document.getElementById("pricingCarousel");
   if (!root) return;
 
-  if (window.innerWidth >= 960) {
-    const dots = document.getElementById("pricingDots");
-    if (dots) dots.innerHTML = "";
-    window.__updatePricing = () => {};
-    return;
-  }
-
-  const track = root.querySelector(".pc-track");
-  const prev = root.querySelector(".pc-prev");
-  const next = root.querySelector(".pc-next");
+  const track = $(".carousel-track", root);
+  const prev = $(".carousel-nav-prev", root);
+  const next = $(".carousel-nav-next", root);
   const dots = document.getElementById("pricingDots");
 
   if (!track) return;
@@ -601,10 +619,10 @@ function setupPricingCarousel() {
 
     track.style.transform = `translate3d(${-x}px, 0, 0)`;
 
+    renderDots(pages);
+
     if (prev) prev.disabled = false;
     if (next) next.disabled = false;
-
-    renderDots(pages);
   }
 
   prev?.addEventListener("click", () => goToPage(page - 1));
@@ -615,46 +633,37 @@ function setupPricingCarousel() {
   goToPage(0);
 
   let rAF = 0;
-  window.addEventListener(
-    "resize",
-    () => {
-      cancelAnimationFrame(rAF);
-      rAF = requestAnimationFrame(() => goToPage(0));
-    },
-    { passive: true }
-  );
+  window.addEventListener("resize", () => {
+    cancelAnimationFrame(rAF);
+    rAF = requestAnimationFrame(() => goToPage(0));
+  }, { passive: true });
 }
 
-/* -------------------------
+/* =========================
    FAQ accordion
-------------------------- */
+========================= */
 
 function setupFaqAccordion() {
-  document.querySelectorAll(".faq-item").forEach((item) => {
-    const q = item.querySelector(".faq-q-wrap");
-    const a = item.querySelector(".faq-a");
+  $all(".accordion-item").forEach((item) => {
+    const trigger = $(".accordion-trigger", item);
+    const content = $(".accordion-content", item);
 
-    if (!q || !a) return;
+    if (!trigger || !content) return;
 
-    a.style.height = "0px";
-    a.style.overflow = "hidden";
-    a.style.transition = "height 260ms ease";
+    content.style.height = "0px";
+    content.style.overflow = "hidden";
+    content.style.transition = "height 260ms ease";
 
-    q.addEventListener("click", () => {
+    trigger.addEventListener("click", () => {
       const isOpen = item.classList.toggle("is-open");
-
-      if (isOpen) {
-        a.style.height = `${a.scrollHeight}px`;
-      } else {
-        a.style.height = "0px";
-      }
+      content.style.height = isOpen ? `${content.scrollHeight}px` : "0px";
     });
   });
 }
 
-/* -------------------------
-   Quick drawer
-------------------------- */
+/* =========================
+   Drawer
+========================= */
 
 function setupDrawer() {
   const btn = document.getElementById("quickBtn");
@@ -687,21 +696,21 @@ function setupDrawer() {
   });
 }
 
-/* -------------------------
+/* =========================
    Footer year
-------------------------- */
+========================= */
 
 function setupYear() {
   const y = document.getElementById("y");
   if (y) y.textContent = new Date().getFullYear();
 }
 
-/* -------------------------
+/* =========================
    Forms
-------------------------- */
+========================= */
 
 function setupMiteForms() {
-  const forms = document.querySelectorAll("form.js-mite-form");
+  const forms = $all("form.js-mite-form");
   if (!forms.length) return;
 
   forms.forEach((form) => {
@@ -709,7 +718,7 @@ function setupMiteForms() {
     form.__miteBound = true;
 
     const toastSel = form.dataset.toast || ".js-success-toast";
-    const toast = form.querySelector(toastSel);
+    const toast = $(toastSel, form);
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -736,7 +745,7 @@ function setupMiteForms() {
           method: "POST",
           mode: "cors",
           headers: {
-            "Accept": "application/json",
+            Accept: "application/json",
             "Content-Type": "application/json"
           },
           body: JSON.stringify(payload)
@@ -792,9 +801,9 @@ function setupMiteForms() {
   });
 }
 
-/* -------------------------
+/* =========================
    Lazy init helpers
-------------------------- */
+========================= */
 
 function once(fn) {
   let done = false;
@@ -806,7 +815,7 @@ function once(fn) {
 }
 
 function lazyInitOnVisible(selector, init, options = {}) {
-  const el = document.querySelector(selector);
+  const el = $(selector);
   if (!el) return;
 
   const run = once(init);
@@ -834,24 +843,9 @@ function lazyInitOnVisible(selector, init, options = {}) {
   observer.observe(el);
 }
 
-function lazyInitOnFirstInteraction(init) {
-  const run = once(init);
-
-  const handler = () => {
-    run();
-    window.removeEventListener("pointerdown", handler);
-    window.removeEventListener("keydown", handler);
-    window.removeEventListener("touchstart", handler);
-  };
-
-  window.addEventListener("pointerdown", handler, { passive: true, once: true });
-  window.addEventListener("keydown", handler, { once: true });
-  window.addEventListener("touchstart", handler, { passive: true, once: true });
-}
-
-/* -------------------------
+/* =========================
    Boot
-------------------------- */
+========================= */
 
 window.MITE = window.MITE || {};
 window.MITE.page = window.MITE.page || { id: "index" };
@@ -865,6 +859,7 @@ const initForms = once(setupMiteForms);
 
 document.addEventListener("DOMContentLoaded", async () => {
   initOutcomes();
+  initDrawer();
   setupYear();
 
   let initial = "en";
@@ -886,17 +881,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   applyTranslations(initial);
 
-  /*lazyInitOnVisible("#about", initOutcomes);*/
   lazyInitOnVisible("#usecases", initUseCases);
   lazyInitOnVisible("#pricing", initPricing);
   lazyInitOnVisible("#faq", initFaq);
   lazyInitOnVisible("#contact", initForms);
 
-  lazyInitOnFirstInteraction(initDrawer);
-
-  document.querySelectorAll("[data-lang-btn]").forEach((btn) => {
+  $all("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
+      if (code === state.lang) return;
 
       try {
         await ensureLangAssets(code);
