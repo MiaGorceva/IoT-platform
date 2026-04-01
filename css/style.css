@@ -1204,7 +1204,7 @@ button {
   margin-right: 0.55rem;
   padding: 0.12rem 0.5rem;
   border-radius: var(--r-pill);
-  border: 1px solid var(--border-blue);
+  border: 1px solid var(--shadow-green-btn);
   background: var(--bg-glass);
   color: var(--c-blue);
   font-size: 0.68rem;
