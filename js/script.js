@@ -130,6 +130,14 @@ function applyTranslations(lang = "en") {
     btn.classList.toggle("btn-primary", active);
   });
 
+  $all("[data-i18n-label]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-label");
+    const value = dict[key];
+    if (value !== undefined && value !== null) {
+      el.setAttribute("data-label", String(value));
+    }
+  });
+
   window.__updateOutcomes?.();
   window.__updateUseCases?.();
   window.__updatePricing?.();
