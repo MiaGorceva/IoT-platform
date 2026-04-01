@@ -125,7 +125,9 @@ function applyTranslations(lang = "en") {
 
   $all("[data-lang-btn]").forEach((btn) => {
     const code = btn.getAttribute("data-lang-btn");
-    btn.classList.toggle("is-active", code === lang);
+    const active = code === lang;
+    btn.classList.toggle("is-active", active);
+    btn.classList.toggle("btn-primary", active);
   });
 
   window.__updateOutcomes?.();
