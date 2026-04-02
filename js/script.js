@@ -69,6 +69,16 @@ function $all(sel, root = document) {
 }
 
 /* =========================
+   App state
+========================= */
+
+const state = {
+  lang: "en",
+  dict: {},
+  useCasesCache: new Map()
+};
+
+/* =========================
    i18n
 ========================= */
 
@@ -85,13 +95,19 @@ function getDict(lang) {
   return { ...base, ...local };
 }
 
-function applyTranslations(lang = "en") {
-  const dict = getDict(lang);
-  document.documentElement.lang = lang;
+function setCurrentLanguage(lang) {
+  state.lang = lang || "en";
+  state.dict = getDict(state.lang);
+  document.documentElement.lang = state.lang;
 
   try {
-    localStorage.setItem("mite-lang", lang);
+    localStorage.setItem("mite-lang", state.lang);
   } catch (_) {}
+}
+
+function applyTranslations(lang = "en") {
+  setCurrentLanguage(lang);
+  const dict = state.dict;
 
   if (dict["seo.title"]) {
     document.title = dict["seo.title"];
@@ -119,17 +135,26 @@ function applyTranslations(lang = "en") {
   $all("[data-i18n-placeholder]").forEach((el) => {
     const key = el.getAttribute("data-i18n-placeholder");
     const value = dict[key];
-    if (!value) return;
-    el.setAttribute("placeholder", value);
+    if (value === undefined || value === null) return;
+    el.setAttribute("placeholder", String(value));
+  });
+
+  $all("[data-i18n-label]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-label");
+    const value = dict[key];
+    if (value === undefined || value === null) return;
+    el.setAttribute("data-label", String(value));
   });
 
   $all("[data-lang-btn]").forEach((btn) => {
     const code = btn.getAttribute("data-lang-btn");
-    btn.classList.toggle("is-active", code === lang);
+    const active = code === state.lang;
+    btn.classList.toggle("is-active", active);
+    btn.classList.toggle("btn-primary", active);
   });
 
-  window.__updateOutcomes?.();
-  window.__updateUseCases?.();
+  window.__updateOutcomes?.(false);
+  window.__updateUseCases?.({ rerender: true, resetPage: true });
   window.__updatePricing?.();
 }
 
@@ -145,18 +170,16 @@ function setupOutcomes() {
   const dotsWrap = document.getElementById("outcomesDots");
   const prevBtn = document.getElementById("outcomesPrev");
   const nextBtn = document.getElementById("outcomesNext");
-
   const metricWrap = $(".stat-stack");
   const leftPoints = $all(".item[data-outcome]");
 
   if (!numEl || !titleEl || !textEl || !bulletsEl || !dotsWrap) return;
 
   let index = 0;
+  let fadeTimer = 0;
 
-  function items() {
-    const lang = document.documentElement.lang || "en";
-    const dict = getDict(lang);
-    return dict.aboutOutcomes || translations.en.aboutOutcomes || [];
+  function getItems() {
+    return state.dict.aboutOutcomes || translations.en.aboutOutcomes || [];
   }
 
   function renderDots(arr) {
@@ -180,26 +203,26 @@ function setupOutcomes() {
   }
 
   function render(withFade = false) {
-    const arr = items();
+    const arr = getItems();
     if (!arr.length) return;
 
     if (index < 0) index = arr.length - 1;
     if (index >= arr.length) index = 0;
 
-    const it = arr[index];
+    const item = arr[index];
 
     if (withFade && metricWrap) {
       metricWrap.classList.add("is-fade");
     }
 
-    clearTimeout(render.__t);
-    render.__t = setTimeout(() => {
-      numEl.textContent = it.num || "";
-      titleEl.textContent = it.title || "";
-      textEl.textContent = it.text || "";
+    clearTimeout(fadeTimer);
+    fadeTimer = window.setTimeout(() => {
+      numEl.textContent = item.num || "";
+      titleEl.textContent = item.title || "";
+      textEl.textContent = item.text || "";
 
       bulletsEl.innerHTML = "";
-      (it.bullets || []).forEach((b) => {
+      (item.bullets || []).forEach((b) => {
         const li = document.createElement("li");
         li.textContent = b;
         bulletsEl.appendChild(li);
@@ -210,7 +233,7 @@ function setupOutcomes() {
       if (metricWrap) {
         metricWrap.classList.remove("is-fade");
       }
-    }, withFade ? 140 : 0);
+    }, withFade ? 120 : 0);
 
     leftPoints.forEach((p) => {
       const i = Number(p.getAttribute("data-outcome"));
@@ -229,19 +252,15 @@ function setupOutcomes() {
   });
 
   leftPoints.forEach((p) => {
-    p.addEventListener("mouseenter", () => {
+    const activate = () => {
       const i = Number(p.getAttribute("data-outcome"));
       if (!Number.isFinite(i)) return;
       index = i;
       render(true);
-    });
+    };
 
-    p.addEventListener("click", () => {
-      const i = Number(p.getAttribute("data-outcome"));
-      if (!Number.isFinite(i)) return;
-      index = i;
-      render(true);
-    });
+    p.addEventListener("mouseenter", activate);
+    p.addEventListener("click", activate);
   });
 
   window.__updateOutcomes = (reset = false) => {
@@ -253,7 +272,7 @@ function setupOutcomes() {
 }
 
 /* =========================
-   Number highlighting for use cases
+   Number highlighting
 ========================= */
 
 function highlightNumbers(html) {
@@ -262,10 +281,9 @@ function highlightNumbers(html) {
   const MARK = "data-ucnum='1'";
   if (String(html).includes(MARK)) return html;
 
-  let s = String(html);
-
-  s = s.replace(/\u2013|\u2014/g, "–");
-  s = s.replace(/\u00D7/g, "×");
+  let s = String(html)
+    .replace(/\u2013|\u2014/g, "–")
+    .replace(/\u00D7/g, "×");
 
   const wrap = (m) => `<span class="uc-num" ${MARK}>${m}</span>`;
 
@@ -307,22 +325,59 @@ function setupUseCases() {
 
   if (!carousel || !track) return;
 
-  const filterButtons = filters ? $all("[data-uc-filter]", filters) : [];
   let active = "all";
   let query = "";
   let page = 0;
   let searchTimer = 0;
+  let lastRenderedSignature = "";
+
+  function iconSvg(kind) {
+    const s = 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"';
+    const wrap = (inner) =>
+      `<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" ${s}>${inner}</svg>`;
+
+    switch (kind) {
+      case "pharma": return wrap(`<path d="M10 2v6l-4 8a4 4 0 0 0 3.6 6h4.8A4 4 0 0 0 18 16l-4-8V2"/><path d="M8 8h8"/>`);
+      case "factory": return wrap(`<path d="M3 21V10l6 4V10l6 4V7l6 4v10z"/><path d="M3 21h18"/>`);
+      case "quality": return wrap(`<path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"/><path d="M9 12l2 2 4-4"/>`);
+      case "wrench": return wrap(`<path d="M21 7l-5 5"/><path d="M16 7l1 1"/><path d="M2 22l7-7"/><path d="M7 17l2 2"/>`);
+      case "bolt": return wrap(`<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>`);
+      case "swap": return wrap(`<path d="M7 7h11l-2-2"/><path d="M18 7l-2 2"/><path d="M17 17H6l2 2"/><path d="M6 17l2-2"/>`);
+      case "shield": return wrap(`<path d="M12 2l7 4v6c0 5-3 9-7 10C8 21 5 17 5 12V6z"/>`);
+      case "trace": return wrap(`<circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="M9 7h6"/><path d="M8 9l3 6"/><path d="M16 9l-3 6"/>`);
+      case "kpi": return wrap(`<path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 14l3-3 3 2 4-5"/>`);
+      case "cow": return wrap(`<path d="M7 14c0 3 2 6 5 6s5-3 5-6"/><path d="M6 10h12"/><path d="M8 10V7"/><path d="M16 10V7"/>`);
+      case "chicken": return wrap(`<path d="M9 14c0 3 2 6 6 6"/><path d="M9 14c0-4 2-7 6-7"/><path d="M15 7l2 1"/><path d="M12 12h6"/>`);
+      case "drop": return wrap(`<path d="M12 2s7 8 7 13a7 7 0 0 1-14 0C5 10 12 2 12 2z"/>`);
+      case "snow": return wrap(`<path d="M12 2v20"/><path d="M4 6l16 12"/><path d="M20 6L4 18"/><path d="M6 20l12-16"/>`);
+      case "battery": return wrap(`<path d="M7 7h12v10H7z"/><path d="M5 10v4"/><path d="M21 10v4"/>`);
+      case "wind": return wrap(`<path d="M3 8h10a3 3 0 1 0-3-3"/><path d="M3 12h14a3 3 0 1 1-3 3"/><path d="M3 16h8"/>`);
+      case "lamp": return wrap(`<path d="M9 21h6"/><path d="M12 21v-3"/><path d="M7 10a5 5 0 1 1 10 0c0 2-1 3-2 4s-1 2-1 4h-4c0-2 0-3-1-4s-2-2-2-4z"/>`);
+      case "truck": return wrap(`<path d="M3 17V7h11v10z"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/>`);
+      default: return wrap(`<circle cx="12" cy="12" r="9"/>`);
+    }
+  }
 
   function getUseCasesData() {
-    const lang = document.documentElement.lang || "en";
-    const dict = getDict(lang);
+    const cacheKey = state.lang;
+    if (state.useCasesCache.has(cacheKey)) {
+      return state.useCasesCache.get(cacheKey);
+    }
 
+    const dict = state.dict;
     const arr =
       dict && Array.isArray(dict.useCases) && dict.useCases.length
         ? dict.useCases
         : (translations.en.useCases || []);
 
-    return arr.map((u, i) => ({ ...u, seq: i + 1 }));
+    const normalized = arr.map((u, i) => ({
+      ...u,
+      seq: i + 1,
+      __searchBlob: `${u.title} ${u.pain} ${u.how} ${u.result} ${(u.tags || []).join(" ")}`.toLowerCase()
+    }));
+
+    state.useCasesCache.set(cacheKey, normalized);
+    return normalized;
   }
 
   function filtered() {
@@ -330,8 +385,7 @@ function setupUseCases() {
 
     return data.filter((u) => {
       const okIndustry = active === "all" ? true : u.industry === active;
-      const blob = `${u.title} ${u.pain} ${u.how} ${u.result} ${(u.tags || []).join(" ")}`.toLowerCase();
-      const okQuery = query ? blob.includes(query) : true;
+      const okQuery = query ? u.__searchBlob.includes(query) : true;
       return okIndustry && okQuery;
     });
   }
@@ -339,7 +393,6 @@ function setupUseCases() {
   function perView() {
     const w = carousel.clientWidth;
     if (w < 640) return 1;
-    if (w < 980) return 2;
     return 2;
   }
 
@@ -359,7 +412,7 @@ function setupUseCases() {
         d.className = "dot";
         d.addEventListener("click", () => {
           page = i;
-          updateCarousel();
+          updateTrackOnly(filtered());
         });
         dots.appendChild(d);
       }
@@ -371,39 +424,42 @@ function setupUseCases() {
   }
 
   function renderCards(list) {
-    const lang = document.documentElement.lang || "en";
-    const dict = getDict(lang);
+    const dict = state.dict;
 
     track.innerHTML = list.map((u) => `
       <article class="surface surface-strong carousel-slide-half" data-industry="${u.industry}">
         <div class="surface-body stack">
-          <div class="row" style="justify-content: space-between; align-items: flex-start; margin-bottom: 0;">
-            <span class="pill">${u.industryLabel || u.industry}</span>
-            ${u.kpiBadge ? `<span class="pill">${highlightNumbers(u.kpiBadge)}</span>` : ""}
+          <div class="row">
+            <div class="uc-meta">
+              <span class="pill">${u.industryLabel || u.industry}</span>
+              <span class="uc-mini" aria-hidden="true">${iconSvg(u.icon)}</span>
+            </div>
+            ${u.kpiBadge ? `<div class="uc-kpi"><span class="pill">${highlightNumbers(u.kpiBadge)}</span></div>` : ""}
           </div>
 
-          <h3 class="title-lg">${u.title}</h3>
+          ${u.ttvBadge ? `<div class="uc-ttv"><span class="pill">${highlightNumbers(u.ttvBadge)}</span></div>` : ""}
 
-          ${u.ttvBadge ? `<div class="text-sm">${highlightNumbers(u.ttvBadge)}</div>` : ""}
+          <h3 class="title-lg uc-card-title">${u.title}</h3>
+          ${u.sub ? `<p class="text-sm uc-card-sub">${u.sub}</p>` : ""}
 
-          <div class="stack" style="gap: 0.85rem;">
-            <div class="surface surface-soft">
+          <div class="uc-section">
+            <div class="uc-panel">
               <div class="surface-body">
-                <div class="label">${dict["uc.label.pain"] || "Pain"}</div>
+                <div class="label uc-label">${dict["uc.label.pain"] || "Pain"}</div>
                 <p class="text-sm">${highlightNumbers(u.pain)}</p>
               </div>
             </div>
 
-            <div class="surface surface-soft">
+            <div class="uc-panel">
               <div class="surface-body">
-                <div class="label">${dict["uc.label.how"] || "How it works"}</div>
+                <div class="label uc-label">${dict["uc.label.how"] || "How it works"}</div>
                 <p class="text-sm">${highlightNumbers(u.how)}</p>
               </div>
             </div>
 
-            <div class="surface surface-featured">
+            <div class="uc-panel uc-result surface-rich">
               <div class="surface-body">
-                <div class="label">${dict["uc.label.result"] || "Result"}</div>
+                <div class="label uc-label">${dict["uc.label.result"] || "Result"}</div>
                 <p class="text-sm">${highlightNumbers(u.result)}</p>
               </div>
             </div>
@@ -413,10 +469,7 @@ function setupUseCases() {
     `).join("");
   }
 
-  function updateCarousel() {
-    const list = filtered();
-    renderCards(list);
-
+  function updateTrackOnly(list) {
     const pv = perView();
     const maxPages = Math.ceil(list.length / pv) || 1;
     clampPage(maxPages);
@@ -424,7 +477,7 @@ function setupUseCases() {
     const first = track.firstElementChild;
     const cardW = first ? first.clientWidth : 0;
     const gap = 16;
-    const step = pv > 1 ? (cardW + gap) * pv : (cardW + gap);
+    const step = (cardW + gap) * pv;
 
     track.style.transform = `translate3d(${-page * step}px, 0, 0)`;
 
@@ -434,47 +487,65 @@ function setupUseCases() {
     if (next) next.classList.toggle("is-disabled", page >= maxPages - 1);
   }
 
-  filterButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      filterButtons.forEach((x) => x.classList.remove("is-active"));
-      btn.classList.add("is-active");
-      active = btn.dataset.ucFilter || "all";
-      page = 0;
-      updateCarousel();
-    });
+  function rerenderCarousel() {
+    const list = filtered();
+    const signature = `${state.lang}|${active}|${query}|${list.length}`;
+
+    if (signature !== lastRenderedSignature) {
+      renderCards(list);
+      lastRenderedSignature = signature;
+    }
+
+    updateTrackOnly(list);
+  }
+
+  filters?.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-uc-filter]");
+    if (!btn) return;
+
+    $all("[data-uc-filter]", filters).forEach((x) => x.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    active = btn.dataset.ucFilter || "all";
+    page = 0;
+    rerenderCarousel();
   });
 
   search?.addEventListener("input", () => {
     clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => {
+    searchTimer = window.setTimeout(() => {
       query = (search.value || "").trim().toLowerCase();
       page = 0;
-      updateCarousel();
-    }, 120);
+      rerenderCarousel();
+    }, 180);
   });
 
   prev?.addEventListener("click", () => {
     page--;
-    updateCarousel();
+    updateTrackOnly(filtered());
   });
 
   next?.addEventListener("click", () => {
     page++;
-    updateCarousel();
+    updateTrackOnly(filtered());
   });
 
   let rAF = 0;
   window.addEventListener("resize", () => {
     cancelAnimationFrame(rAF);
-    rAF = requestAnimationFrame(updateCarousel);
-  });
+    rAF = requestAnimationFrame(() => updateTrackOnly(filtered()));
+  }, { passive: true });
 
-  window.__updateUseCases = () => {
-    page = 0;
-    updateCarousel();
+  window.__updateUseCases = ({ rerender = false, resetPage = false } = {}) => {
+    if (resetPage) page = 0;
+    if (rerender) {
+      lastRenderedSignature = "";
+      rerenderCarousel();
+      return;
+    }
+    updateTrackOnly(filtered());
   };
 
-  updateCarousel();
+  rerenderCarousel();
 }
 
 /* =========================
@@ -547,6 +618,7 @@ function setupPricingCarousel() {
     const x = firstCard ? firstCard.offsetLeft : 0;
 
     track.style.transform = `translate3d(${-x}px, 0, 0)`;
+
     renderDots(pages);
 
     if (prev) prev.disabled = false;
@@ -584,12 +656,7 @@ function setupFaqAccordion() {
 
     trigger.addEventListener("click", () => {
       const isOpen = item.classList.toggle("is-open");
-
-      if (isOpen) {
-        content.style.height = `${content.scrollHeight}px`;
-      } else {
-        content.style.height = "0px";
-      }
+      content.style.height = isOpen ? `${content.scrollHeight}px` : "0px";
     });
   });
 }
@@ -776,21 +843,6 @@ function lazyInitOnVisible(selector, init, options = {}) {
   observer.observe(el);
 }
 
-function lazyInitOnFirstInteraction(init) {
-  const run = once(init);
-
-  const handler = () => {
-    run();
-    window.removeEventListener("pointerdown", handler);
-    window.removeEventListener("keydown", handler);
-    window.removeEventListener("touchstart", handler);
-  };
-
-  window.addEventListener("pointerdown", handler, { passive: true, once: true });
-  window.addEventListener("keydown", handler, { once: true });
-  window.addEventListener("touchstart", handler, { passive: true, once: true });
-}
-
 /* =========================
    Boot
 ========================= */
@@ -807,6 +859,7 @@ const initForms = once(setupMiteForms);
 
 document.addEventListener("DOMContentLoaded", async () => {
   initOutcomes();
+  initDrawer();
   setupYear();
 
   let initial = "en";
@@ -833,11 +886,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   lazyInitOnVisible("#faq", initFaq);
   lazyInitOnVisible("#contact", initForms);
 
-  lazyInitOnFirstInteraction(initDrawer);
-
   $all("[data-lang-btn]").forEach((btn) => {
     btn.addEventListener("click", async () => {
       const code = btn.getAttribute("data-lang-btn") || "en";
+      if (code === state.lang) return;
 
       try {
         await ensureLangAssets(code);
