@@ -1200,6 +1200,7 @@ button {
 
 .note-output::before {
   content: attr(data-label);
+      box-shadow: var(--shadow-green-btn);
   display: inline-block;
   margin-right: 0.55rem;
   padding: 0.12rem 0.5rem;
