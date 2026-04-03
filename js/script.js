@@ -814,6 +814,15 @@ function once(fn) {
   };
 }
 
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const s = document.createElement('script');
+    s.src = 'js/data/usecases.en.js';
+    s.defer = true;
+    document.body.appendChild(s);
+  });
+</script>
+
 function lazyInitOnVisible(selector, init, options = {}) {
   const el = $(selector);
   if (!el) return;
