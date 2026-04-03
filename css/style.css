@@ -632,6 +632,7 @@ button {
 .pill .dot,
 .pill > .dot,
 .carousel-dots .dot,
+.hero-meta-item .dot,
 .floating-cta .dot {
   margin-top: 0;
   align-self: center;
