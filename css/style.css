@@ -51,12 +51,9 @@
      BORDERS
      ========================= */
   --border-soft: rgba(255, 255, 255, 0.06);
-  --border-base: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.12);
-
-  --border-s: rgba(255, 255, 255, 0.05);
---border-base: rgba(255, 255, 255, 0.08);
---border-header: rgba(255, 255, 255, 0.12);
+    --border-base: rgba(255, 255, 255, 0.08);
+    --border-header: rgba(255, 255, 255, 0.12);
   --border-blue: rgba(72, 207, 255, 0.32);
   --border-green: rgba(84, 229, 74, 0.28);
 
@@ -599,7 +596,7 @@ button {
 
 .pill {
   padding: 0.28rem 0.72rem;
-  box-shadow: var(--shadow-blue-ui;
+  box-shadow: var(--shadow-deep);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
