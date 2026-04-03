@@ -41,15 +41,16 @@ function loadScript(src) {
   return promise;
 }
 
-async function ensureLangAssets(lang) {
-  if (!lang || lang === "en") return;
+async function ensureLangAssets(lang = "en") {
+  const code = lang || "en";
 
-  const needBase = !window.translations?.[lang];
-  const needCases = !window.translations?.[lang]?.useCases;
+  const needBase = !window.translations?.[code];
+  const needCases = !window.translations?.[code]?.useCases;
 
   const tasks = [];
-  if (needBase) tasks.push(loadScript(`js/${lang}.js`));
-  if (needCases) tasks.push(loadScript(`js/data/usecases.${lang}.js`));
+
+  if (needBase) tasks.push(loadScript(`js/${code}.js`));
+  if (needCases) tasks.push(loadScript(`js/data/usecases.${code}.js`));
 
   if (tasks.length) {
     await Promise.all(tasks);
