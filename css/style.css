@@ -855,6 +855,10 @@ button {
   padding: 0.9rem 0.95rem;
 }
 
+.item > .dot {
+  margin-top: 0.42rem;
+}
+
 .item-body {
   display: flex;
   flex-direction: column;
