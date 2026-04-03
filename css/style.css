@@ -448,6 +448,19 @@ button {
   box-shadow: var(--shadow-header);
 }
 
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(10, 16, 28, 0.6)
+  );
+}
+
 .nav {
   min-height: var(--header-height);
   display: flex;
@@ -1319,7 +1332,7 @@ button {
   font-size: 0.78rem;
   color: var(--c-text-muted);
   border-top: 1px solid var(--border-base);
-  background: var(--bg-surface);
+ /* background: var(--bg-surface);*/
 }
 
 .footer-bar {
