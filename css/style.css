@@ -761,8 +761,8 @@ button {
   box-shadow: none;
 }
 
-.lang-switch .btn a {
-  min-height: 40.2px;
+.site-header a.btn {
+  min-height: 40px;
 }
 
 /* =========================
