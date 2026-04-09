@@ -44,7 +44,7 @@
     );
 
   --bg-glass: rgba(16, 22, 32, 0.66);
-  --bg-header: rgba(5, 10, 18, 0.72);
+  --bg-header: rgb(92 94 99 / 30%);
   --bg-overlay: rgba(4, 8, 14, 0.62);
 
   /* =========================
@@ -53,7 +53,7 @@
   --border-soft: rgba(255, 255, 255, 0.06);
   --border-strong: rgba(255, 255, 255, 0.12);
     --border-base: rgba(255, 255, 255, 0.08);
-    --border-header: rgba(255, 255, 255, 0.12);
+    --border-header: rgb(8 7 7 / 28%);
   --border-blue: rgba(72, 207, 255, 0.32);
   --border-green: rgba(84, 229, 74, 0.28);
 
@@ -759,10 +759,8 @@ button {
   box-shadow: none;
 }
 
-.site-header .btn {
-  min-height: 2.2rem;
-  padding: 0.46rem 0.96rem;
-  font-size: 0.84rem;
+.site-header .btn .a {
+  min-height: 40.2px;
 }
 
 /* =========================
