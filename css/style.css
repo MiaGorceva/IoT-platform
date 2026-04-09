@@ -1676,9 +1676,10 @@ button {
 
   .lang-switch .btn {
     min-width: 2.85rem;
-    min-height: 2.1rem;
-    padding-inline: 0.72rem;
-    font-size: 0.78rem;
+    min-height: 2.2rem;
+    padding: 0.46rem 0.96rem;
+    padding-inline: 0.76rem;
+    font-size: 0.84rem;
   }
 }
 
