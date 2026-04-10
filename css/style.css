@@ -847,7 +847,8 @@ button {
 }
 
 .hero-visual {
-  min-height: 0;
+  width: 100%;
+  min-height: 393px;
   height: auto;
   padding: 1.2rem 3.4rem 2rem 1.2rem;
   border-radius: var(--r-lg);
