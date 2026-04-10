@@ -578,7 +578,7 @@ button {
   width: 100%;
   padding: 0.95rem 1rem;
   display: flex;
-  flex-direction: column;
+ /* flex-direction: column;*/
   flex: 1 1 auto;
   min-height: 100%;
 }
@@ -609,7 +609,7 @@ button {
 
 .pill {
   padding: 0.28rem 0.72rem;
-  box-shadow: var(--shadow-deep);
+  box-shadow: var(--shadow-blue-ui);
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -1120,7 +1120,7 @@ button {
 }
 
 .uc-panel .surface-body {
-  padding: 0.95rem 1rem;
+  flex-direction: column;
 }
 
 .uc-label {
@@ -1141,12 +1141,12 @@ button {
 
 #ucFilters .pill {
   cursor: pointer;
-  transition:
+ /* transition:
     transform var(--ease-fast),
     box-shadow var(--ease-main),
     border-color var(--ease-main),
     color var(--ease-main),
-    background var(--ease-main);
+    background var(--ease-main);*/
   will-change: transform;
 }
 
