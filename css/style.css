@@ -699,6 +699,7 @@ button {
   background: var(--btn-primary-bg);
   border-color: var(--btn-primary-border);
   box-shadow: var(--shadow-green-ui);
+  min-width: 145px;
 }
 
 .btn-primary::before,
