@@ -195,8 +195,8 @@ window.translations.en = {
   "useReal.eyebrow": "Real use cases",
   "useReal.title": "18 scenarios: pain → execution → measurable outcome",
   "useReal.subtitle":
-    "Short cards today for trust and clarity. Later, each can expand into a dedicated page with full mechanics, evidence, and screenshots.",
-
+    "Each scenario shows a real operational problem, how it is executed in MITE, and the measurable outcome. " +
+"No theory — only real processes you can launch and scale.",
   "uc.filter.all": "All",
   "uc.filter.pharma": "Pharma",
   "uc.filter.manufacturing": "Manufacturing",
