@@ -91,7 +91,7 @@ window.translations.en.useCases = [
 },
 
 {
-  industry: "manufacturing, energy",
+  industry: "energy",
   industryLabel: "Manufacturing, Energy",
   title: "Production Energy: −16% Idle Electricity Consumption",
   kpiBadge: "↓ Idle consumption 10–20% · ↓ Peak tariffs · ↓ Energy Cost per Unit",
