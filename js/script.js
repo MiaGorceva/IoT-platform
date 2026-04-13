@@ -391,6 +391,7 @@ function setupUseCases() {
           : Array.isArray(u.industries)
             ? u.industries.includes(active)
             : u.industry === active;
+
       const okQuery = query ? u.__searchBlob.includes(query) : true;
       return okIndustry && okQuery;
     });
