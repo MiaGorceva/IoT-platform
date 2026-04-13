@@ -385,7 +385,12 @@ function setupUseCases() {
     const data = getUseCasesData();
 
     return data.filter((u) => {
-      const okIndustry = active === "all" ? true : u.industry === active;
+      const okIndustry =
+        active === "all"
+          ? true
+          : Array.isArray(u.industries)
+            ? u.industries.includes(active)
+            : u.industry === active;
       const okQuery = query ? u.__searchBlob.includes(query) : true;
       return okIndustry && okQuery;
     });
