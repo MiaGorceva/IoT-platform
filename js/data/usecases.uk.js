@@ -91,7 +91,8 @@ window.translations.uk.useCases = [
   },
 
   {
-    industry: ["manufacturing", "energy"],
+    industries: ["manufacturing", "energy"],
+    industry: "energy",
     industryLabel: "Виробництво, Енергетика",
     title: "Енергія у виробництві: −16% споживання електроенергії в режимі простою",
     kpiBadge: "↓ Споживання в простої 10–20% · ↓ Пікові тарифи · ↓ Вартість енергії на одиницю продукції",

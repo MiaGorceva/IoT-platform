@@ -90,7 +90,8 @@ window.translations.ru.useCases = [
   },
 
   {
-    industry: ["manufacturing", "energy"],
+    industries: ["manufacturing", "energy"],
+    industry: "energy",
     industryLabel: "Производство, Энергетика",
     title: "Энергия в производстве: −16% потребления электроэнергии в простое",
     kpiBadge: "↓ Потребление в простое 10–20% · ↓ Пиковые тарифы · ↓ Энергозатраты на единицу продукции",
