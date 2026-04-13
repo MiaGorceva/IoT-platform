@@ -906,3 +906,54 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   });
 });
+// ===== MOBILE NAV =====
+document.addEventListener("DOMContentLoaded", () => {
+  const desktopNav = document.querySelector(".link-set");
+  const mobileNav = document.getElementById("mobileNav");
+  const navToggle = document.getElementById("navToggle");
+
+  if (!desktopNav || !mobileNav || !navToggle) return;
+
+  // Клонируем ссылки
+  const links = [...desktopNav.querySelectorAll("a")];
+
+  links.forEach((link) => {
+    const clone = link.cloneNode(true);
+    clone.classList.add("mobile-nav-link");
+
+    clone.addEventListener("click", () => {
+      closeMobileNav();
+    });
+
+    mobileNav.appendChild(clone);
+  });
+
+  function openMobileNav() {
+    mobileNav.hidden = false;
+    mobileNav.classList.add("is-open");
+    navToggle.setAttribute("aria-expanded", "true");
+  }
+
+  function closeMobileNav() {
+    mobileNav.hidden = true;
+    mobileNav.classList.remove("is-open");
+    navToggle.setAttribute("aria-expanded", "false");
+  }
+
+  navToggle.addEventListener("click", () => {
+    const isOpen = navToggle.getAttribute("aria-expanded") === "true";
+    isOpen ? closeMobileNav() : openMobileNav();
+  });
+
+  // Закрытие по ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMobileNav();
+  });
+
+  // При ресайзе назад на desktop — закрываем
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 720) {
+      closeMobileNav();
+    }
+  });
+});
