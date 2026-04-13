@@ -1543,6 +1543,7 @@ button {
     order: -1;
     max-width: min(100%, 560px);
     margin: 0 auto;
+    min-height: 270px;
   }
 
   .grid-3 {
@@ -1664,7 +1665,7 @@ button {
 
   .hero-visual {
     max-width: 100%;
-    padding: 0.55rem;
+    padding: 1rem;
   }
 }
 
