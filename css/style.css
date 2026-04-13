@@ -1779,3 +1779,8 @@ button {
     position: sticky;
   }
 }
+@media (max-width: 980px) {
+  .nav-demo-btn {
+    display: none;
+  }
+}
