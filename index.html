@@ -136,40 +136,43 @@
           </div>
         </div>
 
-       <div class="hero-visual surface-rich">
-  <div id="miteVideo" style="position:relative;width:100%;aspect-ratio:1200/799;border-radius:inherit;overflow:hidden;background:#0a1014;">
+      <div class="hero-visual surface-rich" style="padding:0;">
+  <div id="miteVideo" style="position:relative;width:100%;height:100%;aspect-ratio:1200/799;border-radius:inherit;overflow:hidden;background:#0a1014;z-index:1;">
     <picture style="position:absolute;inset:0;display:block;width:100%;height:100%;">
       <source srcset="upload/the-most-flexible-platform-ever.avif" type="image/avif" />
       <source srcset="upload/the-most-flexible-platform-ever.webp" type="image/webp" />
-      <img src="upload/the-most-flexible-platform-ever.webp" alt="MITE IIoT platform — смотреть ролик" width="1200" height="799" decoding="async" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <img src="upload/the-most-flexible-platform-ever.webp" alt="MITE IIoT platform — смотреть ролик" width="1200" height="799" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;" />
     </picture>
     <div id="miteVideoPlayer" style="position:absolute;inset:0;width:100%;height:100%;z-index:3;"></div>
-    <button id="miteVideoBtn" type="button" aria-label="Смотреть ролик" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;height:100%;margin:0;padding:0;background:transparent;border:0;outline:0;box-shadow:none;cursor:pointer;z-index:2;">
-      <span style="display:flex;align-items:center;justify-content:center;width:80px;height:80px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.5));">
+    <button id="miteVideoBtn" type="button" aria-label="Смотреть ролик" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;height:100%;margin:0;padding:0;background:transparent;border:0;outline:0;box-shadow:none;cursor:pointer;z-index:4;">
+      <span style="display:flex;align-items:center;justify-content:center;width:80px;height:80px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.5));pointer-events:none;">
         <svg viewBox="0 0 80 80" width="80" height="80">
           <circle cx="40" cy="40" r="38" fill="rgba(10,16,20,0.55)" stroke="#3ddc6e" stroke-width="2"/>
           <path d="M33 27 L57 40 L33 53 Z" fill="#3ddc6e"/>
         </svg>
       </span>
-      <span style="font:600 15px/1 system-ui,-apple-system,sans-serif;letter-spacing:.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6);background:transparent;">Смотреть ролик · 68 сек</span>
+      <span style="font:600 15px/1 system-ui,-apple-system,sans-serif;letter-spacing:.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6);background:transparent;pointer-events:none;">Смотреть ролик · 68 сек</span>
     </button>
   </div>
 </div>
 
 <script>
 (function(){
-  var btn = document.getElementById('miteVideoBtn');
-  var holder = document.getElementById('miteVideoPlayer');
-  if(!btn || !holder) return;
-  btn.addEventListener('click', function(){
-    var f = document.createElement('iframe');
-    f.src = 'https://www.youtube.com/embed/pzveqhVl-zM?autoplay=1&rel=0&modestbranding=1&playsinline=1';
-    f.setAttribute('allow','autoplay; encrypted-media; picture-in-picture');
-    f.setAttribute('allowfullscreen','');
-    f.style.cssText = 'width:100%;height:100%;border:0;display:block;';
-    holder.appendChild(f);
-    btn.style.display = 'none';
-  });
+  function init(){
+    var btn=document.getElementById('miteVideoBtn');
+    var holder=document.getElementById('miteVideoPlayer');
+    if(!btn||!holder)return;
+    btn.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube.com/embed/pzveqhVl-zM?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.setAttribute('allow','autoplay; encrypted-media; picture-in-picture');
+      f.setAttribute('allowfullscreen','');
+      f.style.cssText='width:100%;height:100%;border:0;display:block;';
+      holder.appendChild(f);
+      btn.style.display='none';
+    });
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
 })();
 </script>
     </section>
