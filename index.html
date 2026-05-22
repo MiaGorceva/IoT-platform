@@ -136,38 +136,64 @@
           </div>
         </div>
 
-        <div class="hero-visual surface-rich">
-          <div class="hero-video" id="heroVideo" data-yt="pzveqhVl-zM">
+       <div class="hero-visual surface-rich">
+  <div class="mtv" id="miteVideo" data-yt="pzveqhVl-zM">
 
-            <picture class="hero-video__poster">
-              <source srcset="upload/the-most-flexible-platform-ever.avif" type="image/avif" />
-              <source srcset="upload/the-most-flexible-platform-ever.webp" type="image/webp" />
-              <img
-                class="orb-spider-img"
-                src="upload/the-most-flexible-platform-ever.webp"
-                alt="MITE IIoT platform — смотреть ролик"
-                width="1200"
-                height="799"
-                fetchpriority="high"
-                loading="eager"
-                decoding="async"
-                sizes="(max-width: 720px) 100vw, 50vw"
-              />
-            </picture>
+    <picture class="mtv__poster">
+      <source srcset="upload/the-most-flexible-platform-ever.avif" type="image/avif" />
+      <source srcset="upload/the-most-flexible-platform-ever.webp" type="image/webp" />
+      <img
+        class="mtv__img"
+        src="upload/the-most-flexible-platform-ever.webp"
+        alt="MITE IIoT platform — смотреть ролик"
+        width="1200" height="799"
+        fetchpriority="high" loading="eager" decoding="async"
+        sizes="(max-width: 720px) 100vw, 50vw"
+      />
+    </picture>
 
-            <div class="hero-video__player" id="heroVideoPlayer"></div>
+    <div class="mtv__player" id="miteVideoPlayer"></div>
 
-            <button class="hero-video__play" type="button" aria-label="Смотреть ролик">
-              <svg viewBox="0 0 80 80" width="84" height="84" aria-hidden="true">
-                <circle cx="40" cy="40" r="39" fill="rgba(10,16,20,0.55)" stroke="#3ddc6e" stroke-width="2"/>
-                <path d="M33 27 L57 40 L33 53 Z" fill="#3ddc6e"/>
-              </svg>
-              <span class="hero-video__label">Смотреть ролик · 68 сек</span>
-            </button>
+    <button class="mtv__play" type="button" aria-label="Смотреть ролик">
+      <span class="mtv__circle" aria-hidden="true">
+        <svg viewBox="0 0 80 80" width="80" height="80">
+          <circle cx="40" cy="40" r="38" fill="rgba(10,16,20,0.55)" stroke="#3ddc6e" stroke-width="2"/>
+          <path d="M33 27 L57 40 L33 53 Z" fill="#3ddc6e"/>
+        </svg>
+      </span>
+      <span class="mtv__label">Смотреть ролик · 68 сек</span>
+    </button>
 
-          </div>
-        </div>
-      </div>
+  </div>
+</div>
+
+<style>
+.mtv{position:relative;width:100%;aspect-ratio:1200/799;border-radius:inherit;overflow:hidden;background:#0a1014;cursor:pointer;isolation:isolate;}
+.mtv__poster{position:absolute;inset:0;margin:0;padding:0;width:100%;height:100%;display:block;z-index:1;}
+.mtv__img{width:100%;height:100%;object-fit:cover;display:block;}
+.mtv__player{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3;}
+.mtv__player iframe{width:100%;height:100%;border:0;display:block;}
+.mtv__play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;height:100%;margin:0;padding:0;background:transparent;border:0;outline:0;box-shadow:none;cursor:pointer;z-index:2;transition:opacity .3s ease;}
+.mtv__circle{display:flex;align-items:center;justify-content:center;width:80px;height:80px;background:transparent;border:0;filter:drop-shadow(0 4px 20px rgba(0,0,0,.5));transition:transform .25s ease;}
+.mtv__play:hover .mtv__circle{transform:scale(1.08);}
+.mtv__play:hover .mtv__circle circle{fill:rgba(10,16,20,.78);}
+.mtv__label{font:600 15px/1 system-ui,-apple-system,sans-serif;letter-spacing:.04em;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.6);background:transparent;}
+.mtv.is-playing .mtv__poster,.mtv.is-playing .mtv__play{opacity:0;pointer-events:none;}
+</style>
+
+<script>
+(function(){
+  var box=document.getElementById('miteVideo');
+  if(!box)return;
+  var btn=box.querySelector('.mtv__play');
+  var holder=document.getElementById('miteVideoPlayer');
+  var id=box.getAttribute('data-yt');
+  btn.addEventListener('click',function(){
+    holder.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1" title="MITE" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    box.classList.add('is-playing');
+  });
+})();
+</script>
     </section>
 
     <p class="sr-only">
