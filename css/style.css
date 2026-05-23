@@ -1873,7 +1873,6 @@ button {
   filter: drop-shadow(0 4px 20px rgba(0,0,0,.5));
   transition: transform var(--ease-fast);
   pointer-events: none;
-  opacity: 0.5;
   margin-top: 25px;
 }
 .hero-media__play:hover .hero-media__icon { transform: scale(1.08); }
