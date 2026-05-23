@@ -882,6 +882,7 @@ window.MITE = window.MITE || {};
 window.MITE.page = window.MITE.page || { id: "index" };
 
 const initOutcomes = once(setupOutcomes);
+const initHeroVideo = once(setupHeroVideo);
 const initUseCases = once(setupUseCases);
 const initPricing = once(setupPricingCarousel);
 const initFaq = once(setupFaqAccordion);
