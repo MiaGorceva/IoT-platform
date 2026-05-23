@@ -70,6 +70,30 @@ function $all(sel, root = document) {
 }
 
 /* =========================
+   Hero video
+========================= */
+
+function setupHeroVideo() {
+  const box = document.getElementById("miteVideo");
+  const btn = document.getElementById("miteVideoBtn");
+  const holder = document.getElementById("miteVideoPlayer");
+  if (!box || !btn || !holder) return;
+
+  const id = "pzveqhVl-zM";
+
+  btn.addEventListener("click", () => {
+    const iframe = document.createElement("iframe");
+    iframe.src =
+      `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+    iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
+    iframe.setAttribute("allowfullscreen", "");
+    iframe.setAttribute("title", "MITE");
+    holder.appendChild(iframe);
+    box.classList.add("is-playing");
+  }, { once: true });
+}
+
+/* =========================
    App state
 ========================= */
 
@@ -866,6 +890,7 @@ const initForms = once(setupMiteForms);
 
 document.addEventListener("DOMContentLoaded", async () => {
   initOutcomes();
+  initHeroVideo(); 
   initDrawer();
   setupYear();
 
