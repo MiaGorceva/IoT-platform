@@ -1911,3 +1911,13 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .hero-media__icon::after { animation: none; }
 }
+/* CLS guard — резерв высоты под асинхронный контент */
+.hero-title    { min-height: 1.96em; }
+.hero-subtitle { min-height: 3.3em; }
+.section-head  { min-height: 4.5rem; }
+.stat-stack    { min-height: 240px; }
+#outcomeBullets { min-height: 4.5em; }
+
+@media (max-width: 720px) {
+  .stat-stack { min-height: 280px; }
+}
