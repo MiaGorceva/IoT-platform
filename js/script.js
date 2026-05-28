@@ -501,21 +501,22 @@ function setupUseCases() {
   }
 
   function updateTrackOnly(list) {
-    const pv = perView();
-    const maxPages = Math.ceil(list.length / pv) || 1;
-    clampPage(maxPages);
+    requestAnimationFrame(() => {
+      const pv = perView();
+      const maxPages = Math.ceil(list.length / pv) || 1;
+      clampPage(maxPages);
 
-    const first = track.firstElementChild;
-    const cardW = first ? first.clientWidth : 0;
-    const gap = 16;
-    const step = (cardW + gap) * pv;
+      const first = track.firstElementChild;
+      const cardW = first ? first.getBoundingClientRect().width : 0;
+      const gap = 16;
+      const step = (cardW + gap) * pv;
 
-    track.style.transform = `translate3d(${-page * step}px, 0, 0)`;
+      track.style.transform = `translate3d(${-page * step}px, 0, 0)`;
+      renderDots(maxPages);
 
-    renderDots(maxPages);
-
-    if (prev) prev.classList.toggle("is-disabled", page === 0);
-    if (next) next.classList.toggle("is-disabled", page >= maxPages - 1);
+      if (prev) prev.classList.toggle("is-disabled", page === 0);
+      if (next) next.classList.toggle("is-disabled", page >= maxPages - 1);
+    });
   }
 
   function rerenderCarousel() {
