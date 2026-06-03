@@ -505,15 +505,17 @@ button {
   position: absolute;
   left: 0;
   bottom: -3px;
-  width: 0;
+  width: 100%;
   height: 2px;
   border-radius: var(--r-pill);
   background: linear-gradient(90deg, var(--c-green), var(--c-blue));
-  transition: width var(--ease-main);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--ease-main);
 }
 
 .link-set a:hover::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 /* =========================
