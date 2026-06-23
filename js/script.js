@@ -214,6 +214,7 @@ function setupOutcomes() {
         const d = document.createElement("button");
         d.type = "button";
         d.className = "dot";
+        d.setAttribute("aria-label", "Go to slide " + (i + 1));
         d.addEventListener("click", () => {
           index = i;
           render(true);
@@ -441,6 +442,7 @@ function setupUseCases() {
         const d = document.createElement("button");
         d.type = "button";
         d.className = "dot";
+        d.setAttribute("aria-label", "Go to slide " + (i + 1));
         d.addEventListener("click", () => {
           page = i;
           updateTrackOnly(filtered());
@@ -620,6 +622,7 @@ function setupPricingCarousel() {
         const b = document.createElement("button");
         b.type = "button";
         b.className = "dot";
+        b.setAttribute("aria-label", "Go to slide " + (i + 1));
         b.addEventListener("click", () => goToPage(i));
         dots.appendChild(b);
       }
@@ -676,7 +679,7 @@ function setupPricingCarousel() {
 ========================= */
 
 function setupFaqAccordion() {
-  $all(".accordion-item").forEach((item) => {
+  $all(".accordion-item").forEach((item, idx) => {
     const trigger = $(".accordion-trigger", item);
     const content = $(".accordion-content", item);
 
@@ -686,9 +689,26 @@ function setupFaqAccordion() {
     content.style.overflow = "hidden";
     content.style.transition = "height 260ms ease";
 
-    trigger.addEventListener("click", () => {
+    const cid = content.id || `faq-content-${idx}`;
+    content.id = cid;
+    content.setAttribute("role", "region");
+    trigger.setAttribute("role", "button");
+    trigger.setAttribute("tabindex", "0");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-controls", cid);
+
+    const toggle = () => {
       const isOpen = item.classList.toggle("is-open");
       content.style.height = isOpen ? `${content.scrollHeight}px` : "0px";
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    };
+
+    trigger.addEventListener("click", toggle);
+    trigger.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggle();
+      }
     });
   });
 }
