@@ -755,11 +755,9 @@ button {
 }
 
 .lang-switch .btn {
-  min-width: 2.85rem;
+  min-width: 2.1rem;
   min-height: 2.2rem;
-  padding-inline: 0.72rem;
-  padding: 0.46rem 0.96rem;
-  padding-inline: 0.76rem;
+  padding: 0.46rem 0.55rem;
   font-size: 0.84rem;
   box-shadow: none;
 }
@@ -1686,10 +1684,9 @@ button {
   }
 
   .lang-switch .btn {
-    min-width: 2.85rem;
+    min-width: 2.1rem;
     min-height: 2.1rem;
-    padding: 0.46rem 0.96rem;
-    padding-inline: 0.76rem;
+    padding: 0.46rem 0.5rem;
     font-size: 0.76rem;
   }
 }
@@ -1783,7 +1780,7 @@ button {
   }
 }
 
-@media (max-width: 980px) {
+@media (max-width: 1099px) {
   .link-set {
     display: none;
   }
