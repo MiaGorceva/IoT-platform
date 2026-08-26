@@ -197,6 +197,14 @@ window.translations.en = {
   "useReal.subtitle":
     "Each scenario shows a real operational problem, how it is executed in MITE, and the measurable outcome. " +
 "No theory — only real processes you can launch and scale.",
+  // ссылка на видео-пособие под карточками кейсов
+  "useReal.tutorialEyebrow": "Tutorial",
+  "useReal.tutorialTitle": "How the data actually gets in",
+  "useReal.tutorialText":
+    "Every scenario above starts the same way: a device has to be connected and what it reports has to be understood. "+
+    "This walkthrough shows it end to end on a real variable speed drive over Modbus — registers, word size, bus parameters, live values.",
+  "useReal.tutorialCta": "Watch the walkthrough",
+  "useReal.tutorialHref": "https://youtu.be/5Tx9z55B3MQ",
   "uc.filter.all": "All",
   "uc.filter.pharma": "Pharma",
   "uc.filter.manufacturing": "Manufacturing",

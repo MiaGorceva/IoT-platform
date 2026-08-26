@@ -164,6 +164,14 @@ function applyTranslations(lang = "en") {
     el.setAttribute("placeholder", String(value));
   });
 
+  // ссылка меняется вместе с языком: у пособия своя языковая версия на YouTube
+  $all("[data-i18n-href]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-href");
+    const value = dict[key];
+    if (value === undefined || value === null) return;
+    el.setAttribute("href", String(value));
+  });
+
   $all("[data-i18n-label]").forEach((el) => {
     const key = el.getAttribute("data-i18n-label");
     const value = dict[key];
