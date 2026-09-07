@@ -197,8 +197,14 @@ window.translations.en = {
   "useReal.subtitle":
     "Each scenario shows a real operational problem, how it is executed in MITE, and the measurable outcome. " +
 "No theory — only real processes you can launch and scale.",
+  // ссылка на обзорный ролик о платформе — там же, под кейсами
+  "useReal.promoEyebrow": "Overview",
+  "useReal.promoTitle": "From data to a task someone actually does",
+  "useReal.promoText":
+    "Eighty seconds on what happens between a sensor and the person who has to act: one data model, predictive maintenance from the trend, anomaly detection and the task that follows.",
+  "useReal.promoCta": "Watch the overview",
+  "useReal.promoHref": "https://youtu.be/ZXdT2wtZd9Y",
   // ссылка на видео-пособие под карточками кейсов
-  "hero.videoId": "ZXdT2wtZd9Y",
   "useReal.tutorialEyebrow": "Tutorial",
   "useReal.tutorialTitle": "How the data actually gets in",
   "useReal.tutorialText":

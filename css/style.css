@@ -1957,3 +1957,11 @@ button {
     gap: 1.6rem;
   }
 }
+
+.uc-promo {
+  margin-top: 1.6rem;
+}
+
+.uc-promo + .uc-tutorial {
+  margin-top: 1rem;
+}
