@@ -199,6 +199,7 @@ window.translations.uk = {
     "Без теорії — лише реальні процеси, які можна запустити і масштабувати.",
 
   // ссылка на видео-пособие под карточками кейсов
+  "hero.videoId": "ZXdT2wtZd9Y",
   "useReal.tutorialEyebrow": "Посібник",
   "useReal.tutorialTitle": "Як дані потрапляють у систему",
   "useReal.tutorialText":

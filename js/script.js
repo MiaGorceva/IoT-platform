@@ -79,12 +79,15 @@ function setupHeroVideo() {
   const holder = document.getElementById("miteVideoPlayer");
   if (!box || !btn || !holder) return;
 
-  const id = "pzveqhVl-zM";
+  // ★ Ролик в шапке — свой для каждого языка: id лежит в словаре (hero.videoId),
+  //   иначе русскоязычному зрителю играла бы английская дорожка.
+  const id = (state.dict && state.dict["hero.videoId"]) || "ZXdT2wtZd9Y";
 
   btn.addEventListener("click", () => {
+    const vid = (state.dict && state.dict["hero.videoId"]) || id;
     const iframe = document.createElement("iframe");
     iframe.src =
-      `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+      `https://www.youtube.com/embed/${vid}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
     iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
     iframe.setAttribute("allowfullscreen", "");
     iframe.setAttribute("title", "MITE");

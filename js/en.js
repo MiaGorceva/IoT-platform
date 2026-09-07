@@ -198,6 +198,7 @@ window.translations.en = {
     "Each scenario shows a real operational problem, how it is executed in MITE, and the measurable outcome. " +
 "No theory — only real processes you can launch and scale.",
   // ссылка на видео-пособие под карточками кейсов
+  "hero.videoId": "ZXdT2wtZd9Y",
   "useReal.tutorialEyebrow": "Tutorial",
   "useReal.tutorialTitle": "How the data actually gets in",
   "useReal.tutorialText":

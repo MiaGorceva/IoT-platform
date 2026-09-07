@@ -197,6 +197,7 @@ window.translations.ru = {
   "useReal.subtitle":
     "Каждый сценарий — это конкретная проблема, её исполнение в MITE и измеримый результат. Без теории — только реальные процессы, которые можно запустить и масштабировать.",
   // ссылка на видео-пособие под карточками кейсов
+  "hero.videoId": "_APdzkETn4M",
   "useReal.tutorialEyebrow": "Пособие",
   "useReal.tutorialTitle": "Как данные попадают в систему",
   "useReal.tutorialText":

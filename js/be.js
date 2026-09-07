@@ -197,6 +197,7 @@ window.translations.be = {
   "useReal.subtitle":
     "Кожны сцэнарый — гэта канкрэтная праблема, яе выкананне ў MITE і вымерны вынік. Без тэорыі — толькі рэальныя працэсы, якія можна запусціць і маштабаваць.",
   // ссылка на видео-пособие под карточками кейсов
+  "hero.videoId": "ZXdT2wtZd9Y",
   "useReal.tutorialEyebrow": "Дапаможнік",
   "useReal.tutorialTitle": "Як даныя трапляюць у сістэму",
   "useReal.tutorialText":
