@@ -384,6 +384,7 @@ window.translations.uk = {
 
   // FOOTER
   "footer.note": "MITE — IIoT-платформа для команд, що працюють на результат.",
+  "footer.team": "Інженерна команда в Португалії, Польщі та Білорусі · із 2019",
   "footer.privacy": "Політика конфіденційності",
   "footer.devices": "Пристрої MITE",
   "footer.backToTop": "Вгору",

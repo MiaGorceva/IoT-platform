@@ -1,0 +1,29 @@
+# MITE
+
+> MITE is an industrial IIoT platform that connects assets, models business logic as declarative no-code rules, and turns operational data into decisions. Deploy on-premise, in the cloud, or hybrid. Founded 2019.
+
+## About
+- Founded 2019. Engineering team across Portugal, Poland and Belarus.
+- Contact: info@mite.club, +351 961 034 229
+- Slogan: the most flexible Industrial IIoT platform ever.
+- Serves: manufacturing, pharma cold chain, logistics and fleets, distributed infrastructure, regulated industries.
+
+## Capabilities
+- Connectivity: MQTT, LoRaWAN, Modbus, OPC UA, REST and webhooks; open APIs.
+- Logic: declarative no-code business logic — operations teams change thresholds, routing, approvals, escalation and KPIs without code.
+- Integration: ERP, MES, SCADA, data lakes and custom systems; no forced stack or lock-in.
+- Deployment: on-premise, cloud or hybrid — data can stay entirely inside your own perimeter.
+- Compliance: GDPR-ready, role-based access control, immutable audit trails, configurable data retention, export logging.
+
+## Pricing
+- Start-ups: EUR 0 / month — up to 10 devices, full platform access, best-effort support.
+- Start: EUR 99 / month — 10-100 devices, full platform access, 8x5 support.
+- Scale: from EUR 99 / month — 100-1000 devices, full platform access, 24x7 support.
+- Enterprise / OEM: custom pricing — unlimited devices, custom SLA, OEM / white-label options.
+
+## Links
+- Website: https://mite.club/
+- Application: https://app.mite.club/
+- LinkedIn: https://www.linkedin.com/company/mitemonitoring
+- YouTube: https://www.youtube.com/@makeioteasy257
+- Facebook: https://www.facebook.com/mitemonitoring

@@ -382,6 +382,7 @@ window.translations.be = {
 
   // FOOTER
   "footer.note": "MITE — прамысловая IoT-платформа для каманд, арыентаваных на вынік.",
+  "footer.team": "Інжынерная каманда ў Партугаліі, Польшчы і Беларусі · з 2019",
   "footer.privacy": "Палітыка канфідэнцыяльнасці",
   "footer.devices": "Прылады MITE-ECO",
   "footer.backToTop": "Наверх",

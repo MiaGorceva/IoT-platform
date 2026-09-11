@@ -1349,6 +1349,20 @@ button {
   flex-wrap: wrap;
 }
 
+.footer-id {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.footer-team {
+  opacity: 0.82;
+}
+
+.footer-contact {
+  margin-top: 0.15rem;
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;

@@ -383,6 +383,7 @@ window.translations.en = {
 
   // FOOTER
   "footer.note": "MITE — Industrial IoT platform for profit-driven teams.",
+  "footer.team": "Engineering team across Portugal, Poland & Belarus · Founded 2019",
   "footer.privacy": "Privacy policy",
   "footer.devices": "MITE-ECO devices",
   "footer.backToTop": "Back to top",

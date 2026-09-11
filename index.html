@@ -26,6 +26,78 @@
   <meta name="twitter:description" content="Connect industrial assets, define business logic, and turn operational data into decisions — in one platform." />
   <meta name="twitter:image" content="https://mite.club/upload/og-image.jpg" />
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://mite.club/#organization",
+        "name": "MITE",
+        "alternateName": "MITE — Industrial IIoT Platform",
+        "url": "https://mite.club/",
+        "logo": "https://mite.club/upload/mite-logo-green-w_o-background.webp",
+        "image": "https://mite.club/upload/og-image.jpg",
+        "description": "MITE is an industrial IIoT platform that connects assets, models business logic as declarative no-code rules, and turns operational data into decisions. On-prem, cloud, or hybrid.",
+        "foundingDate": "2019",
+        "email": "info@mite.club",
+        "telephone": "+351961034229",
+        "slogan": "The most flexible Industrial IIoT platform ever.",
+        "knowsAbout": ["Industrial IoT","IIoT","Modbus","OPC UA","MQTT","LoRaWAN","Cold chain monitoring","Predictive maintenance","SCADA integration","MES","Fleet monitoring"],
+        "areaServed": "Europe",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "telephone": "+351961034229",
+          "email": "info@mite.club",
+          "availableLanguage": ["English","Russian","Polish","Ukrainian"]
+        },
+        "sameAs": [
+          "https://www.linkedin.com/company/mitemonitoring",
+          "https://www.youtube.com/@makeioteasy257",
+          "https://www.facebook.com/mitemonitoring"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://mite.club/#website",
+        "url": "https://mite.club/",
+        "name": "MITE",
+        "publisher": { "@id": "https://mite.club/#organization" },
+        "inLanguage": ["en","ru","uk","be"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://mite.club/#software",
+        "name": "MITE",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Industrial IoT Platform",
+        "operatingSystem": "Web-based, on-premise, cloud, hybrid",
+        "url": "https://mite.club/",
+        "publisher": { "@id": "https://mite.club/#organization" },
+        "description": "Industrial IIoT platform: connect assets over MQTT, LoRaWAN, Modbus, OPC UA, REST and webhooks; define business logic as declarative no-code rules; integrate with ERP, MES, SCADA and data lakes. GDPR-ready with role-based access and immutable audit trails.",
+        "featureList": ["MQTT, LoRaWAN, Modbus, OPC UA, REST and webhook connectivity","Declarative no-code business logic","On-prem, cloud or hybrid deployment","ERP, MES, SCADA and data-lake integration","Role-based access control and immutable audit trails","Real-time dashboards, alerts and automated workflows"],
+        "offers": [
+          { "@type": "Offer", "name": "Start-ups", "price": "0", "priceCurrency": "EUR", "description": "Up to 10 connected devices, full platform access, best-effort support." },
+          { "@type": "Offer", "name": "Start", "price": "99", "priceCurrency": "EUR", "description": "10-100 connected devices, full platform access, 8x5 support." },
+          { "@type": "Offer", "name": "Scale", "price": "99", "priceCurrency": "EUR", "description": "From 99 EUR/month. 100-1000 connected devices, full platform access, 24x7 support." },
+          { "@type": "Offer", "name": "Enterprise / OEM", "priceCurrency": "EUR", "description": "Custom pricing. Unlimited devices, custom SLA, OEM / white-label options." }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://mite.club/#faq",
+        "mainEntity": [
+          { "@type": "Question", "name": "Do we need developers to change logic and workflows?", "acceptedAnswer": { "@type": "Answer", "text": "No. In MITE, processes are described as declarative logic - you define what should happen, not how to code it. Operations teams can change business logic, thresholds, routing rules, approvals, escalation ladders, and KPIs in hours - without rebuilding systems or waiting in a development backlog." } },
+          { "@type": "Question", "name": "How does MITE integrate with our existing landscape?", "acceptedAnswer": { "@type": "Answer", "text": "MITE supports industrial and web protocols such as MQTT, LoRaWAN, Modbus, OPC UA, REST, and webhooks, and exposes open APIs. We adapt to your environment - on-prem, cloud, or hybrid - and integrate with ERP, MES, SCADA, data lakes, and custom systems. There is no forced stack or architectural lock-in." } },
+          { "@type": "Question", "name": "Is MITE suitable for regulated and GDPR-controlled environments?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. MITE includes role-based access control, immutable audit trails, configurable data retention policies, and export logging. Every action - view, edit, approve, export - is traceable. Evidence packs are generated from real workflows, not assembled manually before inspections." } },
+          { "@type": "Question", "name": "What if we need a new mechanism or capability?", "acceptedAnswer": { "@type": "Answer", "text": "If the requirement strengthens the platform at a systemic level rather than as a narrow one-off, we typically generalize it and deliver it quickly. That means you do not pay for isolated custom plumbing, and the platform becomes stronger with every real deployment." } }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <meta name="theme-color" content="#0A1014" />
   <link rel="icon" href="upload/favicon-48.png" type="image/png" />
   <link rel="apple-touch-icon" href="upload/favicon-48.png" />
@@ -118,7 +190,7 @@
             <span data-i18n="hero.kicker">Industrial IoT, delivered</span>
           </div>
 
-          <h1 class="hero-title" data-i18n="hero.title">Not just another IIoT platform. <span>MITE changes the game.</span></span></span></span></h1>
+          <h1 class="hero-title" data-i18n="hero.title">Not just another IIoT platform. <span>MITE changes the game.</span></span></span></span></span></h1>
           <p class="hero-subtitle" data-i18n="hero.subtitle">From raw telemetry to governed execution: connect assets, describe logic, and let MITE run operational processes. Every action becomes data — feeding the next decision, rule, and improvement.</p>
 
           <div class="hero-cta-row">
@@ -142,7 +214,7 @@
           </div>
 
           <div class="hero-card">
-            <span data-i18n="hero.badge"><strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong></strong></strong></strong></span>
+            <span data-i18n="hero.badge"><strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong></strong></strong></strong></strong></span>
           </div>
         </div>
 
@@ -310,7 +382,7 @@
       <article class="surface-rich">
         <div class="surface-body stack">
           <h3 class="title-md" data-i18n="platform.story.title">Why this matters in practice</h3>
-          <p class="text-sm" data-i18n="platform.story.text">When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. That is why improvements can arrive in hours or days — and why the platform gets <span class='highlighting'>stronger with every real deployment.</span></span></span></span></p>
+          <p class="text-sm" data-i18n="platform.story.text">When a customer needs a new mechanism, we usually generalize it at platform level instead of building a one-off feature. That is why improvements can arrive in hours or days — and why the platform gets <span class='highlighting'>stronger with every real deployment.</span></span></span></span></span></p>
         </div>
       </article>
     </section>
@@ -786,7 +858,14 @@
 
   <footer class="site-footer">
     <div class="container footer-bar">
-      <div data-i18n="footer.note">MITE — Industrial IoT platform for profit-driven teams.</div>
+      <div class="footer-id">
+        <div data-i18n="footer.note">MITE — Industrial IoT platform for profit-driven teams.</div>
+        <div class="footer-team" data-i18n="footer.team">Engineering team across Portugal, Poland &amp; Belarus · Founded 2019</div>
+        <div class="link-row footer-contact">
+          <a href="mailto:info@mite.club">info@mite.club</a>
+          <a href="tel:+351961034229">+351&nbsp;961&nbsp;034&nbsp;229</a>
+        </div>
+      </div>
 
       <div class="link-row">
         <a href="privacy-policy.html" data-i18n="footer.privacy">Privacy policy</a>
