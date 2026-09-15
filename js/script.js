@@ -79,9 +79,12 @@ function setupHeroVideo() {
   const holder = document.getElementById("miteVideoPlayer");
   if (!box || !btn || !holder) return;
 
-  const id = "pzveqhVl-zM";
+  // id ролика зависит от языка: у русского своя озвучка, у остальных английская.
+  // Если словарь не подгрузился — показываем английскую версию, она для большинства.
+  const FALLBACK_VIDEO = "lV3ZKep2Ogc";
 
   btn.addEventListener("click", () => {
+    const id = (state.dict && state.dict["hero.videoId"]) || FALLBACK_VIDEO;
     const iframe = document.createElement("iframe");
     iframe.src =
       `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;

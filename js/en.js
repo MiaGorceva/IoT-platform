@@ -26,6 +26,7 @@ window.translations.en = {
   "hero.meta1": "From pilot to production — ready for real deployments",
   "hero.meta2": "Declarative logic — describe what should happen, not how to code it",
   "hero.meta3": "Any process complexity • any industrial reality • fast iterations",
+  "hero.videoId": "lV3ZKep2Ogc",   // английская озвучка
   "hero.badge": "<strong>“Simple, clear, and reliable — exactly what industrial teams expect.”</strong>",
 
   // ABOUT / POSITIONING
