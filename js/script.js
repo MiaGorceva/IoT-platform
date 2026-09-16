@@ -84,6 +84,7 @@ function setupHeroVideo() {
   const FALLBACK_VIDEO = "lV3ZKep2Ogc";
 
   btn.addEventListener("click", () => {
+    if (box.classList.contains("is-playing")) return;
     const id = (state.dict && state.dict["hero.videoId"]) || FALLBACK_VIDEO;
     const iframe = document.createElement("iframe");
     iframe.src =
@@ -93,7 +94,18 @@ function setupHeroVideo() {
     iframe.setAttribute("title", "MITE");
     holder.appendChild(iframe);
     box.classList.add("is-playing");
-  }, { once: true });
+  });
+}
+
+// У языков теперь РАЗНЫЕ ролики, поэтому при смене языка плеер надо сбросить:
+// иначе уже вставленный iframe остаётся висеть и показывает ролик прежнего языка.
+function resetHeroVideo() {
+  const box = document.getElementById("miteVideo");
+  const holder = document.getElementById("miteVideoPlayer");
+  if (!box || !holder) return;
+  if (!box.classList.contains("is-playing")) return;
+  holder.replaceChildren();
+  box.classList.remove("is-playing");
 }
 
 /* =========================
@@ -134,7 +146,9 @@ function setCurrentLanguage(lang) {
 }
 
 function applyTranslations(lang = "en") {
+  const changed = state.lang !== lang;
   setCurrentLanguage(lang);
+  if (changed) resetHeroVideo();
   const dict = state.dict;
 
   if (dict["seo.title"]) {
