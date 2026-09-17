@@ -88,7 +88,9 @@ function setupHeroVideo() {
     const id = (state.dict && state.dict["hero.videoId"]) || FALLBACK_VIDEO;
     const iframe = document.createElement("iframe");
     iframe.src =
-      `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1`;
+      // cc_load_policy=0 — не включать субтитры: у зрителя с русским YouTube они
+      // приходят автопереводом и английский ролик выглядит русским
+      `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1&cc_load_policy=0`;
     iframe.setAttribute("allow", "autoplay; encrypted-media; picture-in-picture");
     iframe.setAttribute("allowfullscreen", "");
     iframe.setAttribute("title", "MITE");
