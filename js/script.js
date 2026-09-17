@@ -81,7 +81,7 @@ function setupHeroVideo() {
 
   // id ролика зависит от языка: у русского своя озвучка, у остальных английская.
   // Если словарь не подгрузился — показываем английскую версию, она для большинства.
-  const FALLBACK_VIDEO = "lV3ZKep2Ogc";
+  const FALLBACK_VIDEO = "DJ4IiHJIwwc";
 
   btn.addEventListener("click", () => {
     if (box.classList.contains("is-playing")) return;
