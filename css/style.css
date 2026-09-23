@@ -2036,19 +2036,38 @@ button {
 
 .uc-video:hover::before { transform: scale(1.1); }
 
+/* кнопка как у главного плеера в шапке: зелёное кольцо + приглушённый
+   треугольник, с тем же «дыханием» — а не залитый зелёный круг */
 .uc-video__play {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--c-green);
-  color: var(--c-text-invert);
-  box-shadow: 0 0 0 6px rgba(84, 229, 74, .16);
+  border: 2px solid var(--c-green);
+  background: rgba(10, 16, 20, .78);
+  color: var(--c-text-muted);
+  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, .5));
   flex: none;
 }
 
-.uc-video__play svg { width: 18px; height: 18px; margin-left: 2px; }
+.uc-video__play::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--c-green);
+  transform: translate(-50%, -50%) scale(1);
+  animation: mitePulse 2.4s ease-out infinite;
+}
+
+.uc-video:hover .uc-video__play { color: var(--c-text-strong); }
+
+.uc-video__play svg { width: 18px; height: 18px; margin-left: 3px; }
 
 .uc-video__text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 
@@ -2144,6 +2163,7 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .uc-video,
   .uc-video::before { transition: none; }
+  .uc-video__play::after { animation: none; }
   .uc-video:hover { transform: none; }
   .uc-video:hover::before { transform: scale(1.04); }
 }
