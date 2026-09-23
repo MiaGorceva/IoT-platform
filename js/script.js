@@ -47,13 +47,18 @@ async function ensureLangAssets(lang = "en") {
   const needBase = !window.translations?.[code];
   const needCases = !window.translations?.[code]?.useCases;
 
-  const tasks = [];
+  // ★ Порядок важен и НЕ должен быть параллельным: js/<lang>.js присваивает
+  //   window.translations.<lang> = { ... } целиком, то есть затирает объект.
+  //   Если usecases.<lang>.js успевал первым, словарь сносил ему useCases —
+  //   и вся секция «18 сценариев» приходила пустой. Грузим строго по очереди.
+  let loaded = false;
 
-  if (needBase) tasks.push(loadScript(`js/${code}.js`));
-  if (needCases) tasks.push(loadScript(`js/data/usecases.${code}.js`));
+  if (needBase) { await loadScript(`js/${code}.js`); loaded = true; }
+  if (needCases) { await loadScript(`js/data/usecases.${code}.js`); loaded = true; }
 
-  if (tasks.length) {
-    await Promise.all(tasks);
+  if (loaded) {
+    // карусель могла отрисоваться раньше, чем приехали данные
+    window.__updateUseCases?.({ rerender: true });
   }
 }
 
@@ -473,7 +478,9 @@ function setupUseCases() {
       __searchBlob: `${u.title} ${u.pain} ${u.how} ${u.result} ${(u.tags || []).join(" ")}`.toLowerCase()
     }));
 
-    state.useCasesCache.set(cacheKey, normalized);
+    // пустой список не кэшируем: карусель могла проснуться раньше, чем
+    // догрузился js/data/usecases.<lang>.js, и тогда пустота залипала навсегда
+    if (normalized.length) state.useCasesCache.set(cacheKey, normalized);
     return normalized;
   }
 
