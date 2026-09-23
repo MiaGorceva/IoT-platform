@@ -65,6 +65,7 @@ window.translations.en.useCases = [
   industry: "manufacturing",
   industryLabel: "Manufacturing",
   title: "Line Micro-Stops: +4% OEE Without Equipment Upgrades",
+  video: { id: "5Tx9z55B3MQ", duration: "3:09" },
   kpiBadge: "↓ Micro-stops 15–30% · ↑ OEE +2–6 pp · ↓ Cross-Team Friction",
   ttvBadge: "First working scenario — within days",
 
@@ -125,6 +126,7 @@ window.translations.en.useCases = [
   industry: "manufacturing",
   industryLabel: "Manufacturing",
   title: "Production Scrap: −19% Defects Through Early Detection",
+  video: { id: "ZXdT2wtZd9Y", duration: "1:19" },
   kpiBadge: "↓ Scrap 10–25% · ↑ First-pass yield · ↓ Rework",
   ttvBadge: "Operational model — 1–2 weeks",
 

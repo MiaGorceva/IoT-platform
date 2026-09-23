@@ -64,6 +64,7 @@ window.translations.be.useCases = [
     industry: "manufacturing",
     industryLabel: "Вытворчасць",
     title: "Мікрапрастоі лініі: +4% OEE без мадэрнізацыі абсталявання",
+  video: { id: "5Tx9z55B3MQ", duration: "3:09" },
     kpiBadge: "↓ Мікрапрастоі 15–30% · ↑ OEE +2–6 п.п. · ↓ Трэнне паміж камандамі",
     ttvBadge: "Першы рабочы сцэнарый — на працягу некалькіх дзён",
 
@@ -123,6 +124,7 @@ window.translations.be.useCases = [
     industry: "manufacturing",
     industryLabel: "Вытворчасць",
     title: "Вытворчы брак: −19% дэфектаў за кошт ранняга выяўлення",
+  video: { id: "ZXdT2wtZd9Y", duration: "1:19" },
     kpiBadge: "↓ Брак 10–25% · ↑ First-pass yield · ↓ Перарабатанне",
     ttvBadge: "Аперацыйная мадэль — 1–2 тыдні",
 

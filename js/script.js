@@ -367,6 +367,50 @@ function highlightNumbers(html) {
    Use cases carousel
 ========================= */
 
+
+/* Ролик, прикреплённый к карточке кейса, открываем поверх страницы, а не уводим
+   человека на YouTube: он листает кейсы и возвращается туда же, где был.
+   iframe создаётся на открытии и удаляется на закрытии — так ролик глушится. */
+let videoLightboxEl = null;
+
+function onLightboxKey(e) {
+  if (e.key === "Escape") closeVideoLightbox();
+}
+
+function closeVideoLightbox() {
+  if (!videoLightboxEl) return;
+  videoLightboxEl.remove();
+  videoLightboxEl = null;
+  document.body.style.overflow = "";
+  document.removeEventListener("keydown", onLightboxKey);
+}
+
+function openVideoLightbox(id, closeLabel) {
+  closeVideoLightbox();
+
+  const box = document.createElement("div");
+  box.className = "video-lightbox";
+  box.innerHTML = `
+    <div class="video-lightbox__frame" role="dialog" aria-modal="true">
+      <button class="video-lightbox__close" type="button" aria-label="${closeLabel}">\u00d7</button>
+      <iframe
+        src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1&cc_load_policy=0"
+        title="MITE"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>`;
+
+  document.body.appendChild(box);
+  videoLightboxEl = box;
+  document.body.style.overflow = "hidden";
+
+  box.addEventListener("click", (e) => {
+    if (e.target === box || e.target.closest(".video-lightbox__close")) closeVideoLightbox();
+  });
+  document.addEventListener("keydown", onLightboxKey);
+  box.querySelector(".video-lightbox__close").focus();
+}
+
 function setupUseCases() {
   const carousel = document.getElementById("ucCarousel");
   const track = document.getElementById("ucTrack");
@@ -483,12 +527,37 @@ function setupUseCases() {
     });
   }
 
+  // у части кейсов есть свой ролик — показываем его первым, над текстом
+  function videoBanner(u, dict) {
+    const v = u.video;
+    if (!v || !v.id) return "";
+
+    const play =
+      '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">' +
+      '<path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
+
+    return `
+      <a class="uc-video"
+         href="https://youtu.be/${v.id}"
+         data-video="${v.id}"
+         target="_blank" rel="noopener noreferrer"
+         style="--uc-video-thumb:url('https://i.ytimg.com/vi/${v.id}/hqdefault.jpg')">
+        <span class="uc-video__play" aria-hidden="true">${play}</span>
+        <span class="uc-video__text">
+          <span class="uc-video__badge">${dict["uc.video.badge"] || "Video"}</span>
+          <span class="uc-video__title">${dict["uc.video.cta"] || "Watch it work"}</span>
+        </span>
+        ${v.duration ? `<span class="uc-video__time">${v.duration}</span>` : ""}
+      </a>`;
+  }
+
   function renderCards(list) {
     const dict = state.dict;
 
     track.innerHTML = list.map((u) => `
       <article class="surface surface-strong carousel-slide-half" data-industry="${u.industry}">
         <div class="surface-body stack">
+          ${videoBanner(u, dict)}
           <div class="row">
             <div class="uc-meta">
               <span class="pill">${u.industryLabel || u.industry}</span>
@@ -528,6 +597,13 @@ function setupUseCases() {
       </article>
     `).join("");
   }
+
+  track.addEventListener("click", (e) => {
+    const a = e.target.closest(".uc-video");
+    if (!a || !a.dataset.video) return;
+    e.preventDefault();
+    openVideoLightbox(a.dataset.video, (state.dict && state.dict["uc.video.close"]) || "Close video");
+  });
 
   function updateTrackOnly(list) {
     requestAnimationFrame(() => {

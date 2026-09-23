@@ -193,26 +193,16 @@ window.translations.en = {
   "highlights.items.5.meta": "IoT as a growth driver, not a cost center.",
 
   // USE CASES HEADER
+  "uc.video.badge": "Video",
+  "uc.video.cta": "Watch it work",
+  "uc.video.close": "Close video",
   "useReal.eyebrow": "Real use cases",
   "useReal.title": "18 scenarios: pain → execution → measurable outcome",
   "useReal.subtitle":
     "Each scenario shows a real operational problem, how it is executed in MITE, and the measurable outcome. " +
 "No theory — only real processes you can launch and scale.",
   // ссылка на обзорный ролик о платформе — там же, под кейсами
-  "useReal.promoEyebrow": "Overview",
-  "useReal.promoTitle": "From data to a task someone actually does",
-  "useReal.promoText":
-    "Eighty seconds on what happens between a sensor and the person who has to act: one data model, predictive maintenance from the trend, anomaly detection and the task that follows.",
-  "useReal.promoCta": "Watch the overview",
-  "useReal.promoHref": "https://youtu.be/ZXdT2wtZd9Y",
   // ссылка на видео-пособие под карточками кейсов
-  "useReal.tutorialEyebrow": "Tutorial",
-  "useReal.tutorialTitle": "How the data actually gets in",
-  "useReal.tutorialText":
-    "Every scenario above starts the same way: a device has to be connected and what it reports has to be understood. "+
-    "This walkthrough shows it end to end on a real variable speed drive over Modbus — registers, word size, bus parameters, live values.",
-  "useReal.tutorialCta": "Watch the walkthrough",
-  "useReal.tutorialHref": "https://youtu.be/5Tx9z55B3MQ",
   "uc.filter.all": "All",
   "uc.filter.pharma": "Pharma",
   "uc.filter.manufacturing": "Manufacturing",

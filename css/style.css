@@ -1979,3 +1979,171 @@ button {
 .uc-promo + .uc-tutorial {
   margin-top: 1rem;
 }
+
+/* ─── Видео прямо в карточке кейса ──────────────────────────────────────────
+   Раньше ссылки на ролики висели двумя карточками под каруселью и терялись.
+   Теперь ролик прикреплён к своему кейсу: Modbus — к микроостановкам линии,
+   обзор мониторинга — к браку, GMP — к чистым помещениям.                   */
+
+.uc-video {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 96px;
+  padding: 14px 16px;
+  margin: -4px 0 4px;
+  border: 1px solid var(--border-green);
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  isolation: isolate;
+  text-decoration: none;
+  color: var(--c-text-strong);
+  box-shadow: var(--shadow-green-ui);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+/* затемнённый кадр из ролика на фоне */
+.uc-video::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: var(--uc-video-thumb);
+  background-size: cover;
+  background-position: center 38%;
+  transform: scale(1.04);
+  transition: transform .5s ease;
+}
+
+.uc-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(4, 10, 8, .92) 0%, rgba(4, 10, 8, .78) 55%, rgba(4, 10, 8, .55) 100%),
+    radial-gradient(120% 140% at 0% 50%, rgba(84, 229, 74, .22), transparent 60%);
+}
+
+.uc-video:hover,
+.uc-video:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--c-green);
+  box-shadow: 0 0 0 1px rgba(84, 229, 74, .35), 0 18px 38px rgba(0, 0, 0, .45);
+}
+
+.uc-video:hover::before { transform: scale(1.1); }
+
+.uc-video__play {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--c-green);
+  color: var(--c-text-invert);
+  box-shadow: 0 0 0 6px rgba(84, 229, 74, .16);
+  flex: none;
+}
+
+.uc-video__play svg { width: 18px; height: 18px; margin-left: 2px; }
+
+.uc-video__text { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+
+.uc-video__badge {
+  align-self: flex-start;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(84, 229, 74, .16);
+  border: 1px solid var(--border-green);
+  color: var(--c-green-strong);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.uc-video__title {
+  font-weight: 650;
+  line-height: 1.25;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.uc-video__time {
+  flex: none;
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, .55);
+  border: 1px solid var(--border-base);
+  color: var(--c-text-soft);
+  font-size: .78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 520px) {
+  .uc-video { grid-template-columns: auto 1fr; min-height: 84px; }
+  .uc-video__time { display: none; }
+}
+
+/* ─── Лайтбокс ──────────────────────────────────────────────────────────── */
+
+.video-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(3, 6, 11, .86);
+  backdrop-filter: blur(6px);
+}
+
+.video-lightbox[hidden] { display: none; }
+
+.video-lightbox__frame {
+  position: relative;
+  width: min(1040px, 100%);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  box-shadow: var(--shadow-deep);
+  background: #000;
+}
+
+.video-lightbox__frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+.video-lightbox__close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-glass);
+  color: var(--c-text-strong);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.video-lightbox__close:hover { border-color: var(--c-green); color: var(--c-green-strong); }
+
+@media (max-width: 600px) {
+  .video-lightbox { padding: 16px; }
+  .video-lightbox__close { top: 6px; right: 6px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uc-video,
+  .uc-video::before { transition: none; }
+  .uc-video:hover { transform: none; }
+  .uc-video:hover::before { transform: scale(1.04); }
+}

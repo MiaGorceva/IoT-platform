@@ -65,6 +65,7 @@ window.translations.uk.useCases = [
     industry: "manufacturing",
     industryLabel: "Виробництво",
     title: "Мікрозупинки лінії: +4% OEE без модернізації обладнання",
+  video: { id: "5Tx9z55B3MQ", duration: "3:09" },
     kpiBadge: "↓ Мікрозупинки 15–30% · ↑ OEE +2–6 п.п. · ↓ Тертя між командами",
     ttvBadge: "Перший робочий сценарій — за кілька днів",
 
@@ -124,6 +125,7 @@ window.translations.uk.useCases = [
     industry: "manufacturing",
     industryLabel: "Виробництво",
     title: "Виробничий брак: −19% дефектів завдяки ранньому виявленню",
+  video: { id: "ZXdT2wtZd9Y", duration: "1:19" },
     kpiBadge: "↓ Брак 10–25% · ↑ First-pass yield · ↓ Переробка",
     ttvBadge: "Операційна модель — 1–2 тижні",
 

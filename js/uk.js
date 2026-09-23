@@ -193,6 +193,9 @@ window.translations.uk = {
   "highlights.items.5.meta": "IoT як драйвер росту.",
 
   // USE CASES
+  "uc.video.badge": "Відео",
+  "uc.video.cta": "Дивитися, як це працює",
+  "uc.video.close": "Закрити відео",
   "useReal.eyebrow": "Реальні сценарії",
   "useReal.title": "18 сценаріїв: від проблеми до виконання та вимірюваного результату",
   "useReal.subtitle":
@@ -200,20 +203,7 @@ window.translations.uk = {
     "Без теорії — лише реальні процеси, які можна запустити і масштабувати.",
 
   // ссылка на обзорный ролик о платформе — там же, под кейсами
-  "useReal.promoEyebrow": "Огляд",
-  "useReal.promoTitle": "Від даних — до завдання, яке хтось виконає",
-  "useReal.promoText":
-    "Півтори хвилини про те, що відбувається між датчиком і людиною, яка має щось зробити: єдина модель даних, предиктив за трендом, пошук аномалій і завдання виконавцю.",
-  "useReal.promoCta": "Дивитися огляд",
-  "useReal.promoHref": "https://youtu.be/ZXdT2wtZd9Y",
   // ссылка на видео-пособие под карточками кейсов
-  "useReal.tutorialEyebrow": "Посібник",
-  "useReal.tutorialTitle": "Як дані потрапляють у систему",
-  "useReal.tutorialText":
-    "Будь-який сценарій вище починається однаково: прилад треба підключити і зрозуміти, що він віддає. "+
-    "У відео це показано повністю на реальному частотному перетворювачі по Modbus — регістри, розрядність, параметри шини, живі значення.",
-  "useReal.tutorialCta": "Дивитися посібник",
-  "useReal.tutorialHref": "https://youtu.be/5Tx9z55B3MQ",
   "uc.filter.all": "Всі",
   "uc.filter.pharma": "Фарма",
   "uc.filter.manufacturing": "Виробництво",

@@ -35,6 +35,7 @@ window.translations.ru.useCases = [
     industry: "pharma",
     industryLabel: "Фармацевтика",
     title: "Чистые помещения: расследование отклонений за минуты вместо часов",
+  video: { id: "5s7uDzwoClM", duration: "1:30" },
     kpiBadge: "↓ Отклонения 10–25% · ↓ Время расследования 50–70% · ↑ Готовность к аудитам",
     ttvBadge: "Операционная модель — 2–3 недели",
 
@@ -64,6 +65,7 @@ window.translations.ru.useCases = [
     industry: "manufacturing",
     industryLabel: "Производство",
     title: "Микроостановки линии: +4% OEE без модернизации оборудования",
+  video: { id: "XzQMMNWm0y4", duration: "3:43" },
     kpiBadge: "↓ Микроостановки 15–30% · ↑ OEE +2–6 п.п. · ↓ Трение между командами",
     ttvBadge: "Первый рабочий сценарий — в течение нескольких дней",
 
@@ -123,6 +125,7 @@ window.translations.ru.useCases = [
     industry: "manufacturing",
     industryLabel: "Производство",
     title: "Производственный брак: −19% дефектов за счёт раннего выявления",
+  video: { id: "_APdzkETn4M", duration: "1:28" },
     kpiBadge: "↓ Брак 10–25% · ↑ First-pass yield · ↓ Переделка",
     ttvBadge: "Операционная модель — 1–2 недели",
 
