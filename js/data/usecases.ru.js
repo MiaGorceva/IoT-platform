@@ -35,7 +35,6 @@ window.translations.ru.useCases = [
     industry: "pharma",
     industryLabel: "Фармацевтика",
     title: "Чистые помещения: расследование отклонений за минуты вместо часов",
-  video: { id: "5s7uDzwoClM", duration: "1:30" },
     kpiBadge: "↓ Отклонения 10–25% · ↓ Время расследования 50–70% · ↑ Готовность к аудитам",
     ttvBadge: "Операционная модель — 2–3 недели",
 

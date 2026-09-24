@@ -2036,8 +2036,8 @@ button {
 
 .uc-video:hover::before { transform: scale(1.1); }
 
-/* кнопка как у главного плеера в шапке: зелёное кольцо + приглушённый
-   треугольник, с тем же «дыханием» — а не залитый зелёный круг */
+/* тёмный кружок с треугольником, как у плеера в шапке.
+   Зелёное кольцо и пульсацию убрали — в карточке они перетягивали на себя. */
 .uc-video__play {
   position: relative;
   display: grid;
@@ -2045,27 +2045,17 @@ button {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  border: 2px solid var(--c-green);
+  border: 1px solid rgba(255, 255, 255, .22);
   background: rgba(10, 16, 20, .78);
   color: var(--c-text-muted);
   filter: drop-shadow(0 4px 20px rgba(0, 0, 0, .5));
   flex: none;
 }
 
-.uc-video__play::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 2px solid var(--c-green);
-  transform: translate(-50%, -50%) scale(1);
-  animation: mitePulse 2.4s ease-out infinite;
+.uc-video:hover .uc-video__play {
+  color: var(--c-text-strong);
+  border-color: rgba(255, 255, 255, .4);
 }
-
-.uc-video:hover .uc-video__play { color: var(--c-text-strong); }
 
 .uc-video__play svg { width: 18px; height: 18px; margin-left: 3px; }
 
@@ -2163,7 +2153,6 @@ button {
 @media (prefers-reduced-motion: reduce) {
   .uc-video,
   .uc-video::before { transition: none; }
-  .uc-video__play::after { animation: none; }
   .uc-video:hover { transform: none; }
   .uc-video:hover::before { transform: scale(1.04); }
 }
