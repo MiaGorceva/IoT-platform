@@ -897,10 +897,16 @@ function setupMiteForms() {
 
       try {
         const payload = {
+          access_key: "19e069ac-8aea-4958-91e5-30143cd0c56b",
+          from_name: "mite.club",
+          subject: "New mite.club lead (" + (form.querySelector('[name="source"]')?.value || "contact") + ")",
           name: form.querySelector('[name="name"]')?.value || "",
           email: form.querySelector('[name="email"]')?.value || "",
+          company: form.querySelector('[name="company"]')?.value || "",
+          size: form.querySelector('[name="size"]')?.value || "",
           message: form.querySelector('[name="message"]')?.value || "",
-          source: form.querySelector('[name="source"]')?.value || "unknown"
+          source: form.querySelector('[name="source"]')?.value || "unknown",
+          botcheck: form.querySelector('[name="_gotcha"]')?.value || ""
         };
 
         const res = await fetch(form.action, {
@@ -926,6 +932,7 @@ function setupMiteForms() {
         if (!res.ok) {
           const msg =
             (data && data.errors && data.errors[0] && data.errors[0].message) ||
+            (data && data.message) ||
             (data && data.error) ||
             "Submission failed. Please try again.";
           throw new Error(msg);
