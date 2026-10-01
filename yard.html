@@ -111,8 +111,8 @@
 
     <form id="intakeForm" novalidate>
       <input type="hidden" name="access_key" value="19e069ac-8aea-4958-91e5-30143cd0c56b">
-      <input type="hidden" name="from_name" value="MITE — анкета «Двор и ворота»">
-      <input type="hidden" name="subject" value="Новая анкета: двор и ворота">
+      <input type="hidden" name="from_name" value="MITE yard intake">
+      <input type="hidden" name="subject" value="New yard & gate intake (mite.club)">
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 
       <fieldset>
@@ -121,28 +121,28 @@
 
         <div class="field">
           <label for="task">Что хотелось бы улучшить в работе двора и ворот? <span class="req">*</span></label>
-          <textarea id="task" name="Задача (главное)" placeholder="Например: меньше очередей и простоев на въезде, понятное распределение по докам, прозрачная картина по машинам…" required></textarea>
+          <textarea id="task" name="Main task" placeholder="Например: меньше очередей и простоев на въезде, понятное распределение по докам, прозрачная картина по машинам…" required></textarea>
         </div>
 
         <div class="field">
           <label>Что сейчас болит больше всего?</label>
           <div class="choices">
-            <label class="choice"><input type="checkbox" name="Боли" value="Простои машин на воротах/доках"><span>Простои машин на воротах и доках</span></label>
-            <label class="choice"><input type="checkbox" name="Боли" value="Непрозрачная очередь"><span>Непрозрачная очередь, не видно статус</span></label>
-            <label class="choice"><input type="checkbox" name="Боли" value="Ручная диспетчеризация"><span>Всё вручную — диспетчер/охрана на телефоне</span></label>
-            <label class="choice"><input type="checkbox" name="Боли" value="Нет данных для руководства"><span>Нет цифр, чтобы показать руководству</span></label>
-            <label class="choice"><input type="checkbox" name="Боли" value="Расхождение WMS и факта"><span>WMS показывает одно, двор живёт другим</span></label>
+            <label class="choice"><input type="checkbox" name="Pain points" value="Простои машин на воротах/доках"><span>Простои машин на воротах и доках</span></label>
+            <label class="choice"><input type="checkbox" name="Pain points" value="Непрозрачная очередь"><span>Непрозрачная очередь, не видно статус</span></label>
+            <label class="choice"><input type="checkbox" name="Pain points" value="Ручная диспетчеризация"><span>Всё вручную — диспетчер/охрана на телефоне</span></label>
+            <label class="choice"><input type="checkbox" name="Pain points" value="Нет данных для руководства"><span>Нет цифр, чтобы показать руководству</span></label>
+            <label class="choice"><input type="checkbox" name="Pain points" value="Расхождение WMS и факта"><span>WMS показывает одно, двор живёт другим</span></label>
           </div>
         </div>
 
         <div class="field">
           <label for="why">Почему именно сейчас? Что подтолкнуло?</label>
-          <textarea id="why" name="Почему сейчас" placeholder="Рост объёмов, жалобы перевозчиков, задача от руководства, планирование бюджета…"></textarea>
+          <textarea id="why" name="Why now" placeholder="Рост объёмов, жалобы перевозчиков, задача от руководства, планирование бюджета…"></textarea>
         </div>
 
         <div class="field">
           <label for="outcome">Как выглядит нужный результат через полгода–год?</label>
-          <textarea id="outcome" name="Желаемый результат" placeholder="Что вы хотите видеть и чем мерить успех"></textarea>
+          <textarea id="outcome" name="Desired outcome" placeholder="Что вы хотите видеть и чем мерить успех"></textarea>
         </div>
       </fieldset>
 
@@ -150,20 +150,20 @@
         <legend><span class="n">2</span>Как устроено сейчас</legend>
         <div class="field">
           <label for="process">Коротко — как сегодня организован въезд, двор и доки?</label>
-          <textarea id="process" name="Текущий процесс" placeholder="Как машина попадает на территорию, кто назначает док, как ведётся очередь"></textarea>
+          <textarea id="process" name="Current process" placeholder="Как машина попадает на территорию, кто назначает док, как ведётся очередь"></textarea>
         </div>
         <div class="field">
           <label>Кто участвует в процессе?</label>
           <div class="choices row">
-            <label class="choice"><input type="checkbox" name="Участники" value="Диспетчер"><span>Диспетчер</span></label>
-            <label class="choice"><input type="checkbox" name="Участники" value="Охрана/КПП"><span>Охрана / КПП</span></label>
-            <label class="choice"><input type="checkbox" name="Участники" value="Склад"><span>Склад</span></label>
-            <label class="choice"><input type="checkbox" name="Участники" value="Перевозчики"><span>Перевозчики</span></label>
+            <label class="choice"><input type="checkbox" name="Participants" value="Диспетчер"><span>Диспетчер</span></label>
+            <label class="choice"><input type="checkbox" name="Participants" value="Охрана/КПП"><span>Охрана / КПП</span></label>
+            <label class="choice"><input type="checkbox" name="Participants" value="Склад"><span>Склад</span></label>
+            <label class="choice"><input type="checkbox" name="Participants" value="Перевозчики"><span>Перевозчики</span></label>
           </div>
         </div>
         <div class="field">
           <label for="lost">Где, по вашим ощущениям, теряется время?</label>
-          <textarea id="lost" name="Где теряется время" placeholder="На въезде, в ожидании дока, из-за неготовности заказа, нехватки техники…"></textarea>
+          <textarea id="lost" name="Where time is lost" placeholder="На въезде, в ожидании дока, из-за неготовности заказа, нехватки техники…"></textarea>
         </div>
       </fieldset>
 
@@ -171,16 +171,16 @@
         <legend><span class="n">3</span>Объёмы</legend>
         <p class="hint">Чем точнее — тем предметнее предложение. Если не знаете точно, напишите примерно.</p>
         <div class="cols">
-          <div class="field"><label for="tpd">Машин в сутки</label><input id="tpd" name="Машин в сутки" type="number" min="0" inputmode="numeric" placeholder="напр. 120"></div>
-          <div class="field"><label for="tpk">В пик</label><input id="tpk" name="Машин в пик" type="number" min="0" inputmode="numeric" placeholder="напр. 250"></div>
+          <div class="field"><label for="tpd">Машин в сутки</label><input id="tpd" name="Trucks per day" type="number" min="0" inputmode="numeric" placeholder="напр. 120"></div>
+          <div class="field"><label for="tpk">В пик</label><input id="tpk" name="Trucks at peak" type="number" min="0" inputmode="numeric" placeholder="напр. 250"></div>
         </div>
         <div class="cols-3">
-          <div class="field"><label for="gates">Ворот</label><input id="gates" name="Ворот" type="number" min="0" inputmode="numeric" placeholder="напр. 2"></div>
-          <div class="field"><label for="docks">Доков</label><input id="docks" name="Доков" type="number" min="0" inputmode="numeric" placeholder="напр. 12"></div>
-          <div class="field"><label for="spots">Парковочных мест</label><input id="spots" name="Парковочных мест" type="number" min="0" inputmode="numeric" placeholder="напр. 30"></div>
+          <div class="field"><label for="gates">Ворот</label><input id="gates" name="Gates" type="number" min="0" inputmode="numeric" placeholder="напр. 2"></div>
+          <div class="field"><label for="docks">Доков</label><input id="docks" name="Docks" type="number" min="0" inputmode="numeric" placeholder="напр. 12"></div>
+          <div class="field"><label for="spots">Парковочных мест</label><input id="spots" name="Parking spots" type="number" min="0" inputmode="numeric" placeholder="напр. 30"></div>
         </div>
-        <div class="field"><label for="hours">Режим работы / смены</label><input id="hours" name="Режим работы" type="text" placeholder="напр. 24/7, или 6:00–22:00, 2 смены"></div>
-        <div class="field"><label for="cargo">Типы машин и грузов, сезонность</label><input id="cargo" name="Машины/грузы/сезонность" type="text" placeholder="фуры, рефрижераторы, пики по сезону…"></div>
+        <div class="field"><label for="hours">Режим работы / смены</label><input id="hours" name="Working hours" type="text" placeholder="напр. 24/7, или 6:00–22:00, 2 смены"></div>
+        <div class="field"><label for="cargo">Типы машин и грузов, сезонность</label><input id="cargo" name="Vehicles, cargo, seasonality" type="text" placeholder="фуры, рефрижераторы, пики по сезону…"></div>
       </fieldset>
 
       <fieldset>
@@ -188,15 +188,15 @@
         <div class="field">
           <label>Что уже есть на площадке?</label>
           <div class="choices">
-            <label class="choice"><input type="checkbox" name="Есть системы" value="WMS/TMS"><span>WMS / TMS</span></label>
-            <label class="choice"><input type="checkbox" name="Есть системы" value="СКУД/шлагбаумы"><span>СКУД / шлагбаумы</span></label>
-            <label class="choice"><input type="checkbox" name="Есть системы" value="Весы"><span>Весы</span></label>
-            <label class="choice"><input type="checkbox" name="Есть системы" value="Камеры/видеоаналитика"><span>Камеры / видеоаналитика</span></label>
-            <label class="choice"><input type="checkbox" name="Есть системы" value="Табло"><span>Табло / информирование</span></label>
-            <label class="choice"><input type="checkbox" name="Есть системы" value="Ничего/на бумаге"><span>Пока ничего, учёт на бумаге</span></label>
+            <label class="choice"><input type="checkbox" name="Existing systems" value="WMS/TMS"><span>WMS / TMS</span></label>
+            <label class="choice"><input type="checkbox" name="Existing systems" value="СКУД/шлагбаумы"><span>СКУД / шлагбаумы</span></label>
+            <label class="choice"><input type="checkbox" name="Existing systems" value="Весы"><span>Весы</span></label>
+            <label class="choice"><input type="checkbox" name="Existing systems" value="Камеры/видеоаналитика"><span>Камеры / видеоаналитика</span></label>
+            <label class="choice"><input type="checkbox" name="Existing systems" value="Табло"><span>Табло / информирование</span></label>
+            <label class="choice"><input type="checkbox" name="Existing systems" value="Ничего/на бумаге"><span>Пока ничего, учёт на бумаге</span></label>
           </div>
         </div>
-        <div class="field"><label for="integr">Что хотели бы связать в одну систему?</label><input id="integr" name="Интеграции" type="text" placeholder="напр. WMS + шлагбаумы + GPS перевозчиков"></div>
+        <div class="field"><label for="integr">Что хотели бы связать в одну систему?</label><input id="integr" name="Integrations wanted" type="text" placeholder="напр. WMS + шлагбаумы + GPS перевозчиков"></div>
       </fieldset>
 
       <fieldset>
@@ -204,21 +204,21 @@
         <div class="field">
           <label>Где должна работать система?</label>
           <div class="choices row">
-            <label class="choice"><input type="radio" name="Размещение" value="Облако"><span>Облако</span></label>
-            <label class="choice"><input type="radio" name="Размещение" value="On-prem (в контуре)"><span>On-prem, в своём контуре</span></label>
-            <label class="choice"><input type="radio" name="Размещение" value="Пока не решили"><span>Пока не решили</span></label>
+            <label class="choice"><input type="radio" name="Deployment" value="Облако"><span>Облако</span></label>
+            <label class="choice"><input type="radio" name="Deployment" value="On-prem (в контуре)"><span>On-prem, в своём контуре</span></label>
+            <label class="choice"><input type="radio" name="Deployment" value="Пока не решили"><span>Пока не решили</span></label>
           </div>
         </div>
         <div class="field">
           <label>Горизонт</label>
           <div class="choices row">
-            <label class="choice"><input type="radio" name="Горизонт" value="Пилот в этом году"><span>Хочу пилот в этом году</span></label>
-            <label class="choice"><input type="radio" name="Горизонт" value="Бюджет на следующий год"><span>Планирую бюджет на следующий год</span></label>
+            <label class="choice"><input type="radio" name="Timeline" value="Пилот в этом году"><span>Хочу пилот в этом году</span></label>
+            <label class="choice"><input type="radio" name="Timeline" value="Бюджет на следующий год"><span>Планирую бюджет на следующий год</span></label>
           </div>
         </div>
         <div class="field">
           <label for="decide">Кто принимает решение и что ему нужно увидеть, чтобы одобрить?</label>
-          <textarea id="decide" name="Согласование" placeholder="Поможет собрать для вас аргументы под руководство"></textarea>
+          <textarea id="decide" name="Decision process" placeholder="Поможет собрать для вас аргументы под руководство"></textarea>
         </div>
       </fieldset>
 
@@ -226,12 +226,12 @@
         <legend><span class="n">6</span>Контакты</legend>
         <p class="hint">Чтобы вернуться к вам с предложением.</p>
         <div class="cols">
-          <div class="field"><label for="name">Имя <span class="req">*</span></label><input id="name" name="Имя" type="text" required placeholder="Как к вам обращаться"></div>
-          <div class="field"><label for="company">Компания</label><input id="company" name="Компания" type="text" placeholder="Организация"></div>
+          <div class="field"><label for="name">Имя <span class="req">*</span></label><input id="name" name="Name" type="text" required placeholder="Как к вам обращаться"></div>
+          <div class="field"><label for="company">Компания</label><input id="company" name="Company" type="text" placeholder="Организация"></div>
         </div>
         <div class="cols">
           <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" required placeholder="you@company.com"></div>
-          <div class="field"><label for="phone">Телефон</label><input id="phone" name="Телефон" type="tel" placeholder="+…"></div>
+          <div class="field"><label for="phone">Телефон</label><input id="phone" name="Phone" type="tel" placeholder="+…"></div>
         </div>
       </fieldset>
 
