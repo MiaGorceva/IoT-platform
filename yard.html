@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MITE — Двор и ворота: анкета</title>
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="Короткая анкета, чтобы понять вашу задачу по организации двора и автоматизации ворот и подготовить предметное предложение." />
+  <link rel="icon" href="upload/favicon-48.png" type="image/png" />
+  <style>
+    :root{
+      --bg:#0a1014; --surface:#111a20; --surface-2:#0e161b;
+      --border:#23323b; --border-soft:#1a262d;
+      --text:#e9eff1; --muted:#95a7ae; --faint:#6f8188;
+      --green:#8ac44a; --green-soft:rgba(138,196,74,.14);
+      --blue:#4aa6ff; --blue-soft:rgba(74,166,255,.12);
+      --radius:14px; --radius-sm:9px;
+      color-scheme:dark;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; background:var(--bg); color:var(--text);
+      font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:760px; margin:0 auto; padding:0 20px}
+    .page{padding-block:40px 64px}
+
+    /* header */
+    header{padding-block:22px; border-bottom:1px solid var(--border-soft)}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand img{height:30px; width:auto; display:block}
+    .brand .tag{color:var(--faint); font-size:12.5px; letter-spacing:.02em}
+
+    .eyebrow{display:inline-flex; align-items:center; gap:8px; margin-bottom:14px;
+      font-size:12px; letter-spacing:.09em; text-transform:uppercase; color:var(--green)}
+    .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--green); box-shadow:0 0 0 4px var(--green-soft)}
+    h1{font-size:clamp(1.65rem,4.5vw,2.3rem); line-height:1.12; margin:.1em 0 .5em; text-wrap:balance; font-weight:650}
+    .lead{color:var(--muted); font-size:16px; max-width:60ch; margin:0 0 6px}
+    .lead strong{color:var(--text); font-weight:600}
+
+    form{margin-top:30px; display:flex; flex-direction:column; gap:22px}
+    fieldset{border:1px solid var(--border); border-radius:var(--radius); margin:0; padding:20px 20px 22px; background:var(--surface)}
+    legend{padding:0 10px; margin-left:-4px; font-weight:650; font-size:15.5px; color:var(--text)}
+    legend .n{color:var(--green); font-variant-numeric:tabular-nums; margin-right:7px}
+    .hint{color:var(--faint); font-size:13px; margin:-4px 0 16px}
+
+    .field{display:flex; flex-direction:column; gap:7px; margin-top:16px}
+    .field:first-of-type{margin-top:4px}
+    .field > label{font-size:13.5px; color:var(--muted)}
+    .req{color:var(--green)}
+    input[type=text], input[type=email], input[type=tel], input[type=number], textarea, select{
+      width:100%; background:var(--surface-2); color:var(--text);
+      border:1px solid var(--border); border-radius:var(--radius-sm);
+      padding:11px 13px; font:inherit; transition:border-color .15s, box-shadow .15s;
+    }
+    textarea{min-height:78px; resize:vertical; line-height:1.5}
+    input:focus, textarea:focus, select:focus{outline:none; border-color:var(--green); box-shadow:0 0 0 3px var(--green-soft)}
+    input::placeholder, textarea::placeholder{color:var(--faint)}
+
+    .cols{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+    .cols-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width:560px){ .cols,.cols-3{grid-template-columns:1fr} }
+
+    .choices{display:flex; flex-direction:column; gap:9px; margin-top:4px}
+    .choices.row{flex-flow:row wrap; gap:10px}
+    .choice{display:flex; align-items:flex-start; gap:10px; padding:10px 13px;
+      border:1px solid var(--border); border-radius:var(--radius-sm); background:var(--surface-2);
+      cursor:pointer; font-size:14px; transition:border-color .15s, background .15s}
+    .choice:hover{border-color:#30424c}
+    .choice input{margin:2px 0 0; accent-color:var(--green); width:16px; height:16px; flex:none}
+    .choice:has(input:checked){border-color:var(--green); background:var(--green-soft)}
+    .choices.row .choice{flex:0 1 auto}
+
+    .actions{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-top:4px}
+    button[type=submit]{
+      appearance:none; border:none; cursor:pointer; font:inherit; font-weight:650;
+      background:linear-gradient(135deg,var(--green),#6fae35); color:#07120a;
+      padding:13px 26px; border-radius:999px; font-size:15px;
+      transition:transform .12s, filter .15s, opacity .15s;
+    }
+    button[type=submit]:hover{filter:brightness(1.06)}
+    button[type=submit]:active{transform:translateY(1px)}
+    button[type=submit]:disabled{opacity:.6; cursor:default}
+    .note{color:var(--faint); font-size:12.5px}
+
+    #status{display:none; border-radius:var(--radius); padding:26px; text-align:center; background:var(--surface); border:1px solid var(--border)}
+    #status h2{margin:0 0 8px; font-size:1.3rem}
+    #status p{color:var(--muted); margin:0 auto; max-width:46ch}
+    #status.ok{border-color:var(--green)}
+    #status.err{border-color:#c6563f}
+    #status .big{font-size:34px; line-height:1; margin-bottom:12px}
+
+    .hp{position:absolute; left:-9999px; width:1px; height:1px; opacity:0}
+    footer{color:var(--faint); font-size:12.5px; padding-block:26px; border-top:1px solid var(--border-soft); margin-top:36px}
+    footer a{color:var(--muted); text-decoration:none}
+    footer a:hover{color:var(--green)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap brand">
+      <a href="https://mite.club/" aria-label="MITE"><img src="upload/mite-logo-green-w_o-background.webp" alt="MITE" /></a>
+      <span class="tag">make IoT easy</span>
+    </div>
+  </header>
+
+  <main class="wrap page">
+    <div class="eyebrow"><span class="dot" aria-hidden="true"></span><span>Двор &amp; ворота</span></div>
+    <h1>Расскажите о задаче — мы подготовим предметное предложение</h1>
+    <p class="lead">Организация двора и автоматизация ворот — сценарий широкий, поэтому несколько вопросов, чтобы понять <strong>что именно вы хотите решить</strong> и в каких объёмах. Это 5–7 минут. Отвечайте, что знаете — остальное уточним на коротком звонке.</p>
+
+    <form id="intakeForm" novalidate>
+      <input type="hidden" name="access_key" value="19e069ac-8aea-4958-91e5-30143cd0c56b">
+      <input type="hidden" name="from_name" value="MITE — анкета «Двор и ворота»">
+      <input type="hidden" name="subject" value="Новая анкета: двор и ворота">
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <fieldset>
+        <legend><span class="n">1</span>Задача</legend>
+        <p class="hint">Главное — понять, зачем вам автоматизация и что должно измениться.</p>
+
+        <div class="field">
+          <label for="task">Какую задачу хотите решить в первую очередь? <span class="req">*</span></label>
+          <textarea id="task" name="Задача (главное)" placeholder="Например: убрать очереди машин на въезде, навести порядок с распределением по докам, видеть простои…" required></textarea>
+        </div>
+
+        <div class="field">
+          <label>Что сейчас болит больше всего?</label>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="Боли" value="Простои машин на воротах/доках"><span>Простои машин на воротах и доках</span></label>
+            <label class="choice"><input type="checkbox" name="Боли" value="Непрозрачная очередь"><span>Непрозрачная очередь, не видно статус</span></label>
+            <label class="choice"><input type="checkbox" name="Боли" value="Ручная диспетчеризация"><span>Всё вручную — диспетчер/охрана на телефоне</span></label>
+            <label class="choice"><input type="checkbox" name="Боли" value="Нет данных для руководства"><span>Нет цифр, чтобы показать руководству</span></label>
+            <label class="choice"><input type="checkbox" name="Боли" value="Расхождение WMS и факта"><span>WMS показывает одно, двор живёт другим</span></label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="why">Почему именно сейчас? Что подтолкнуло?</label>
+          <textarea id="why" name="Почему сейчас" placeholder="Рост объёмов, жалобы перевозчиков, задача от руководства, планирование бюджета…"></textarea>
+        </div>
+
+        <div class="field">
+          <label for="outcome">Как выглядит нужный результат через полгода–год?</label>
+          <textarea id="outcome" name="Желаемый результат" placeholder="Что вы хотите видеть и чем мерить успех"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="n">2</span>Как устроено сейчас</legend>
+        <div class="field">
+          <label for="process">Коротко — как сегодня организован въезд, двор и доки?</label>
+          <textarea id="process" name="Текущий процесс" placeholder="Как машина попадает на территорию, кто назначает док, как ведётся очередь"></textarea>
+        </div>
+        <div class="field">
+          <label>Кто участвует в процессе?</label>
+          <div class="choices row">
+            <label class="choice"><input type="checkbox" name="Участники" value="Диспетчер"><span>Диспетчер</span></label>
+            <label class="choice"><input type="checkbox" name="Участники" value="Охрана/КПП"><span>Охрана / КПП</span></label>
+            <label class="choice"><input type="checkbox" name="Участники" value="Склад"><span>Склад</span></label>
+            <label class="choice"><input type="checkbox" name="Участники" value="Перевозчики"><span>Перевозчики</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="lost">Где, по вашим ощущениям, теряется время?</label>
+          <textarea id="lost" name="Где теряется время" placeholder="На въезде, в ожидании дока, из-за неготовности заказа, нехватки техники…"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="n">3</span>Объёмы</legend>
+        <p class="hint">Чем точнее — тем предметнее предложение. Если не знаете точно, напишите примерно.</p>
+        <div class="cols">
+          <div class="field"><label for="tpd">Машин в сутки</label><input id="tpd" name="Машин в сутки" type="number" min="0" inputmode="numeric" placeholder="напр. 120"></div>
+          <div class="field"><label for="tpk">В пик</label><input id="tpk" name="Машин в пик" type="number" min="0" inputmode="numeric" placeholder="напр. 250"></div>
+        </div>
+        <div class="cols-3">
+          <div class="field"><label for="gates">Ворот</label><input id="gates" name="Ворот" type="number" min="0" inputmode="numeric" placeholder="напр. 2"></div>
+          <div class="field"><label for="docks">Доков</label><input id="docks" name="Доков" type="number" min="0" inputmode="numeric" placeholder="напр. 12"></div>
+          <div class="field"><label for="spots">Парковочных мест</label><input id="spots" name="Парковочных мест" type="number" min="0" inputmode="numeric" placeholder="напр. 30"></div>
+        </div>
+        <div class="field"><label for="hours">Режим работы / смены</label><input id="hours" name="Режим работы" type="text" placeholder="напр. 24/7, или 6:00–22:00, 2 смены"></div>
+        <div class="field"><label for="cargo">Типы машин и грузов, сезонность</label><input id="cargo" name="Машины/грузы/сезонность" type="text" placeholder="фуры, рефрижераторы, пики по сезону…"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="n">4</span>Системы и данные</legend>
+        <div class="field">
+          <label>Что уже есть на площадке?</label>
+          <div class="choices">
+            <label class="choice"><input type="checkbox" name="Есть системы" value="WMS/TMS"><span>WMS / TMS</span></label>
+            <label class="choice"><input type="checkbox" name="Есть системы" value="СКУД/шлагбаумы"><span>СКУД / шлагбаумы</span></label>
+            <label class="choice"><input type="checkbox" name="Есть системы" value="Весы"><span>Весы</span></label>
+            <label class="choice"><input type="checkbox" name="Есть системы" value="Камеры/видеоаналитика"><span>Камеры / видеоаналитика</span></label>
+            <label class="choice"><input type="checkbox" name="Есть системы" value="Табло"><span>Табло / информирование</span></label>
+            <label class="choice"><input type="checkbox" name="Есть системы" value="Ничего/на бумаге"><span>Пока ничего, учёт на бумаге</span></label>
+          </div>
+        </div>
+        <div class="field"><label for="integr">Что хотели бы связать в одну систему?</label><input id="integr" name="Интеграции" type="text" placeholder="напр. WMS + шлагбаумы + GPS перевозчиков"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="n">5</span>Контекст</legend>
+        <div class="field">
+          <label>Где должна работать система?</label>
+          <div class="choices row">
+            <label class="choice"><input type="radio" name="Размещение" value="Облако"><span>Облако</span></label>
+            <label class="choice"><input type="radio" name="Размещение" value="On-prem (в контуре)"><span>On-prem, в своём контуре</span></label>
+            <label class="choice"><input type="radio" name="Размещение" value="Пока не решили"><span>Пока не решили</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label>Горизонт</label>
+          <div class="choices row">
+            <label class="choice"><input type="radio" name="Горизонт" value="Пилот в этом году"><span>Хочу пилот в этом году</span></label>
+            <label class="choice"><input type="radio" name="Горизонт" value="Бюджет на следующий год"><span>Планирую бюджет на следующий год</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="decide">Кто принимает решение и что ему нужно увидеть, чтобы одобрить?</label>
+          <textarea id="decide" name="Согласование" placeholder="Поможет собрать для вас аргументы под руководство"></textarea>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend><span class="n">6</span>Контакты</legend>
+        <p class="hint">Чтобы вернуться к вам с предложением.</p>
+        <div class="cols">
+          <div class="field"><label for="name">Имя <span class="req">*</span></label><input id="name" name="Имя" type="text" required placeholder="Как к вам обращаться"></div>
+          <div class="field"><label for="company">Компания</label><input id="company" name="Компания" type="text" placeholder="Организация"></div>
+        </div>
+        <div class="cols">
+          <div class="field"><label for="email">Email <span class="req">*</span></label><input id="email" name="email" type="email" required placeholder="you@company.com"></div>
+          <div class="field"><label for="phone">Телефон</label><input id="phone" name="Телефон" type="tel" placeholder="+…"></div>
+        </div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="submit" id="submitBtn">Отправить анкету</button>
+        <span class="note">Поля со <span class="req">*</span> — обязательные. Данные уходят только нам.</span>
+      </div>
+    </form>
+
+    <div id="status" role="status" aria-live="polite">
+      <div class="big" aria-hidden="true">✓</div>
+      <h2 id="statusTitle">Спасибо!</h2>
+      <p id="statusText"></p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">MITE · <a href="https://mite.club/">mite.club</a> · <a href="mailto:info@mite.club">info@mite.club</a> · +351&nbsp;961&nbsp;034&nbsp;229</div>
+  </footer>
+
+  <script>
+    (function(){
+      var form = document.getElementById('intakeForm');
+      var btn = document.getElementById('submitBtn');
+      var status = document.getElementById('status');
+      var title = document.getElementById('statusTitle');
+      var text = document.getElementById('statusText');
+
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        if (!form.checkValidity()){ form.reportValidity(); return; }
+        var oldLabel = btn.textContent;
+        btn.disabled = true; btn.textContent = 'Отправляем…';
+        try {
+          var res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: new FormData(form)
+          });
+          var data = await res.json().catch(function(){ return {}; });
+          if (res.ok && data.success){
+            form.hidden = true;
+            status.className = 'ok';
+            status.style.display = 'block';
+            title.textContent = 'Спасибо! Анкета у нас.';
+            text.textContent = 'Мы изучим ответы и вернёмся с предметным предложением. Если нужно быстрее — пишите на info@mite.club.';
+            status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          } else {
+            throw new Error((data && data.message) || 'Не удалось отправить.');
+          }
+        } catch (err){
+          status.className = 'err';
+          status.style.display = 'block';
+          status.querySelector('.big').textContent = '!';
+          title.textContent = 'Не отправилось';
+          text.textContent = 'Попробуйте ещё раз или напишите нам напрямую: info@mite.club. ' + (err && err.message ? '(' + err.message + ')' : '');
+          btn.disabled = false; btn.textContent = oldLabel;
+          status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
