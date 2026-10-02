@@ -7,6 +7,7 @@ window.translations.en.useCases = [
   industry: "pharma",
   industryLabel: "Pharmaceuticals",
   title: "Cold Chain: −18% Product Loss Through In-Transit Excursion Detection",
+  video: { id: "dMofz-11f_k", duration: "2:34" },
   kpiBadge: "↓ Write-offs 15–30% · ↓ Claims 20–40% · ↓ QA Workload",
   ttvBadge: "Operational model on existing data — 1–2 weeks",
 

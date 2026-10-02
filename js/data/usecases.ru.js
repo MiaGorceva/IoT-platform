@@ -6,6 +6,7 @@ window.translations.ru.useCases = [
     industry: "pharma",
     industryLabel: "Фармацевтика",
     title: "Холодовая цепь: −18% потерь продукции за счёт выявления отклонений в пути",
+    video: { id: "QFtvQZEC-lc", duration: "2:34" },
     kpiBadge: "↓ Списания 15–30% · ↓ Претензии 20–40% · ↓ Нагрузка на QA",
     ttvBadge: "Операционная модель на существующих данных — 1–2 недели",
 

@@ -6,6 +6,7 @@ window.translations.be.useCases = [
     industry: "pharma",
     industryLabel: "Фармацэўтыка",
     title: "Халодны ланцуг: −18% страт прадукцыі за кошт выяўлення адхіленняў у дарозе",
+    video: { id: "dMofz-11f_k", duration: "2:34" },
     kpiBadge: "↓ Спісанні 15–30% · ↓ Прэтэнзіі 20–40% · ↓ Нагрузка на QA",
     ttvBadge: "Аперацыйная мадэль на існуючых даных — 1–2 тыдні",
 
