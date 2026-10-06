@@ -7,7 +7,6 @@ window.translations.en.useCases = [
   industry: "pharma",
   industryLabel: "Pharmaceuticals",
   title: "Cold Chain: −18% Product Loss Through In-Transit Excursion Detection",
-  video: { id: "dMofz-11f_k", duration: "2:34" },
   kpiBadge: "↓ Write-offs 15–30% · ↓ Claims 20–40% · ↓ QA Workload",
   ttvBadge: "Operational model on existing data — 1–2 weeks",
 
@@ -32,6 +31,27 @@ window.translations.en.useCases = [
   icon: "pharma",
   tags: ["cold chain", "GDP", "batch", "traceability", "transport", "QA", "3PL"]
 },
+{
+  industry: "logistics",
+  industryLabel: "Logistics",
+  title: "Cold Storage: Ship by the Batch's Actual Condition, Not the Date on the Label",
+  video: { id: "dMofz-11f_k", duration: "2:34" },
+  kpiBadge: "12% of global food loss comes from inadequate refrigeration (FAO, 2022) · ↑ Batches ship by real remaining life · ↓ Incident review down to minutes",
+  ttvBadge: "Built on the data you already have — first model in 1–2 weeks",
+
+  pain:
+    "The WMS knows what sits in each cell and the date the goods are good until. What it does not know is what physically happened to that pallet: whether the zone held its temperature, when the chamber door was opened, whether vibration on the refrigeration unit is rising. Shelf life lives as a date on a label, not as the batch's actual remaining life. So a cold excursion is noticed once the goods have already lost quality, while shipping continues in the original order — the batch that will spoil first leaves on schedule. Reviewing a single case means collecting logs, statuses and camera footage by hand from three or four systems.",
+
+  how:
+    "Additional hardware is not the first step. The work starts from the sources the warehouse already has: refrigeration controllers, existing temperature, humidity and ethylene sensors, door events, and statuses, cells and batches from the WMS; our own sensors are installed selectively, only where the data does not exist. Where video surveillance is already deployed, it is connected as one more source: the system analyses the frames and identifies what happened at the moment of the deviation — an open door, a pallet out of place, spoiled goods, a vehicle in the aisle — and attaches the frame to the incident. All of it comes together as a single model of the warehouse: every pallet is visible with its own history — where it stands, what the norm for its zone is, what has happened to it. When the temperature crosses the threshold, the system recalculates the batch's remaining life and passes a new shipment priority to the WMS: the batch that is degrading goes out first, not the one that happened to be first in the queue. From the trend of vibration and sound a unit failure is predicted in advance, and the spare-part request reaches the ERP before the breakdown.",
+
+  result:
+    "Cold excursions become visible within a minute, not after the consignee signs for the goods. Batches with reduced remaining life ship first, and spoilage stops being an unavoidable line in the budget. Emergency refrigeration stoppages give way to planned part replacement based on the forecast. Reviewing an incident takes minutes: temperature, door, camera frame and actions are gathered in one place.",
+
+  icon: "boxes",
+  tags: ["cold storage", "warehouse", "FEFO", "shelf life", "predictive", "WMS", "evidence"]
+},
+
 
 {
   industry: "pharma",
