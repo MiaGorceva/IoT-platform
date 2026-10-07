@@ -36,7 +36,7 @@ window.translations.en.useCases = [
   industryLabel: "Logistics",
   title: "Cold Storage: Ship by the Batch's Actual Condition, Not the Date on the Label",
   video: { id: "dMofz-11f_k", duration: "2:34" },
-  kpiBadge: "12% of global food loss comes from inadequate refrigeration (FAO, 2022) · ↑ Batches ship by real remaining life · ↓ Incident review down to minutes",
+  kpiBadge: "↑ Batches ship by real remaining life · ↓ Emergency cooling failures · ↓ Incident review down to minutes",
   ttvBadge: "Built on the data you already have — first model in 1–2 weeks",
 
   pain:
