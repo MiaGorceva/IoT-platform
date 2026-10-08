@@ -145,7 +145,7 @@ window.translations.be.useCases = [
     industry: "manufacturing",
     industryLabel: "Вытворчасць",
     title: "Вытворчы брак: −19% дэфектаў за кошт ранняга выяўлення",
-  video: { id: "ZXdT2wtZd9Y", duration: "1:19" },
+  video: { id: "K25Qz6dFIak", duration: "1:19" },
     kpiBadge: "↓ Брак 10–25% · ↑ First-pass yield · ↓ Перарабатанне",
     ttvBadge: "Аперацыйная мадэль — 1–2 тыдні",
 

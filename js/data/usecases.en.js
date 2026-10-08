@@ -147,7 +147,7 @@ window.translations.en.useCases = [
   industry: "manufacturing",
   industryLabel: "Manufacturing",
   title: "Production Scrap: −19% Defects Through Early Detection",
-  video: { id: "ZXdT2wtZd9Y", duration: "1:19" },
+  video: { id: "K25Qz6dFIak", duration: "1:19" },
   kpiBadge: "↓ Scrap 10–25% · ↑ First-pass yield · ↓ Rework",
   ttvBadge: "Operational model — 1–2 weeks",
 

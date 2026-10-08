@@ -146,7 +146,7 @@ window.translations.uk.useCases = [
     industry: "manufacturing",
     industryLabel: "Виробництво",
     title: "Виробничий брак: −19% дефектів завдяки ранньому виявленню",
-  video: { id: "ZXdT2wtZd9Y", duration: "1:19" },
+  video: { id: "K25Qz6dFIak", duration: "1:19" },
     kpiBadge: "↓ Брак 10–25% · ↑ First-pass yield · ↓ Переробка",
     ttvBadge: "Операційна модель — 1–2 тижні",
 

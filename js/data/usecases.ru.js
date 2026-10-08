@@ -145,7 +145,7 @@ window.translations.ru.useCases = [
     industry: "manufacturing",
     industryLabel: "Производство",
     title: "Производственный брак: −19% дефектов за счёт раннего выявления",
-  video: { id: "_APdzkETn4M", duration: "1:28" },
+  video: { id: "eLhzp1llUGM", duration: "1:28" },
     kpiBadge: "↓ Брак 10–25% · ↑ First-pass yield · ↓ Переделка",
     ttvBadge: "Операционная модель — 1–2 недели",
 
