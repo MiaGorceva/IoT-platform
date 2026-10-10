@@ -197,7 +197,7 @@ window.translations.en = {
   "uc.video.cta": "Watch it work",
   "uc.video.close": "Close video",
   "useReal.eyebrow": "Real use cases",
-  "useReal.title": "18 scenarios: pain → execution → measurable outcome",
+  "useReal.title": "20 scenarios: pain → execution → measurable outcome",
   "useReal.subtitle":
     "Each scenario shows a real operational problem, how it is executed in MITE, and the measurable outcome. " +
 "No theory — only real processes you can launch and scale.",
@@ -210,6 +210,7 @@ window.translations.en = {
   "uc.filter.energy": "Energy",
   "uc.filter.environment": "Environment",
   "uc.filter.smartcities": "Smart cities",
+  "uc.filter.retail": "Retail",
   "uc.filter.logistics": "Logistics",
   "uc.filter.construction": "Construction",
   "uc.search.placeholder": "Search use cases…",

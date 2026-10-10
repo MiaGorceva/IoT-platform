@@ -197,7 +197,7 @@ window.translations.uk = {
   "uc.video.cta": "Дивитися, як це працює",
   "uc.video.close": "Закрити відео",
   "useReal.eyebrow": "Реальні сценарії",
-  "useReal.title": "18 сценаріїв: від проблеми до виконання та вимірюваного результату",
+  "useReal.title": "20 сценаріїв: від проблеми до виконання та вимірюваного результату",
   "useReal.subtitle":
     "Кожен сценарій — це конкретна проблема, її реалізація в MITE та вимірюваний результат. " +
     "Без теорії — лише реальні процеси, які можна запустити і масштабувати.",
@@ -211,6 +211,7 @@ window.translations.uk = {
   "uc.filter.energy": "Енергетика",
   "uc.filter.environment": "Екологія",
   "uc.filter.smartcities": "Розумні міста",
+  "uc.filter.retail": "Ритейл",
   "uc.filter.logistics": "Логістика",
   "uc.filter.construction": "Будівництво",
   "uc.search.placeholder": "Пошук сценаріїв…",

@@ -54,6 +54,26 @@ window.translations.en.useCases = [
 
 
 {
+  industry: "retail",
+  industryLabel: "Retail",
+  title: "A fridge signals long before it fails. Nobody is listening",
+  kpiBadge: "↓ Emergency refrigeration failures · ↓ Stock written off after a breakdown · ↑ Share of planned part replacements",
+  ttvBadge: "We work with the data you already have — first model in 1–2 weeks",
+
+  pain:
+    "Refrigeration is the single largest consumer of electricity in a store and at the same time its least visible cost line. Control comes down to the temperature in the case, and temperature reports a failure last: by the time the air has warmed up the compressor has been degrading for a long while, and the product inside has already lost quality. So refrigeration gets repaired after it breaks — an emergency call-out, on a weekend, at triple rate, with the written-off stock added to the repair bill. The store learns about the problem from a shop assistant who noticed condensation; the chain learns about it from the write-off report at the end of the month.",
+
+  how:
+    "Extra hardware is not the first step. We start from the sources a store already has: refrigeration controllers, electricity meters, existing temperature and humidity sensors, door events, stock levels and shelf lives from the accounting system. Our own sensors go in selectively, only where there is no data. The system does not watch the temperature — it watches how the unit behaves: compressor current and its peak load, the length and frequency of cycles, vibration, acoustic noise. Every unit is compared against its own nameplate, against its own trend over weeks, and against identical cases in other stores across the chain. When the behaviour drifts from normal, the system forecasts the failure and immediately offers options: replace the part, move the stock to a reserve case, or write it off if the spoilage risk is already high. The decision stays with a person — the work order goes to the technician, the spare is ordered in the accounting system, the stock is moved while it is still good.",
+
+  result:
+    "A refrigeration failure becomes visible days ahead instead of at the moment the case warms up. Emergency call-outs are replaced by planned part replacement, and stock moves to a reserve before it loses quality. Refrigeration energy stops being a black box: it is clear which unit draws more than it should, and why. Reviewing any incident takes minutes — current, temperature, door, cycle and the actions taken are all in one place.",
+
+  icon: "snow",
+  tags: ["retail", "cold chain", "refrigeration", "predictive", "energy", "shrinkage"]
+},
+
+{
   industry: "pharma",
   industryLabel: "Pharmaceuticals",
   title: "Cleanrooms: Deviation Investigations in Minutes Instead of Hours",

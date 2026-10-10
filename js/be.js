@@ -197,7 +197,7 @@ window.translations.be = {
   "uc.video.cta": "Глядзець, як гэта працуе",
   "uc.video.close": "Закрыць відэа",
   "useReal.eyebrow": "Рэальныя сцэнарыі",
-  "useReal.title": "18 сцэнарыяў: праблема → выкананне → вымерны вынік",
+  "useReal.title": "20 сцэнарыяў: праблема → выкананне → вымерны вынік",
   "useReal.subtitle":
     "Кожны сцэнарый — гэта канкрэтная праблема, яе выкананне ў MITE і вымерны вынік. Без тэорыі — толькі рэальныя працэсы, якія можна запусціць і маштабаваць.",
   // ссылка на обзорный ролик о платформе — там же, под кейсами
@@ -209,6 +209,7 @@ window.translations.be = {
   "uc.filter.energy": "Энергетыка",
   "uc.filter.environment": "Экалогія",
   "uc.filter.smartcities": "Разумныя гарады",
+  "uc.filter.retail": "Рытэйл",
   "uc.filter.logistics": "Лагістыка",
   "uc.filter.construction": "Будаўніцтва",
   "uc.search.placeholder": "Пошук па сцэнарыях…",

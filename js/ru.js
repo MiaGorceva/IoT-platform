@@ -197,7 +197,7 @@ window.translations.ru = {
   "uc.video.cta": "Смотреть, как это работает",
   "uc.video.close": "Закрыть видео",
   "useReal.eyebrow": "Реальные сценарии",
-  "useReal.title": "18 сценариев: проблема → исполнение → измеримый результат",
+  "useReal.title": "20 сценариев: проблема → исполнение → измеримый результат",
   "useReal.subtitle":
     "Каждый сценарий — это конкретная проблема, её исполнение в MITE и измеримый результат. Без теории — только реальные процессы, которые можно запустить и масштабировать.",
   // ссылка на обзорный ролик о платформе — там же, под кейсами
@@ -209,6 +209,7 @@ window.translations.ru = {
   "uc.filter.energy": "Энергетика",
   "uc.filter.environment": "Экология",
   "uc.filter.smartcities": "Умные города",
+  "uc.filter.retail": "Ритейл",
   "uc.filter.logistics": "Логистика",
   "uc.filter.construction": "Строительство",
   "uc.search.placeholder": "Поиск по сценариям…",
