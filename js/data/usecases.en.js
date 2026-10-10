@@ -57,6 +57,7 @@ window.translations.en.useCases = [
   industry: "retail",
   industryLabel: "Retail",
   title: "A fridge signals long before it fails. Nobody is listening",
+  video: { id: "SxrGi_lTNUI", duration: "1:27" },
   kpiBadge: "↓ Emergency refrigeration failures · ↓ Stock written off after a breakdown · ↑ Share of planned part replacements",
   ttvBadge: "We work with the data you already have — first model in 1–2 weeks",
 
