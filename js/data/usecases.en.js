@@ -403,6 +403,7 @@ window.translations.en.useCases = [
   industry: "agriculture",
   industryLabel: "Agriculture",
   title: "Orchards and Plantations: −21% Crop Loss from Pests",
+  video: { id: "IC_Uk8b_J2E", duration: "3:57" },
   kpiBadge: "↓ Crop loss 10–20% · ↑ Yield · ↑ Response speed",
   ttvBadge: "Operational model — 2–3 weeks",
 

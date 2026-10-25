@@ -348,13 +348,16 @@ function highlightNumbers(html) {
   const unit =
     "(?:%|°C|x|×|X|k|K|m|km|kg|g|l|L|ms|s|sec|secs|seconds|min|mins|minutes|h|hr|hrs|hour|hours|day|days|week|weeks|month|months|year|years|devices|device|click|clicks|п\\.п\\.)";
 
+  // единица должна заканчивать слово: иначе «week» из «weeks» и «m» из «machines»
+  const END = "(?![A-Za-z\\u0400-\\u04FF])";
+
   s = s.replace(
-    new RegExp(`([+\\-<>]?\\d{1,4}(?:[.,]\\d+)?\\s?(?:–|-)\\s?\\d{1,4}(?:[.,]\\d+)?)(\\s?${unit})?`, "gi"),
+    new RegExp(`([+\\-<>]?\\d{1,4}(?:[.,]\\d+)?\\s?(?:–|-)\\s?\\d{1,4}(?:[.,]\\d+)?)(\\s?${unit}${END})?`, "gi"),
     (_, a, b) => wrap(a + (b || ""))
   );
 
   s = s.replace(
-    new RegExp(`([+\\-<>]?\\d{1,4}(?:[.,]\\d+)?)(\\s?${unit})`, "gi"),
+    new RegExp(`([+\\-<>]?\\d{1,4}(?:[.,]\\d+)?)(\\s?${unit}${END})`, "gi"),
     (_, a, b) => wrap(a + b)
   );
 

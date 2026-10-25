@@ -401,6 +401,7 @@ window.translations.ru.useCases = [
     industry: "agriculture",
     industryLabel: "Сельское хозяйство",
     title: "Сады и плантации: −21% потерь урожая от вредителей",
+    video: { id: "DEqVKtuf46A", duration: "4:21" },
     kpiBadge: "↓ Потери урожая 10–20% · ↑ Урожайность · ↑ Скорость реагирования",
     ttvBadge: "Операционная модель — 2–3 недели",
 

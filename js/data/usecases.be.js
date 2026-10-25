@@ -401,6 +401,7 @@ window.translations.be.useCases = [
     industry: "agriculture",
     industryLabel: "Сельская гаспадарка",
     title: "Сады і плантацыі: −21% страт ураджаю ад шкоднікаў",
+    video: { id: "IC_Uk8b_J2E", duration: "3:57" },
     kpiBadge: "↓ Страты ўраджаю 10–20% · ↑ Ураджайнасць · ↑ Хуткасць рэагавання",
     ttvBadge: "Аперацыйная мадэль — 2–3 тыдні",
 

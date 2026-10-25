@@ -402,6 +402,7 @@ window.translations.uk.useCases = [
     industry: "agriculture",
     industryLabel: "Сільське господарство",
     title: "Сади і плантації: −21% втрат урожаю від шкідників",
+    video: { id: "IC_Uk8b_J2E", duration: "3:57" },
     kpiBadge: "↓ Втрати врожаю 10–20% · ↑ Урожайність · ↑ Швидкість реагування",
     ttvBadge: "Операційна модель — 2–3 тижні",
 
