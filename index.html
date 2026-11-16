@@ -119,6 +119,7 @@
   <link rel="preconnect" href="https://www.youtube.com">
   <link rel="preconnect" href="https://i.ytimg.com">
 
+  <script src="js/consent.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
@@ -168,11 +169,11 @@
           </button>
 
       <div class="row">
-        <div class="lang-switch">
-            <button class="btn" data-lang-btn="en">EN</button>
-            <button class="btn" data-lang-btn="ru">RU</button>
-            <button class="btn" data-lang-btn="uk">UK</button>
-            <button class="btn" data-lang-btn="be">BY</button>
+        <div class="lang-switch" role="group" aria-label="Select language / Выбор языка">
+            <button class="btn" data-lang-btn="en" lang="en" aria-label="English">EN</button>
+            <button class="btn" data-lang-btn="ru" lang="ru" aria-label="Русский">RU</button>
+            <button class="btn" data-lang-btn="uk" lang="uk" aria-label="Українська">UK</button>
+            <button class="btn" data-lang-btn="be" lang="be" aria-label="Беларуская">BY</button>
         </div>
 
         <a href="#contact" class="btn nav-demo-btn" data-i18n="nav.demoBtn">Request a demo</a>
